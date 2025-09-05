@@ -1,26 +1,26 @@
-# Archivos de entorno
+# Environment variables
 .env
 
-# Carpetas de entornos virtuales
+# Virtual environments
 .venv/
 venv/
 
-# Cachés de Python
+# Python cache
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 
-# Archivos de compilación
+# Compiled extensions
 *.so
 
-# Archivos de logs
+# Log files
 *.log
 
-# Archivos temporales del sistema
+# Temporary system files
 .DS_Store
 Thumbs.db
 
-# Archivos de VSCode / IDE
+# IDE/editor files
 .vscode/
 .idea/
