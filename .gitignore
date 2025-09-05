@@ -1,0 +1,26 @@
+# Archivos de entorno
+.env
+
+# Carpetas de entornos virtuales
+.venv/
+venv/
+
+# Cachés de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Archivos de compilación
+*.so
+
+# Archivos de logs
+*.log
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de VSCode / IDE
+.vscode/
+.idea/
