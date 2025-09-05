@@ -1,0 +1,8 @@
+# Environment variables
+python-dotenv
+
+# Supabase client
+supabase
+
+# HTTP requests (for APIs like NewsAPI)
+requests
