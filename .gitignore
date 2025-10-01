@@ -1,26 +1,13 @@
-# Environment variables
-.env
-
-# Virtual environments
-.venv/
-venv/
-
-# Python cache
+# Python
 __pycache__/
-*.py[cod]
-*.pyo
-*.pyd
+*.pyc
 
-# Compiled extensions
-*.so
+# Virtual env
+.venv/
 
-# Log files
-*.log
+# Datos locales
+data/
 
-# Temporary system files
+# OS
 .DS_Store
 Thumbs.db
-
-# IDE/editor files
-.vscode/
-.idea/
