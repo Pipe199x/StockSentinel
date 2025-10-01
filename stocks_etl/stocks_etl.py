@@ -39,13 +39,37 @@ def _normalize(df_raw, symbols, auto_adjust, cal_name):
         if dfi.empty:
             continue
 
-        dfi = dfi.reset_index().rename(columns=str.lower)
+        # reset index y estandarizar nombres
+        dfi = dfi.reset_index()
+        dfi.columns = [str(c).lower() for c in dfi.columns]
+
+        # detectar columna temporal de forma robusta (date/datetime/primera datetime)
+        dt_col = None
+        for cand in ("date", "datetime"):
+            if cand in dfi.columns:
+                dt_col = cand
+                break
+        if dt_col is None:
+            for c in dfi.columns:
+                if pd.api.types.is_datetime64_any_dtype(dfi[c]):
+                    dt_col = c
+                    break
+        if dt_col is None and pd.api.types.is_datetime64_any_dtype(dfi.index):
+            dfi = dfi.reset_index().rename(columns={"index": "date"})
+            dt_col = "date"
+        if dt_col is None:
+            raise ValueError(f"No se encontró columna de tiempo. Columnas: {list(dfi.columns)}")
+
+        # renombrar OHLC/acciones
         rename = {"adj close": "adj_close", "stock splits": "stock_splits"}
         dfi = dfi.rename(columns=rename)
-        dfi["ticker"] = s
 
-        # timestamps en UTC
-        dfi["date"] = pd.to_datetime(dfi["date"], utc=True)
+        # crear columna 'date' UTC y eliminar la original si es distinta
+        dfi["date"] = pd.to_datetime(dfi[dt_col], utc=True)
+        if dt_col != "date":
+            dfi = dfi.drop(columns=[dt_col])
+
+        dfi["ticker"] = s
 
         # consistencia de columnas
         if auto_adjust and "adj_close" not in dfi.columns:
@@ -54,7 +78,7 @@ def _normalize(df_raw, symbols, auto_adjust, cal_name):
             if c not in dfi.columns:
                 dfi[c] = 0.0
 
-        # filtrar a días de mercado (modo diario); para intradía puedes omitir si quieres
+        # filtrar a días de mercado (seguirá funcionando para diario; en intradía solo valida la fecha)
         if cal is not None and "date" in dfi.columns:
             try:
                 start_d = dfi["date"].min().date()
@@ -110,7 +134,6 @@ def write_single_prices_csv(df, base_dir, compression=None):
 def write_predictions_csv(df_preds, base_dir):
     """Escribe el CSV de predicciones (sin la columna 'model')."""
     os.makedirs(base_dir, exist_ok=True)
-    # eliminar columna 'model' si viene
     df_preds = df_preds.drop(columns=["model"], errors="ignore")
     date_tag = datetime.now(timezone.utc).strftime("%Y%m%d")
     path = os.path.join(base_dir, f"predictions_{date_tag}.csv")
@@ -148,20 +171,18 @@ def main(cfg):
     # === Features & Predicción (T+1 con XGBoost) ===
     feats = make_features(df)
     preds = predict_next_day(feats, backtest_days=30)
-    # preview para logs
     try:
         print("[SUMMARY] predictions\n", preds[["ticker","as_of","last_close","pred_close_t1"]])
     except Exception:
         print("[SUMMARY] predictions shape:", preds.shape)
 
-    # === Guardado: UN SOLO DATASET de precios + predicciones sin 'model' ===
+    # === Guardado ===
     out_dir = cfg.get("output_dir", "data")
     compression = cfg.get("csv_compression", None)  # None | "gzip"
-
     price_paths = write_single_prices_csv(df, out_dir, compression=compression)
     pred_paths = write_predictions_csv(preds, out_dir)
 
-    # === Heartbeat (marca de vida para ver en Blob/última corrida) ===
+    # === Heartbeat ===
     hb_path = os.path.join(out_dir, "heartbeat.txt")
     with open(hb_path, "w", encoding="utf-8") as hb:
         hb.write(datetime.now(timezone.utc).isoformat())
@@ -172,14 +193,11 @@ def main(cfg):
 
 if __name__ == "__main__":
     import yaml
-
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="stocks_etl/config.yaml")
     args = parser.parse_args()
-
     with open(args.config, "r", encoding="utf-8") as f:
         cfg = yaml.safe_load(f)
-
     paths = main(cfg)
     print("Archivos generados:")
     for pth in paths:
