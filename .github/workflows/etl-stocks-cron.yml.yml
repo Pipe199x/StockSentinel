@@ -1,0 +1,55 @@
+name: ETL Stocks (cron + manual)
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"     # mínimo permitido: cada 5 minutos (UTC)
+  workflow_dispatch: {}        # botón Run workflow
+
+jobs:
+  etl:
+    runs-on: ubuntu-latest
+    env:
+      CONTAINER: stock-etl      # cambia si quieres
+      DEST_ROOT: daily          # carpeta raíz en el contenedor
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r stocks_etl/requirements.txt
+          # PyYAML se usa para leer config
+          pip install pyyaml
+
+      - name: Run ETL (un solo dataset + predicciones)
+        run: |
+          python -m stocks_etl.stocks_etl --config stocks_etl/config.yaml
+
+      - name: Install Azure CLI
+        uses: azure/cli@v2
+
+      - name: Upload CSVs to Azure Blob
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+        run: |
+          # Crea contenedor si no existe (no falla si ya existe)
+          az storage container create \
+            --name "$CONTAINER" \
+            --connection-string "$AZURE_STORAGE_CONNECTION_STRING" 1>/dev/null
+
+          # Fecha UTC; recuerda: los schedules corren en UTC
+          DATE=$(date -u +"%Y-%m-%d")
+          # Sube todo lo que haya en data/ (prices_*.csv, predictions_*.csv)
+          az storage blob upload-batch \
+            --destination "$CONTAINER" \
+            --source data \
+            --pattern "*.csv*" \
+            --destination-path "$DEST_ROOT/$DATE" \
+            --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+            --overwrite
