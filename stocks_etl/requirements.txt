@@ -1,0 +1,8 @@
+yfinance
+pandas
+pandas-market-calendars
+tenacity
+xgboost==2.0.3
+scikit-learn
+azure-storage-blob
+pyyaml>=6.0.1

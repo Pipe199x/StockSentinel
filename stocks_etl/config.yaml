@@ -1,0 +1,20 @@
+# stocks_etl/config.yaml
+start: "2020-01-01"
+end: null
+interval: "1d"
+
+# ATENCIÓN: si dejas true, Yahoo ajusta OHLC por splits/dividendos y NO devuelve Adj Close
+auto_adjust: false
+actions: true
+
+threads: 1
+calendar: "NYSE"
+
+output_dir: "data"        # carpeta donde guardaremos CSV
+csv_single_file: false    # false = 1 CSV por ticker
+csv_compression: null     # null | gzip
+
+symbols:
+  - AMZN
+  - MSFT
+  - GOOGL
