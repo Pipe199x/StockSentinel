@@ -1,8 +1,23 @@
 from dataclasses import dataclass
-from typing import Dict, Optional
+from typing import Dict, Optional, List
 import pandas as pd
 from xgboost import XGBRegressor
 from sklearn.metrics import mean_absolute_error
+
+# Conjunto explícito de features permitidas (presentes tras features.make_features)
+ALLOWED_FEATURES: List[str] = [
+    "ret_1d",
+    "ret_5d",
+    "vol_roll_10",
+    "sma_5",
+    "sma_20",
+    "rsi_14",
+    "lag1_close",
+    "lag1_volume",
+    "close",    # opcional como nivel
+    "volume",   # opcional como nivel
+    # IMPORTANTE: NO incluir "adj_close" (puede ser todo NaN si auto_adjust=True)
+]
 
 @dataclass
 class XGBParams:
@@ -15,20 +30,22 @@ class XGBParams:
 
 
 def _fit_predict_last(dfg: pd.DataFrame, params: XGBParams, backtest_days: int = 30) -> Dict:
-    # columnas de entrada (excluye obvias y target)
-    drop_cols = {"date", "ticker", "ret_t1"}
-    feat_cols = [c for c in dfg.columns if c not in drop_cols]
+    # columnas de entrada: intersección entre columnas del DF y ALLOWED_FEATURES
+    feat_cols = [c for c in ALLOWED_FEATURES if c in dfg.columns]
 
-    # fila para predecir (última con features válidas)
-    last_row = dfg.dropna(subset=feat_cols).iloc[[-1]]
+    if not feat_cols:
+        return {"pred_ret_t1": None, "mae_backtest": None}
+
+    # última fila con features válidas
+    d_valid = dfg.dropna(subset=feat_cols)
+    if d_valid.empty:
+        return {"pred_ret_t1": None, "mae_backtest": None}
+    last_row = d_valid.iloc[[-1]]
 
     # datos con target disponible
     train_df = dfg.dropna(subset=feat_cols + ["ret_t1"]).copy()
     if len(train_df) < 50:
-        return {
-            "pred_ret_t1": None,
-            "mae_backtest": None,
-        }
+        return {"pred_ret_t1": None, "mae_backtest": None}
 
     X = train_df[feat_cols]
     y = train_df["ret_t1"]
@@ -70,16 +87,16 @@ def predict_next_day(df_feats: pd.DataFrame, backtest_days: int = 30, params: Op
         dfg = dfg.sort_values("date")
         metrics = _fit_predict_last(dfg, params, backtest_days)
         as_of = dfg["date"].max()
-        last_close = dfg.loc[dfg.index[-1], "close"]
+        last_close = dfg.loc[dfg.index[-1], "close"] if "close" in dfg.columns else None
         pred_ret = metrics["pred_ret_t1"]
-        pred_close = float(last_close * (1 + pred_ret)) if pred_ret is not None else None
+        pred_close = float(last_close * (1 + pred_ret)) if (pred_ret is not None and last_close is not None) else None
         results.append({
             "ticker": tkr,
             "as_of": as_of,
-            "last_close": float(last_close),
+            "last_close": float(last_close) if last_close is not None else None,
             "pred_ret_t1": pred_ret,
             "pred_close_t1": pred_close,
             "mae_backtest_30d": metrics["mae_backtest"],
-            "model": "xgb_v1",
+            # "model": "xgb_v1",  # ya no la emitimos; se elimina en write_predictions_csv si existiera
         })
     return pd.DataFrame(results)
