@@ -1,20 +1,29 @@
 # stocks_etl/config.yaml
-start: "2020-01-01"
-end: null
-interval: "1d"
 
-# ATENCIÓN: si dejas true, Yahoo ajusta OHLC por splits/dividendos y NO devuelve Adj Close
-auto_adjust: false
-actions: true
+# --- MODO VERIFICACIÓN (intradia) ---
+# Usa period + interval intradía para ver cambios durante el día hábil
+period: "7d"          # ventana móvil corta
+interval: "15m"       # o "1h" si prefieres menos frecuencia
 
+# Si quieres modo diario, comenta las 2 líneas de arriba y usa start/end + interval: "1d"
+# start: "2015-01-01"
+# end: null
+# interval: "1d"
+
+# Ajustes de precios y eventos
+auto_adjust: true      # ajusta OHLC por splits/dividendos (Adj Close vacío)
+actions: true          # añade columnas Dividends y Stock Splits
+
+# Concurrencia y calendario
 threads: 1
 calendar: "NYSE"
 
-output_dir: "data"        # carpeta donde guardaremos CSV
-csv_single_file: false    # false = 1 CSV por ticker
-csv_compression: null     # null | gzip
+# Salida
+output_dir: "data"       # carpeta local que sube el workflow
+csv_compression: null    # null | gzip
 
+# Tickers (Yahoo Finance)
 symbols:
   - AMZN
-  - MSFT
   - GOOGL
+  - MSFT

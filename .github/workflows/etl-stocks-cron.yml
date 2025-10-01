@@ -2,7 +2,7 @@ name: ETL Stocks (cron + manual)
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/5 * * * *"   # verificación: cada 5 min (UTC)
   workflow_dispatch: {}
 
 jobs:
@@ -10,8 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CONTAINER: datasets
-      DEST_ROOT: daily
-      AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+      DEST_ROOT: stocks
 
     steps:
       - name: Checkout
@@ -28,27 +27,34 @@ jobs:
           pip install -r stocks_etl/requirements.txt
           pip install pyyaml
 
-      - name: Run ETL (un solo dataset + predicciones)
+      - name: Run ETL (un solo dataset + predicciones + heartbeat)
         run: |
           python -m stocks_etl.stocks_etl --config stocks_etl/config.yaml
 
-      - name: Install Azure CLI
-        run: |
-          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      - name: Upload CSVs + heartbeat to Azure Blob (datasets/stocks/)
+        uses: azure/cli@v2
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+        with:
+          inlineScript: |
+            # Crear contenedor si no existe
+            az storage container create \
+              --name "$CONTAINER" \
+              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" 1>/dev/null
 
-      - name: Upload CSVs to Azure Blob
-        run: |
-          az storage container create \
-            --name "$CONTAINER" \
-            --connection-string "$AZURE_STORAGE_CONNECTION_STRING" 1>/dev/null
+            # Subir CSVs (prices_*.csv, predictions_*.csv)
+            az storage blob upload-batch \
+              --destination "$CONTAINER" \
+              --source data \
+              --pattern "*.csv*" \
+              --destination-path "$DEST_ROOT" \
+              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+              --overwrite
 
-          DATE=$(date -u +"%Y-%m-%d")
-          TIME=$(date -u +"%H%M")
-
-          az storage blob upload-batch \
-            --destination "$CONTAINER" \
-            --source data \
-            --pattern "*.csv*" \
-            --destination-path "$DEST_ROOT/$DATE/$TIME" \
-            --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-            --overwrite
+            # Subir heartbeat (marca de vida)
+            az storage blob upload \
+              --container-name "$CONTAINER" \
+              --file data/heartbeat.txt \
+              --name "$DEST_ROOT/heartbeat.txt" \
+              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+              --overwrite

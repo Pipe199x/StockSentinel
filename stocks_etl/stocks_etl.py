@@ -54,8 +54,8 @@ def _normalize(df_raw, symbols, auto_adjust, cal_name):
             if c not in dfi.columns:
                 dfi[c] = 0.0
 
-        # filtrar a días de mercado (modo diario)
-        if cal is not None:
+        # filtrar a días de mercado (modo diario); para intradía puedes omitir si quieres
+        if cal is not None and "date" in dfi.columns:
             try:
                 start_d = dfi["date"].min().date()
                 end_d = dfi["date"].max().date()
@@ -138,9 +138,21 @@ def main(cfg):
         cal_name=cfg.get("calendar"),
     )
 
+    # === Resumen para verificación ===
+    if not df.empty:
+        min_d, max_d = df["date"].min(), df["date"].max()
+        print(f"[SUMMARY] prices rows={len(df)} tickers={df['ticker'].nunique()} dates={min_d}..{max_d}")
+        for tkr, dfg in df.groupby("ticker"):
+            print(f"[SUMMARY] {tkr}: rows={len(dfg)} last={dfg['date'].max()}")
+
     # === Features & Predicción (T+1 con XGBoost) ===
     feats = make_features(df)
     preds = predict_next_day(feats, backtest_days=30)
+    # preview para logs
+    try:
+        print("[SUMMARY] predictions\n", preds[["ticker","as_of","last_close","pred_close_t1"]])
+    except Exception:
+        print("[SUMMARY] predictions shape:", preds.shape)
 
     # === Guardado: UN SOLO DATASET de precios + predicciones sin 'model' ===
     out_dir = cfg.get("output_dir", "data")
@@ -149,7 +161,13 @@ def main(cfg):
     price_paths = write_single_prices_csv(df, out_dir, compression=compression)
     pred_paths = write_predictions_csv(preds, out_dir)
 
-    return price_paths + pred_paths
+    # === Heartbeat (marca de vida para ver en Blob/última corrida) ===
+    hb_path = os.path.join(out_dir, "heartbeat.txt")
+    with open(hb_path, "w", encoding="utf-8") as hb:
+        hb.write(datetime.now(timezone.utc).isoformat())
+    print(f"[SUMMARY] heartbeat written at {hb_path}")
+
+    return price_paths + pred_paths + [hb_path]
 
 
 if __name__ == "__main__":
