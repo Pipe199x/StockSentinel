@@ -2,7 +2,7 @@ name: ETL News (cron + manual)
 
 on:
   schedule:
-    - cron: "15 12 * * *"  # 12:15 UTC, ajústalo si quieres
+    - cron: "15 12 * * *"   # ajústalo a tu gusto
   workflow_dispatch: {}
 
 jobs:
@@ -14,6 +14,8 @@ jobs:
       DEST_ROOT: news
       PYTHON_VERSION: "3.11"
       TICKERS: "AMZN,MSFT,GOOGL"
+      LANGUAGE: "en"
+      DAYS: "3"                 # si tu news_client soporta --days
 
     steps:
       - name: Checkout
@@ -28,133 +30,49 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r news_etl/requirements.txt
-          pip install pyyaml requests
-
-      - name: Sanity check NEWSAPI_KEY
-        shell: bash
-        env:
-          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
-        run: |
-          set -euo pipefail
-          echo "NEWSAPI_KEY length: ${#NEWSAPI_KEY}"
-          RESP="$(curl -sS --get "https://newsapi.org/v2/everything" \
-            --data-urlencode "q=Amazon" \
-            --data-urlencode "language=en" \
-            --data-urlencode "pageSize=1" \
-            --data-urlencode "apiKey=${NEWSAPI_KEY}")"
-          python - <<'PY'
-import json,sys
-j=json.loads(sys.stdin.read())
-print("Ping status:", j.get("status","NA"))
-PY
-          :
+          pip install pyyaml
 
       - name: Prepare data dir
         run: mkdir -p data
 
-      - name: Generate raw with NewsAPI (con fallback)
-        shell: bash
+      # ---------------- Genera RAW con tu news_client ----------------
+      - name: Generate raw with NewsAPI (your news_client)
         env:
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
-          TICKERS: ${{ env.TICKERS }}
         run: |
-          set -euo pipefail
-          echo "== Plan A: news_client =="
-          if python -m news_etl.news_client \
-                --out data/news_raw.ndjson \
-                --tickers "$TICKERS" \
-                --language en; then
-            :
-          else
-            echo "news_client falló; seguimos al fallback..." >&2
-          fi
+          set -euxo pipefail
+          # Si tu news_client usa NEWSAPI_KEY desde os.environ, ya está exportado por env:
+          python -m news_etl.news_client \
+            --out data/news_raw.ndjson \
+            --tickers "${TICKERS}" \
+            --language "${LANGUAGE}" \
+            --days "${DAYS}"
+          echo "=== data tras news_client ==="
+          ls -l data || true
+          # (opcional) valida que el RAW exista y tenga contenido; si no quieres que falle, comenta la línea siguiente:
+          test -s data/news_raw.ndjson
 
-          if [ ! -s data/news_raw.ndjson ]; then
-            echo "== Plan B: fallback a NewsAPI desde Python =="
-            python - <<'PY'
-import os, sys, json, datetime as dt, requests
-API_KEY = os.environ["NEWSAPI_KEY"]
-tickers = [t.strip() for t in os.environ.get("TICKERS","").split(",") if t.strip()]
-QMAP = {
-  "AMZN": "(Amazon OR AWS OR Alexa)",
-  "MSFT": "(Microsoft OR Windows OR Xbox OR Azure)",
-  "GOOGL": "(Google OR Alphabet OR Android OR YouTube OR Gemini)",
-}
-until = dt.datetime.utcnow()
-since = until - dt.timedelta(days=3)
-def fetch(q, page):
-    url = "https://newsapi.org/v2/everything"
-    params = {
-        "q": q,
-        "language": "en",
-        "from": since.isoformat(timespec="seconds")+"Z",
-        "to": until.isoformat(timespec="seconds")+"Z",
-        "sortBy": "publishedAt",
-        "pageSize": 100,
-        "page": page,
-        "apiKey": API_KEY,
-    }
-    r = requests.get(url, params=params, timeout=30)
-    r.raise_for_status()
-    return r.json()
-seen = set()
-out_path = "data/news_raw.ndjson"
-count = 0
-with open(out_path, "w", encoding="utf-8") as f:
-    for t in tickers:
-        q = QMAP.get(t, t)
-        for page in (1, 2):
-            try:
-                data = fetch(q, page)
-            except Exception as e:
-                print(f"[WARN] fetch {t} p{page}: {e}", file=sys.stderr)
-                continue
-            if data.get("status") != "ok":
-                print(f"[WARN] status != ok: {data}", file=sys.stderr)
-                continue
-            for a in data.get("articles", []):
-                url = (a.get("url") or "").strip()
-                if not url or url in seen:
-                    continue
-                seen.add(url)
-                item = {
-                    "published_at": a.get("publishedAt"),
-                    "source": (a.get("source") or {}).get("name"),
-                    "title": a.get("title"),
-                    "lang": "en",
-                    "url": url,
-                }
-                f.write(json.dumps(item, ensure_ascii=False) + "\n")
-                count += 1
-print(f"[fallback] escritos {count} items")
-if count == 0:
-    print("ERROR: fallback no obtuvo resultados.", file=sys.stderr)
-    sys.exit(4)
-PY
-          fi
-
-          echo "=== data/ ==="
-          ls -l data
-          test -s data/news_raw.ndjson || { echo "ERROR: no existe/está vacío data/news_raw.ndjson"; exit 4; }
-
+      # ---------------- Ejecuta ETL con tu config ----------------
       - name: Run ETL
         env:
           AZURE_LANGUAGE_KEY: ${{ secrets.AZURE_LANGUAGE_KEY }}
+          AZURE_LANGUAGE_ENDPOINT: ${{ secrets.AZURE_LANGUAGE_ENDPOINT }}
           AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
           SAMPLE_LIMIT: "0"
         run: |
-          set -euo pipefail
+          set -euxo pipefail
           python -m news_etl.news_etl --config news_etl/config.yaml
-          echo "=== data/ tras ETL ==="
-          ls -l data
+          echo "=== data tras ETL ==="
+          ls -l data || true
 
+      # ---------------- Sube CSVs + heartbeat a Blob ----------------
       - name: Upload CSVs + heartbeat to Azure Blob (datasets/news/)
         uses: azure/cli@v2
         env:
           AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
         with:
           inlineScript: |
-            set -euo pipefail
+            set -euxo pipefail
             az storage container create \
               --name "$CONTAINER" \
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" 1>/dev/null
@@ -172,8 +90,7 @@ PY
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
               --overwrite
 
+      # ---------------- Limpieza RAW (opcional) ----------------
       - name: Cleanup local raw
         if: always()
-        run: |
-          rm -f data/news_raw.ndjson || true
-          echo "RAW eliminado."
+        run: rm -f data/news_raw.ndjson || true
