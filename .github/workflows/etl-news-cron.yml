@@ -1,20 +1,16 @@
-name: ETL NEWS (CRON + MANUAL)
+name: ETL News (cron + manual)
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: "0 15 * * 1-5"
+    - cron: "0 22 * * *"   # 22:00 UTC ≈ 5:00 pm Bogotá
+  workflow_dispatch: {}
 
 jobs:
   etl:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
     env:
-      AZURE_LANGUAGE_ENDPOINT: ${{ secrets.AZURE_LANGUAGE_ENDPOINT }}
-      AZURE_LANGUAGE_KEY: ${{ secrets.AZURE_LANGUAGE_KEY }}
-      AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-      SAMPLE_LIMIT: "0"
+      CONTAINER: datasets
+      DEST_ROOT: news
 
     steps:
       - name: Checkout
@@ -23,53 +19,53 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.11"
 
       - name: Install deps
         run: |
-          python -m pip install -U pip
+          python -m pip install --upgrade pip
           pip install -r news_etl/requirements.txt
+          pip install pyyaml
 
+      # Este paso es opcional si tu ETL crea la carpeta por sí solo.
       - name: Prepare data dir
         run: mkdir -p data
 
-      - name: Generate raw with NewsAPI
+      - name: Run ETL (genera CSVs y heartbeat en data/)
         env:
-          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+          AZURE_LANGUAGE_KEY: ${{ secrets.AZURE_LANGUAGE_KEY }}
+          AZURE_LANGUAGE_ENDPOINT: ${{ secrets.AZURE_LANGUAGE_ENDPOINT }}
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+          SAMPLE_LIMIT: "0"
         run: |
-          set -euo pipefail
-          # 1) Validación de secret
-          if [ -z "${NEWSAPI_KEY:-}" ]; then
-            echo "::error::NEWSAPI_KEY no está definido en Secrets"
-            exit 1
-          fi
-          echo "NEWSAPI_KEY: OK (definido)"
-
-          # 2) Ejecutar cliente NewsAPI
-          python -m news_etl.news_client \
-            --out data/news_raw.ndjson \
-            --tickers AMZN,MSFT,GOOGL \
-            --language en
-
-          echo "=== Listando data/ ==="
-          ls -l data || true
-
-          # 3) Validar que el RAW exista y tenga contenido (>0 bytes)
-          if [ ! -s "data/news_raw.ndjson" ]; then
-            echo "::error::No se generó data/news_raw.ndjson (archivo faltante o vacío)."
-            echo "Causas típicas: NEWSAPI_KEY inválida/sin cuota o error en news_client."
-            exit 1
-          fi
-          echo "RAW OK: data/news_raw.ndjson ($(wc -c < data/news_raw.ndjson) bytes)"
-
-      - name: Run ETL
-        run: |
-          set -euo pipefail
-          test -s data/news_raw.ndjson || { echo "::error::Falta data/news_raw.ndjson"; exit 1; }
           python -m news_etl.news_etl --config news_etl/config.yaml
 
-      - name: Cleanup local raw
-        if: always()
-        run: |
-          rm -f data/news_raw.ndjson || true
-          echo "Limpieza hecha; solo quedan CSV en Blob (datasets/news/)."
+      - name: Upload CSVs + heartbeat to Azure Blob (datasets/news/)
+        uses: azure/cli@v2
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+        with:
+          inlineScript: |
+            # Crear contenedor si no existe
+            az storage container create \
+              --name "$CONTAINER" \
+              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" 1>/dev/null
+
+            # Subir CSVs (solo los news_*.csv u otros que genere tu ETL)
+            az storage blob upload-batch \
+              --destination "$CONTAINER" \
+              --source data \
+              --pattern "news_*.csv*" \
+              --destination-path "$DEST_ROOT" \
+              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+              --overwrite
+
+            # Subir heartbeat
+            if [ -f data/heartbeat.txt ]; then
+              az storage blob upload \
+                --container-name "$CONTAINER" \
+                --file data/heartbeat.txt \
+                --name "$DEST_ROOT/heartbeat.txt" \
+                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+                --overwrite
+            fi
