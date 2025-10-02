@@ -1,24 +1,21 @@
-name: ETL News (NewsAPI + Azure Language)
+name: etl
 
 on:
+  workflow_dispatch:
   schedule:
-    # Corre L-V a las 13:07 UTC (ajústalo a tu gusto)
-    - cron: "7 13 * * 1-5"
-  workflow_dispatch: {}
-
-permissions:
-  contents: write
+    - cron: "0 15 * * 1-5" # L-V 15:00 UTC (ajústalo si quieres)
 
 jobs:
   etl:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
+
     env:
-      # === Secrets (defínelos en Settings > Secrets and variables > Actions) ===
-      NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+      # El ETL usa estos secrets
       AZURE_LANGUAGE_ENDPOINT: ${{ secrets.AZURE_LANGUAGE_ENDPOINT }}
       AZURE_LANGUAGE_KEY: ${{ secrets.AZURE_LANGUAGE_KEY }}
-      LOG_LEVEL: INFO
+      AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+      # Si quieres pruebas con menos items, pon "SAMPLE_LIMIT" en 50 o similar; "0" = sin límite
       SAMPLE_LIMIT: "0"
 
     steps:
@@ -29,51 +26,39 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
-          cache: "pip"
-          cache-dependency-path: news_etl/requirements.txt
 
       - name: Install deps
         run: |
-          python -m pip install --upgrade pip
+          python -m pip install -U pip
           pip install -r news_etl/requirements.txt
 
+      # 1) Crea carpeta de trabajo local (temporal del runner)
       - name: Prepare data dir
         run: mkdir -p data
 
-      # 1) Generar el RAW con tu cliente (usa NEWSAPI_KEY del Secret)
+      # 2) Genera el RAW local (temporal) que consume el ETL
       - name: Generate raw with NewsAPI
+        env:
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
         run: |
           python -m news_etl.news_client \
-            --api newsapi \
-            --api-key "$NEWSAPI_KEY" \
-            --out data/news_raw.ndjson
+            --out data/news_raw.ndjson \
+            --tickers AMZN,MSFT,GOOGL \
+            --language en
+          echo "=== Listando data/ ==="
+          ls -l data
 
-      # 2) Ejecutar ETL (Azure Language)
+      # 3) Ejecuta el ETL: leerá el RAW, procesará con Azure Language
+      #    y subirá SOLO los CSV a tu Blob bajo datasets/news/
       - name: Run ETL
         run: |
+          # Verificación defensiva
+          test -f data/news_raw.ndjson || { echo "Falta data/news_raw.ndjson"; exit 1; }
           python -m news_etl.news_etl --config news_etl/config.yaml
 
-      # 3) Preview (opcional, no falla el job si no hay pandas)
-      - name: Preview head
+      # 4) Limpia el RAW local para que no quede nada más que los CSV en el Blob
+      - name: Cleanup local raw
+        if: always()
         run: |
-          python tests_preview/preview_news.py --file "data/news_$(date +%Y%m%d).ndjson" || true
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: news-${{ github.run_id }}
-          path: |
-            data/news_*.ndjson
-            data/news_preview_*.csv
-          if-no-files-found: warn
-          retention-days: 7
-
-      # (Opcional) Commit outputs al repo
-      - name: Commit outputs to main
-        if: ${{ success() && github.ref == 'refs/heads/main' }}
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/news_*.ndjson data/news_preview_*.csv || true
-          git commit -m "data: add news outputs $(date -u +%F) [skip ci]" || echo "No changes to commit"
-          git push || true
+          rm -f data/news_raw.ndjson || true
+          echo "Limpieza hecha; los CSV quedaron en Blob (datasets/news/)."
