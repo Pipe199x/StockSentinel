@@ -5,18 +5,17 @@ io:
   heartbeat_file: "data/heartbeat.txt"
 
 azure_language:
-  # Puedes dejar literales aquí para local, o usar env en CI:
-  endpoint: "${AZURE_LANGUAGE_ENDPOINT}"
+  endpoint: "https://umprofundizacion.cognitiveservices.azure.com/"
   key: "${AZURE_LANGUAGE_KEY}"
   api_version: "2023-04-01"
-  force_language: ""   # "" => auto-detección
+  force_language: "en"   # vacío => auto-detección
   tasks:
     language_detection: true
     sentiment_analysis: true
     key_phrase_extraction: true
     entity_recognition: true
     entity_linking: true
-  batch_size: 5
+  batch_size: 5          # Azure <= 5 docs por request
   timeout_seconds: 30
 
 filters:
@@ -102,6 +101,17 @@ ticker_tagging:
       - "(?i)\\bgemini\\b"
       - "(?i)\\bandroid\\b"
 
+# >>> NUEVO: subida automática a Blob usando *Connection String* <<<
+azure_blob:
+  enabled: true
+  container: "datasets"
+  prefix: "news"   # crea el “folder” virtual datasets/news/
+  connection_string: "${AZURE_STORAGE_CONNECTION_STRING}"
+  content_types:
+    ".ndjson": "application/x-ndjson"
+    ".csv": "text/csv"
+    ".txt": "text/plain"
+
 runtime:
-  log_level: "${LOG_LEVEL:-INFO}"
-  sample_limit: "${SAMPLE_LIMIT:-0}"
+  log_level: "INFO"
+  sample_limit: "${SAMPLE_LIMIT:-0}"   # 0 => sin muestreo
