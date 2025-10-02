@@ -2,7 +2,7 @@ name: ETL News (cron + manual)
 
 on:
   schedule:
-    - cron: "15 12 * * *"     # diario 12:15 UTC (ajústalo si quieres)
+    - cron: "15 12 * * *"   # corre diario 12:15 UTC
   workflow_dispatch: {}
 
 jobs:
@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      CONTAINER: datasets      # tu contenedor en Azure Blob
-      DEST_ROOT: news          # subcarpeta dentro del contenedor (datasets/news)
+      CONTAINER: datasets          # contenedor en Blob Storage
+      DEST_ROOT: news              # subcarpeta: datasets/news
       PYTHON_VERSION: "3.11"
 
     steps:
@@ -29,41 +29,86 @@ jobs:
           pip install -r news_etl/requirements.txt
           pip install pyyaml
 
-      - name: Prepare data dir
-        run: mkdir -p data
-
-      - name: Generate raw with NewsAPI
+      # ====== Diagnóstico + generación RAW con NewsAPI ======
+      - name: Generate raw with NewsAPI (debug)
+        shell: bash
         env:
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
         run: |
-          set -e
+          set -euo pipefail
+
+          # 0) Validación del secret
+          if [[ -z "${NEWSAPI_KEY:-}" ]]; then
+            echo "ERROR: NEWSAPI_KEY no llegó al runner. Crea el secret en Settings > Secrets and variables > Actions."
+            exit 2
+          fi
+          echo "NEWSAPI_KEY length: ${#NEWSAPI_KEY}"
+
+          # 1) Ping corto a NewsAPI (ver si la clave es válida/cuota disponible)
+          sudo apt-get update -y >/dev/null
+          sudo apt-get install -y jq >/dev/null
+          PING=$(curl -sS --get "https://newsapi.org/v2/everything" \
+            --data-urlencode "q=Amazon" \
+            --data-urlencode "language=en" \
+            --data-urlencode "pageSize=1" \
+            --data-urlencode "apiKey=${NEWSAPI_KEY}")
+          echo "Ping status:  $(echo "$PING" | jq -r '.status   // "NA"')"
+          echo "Ping code:    $(echo "$PING" | jq -r '.code     // "NA"')"
+          echo "Ping message: $(echo "$PING" | jq -r '.message  // "NA"')"
+          CODE=$(echo "$PING" | jq -r '.code // ""')
+          if [[ "$CODE" == "apiKeyInvalid" || "$CODE" == "rateLimited" || "$CODE" == "maximumResultsReached" ]]; then
+            echo "ERROR NewsAPI: $CODE (ver mensaje arriba)."
+            exit 3
+          fi
+
+          # 2) Ejecutar cliente y crear RAW
+          mkdir -p data
+          set -x
           python -m news_etl.news_client \
             --out data/news_raw.ndjson \
             --tickers "AMZN,MSFT,GOOGL" \
             --language en
-          # Asegura que el raw exista y tenga contenido
-          test -s data/news_raw.ndjson
+          set +x
 
-      - name: Run ETL
-        env:
-          AZURE_LANGUAGE_KEY: ${{ secrets.AZURE_LANGUAGE_KEY }}
-          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-          SAMPLE_LIMIT: "0"
-        run: |
-          set -e
-          python -m news_etl.news_etl --config news_etl/config.yaml
+          # 3) Verificar que el RAW exista y pese > 0
+          if [[ ! -s data/news_raw.ndjson ]]; then
+            echo "ERROR: No se generó data/news_raw.ndjson (faltante o vacío)."
+            exit 4
+          fi
+
+          echo "=== Listando data/ ==="
           ls -l data
 
+      # ====== Ejecuta ETL (usa config.yaml) y genera CSVs ======
+      - name: Run ETL
+        env:
+          # opcionales si tu código los lee por env; si no, usa los del config.yaml
+          AZURE_LANGUAGE_ENDPOINT: ${{ secrets.AZURE_LANGUAGE_ENDPOINT }}
+          AZURE_LANGUAGE_KEY: ${{ secrets.AZURE_LANGUAGE_KEY }}
+          SAMPLE_LIMIT: "0"   # 0 = sin límite
+        run: |
+          set -euo pipefail
+          test -s data/news_raw.ndjson || { echo "Falta data/news_raw.ndjson"; exit 1; }
+          python -m news_etl.news_etl --config news_etl/config.yaml
+          echo "=== Contenido de data/ tras ETL ==="
+          ls -l data
+
+      # ====== Sube SOLO CSVs + heartbeat a Azure Blob (datasets/news) ======
       - name: Upload CSVs + heartbeat to Azure Blob (datasets/news/)
         uses: azure/cli@v2
         env:
           AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
         with:
           inlineScript: |
-            set -e
+            set -euo pipefail
+            az --version 1>/dev/null
+
+            # Crear contenedor si no existe (idempotente)
             az storage container create \
               --name "$CONTAINER" \
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" 1>/dev/null
+
+            echo "Subiendo CSVs a $CONTAINER/$DEST_ROOT ..."
             az storage blob upload-batch \
               --destination "$CONTAINER" \
               --source data \
@@ -71,6 +116,8 @@ jobs:
               --destination-path "$DEST_ROOT" \
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
               --overwrite
+
+            echo "Subiendo heartbeat ..."
             az storage blob upload \
               --container-name "$CONTAINER" \
               --file data/heartbeat.txt \
@@ -78,6 +125,9 @@ jobs:
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
               --overwrite
 
+      # ====== Limpieza local del RAW (opcional) ======
       - name: Cleanup local raw
         if: always()
-        run: rm -f data/news_raw.ndjson || true
+        run: |
+          rm -f data/news_raw.ndjson || true
+          echo "RAW eliminado; permanecen los CSVs locales para inspección en logs previos."
