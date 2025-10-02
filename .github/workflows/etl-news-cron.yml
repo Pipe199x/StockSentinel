@@ -1,24 +1,26 @@
-name: ETL News (StockSentinel)
+name: ETL News (NewsAPI + Azure Language)
 
 on:
   schedule:
-    - cron: "45 22 * * *"  # diario 22:45 UTC
-    # - cron: "*/5 * * * *"  # <- Variante de prueba (descomenta si quieres)
-  workflow_dispatch:
+    # Corre L-V a las 13:07 UTC (ajústalo a tu gusto)
+    - cron: "7 13 * * 1-5"
+  workflow_dispatch: {}
 
 permissions:
-  contents: read
-
-env:
-  AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-  NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
-  AZURE_LANGUAGE_ENDPOINT: ${{ secrets.AZURE_LANGUAGE_ENDPOINT }}
-  AZURE_LANGUAGE_KEY: ${{ secrets.AZURE_LANGUAGE_KEY }}
+  contents: write
 
 jobs:
-  etl-news:
+  etl:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
+    env:
+      # === Secrets (defínelos en Settings > Secrets and variables > Actions) ===
+      NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+      AZURE_LANGUAGE_ENDPOINT: ${{ secrets.AZURE_LANGUAGE_ENDPOINT }}
+      AZURE_LANGUAGE_KEY: ${{ secrets.AZURE_LANGUAGE_KEY }}
+      LOG_LEVEL: INFO
+      SAMPLE_LIMIT: "0"
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,42 +28,52 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.10"
+          cache: "pip"
+          cache-dependency-path: news_etl/requirements.txt
 
-      - name: Install deps (news)
+      - name: Install deps
         run: |
           python -m pip install --upgrade pip
           pip install -r news_etl/requirements.txt
 
-      - name: Run ETL News
+      - name: Prepare data dir
+        run: mkdir -p data
+
+      # 1) Generar el RAW con tu cliente (usa NEWSAPI_KEY del Secret)
+      - name: Generate raw with NewsAPI
+        run: |
+          python -m news_etl.news_client \
+            --api newsapi \
+            --api-key "$NEWSAPI_KEY" \
+            --out data/news_raw.ndjson
+
+      # 2) Ejecutar ETL (Azure Language)
+      - name: Run ETL
         run: |
           python -m news_etl.news_etl --config news_etl/config.yaml
 
-      - name: Azure CLI
-        uses: azure/cli@v2
-
-      - name: Upload NDJSON to Azure Blob (datasets/news/)
-        if: env.AZURE_STORAGE_CONNECTION_STRING != ''
+      # 3) Preview (opcional, no falla el job si no hay pandas)
+      - name: Preview head
         run: |
-          az storage blob upload-batch \
-            --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-            --source "data" \
-            --destination "datasets/news" \
-            --pattern "news_*.ndjson" \
-            --overwrite true
+          python tests_preview/preview_news.py --file "data/news_$(date +%Y%m%d).ndjson" || true
 
-      - name: Upload preview + heartbeat
-        if: env.AZURE_STORAGE_CONNECTION_STRING != ''
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: news-${{ github.run_id }}
+          path: |
+            data/news_*.ndjson
+            data/news_preview_*.csv
+          if-no-files-found: warn
+          retention-days: 7
+
+      # (Opcional) Commit outputs al repo
+      - name: Commit outputs to main
+        if: ${{ success() && github.ref == 'refs/heads/main' }}
         run: |
-          az storage blob upload-batch \
-            --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-            --source "data" \
-            --destination "datasets/news" \
-            --pattern "news_preview_*.csv" \
-            --overwrite true
-          az storage blob upload \
-            --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-            --file "data/heartbeat.txt" \
-            --container-name "datasets" \
-            --name "news/heartbeat.txt" \
-            --overwrite true
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/news_*.ndjson data/news_preview_*.csv || true
+          git commit -m "data: add news outputs $(date -u +%F) [skip ci]" || echo "No changes to commit"
+          git push || true

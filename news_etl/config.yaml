@@ -1,23 +1,107 @@
-provider: "newsapi"
-api_base: "https://newsapi.org/v2"
-api_key_env: "NEWSAPI_KEY"
-
-queries:
-  - "Amazon OR AMZN"
-  - "Microsoft OR MSFT"
-  - "Google OR GOOGL"
-
-language: "en"
-from_days: 15
-page_size: 100
-max_pages: 5
-
-sentiment_source: "auto"   # auto | title | description | title_plus_description
-
-output_dir: "data"
-output_format: "ndjson"
+io:
+  input_ndjson: "data/news_raw.ndjson"
+  output_ndjson: "data/news_{{date}}.ndjson"
+  output_preview_csv: "data/news_preview_{{date}}.csv"
+  heartbeat_file: "data/heartbeat.txt"
 
 azure_language:
-  endpoint_env: "AZURE_LANGUAGE_ENDPOINT"
-  key_env: "AZURE_LANGUAGE_KEY"
-  batch_size: 10
+  # Puedes dejar literales aquí para local, o usar env en CI:
+  endpoint: "${AZURE_LANGUAGE_ENDPOINT}"
+  key: "${AZURE_LANGUAGE_KEY}"
+  api_version: "2023-04-01"
+  force_language: ""   # "" => auto-detección
+  tasks:
+    language_detection: true
+    sentiment_analysis: true
+    key_phrase_extraction: true
+    entity_recognition: true
+    entity_linking: true
+  batch_size: 5
+  timeout_seconds: 30
+
+filters:
+  allowed_sources_whitelist: []
+  source_blacklist:
+    - "slickdeals.net"
+    - "9to5toys.com"
+    - "moneysavingmom.com"
+    - "commonsensewithmoney.com"
+    - "redmondpie.com"
+  exclude_phrases:
+    - "(?i)\\bfree\\s*shipping\\b"
+    - "(?i)\\bcoupon\\b"
+    - "(?i)\\bsubscribe\\s*&\\s*save\\b"
+    - "(?i)\\bclearance\\b"
+    - "(?i)\\b%\\s*off\\b"
+
+commerce_filter:
+  enabled: true
+  title_url_terms:
+    - "(?i)\\bdeal(s)?\\b"
+    - "(?i)\\bdiscount(s)?\\b"
+    - "(?i)\\bsale\\b"
+    - "(?i)\\bpromo(code)?\\b"
+    - "(?i)\\bsubscribe\\s*&\\s*save\\b"
+    - "(?i)\\b%\\s*off\\b"
+    - "(?i)\\bfree\\s*shipping\\b"
+  path_terms:
+    - "(?i)/deal(s)?/"
+    - "(?i)/deals/"
+    - "(?i)/coupons?/"
+    - "(?i)/offers?/"
+  price_percent_rules:
+    min_price_tokens: 2
+    min_percent_tokens: 2
+    price_regex: "(?i)(\\$\\s?\\d+[\\d\\.,]*)"
+    percent_regex: "(?i)\\b\\d{1,3}\\s?%\\b"
+  allowed_corporate_domains:
+    - "aws.amazon.com"
+    - "aboutamazon.com"
+    - "blogs.microsoft.com"
+    - "devblogs.microsoft.com"
+    - "googleblog.com"
+    - "ai.googleblog.com"
+    - "blog.google"
+
+auto_blacklist:
+  enabled: true
+  min_count: 3
+  min_ratio: 0.8
+
+registry_domains_blacklist:
+  - "pypi.org"
+  - "npmjs.com"
+  - "crates.io"
+  - "rubygems.org"
+  - "packagist.org"
+  - "cran.r-project.org"
+  - "anaconda.org"
+  - "dl.google.com"
+
+ticker_tagging:
+  enabled: true
+  tickers:
+    AMZN:
+      - "(?i)\\bamazon\\b"
+      - "(?i)\\baws\\b"
+      - "(?i)\\bring\\b\\s*(?:inc\\.)?"
+      - "(?i)\\balexa\\b"
+      - "(?i)\\bprime\\s*video\\b"
+      - "(?i)\\baudible\\b"
+    MSFT:
+      - "(?i)\\bmicrosoft\\b"
+      - "(?i)\\bwindows\\b"
+      - "(?i)\\bxbox\\b"
+      - "(?i)\\bazure\\b"
+      - "(?i)\\boffice\\s*365\\b|\\bmicrosoft\\s*365\\b"
+      - "(?i)\\bsharepoint\\b"
+    GOOGL:
+      - "(?i)\\bgoogle\\b"
+      - "(?i)\\balphabet\\b"
+      - "(?i)\\bgmail\\b|\\bgoogle\\s*maps\\b|\\byoutube\\b"
+      - "(?i)\\bgemini\\b"
+      - "(?i)\\bandroid\\b"
+
+runtime:
+  log_level: "${LOG_LEVEL:-INFO}"
+  sample_limit: "${SAMPLE_LIMIT:-0}"
