@@ -1,344 +1,397 @@
+# news_etl/news_etl.py
 from __future__ import annotations
 
+import argparse
 import csv
+import datetime as dt
 import json
 import logging
 import os
 import re
-from datetime import datetime, timezone
-from typing import Any, Dict, List, Iterable
-from urllib.parse import urlparse
-
-# ----- IMPORT corregido para funcionar como paquete o script -----
-try:
-    # cuando se ejecuta como paquete: python -m news_etl.news_etl
-    from .azure_language import AzureLanguageClient  # type: ignore
-except ImportError:
-    # cuando se ejecuta directamente: python news_etl/news_etl.py
-    from azure_language import AzureLanguageClient  # type: ignore
-# -----------------------------------------------------------------
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 import yaml
 
-# -------- logging --------
-LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
-logging.basicConfig(level=LOG_LEVEL, format="%(asctime)s | %(levelname)s | %(name)s | %(message)s")
-logger = logging.getLogger(__name__)
+# Clientes/utilidades locales
+from azure_language import AzureLanguageClient
 
-# -------- utils --------
-def load_config(path: str) -> Dict[str, Any]:
-    with open(path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
 
-def today_str() -> str:
-    return datetime.now().strftime("%Y%m%d")
+# =========================
+# Helpers de log y fechas
+# =========================
+LOGGER = logging.getLogger(__name__)
 
-def render_output_path(template: str) -> str:
-    return template.replace("{{date}}", today_str())
 
-def get_domain(url: str) -> str:
-    try:
-        netloc = urlparse(url or "").netloc.lower()
-        return netloc.replace("www.", "")
-    except Exception:
-        return ""
+def setup_logging(level: str = "INFO") -> None:
+    lvl = getattr(logging, level.upper(), logging.INFO)
+    logging.basicConfig(
+        level=lvl,
+        format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+    )
 
-def matches_any_regex(text: str, patterns: Iterable[str]) -> bool:
-    t = text or ""
-    for pat in patterns or []:
-        if re.search(pat, t, flags=re.IGNORECASE):
-            return True
-    return False
 
-def domain_matches_any(domain: str, patterns: Iterable[str]) -> bool:
-    d = (domain or "").lower()
-    for p in patterns or []:
-        if d == p.lower():
-            return True
-    return False
+def today_yyyymmdd(tz: Optional[str] = None) -> str:
+    # usa hora local del runner
+    return dt.datetime.now().strftime("%Y%m%d")
 
-def count_regex(pattern: str, text: str) -> int:
-    try:
-        return len(re.findall(pattern, text or "", flags=re.IGNORECASE))
-    except re.error:
-        return 0
 
-# -------- heurísticas --------
-def is_likely_commerce_post(rec: Dict[str, Any], cfg: Dict[str, Any]) -> bool:
-    cf = (cfg.get("commerce_filter") or {})
-    if not cf.get("enabled", True):
-        return False
+# ==================================================
+# Expansión de variables de entorno dentro del YAML
+# Soporta ${VAR} y ${VAR:-default} y también $VAR
+# ==================================================
+_ENV_PAT = re.compile(
+    r"""
+    ^\$\{?                  # ${ o $
+    (?P<name>[A-Z0-9_]+)    # nombre
+    (?:\:-(?P<default>.*))? # opcional ':-default'
+    \}?$                    # opcierre
+    """,
+    re.VERBOSE,
+)
 
-    title = (rec.get("title") or "")
-    desc = (rec.get("description") or "")
-    url = (rec.get("url") or "")
-    domain = get_domain(url)
-    path = urlparse(url).path.lower() if url else ""
 
-    allowed_domains = set((cf.get("allowed_corporate_domains") or []))
-    if domain in allowed_domains:
-        return False
+def _expand_env_str(s: str) -> str:
+    m = _ENV_PAT.match(s)
+    if m:
+        name = m.group("name")
+        default = m.group("default")
+        val = os.getenv(name, default if default is not None else "")
+        # si no hay default y tampoco env definida, conserva el original
+        return val if (val != "" or default is not None) else s
+    # también permite strings mezclados con $VAR
+    return os.path.expandvars(s)
 
-    title_url_terms = cf.get("title_url_terms") or []
-    path_terms = cf.get("path_terms") or []
-    term_hit = matches_any_regex(title, title_url_terms) or matches_any_regex(url, title_url_terms)
-    path_hit = matches_any_regex(path, path_terms)
 
-    price_rx = cf.get("price_regex") or r"(\$\s?\d+[\d\.,]*)"
-    pct_rx = cf.get("percent_regex") or r"\b\d{1,3}\s?%\b"
-    min_price = int(cf.get("min_price_tokens", 2))
-    min_pct = int(cf.get("min_percent_tokens", 2))
-    blob = " ".join([title, desc])
-    price_tokens = count_regex(price_rx, blob)
-    pct_tokens = count_regex(pct_rx, blob)
-    numeric_hit = price_tokens >= min_price or pct_tokens >= min_pct
+def _expand_env(obj: Any) -> Any:
+    if isinstance(obj, dict):
+        return {k: _expand_env(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_expand_env(v) for v in obj]
+    if isinstance(obj, str):
+        return _expand_env_str(obj)
+    return obj
 
-    return sum([term_hit, path_hit, numeric_hit]) >= 2
 
-def is_registry_release(rec: Dict[str, Any], cfg: Dict[str, Any]) -> bool:
-    url = rec.get("url") or ""
-    domain = get_domain(url)
-    path = urlparse(url).path.lower() if url else ""
+# =========================
+# Estructuras / IO helpers
+# =========================
+@dataclass
+class NewsItem:
+    id: str
+    published_at: str
+    source: str
+    title: str
+    url: str
 
-    if domain in set((cfg.get("registry_domains_blacklist") or [])):
-        return True
-    if domain == "github.com" and ("/releases" in path or "/tag/" in path):
-        return True
 
-    title = (rec.get("title") or "")
-    if re.search(r"\b\d+\.\d+(?:\.\d+)?(?:-[A-Za-z0-9\.-]+)?\b", title) and not matches_any_regex(
-        title, [r"(?i)amazon", r"(?i)microsoft", r"(?i)google", r"(?i)alphabet"]
-    ):
-        return True
-    return False
-
-# -------- texto para Azure --------
-def doc_text(rec: Dict[str, Any]) -> str:
-    parts = [rec.get("title") or "", rec.get("description") or "", rec.get("source") or ""]
-    return ". ".join([p for p in parts if p]).strip()
-
-# -------- tickers --------
-def tag_tickers(rec: Dict[str, Any], cfg: Dict[str, Any]) -> List[str]:
-    tt = (cfg.get("ticker_tagging") or {})
-    if not tt.get("enabled", True):
-        return []
-    text = " ".join([
-        rec.get("title") or "",
-        rec.get("description") or "",
-        rec.get("linked_entities_str") or "",
-        rec.get("entities_str") or "",
-        rec.get("url") or "",
-    ])
-    hits = []
-    for ticker, pats in (tt.get("tickers") or {}).items():
-        if matches_any_regex(text, pats):
-            hits.append(ticker)
-    return sorted(set(hits))
-
-# -------- carga --------
 def load_input_ndjson(path: str, sample_limit: int = 0) -> List[Dict[str, Any]]:
     items: List[Dict[str, Any]] = []
     with open(path, "r", encoding="utf-8") as f:
-        for _i, line in enumerate(f):
-            line = line.strip()
-            if not line:
-                continue
+        for i, line in enumerate(f, start=1):
             try:
                 obj = json.loads(line)
-            except json.JSONDecodeError:
-                continue
-            items.append(obj)
+                items.append(obj)
+            except Exception:
+                LOGGER.warning("Línea %s inválida en NDJSON", i)
             if sample_limit and len(items) >= sample_limit:
                 break
+    LOGGER.info("Entradas: %d | tras dedupe: %d", len(items), len(items))
     return items
 
-# -------- guardado --------
-def save_ndjson(path: str, rows: List[Dict[str, Any]]) -> None:
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+
+def write_ndjson(path: str, rows: Iterable[Dict[str, Any]]) -> None:
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         for r in rows:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
-def save_csv_preview(path: str, rows: List[Dict[str, Any]]) -> None:
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    cols = ["published_at", "source", "title", "lang", "sentiment_label", "sentiment_score",
-            "key_phrases", "entities", "linked_entities", "tickers", "url"]
-    with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        w.writerow(cols)
+
+def write_preview_csv(path: str, rows: Iterable[Dict[str, Any]]) -> None:
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    rows = list(rows)
+    if not rows:
+        Path(path).write_text("", encoding="utf-8")
+        return
+    # columnas más útiles para revisar
+    cols = [
+        "published_at",
+        "source",
+        "title",
+        "lang",
+        "sentiment_label",
+        "sentiment_score",
+        "key_phrases",
+        "entities",
+        "linked_entities",
+        "tickers",
+        "url",
+    ]
+    with open(path, "w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
+        w.writeheader()
         for r in rows:
-            w.writerow([
-                r.get("published_at"), r.get("source"), r.get("title"),
-                (r.get("language") or {}).get("iso"),
-                (r.get("sentiment") or {}).get("label"),
-                (r.get("sentiment") or {}).get("score"),
-                "; ".join(r.get("key_phrases") or []),
-                "; ".join(r.get("entities") or []),
-                "; ".join(r.get("linked_entities") or []),
-                ",".join(r.get("tickers") or []),
-                r.get("url"),
-            ])
+            w.writerow(r)
 
-# -------- main --------
-def run(config_path: str = "config.local.yaml") -> None:
-    cfg = load_config(config_path)
 
-    input_path = cfg["io"]["input_ndjson"]
-    output_ndjson = render_output_path(cfg["io"]["output_ndjson"])
-    output_csv = render_output_path(cfg["io"]["output_preview_csv"])
-    heartbeat = cfg["io"]["heartbeat_file"]
-    sample_limit = int(cfg.get("runtime", {}).get("sample_limit", 0))
+# =========================
+# Filtros
+# =========================
+def normalize_host(url: str) -> str:
+    try:
+        from urllib.parse import urlparse
 
-    filters_cfg = cfg.get("filters") or {}
-    allowed_sources_whitelist = filters_cfg.get("allowed_sources_whitelist") or []
-    source_blacklist = filters_cfg.get("source_blacklist") or []
-    exclude_phrases = filters_cfg.get("exclude_phrases") or []
+        netloc = urlparse(url).netloc.lower()
+        # quita www.
+        if netloc.startswith("www."):
+            netloc = netloc[4:]
+        return netloc
+    except Exception:
+        return ""
 
-    logger.info("Cargando input: %s", input_path)
-    raw_items = load_input_ndjson(input_path, sample_limit)
 
-    # dedupe por URL
-    seen_urls = set()
-    deduped: List[Dict[str, Any]] = []
-    for r in raw_items:
-        url = r.get("url")
-        if not url or url in seen_urls:
+def apply_filters(items: List[Dict[str, Any]], cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
+    filters = cfg.get("filters", {})
+    commerce = cfg.get("commerce_filter", {})
+    registry_black = set(map(str.lower, cfg.get("registry_domains_blacklist", [])))
+
+    source_black = set(map(str.lower, filters.get("source_blacklist", [])))
+    source_white = set(map(str.lower, filters.get("allowed_sources_whitelist", [])))
+    exclude_patterns = [re.compile(p) for p in filters.get("exclude_phrases", [])]
+
+    title_terms = [re.compile(p) for p in commerce.get("title_url_terms", [])]
+    path_terms = [re.compile(p) for p in commerce.get("path_terms", [])]
+    allow_corp = set(map(str.lower, commerce.get("allowed_corporate_domains", [])))
+
+    def is_commerce_like(title: str, url: str) -> bool:
+        uhost = normalize_host(url)
+        upath = url
+        # permitir blogs corporativos explícitamente
+        if any(uhost.endswith(dom) for dom in allow_corp):
+            return False
+        if any(p.search(title) for p in title_terms):
+            return True
+        if any(p.search(url) for p in title_terms):
+            return True
+        if any(p.search(upath) for p in path_terms):
+            return True
+        return False
+
+    out: List[Dict[str, Any]] = []
+    seen_urls: set[str] = set()
+    for it in items:
+        url = it.get("url", "")
+        title = it.get("title", "")
+        source = it.get("source", "")
+        host = normalize_host(url)
+
+        # dedupe por URL
+        if url in seen_urls:
             continue
         seen_urls.add(url)
-        r["source"] = r.get("source") or get_domain(url)
-        deduped.append(r)
 
-    logger.info("Entradas: %d | tras dedupe: %d", len(raw_items), len(deduped))
-
-    filtered: List[Dict[str, Any]] = []
-    domain_is_commerce: Dict[str, int] = {}
-    domain_total: Dict[str, int] = {}
-
-    for rec in deduped:
-        domain = get_domain(rec.get("url"))
-
-        if domain_matches_any(domain, source_blacklist):
+        # Whitelist tiene prioridad
+        if source_white and source.lower() not in source_white:
             continue
 
-        if allowed_sources_whitelist and domain and (domain.lower() not in set(s.lower() for s in allowed_sources_whitelist)):
+        # Blacklists de fuente y registros de paquetes
+        if source.lower() in source_black:
+            continue
+        if host in registry_black:
             continue
 
-        text_for_filter = " ".join([(rec.get("title") or ""), (rec.get("description") or "")])
-        if matches_any_regex(text_for_filter, exclude_phrases):
+        # frases a excluir
+        if any(p.search(title) for p in exclude_patterns):
             continue
 
-        if is_registry_release(rec, cfg):
+        # filtro de comercio
+        if commerce.get("enabled", False) and is_commerce_like(title, url):
             continue
 
-        commerce = is_likely_commerce_post(rec, cfg)
-        if domain:
-            domain_total[domain] = domain_total.get(domain, 0) + 1
-            if commerce:
-                domain_is_commerce[domain] = domain_is_commerce.get(domain, 0) + 1
-        if commerce:
-            continue
+        out.append(it)
 
-        filtered.append(rec)
+    LOGGER.info("Tras filtros: %d", len(out))
+    return out
 
-    # auto-blacklist por corrida
-    ab = cfg.get("auto_blacklist") or {}
-    if ab.get("enabled", True):
-        min_n = int(ab.get("min_count", 3))
-        min_r = float(ab.get("min_ratio", 0.8))
-        auto_blocked = {d for d, n in domain_total.items()
-                        if n >= min_n and (domain_is_commerce.get(d, 0) / float(n)) >= min_r}
-        if auto_blocked:
-            logger.info("Auto-blacklist (run): %s", ", ".join(sorted(auto_blocked)))
-            filtered = [rec for rec in filtered if get_domain(rec.get("url")) not in auto_blocked]
 
-    logger.info("Tras filtros: %d", len(filtered))
+# =====================================================
+# Enriquecimiento con Azure Language (cliente por lote)
+# =====================================================
+def enrich_with_azure(items: List[Dict[str, Any]], cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
+    lang_cfg = cfg.get("azure_language", {})
+    endpoint = lang_cfg.get("endpoint") or ""
+    key = lang_cfg.get("key") or ""
+    api_version = lang_cfg.get("api_version", "2023-04-01")
+    force_language = lang_cfg.get("force_language") or None
+    tasks = lang_cfg.get("tasks", {})
+    batch_size = int(lang_cfg.get("batch_size", 5))  # el API suele permitir 5 por request
+    timeout = int(lang_cfg.get("timeout_seconds", 30))
 
-    # Azure Language
-    al_cfg = cfg.get("azure_language") or {}
-    lang_client = AzureLanguageClient(
-        endpoint=al_cfg.get("endpoint", ""),
-        key=al_cfg.get("key", ""),
-        api_version=al_cfg.get("api_version", "2023-04-01"),
-        timeout_seconds=int(al_cfg.get("timeout_seconds", 30)),
+    client = AzureLanguageClient(
+        endpoint=endpoint,
+        key=key,
+        api_version=api_version,
+        timeout_seconds=timeout,
     )
-    batch_size = int(al_cfg.get("batch_size", 10))
-    tasks = al_cfg.get("tasks") or {}
 
-    enriched: List[Dict[str, Any]] = []
-    batch: List[Dict[str, Any]] = []
+    # Prepara documentos por lote
+    def chunk(seq: List[Dict[str, Any]], n: int):
+        for i in range(0, len(seq), n):
+            yield seq[i : i + n]
 
-    def flush_batch():
-        nonlocal batch
-        if not batch:
-            return
-        try:
-            data = lang_client.analyze_batch(
-                [{"id": b["id"], "text": b["text"]} for b in batch],
-                tasks=tasks,
-            )
-            parsed = AzureLanguageClient.parse_results(data)
-        except Exception as e:
-            logger.exception("Azure Language error: %s", e)
-            for b in batch:
-                rec = b["rec"]
-                rec["language"] = {"iso": None, "name": None, "score": 0.0}
-                rec["sentiment"] = {"label": None, "score": 0.0}
-                rec["key_phrases"] = []
-                rec["entities"] = []
-                rec["linked_entities"] = []
-                rec["tickers"] = []
-                enriched.append(rec)
-            batch = []
-            return
+    results: List[Dict[str, Any]] = []
 
-        for b in batch:
-            rec = b["rec"]
-            rid = b["id"]
-            res = parsed.get(rid) or {}
-            rec["language"] = res.get("language") or {"iso": None, "name": None, "score": 0.0}
-            rec["sentiment"] = res.get("sentiment") or {"label": None, "score": 0.0}
-            rec["key_phrases"] = res.get("key_phrases") or []
-            rec["entities"] = res.get("entities") or []
-            rec["linked_entities"] = res.get("linked_entities") or []
-            rec["entities_str"] = "; ".join(rec["entities"])
-            rec["linked_entities_str"] = "; ".join(rec["linked_entities"])
-            rec["tickers"] = tag_tickers(rec, cfg)
-            enriched.append(rec)
-        batch = []
+    for batch in chunk(items, batch_size):
+        docs = [
+            {
+                "id": str(i),
+                "text": f"{it.get('title','')}. {it.get('source','')}",
+                **({"language": force_language} if force_language else {}),
+            }
+            for i, it in enumerate(batch, start=1)
+        ]
 
-    for i, rec in enumerate(filtered, 1):
-        text = doc_text(rec)
-        batch.append({"id": f"{i}", "text": text, "rec": rec})
-        if len(batch) >= batch_size:
-            flush_batch()
-    flush_batch()
+        # Llama tareas habilitadas, acumulando resultados por id
+        merged: Dict[str, Dict[str, Any]] = {
+            str(i): {} for i in range(1, len(batch) + 1)
+        }
 
-    # guardar
-    save_ndjson(output_ndjson, enriched)
-    save_csv_preview(output_csv, enriched)
+        if tasks.get("language_detection", True):
+            lang_res = client.analyze_batch("LanguageDetection", docs)
+            for d in lang_res.get("documents", []):
+                merged[d["id"]]["lang"] = d.get("detectedLanguage", {}).get("iso6391Name")
 
-    heartbeat = cfg["io"]["heartbeat_file"]
-    os.makedirs(os.path.dirname(heartbeat), exist_ok=True)
-    with open(heartbeat, "w", encoding="utf-8") as hb:
-        hb.write(datetime.now(timezone.utc).isoformat())
+        if tasks.get("sentiment_analysis", True):
+            sent_res = client.analyze_batch("SentimentAnalysis", docs)
+            for d in sent_res.get("documents", []):
+                merged[d["id"]]["sentiment_label"] = d.get("sentiment")
+                merged[d["id"]]["sentiment_score"] = float(
+                    d.get("confidenceScores", {}).get(d.get("sentiment"), 0.0)
+                )
 
-    # stats
-    langs, sents = {}, {}
+        if tasks.get("key_phrase_extraction", True):
+            kpe_res = client.analyze_batch("KeyPhraseExtraction", docs)
+            for d in kpe_res.get("documents", []):
+                merged[d["id"]]["key_phrases"] = "; ".join(d.get("keyPhrases", []))
+
+        if tasks.get("entity_recognition", True):
+            ner_res = client.analyze_batch("EntityRecognition", docs)
+            for d in ner_res.get("documents", []):
+                ents = [e.get("text") for e in d.get("entities", [])]
+                merged[d["id"]]["entities"] = "; ".join(ents)
+
+        if tasks.get("entity_linking", True):
+            nel_res = client.analyze_batch("EntityLinking", docs)
+            for d in nel_res.get("documents", []):
+                ents = [e.get("name") for e in d.get("entities", [])]
+                merged[d["id"]]["linked_entities"] = "; ".join(ents)
+
+        # fusionar con los items originales del batch
+        for idx, it in enumerate(batch, start=1):
+            enr = merged[str(idx)]
+            results.append({**it, **enr})
+
+    return results
+
+
+# =========================
+# Ticker tagging simple
+# =========================
+def tag_tickers(items: List[Dict[str, Any]], cfg: Dict[str, Any]) -> None:
+    tt_cfg = cfg.get("ticker_tagging", {})
+    if not tt_cfg.get("enabled", False):
+        return
+
+    rules: Dict[str, List[re.Pattern]] = {}
+    for ticker, patterns in tt_cfg.get("tickers", {}).items():
+        rules[ticker] = [re.compile(p) for p in patterns]
+
+    for it in items:
+        text = f"{it.get('title','')} {it.get('source','')}"
+        hits: List[str] = []
+        for tick, pats in rules.items():
+            if any(p.search(text) for p in pats):
+                hits.append(tick)
+        it["tickers"] = ", ".join(sorted(set(hits)))
+
+
+# =========================
+# Función principal
+# =========================
+def run(config_path: str) -> None:
+    with open(config_path, "r", encoding="utf-8") as f:
+        cfg_raw = yaml.safe_load(f)
+
+    # Expande ${VAR} y ${VAR:-default}
+    cfg = _expand_env(cfg_raw)
+
+    setup_logging(cfg.get("runtime", {}).get("log_level", "INFO"))
+
+    # IO
+    io_cfg = cfg.get("io", {})
+    date_str = today_yyyymmdd()
+    input_path = io_cfg.get("input_ndjson", "data/news_raw.ndjson")
+    output_ndjson = io_cfg.get("output_ndjson", "data/news_{{date}}.ndjson").replace("{{date}}", date_str)
+    output_preview_csv = io_cfg.get("output_preview_csv", "data/news_preview_{{date}}.csv").replace("{{date}}", date_str)
+    heartbeat_file = io_cfg.get("heartbeat_file", "data/heartbeat.txt")
+
+    # sample_limit seguro
+    sample_limit_raw = cfg.get("runtime", {}).get("sample_limit", 0)
+    try:
+        sample_limit = int(sample_limit_raw)
+    except Exception:
+        LOGGER.warning("sample_limit inválido '%s', usando 0", sample_limit_raw)
+        sample_limit = 0
+
+    LOGGER.info("Cargando input: %s", input_path)
+    raw_items = load_input_ndjson(input_path, sample_limit)
+
+    # Filtrar
+    items = apply_filters(raw_items, cfg)
+
+    # Enriquecer
+    try:
+        enriched = enrich_with_azure(items, cfg)
+    except Exception:
+        LOGGER.exception("Fallo enriqueciendo con Azure Language. Se salvarán sin enriquecimiento.")
+        enriched = items
+
+    # Tickers
+    tag_tickers(enriched, cfg)
+
+    # Salvar
+    write_ndjson(output_ndjson, enriched)
+    write_preview_csv(output_preview_csv, enriched)
+
+    # Heartbeat
+    Path(heartbeat_file).parent.mkdir(parents=True, exist_ok=True)
+    Path(heartbeat_file).write_text(dt.datetime.now().isoformat(), encoding="utf-8")
+
+    # Resumen
+    langs = {}
+    sents = {}
     for r in enriched:
-        iso = (r.get("language") or {}).get("iso") or "NA"
-        langs[iso] = langs.get(iso, 0) + 1
-        label = (r.get("sentiment") or {}).get("label") or "NA"
-        sents[label] = sents.get(label, 0) + 1
+        langs[r.get("lang")] = langs.get(r.get("lang"), 0) + 1
+        sents[r.get("sentiment_label")] = sents.get(r.get("sentiment_label"), 0) + 1
 
-    logger.info("[SUMMARY] extraidos=%d, escritos=%d", len(deduped), len(enriched))
-    logger.info("[SUMMARY] languages=%s", langs)
-    logger.info("[SUMMARY] sentiment=%s", sents)
-    logger.info("[SUMMARY] outputs: ndjson=%s preview_csv=%s heartbeat=%s",
-                output_ndjson, output_csv, heartbeat)
+    LOGGER.info("[SUMMARY] extraidos=%d, escritos=%d", len(raw_items), len(enriched))
+    LOGGER.info("[SUMMARY] languages=%s", langs)
+    LOGGER.info("[SUMMARY] sentiment=%s", sents)
+    LOGGER.info(
+        "[SUMMARY] outputs: ndjson=%s preview_csv=%s heartbeat=%s",
+        output_ndjson,
+        output_preview_csv,
+        heartbeat_file,
+    )
+
+
+def parse_args() -> argparse.Namespace:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--config", required=True, help="Ruta a config YAML")
+    return ap.parse_args()
+
 
 if __name__ == "__main__":
-    import argparse
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--config", default="news_etl/config.local.yaml")
-    args = ap.parse_args()
+    args = parse_args()
     run(args.config)
