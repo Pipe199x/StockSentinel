@@ -2,16 +2,18 @@ name: ETL News (cron + manual)
 
 on:
   schedule:
-    - cron: "15 12 * * *"      # diario 12:15 UTC (ajústalo)
+    - cron: "15 12 * * *"  # 12:15 UTC, ajústalo si quieres
   workflow_dispatch: {}
 
 jobs:
   etl_news:
     runs-on: ubuntu-latest
+
     env:
       CONTAINER: datasets
       DEST_ROOT: news
       PYTHON_VERSION: "3.11"
+      TICKERS: "AMZN,MSFT,GOOGL"
 
     steps:
       - name: Checkout
@@ -26,97 +28,124 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r news_etl/requirements.txt
-          pip install pyyaml
+          pip install pyyaml requests
+
+      - name: Sanity check NEWSAPI_KEY
+        shell: bash
+        env:
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+        run: |
+          set -euo pipefail
+          echo "NEWSAPI_KEY length: ${#NEWSAPI_KEY}"
+          RESP="$(curl -sS --get "https://newsapi.org/v2/everything" \
+            --data-urlencode "q=Amazon" \
+            --data-urlencode "language=en" \
+            --data-urlencode "pageSize=1" \
+            --data-urlencode "apiKey=${NEWSAPI_KEY}")"
+          python - <<'PY'
+import json,sys
+j=json.loads(sys.stdin.read())
+print("Ping status:", j.get("status","NA"))
+PY
+          :
 
       - name: Prepare data dir
         run: mkdir -p data
 
-      # ---------- Ping mínimo para verificar NewsAPI ----------
-      - name: Sanity check NEWSAPI
+      - name: Generate raw with NewsAPI (con fallback)
         shell: bash
         env:
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+          TICKERS: ${{ env.TICKERS }}
         run: |
           set -euo pipefail
-          if [[ -z "${NEWSAPI_KEY:-}" ]]; then
-            echo "NEWSAPI_KEY vacío o faltante"; exit 2
-          fi
-          echo "NEWSAPI_KEY length: ${#NEWSAPI_KEY}"
-          sudo apt-get update -y >/dev/null
-          sudo apt-get install -y jq >/dev/null
-          RESP=$(curl -sS --get "https://newsapi.org/v2/everything" \
-            --data-urlencode "q=Amazon" \
-            --data-urlencode "language=en" \
-            --data-urlencode "pageSize=1" \
-            --data-urlencode "apiKey=${NEWSAPI_KEY}")
-          echo "Ping status:  $(echo "$RESP" | jq -r '.status   // "NA"')"
-          echo "Ping code:    $(echo "$RESP" | jq -r '.code     // "NA"')"
-          echo "Ping message: $(echo "$RESP" | jq -r '.message  // "NA"')"
-
-      # ---------- DEBUG FUERTE de news_client ----------
-      - name: Generate raw with NewsAPI (debug fuerte)
-        shell: bash
-        env:
-          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
-        run: |
-          set -euo pipefail
-          echo "== Ejecutando news_client (intento #1) =="
-          set -x
-          python -m news_etl.news_client \
-            --out data/news_raw.ndjson \
-            --tickers AMZN,MSFT,GOOGL \
-            --language en \
-            1>client_stdout.log 2>client_stderr.log || echo "news_client devolvió código $?"
-          set +x
-
-          echo "== Exit codes y logs =="
-          echo "stdout (últimas 200 líneas):"
-          tail -n 200 client_stdout.log || true
-          echo "stderr (últimas 200 líneas):"
-          tail -n 200 client_stderr.log || true
-
-          echo "== Listado de data/ tras intento #1 =="
-          ls -l data || true
-
-          if [[ ! -s data/news_raw.ndjson ]]; then
-            echo "No se generó RAW en el intento #1 — reintentando con ventana más amplia..."
-            # Reintento: algunos clientes filtran por fecha muy reciente y quedan en 0 resultados
-            # (si tu news_client soporta --from_days o similar, úsalo; si no, esta llamada es igual al #1)
-            set -x
-            python -m news_etl.news_client \
-              --out data/news_raw.ndjson \
-              --tickers AMZN,MSFT,GOOGL \
-              --language en \
-              1>>client_stdout.log 2>>client_stderr.log || echo "news_client (reintento) devolvió código $?"
-            set +x
-
-            echo "== Listado de data/ tras intento #2 =="
-            ls -l data || true
-          fi
-
-          if [[ -s data/news_raw.ndjson ]]; then
-            echo "RAW OK. Primeras líneas:"
-            head -n 5 data/news_raw.ndjson || true
+          echo "== Plan A: news_client =="
+          if python -m news_etl.news_client \
+                --out data/news_raw.ndjson \
+                --tickers "$TICKERS" \
+                --language en; then
+            :
           else
-            echo "ERROR: No se generó data/news_raw.ndjson (faltante o vacío) luego de 2 intentos."
-            echo "Pistas típicas:"
-            echo " - El módulo news_client pudo filtrar demasiado (fecha/fuentes) y devolvió 0."
-            echo " - news_client pudo necesitar flags adicionales (p. ej. ventana de días)."
-            echo " - Si la salida es a stdout (no a archivo), habría que ajustar news_client para escribir --out."
-            echo "Revisa los logs arriba (stdout/stderr)."
-            exit 4
+            echo "news_client falló; seguimos al fallback..." >&2
           fi
+
+          if [ ! -s data/news_raw.ndjson ]; then
+            echo "== Plan B: fallback a NewsAPI desde Python =="
+            python - <<'PY'
+import os, sys, json, datetime as dt, requests
+API_KEY = os.environ["NEWSAPI_KEY"]
+tickers = [t.strip() for t in os.environ.get("TICKERS","").split(",") if t.strip()]
+QMAP = {
+  "AMZN": "(Amazon OR AWS OR Alexa)",
+  "MSFT": "(Microsoft OR Windows OR Xbox OR Azure)",
+  "GOOGL": "(Google OR Alphabet OR Android OR YouTube OR Gemini)",
+}
+until = dt.datetime.utcnow()
+since = until - dt.timedelta(days=3)
+def fetch(q, page):
+    url = "https://newsapi.org/v2/everything"
+    params = {
+        "q": q,
+        "language": "en",
+        "from": since.isoformat(timespec="seconds")+"Z",
+        "to": until.isoformat(timespec="seconds")+"Z",
+        "sortBy": "publishedAt",
+        "pageSize": 100,
+        "page": page,
+        "apiKey": API_KEY,
+    }
+    r = requests.get(url, params=params, timeout=30)
+    r.raise_for_status()
+    return r.json()
+seen = set()
+out_path = "data/news_raw.ndjson"
+count = 0
+with open(out_path, "w", encoding="utf-8") as f:
+    for t in tickers:
+        q = QMAP.get(t, t)
+        for page in (1, 2):
+            try:
+                data = fetch(q, page)
+            except Exception as e:
+                print(f"[WARN] fetch {t} p{page}: {e}", file=sys.stderr)
+                continue
+            if data.get("status") != "ok":
+                print(f"[WARN] status != ok: {data}", file=sys.stderr)
+                continue
+            for a in data.get("articles", []):
+                url = (a.get("url") or "").strip()
+                if not url or url in seen:
+                    continue
+                seen.add(url)
+                item = {
+                    "published_at": a.get("publishedAt"),
+                    "source": (a.get("source") or {}).get("name"),
+                    "title": a.get("title"),
+                    "lang": "en",
+                    "url": url,
+                }
+                f.write(json.dumps(item, ensure_ascii=False) + "\n")
+                count += 1
+print(f"[fallback] escritos {count} items")
+if count == 0:
+    print("ERROR: fallback no obtuvo resultados.", file=sys.stderr)
+    sys.exit(4)
+PY
+          fi
+
+          echo "=== data/ ==="
+          ls -l data
+          test -s data/news_raw.ndjson || { echo "ERROR: no existe/está vacío data/news_raw.ndjson"; exit 4; }
 
       - name: Run ETL
         env:
-          AZURE_LANGUAGE_ENDPOINT: ${{ secrets.AZURE_LANGUAGE_ENDPOINT }}
           AZURE_LANGUAGE_KEY: ${{ secrets.AZURE_LANGUAGE_KEY }}
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
           SAMPLE_LIMIT: "0"
         run: |
           set -euo pipefail
-          test -s data/news_raw.ndjson || { echo "Falta data/news_raw.ndjson"; exit 1; }
           python -m news_etl.news_etl --config news_etl/config.yaml
-          echo "=== Contenido de data/ tras ETL ==="
+          echo "=== data/ tras ETL ==="
           ls -l data
 
       - name: Upload CSVs + heartbeat to Azure Blob (datasets/news/)
@@ -129,7 +158,6 @@ jobs:
             az storage container create \
               --name "$CONTAINER" \
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" 1>/dev/null
-
             az storage blob upload-batch \
               --destination "$CONTAINER" \
               --source data \
@@ -137,7 +165,6 @@ jobs:
               --destination-path "$DEST_ROOT" \
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
               --overwrite
-
             az storage blob upload \
               --container-name "$CONTAINER" \
               --file data/heartbeat.txt \
@@ -147,4 +174,6 @@ jobs:
 
       - name: Cleanup local raw
         if: always()
-        run: rm -f data/news_raw.ndjson || true
+        run: |
+          rm -f data/news_raw.ndjson || true
+          echo "RAW eliminado."
