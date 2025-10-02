@@ -11,3 +11,9 @@ data/
 # OS
 .DS_Store
 Thumbs.db
+.env
+news_etl/config.local.yaml
+.venv/
+__pycache__/
+*.pyc
+data/
