@@ -2,16 +2,15 @@ name: ETL News (cron + manual)
 
 on:
   schedule:
-    - cron: "15 12 * * *"   # corre diario 12:15 UTC
+    - cron: "15 12 * * *"      # diario 12:15 UTC (ajústalo)
   workflow_dispatch: {}
 
 jobs:
   etl_news:
     runs-on: ubuntu-latest
-
     env:
-      CONTAINER: datasets          # contenedor en Blob Storage
-      DEST_ROOT: news              # subcarpeta: datasets/news
+      CONTAINER: datasets
+      DEST_ROOT: news
       PYTHON_VERSION: "3.11"
 
     steps:
@@ -29,63 +28,90 @@ jobs:
           pip install -r news_etl/requirements.txt
           pip install pyyaml
 
-      # ====== Diagnóstico + generación RAW con NewsAPI ======
-      - name: Generate raw with NewsAPI (debug)
+      - name: Prepare data dir
+        run: mkdir -p data
+
+      # ---------- Ping mínimo para verificar NewsAPI ----------
+      - name: Sanity check NEWSAPI
         shell: bash
         env:
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
         run: |
           set -euo pipefail
-
-          # 0) Validación del secret
           if [[ -z "${NEWSAPI_KEY:-}" ]]; then
-            echo "ERROR: NEWSAPI_KEY no llegó al runner. Crea el secret en Settings > Secrets and variables > Actions."
-            exit 2
+            echo "NEWSAPI_KEY vacío o faltante"; exit 2
           fi
           echo "NEWSAPI_KEY length: ${#NEWSAPI_KEY}"
-
-          # 1) Ping corto a NewsAPI (ver si la clave es válida/cuota disponible)
           sudo apt-get update -y >/dev/null
           sudo apt-get install -y jq >/dev/null
-          PING=$(curl -sS --get "https://newsapi.org/v2/everything" \
+          RESP=$(curl -sS --get "https://newsapi.org/v2/everything" \
             --data-urlencode "q=Amazon" \
             --data-urlencode "language=en" \
             --data-urlencode "pageSize=1" \
             --data-urlencode "apiKey=${NEWSAPI_KEY}")
-          echo "Ping status:  $(echo "$PING" | jq -r '.status   // "NA"')"
-          echo "Ping code:    $(echo "$PING" | jq -r '.code     // "NA"')"
-          echo "Ping message: $(echo "$PING" | jq -r '.message  // "NA"')"
-          CODE=$(echo "$PING" | jq -r '.code // ""')
-          if [[ "$CODE" == "apiKeyInvalid" || "$CODE" == "rateLimited" || "$CODE" == "maximumResultsReached" ]]; then
-            echo "ERROR NewsAPI: $CODE (ver mensaje arriba)."
-            exit 3
-          fi
+          echo "Ping status:  $(echo "$RESP" | jq -r '.status   // "NA"')"
+          echo "Ping code:    $(echo "$RESP" | jq -r '.code     // "NA"')"
+          echo "Ping message: $(echo "$RESP" | jq -r '.message  // "NA"')"
 
-          # 2) Ejecutar cliente y crear RAW
-          mkdir -p data
+      # ---------- DEBUG FUERTE de news_client ----------
+      - name: Generate raw with NewsAPI (debug fuerte)
+        shell: bash
+        env:
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+        run: |
+          set -euo pipefail
+          echo "== Ejecutando news_client (intento #1) =="
           set -x
           python -m news_etl.news_client \
             --out data/news_raw.ndjson \
-            --tickers "AMZN,MSFT,GOOGL" \
-            --language en
+            --tickers AMZN,MSFT,GOOGL \
+            --language en \
+            1>client_stdout.log 2>client_stderr.log || echo "news_client devolvió código $?"
           set +x
 
-          # 3) Verificar que el RAW exista y pese > 0
+          echo "== Exit codes y logs =="
+          echo "stdout (últimas 200 líneas):"
+          tail -n 200 client_stdout.log || true
+          echo "stderr (últimas 200 líneas):"
+          tail -n 200 client_stderr.log || true
+
+          echo "== Listado de data/ tras intento #1 =="
+          ls -l data || true
+
           if [[ ! -s data/news_raw.ndjson ]]; then
-            echo "ERROR: No se generó data/news_raw.ndjson (faltante o vacío)."
+            echo "No se generó RAW en el intento #1 — reintentando con ventana más amplia..."
+            # Reintento: algunos clientes filtran por fecha muy reciente y quedan en 0 resultados
+            # (si tu news_client soporta --from_days o similar, úsalo; si no, esta llamada es igual al #1)
+            set -x
+            python -m news_etl.news_client \
+              --out data/news_raw.ndjson \
+              --tickers AMZN,MSFT,GOOGL \
+              --language en \
+              1>>client_stdout.log 2>>client_stderr.log || echo "news_client (reintento) devolvió código $?"
+            set +x
+
+            echo "== Listado de data/ tras intento #2 =="
+            ls -l data || true
+          fi
+
+          if [[ -s data/news_raw.ndjson ]]; then
+            echo "RAW OK. Primeras líneas:"
+            head -n 5 data/news_raw.ndjson || true
+          else
+            echo "ERROR: No se generó data/news_raw.ndjson (faltante o vacío) luego de 2 intentos."
+            echo "Pistas típicas:"
+            echo " - El módulo news_client pudo filtrar demasiado (fecha/fuentes) y devolvió 0."
+            echo " - news_client pudo necesitar flags adicionales (p. ej. ventana de días)."
+            echo " - Si la salida es a stdout (no a archivo), habría que ajustar news_client para escribir --out."
+            echo "Revisa los logs arriba (stdout/stderr)."
             exit 4
           fi
 
-          echo "=== Listando data/ ==="
-          ls -l data
-
-      # ====== Ejecuta ETL (usa config.yaml) y genera CSVs ======
       - name: Run ETL
         env:
-          # opcionales si tu código los lee por env; si no, usa los del config.yaml
           AZURE_LANGUAGE_ENDPOINT: ${{ secrets.AZURE_LANGUAGE_ENDPOINT }}
           AZURE_LANGUAGE_KEY: ${{ secrets.AZURE_LANGUAGE_KEY }}
-          SAMPLE_LIMIT: "0"   # 0 = sin límite
+          SAMPLE_LIMIT: "0"
         run: |
           set -euo pipefail
           test -s data/news_raw.ndjson || { echo "Falta data/news_raw.ndjson"; exit 1; }
@@ -93,7 +119,6 @@ jobs:
           echo "=== Contenido de data/ tras ETL ==="
           ls -l data
 
-      # ====== Sube SOLO CSVs + heartbeat a Azure Blob (datasets/news) ======
       - name: Upload CSVs + heartbeat to Azure Blob (datasets/news/)
         uses: azure/cli@v2
         env:
@@ -101,14 +126,10 @@ jobs:
         with:
           inlineScript: |
             set -euo pipefail
-            az --version 1>/dev/null
-
-            # Crear contenedor si no existe (idempotente)
             az storage container create \
               --name "$CONTAINER" \
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" 1>/dev/null
 
-            echo "Subiendo CSVs a $CONTAINER/$DEST_ROOT ..."
             az storage blob upload-batch \
               --destination "$CONTAINER" \
               --source data \
@@ -117,7 +138,6 @@ jobs:
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
               --overwrite
 
-            echo "Subiendo heartbeat ..."
             az storage blob upload \
               --container-name "$CONTAINER" \
               --file data/heartbeat.txt \
@@ -125,9 +145,6 @@ jobs:
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
               --overwrite
 
-      # ====== Limpieza local del RAW (opcional) ======
       - name: Cleanup local raw
         if: always()
-        run: |
-          rm -f data/news_raw.ndjson || true
-          echo "RAW eliminado; permanecen los CSVs locales para inspección en logs previos."
+        run: rm -f data/news_raw.ndjson || true
