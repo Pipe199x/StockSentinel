@@ -2,8 +2,9 @@ name: ETL Stocks (cron + manual)
 
 on:
   schedule:
-    - cron: "*/5 * * * *"   # verificación: cada 5 min (UTC)
+    - cron: "30 22 * * *"   # 22:30 UTC ≈ 5:30 pm Bogotá (después del cierre NY)
   workflow_dispatch: {}
+
 
 jobs:
   etl:

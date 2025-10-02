@@ -1,28 +1,21 @@
-# stocks_etl/config.yaml
-
-# --- MODO VERIFICACIÓN (intradia) ---
-# Usa period + interval intradía para ver cambios durante el día hábil
-period: "7d"          # ventana móvil corta
-interval: "15m"       # o "1h" si prefieres menos frecuencia
-
-# Si quieres modo diario, comenta las 2 líneas de arriba y usa start/end + interval: "1d"
-# start: "2015-01-01"
-# end: null
-# interval: "1d"
+# stocks_etl/config.yaml  — MODO DIARIO
+start: "2020-01-01"
+end: null
+interval: "1d"
 
 # Ajustes de precios y eventos
-auto_adjust: true      # ajusta OHLC por splits/dividendos (Adj Close vacío)
-actions: true          # añade columnas Dividends y Stock Splits
+auto_adjust: false      # (si quieres ver Adj Close poblado, pon false)
+actions: true
 
 # Concurrencia y calendario
 threads: 1
 calendar: "NYSE"
 
 # Salida
-output_dir: "data"       # carpeta local que sube el workflow
-csv_compression: null    # null | gzip
+output_dir: "data"
+csv_compression: null  # null | gzip
 
-# Tickers (Yahoo Finance)
+# Tickers
 symbols:
   - AMZN
   - GOOGL
