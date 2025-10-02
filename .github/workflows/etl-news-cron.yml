@@ -2,15 +2,17 @@ name: ETL News (cron + manual)
 
 on:
   schedule:
-    - cron: "0 22 * * *"   # 22:00 UTC ≈ 5:00 pm Bogotá
+    - cron: "15 12 * * *"     # diario 12:15 UTC (ajústalo si quieres)
   workflow_dispatch: {}
 
 jobs:
-  etl:
+  etl_news:
     runs-on: ubuntu-latest
+
     env:
-      CONTAINER: datasets
-      DEST_ROOT: news
+      CONTAINER: datasets      # tu contenedor en Azure Blob
+      DEST_ROOT: news          # subcarpeta dentro del contenedor (datasets/news)
+      PYTHON_VERSION: "3.11"
 
     steps:
       - name: Checkout
@@ -19,7 +21,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Install deps
         run: |
@@ -27,18 +29,30 @@ jobs:
           pip install -r news_etl/requirements.txt
           pip install pyyaml
 
-      # Este paso es opcional si tu ETL crea la carpeta por sí solo.
       - name: Prepare data dir
         run: mkdir -p data
 
-      - name: Run ETL (genera CSVs y heartbeat en data/)
+      - name: Generate raw with NewsAPI
+        env:
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+        run: |
+          set -e
+          python -m news_etl.news_client \
+            --out data/news_raw.ndjson \
+            --tickers "AMZN,MSFT,GOOGL" \
+            --language en
+          # Asegura que el raw exista y tenga contenido
+          test -s data/news_raw.ndjson
+
+      - name: Run ETL
         env:
           AZURE_LANGUAGE_KEY: ${{ secrets.AZURE_LANGUAGE_KEY }}
-          AZURE_LANGUAGE_ENDPOINT: ${{ secrets.AZURE_LANGUAGE_ENDPOINT }}
           AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
           SAMPLE_LIMIT: "0"
         run: |
+          set -e
           python -m news_etl.news_etl --config news_etl/config.yaml
+          ls -l data
 
       - name: Upload CSVs + heartbeat to Azure Blob (datasets/news/)
         uses: azure/cli@v2
@@ -46,26 +60,24 @@ jobs:
           AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
         with:
           inlineScript: |
-            # Crear contenedor si no existe
+            set -e
             az storage container create \
               --name "$CONTAINER" \
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" 1>/dev/null
-
-            # Subir CSVs (solo los news_*.csv u otros que genere tu ETL)
             az storage blob upload-batch \
               --destination "$CONTAINER" \
               --source data \
-              --pattern "news_*.csv*" \
+              --pattern "*.csv*" \
               --destination-path "$DEST_ROOT" \
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
               --overwrite
+            az storage blob upload \
+              --container-name "$CONTAINER" \
+              --file data/heartbeat.txt \
+              --name "$DEST_ROOT/heartbeat.txt" \
+              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+              --overwrite
 
-            # Subir heartbeat
-            if [ -f data/heartbeat.txt ]; then
-              az storage blob upload \
-                --container-name "$CONTAINER" \
-                --file data/heartbeat.txt \
-                --name "$DEST_ROOT/heartbeat.txt" \
-                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-                --overwrite
-            fi
+      - name: Cleanup local raw
+        if: always()
+        run: rm -f data/news_raw.ndjson || true
