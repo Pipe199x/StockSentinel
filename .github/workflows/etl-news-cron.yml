@@ -1,9 +1,9 @@
-name: etl
+name: ETL NEWS (CRON + MANUAL)
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 15 * * 1-5" # L-V 15:00 UTC (ajústalo si quieres)
+    - cron: "0 15 * * 1-5"
 
 jobs:
   etl:
@@ -11,11 +11,9 @@ jobs:
     timeout-minutes: 15
 
     env:
-      # El ETL usa estos secrets
       AZURE_LANGUAGE_ENDPOINT: ${{ secrets.AZURE_LANGUAGE_ENDPOINT }}
       AZURE_LANGUAGE_KEY: ${{ secrets.AZURE_LANGUAGE_KEY }}
       AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-      # Si quieres pruebas con menos items, pon "SAMPLE_LIMIT" en 50 o similar; "0" = sin límite
       SAMPLE_LIMIT: "0"
 
     steps:
@@ -32,33 +30,46 @@ jobs:
           python -m pip install -U pip
           pip install -r news_etl/requirements.txt
 
-      # 1) Crea carpeta de trabajo local (temporal del runner)
       - name: Prepare data dir
         run: mkdir -p data
 
-      # 2) Genera el RAW local (temporal) que consume el ETL
       - name: Generate raw with NewsAPI
         env:
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
         run: |
+          set -euo pipefail
+          # 1) Validación de secret
+          if [ -z "${NEWSAPI_KEY:-}" ]; then
+            echo "::error::NEWSAPI_KEY no está definido en Secrets"
+            exit 1
+          fi
+          echo "NEWSAPI_KEY: OK (definido)"
+
+          # 2) Ejecutar cliente NewsAPI
           python -m news_etl.news_client \
             --out data/news_raw.ndjson \
             --tickers AMZN,MSFT,GOOGL \
             --language en
-          echo "=== Listando data/ ==="
-          ls -l data
 
-      # 3) Ejecuta el ETL: leerá el RAW, procesará con Azure Language
-      #    y subirá SOLO los CSV a tu Blob bajo datasets/news/
+          echo "=== Listando data/ ==="
+          ls -l data || true
+
+          # 3) Validar que el RAW exista y tenga contenido (>0 bytes)
+          if [ ! -s "data/news_raw.ndjson" ]; then
+            echo "::error::No se generó data/news_raw.ndjson (archivo faltante o vacío)."
+            echo "Causas típicas: NEWSAPI_KEY inválida/sin cuota o error en news_client."
+            exit 1
+          fi
+          echo "RAW OK: data/news_raw.ndjson ($(wc -c < data/news_raw.ndjson) bytes)"
+
       - name: Run ETL
         run: |
-          # Verificación defensiva
-          test -f data/news_raw.ndjson || { echo "Falta data/news_raw.ndjson"; exit 1; }
+          set -euo pipefail
+          test -s data/news_raw.ndjson || { echo "::error::Falta data/news_raw.ndjson"; exit 1; }
           python -m news_etl.news_etl --config news_etl/config.yaml
 
-      # 4) Limpia el RAW local para que no quede nada más que los CSV en el Blob
       - name: Cleanup local raw
         if: always()
         run: |
           rm -f data/news_raw.ndjson || true
-          echo "Limpieza hecha; los CSV quedaron en Blob (datasets/news/)."
+          echo "Limpieza hecha; solo quedan CSV en Blob (datasets/news/)."
