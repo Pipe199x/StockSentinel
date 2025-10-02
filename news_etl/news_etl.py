@@ -15,7 +15,7 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple
 import yaml
 
 # Clientes/utilidades locales
-from azure_language import AzureLanguageClient
+from .azure_language import AzureLanguageClient
 
 
 # =========================
