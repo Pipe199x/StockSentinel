@@ -1,0 +1,23 @@
+provider: "newsapi"
+api_base: "https://newsapi.org/v2"
+api_key_env: "NEWSAPI_KEY"
+
+queries:
+  - "Amazon OR AMZN"
+  - "Microsoft OR MSFT"
+  - "Google OR GOOGL"
+
+language: "en"
+from_days: 15
+page_size: 100
+max_pages: 5
+
+sentiment_source: "auto"   # auto | title | description | title_plus_description
+
+output_dir: "data"
+output_format: "ndjson"
+
+azure_language:
+  endpoint_env: "AZURE_LANGUAGE_ENDPOINT"
+  key_env: "AZURE_LANGUAGE_KEY"
+  batch_size: 10
