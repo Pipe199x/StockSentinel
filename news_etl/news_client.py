@@ -1,3 +1,4 @@
+# news_etl/news_client.py
 from __future__ import annotations
 
 import os
@@ -5,14 +6,18 @@ import time
 import logging
 from abc import ABC, abstractmethod
 from typing import Iterable, List, Optional, Dict
-from datetime import datetime
+from datetime import datetime, timedelta
 from dataclasses import dataclass
+import argparse
+import json
+import pathlib
 
 import httpx
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from dateutil import parser as dateparser
 
 logger = logging.getLogger(__name__)
+
 
 @dataclass
 class Article:
@@ -24,6 +29,7 @@ class Article:
     url: str
     raw_tickers: List[str]
     content_snippet: Optional[str] = None  # NewsAPI a veces da ~200 chars
+
 
 class NewsClient(ABC):
     @abstractmethod
@@ -37,6 +43,7 @@ class NewsClient(ABC):
         max_pages: int,
     ) -> Iterable[Article]:
         ...
+
 
 class NewsAPIClient(NewsClient):
     """Cliente NewsAPI (/v2/everything) detrás de una interfaz desacoplada."""
@@ -120,3 +127,93 @@ class NewsAPIClient(NewsClient):
 
     def close(self):
         self._client.close()
+
+
+# -----------------------------
+# CLI para generar NDJSON RAW
+# -----------------------------
+def _ensure_parent(path: str):
+    pathlib.Path(path).parent.mkdir(parents=True, exist_ok=True)
+
+def _dedupe_by_url(rows: List[dict]) -> List[dict]:
+    seen, out = set(), []
+    for r in rows:
+        u = r.get("url")
+        if u and u not in seen:
+            out.append(r)
+            seen.add(u)
+    return out
+
+def build_query_for_ticker(t: str) -> str:
+    t = t.upper().strip()
+    if t == "AMZN":
+        names = ["Amazon", "AWS", "Prime Video", "Ring", "Alexa"]
+    elif t == "MSFT":
+        names = ["Microsoft", "Windows", "Azure", "Xbox", "Copilot"]
+    elif t == "GOOGL":
+        names = ["Google", "Alphabet", "YouTube", "Android", "Gemini"]
+    else:
+        names = [t]
+    # Ej.: (AMZN OR Amazon OR AWS)
+    return "(" + " OR ".join([t] + names) + ")"
+
+def run_cli():
+    ap = argparse.ArgumentParser(description="Descarga noticias con NewsAPI y genera NDJSON RAW.")
+    ap.add_argument("--out", required=True, help="Ruta del NDJSON de salida")
+    ap.add_argument("--tickers", required=True, help="Lista separada por coma, ej.: AMZN,MSFT,GOOGL")
+    ap.add_argument("--language", default="en")
+    ap.add_argument("--days", type=int, default=2, help="Ventana de días hacia atrás")
+    ap.add_argument("--page-size", type=int, default=50)
+    ap.add_argument("--max-pages", type=int, default=2)
+    args = ap.parse_args()
+
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s | %(message)s")
+    client = NewsAPIClient(api_base="https://newsapi.org/v2")
+
+    to_dt = datetime.utcnow()
+    from_dt = to_dt - timedelta(days=max(1, args.days))
+
+    all_rows: List[dict] = []
+    tickers = [t.strip().upper() for t in args.tickers.split(",") if t.strip()]
+    logging.info("Tickers: %s | Ventana: %s → %s", tickers, from_dt.date(), to_dt.date())
+
+    try:
+        for t in tickers:
+            q = build_query_for_ticker(t)
+            logging.info("Consultando: %s", q)
+            for art in client.search(
+                query=q,
+                from_dt=from_dt,
+                to_dt=to_dt,
+                language=args.language,
+                page_size=args.page_size,
+                max_pages=args.max_pages,
+            ):
+                row = {
+                    "published_at": art.published_at,
+                    "source": art.source,
+                    "title": art.title or "",
+                    "summary": art.description or art.content_snippet or "",
+                    "url": art.url,
+                    "raw_tickers": art.raw_tickers,
+                }
+                all_rows.append(row)
+    finally:
+        client.close()
+
+    all_rows = _dedupe_by_url(all_rows)
+    logging.info("Artículos finales (dedupe): %d", len(all_rows))
+
+    _ensure_parent(args.out)
+    with open(args.out, "w", encoding="utf-8") as f:
+        for r in all_rows:
+            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+
+    # Seguridad para el workflow
+    if not all_rows:
+        logging.warning("No se obtuvieron artículos; el archivo queda vacío.")
+    print(f"[news_client] Escrito: {args.out} ({len(all_rows)} líneas)")
+
+
+if __name__ == "__main__":
+    run_cli()
