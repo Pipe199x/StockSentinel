@@ -1,495 +1,479 @@
-#!/usr/bin/env python3
+# news_etl/news_etl.py
 # -*- coding: utf-8 -*-
 
-import os
-import re
-import io
+import argparse
 import csv
-import sys
 import json
-import math
-import yaml
-import hashlib
 import logging
-import datetime as dt
 from collections import defaultdict, Counter
-from urllib.parse import urlparse
+from dataclasses import dataclass, field
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from typing import Any, Dict, Iterable, List, Optional, Tuple
 
-# deps opcionales
+import yaml
+
+# Opcional: subir a Azure Blob si está configurado
 try:
-    from azure.storage.blob import BlobServiceClient, ContentSettings
-    HAS_BLOB = True
+    from azure.storage.blob import BlobServiceClient
+    _AZURE_BLOB_AVAILABLE = True
 except Exception:
-    HAS_BLOB = False
+    _AZURE_BLOB_AVAILABLE = False
 
 # Cliente de Azure Language (tu archivo existente)
-from news_etl.azure_language import AzureLanguageClient
+try:
+    from .azure_language import AzureLanguageClient
+except Exception:
+    # fallback si se ejecuta como script plain (python -m news_etl.news_etl)
+    from azure_language import AzureLanguageClient  # type: ignore
 
-# -----------------------
-# Utils / configuración
-# -----------------------
+LOG = logging.getLogger(__name__)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+)
 
-def load_config(path="config.yaml") -> dict:
-    with open(path, "r", encoding="utf-8") as f:
+# ------------------------------
+# Utilidades
+# ------------------------------
+
+def parse_iso8601(ts: str) -> datetime:
+    # Acepta timestamps con 'Z' o con offset
+    try:
+        return datetime.fromisoformat(ts.replace("Z", "+00:00"))
+    except Exception:
+        # Fallback: algunos feeds vienen sin zona
+        return datetime.strptime(ts, "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
+
+def to_iso8601(dt: datetime) -> str:
+    return dt.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+
+def ensure_dir(p: Path) -> None:
+    p.parent.mkdir(parents=True, exist_ok=True)
+
+# ------------------------------
+# Config
+# ------------------------------
+
+def load_config(path: str) -> Dict[str, Any]:
+    cfg_path = Path(path)
+    if not cfg_path.exists():
+        raise FileNotFoundError(
+            f"No se encontró el archivo de configuración en '{cfg_path}'. "
+            f"CWD='{Path.cwd()}'. Pasa --config con una ruta válida."
+        )
+    with cfg_path.open("r", encoding="utf-8") as f:
         return yaml.safe_load(f) or {}
 
-def now_utc():
-    return dt.datetime.utcnow().replace(tzinfo=dt.timezone.utc)
+# ------------------------------
+# Modelos
+# ------------------------------
 
-def to_date_utc(ts: dt.datetime, tz_name: str = "UTC") -> dt.date:
-    # si quisieras usar pytz/zoneinfo para otra TZ, puedes ampliarlo.
-    return ts.astimezone(dt.timezone.utc).date()
+@dataclass
+class RawItem:
+    published_at: datetime
+    source: str
+    title: str
+    summary: Optional[str]
+    url: str
+    raw_tickers: List[str] = field(default_factory=list)
 
-def parse_iso_datetime(s: str) -> dt.datetime:
-    # Acepta ...Z
-    try:
-        return dt.datetime.fromisoformat(s.replace("Z", "+00:00"))
-    except Exception:
-        # fallback: intenta con strptime comunes
-        for fmt in ("%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%d %H:%M:%S%z"):
+@dataclass
+class EnrichedItem:
+    published_at: datetime
+    source: str
+    title: str
+    summary: Optional[str]
+    url: str
+
+    language: Dict[str, Any] = field(default_factory=dict)
+    sentiment: Dict[str, Any] = field(default_factory=dict)
+    key_phrases: List[str] = field(default_factory=list)
+    entities: List[str] = field(default_factory=list)
+    linked_entities: List[str] = field(default_factory=list)
+
+    tickers: List[str] = field(default_factory=list)  # finales
+
+# ------------------------------
+# Carga de input (raw NDJSON)
+# ------------------------------
+
+def load_raw_news(ndjson_path: Path) -> List[RawItem]:
+    if not ndjson_path.exists():
+        raise FileNotFoundError(f"No existe el input NDJSON: {ndjson_path}")
+
+    items: List[RawItem] = []
+    with ndjson_path.open("r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            obj = json.loads(line)
+
+            published_at = obj.get("published_at") or obj.get("published") or obj.get("date")
+            if not published_at:
+                # Skip si no hay fecha
+                continue
+
             try:
-                return dt.datetime.strptime(s, fmt)
+                dt = parse_iso8601(published_at)
             except Exception:
-                pass
-        # si no, UTC now como último recurso
-        return now_utc()
+                continue
 
-def ensure_dir(p: str):
-    os.makedirs(p, exist_ok=True)
+            items.append(
+                RawItem(
+                    published_at=dt,
+                    source=str(obj.get("source") or obj.get("site") or ""),
+                    title=str(obj.get("title") or ""),
+                    summary=(obj.get("summary") or obj.get("description")),
+                    url=str(obj.get("url") or obj.get("link") or ""),
+                    raw_tickers=list(obj.get("raw_tickers") or obj.get("tickers") or []),
+                )
+            )
+    return items
 
-def sha1(x: str) -> str:
-    return hashlib.sha1(x.encode("utf-8", errors="ignore")).hexdigest()
+# ------------------------------
+# Enriquecimiento (Azure Language)
+# ------------------------------
 
-def fix_mojibake(text: str) -> str:
-    if not isinstance(text, str):
-        return text
-    try:
-        return text.encode("latin1").decode("utf-8")
-    except Exception:
-        return text
+def azure_enrich(
+    items: List[RawItem],
+    az_cfg: Dict[str, Any],
+    batch_size: int = 5
+) -> List[EnrichedItem]:
 
-def host_from_url(url: str) -> str:
-    try:
-        return urlparse(url).netloc.lower()
-    except Exception:
-        return ""
+    flags = (az_cfg.get("tasks")
+             or {"language_detection": True, "sentiment_analysis": True,
+                 "key_phrase_extraction": True, "entity_recognition": True,
+                 "entity_linking": True})
 
-def _host_in_suffix_list(host: str, blocked: list[str]) -> bool:
-    host = (host or "").lower()
-    for b in blocked or []:
-        b = (b or "").lower().strip()
-        if not b:
-            continue
-        if host == b or host.endswith("." + b):
-            return True
-    return False
-
-# -----------------------
-# Fetch (placeholder)
-# -----------------------
-#
-# Esta función es un marcador. Usa tu propio fetch (RSS, APIs, etc.)
-# Debe devolver una lista de items con:
-#   { "published_at": iso8601, "source": str, "title": str, "summary": str|None, "url": str }
-#
-def fetch_news_items(cfg: dict) -> list[dict]:
-    # En tu repositorio original probablemente ya tienes esta fase.
-    # Aquí, asumimos que ya obtuviste una lista `items` antes de enriquecer.
-    # Si ya la tienes, sustituye este bloque por tu llamada real.
-    logging.warning("[FETCH] Usando fetch de ejemplo. Reemplaza con tu implementación real.")
-    return []
-
-# -----------------------
-# Filtros previos
-# -----------------------
-
-def is_language_allowed(lang_iso: str, cfg: dict) -> bool:
-    allow = (cfg.get("filters", {}) or {}).get("languages_allowlist") or []
-    if not allow:
-        return True
-    return (lang_iso or "").lower() in [x.lower() for x in allow]
-
-def is_commerce_spam(text: str, cfg: dict) -> bool:
-    c = (cfg.get("filters", {}) or {}).get("commerce", {}) or {}
-    price_re = [re.compile(rx) for rx in c.get("price_regex") or []]
-    pct_re = [re.compile(rx) for rx in c.get("percent_regex") or []]
-    min_price = int(c.get("min_price_tokens", 0) or 0)
-    min_pct = int(c.get("min_percent_tokens", 0) or 0)
-
-    price_hits = sum(1 for rx in price_re if rx.search(text))
-    pct_hits = sum(1 for rx in pct_re if rx.search(text))
-    if price_hits >= min_price or pct_hits >= min_pct:
-        return True
-    return False
-
-def passes_source_domain_filters(item: dict, cfg: dict) -> bool:
-    url = item.get("url", "")
-    host = host_from_url(url)
-    reg = cfg.get("registry", {}) or {}
-    allow = reg.get("domains_allowlist") or []
-    block = reg.get("domains_blacklist") or []
-
-    # Allowlist (si hay)
-    if allow:
-        if not _host_in_suffix_list(host, allow):
-            return False
-
-    # Blacklist por sufijo
-    if _host_in_suffix_list(host, block):
-        return False
-
-    # Blacklist por "source" textual
-    src = (item.get("source") or "").lower().strip()
-    sb = [s.lower() for s in (cfg.get("filters", {}) or {}).get("source_blacklist", [])]
-    if src and src in sb:
-        return False
-
-    return True
-
-# -----------------------
-# Azure enrichment
-# -----------------------
-
-def build_azure_docs(items: list[dict]) -> list[dict]:
-    docs = []
-    for i, it in enumerate(items, start=1):
-        title = fix_mojibake(it.get("title") or "")
-        summary = fix_mojibake(it.get("summary") or "")
-        text = f"{title}. {summary}".strip()
-        docs.append({"id": str(i), "text": text})
-    return docs
-
-def enrich_with_azure(items: list[dict], cfg: dict) -> list[dict]:
-    alcfg = cfg.get("azure_language", {}) or {}
     client = AzureLanguageClient(
-        endpoint=alcfg.get("endpoint", ""),
-        key=alcfg.get("key", os.getenv("AZURE_LANGUAGE_KEY", "")),
-        api_version=alcfg.get("api_version", "2023-04-01"),
-        force_language=alcfg.get("force_language"),
-        timeout_seconds=int(alcfg.get("timeout_seconds", 30)),
+        endpoint=az_cfg["endpoint"],
+        key=az_cfg.get("key", ""),
+        api_version=az_cfg.get("api_version", "2023-04-01"),
+        force_language=az_cfg.get("force_language"),
+        timeout_seconds=int(az_cfg.get("timeout_seconds", 30)),
     )
-    flags = alcfg.get("tasks") or {}
 
-    docs = build_azure_docs(items)
+    # Preparamos documentos: usamos title + summary para mejor señal
+    docs: List[Dict[str, Any]] = []
+    for idx, it in enumerate(items, start=1):
+        text = it.title
+        if it.summary:
+            text = f"{it.title}. {it.summary}"
+        docs.append({"id": str(idx), "text": text})
+
+    # Llamada a Azure
     grouped = client.analyze_batch(docs, tasks=flags)
-    parsed = client.parse_results(grouped)  # id -> dict con language/sentiment/kp/entities/linked
+    per_doc = AzureLanguageClient.parse_results(grouped)
 
-    # acoplar resultados por índice
-    out = []
-    for i, it in enumerate(items, start=1):
-        rid = str(i)
-        res = parsed.get(rid, {})
-        it2 = dict(it)  # copia
-        it2["language"] = res.get("language")
-        it2["sentiment"] = res.get("sentiment")
-        it2["key_phrases"] = res.get("key_phrases", [])
-        it2["entities"] = res.get("entities", [])
-        it2["linked_entities"] = res.get("linked_entities", [])
-        out.append(it2)
+    # Mapear de vuelta
+    enriched: List[EnrichedItem] = []
+    for idx, it in enumerate(items, start=1):
+        r = per_doc.get(str(idx), {})
+        enriched.append(
+            EnrichedItem(
+                published_at=it.published_at,
+                source=it.source,
+                title=it.title,
+                summary=it.summary,
+                url=it.url,
+                language=r.get("language") or {},
+                sentiment=r.get("sentiment") or {},
+                key_phrases=r.get("key_phrases") or [],
+                entities=r.get("entities") or [],
+                linked_entities=r.get("linked_entities") or [],
+                tickers=list(it.raw_tickers),  # por si venía algo del raw
+            )
+        )
+    return enriched
+
+# ------------------------------
+# Tickers (por entidades)
+# ------------------------------
+
+def build_ticker_matcher(cfg: Dict[str, Any]) -> List[Tuple[str, List[str]]]:
+    """
+    Devuelve lista de (ticker, lista_de_sinónimos_en_minúsculas)
+    """
+    mapping = cfg.get("ticker_matching", {})
+    out: List[Tuple[str, List[str]]] = []
+    for ticker, syns in mapping.items():
+        syns_lc = [s.strip().lower() for s in (syns or []) if s and isinstance(s, str)]
+        if syns_lc:
+            out.append((ticker, syns_lc))
     return out
 
-# -----------------------
-# Ticker tagging
-# -----------------------
-
-def tag_tickers(item: dict, cfg: dict) -> list[str]:
-    tcfg = cfg.get("ticker_tagging", {}) or {}
-    if not tcfg.get("enabled", True):
-        return []
-
-    patterns = tcfg.get("tickers", {}) or {}
-    negative = [re.compile(rx, re.I) for rx in (tcfg.get("negative_patterns") or [])]
-
-    title = fix_mojibake(item.get("title") or "")
-    summary = fix_mojibake(item.get("summary") or "")
-    text = " ".join([title, summary, item.get("source") or ""])
-    url = item.get("url", "")
-
-    # cortar por patrones negativos
-    if any(rx.search(text) or rx.search(url) for rx in negative):
-        return []
+def infer_tickers(it: EnrichedItem, matcher: List[Tuple[str, List[str]]]) -> List[str]:
+    haystack = set()
+    # juntamos texto relevante en minúsculas
+    for s in [it.title, it.summary or ""]:
+        if s:
+            haystack.update(w.strip().lower() for w in s.split())
 
     # entidades
-    ents = [e.lower() for e in (item.get("entities") or [])]
-    linked = [e.lower() for e in (item.get("linked_entities") or [])]
+    for l in (it.entities or []):
+        haystack.add(l.lower().strip())
+    for l in (it.linked_entities or []):
+        haystack.add(l.lower().strip())
+    for l in (it.key_phrases or []):
+        haystack.add(l.lower().strip())
 
-    found = set()
+    out = set(it.tickers or [])
+    for ticker, syns in matcher:
+        if any(any(k in token for token in haystack) for k in syns):
+            out.add(ticker)
+    # Normaliza a orden estable
+    return sorted(out)
 
-    # helper Android→Google (solo si también hay Google)
-    def ok_android_for_google():
-        t = (title + " " + summary).lower()
-        if "android" not in t:
-            return True
-        return ("google" in t) or ("alphabet" in t) or any(le in ("google", "alphabet", "android") for le in linked)
+# ------------------------------
+# Filtrado por ventana temporal y límites diarios
+# ------------------------------
 
-    for ticker, regs in patterns.items():
-        compiled = [re.compile(rx) for rx in regs or []]
+def filter_by_date(items: List[EnrichedItem], days_back: int) -> List[EnrichedItem]:
+    if days_back <= 0:
+        return items
+    today_utc = datetime.now(timezone.utc)
+    start_dt = today_utc - timedelta(days=days_back)
+    return [it for it in items if it.published_at >= start_dt]
 
-        # chequeo texto/plano
-        matched_text = any(rx.search(title) or rx.search(summary) for rx in compiled)
+def limit_per_day_and_ticker(
+    items: List[EnrichedItem],
+    per_ticker_limit: int,
+    include_no_ticker: bool,
+    no_ticker_per_day_limit: int,
+) -> List[EnrichedItem]:
+    """
+    Aplica: máximo N por (día, ticker). Maneja 'sin ticker' aparte.
+    No descarta notas con múltiples tickers: una nota cuenta para cada ticker.
+    """
+    if per_ticker_limit <= 0 and (not include_no_ticker or no_ticker_per_day_limit <= 0):
+        return []
 
-        # chequeo por entidades/linking
-        joined_set = " ".join(ents + linked)
-        matched_ent = any(rx.search(joined_set) for rx in compiled)
+    # Orden estable (por fecha desc/asc – aquí usamos desc para tener lo más reciente primero)
+    items_sorted = sorted(items, key=lambda x: x.published_at, reverse=True)
 
-        if ticker == "GOOGL" and not ok_android_for_google():
-            continue
+    # Contadores
+    taken: List[EnrichedItem] = []
+    count_by_day_ticker: Dict[Tuple[str, str], int] = Counter()
+    count_no_ticker_by_day: Dict[str, int] = Counter()
 
-        if matched_text or matched_ent:
-            found.add(ticker)
+    for it in items_sorted:
+        day = it.published_at.astimezone(timezone.utc).date().isoformat()
+        if it.tickers:
+            # Si tiene tickers, verificamos para cada uno
+            added_for_this_item = False
+            for tk in it.tickers:
+                key = (day, tk)
+                if count_by_day_ticker[key] < per_ticker_limit:
+                    count_by_day_ticker[key] += 1
+                    added_for_this_item = True
+            if added_for_this_item:
+                taken.append(it)
+        else:
+            # sin ticker
+            if include_no_ticker and no_ticker_per_day_limit > 0:
+                if count_no_ticker_by_day[day] < no_ticker_per_day_limit:
+                    count_no_ticker_by_day[day] += 1
+                    taken.append(it)
 
-    return sorted(found)
+    # Para presentación final, orden cronológico ascendente
+    taken = sorted(taken, key=lambda x: x.published_at)
+    return taken
 
-# -----------------------
-# Ventana de 15 días + límite por día
-# -----------------------
+# ------------------------------
+# Salida (NDJSON + CSV)
+# ------------------------------
 
-def in_last_n_days(published_at: str, n_days: int) -> bool:
-    if not published_at:
-        return False
-    ts = parse_iso_datetime(published_at)
-    now = now_utc()
-    delta = now - ts
-    return 0 <= delta.days <= max(0, n_days - 1) or (now.date() == ts.date())
+def write_outputs(
+    items: List[EnrichedItem],
+    out_dir: Path,
+    prefix: str = "news"
+) -> Tuple[Path, Path]:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    today_tag = datetime.now(timezone.utc).strftime("%Y%m%d")
 
-def truncate_to_day(dt_iso: str, tz_name: str = "UTC") -> str:
-    ts = parse_iso_datetime(dt_iso)
-    d = to_date_utc(ts, tz_name)
-    return d.isoformat()  # YYYY-MM-DD
+    ndjson_path = out_dir / f"{prefix}_{today_tag}.ndjson"
+    csv_path = out_dir / f"{prefix}_preview_{today_tag}.csv"
 
-def apply_date_and_limits(items: list[dict], cfg: dict) -> list[dict]:
-    dw = cfg.get("date_window", {}) or {}
-    days_back = int(dw.get("days_back", 15))
-    tz_name = dw.get("tz", "UTC")
+    # NDJSON (completo)
+    with ndjson_path.open("w", encoding="utf-8") as f:
+        for it in items:
+            obj = {
+                "published_at": to_iso8601(it.published_at),
+                "source": it.source,
+                "title": it.title,
+                "summary": it.summary,
+                "url": it.url,
+                "language": it.language,
+                "sentiment": it.sentiment,
+                "key_phrases": it.key_phrases,
+                "entities": it.entities,
+                "linked_entities": it.linked_entities,
+                "tickers": it.tickers,
+            }
+            f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
-    limits = cfg.get("daily_limits", {}) or {}
-    per_ticker_limit = int(limits.get("per_ticker_limit", 3))
-    include_no_ticker = bool(limits.get("include_no_ticker", True))
-    no_ticker_limit = int(limits.get("no_ticker_per_day_limit", 999))
-
-    # 1) Filtrar por ventana móvil
-    items15 = [it for it in items if in_last_n_days(it.get("published_at"), days_back)]
-
-    # 2) Agrupar por día
-    by_day: dict[str, list[dict]] = defaultdict(list)
-    for it in items15:
-        day = truncate_to_day(it.get("published_at"), tz_name)
-        by_day[day].append(it)
-
-    selected_all: list[dict] = []
-
-    # 3) Por día, aplicar límites por ticker (sin perder los sin ticker)
-    for day, bucket in by_day.items():
-        # separar por ticker y sin ticker
-        per_ticker: dict[str, list[dict]] = defaultdict(list)
-        no_ticker: list[dict] = []
-
-        for it in bucket:
-            tks = it.get("tickers") or []
-            if tks:
-                for tk in set(tks):
-                    per_ticker[tk].append(it)
-            else:
-                no_ticker.append(it)
-
-        # Para evitar duplicados si un mismo item tiene varios tickers, vamos a ir marcando IDs
-        emitted_ids = set()
-
-        # 3a) limitar por ticker
-        for tk, arr in per_ticker.items():
-            # mantener orden estable por published_at descendente
-            arr_sorted = sorted(arr, key=lambda x: x.get("published_at", ""), reverse=True)
-            for it in arr_sorted[:per_ticker_limit]:
-                _id = it.get("_row_id") or sha1(it.get("url", "") + (it.get("title") or ""))
-                if _id in emitted_ids:
-                    continue
-                it["_selected_day"] = day
-                selected_all.append(it)
-                emitted_ids.add(_id)
-
-        # 3b) incluir sin ticker (con su propio límite)
-        if include_no_ticker and no_ticker_limit > 0:
-            no_ticker_sorted = sorted(no_ticker, key=lambda x: x.get("published_at", ""), reverse=True)
-            take = no_ticker_sorted[:no_ticker_limit]
-            for it in take:
-                _id = it.get("_row_id") or sha1(it.get("url", "") + (it.get("title") or ""))
-                if _id in emitted_ids:
-                    continue
-                it["_selected_day"] = day
-                selected_all.append(it)
-                emitted_ids.add(_id)
-
-    # Orden final por fecha descendente
-    selected_all.sort(key=lambda x: x.get("published_at", ""), reverse=True)
-    return selected_all
-
-# -----------------------
-# Pipeline principal
-# -----------------------
-
-def build_preview_csv(rows: list[dict], out_csv: str, max_rows: int = 1000):
-    header = [
-        "published_at","source","title","lang",
-        "sentiment_label","sentiment_score","tickers","url",
-        "key_phrases","entities","linked_entities"
+    # CSV (preview)
+    headers = [
+        "published_at", "source", "title", "lang",
+        "sentiment_label", "sentiment_score",
+        "tickers", "url",
+        "key_phrases", "entities", "linked_entities",
     ]
-    with open(out_csv, "w", encoding="utf-8", newline="") as f:
-        w = csv.writer(f)
-        w.writerow(header)
-        for r in rows[:max_rows]:
-            lang_iso = (r.get("language") or {}).get("iso")
-            sent = r.get("sentiment") or {}
-            tks = r.get("tickers") or []
-            kps = r.get("key_phrases") or []
-            ents = r.get("entities") or []
-            links = r.get("linked_entities") or []
+    with csv_path.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=headers)
+        w.writeheader()
+        for it in items:
+            lang_iso = (it.language or {}).get("iso")
+            sent = it.sentiment or {}
+            label = sent.get("label")
+            score = sent.get("score")
+            w.writerow({
+                "published_at": to_iso8601(it.published_at),
+                "source": it.source,
+                "title": it.title,
+                "lang": lang_iso,
+                "sentiment_label": label,
+                "sentiment_score": f"{score:.2f}" if isinstance(score, (int, float)) else "",
+                "tickers": ",".join(it.tickers),
+                "url": it.url,
+                "key_phrases": "|".join(it.key_phrases),
+                "entities": "|".join(it.entities),
+                "linked_entities": "|".join(it.linked_entities),
+            })
 
-            w.writerow([
-                r.get("published_at",""),
-                r.get("source",""),
-                fix_mojibake(r.get("title","")),
-                lang_iso or "",
-                sent.get("label") or "",
-                f"{sent.get('score') or 0:.2f}",
-                ",".join(tks),
-                r.get("url",""),
-                "|".join(kps),
-                "|".join(ents),
-                "|".join(links),
-            ])
+    LOG.info("[OUTPUT] NDJSON=%s CSV=%s", ndjson_path, csv_path)
+    return ndjson_path, csv_path
 
-def upload_blob(cfg: dict, local_path: str, remote_name: str, content_type: str = "application/octet-stream"):
-    ab = cfg.get("azure_blob", {}) or {}
-    if not ab.get("enabled", False):
+# ------------------------------
+# Azure Blob (opcional)
+# ------------------------------
+
+def maybe_upload_to_blob(
+    cfg: Dict[str, Any],
+    files: Dict[str, Path],
+    remote_prefix: str = "news"
+) -> None:
+    storage = cfg.get("storage", {}) or {}
+    if not storage.get("enabled", False):
         return
-    if not HAS_BLOB:
-        logging.warning("[BLOB] azure-storage-blob no instalado; skip upload.")
+    if not _AZURE_BLOB_AVAILABLE:
+        LOG.warning("azure-storage-blob no disponible; omitimos upload.")
         return
 
-    account_url = ab.get("account_url")
-    container = ab.get("container")
-    prefix = ab.get("prefix_path", "").strip("/")
+    conn_str = storage.get("connection_string")
+    container = storage.get("container")
+    if not conn_str or not container:
+        LOG.warning("[BLOB] Falta connection_string o container; omitimos upload.")
+        return
 
-    sas = ab.get("sas_token") or os.getenv("AZ_BLOB_SAS_TOKEN", "")
-    if sas and not sas.startswith("?"):
-        sas = "?" + sas
-
-    bsc = BlobServiceClient(account_url=account_url + sas)
+    bsc = BlobServiceClient.from_connection_string(conn_str)
     client = bsc.get_container_client(container)
 
-    blob_name = f"{prefix}/{remote_name}" if prefix else remote_name
-    logging.info("[BLOB] Subiendo %s -> %s", local_path, blob_name)
-    with open(local_path, "rb") as f:
-        client.upload_blob(
-            name=blob_name,
-            data=f,
-            overwrite=True,
-            content_settings=ContentSettings(content_type=content_type),
-        )
+    for logical_name, path in files.items():
+        blob_name = f"{remote_prefix}/{path.name}"
+        LOG.info("[BLOB] Subiendo %s -> %s", path, blob_name)
+        with path.open("rb") as f:
+            client.upload_blob(name=blob_name, data=f, overwrite=True)
 
-def main():
-    cfg = load_config()
-    logging.basicConfig(
-        level=getattr(logging, (cfg.get("logging", {}) or {}).get("level", "INFO")),
-        format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+    # Heartbeat
+    hb_path = Path("data/heartbeat.txt")
+    hb_path.write_text(f"{datetime.now(timezone.utc).isoformat()}\n", encoding="utf-8")
+    client.upload_blob(
+        name=f"{remote_prefix}/heartbeat.txt",
+        data=hb_path.open("rb"),
+        overwrite=True
     )
-    log = logging.getLogger(__name__)
+    LOG.info("[BLOB] Heartbeat subido.")
 
-    out_cfg = cfg.get("output", {}) or {}
-    out_dir = out_cfg.get("dir", "data")
-    ensure_dir(out_dir)
+# ------------------------------
+# MAIN
+# ------------------------------
 
-    # 1) Fetch
-    raw_items = fetch_news_items(cfg)  # reemplaza por tu propio loader si ya lo tienes
-    log.info("[FETCH] items crudos: %d", len(raw_items))
+def main() -> None:
+    parser = argparse.ArgumentParser(description="ETL de noticias (enriquecimiento + filtros).")
+    parser.add_argument("--config", required=True, help="Ruta al archivo config.yaml")
+    parser.add_argument("--print-config-path", action="store_true")
+    # Overrides opcionales
+    parser.add_argument("--days-back", type=int, default=None, help="Últimos N días (override)")
+    parser.add_argument("--per-ticker-limit", type=int, default=None, help="Máximo por ticker y por día (override)")
+    parser.add_argument("--include-no-ticker", action="store_true", help="Incluir notas sin ticker (override ON)")
+    parser.add_argument("--exclude-no-ticker", action="store_true", help="Excluir notas sin ticker (override OFF)")
+    parser.add_argument("--no-ticker-per-day-limit", type=int, default=None, help="Máximo por día para sin ticker")
 
-    # 2) Pre-filtrado por dominio/source y heurísticas básicas
-    pre = []
-    for it in raw_items:
-        url = it.get("url","")
-        title = it.get("title") or ""
-        summary = it.get("summary") or ""
-        if not url or not title:
-            continue
-        if not passes_source_domain_filters(it, cfg):
-            continue
-        text_for_commerce = " ".join([title, summary, url])
-        if is_commerce_spam(text_for_commerce, cfg):
-            continue
-        pre.append(it)
-    log.info("[FILTER] tras filtros iniciales: %d", len(pre))
+    args = parser.parse_args()
+    cfg = load_config(args.config)
 
-    if not pre:
-        log.warning("No hay items tras filtros. Saliendo.")
-        return
+    if args.print_config_path:
+        LOG.info("[ETL] Usando configuración desde: %s", Path(args.config).resolve())
 
-    # 3) Enriquecimiento Azure
-    enriched = enrich_with_azure(pre, cfg)
-    log.info("[AZURE] enriquecidos: %d", len(enriched))
+    inputs_cfg = cfg.get("inputs", {}) or {}
+    raw_path = Path(inputs_cfg.get("raw_ndjson", "data/news_raw.ndjson"))
 
-    # 4) Filtrar por idioma permitido (si está configurado)
-    enriched2 = []
+    enrich_cfg = cfg.get("azure_language", {}) or {}
+    days_back = args.days_back if args.days_back is not None else int(cfg.get("days_back", 1))
+
+    limits_cfg = cfg.get("daily_limits", {}) or {}
+    per_ticker_limit = args.per_ticker_limit if args.per_ticker_limit is not None else int(limits_cfg.get("per_ticker_limit", 3))
+    include_no_ticker = limits_cfg.get("include_no_ticker", True)
+    if args.include_no_ticker:
+        include_no_ticker = True
+    if args.exclude_no_ticker:
+        include_no_ticker = False
+    no_ticker_per_day_limit = args.no_ticker_per_day_limit if args.no_ticker_per_day_limit is not None else int(limits_cfg.get("no_ticker_per_day_limit", 1))
+
+    out_dir = Path(cfg.get("outputs", {}).get("dir", "data"))
+    out_prefix = cfg.get("outputs", {}).get("prefix", "news")
+
+    # 1) Cargar RAW
+    LOG.info("[STEP] Leyendo RAW desde %s", raw_path)
+    raw_items = load_raw_news(raw_path)
+    LOG.info("[SUMMARY] RAW cargado: %d items", len(raw_items))
+
+    # 2) Enriquecer (Azure)
+    LOG.info("[STEP] Enriqueciendo con Azure Language…")
+    enriched = azure_enrich(raw_items, enrich_cfg)
+    LOG.info("[SUMMARY] Enriquecidos: %d", len(enriched))
+
+    # 3) Tickers (matcher por config)
+    matcher = build_ticker_matcher(cfg)
     for it in enriched:
-        lang_iso = (it.get("language") or {}).get("iso")
-        if is_language_allowed(lang_iso or "", cfg):
-            enriched2.append(it)
-    log.info("[LANG] tras language_allowlist: %d", len(enriched2))
+        it.tickers = infer_tickers(it, matcher)
 
-    # 5) Ticker tagging
-    for it in enriched2:
-        it["tickers"] = tag_tickers(it, cfg)
+    # 4) Filtro temporal
+    before_filter = len(enriched)
+    enriched = filter_by_date(enriched, days_back=days_back)
+    LOG.info("[FILTER] Últimos %d días: %d -> %d", days_back, before_filter, len(enriched))
 
-    # 6) Aplicar ventana de 15 días y límites por día/ticker
-    windowed = apply_date_and_limits(enriched2, cfg)
-    log.info("[WINDOW] seleccionados tras 15 días + límites diarios: %d", len(windowed))
+    # 5) Límites diarios por ticker (+ sin ticker opcional)
+    before_limit = len(enriched)
+    limited = limit_per_day_and_ticker(
+        enriched,
+        per_ticker_limit=per_ticker_limit,
+        include_no_ticker=include_no_ticker,
+        no_ticker_per_day_limit=no_ticker_per_day_limit,
+    )
+    LOG.info(
+        "[LIMIT] per_ticker=%d include_no_ticker=%s no_ticker/day=%d: %d -> %d",
+        per_ticker_limit, include_no_ticker, no_ticker_per_day_limit, before_limit, len(limited)
+    )
 
-    # 7) Salidas (NDJSON + preview CSV)
-    prefix = out_cfg.get("prefix", "news")
-    ts_day = now_utc().date().isoformat().replace("-", "")
-    ndjson_path = os.path.join(out_dir, f"{prefix}_{ts_day}.ndjson")
-    with open(ndjson_path, "w", encoding="utf-8") as f:
-        for it in windowed:
-            f.write(json.dumps(it, ensure_ascii=False) + "\n")
+    # 6) Salida
+    ndjson_path, csv_path = write_outputs(limited, out_dir=out_dir, prefix=out_prefix)
 
-    if out_cfg.get("preview_csv", True):
-        csv_path = os.path.join(out_dir, f"{prefix}_preview_{ts_day}.csv")
-        build_preview_csv(windowed, csv_path, max_rows=int(out_cfg.get("preview_max_rows", 1000)))
-    else:
-        csv_path = None
+    # 7) Métricas simples
+    langs = Counter((it.language or {}).get("iso", "??") for it in limited)
+    sentiments = Counter((it.sentiment or {}).get("label", "unknown") for it in limited)
+    LOG.info("[SUMMARY] escritos=%d", len(limited))
+    LOG.info("[SUMMARY] languages=%s", dict(langs))
+    LOG.info("[SUMMARY] sentiment=%s", dict(sentiments))
 
-    # 8) Heartbeat
-    hb_path = os.path.join(out_dir, "heartbeat.txt")
-    with open(hb_path, "w", encoding="utf-8") as f:
-        f.write(now_utc().isoformat())
-
-    # 9) Uploads
-    if cfg.get("azure_blob", {}).get("enabled", False):
-        # NDJSON
-        upload_blob(
-            cfg, ndjson_path,
-            remote_name=os.path.basename(ndjson_path),
-            content_type="application/x-ndjson",
-        )
-        if csv_path:
-            upload_blob(
-                cfg, csv_path,
-                remote_name=os.path.basename(csv_path),
-                content_type="text/csv",
-            )
-        upload_blob(
-            cfg, hb_path,
-            remote_name="heartbeat.txt",
-            content_type="text/plain",
-        )
-
-    # 10) Summary
-    langs = Counter([(it.get("language") or {}).get("iso") for it in windowed])
-    sents = Counter([(it.get("sentiment") or {}).get("label") for it in windowed])
-    log.info("[SUMMARY] seleccionados=%d", len(windowed))
-    log.info("[SUMMARY] languages=%s", dict(langs))
-    log.info("[SUMMARY] sentiment=%s", dict(sents))
-    outs = f"ndjson={ndjson_path} preview_csv={csv_path or '-'} heartbeat={hb_path}"
-    log.info("[SUMMARY] outputs: %s", outs)
+    # 8) Upload opcional
+    try:
+        maybe_upload_to_blob(cfg, {"ndjson": ndjson_path, "preview_csv": csv_path}, remote_prefix=cfg.get("outputs", {}).get("blob_prefix", "news"))
+    except Exception as ex:
+        LOG.warning("Upload a blob falló (no crítico): %s", ex)
 
 if __name__ == "__main__":
     main()
