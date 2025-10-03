@@ -16,33 +16,30 @@ from news_etl.azure_language import AzureLanguageClient
 # --- Azure Blob (opcional)
 try:
     from azure.storage.blob import BlobServiceClient, ContentSettings
-except Exception:  # paquete no instalado en local
+except Exception:
     BlobServiceClient = None
     ContentSettings = None
 
 LOG = logging.getLogger(__name__)
 
-# =============================================================================
-# Utilidades básicas
-# =============================================================================
+# =========================
+# Utilidades de archivo
+# =========================
 def render_date_pattern(s: str, date_str: str) -> str:
     return s.replace("{{date}}", date_str)
-
 
 def load_yaml(path: str) -> dict:
     with open(path, "r", encoding="utf-8") as f:
         txt = os.path.expandvars(f.read())
     return yaml.safe_load(txt)
 
-
 def ensure_dir_for_file(path: str):
     d = os.path.dirname(path)
     if d:
         os.makedirs(d, exist_ok=True)
 
-
 def read_ndjson(path: str) -> List[dict]:
-    items = []
+    items: List[dict] = []
     with open(path, "r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
@@ -51,26 +48,11 @@ def read_ndjson(path: str) -> List[dict]:
             items.append(json.loads(line))
     return items
 
-
 def write_ndjson(path: str, rows: List[dict]):
     ensure_dir_for_file(path)
     with open(path, "w", encoding="utf-8") as f:
         for r in rows:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
-
-
-def _stringify_cell(v: Any) -> str:
-    """
-    Normaliza valores para CSV: listas -> '; ' join, dict -> JSON, resto -> str.
-    """
-    if isinstance(v, list):
-        return "; ".join(str(x) for x in v)
-    if isinstance(v, dict):
-        return json.dumps(v, ensure_ascii=False)
-    if v is None:
-        return ""
-    return str(v)
-
 
 def write_csv_preview(path: str, rows: List[dict], cols: List[str]):
     ensure_dir_for_file(path)
@@ -79,71 +61,78 @@ def write_csv_preview(path: str, rows: List[dict], cols: List[str]):
         for r in rows:
             vals = []
             for c in cols:
-                s = _stringify_cell(r.get(c, ""))
-                # escapa comillas
-                s = s.replace('"', '""')
+                v = r.get(c, "")
+                if isinstance(v, (dict, list)):
+                    v = json.dumps(v, ensure_ascii=False)
+                s = str(v).replace('"', '""')
                 vals.append(f"\"{s}\"")
             f.write(",".join(vals) + "\n")
 
-
+# =========================
+# Filtros
+# =========================
 def domain_from_url(url: str) -> str:
     try:
-        return re.sub(r"^www\.", "", re.findall(r"https?://([^/]+)", url, re.I)[0].lower())
+        m = re.findall(r"https?://([^/]+)", url, re.I)
+        if not m:
+            return ""
+        dom = m[0].lower()
+        return re.sub(r"^www\.", "", dom)
     except Exception:
         return ""
 
-# =============================================================================
-# Filtros
-# =============================================================================
 def passes_filters(item: dict, cfg: dict) -> bool:
     src = (item.get("source") or "").lower()
     title = item.get("title") or ""
     url = item.get("url") or ""
     dom = domain_from_url(url)
 
-    fcfg = cfg.get("filters", {})
+    fcfg = cfg.get("filters", {}) or {}
+
+    # Whitelist
     wl = [d.lower() for d in fcfg.get("allowed_sources_whitelist", [])]
-    bl = [d.lower() for d in fcfg.get("source_blacklist", [])]
     if wl and src not in wl:
         return False
+
+    # Blacklist por source/dom
+    bl = [d.lower() for d in fcfg.get("source_blacklist", [])]
     if src in bl or dom in bl:
         return False
 
+    # Regex de exclusión por título/URL
     for rx in fcfg.get("exclude_phrases", []):
-        if re.search(rx, title) or re.search(rx, url):
+        if re.search(rx, title, re.I) or re.search(rx, url, re.I):
             return False
 
-    # blacklist de registro
+    # Blacklist de registro
     if dom in [d.lower() for d in cfg.get("registry_domains_blacklist", [])]:
         return False
 
-    # filtro commerce
-    c = cfg.get("commerce_filter", {})
-    if c.get("enabled", False):
+    # Commerce filter
+    c = cfg.get("commerce_filter", {}) or {}
+    if c.get("enabled"):
+        allowed = [d.lower() for d in c.get("allowed_corporate_domains", [])]
+
         for rx in c.get("title_url_terms", []):
-            if re.search(rx, title) or re.search(rx, url):
-                allowed = [d.lower() for d in c.get("allowed_corporate_domains", [])]
+            if re.search(rx, title, re.I) or re.search(rx, url, re.I):
                 if dom not in allowed:
                     return False
         for rx in c.get("path_terms", []):
-            if re.search(rx, url):
-                allowed = [d.lower() for d in c.get("allowed_corporate_domains", [])]
+            if re.search(rx, url, re.I):
                 if dom not in allowed:
                     return False
 
-        price_rx = re.compile(c["price_percent_rules"]["price_regex"])
-        perc_rx = re.compile(c["price_percent_rules"]["percent_regex"])
-        tokens = title + " " + url
-        price_hits = len(price_rx.findall(tokens))
-        perc_hits = len(perc_rx.findall(tokens))
+        # Señales fuertes de precio/%
+        prx = re.compile(c["price_percent_rules"]["price_regex"])
+        prc = re.compile(c["price_percent_rules"]["percent_regex"])
+        price_hits = len(prx.findall(f"{title} {url}"))
+        perc_hits = len(prc.findall(f"{title} {url}"))
         if price_hits >= c["price_percent_rules"]["min_price_tokens"] or \
-           perc_hits >= c["price_percent_rules"]["min_percent_tokens"]:
-            allowed = [d.lower() for d in c.get("allowed_corporate_domains", [])]
+           perc_hits  >= c["price_percent_rules"]["min_percent_tokens"]:
             if dom not in allowed:
                 return False
 
     return True
-
 
 def dedupe_by_url(items: List[dict]) -> List[dict]:
     seen = set()
@@ -155,51 +144,121 @@ def dedupe_by_url(items: List[dict]) -> List[dict]:
             seen.add(u)
     return out
 
-# =============================================================================
-# Tagging de tickers (regex + entidades)
-# =============================================================================
-def tag_tickers(item: dict, cfg: dict, ent_names: List[str], linked_names: List[str]) -> List[str]:
-    tick_cfg = cfg.get("ticker_tagging", {})
-    if not tick_cfg.get("enabled", False):
+# =========================
+# Tagging por ticker
+# =========================
+def tag_tickers(item: dict, cfg: dict) -> List[str]:
+    if not cfg.get("ticker_tagging", {}).get("enabled", False):
         return []
 
-    text = f"{item.get('title','')} {item.get('summary','')} {item.get('source','')}"
-    text_lower = text.lower()
-    ents_lower = {e.lower() for e in ent_names + linked_names}
+    patterns_by_ticker = cfg["ticker_tagging"]["tickers"]
+    text = " ".join([
+        item.get("title","") or "",
+        item.get("summary","") or "",
+        item.get("source","") or "",
+    ])
 
-    out = set()
+    # también usamos entidades devueltas por Azure
+    entities = item.get("entities") or []
+    linked = item.get("linked_entities") or []
+    entity_pool = set([e.strip() for e in entities + linked if isinstance(e, str)])
 
-    # reglas explícitas por regex
-    for ticker, patterns in tick_cfg.get("tickers", {}).items():
+    found = set()
+
+    for ticker, patterns in patterns_by_ticker.items():
+        hit = False
         for rx in patterns:
-            if re.search(rx, text, re.I):
-                out.add(ticker)
+            if re.search(rx, text):
+                hit = True
                 break
+            # match directo contra entidades
+            for name in entity_pool:
+                if re.search(rx, name):
+                    hit = True
+                    break
+            if hit:
+                break
+        if hit:
+            found.add(ticker)
 
-    # mapping por entidades (si aparecen en Entities/LinkedEntities)
-    ent_map = tick_cfg.get("entity_name_map", {})  # {"microsoft": "MSFT", ...}
-    for name, tk in ent_map.items():
-        if (name.lower() in text_lower) or (name.lower() in ents_lower):
-            out.add(tk)
+    return sorted(list(found))
 
-    return sorted(out)
+# =========================
+# Límite por (día, ticker) SOLO en scope
+# =========================
+def _date_key(dt_str: str) -> str:
+    if not dt_str:
+        return "unknown"
+    try:
+        dt = datetime.fromisoformat(dt_str.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc).strftime("%Y-%m-%d")
+    except Exception:
+        return "unknown"
 
-# =============================================================================
-# Azure Blob helpers (Connection String)
-# =============================================================================
+def apply_scoped_limit(enriched_rows: List[dict], cfg: dict) -> List[dict]:
+    rt = cfg.get("runtime", {}) or {}
+    N = int(rt.get("limit_per_ticker_per_day", 0) or 0)
+    scope = set([t.upper() for t in (rt.get("limit_ticker_scope") or [])])
+    if N <= 0 or not scope:
+        return enriched_rows
+
+    rows = list(enriched_rows)
+    if bool(rt.get("newest_first", True)):
+        rows.sort(key=lambda r: (r.get("published_at") or ""), reverse=True)
+
+    counters: Dict[tuple, int] = {}
+    kept_ids = set()
+    for r in rows:
+        day = _date_key(r.get("published_at") or "")
+        if day == "unknown":
+            kept_ids.add(id(r))
+            continue
+
+        tickers = [t.upper() for t in (r.get("tickers") or [])]
+        in_scope = [t for t in tickers if t in scope]
+        if not in_scope:
+            kept_ids.add(id(r))
+            continue
+
+        # elegir ticker del scope con menor consumo ese día
+        best_t = None
+        best_val = None
+        for t in in_scope:
+            v = counters.get((day, t), 0)
+            if best_val is None or v < best_val:
+                best_val = v
+                best_t = t
+
+        if best_t is None:
+            kept_ids.add(id(r))
+            continue
+
+        if counters.get((day, best_t), 0) < N:
+            kept_ids.add(id(r))
+            counters[(day, best_t)] = counters.get((day, best_t), 0) + 1
+        # else: descartada por límite
+
+    # volver al orden original de enriched_rows
+    final = [r for r in enriched_rows if id(r) in kept_ids]
+    return final
+
+# =========================
+# Azure Blob helpers
+# =========================
 def _blob_container_client_from_cfg(blob_cfg: dict):
     if not blob_cfg.get("enabled", False):
         return None
     if BlobServiceClient is None:
-        LOG.warning("azure-storage-blob no instalado; omitiendo upload")
+        LOG.warning("azure-storage-blob no instalado; omitiendo upload.")
         return None
     conn = os.getenv("AZURE_STORAGE_CONNECTION_STRING") or blob_cfg.get("connection_string")
     if not conn:
-        LOG.warning("Connection String vacío; omitiendo upload")
+        LOG.warning("Connection String vacío; omitiendo upload.")
         return None
     svc = BlobServiceClient.from_connection_string(conn)
     return svc.get_container_client(blob_cfg["container"])
-
 
 def _content_type(path: str, blob_cfg: dict):
     if ContentSettings is None:
@@ -208,9 +267,8 @@ def _content_type(path: str, blob_cfg: dict):
     ct = (blob_cfg.get("content_types") or {}).get(ext)
     return ContentSettings(content_type=ct) if ct else None
 
-
 def upload_files_to_blob(cfg: dict, local_paths: Dict[str, str]):
-    blob_cfg = cfg.get("azure_blob", {})
+    blob_cfg = cfg.get("azure_blob", {}) or {}
     if not blob_cfg.get("enabled", False):
         return
     cont = _blob_container_client_from_cfg(blob_cfg)
@@ -218,8 +276,7 @@ def upload_files_to_blob(cfg: dict, local_paths: Dict[str, str]):
         return
     prefix = blob_cfg.get("prefix", "").strip("/")
     for _, local_path in local_paths.items():
-        remote_name = os.path.basename(local_path)
-        remote = f"{prefix}/{remote_name}" if prefix else remote_name
+        remote = f"{prefix}/{os.path.basename(local_path)}" if prefix else os.path.basename(local_path)
         LOG.info("[BLOB] Subiendo %s -> %s", local_path, remote)
         with open(local_path, "rb") as f:
             cont.upload_blob(
@@ -229,62 +286,15 @@ def upload_files_to_blob(cfg: dict, local_paths: Dict[str, str]):
                 content_settings=_content_type(local_path, blob_cfg),
             )
 
-# =============================================================================
-# Límite por ticker / día
-# =============================================================================
-def _date_utc(iso_str: str) -> str:
-    """YYYY-MM-DD en UTC."""
-    if not iso_str:
-        return "1970-01-01"
-    try:
-        dt = datetime.fromisoformat(iso_str.replace("Z", "+00:00")).astimezone(timezone.utc)
-        return dt.date().isoformat()
-    except Exception:
-        return iso_str[:10]
-
-
-def limit_per_ticker_per_day(items: List[dict], limit: int, scope: set[str]) -> List[dict]:
-    """
-    Mantiene como máximo `limit` items por (ticker, día) en UTC.
-    Una nota con múltiples tickers se acepta si alguno tiene cupo; al aceptar, consume
-    cupo de todos los tickers involucrados (intersección con scope).
-    Orden: fecha desc + score de sentimiento desc.
-    """
-    if limit <= 0 or not scope:
-        return items
-
-    def _key(r):
-        s = (r.get("sentiment") or {}).get("score") or 0.0
-        return (_date_utc(r.get("published_at", "")), s)
-
-    ordered = sorted(items, key=_key, reverse=True)
-    used: dict[tuple[str, str], int] = {}
-    out: List[dict] = []
-
-    for r in ordered:
-        tickers = [t for t in r.get("tickers", []) if t in scope]
-        if not tickers:
-            continue
-        day = _date_utc(r.get("published_at", ""))
-        if not any(used.get((t, day), 0) < limit for t in tickers):
-            continue
-        # acepta
-        for t in tickers:
-            k = (t, day)
-            used[k] = used.get(k, 0) + 1
-        out.append(r)
-
-    return out
-
-# =============================================================================
+# =========================
 # ETL principal
-# =============================================================================
+# =========================
 def run(config_path: str):
     cfg = load_yaml(config_path)
     log_level = getattr(logging, (cfg.get("runtime", {}).get("log_level") or "INFO").upper())
     logging.basicConfig(level=log_level, format="%(asctime)s | %(levelname)s | %(name)s | %(message)s")
 
-    date_str = datetime.utcnow().strftime("%Y%m%d")
+    date_str = datetime.now(timezone.utc).strftime("%Y%m%d")
     io_cfg = cfg["io"]
 
     input_path = io_cfg["input_ndjson"]
@@ -297,20 +307,13 @@ def run(config_path: str):
     items = dedupe_by_url(items)
     LOG.info("Entradas: %d | tras dedupe: %d", len(items), len(items))
 
-    # muestreo (debug)
-    try:
-        sample_limit = int(str(cfg.get("runtime", {}).get("sample_limit", "0")))
-    except Exception:
-        sample_limit = 0
-    if sample_limit and len(items) > sample_limit:
-        items = items[:sample_limit]
-
-    # filtros
+    # Filtros
     filtered = [it for it in items if passes_filters(it, cfg)]
     LOG.info("Tras filtros: %d", len(filtered))
 
-    # ---------------- Azure Language ----------------
+    # Azure Language
     lang_cfg = cfg["azure_language"]
+    flags = lang_cfg.get("tasks", {}) or {}
     lang_client = AzureLanguageClient(
         endpoint=os.path.expandvars(lang_cfg["endpoint"]),
         key=os.path.expandvars(lang_cfg["key"]),
@@ -318,114 +321,105 @@ def run(config_path: str):
         force_language=(lang_cfg.get("force_language") or "").strip() or None,
         timeout_seconds=int(lang_cfg.get("timeout_seconds", 30)),
     )
-    batch_size = max(1, min(5, int(lang_cfg.get("batch_size", 5))))  # API limita a 5
-    tasks_flags = lang_cfg.get("tasks", {
-        "language_detection": True,
-        "sentiment_analysis": True,
-        "key_phrase_extraction": True,
-        "entity_recognition": True,
-        "entity_linking": True,
-    })
+    batch_size = max(1, min(5, int(lang_cfg.get("batch_size", 5))))
 
-    def _chunks(lst, n):
+    def batched(lst, n):
         for i in range(0, len(lst), n):
             yield lst[i:i+n]
 
     enriched: List[dict] = []
 
-    for chunk in _chunks(filtered, batch_size):
-        docs = [
-            {"id": str(i + 1),
-             "text": f"{it.get('title','')}. {it.get('summary','') or ''} {it.get('source','') or ''}".strip()}
-            for i, it in enumerate(chunk)
-        ]
+    for chunk in batched(filtered, batch_size):
+        # importante: ids 1..len(chunk) por batch (parser usa string id)
+        docs = []
+        for idx, it in enumerate(chunk, start=1):
+            text = " ".join([
+                (it.get("title") or "").strip(),
+                (it.get("summary") or "").strip(),
+                (it.get("source") or "").strip(),
+            ]).strip()
+            docs.append({"id": str(idx), "text": text})
+
         try:
-            grouped = lang_client.analyze_batch(docs, tasks=tasks_flags)
+            grouped = lang_client.analyze_batch(docs, tasks=flags)
             per_doc = AzureLanguageClient.parse_results(grouped)
 
-            for i, it in enumerate(chunk):
-                rid = str(i + 1)
-                res = per_doc.get(rid, {})
-                it_out = dict(it)
-                # enriquecidos
-                lang_obj = res.get("language")
-                it_out["language"] = lang_obj
-                it_out["sentiment"] = res.get("sentiment", {"label": None, "score": 0.0})
-                it_out["key_phrases"] = res.get("key_phrases", [])
-                ent = res.get("entities", [])
-                link_ent = res.get("linked_entities", [])
-                it_out["entities"] = ent
-                it_out["linked_entities"] = link_ent
-                # tagging de tickers (regex + entidades)
-                it_out["tickers"] = tag_tickers(it_out, cfg, ent, link_ent)
-                enriched.append(it_out)
+            # fusionar resultados por posición del chunk
+            for idx, it in enumerate(chunk, start=1):
+                rid = str(idx)
+                res = per_doc.get(rid, {}) or {}
+                out = dict(it)
+                out["language"] = res.get("language")
+                out["sentiment"] = res.get("sentiment")
+                # Si quisieras agregar scores detallados, podrías extender parse_results
+                out["key_phrases"] = res.get("key_phrases", [])
+                out["entities"] = res.get("entities", [])
+                out["linked_entities"] = res.get("linked_entities", [])
+                # Tagging final basado en texto + entidades
+                out["tickers"] = tag_tickers(out, cfg)
+                enriched.append(out)
 
         except requests.HTTPError as e:
             LOG.error("Azure Language error: %s", e)
         except Exception as e:
             LOG.exception("Error procesando batch: %s", e)
 
-    # ------------- límite por ticker/día (opcional) -------------
-    rt = cfg.get("runtime", {})
-    per_day_limit = int(rt.get("limit_per_ticker_per_day", 0))
-    scope = set(rt.get("limit_ticker_scope") or [])
-    if per_day_limit > 0 and scope:
-        before = len(enriched)
-        enriched = limit_per_ticker_per_day(enriched, per_day_limit, scope)
-        LOG.info("Aplicado límite %d por ticker/día en %s: %d -> %d filas",
-                 per_day_limit, sorted(scope), before, len(enriched))
+    # === Límite SOLO para tickers en scope (conserva el resto)
+    enriched_limited = apply_scoped_limit(enriched, cfg)
 
-    # ---------------- Outputs locales ----------------
-    write_ndjson(output_ndjson, enriched)
+    # Escribir NDJSON
+    write_ndjson(output_ndjson, enriched_limited)
 
+    # Construir preview CSV (con columnas extra)
     preview_rows = []
-    for r in enriched:
+    for r in enriched_limited:
         prev = {
-            "published_at": r.get("published_at", ""),
-            "source": r.get("source", ""),
-            "title": r.get("title", ""),
-            "lang": (r.get("language") or {}).get("iso") or "",
+            "published_at": r.get("published_at",""),
+            "source": r.get("source",""),
+            "title": r.get("title",""),
+            "lang": (r.get("language") or {}).get("iso") if isinstance(r.get("language"), dict) else (r.get("language") or ""),
             "sentiment_label": (r.get("sentiment") or {}).get("label"),
             "sentiment_score": (r.get("sentiment") or {}).get("score", 0.0),
-            "tickers": r.get("tickers", []),
-            "url": r.get("url", ""),
-            "key_phrases": r.get("key_phrases", []),
-            "entities": r.get("entities", []),
-            "linked_entities": r.get("linked_entities", []),
+            "tickers": ",".join(r.get("tickers", [])),
+            "url": r.get("url",""),
+            "key_phrases": "|".join(r.get("key_phrases", [])),
+            "entities": "|".join(r.get("entities", [])),
+            "linked_entities": "|".join(r.get("linked_entities", [])),
         }
         preview_rows.append(prev)
 
     preview_cols = [
-        "published_at", "source", "title", "lang",
-        "sentiment_label", "sentiment_score",
-        "tickers", "url",
-        "key_phrases", "entities", "linked_entities",
+        "published_at","source","title","lang",
+        "sentiment_label","sentiment_score",
+        "tickers","url",
+        "key_phrases","entities","linked_entities",
     ]
     write_csv_preview(output_preview, preview_rows, preview_cols)
 
+    # Heartbeat
     ensure_dir_for_file(heartbeat)
     with open(heartbeat, "w", encoding="utf-8") as f:
-        f.write(datetime.utcnow().isoformat())
+        f.write(datetime.now(timezone.utc).isoformat())
 
-    # ---------------- Subida a Blob ----------------
+    # Subida a Blob
     upload_files_to_blob(cfg, {
         "ndjson": output_ndjson,
         "preview_csv": output_preview,
         "heartbeat": heartbeat,
     })
 
-    # ---------------- Resumen ----------------
-    lang_counts = Counter([(r.get("language") or {}).get("iso") for r in enriched]) or {"NA": len(enriched)}
-    sent_counts = Counter([(r.get("sentiment") or {}).get("label") for r in enriched]) or {"NA": len(enriched)}
-    LOG.info("[SUMMARY] extraidos=%d, escritos=%d", len(items), len(enriched))
+    # Resumen
+    lang_counts = Counter([ (r.get("language") or {}).get("iso") if isinstance(r.get("language"), dict) else r.get("language")
+                           for r in enriched_limited]) or {"NA": len(enriched_limited)}
+    sent_counts = Counter([(r.get("sentiment") or {}).get("label") for r in enriched_limited]) or {"NA": len(enriched_limited)}
+    LOG.info("[SUMMARY] extraidos=%d, escritos=%d", len(items), len(enriched_limited))
     LOG.info("[SUMMARY] languages=%s", dict(lang_counts))
     LOG.info("[SUMMARY] sentiment=%s", dict(sent_counts))
-    LOG.info("[SUMMARY] outputs: ndjson=%s preview_csv=%s heartbeat=%s",
-             output_ndjson, output_preview, heartbeat)
+    LOG.info("[SUMMARY] outputs: ndjson=%s preview_csv=%s heartbeat=%s", output_ndjson, output_preview, heartbeat)
 
-# =============================================================================
+# =========================
 # CLI
-# =============================================================================
+# =========================
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True)
