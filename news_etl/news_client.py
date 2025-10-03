@@ -130,7 +130,7 @@ class NewsAPIClient(NewsClient):
 
 
 # -----------------------------
-# CLI para generar NDJSON RAW
+# Utilidades CLI
 # -----------------------------
 def _ensure_parent(path: str):
     pathlib.Path(path).parent.mkdir(parents=True, exist_ok=True)
@@ -157,59 +157,81 @@ def build_query_for_ticker(t: str) -> str:
     # Ej.: (AMZN OR Amazon OR AWS)
     return "(" + " OR ".join([t] + names) + ")"
 
+def _day_bounds(day_utc: datetime) -> (datetime, datetime):
+    start = day_utc.replace(hour=0, minute=0, second=0, microsecond=0)
+    end = day_utc.replace(hour=23, minute=59, second=59, microsecond=999999)
+    return start, end
+
+# -----------------------------
+# CLI para generar NDJSON RAW
+# -----------------------------
 def run_cli():
-    ap = argparse.ArgumentParser(description="Descarga noticias con NewsAPI y genera NDJSON RAW.")
+    ap = argparse.ArgumentParser(description="Descarga noticias con NewsAPI y genera NDJSON RAW (con slicing diario).")
     ap.add_argument("--out", required=True, help="Ruta del NDJSON de salida")
     ap.add_argument("--tickers", required=True, help="Lista separada por coma, ej.: AMZN,MSFT,GOOGL")
     ap.add_argument("--language", default="en")
-    ap.add_argument("--days", type=int, default=2, help="Ventana de días hacia atrás")
-    ap.add_argument("--page-size", type=int, default=50)
-    ap.add_argument("--max-pages", type=int, default=2)
+    ap.add_argument("--days", type=int, default=15, help="Ventana de días hacia atrás (incluye hoy)")
+    ap.add_argument("--page-size", type=int, default=25, help="Tamaño de página para NewsAPI")
+    ap.add_argument("--max-pages", type=int, default=2, help="Máx. páginas por (ticker, día)")
+    ap.add_argument("--per-day-target", type=int, default=20, help="Máx. registros a guardar por (ticker, día) en RAW")
     args = ap.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s | %(message)s")
     client = NewsAPIClient(api_base="https://newsapi.org/v2")
 
-    to_dt = datetime.utcnow()
-    from_dt = to_dt - timedelta(days=max(1, args.days))
+    # Ventana [hoy-(days-1) .. hoy]
+    today_utc = datetime.utcnow().replace(microsecond=0)
+    start_window = (today_utc - timedelta(days=max(1, args.days) - 1)).replace(hour=0, minute=0, second=0, microsecond=0)
 
     all_rows: List[dict] = []
     tickers = [t.strip().upper() for t in args.tickers.split(",") if t.strip()]
-    logging.info("Tickers: %s | Ventana: %s → %s", tickers, from_dt.date(), to_dt.date())
+    logging.info("Tickers: %s | Ventana diaria: %s → %s", tickers, start_window.date(), today_utc.date())
 
     try:
         for t in tickers:
             q = build_query_for_ticker(t)
-            logging.info("Consultando: %s", q)
-            for art in client.search(
-                query=q,
-                from_dt=from_dt,
-                to_dt=to_dt,
-                language=args.language,
-                page_size=args.page_size,
-                max_pages=args.max_pages,
-            ):
-                row = {
-                    "published_at": art.published_at,
-                    "source": art.source,
-                    "title": art.title or "",
-                    "summary": art.description or art.content_snippet or "",
-                    "url": art.url,
-                    "raw_tickers": art.raw_tickers,
-                }
-                all_rows.append(row)
+            current = start_window
+            while current.date() <= today_utc.date():
+                day_from, day_to = _day_bounds(current)
+                logging.info("Consultando [%s] %s → %s", t, day_from.date(), day_to.date())
+
+                day_rows: List[dict] = []
+                for art in client.search(
+                    query=q,
+                    from_dt=day_from,
+                    to_dt=day_to,
+                    language=args.language,
+                    page_size=args.page_size,
+                    max_pages=args.max_pages,
+                ):
+                    row = {
+                        "published_at": art.published_at,
+                        "source": art.source,
+                        "title": art.title or "",
+                        "summary": art.description or art.content_snippet or "",
+                        "url": art.url,
+                        "raw_tickers": art.raw_tickers,
+                    }
+                    day_rows.append(row)
+                    if len(day_rows) >= args.per_day_target:
+                        break
+
+                # Dedupe por día para ese ticker y luego agregar al global
+                day_rows = _dedupe_by_url(day_rows)
+                all_rows.extend(day_rows)
+                current += timedelta(days=1)
+
     finally:
         client.close()
 
     all_rows = _dedupe_by_url(all_rows)
-    logging.info("Artículos finales (dedupe): %d", len(all_rows))
+    logging.info("Artículos finales (dedupe global): %d", len(all_rows))
 
     _ensure_parent(args.out)
     with open(args.out, "w", encoding="utf-8") as f:
         for r in all_rows:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
-    # Seguridad para el workflow
     if not all_rows:
         logging.warning("No se obtuvieron artículos; el archivo queda vacío.")
     print(f"[news_client] Escrito: {args.out} ({len(all_rows)} líneas)")

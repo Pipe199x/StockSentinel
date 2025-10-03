@@ -268,7 +268,6 @@ def select_daily_limited(items: List[Dict[str, Any]],
         else:
             by_key[(dkey, "__NONE__")].append(it)
 
-    # ordenar buckets por fecha desc y aplicar primer corte
     prelim: List[Dict[str, Any]] = []
     seen_dedup = set()
     for (dkey, tkr), bucket in sorted(by_key.items()):
@@ -278,14 +277,13 @@ def select_daily_limited(items: List[Dict[str, Any]],
         limit = max(0, int(limit))
         if limit == 0:
             continue
-        for it in bucket[:limit*2]:  # tomamos un poco más por si luego recorta la verificación final
+        for it in bucket[:limit*2]:
             key = (it.get("url") or "") + "|" + (it.get("title") or "")
             if key in seen_dedup:
                 continue
             seen_dedup.add(key)
             prelim.append(it)
 
-    # verificación final estricta
     caps: Dict[Tuple[str, str], int] = defaultdict(int)
     final: List[Dict[str, Any]] = []
     for it in sorted(prelim, key=_safe_dt, reverse=True):
@@ -301,7 +299,6 @@ def select_daily_limited(items: List[Dict[str, Any]],
             final.append(it)
             continue
 
-        # si tiene varios tickers, solo aceptamos si no rompe el límite en ninguno
         would_exceed = any(caps[(dkey, t)] >= per_ticker_limit for t in set(tks))
         if would_exceed:
             continue
