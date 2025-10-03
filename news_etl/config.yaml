@@ -1,25 +1,23 @@
-# news_etl/config.yaml
 runtime:
   timezone: UTC
-  today_override: ""   # ISO-8601 opcional p/ tests, ej: "2025-10-03T00:00:00Z"
+  today_override: ""
 
 window:
-  last_n_days: 15      # últimos N días (incluye hoy)
+  last_n_days: 15
 
 tickers:
   universe:
     AMZN: ["amazon", "aws", "prime video", "kindle", "alexa"]
     MSFT: ["microsoft", "xbox", "azure", "copilot", "windows", "bing"]
     GOOGL: ["google", "alphabet", "youtube", "gemini", "android"]
-  # si true, solo se etiquetan tickers que estén en 'universe'
   restrict_to_universe: true
 
 azure_language:
   enabled: true
-  endpoint: "${AZURE_LANGUAGE_ENDPOINT}"   # se expande en runtime
-  key: "${AZURE_LANGUAGE_KEY}"             # se expande en runtime
+  endpoint: "${AZURE_LANGUAGE_ENDPOINT}"
+  key: "${AZURE_LANGUAGE_KEY}"
   api_version: "2023-04-01"
-  force_language: ""                       # ej "en" para forzar
+  force_language: ""
   tasks:
     language_detection: true
     sentiment_analysis: true
@@ -32,18 +30,20 @@ limits:
   preview_csv_max_rows: 1000
 
 daily_limits:
-  per_ticker_limit: 3        # máximo por ticker y por día
-  include_no_ticker: false   # si false, se excluyen totalmente sin ticker
-  no_ticker_per_day_limit: 0 # ignorado si include_no_ticker=false
+  per_ticker_limit: 3
+  include_no_ticker: false
+  no_ticker_per_day_limit: 0
 
 paths:
+  # Acepta archivo, *glob* o directorio. Ejemplos:
+  # "data/news_raw.ndjson"  |  "data/raw/news_*.ndjson"  |  "data/raw/"
   raw_ndjson: "data/news_raw.ndjson"
   out_ndjson: "data/news_YYYYMMDD.ndjson"
   out_preview_csv: "data/news_preview_YYYYMMDD.csv"
   heartbeat: "data/heartbeat.txt"
 
 blob_upload:
-  enabled: false              # si quieres que el ETL mismo suba a Blob, pon true
+  enabled: false
   connection_string: "${AZURE_STORAGE_CONNECTION_STRING}"
   container: "datasets"
   prefix: "news/"

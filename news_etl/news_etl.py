@@ -8,25 +8,21 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
-
+import glob
 import csv
 import logging
 
-# Local
 from .azure_language import AzureLanguageClient
 
-# ---------------------- Logging ----------------------
 LOG = logging.getLogger(__name__)
 logging.basicConfig(
     level=os.getenv("LOGLEVEL", "INFO"),
     format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
 )
 
-# ---------------------- Utils ------------------------
 _ENV_VAR_RE = re.compile(r"\$\{([A-Za-z0-9_]+)\}")
 
 def _expand_env(value: Any) -> Any:
-    """Expande ${VAR} en strings (recursivo para dicts/listas)."""
     if isinstance(value, str):
         def repl(m):
             var = m.group(1)
@@ -45,7 +41,6 @@ def iso_utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 def parse_iso_ts(s: str) -> datetime:
-    # acepta ...Z o con offset
     try:
         return datetime.fromisoformat(s.replace("Z", "+00:00")).astimezone(timezone.utc)
     except Exception:
@@ -54,36 +49,49 @@ def parse_iso_ts(s: str) -> datetime:
 def to_iso_date(d: datetime) -> str:
     return d.astimezone(timezone.utc).strftime("%Y-%m-%d")
 
-def same_day_utc(a: datetime, b: datetime) -> bool:
-    da = a.astimezone(timezone.utc).date()
-    db = b.astimezone(timezone.utc).date()
-    return da == db
-
-# ---------------------- Config -----------------------
 def load_config(path: str) -> Dict[str, Any]:
     import yaml
     with open(path, "r", encoding="utf-8") as f:
         cfg = yaml.safe_load(f)
     return _expand_env(cfg or {})
 
-# ---------------------- IO ---------------------------
-def read_raw_items(path: str) -> List[Dict[str, Any]]:
-    p = Path(path)
-    if not p.exists():
-        LOG.warning("[RAW] No existe %s, devolviendo lista vacía.", path)
-        return []
-    out: List[Dict[str, Any]] = []
-    with p.open("r", encoding="utf-8") as f:
+def _read_one_ndjson(file_path: Path) -> List[Dict[str, Any]]:
+    items: List[Dict[str, Any]] = []
+    with file_path.open("r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if not line:
                 continue
             try:
-                out.append(json.loads(line))
+                items.append(json.loads(line))
             except Exception:
-                # tolerar una línea mala
                 continue
-    LOG.info("[SUMMARY] RAW cargado: %s items", len(out))
+    return items
+
+def read_raw_items(path_like: str) -> List[Dict[str, Any]]:
+    """
+    Acepta:
+      - archivo NDJSON
+      - patrón glob (p.ej. data/raw/news_*.ndjson)
+      - directorio (lee *.ndjson dentro)
+    """
+    p = Path(path_like)
+    files: List[Path] = []
+    if "*" in path_like or "?" in path_like or "[" in path_like:
+        files = [Path(x) for x in glob.glob(path_like)]
+    elif p.is_dir():
+        files = sorted(p.glob("*.ndjson"))
+    else:
+        files = [p] if p.exists() else []
+
+    if not files:
+        LOG.warning("[RAW] No se encontraron archivos con '%s'", path_like)
+        return []
+
+    out: List[Dict[str, Any]] = []
+    for fp in sorted(files):
+        out.extend(_read_one_ndjson(fp))
+    LOG.info("[SUMMARY] RAW cargado: %s items desde %s archivo(s)", len(out), len(files))
     return out
 
 def write_ndjson(path: str, items: Iterable[Dict[str, Any]]) -> Path:
@@ -97,7 +105,6 @@ def write_ndjson(path: str, items: Iterable[Dict[str, Any]]) -> Path:
 def write_preview_csv(path: str, rows: List[Dict[str, Any]]) -> Path:
     p = Path(path)
     _ensure_parent(p)
-    # Columnas ampliadas con enriquecimiento
     cols = [
         "published_at", "source", "title", "lang",
         "sentiment_label", "sentiment_score", "tickers",
@@ -110,7 +117,6 @@ def write_preview_csv(path: str, rows: List[Dict[str, Any]]) -> Path:
             w.writerow(r)
     return p
 
-# ---------------------- Enriquecimiento Azure --------
 def azure_enrich(items: List[Dict[str, Any]], cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
     if not cfg.get("enabled", False) or not items:
         return items
@@ -134,7 +140,6 @@ def azure_enrich(items: List[Dict[str, Any]], cfg: Dict[str, Any]) -> List[Dict[
         timeout_seconds=timeout_seconds,
     )
 
-    # Preparamos documentos (texto compacto)
     docs = []
     for i, it in enumerate(items, start=1):
         text = " ".join(
@@ -149,7 +154,6 @@ def azure_enrich(items: List[Dict[str, Any]], cfg: Dict[str, Any]) -> List[Dict[
     grouped = client.analyze_batch(docs, tasks=flags)
     per_doc = AzureLanguageClient.parse_results(grouped)
 
-    # Pegamos resultados a cada item
     out = []
     for i, it in enumerate(items, start=1):
         dres = per_doc.get(str(i), {})
@@ -176,11 +180,10 @@ def azure_enrich(items: List[Dict[str, Any]], cfg: Dict[str, Any]) -> List[Dict[
         out.append(enriched)
     return out
 
-# ---------------------- Tickers ----------------------
 @dataclass
 class TickerUniverse:
     restrict: bool
-    mapping: Dict[str, List[str]]  # ticker -> list of aliases (lowercase)
+    mapping: Dict[str, List[str]]
 
     @classmethod
     def from_cfg(cls, cfg: Dict[str, Any]) -> "TickerUniverse":
@@ -203,13 +206,11 @@ class TickerUniverse:
         return sorted(set(found))
 
 def detect_tickers(item: Dict[str, Any], uni: TickerUniverse) -> List[str]:
-    # juntamos entidades y linked_entities + title/summary tokens sencillos
     tokens: List[str] = []
     tokens += [item.get("title", ""), item.get("summary", "")]
     tokens += item.get("entities", [])
     tokens += item.get("linked_entities", [])
     tokens = [t for t in tokens if isinstance(t, str)]
-    # tokenización tosca por palabras/frases
     lowered = []
     for t in tokens:
         for piece in re.split(r"[^\w\-\.\&]+", t):
@@ -217,12 +218,8 @@ def detect_tickers(item: Dict[str, Any], uni: TickerUniverse) -> List[str]:
             if piece:
                 lowered.append(piece)
     tickers = uni.tag(lowered)
-    if uni.restrict:
-        return tickers
-    # si no restringimos, devolvemos lo encontrado (o vacío)
     return tickers
 
-# ---------------------- Filtro ventana temporal -------
 def filter_last_n_days(items: List[Dict[str, Any]], today_utc: datetime, n_days: int) -> List[Dict[str, Any]]:
     if n_days <= 0:
         return items
@@ -241,23 +238,29 @@ def filter_last_n_days(items: List[Dict[str, Any]], today_utc: datetime, n_days:
             out.append(it)
     return out
 
-# ---------------------- Selección diaria limitada -----
+def _safe_dt(it: Dict[str, Any]) -> datetime:
+    ts = it.get("published_at") or ""
+    try:
+        return parse_iso_ts(ts)
+    except Exception:
+        return datetime.min.replace(tzinfo=timezone.utc)
+
 def select_daily_limited(items: List[Dict[str, Any]],
                          per_ticker_limit: int,
                          include_no_ticker: bool,
                          no_ticker_per_day_limit: int) -> List[Dict[str, Any]]:
     """
-    Limita a N por ticker por día. Si include_no_ticker=False elimina sin ticker.
+    Limita a N por ticker por día. Ordena por fecha desc dentro de cada bucket.
+    Además, realiza una verificación final estricta para no exceder cupos.
     """
-    # group key: (date_str, ticker or "__NONE__")
     by_key: Dict[Tuple[str, str], List[Dict[str, Any]]] = defaultdict(list)
 
     for it in items:
         ts = it.get("published_at")
         if not ts:
             continue
-        dt = parse_iso_ts(ts)
-        dkey = to_iso_date(dt)  # YYYY-MM-DD
+        dt = _safe_dt(it)
+        dkey = to_iso_date(dt)
         tickers = it.get("tickers") or []
         if tickers:
             for t in sorted(set(tickers)):
@@ -265,25 +268,49 @@ def select_daily_limited(items: List[Dict[str, Any]],
         else:
             by_key[(dkey, "__NONE__")].append(it)
 
-    # apply limits
-    selected: List[Dict[str, Any]] = []
-    seen_ids = set()  # evitar duplicados cuando un item cae en 2 tickers (raro)
+    # ordenar buckets por fecha desc y aplicar primer corte
+    prelim: List[Dict[str, Any]] = []
+    seen_dedup = set()
     for (dkey, tkr), bucket in sorted(by_key.items()):
-        if tkr == "__NONE__":
+        bucket.sort(key=_safe_dt, reverse=True)
+        limit = (0 if (tkr == "__NONE__" and not include_no_ticker)
+                 else (no_ticker_per_day_limit if tkr == "__NONE__" else per_ticker_limit))
+        limit = max(0, int(limit))
+        if limit == 0:
+            continue
+        for it in bucket[:limit*2]:  # tomamos un poco más por si luego recorta la verificación final
+            key = (it.get("url") or "") + "|" + (it.get("title") or "")
+            if key in seen_dedup:
+                continue
+            seen_dedup.add(key)
+            prelim.append(it)
+
+    # verificación final estricta
+    caps: Dict[Tuple[str, str], int] = defaultdict(int)
+    final: List[Dict[str, Any]] = []
+    for it in sorted(prelim, key=_safe_dt, reverse=True):
+        dt = _safe_dt(it)
+        dkey = to_iso_date(dt)
+        tks = it.get("tickers") or []
+        if not tks:
             if not include_no_ticker:
                 continue
-            limit = max(0, int(no_ticker_per_day_limit))
-        else:
-            limit = max(0, int(per_ticker_limit))
-        for it in bucket[:limit]:
-            key = (it.get("url") or "") + "|" + (it.get("title") or "")
-            if key in seen_ids:
+            if caps[(dkey, "__NONE__")] >= no_ticker_per_day_limit:
                 continue
-            seen_ids.add(key)
-            selected.append(it)
-    return selected
+            caps[(dkey, "__NONE__")] += 1
+            final.append(it)
+            continue
 
-# ---------------------- Preview rows ------------------
+        # si tiene varios tickers, solo aceptamos si no rompe el límite en ninguno
+        would_exceed = any(caps[(dkey, t)] >= per_ticker_limit for t in set(tks))
+        if would_exceed:
+            continue
+        for t in set(tks):
+            caps[(dkey, t)] += 1
+        final.append(it)
+
+    return final
+
 def build_preview_rows(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     rows: List[Dict[str, Any]] = []
     for it in items:
@@ -305,7 +332,6 @@ def build_preview_rows(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         })
     return rows
 
-# ---------------------- Blob (opcional) ---------------
 def upload_to_blob(cfg: Dict[str, Any], local_path: Path, dest_name: str) -> None:
     try:
         from azure.storage.blob import BlobServiceClient  # type: ignore
@@ -326,7 +352,6 @@ def upload_to_blob(cfg: Dict[str, Any], local_path: Path, dest_name: str) -> Non
         client.upload_blob(name=blob_name, data=data, overwrite=True)
     LOG.info("[BLOB] Subido %s -> %s/%s", local_path, container, blob_name)
 
-# ---------------------- Main --------------------------
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True, help="Ruta a config.yaml")
@@ -334,45 +359,38 @@ def main():
 
     cfg = load_config(args.config)
 
-    # Fechas
     tz = timezone.utc
     if cfg.get("runtime", {}).get("today_override"):
         today = parse_iso_ts(cfg["runtime"]["today_override"])
     else:
         today = datetime.now(tz)
 
-    # Paths
     p_raw = cfg["paths"]["raw_ndjson"]
     p_out_ndjson_tpl = cfg["paths"]["out_ndjson"]
     p_out_csv_tpl = cfg["paths"]["out_preview_csv"]
     p_heartbeat = cfg["paths"]["heartbeat"]
 
     LOG.info("[STEP] Leyendo RAW desde %s", p_raw)
-    raw = read_raw_items(p_raw)
+    raw_all = read_raw_items(p_raw)
 
     LOG.info("[STEP] Enriqueciendo con Azure Language…")
-    enriched = azure_enrich(raw, cfg.get("azure_language", {}))
+    enriched = azure_enrich(raw_all, cfg.get("azure_language", {}))
 
-    # Etiquetado de tickers
     uni = TickerUniverse.from_cfg(cfg.get("tickers", {}))
     for it in enriched:
         it["tickers"] = detect_tickers(it, uni)
 
-    # Filtro ventana de días
     n_days = int(cfg.get("window", {}).get("last_n_days", 15))
     filtered = filter_last_n_days(enriched, today, n_days)
 
-    # Límites diarios
     dl = cfg.get("daily_limits", {})
     per_ticker = int(dl.get("per_ticker_limit", 3))
     include_no_ticker = bool(dl.get("include_no_ticker", False))
     no_ticker_limit = int(dl.get("no_ticker_per_day_limit", 0))
     limited = select_daily_limited(filtered, per_ticker, include_no_ticker, no_ticker_limit)
 
-    # Ordenar por fecha desc para outputs
     limited.sort(key=lambda x: x.get("published_at", ""), reverse=True)
 
-    # Salidas
     stamp = today.strftime("%Y%m%d")
     out_ndjson = p_out_ndjson_tpl.replace("YYYYMMDD", stamp)
     out_csv = p_out_csv_tpl.replace("YYYYMMDD", stamp)
@@ -380,11 +398,9 @@ def main():
     LOG.info("[STEP] Escribiendo NDJSON y CSV…")
     ndjson_path = write_ndjson(out_ndjson, limited)
     preview_rows = build_preview_rows(limited)
-    # cortar filas si se configuró máximo
     max_rows = int(cfg.get("limits", {}).get("preview_csv_max_rows", 1000))
     csv_path = write_preview_csv(out_csv, preview_rows[:max_rows])
 
-    # Heartbeat SIEMPRE (para que el job de az no falle)
     hb_path = Path(p_heartbeat)
     _ensure_parent(hb_path)
     hb_path.write_text(iso_utc_now() + "\n", encoding="utf-8")
@@ -392,17 +408,14 @@ def main():
 
     LOG.info(
         "[SUMMARY] extraidos=%d, tras_ventana=%d, seleccionados=%d",
-        len(raw), len(filtered), len(limited)
+        len(raw_all), len(filtered), len(limited)
     )
-    # Métricas simples
     langs = Counter([(it.get("language") or {}).get("iso") for it in limited if it.get("language")])
     sents = Counter([(it.get("sentiment") or {}).get("label") for it in limited if it.get("sentiment")])
-
     LOG.info("[SUMMARY] languages=%s", dict(langs))
     LOG.info("[SUMMARY] sentiment=%s", dict(sents))
     LOG.info("[SUMMARY] outputs: ndjson=%s preview_csv=%s heartbeat=%s", ndjson_path, csv_path, hb_path)
 
-    # Upload opcional a Blob desde el ETL (además del workflow)
     bcfg = cfg.get("blob_upload", {}) or {}
     if bcfg.get("enabled"):
         LOG.info("[BLOB] Subiendo archivos (modo ETL)…")
