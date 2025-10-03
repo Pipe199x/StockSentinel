@@ -159,3 +159,5 @@ ticker_tagging:
 runtime:
   log_level: "INFO"
   sample_limit: 0
+  limit_per_ticker_per_day: 3     # <-- nuevo
+  limit_ticker_scope: ["AMZN","MSFT","GOOGL"]  
