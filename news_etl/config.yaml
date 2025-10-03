@@ -1,82 +1,60 @@
 # =========================
-#  News ETL - Config
+# ETL de noticias - Config
 # =========================
 
-io:
-  # INPUT: lo genera el paso "news_client" del workflow
-  input_ndjson: data/news_raw.ndjson
+# --- Ventana temporal ---
+date_window:
+  days_back: 15          # últimos N días (hoy inclusive)
+  tz: "UTC"              # zona para truncar por día (YYYY-MM-DD)
 
-  # OUTPUTS locales (se suben luego a Azure Blob)
-  output_ndjson: data/news_{{date}}.ndjson
-  output_preview_csv: data/news_preview_{{date}}.csv
-  heartbeat_file: data/heartbeat.txt
+# --- Límite por día ---
+daily_limits:
+  per_ticker_limit: 3    # máximo por ticker y por día
+  include_no_ticker: false
+  no_ticker_per_day_limit: 0  # si quieres limitar las “sin ticker”
 
-runtime:
-  log_level: INFO
+# --- Fuentes / registro ---
+registry:
+  # Coloca aquí tus endpoints / providers si los usas.
+  # Si tu fetcher ya los trae de otro lado, este bloque puede quedar sin uso.
+  providers: []
+  # Lista de dominios a permitir (opcional). Si está vacía, no se usa allowlist.
+  domains_allowlist: []
+  # Blacklist por sufijo (se aplica a subdominios también).
+  domains_blacklist:
+    - globenewswire.com
+    - prnewswire.com
+    - businesswire.com
+    - tech.slashdot.org       # puedes poner el host exacto o el sufijo base
+    - rlsbb.to
+    - post.rlsbb.to
 
-  # Límite SOLO para tickers del scope. 0 = sin límite
-  limit_per_ticker_per_day: 3
-  limit_ticker_scope: ["AMZN", "MSFT", "GOOGL"]
-  newest_first: true  # tomar las más nuevas primero para cumplir el cupo
-
+# --- Filtros de contenido ---
 filters:
-  # Lista blanca de fuentes (vacía = permitir todas)
-  allowed_sources_whitelist: []
-
-  # Bloqueo por dominio o "source"
+  languages_allowlist: ["en", "es", "ja"]  # deja vacío para aceptar todos
+  min_title_len: 8
+  min_summary_len: 20
+  # Blacklist adicional por “source” (campo textual).
   source_blacklist:
-    - "gossipcop.com"
-    - "thegatewaypundit.com"
-    - "pagesix.com"
-    - "radaronline.com"
-    - "freerepublic.com"
-    - "brobible.com"
-    - "matometanews.com"
+    - "GlobeNewswire"
+    - "PR Newswire"
+  # Palabras/regex para descartar “ofertas/deals” muy comerciales
+  commerce:
+    min_price_tokens: 1
+    min_percent_tokens: 1
+    price_regex:
+      - "(?i)\\$\\s?\\d+[\\d\\.,]*"
+      - "(?i)\\d+\\s?(?:USD|EUR|GBP|dollars?)"
+    percent_regex:
+      - "(?i)\\d{1,3}%\\s?(?:off|descuento|dto\\.)"
 
-  # Regex (case-insensitive) para excluir por título o URL
-  exclude_phrases:
-    - "(?:giveaway|coupon|promo code|discount|deal of the day)"
-    - "(?:horoscope|zodiac)"
-    - "(?:celebrity|gossip|rumor)"
-
-registry_domains_blacklist:
-  - "biztoc.com"       # agregadores que duplican
-  - "slashdot.org"     # firehose muchas veces no es contenido original
-  - "news.ycombinator.com"
-
-# Filtro “commerce” (suaviza ruido de shopping salvo dominios técnicos/empresariales)
-commerce_filter:
-  enabled: true
-  allowed_corporate_domains:
-    - "microsoft.com"
-    - "blogs.microsoft.com"
-    - "developer.microsoft.com"
-    - "aboutamazon.com"
-    - "amazon.com"
-    - "aws.amazon.com"
-    - "googleblog.com"
-    - "blog.google"
-    - "google.com"
-  title_url_terms:
-    - "(?:save|% off|deal|sale|lowest price|clearance)"
-    - "(?:best.*(headphones|tv|laptop|phone))"
-  path_terms:
-    - "/deals?/|/shopping/|/coupons?/|/promo/"
-  price_percent_rules:
-    price_regex: "(?:\\$\\s?\\d{1,4}(?:[\\.,]\\d{2})?)"
-    percent_regex: "(?:\\d{1,3}\\s?%)"
-    min_price_tokens: 2
-    min_percent_tokens: 2
-
-# Azure AI Language
+# --- Azure AI Text Analytics ---
 azure_language:
-  endpoint: "${AZURE_LANGUAGE_ENDPOINT}"  # p.ej. https://<tu-rg>.cognitiveservices.azure.com
-  key: "${AZURE_LANGUAGE_KEY}"            # viene del secret
+  endpoint: "${AZURE_LANGUAGE_ENDPOINT}"  # o pon el endpoint aquí (no recomendado)
+  key: "${AZURE_LANGUAGE_KEY}"          # o pon la key aquí (no recomendado)
   api_version: "2023-04-01"
+  force_language: "en"                  # e.g., "en" si quieres forzarlo
   timeout_seconds: 30
-  batch_size: 5
-  # Si quieres forzar idioma (en -> inglés) para tareas que lo requieren:
-  force_language: "en"
   tasks:
     language_detection: true
     sentiment_analysis: true
@@ -84,58 +62,39 @@ azure_language:
     entity_recognition: true
     entity_linking: true
 
-# Reglas de taggeo por ticker (basadas en entidades devueltas + texto)
+# --- Etiquetado de tickers ---
 ticker_tagging:
   enabled: true
+  # Patrones negativos globales (corta antes de evaluar tickers)
+  negative_patterns:
+    - "(?i)AMZN\\s*WEB-?DL"
+    - "(?i)WEB-?DL\\b"
+    - "(?i)RLSBB\\b|rlsbb\\.to"
   tickers:
     AMZN:
       - "(?i)\\bamazon\\b"
-      - "(?i)\\bprime video\\b"
-      - "(?i)\\baws\\b"
-      - "(?i)\\balexa\\+?\\b"
-      - "(?i)\\bring(?:\\.com)?\\b"
-      - "(?i)\\bkindle\\b"
-      # entidades típicas devueltas por Azure
-      - "(?i)^amazon(?:\\.com)?$"
-      - "(?i)^amazon web services$"
-      - "(?i)^aws$"
-      - "(?i)^prime video$"
-
+      - "(?i)\\baws\\b|\\bamazon web services\\b"
+      - "(?i)\\bprime video\\b|\\bkindle\\b|\\bring\\b"
     MSFT:
-      - "(?i)\\bmicrosoft\\b"
-      - "(?i)\\bxbox\\b"
-      - "(?i)\\bazure\\b"
-      - "(?i)\\bwindows\\b"
-      - "(?i)\\boffice 365\\b|\\bmicrosoft 365\\b"
-      - "(?i)\\bgitHub\\b"
-      # entidades
-      - "(?i)^microsoft$"
-      - "(?i)^xbox$"
-      - "(?i)^azure$"
-      - "(?i)^windows$"
-      - "(?i)^microsoft 365$"
-
+      - "(?i)\\bmicrosoft\\b|\\bazure\\b|\\bxbox\\b|\\bwindows\\b|\\bmicrosoft 365\\b"
     GOOGL:
-      - "(?i)\\bgoogle\\b"
-      - "(?i)\\balphabet\\b"
-      - "(?i)\\byoutube\\b"
-      - "(?i)\\bdeepmind\\b"
-      - "(?i)\\bwaymo\\b"
-      - "(?i)\\bgemini\\b"
-      - "(?i)\\bandroid\\b"
-      # entidades
-      - "(?i)^google$"
-      - "(?i)^alphabet inc\\.?$"
-      - "(?i)^youtube$"
-      - "(?i)^deepmind$"
-      - "(?i)^waymo$"
+      - "(?i)\\bgoogle\\b|\\balphabet\\b|\\byoutube\\b|\\bdeepmind\\b|\\bwaymo\\b"
+      # Importante: NO usamos "android" suelto para evitar ruido
 
-# Subida a Azure Blob por connection string (via secret AZURE_STORAGE_CONNECTION_STRING)
+# --- Salidas y storage ---
+output:
+  dir: "data"
+  prefix: "news"
+  preview_csv: true
+  preview_max_rows: 1000
+
 azure_blob:
   enabled: true
+  account_url: "https://<TU-CUENTA>.blob.core.windows.net"
   container: "datasets"
-  prefix: "news"
-  content_types:
-    ".csv": "text/csv; charset=utf-8"
-    ".ndjson": "application/x-ndjson; charset=utf-8"
-    ".txt": "text/plain; charset=utf-8"
+  prefix_path: "news"
+  sas_token: "${AZ_BLOB_SAS_TOKEN}"  # o usa credenciales por DefaultAzureCredential
+
+# --- Logging ---
+logging:
+  level: "INFO"
