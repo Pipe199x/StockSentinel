@@ -229,7 +229,7 @@ def run(config_path: str):
         endpoint=os.path.expandvars(lang_cfg["endpoint"]),
         key=os.path.expandvars(lang_cfg["key"]),
         api_version=lang_cfg["api_version"],
-        timeout=lang_cfg.get("timeout_seconds", 30),
+        timeout_seconds=int(lang_cfg.get("timeout_seconds", 30)),   # <- corrección aquí
         force_language=(lang_cfg.get("force_language") or "").strip() or None,
     )
     batch_size = max(1, min(5, int(lang_cfg.get("batch_size", 5))))  # API limita a 5
@@ -240,13 +240,18 @@ def run(config_path: str):
             yield lst[i:i+n]
 
     for chunk in chunks(filtered, batch_size):
-        docs = [{"id": str(i+1), "text": f"{it.get('title','')}. {it.get('summary','') or ''} {it.get('source','') or ''}".strip()} 
-                for i, it in enumerate(chunk)]
+        docs = [
+            {
+                "id": str(i + 1),
+                "text": f"{it.get('title','')}. {it.get('summary','') or ''} {it.get('source','') or ''}".strip(),
+            }
+            for i, it in enumerate(chunk)
+        ]
         try:
             data = lang_client.analyze_batch(docs)  # el cliente ya hace llamadas por task
             # parseo
             for i, it in enumerate(chunk):
-                rid = str(i+1)
+                rid = str(i + 1)
                 res = data.get(rid, {})
                 it_out = dict(it)
                 it_out["language"] = res.get("language")
@@ -268,14 +273,14 @@ def run(config_path: str):
     preview_rows = []
     for r in enriched:
         prev = {
-            "published_at": r.get("published_at",""),
-            "source": r.get("source",""),
-            "title": r.get("title",""),
+            "published_at": r.get("published_at", ""),
+            "source": r.get("source", ""),
+            "title": r.get("title", ""),
             "lang": r.get("language") or "",
             "sentiment_label": (r.get("sentiment") or {}).get("label"),
             "sentiment_score": (r.get("sentiment") or {}).get("score", 0.0),
             "tickers": ",".join(r.get("tickers", [])),
-            "url": r.get("url",""),
+            "url": r.get("url", ""),
         }
         preview_rows.append(prev)
     write_csv_preview(output_preview, preview_rows, preview_cols)
