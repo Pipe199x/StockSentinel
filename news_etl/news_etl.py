@@ -5,6 +5,7 @@ import argparse
 import csv
 import json
 import logging
+import os
 from collections import defaultdict, Counter
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
@@ -24,7 +25,6 @@ except Exception:
 try:
     from .azure_language import AzureLanguageClient
 except Exception:
-    # fallback si se ejecuta como script plain (python -m news_etl.news_etl)
     from azure_language import AzureLanguageClient  # type: ignore
 
 LOG = logging.getLogger(__name__)
@@ -38,11 +38,9 @@ logging.basicConfig(
 # ------------------------------
 
 def parse_iso8601(ts: str) -> datetime:
-    # Acepta timestamps con 'Z' o con offset
     try:
         return datetime.fromisoformat(ts.replace("Z", "+00:00"))
     except Exception:
-        # Fallback: algunos feeds vienen sin zona
         return datetime.strptime(ts, "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
 
 def to_iso8601(dt: datetime) -> str:
@@ -50,6 +48,19 @@ def to_iso8601(dt: datetime) -> str:
 
 def ensure_dir(p: Path) -> None:
     p.parent.mkdir(parents=True, exist_ok=True)
+
+def _expand_env(obj: Any) -> Any:
+    """
+    Expande variables de entorno en strings ($VAR o ${VAR})
+    recursivamente en dicts/listas. Usa os.path.expandvars.
+    """
+    if isinstance(obj, str):
+        return os.path.expandvars(obj)
+    if isinstance(obj, list):
+        return [_expand_env(x) for x in obj]
+    if isinstance(obj, dict):
+        return {k: _expand_env(v) for k, v in obj.items()}
+    return obj
 
 # ------------------------------
 # Config
@@ -63,7 +74,9 @@ def load_config(path: str) -> Dict[str, Any]:
             f"CWD='{Path.cwd()}'. Pasa --config con una ruta válida."
         )
     with cfg_path.open("r", encoding="utf-8") as f:
-        return yaml.safe_load(f) or {}
+        raw = yaml.safe_load(f) or {}
+    cfg = _expand_env(raw)
+    return cfg
 
 # ------------------------------
 # Modelos
@@ -92,7 +105,7 @@ class EnrichedItem:
     entities: List[str] = field(default_factory=list)
     linked_entities: List[str] = field(default_factory=list)
 
-    tickers: List[str] = field(default_factory=list)  # finales
+    tickers: List[str] = field(default_factory=list)
 
 # ------------------------------
 # Carga de input (raw NDJSON)
@@ -112,7 +125,6 @@ def load_raw_news(ndjson_path: Path) -> List[RawItem]:
 
             published_at = obj.get("published_at") or obj.get("published") or obj.get("date")
             if not published_at:
-                # Skip si no hay fecha
                 continue
 
             try:
@@ -147,9 +159,18 @@ def azure_enrich(
                  "key_phrase_extraction": True, "entity_recognition": True,
                  "entity_linking": True})
 
+    endpoint = (az_cfg.get("endpoint") or "").strip()
+    key = (az_cfg.get("key") or "").strip()
+    if not endpoint or endpoint.startswith("${") or endpoint.startswith("$"):
+        raise ValueError(
+            "Azure Language 'endpoint' no configurado correctamente. "
+            "Asegúrate de definir AZURE_LANGUAGE_ENDPOINT en el entorno "
+            "o poner un valor literal en config.yaml."
+        )
+
     client = AzureLanguageClient(
-        endpoint=az_cfg["endpoint"],
-        key=az_cfg.get("key", ""),
+        endpoint=endpoint,
+        key=key,
         api_version=az_cfg.get("api_version", "2023-04-01"),
         force_language=az_cfg.get("force_language"),
         timeout_seconds=int(az_cfg.get("timeout_seconds", 30)),
@@ -183,7 +204,7 @@ def azure_enrich(
                 key_phrases=r.get("key_phrases") or [],
                 entities=r.get("entities") or [],
                 linked_entities=r.get("linked_entities") or [],
-                tickers=list(it.raw_tickers),  # por si venía algo del raw
+                tickers=list(it.raw_tickers),
             )
         )
     return enriched
@@ -193,9 +214,6 @@ def azure_enrich(
 # ------------------------------
 
 def build_ticker_matcher(cfg: Dict[str, Any]) -> List[Tuple[str, List[str]]]:
-    """
-    Devuelve lista de (ticker, lista_de_sinónimos_en_minúsculas)
-    """
     mapping = cfg.get("ticker_matching", {})
     out: List[Tuple[str, List[str]]] = []
     for ticker, syns in mapping.items():
@@ -206,12 +224,12 @@ def build_ticker_matcher(cfg: Dict[str, Any]) -> List[Tuple[str, List[str]]]:
 
 def infer_tickers(it: EnrichedItem, matcher: List[Tuple[str, List[str]]]) -> List[str]:
     haystack = set()
-    # juntamos texto relevante en minúsculas
     for s in [it.title, it.summary or ""]:
         if s:
+            # split básico + versiones completas para captar frases
             haystack.update(w.strip().lower() for w in s.split())
+            haystack.add(s.strip().lower())
 
-    # entidades
     for l in (it.entities or []):
         haystack.add(l.lower().strip())
     for l in (it.linked_entities or []):
@@ -223,7 +241,6 @@ def infer_tickers(it: EnrichedItem, matcher: List[Tuple[str, List[str]]]) -> Lis
     for ticker, syns in matcher:
         if any(any(k in token for token in haystack) for k in syns):
             out.add(ticker)
-    # Normaliza a orden estable
     return sorted(out)
 
 # ------------------------------
@@ -244,42 +261,38 @@ def limit_per_day_and_ticker(
     no_ticker_per_day_limit: int,
 ) -> List[EnrichedItem]:
     """
-    Aplica: máximo N por (día, ticker). Maneja 'sin ticker' aparte.
-    No descarta notas con múltiples tickers: una nota cuenta para cada ticker.
+    Máximo N por (día, ticker). Maneja 'sin ticker' aparte.
+    Una nota con varios tickers cuenta para cada ticker; se mantiene una sola vez.
     """
     if per_ticker_limit <= 0 and (not include_no_ticker or no_ticker_per_day_limit <= 0):
         return []
 
-    # Orden estable (por fecha desc/asc – aquí usamos desc para tener lo más reciente primero)
     items_sorted = sorted(items, key=lambda x: x.published_at, reverse=True)
 
-    # Contadores
-    taken: List[EnrichedItem] = []
+    taken_flags: Dict[int, bool] = {}
     count_by_day_ticker: Dict[Tuple[str, str], int] = Counter()
     count_no_ticker_by_day: Dict[str, int] = Counter()
 
-    for it in items_sorted:
+    for idx, it in enumerate(items_sorted):
         day = it.published_at.astimezone(timezone.utc).date().isoformat()
         if it.tickers:
-            # Si tiene tickers, verificamos para cada uno
-            added_for_this_item = False
+            added = False
             for tk in it.tickers:
                 key = (day, tk)
                 if count_by_day_ticker[key] < per_ticker_limit:
                     count_by_day_ticker[key] += 1
-                    added_for_this_item = True
-            if added_for_this_item:
-                taken.append(it)
+                    added = True
+            if added:
+                taken_flags[idx] = True
         else:
-            # sin ticker
             if include_no_ticker and no_ticker_per_day_limit > 0:
                 if count_no_ticker_by_day[day] < no_ticker_per_day_limit:
                     count_no_ticker_by_day[day] += 1
-                    taken.append(it)
+                    taken_flags[idx] = True
 
-    # Para presentación final, orden cronológico ascendente
-    taken = sorted(taken, key=lambda x: x.published_at)
-    return taken
+    kept = [items_sorted[i] for i in sorted(taken_flags.keys())]
+    kept = sorted(kept, key=lambda x: x.published_at)
+    return kept
 
 # ------------------------------
 # Salida (NDJSON + CSV)
@@ -296,7 +309,6 @@ def write_outputs(
     ndjson_path = out_dir / f"{prefix}_{today_tag}.ndjson"
     csv_path = out_dir / f"{prefix}_preview_{today_tag}.csv"
 
-    # NDJSON (completo)
     with ndjson_path.open("w", encoding="utf-8") as f:
         for it in items:
             obj = {
@@ -314,7 +326,6 @@ def write_outputs(
             }
             f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
-    # CSV (preview)
     headers = [
         "published_at", "source", "title", "lang",
         "sentiment_label", "sentiment_score",
@@ -377,7 +388,6 @@ def maybe_upload_to_blob(
         with path.open("rb") as f:
             client.upload_blob(name=blob_name, data=f, overwrite=True)
 
-    # Heartbeat
     hb_path = Path("data/heartbeat.txt")
     hb_path.write_text(f"{datetime.now(timezone.utc).isoformat()}\n", encoding="utf-8")
     client.upload_blob(
@@ -395,7 +405,6 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="ETL de noticias (enriquecimiento + filtros).")
     parser.add_argument("--config", required=True, help="Ruta al archivo config.yaml")
     parser.add_argument("--print-config-path", action="store_true")
-    # Overrides opcionales
     parser.add_argument("--days-back", type=int, default=None, help="Últimos N días (override)")
     parser.add_argument("--per-ticker-limit", type=int, default=None, help="Máximo por ticker y por día (override)")
     parser.add_argument("--include-no-ticker", action="store_true", help="Incluir notas sin ticker (override ON)")
