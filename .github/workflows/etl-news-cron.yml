@@ -2,7 +2,7 @@ name: ETL News (cron + manual)
 
 on:
   schedule:
-    - cron: "15 12 * * *"   # ajústalo a tu gusto
+    - cron: "*/15 * * * *"   # ajústalo a tu gusto
   workflow_dispatch: {}
 
 jobs:
