@@ -1,100 +1,49 @@
-# =========================
-# ETL de noticias - Config
-# =========================
+# news_etl/config.yaml
+runtime:
+  timezone: UTC
+  today_override: ""   # ISO-8601 opcional p/ tests, ej: "2025-10-03T00:00:00Z"
 
-# --- Ventana temporal ---
-date_window:
-  days_back: 15          # últimos N días (hoy inclusive)
-  tz: "UTC"              # zona para truncar por día (YYYY-MM-DD)
+window:
+  last_n_days: 15      # últimos N días (incluye hoy)
 
-# --- Límite por día ---
-daily_limits:
-  per_ticker_limit: 3    # máximo por ticker y por día
-  include_no_ticker: false
-  no_ticker_per_day_limit: 0  # si quieres limitar las “sin ticker”
+tickers:
+  universe:
+    AMZN: ["amazon", "aws", "prime video", "kindle", "alexa"]
+    MSFT: ["microsoft", "xbox", "azure", "copilot", "windows", "bing"]
+    GOOGL: ["google", "alphabet", "youtube", "gemini", "android"]
+  # si true, solo se etiquetan tickers que estén en 'universe'
+  restrict_to_universe: true
 
-# --- Fuentes / registro ---
-registry:
-  # Coloca aquí tus endpoints / providers si los usas.
-  # Si tu fetcher ya los trae de otro lado, este bloque puede quedar sin uso.
-  providers: []
-  # Lista de dominios a permitir (opcional). Si está vacía, no se usa allowlist.
-  domains_allowlist: []
-  # Blacklist por sufijo (se aplica a subdominios también).
-  domains_blacklist:
-    - globenewswire.com
-    - prnewswire.com
-    - businesswire.com
-    - tech.slashdot.org       # puedes poner el host exacto o el sufijo base
-    - rlsbb.to
-    - post.rlsbb.to
-
-# --- Filtros de contenido ---
-filters:
-  languages_allowlist: ["en", "es", "ja"]  # deja vacío para aceptar todos
-  min_title_len: 8
-  min_summary_len: 20
-  # Blacklist adicional por “source” (campo textual).
-  source_blacklist:
-    - "GlobeNewswire"
-    - "PR Newswire"
-  # Palabras/regex para descartar “ofertas/deals” muy comerciales
-  commerce:
-    min_price_tokens: 1
-    min_percent_tokens: 1
-    price_regex:
-      - "(?i)\\$\\s?\\d+[\\d\\.,]*"
-      - "(?i)\\d+\\s?(?:USD|EUR|GBP|dollars?)"
-    percent_regex:
-      - "(?i)\\d{1,3}%\\s?(?:off|descuento|dto\\.)"
-
-# --- Azure AI Text Analytics ---
 azure_language:
-  endpoint: "${AZURE_LANGUAGE_ENDPOINT}"  # o pon el endpoint aquí (no recomendado)
-  key: "${AZURE_LANGUAGE_KEY}"          # o pon la key aquí (no recomendado)
+  enabled: true
+  endpoint: "${AZURE_LANGUAGE_ENDPOINT}"   # se expande en runtime
+  key: "${AZURE_LANGUAGE_KEY}"             # se expande en runtime
   api_version: "2023-04-01"
-  force_language: "en"                  # e.g., "en" si quieres forzarlo
-  timeout_seconds: 30
+  force_language: ""                       # ej "en" para forzar
   tasks:
     language_detection: true
     sentiment_analysis: true
     key_phrase_extraction: true
     entity_recognition: true
     entity_linking: true
+  timeout_seconds: 30
 
-# --- Etiquetado de tickers ---
-ticker_tagging:
-  enabled: true
-  # Patrones negativos globales (corta antes de evaluar tickers)
-  negative_patterns:
-    - "(?i)AMZN\\s*WEB-?DL"
-    - "(?i)WEB-?DL\\b"
-    - "(?i)RLSBB\\b|rlsbb\\.to"
-  tickers:
-    AMZN:
-      - "(?i)\\bamazon\\b"
-      - "(?i)\\baws\\b|\\bamazon web services\\b"
-      - "(?i)\\bprime video\\b|\\bkindle\\b|\\bring\\b"
-    MSFT:
-      - "(?i)\\bmicrosoft\\b|\\bazure\\b|\\bxbox\\b|\\bwindows\\b|\\bmicrosoft 365\\b"
-    GOOGL:
-      - "(?i)\\bgoogle\\b|\\balphabet\\b|\\byoutube\\b|\\bdeepmind\\b|\\bwaymo\\b"
-      # Importante: NO usamos "android" suelto para evitar ruido
+limits:
+  preview_csv_max_rows: 1000
 
-# --- Salidas y storage ---
-output:
-  dir: "data"
-  prefix: "news"
-  preview_csv: true
-  preview_max_rows: 1000
+daily_limits:
+  per_ticker_limit: 3        # máximo por ticker y por día
+  include_no_ticker: false   # si false, se excluyen totalmente sin ticker
+  no_ticker_per_day_limit: 0 # ignorado si include_no_ticker=false
 
-azure_blob:
-  enabled: true
-  account_url: "https://<TU-CUENTA>.blob.core.windows.net"
+paths:
+  raw_ndjson: "data/news_raw.ndjson"
+  out_ndjson: "data/news_YYYYMMDD.ndjson"
+  out_preview_csv: "data/news_preview_YYYYMMDD.csv"
+  heartbeat: "data/heartbeat.txt"
+
+blob_upload:
+  enabled: false              # si quieres que el ETL mismo suba a Blob, pon true
+  connection_string: "${AZURE_STORAGE_CONNECTION_STRING}"
   container: "datasets"
-  prefix_path: "news"
-  sas_token: "${AZ_BLOB_SAS_TOKEN}"  # o usa credenciales por DefaultAzureCredential
-
-# --- Logging ---
-logging:
-  level: "INFO"
+  prefix: "news/"
