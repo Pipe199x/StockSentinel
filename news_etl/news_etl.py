@@ -33,7 +33,9 @@ def load_yaml(path: str) -> dict:
     return yaml.safe_load(txt)
 
 def ensure_dir_for_file(path: str):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    d = os.path.dirname(path)
+    if d:
+        os.makedirs(d, exist_ok=True)
 
 def read_ndjson(path: str) -> List[dict]:
     items = []
@@ -101,7 +103,6 @@ def passes_filters(item: dict, cfg: dict) -> bool:
     if c.get("enabled", False):
         for rx in c.get("title_url_terms", []):
             if re.search(rx, title) or re.search(rx, url):
-                # Permite dominios corporativos whitelisted (blog técnico)
                 allowed = [d.lower() for d in c.get("allowed_corporate_domains", [])]
                 if dom not in allowed:
                     return False
@@ -229,62 +230,85 @@ def run(config_path: str):
         endpoint=os.path.expandvars(lang_cfg["endpoint"]),
         key=os.path.expandvars(lang_cfg["key"]),
         api_version=lang_cfg["api_version"],
-        timeout_seconds=int(lang_cfg.get("timeout_seconds", 30)),   # <- corrección aquí
+        timeout_seconds=lang_cfg.get("timeout_seconds", 30),
         force_language=(lang_cfg.get("force_language") or "").strip() or None,
     )
     batch_size = max(1, min(5, int(lang_cfg.get("batch_size", 5))))  # API limita a 5
 
+    def _fallback_row(it: dict) -> dict:
+        r = dict(it)
+        r["language"] = ""
+        r["sentiment"] = {"label": None, "score": 0.0}
+        r["key_phrases"] = []
+        r["entities"] = []
+        r["linked_entities"] = []
+        r["tickers"] = tag_tickers(r, cfg)
+        return r
+
     enriched: List[dict] = []
+
     def chunks(lst, n):
         for i in range(0, len(lst), n):
             yield lst[i:i+n]
 
     for chunk in chunks(filtered, batch_size):
-        docs = [
-            {
-                "id": str(i + 1),
-                "text": f"{it.get('title','')}. {it.get('summary','') or ''} {it.get('source','') or ''}".strip(),
-            }
-            for i, it in enumerate(chunk)
-        ]
+        # texto a analizar
+        docs = [{"id": str(i+1), "text": f"{it.get('title','')}. {(it.get('summary') or '')} {(it.get('source') or '')}".strip()}
+                for i, it in enumerate(chunk)]
         try:
-            data = lang_client.analyze_batch(docs)  # el cliente ya hace llamadas por task
-            # parseo
+            data = lang_client.analyze_batch(docs)  # dict: {id: {...}}
+            # por cada doc del chunk, si no hay respuesta -> fallback
             for i, it in enumerate(chunk):
-                rid = str(i + 1)
-                res = data.get(rid, {})
-                it_out = dict(it)
-                it_out["language"] = res.get("language")
-                it_out["sentiment"] = res.get("sentiment")
-                it_out["key_phrases"] = res.get("key_phrases", [])
-                it_out["entities"] = res.get("entities", [])
-                it_out["linked_entities"] = res.get("linked_entities", [])
-                it_out["tickers"] = tag_tickers(it_out, cfg)
-                enriched.append(it_out)
+                rid = str(i+1)
+                res = data.get(rid) if isinstance(data, dict) else None
+                if not res:
+                    enriched.append(_fallback_row(it))
+                    continue
+                out = dict(it)
+                out["language"] = res.get("language") or ""
+                out["sentiment"] = res.get("sentiment") or {"label": None, "score": 0.0}
+                out["key_phrases"] = res.get("key_phrases", [])
+                out["entities"] = res.get("entities", [])
+                out["linked_entities"] = res.get("linked_entities", [])
+                out["tickers"] = tag_tickers(out, cfg)
+                enriched.append(out)
         except requests.HTTPError as e:
-            LOG.error("Azure Language error: %s", e)
+            LOG.error("Azure Language error: %s (se aplica fallback para %d docs)", e, len(chunk))
+            # si el batch completo falla, igual agregamos todos los fallback
+            for it in chunk:
+                enriched.append(_fallback_row(it))
         except Exception as e:
-            LOG.exception("Error procesando batch: %s", e)
+            LOG.exception("Error procesando batch: %s (se aplica fallback)", e)
+            for it in chunk:
+                enriched.append(_fallback_row(it))
 
     # Escribir salidas locales
     write_ndjson(output_ndjson, enriched)
-    preview_cols = ["published_at", "source", "title", "lang", "sentiment_label", "sentiment_score", "tickers", "url"]
-    # construir columnas de preview a partir del enriquecido
+
+    # Construir preview
+    preview_cols = [
+        "published_at", "source", "title", "lang",
+        "sentiment_label", "sentiment_score",
+        "tickers", "url"
+    ]
+
     preview_rows = []
     for r in enriched:
         prev = {
-            "published_at": r.get("published_at", ""),
-            "source": r.get("source", ""),
-            "title": r.get("title", ""),
+            "published_at": r.get("published_at",""),
+            "source": r.get("source",""),
+            "title": r.get("title",""),
             "lang": r.get("language") or "",
             "sentiment_label": (r.get("sentiment") or {}).get("label"),
             "sentiment_score": (r.get("sentiment") or {}).get("score", 0.0),
             "tickers": ",".join(r.get("tickers", [])),
-            "url": r.get("url", ""),
+            "url": r.get("url",""),
         }
         preview_rows.append(prev)
+
     write_csv_preview(output_preview, preview_rows, preview_cols)
 
+    # Heartbeat
     ensure_dir_for_file(heartbeat)
     with open(heartbeat, "w", encoding="utf-8") as f:
         f.write(datetime.now().isoformat())
