@@ -25,4 +25,3 @@ symbols:
 blob_upload:
   enabled: true
   container: "datasets"               # usa env DATASETS_CONTAINER si prefieres
-  connection_string: "${AZURE_STORAGE_CONNECTION_STRING}"  # por defecto toma del env
