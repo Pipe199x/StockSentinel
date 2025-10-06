@@ -1,16 +1,18 @@
-# news_etl/news_etl.py
+# news_etl/news_etl.py — REPLACE COMPLETE
+# Publica histórico (news/news_YYYYMMDD.ndjson, preview) y alias estable (news/latest/*)
+
 import argparse
 import json
 import os
 import re
+import glob
+import csv
+import logging
 from collections import defaultdict, Counter
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
-import glob
-import csv
-import logging
 
 from .azure_language import AzureLanguageClient
 
@@ -20,6 +22,9 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
 )
 
+# =============================
+# Utilidades de config/tiempo
+# =============================
 _ENV_VAR_RE = re.compile(r"\$\{([A-Za-z0-9_]+)\}")
 
 def _expand_env(value: Any) -> Any:
@@ -34,8 +39,11 @@ def _expand_env(value: Any) -> Any:
         return [_expand_env(v) for v in value]
     return value
 
-def _ensure_parent(path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
+def load_config(path: str) -> Dict[str, Any]:
+    import yaml
+    with open(path, "r", encoding="utf-8") as f:
+        cfg = yaml.safe_load(f)
+    return _expand_env(cfg or {})
 
 def iso_utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
@@ -49,11 +57,13 @@ def parse_iso_ts(s: str) -> datetime:
 def to_iso_date(d: datetime) -> str:
     return d.astimezone(timezone.utc).strftime("%Y-%m-%d")
 
-def load_config(path: str) -> Dict[str, Any]:
-    import yaml
-    with open(path, "r", encoding="utf-8") as f:
-        cfg = yaml.safe_load(f)
-    return _expand_env(cfg or {})
+# =============================
+# I/O archivos locales
+# =============================
+
+def _ensure_parent(path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+
 
 def _read_one_ndjson(file_path: Path) -> List[Dict[str, Any]]:
     items: List[Dict[str, Any]] = []
@@ -68,6 +78,7 @@ def _read_one_ndjson(file_path: Path) -> List[Dict[str, Any]]:
                 continue
     return items
 
+
 def read_raw_items(path_like: str) -> List[Dict[str, Any]]:
     """
     Acepta:
@@ -77,7 +88,7 @@ def read_raw_items(path_like: str) -> List[Dict[str, Any]]:
     """
     p = Path(path_like)
     files: List[Path] = []
-    if "*" in path_like or "?" in path_like or "[" in path_like:
+    if any(ch in path_like for ch in "*?["):
         files = [Path(x) for x in glob.glob(path_like)]
     elif p.is_dir():
         files = sorted(p.glob("*.ndjson"))
@@ -94,6 +105,7 @@ def read_raw_items(path_like: str) -> List[Dict[str, Any]]:
     LOG.info("[SUMMARY] RAW cargado: %s items desde %s archivo(s)", len(out), len(files))
     return out
 
+
 def write_ndjson(path: str, items: Iterable[Dict[str, Any]]) -> Path:
     p = Path(path)
     _ensure_parent(p)
@@ -101,6 +113,7 @@ def write_ndjson(path: str, items: Iterable[Dict[str, Any]]) -> Path:
         for obj in items:
             f.write(json.dumps(obj, ensure_ascii=False) + "\n")
     return p
+
 
 def write_preview_csv(path: str, rows: List[Dict[str, Any]]) -> Path:
     p = Path(path)
@@ -117,11 +130,15 @@ def write_preview_csv(path: str, rows: List[Dict[str, Any]]) -> Path:
             w.writerow(r)
     return p
 
+# =============================
+# Enriquecimiento Azure AI Language
+# =============================
+
 def azure_enrich(items: List[Dict[str, Any]], cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
     if not cfg.get("enabled", False) or not items:
         return items
 
-    endpoint = cfg.get("endpoint", "").rstrip("/")
+    endpoint = (cfg.get("endpoint") or "").rstrip("/")
     key = cfg.get("key", "")
     api_version = cfg.get("api_version", "2023-04-01")
     force_language = cfg.get("force_language") or None
@@ -180,6 +197,9 @@ def azure_enrich(items: List[Dict[str, Any]], cfg: Dict[str, Any]) -> List[Dict[
         out.append(enriched)
     return out
 
+# =============================
+# Tagging de tickers
+# =============================
 @dataclass
 class TickerUniverse:
     restrict: bool
@@ -205,6 +225,7 @@ class TickerUniverse:
                 found.append(tkr)
         return sorted(set(found))
 
+
 def detect_tickers(item: Dict[str, Any], uni: TickerUniverse) -> List[str]:
     tokens: List[str] = []
     tokens += [item.get("title", ""), item.get("summary", "")]
@@ -219,6 +240,10 @@ def detect_tickers(item: Dict[str, Any], uni: TickerUniverse) -> List[str]:
                 lowered.append(piece)
     tickers = uni.tag(lowered)
     return tickers
+
+# =============================
+# Selección por ventana y límites diarios
+# =============================
 
 def filter_last_n_days(items: List[Dict[str, Any]], today_utc: datetime, n_days: int) -> List[Dict[str, Any]]:
     if n_days <= 0:
@@ -238,6 +263,7 @@ def filter_last_n_days(items: List[Dict[str, Any]], today_utc: datetime, n_days:
             out.append(it)
     return out
 
+
 def _safe_dt(it: Dict[str, Any]) -> datetime:
     ts = it.get("published_at") or ""
     try:
@@ -245,13 +271,14 @@ def _safe_dt(it: Dict[str, Any]) -> datetime:
     except Exception:
         return datetime.min.replace(tzinfo=timezone.utc)
 
+
 def select_daily_limited(items: List[Dict[str, Any]],
                          per_ticker_limit: int,
                          include_no_ticker: bool,
                          no_ticker_per_day_limit: int) -> List[Dict[str, Any]]:
     """
     Limita a N por ticker por día. Ordena por fecha desc dentro de cada bucket.
-    Además, realiza una verificación final estricta para no exceder cupos.
+    Dedup por (url,title).
     """
     by_key: Dict[Tuple[str, str], List[Dict[str, Any]]] = defaultdict(list)
 
@@ -269,7 +296,7 @@ def select_daily_limited(items: List[Dict[str, Any]],
             by_key[(dkey, "__NONE__")].append(it)
 
     prelim: List[Dict[str, Any]] = []
-    seen_dedup = set()
+    seen = set()
     for (dkey, tkr), bucket in sorted(by_key.items()):
         bucket.sort(key=_safe_dt, reverse=True)
         limit = (0 if (tkr == "__NONE__" and not include_no_ticker)
@@ -277,11 +304,11 @@ def select_daily_limited(items: List[Dict[str, Any]],
         limit = max(0, int(limit))
         if limit == 0:
             continue
-        for it in bucket[:limit*2]:
-            key = (it.get("url") or "") + "|" + (it.get("title") or "")
-            if key in seen_dedup:
+        for it in bucket:
+            key = (it.get("source") or "") + "|" + (it.get("url") or it.get("title") or "")
+            if key in seen:
                 continue
-            seen_dedup.add(key)
+            seen.add(key)
             prelim.append(it)
 
     caps: Dict[Tuple[str, str], int] = defaultdict(int)
@@ -308,6 +335,10 @@ def select_daily_limited(items: List[Dict[str, Any]],
 
     return final
 
+# =============================
+# Salida preview CSV
+# =============================
+
 def build_preview_rows(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     rows: List[Dict[str, Any]] = []
     for it in items:
@@ -329,25 +360,36 @@ def build_preview_rows(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         })
     return rows
 
-def upload_to_blob(cfg: Dict[str, Any], local_path: Path, dest_name: str) -> None:
+# =============================
+# Upload a Azure Blob
+# =============================
+
+def upload_to_blob(bcfg: Dict[str, Any], local_path: Path, dest_name: str) -> None:
     try:
         from azure.storage.blob import BlobServiceClient  # type: ignore
     except Exception:
         LOG.warning("[BLOB] azure-storage-blob no instalado; omitiendo upload.")
         return
-    conn = cfg.get("connection_string") or ""
+    conn = bcfg.get("connection_string") or os.getenv("AZURE_STORAGE_CONNECTION_STRING") or ""
     if not conn:
         LOG.warning("[BLOB] Connection string vacía; omitiendo upload.")
         return
-    container = cfg.get("container", "datasets")
-    prefix = cfg.get("prefix", "")
+    container = bcfg.get("container", "datasets")
+    prefix = bcfg.get("prefix", "") or ""
     bsc = BlobServiceClient.from_connection_string(conn)
     client = bsc.get_container_client(container)
-    client.create_container(exist_ok=True)
-    blob_name = f"{prefix}{dest_name}"
+    try:
+        client.create_container()
+    except Exception:
+        pass
+    blob_name = f"{prefix}{dest_name}" if prefix else dest_name
     with local_path.open("rb") as data:
         client.upload_blob(name=blob_name, data=data, overwrite=True)
     LOG.info("[BLOB] Subido %s -> %s/%s", local_path, container, blob_name)
+
+# =============================
+# MAIN
+# =============================
 
 def main():
     ap = argparse.ArgumentParser()
@@ -356,38 +398,46 @@ def main():
 
     cfg = load_config(args.config)
 
-    tz = timezone.utc
+    # Fecha de referencia (UTC)
     if cfg.get("runtime", {}).get("today_override"):
-        today = parse_iso_ts(cfg["runtime"]["today_override"])
+        today = parse_iso_ts(cfg["runtime"]["today_override"]).astimezone(timezone.utc)
     else:
-        today = datetime.now(tz)
+        today = datetime.now(timezone.utc)
 
+    # Paths
     p_raw = cfg["paths"]["raw_ndjson"]
     p_out_ndjson_tpl = cfg["paths"]["out_ndjson"]
     p_out_csv_tpl = cfg["paths"]["out_preview_csv"]
     p_heartbeat = cfg["paths"]["heartbeat"]
 
+    # 1) Lee RAW
     LOG.info("[STEP] Leyendo RAW desde %s", p_raw)
     raw_all = read_raw_items(p_raw)
 
+    # 2) Enriquecimiento Azure
     LOG.info("[STEP] Enriqueciendo con Azure Language…")
     enriched = azure_enrich(raw_all, cfg.get("azure_language", {}))
 
+    # 3) Tagging tickers
     uni = TickerUniverse.from_cfg(cfg.get("tickers", {}))
     for it in enriched:
         it["tickers"] = detect_tickers(it, uni)
 
+    # 4) Ventana 15 días (por config)
     n_days = int(cfg.get("window", {}).get("last_n_days", 15))
     filtered = filter_last_n_days(enriched, today, n_days)
 
+    # 5) Límite por día/ticker
     dl = cfg.get("daily_limits", {})
     per_ticker = int(dl.get("per_ticker_limit", 3))
     include_no_ticker = bool(dl.get("include_no_ticker", False))
     no_ticker_limit = int(dl.get("no_ticker_per_day_limit", 0))
     limited = select_daily_limited(filtered, per_ticker, include_no_ticker, no_ticker_limit)
 
+    # Orden final por fecha desc
     limited.sort(key=lambda x: x.get("published_at", ""), reverse=True)
 
+    # 6) Escribir salidas locales
     stamp = today.strftime("%Y%m%d")
     out_ndjson = p_out_ndjson_tpl.replace("YYYYMMDD", stamp)
     out_csv = p_out_csv_tpl.replace("YYYYMMDD", stamp)
@@ -403,22 +453,32 @@ def main():
     hb_path.write_text(iso_utc_now() + "\n", encoding="utf-8")
     LOG.info("[OUTPUT] heartbeat=%s", hb_path)
 
-    LOG.info(
-        "[SUMMARY] extraidos=%d, tras_ventana=%d, seleccionados=%d",
-        len(raw_all), len(filtered), len(limited)
-    )
+    # 7) Logs de resumen
+    LOG.info("[SUMMARY] extraidos=%d, tras_ventana=%d, seleccionados=%d", len(raw_all), len(filtered), len(limited))
     langs = Counter([(it.get("language") or {}).get("iso") for it in limited if it.get("language")])
     sents = Counter([(it.get("sentiment") or {}).get("label") for it in limited if it.get("sentiment")])
     LOG.info("[SUMMARY] languages=%s", dict(langs))
     LOG.info("[SUMMARY] sentiment=%s", dict(sents))
     LOG.info("[SUMMARY] outputs: ndjson=%s preview_csv=%s heartbeat=%s", ndjson_path, csv_path, hb_path)
 
+    # 8) Subida a Azure Blob: histórico + latest/
     bcfg = cfg.get("blob_upload", {}) or {}
     if bcfg.get("enabled"):
-        LOG.info("[BLOB] Subiendo archivos (modo ETL)…")
+        LOG.info("[BLOB] Subiendo archivos (histórico + latest/)…")
+        # histórico (usa prefix p.ej. "news/")
         upload_to_blob(bcfg, ndjson_path, f"news_{stamp}.ndjson")
         upload_to_blob(bcfg, csv_path, f"news_preview_{stamp}.csv")
         upload_to_blob(bcfg, hb_path, "heartbeat.txt")
+        # alias estable dentro del mismo prefix
+        upload_to_blob(bcfg, ndjson_path, "latest/news.ndjson")
+        upload_to_blob(bcfg, csv_path, "latest/news_preview.csv")
+        upload_to_blob(bcfg, hb_path, "latest/heartbeat.txt")
+
 
 if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--config", required=True)
+    args, _ = ap.parse_known_args()
+    # Reusar el parser de main() para mantener un único punto de carga de cfg
+    # (evita divergencias en futuras opciones)
     main()

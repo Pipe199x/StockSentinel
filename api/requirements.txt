@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+azure-storage-blob
+pandas
+python-dateutil
+orjson
+ndjson

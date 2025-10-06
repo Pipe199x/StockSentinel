@@ -1,4 +1,4 @@
-# stocks_etl/config.yaml  — MODO DIARIO
+# stocks_etl/config.yaml — REPLACE COMPLETE (MODO DIARIO)
 start: "2020-01-01"
 end: null
 interval: "1d"
@@ -20,3 +20,9 @@ symbols:
   - AMZN
   - GOOGL
   - MSFT
+
+# Publicación a Blob
+blob_upload:
+  enabled: true
+  container: "datasets"               # usa env DATASETS_CONTAINER si prefieres
+  # connection_string: "${AZURE_STORAGE_CONNECTION_STRING}"  # por defecto toma del env

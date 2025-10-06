@@ -1,4 +1,4 @@
-# stocks_etl/stocks_etl.py
+# stocks_etl/stocks_etl.py — REPLACE COMPLETE
 import argparse
 import os
 import warnings
@@ -10,6 +10,7 @@ from tenacity import retry, wait_exponential_jitter, stop_after_attempt
 
 from stocks_etl.features import make_features
 from stocks_etl.model_xgb import predict_next_day
+from etl_common.storage import upload_file_dual
 
 warnings.simplefilter("ignore", FutureWarning)
 
@@ -78,7 +79,7 @@ def _normalize(df_raw, symbols, auto_adjust, cal_name):
             if c not in dfi.columns:
                 dfi[c] = 0.0
 
-        # filtrar a días de mercado (seguirá funcionando para diario; en intradía solo valida la fecha)
+        # filtrar a días de mercado (diario)
         if cal is not None and "date" in dfi.columns:
             try:
                 start_d = dfi["date"].min().date()
@@ -187,6 +188,34 @@ def main(cfg):
     with open(hb_path, "w", encoding="utf-8") as hb:
         hb.write(datetime.now(timezone.utc).isoformat())
     print(f"[SUMMARY] heartbeat written at {hb_path}")
+
+    # === Upload to Azure Blob (historical + latest aliases) ===
+    bu = cfg.get("blob_upload", {})
+    if bu.get("enabled", True):
+        container = bu.get("container", os.getenv("DATASETS_CONTAINER", "datasets"))
+        conn = bu.get("connection_string") or os.getenv("AZURE_STORAGE_CONNECTION_STRING")
+        stamp = datetime.now(timezone.utc).strftime("%Y%m%d")
+        # prices
+        plocal = os.path.join(out_dir, f"prices_{stamp}.csv")
+        if os.path.exists(plocal):
+            upload_file_dual(local_path=plocal, container=container,
+                             path_dated=f"stocks/prices_{stamp}.csv",
+                             path_latest="stocks/latest/prices.csv",
+                             connection_string=conn, content_type="text/csv")
+        # predictions
+        plocal = os.path.join(out_dir, f"predictions_{stamp}.csv")
+        if os.path.exists(plocal):
+            upload_file_dual(local_path=plocal, container=container,
+                             path_dated=f"stocks/predictions_{stamp}.csv",
+                             path_latest="stocks/latest/predictions.csv",
+                             connection_string=conn, content_type="text/csv")
+        # heartbeat
+        hlocal = os.path.join(out_dir, "heartbeat.txt")
+        if os.path.exists(hlocal):
+            upload_file_dual(local_path=hlocal, container=container,
+                             path_dated="stocks/heartbeat.txt",
+                             path_latest="stocks/latest/heartbeat.txt",
+                             connection_string=conn, content_type="text/plain")
 
     return price_paths + pred_paths + [hb_path]
 
