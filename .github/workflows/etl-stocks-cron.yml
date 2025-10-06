@@ -2,9 +2,8 @@ name: ETL Stocks (cron + manual)
 
 on:
   schedule:
-    - cron: "30 22 * * *"   # 22:30 UTC ≈ 5:30 pm Bogotá (después del cierre NY)
+    - cron: "30 22 * * *"   # 22:30 UTC ≈ 5:30 pm Bogotá
   workflow_dispatch: {}
-
 
 jobs:
   etl:
@@ -28,22 +27,27 @@ jobs:
           pip install -r stocks_etl/requirements.txt
           pip install pyyaml
 
+      # Importante: el ETL NO sube a Blob (blob_upload.enabled=false en config)
       - name: Run ETL (un solo dataset + predicciones + heartbeat)
         run: |
           python -m stocks_etl.stocks_etl --config stocks_etl/config.yaml
 
-      - name: Upload CSVs + heartbeat to Azure Blob (datasets/stocks/)
+      - name: Upload CSVs + heartbeat to Azure Blob (datasets/stocks/ + latest/)
         uses: azure/cli@v2
         env:
           AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+          CONTAINER: ${{ env.CONTAINER }}
+          DEST_ROOT: ${{ env.DEST_ROOT }}
         with:
           inlineScript: |
-            # Crear contenedor si no existe
+            set -euo pipefail
+
+            # 1) Asegurar contenedor
             az storage container create \
               --name "$CONTAINER" \
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" 1>/dev/null
 
-            # Subir CSVs (prices_*.csv, predictions_*.csv)
+            # 2) Subir histórico (fechados) desde ./data/
             az storage blob upload-batch \
               --destination "$CONTAINER" \
               --source data \
@@ -52,10 +56,63 @@ jobs:
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
               --overwrite
 
-            # Subir heartbeat (marca de vida)
+            # Subir heartbeat general
             az storage blob upload \
               --container-name "$CONTAINER" \
               --file data/heartbeat.txt \
               --name "$DEST_ROOT/heartbeat.txt" \
               --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
               --overwrite
+
+            # 3) Publicar alias latest/ (precios, predicciones, heartbeat)
+            STAMP="$(date -u +%Y%m%d)"
+            PRICES_LOCAL="data/prices_${STAMP}.csv"
+            PREDS_LOCAL="data/predictions_${STAMP}.csv"
+            HB_LOCAL="data/heartbeat.txt"
+
+            if [ -f "$PRICES_LOCAL" ]; then
+              az storage blob upload \
+                --container-name "$CONTAINER" \
+                --file "$PRICES_LOCAL" \
+                --name "$DEST_ROOT/latest/prices.csv" \
+                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+                --overwrite
+            else
+              echo "[WARN] No existe $PRICES_LOCAL"
+            fi
+
+            if [ -f "$PREDS_LOCAL" ]; then
+              az storage blob upload \
+                --container-name "$CONTAINER" \
+                --file "$PREDS_LOCAL" \
+                --name "$DEST_ROOT/latest/predictions.csv" \
+                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+                --overwrite
+            else
+              echo "[WARN] No existe $PREDS_LOCAL"
+            fi
+
+            if [ -f "$HB_LOCAL" ]; then
+              az storage blob upload \
+                --container-name "$CONTAINER" \
+                --file "$HB_LOCAL" \
+                --name "$DEST_ROOT/latest/heartbeat.txt" \
+                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+                --overwrite
+            fi
+
+      # (Opcional) Verifica que latest/* exista
+      - name: List latest blobs (smoke test)
+        if: always()
+        uses: azure/cli@v2
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+          CONTAINER: ${{ env.CONTAINER }}
+          DEST_ROOT: ${{ env.DEST_ROOT }}
+        with:
+          inlineScript: |
+            az storage blob list \
+              --container-name "$CONTAINER" \
+              --prefix "$DEST_ROOT/latest/" \
+              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
+              --output table
