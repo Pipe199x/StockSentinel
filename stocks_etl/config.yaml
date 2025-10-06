@@ -23,5 +23,5 @@ symbols:
 
 # Publicación a Blob
 blob_upload:
-  enabled: true
+  enabled: false
   container: "datasets"               # usa env DATASETS_CONTAINER si prefieres
