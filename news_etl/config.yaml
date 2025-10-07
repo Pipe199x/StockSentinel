@@ -45,7 +45,7 @@ paths:
 
 # Publicación a Blob: un solo bloque, sin duplicados
 blob_upload:
-  enabled: true                 # (cámbialo a false si no quieres subir)
+  enabled: false                 # (cámbialo a false si no quieres subir)
   connection_string: "${AZURE_STORAGE_CONNECTION_STRING}"
   container: "datasets"
   prefix: "news/"              # histórico irá a news/news_YYYYMMDD.* y latest a news/latest/*
