@@ -28,6 +28,9 @@ EXCLUDE_DOMAINS = [
     "9to5toys.com",
     "techbargains.com",
     "biztoc.com",
+    # Plataformas de código/paquetes: lanzamientos de librerías no son noticias
+    "pypi.org",
+    "github.com",
 ]
 
 # Señales fuertes de artículos de ofertas/compras; raras en noticias de mercado
