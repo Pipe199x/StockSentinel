@@ -1,36 +1,20 @@
 {
-  "as_of": "2026-08-29T19:12:26.683972+00:00",
+  "as_of": "2026-08-29T19:14:04.027398+00:00",
   "window_days": 15,
   "articles": [
     {
-      "published_at": "2026-08-28T19:09:02+00:00",
-      "source": "Pypi.org",
-      "title": "sagemaker-studio-dataengineering-sessions 1.3.25",
-      "summary": "A python Package to run Spark code in different AWS Compute",
-      "url": "https://pypi.org/project/sagemaker-studio-dataengineering-sessions/1.3.25/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.897
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-08-28T19:07:30+00:00",
-      "source": "Github.com",
-      "title": "Show HN: ALST – Real-time Android screen translator using Gemini and ML Kit",
-      "summary": "Real-time Android screen translation. Powered by Gemini AI for smart multimodal vision and Google ML Kit for full offline support. - navidseyedain/ALSTMobile",
-      "url": "https://github.com/navidseyedain/ALSTMobile",
+      "published_at": "2026-08-28T19:12:30+00:00",
+      "source": "Slashdot.org",
+      "title": "Even Cuba's stray cats are feeling the heat as crisis deepens - Reuters",
+      "summary": "Even Cuba's stray cats are feeling the heat as crisis deepensReuters See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185258086",
       "raw_tickers": [],
       "tickers": [
         "GOOGL"
       ],
       "sentiment": {
         "label": "neutral",
-        "score": 0.8989
+        "score": 0.9355
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -83,6 +67,22 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
+      "published_at": "2026-08-28T18:47:00+00:00",
+      "source": "Claremore Daily Progress",
+      "title": "Rogers County Football Forecast returns for Season 3",
+      "summary": "Listen here: Spotify Apple Podcasts iHeartRadio Amazon Music The Rogers County Football Forecast returned for its third season this week, ushering in the 2026 high school football season with a new co-host, Week Zero picks and predictions for what lies ahead …",
+      "url": "https://www.claremoreprogress.com/sports/rogers-county-football-forecast-returns-for-season-3/article_0d66a48f-d22e-4b8f-8872-1ab9360f21a5.html",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7816
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
       "published_at": "2026-08-28T18:42:00+00:00",
       "source": "Notebookcheck.net",
       "title": "Windows 11’s next major update almost ready for release",
@@ -95,22 +95,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.779
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-08-28T18:40:22+00:00",
-      "source": "Pypi.org",
-      "title": "girder-google-analytics 3.2.17.dev8",
-      "summary": "Allow the tracking of page views via Google Analytics.",
-      "url": "https://pypi.org/project/girder-google-analytics/3.2.17.dev8/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9473
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -131,18 +115,34 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "published_at": "2026-08-28T18:36:52+00:00",
-      "source": "Pypi.org",
-      "title": "pyjpegli 0.3.1",
-      "summary": "Python bindings for google/jpegli: smaller JPEGs at the same quality",
-      "url": "https://pypi.org/project/pyjpegli/0.3.1/",
+      "published_at": "2026-08-28T18:35:08+00:00",
+      "source": "BleepingComputer",
+      "title": "Youtube streaming performance issues",
+      "summary": "Youtube streaming performance issues - posted in Web Browsing/Email and Other Internet Applications: Im having serious streaming performance on one of my computers streaming Youtube through the browser.\nI have a old Dell Optiplex that I use as an HTPC connect…",
+      "url": "https://www.bleepingcomputer.com/forums/t/818315/youtube-streaming-performance-issues/",
       "raw_tickers": [],
       "tickers": [
         "GOOGL"
       ],
       "sentiment": {
         "label": "neutral",
-        "score": 0.8719
+        "score": 0.5647
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-28T18:27:00+00:00",
+      "source": "Android Central",
+      "title": "Google Health's late August update adds more manual workout logging freedom",
+      "summary": "Dog Days of Summer? Take a Google Health update! Android users should look out for better manual workout logging and improved Running Distance data.",
+      "url": "https://www.androidcentral.com/wearables/fitbit/google-healths-late-august-update-adds-more-manual-workout-logging-freedom",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8115
       },
       "sentiment_model": "ProsusAI/finbert"
     }
