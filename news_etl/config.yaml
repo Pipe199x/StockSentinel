@@ -7,10 +7,12 @@ window:
   last_n_days: 15
 
 tickers:
+  # Solo términos de empresa: los nombres de producto (alexa, xbox, android...)
+  # etiquetan artículos de ofertas de consumo como noticias del ticker
   universe:
-    AMZN: ["amazon", "aws", "prime video", "kindle", "alexa"]
-    MSFT: ["microsoft", "xbox", "azure", "copilot", "windows", "bing"]
-    GOOGL: ["google", "alphabet", "youtube", "gemini", "android"]
+    AMZN: ["amazon", "aws"]
+    MSFT: ["microsoft", "azure", "copilot", "bing"]
+    GOOGL: ["google", "alphabet", "youtube"]
   restrict_to_universe: true
 
 # Free local sentiment (replaces Azure AI Language)

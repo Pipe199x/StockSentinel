@@ -12,11 +12,37 @@ import argparse
 import json
 import pathlib
 
+import re
+
 import httpx
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from dateutil import parser as dateparser
 
 logger = logging.getLogger(__name__)
+
+# Dominios de agregadores/ofertas que generan ruido (no cubren la empresa, solo productos)
+EXCLUDE_DOMAINS = [
+    "slickdeals.net",
+    "dealnews.com",
+    "dealcatcher.com",
+    "9to5toys.com",
+    "techbargains.com",
+    "biztoc.com",
+]
+
+# Señales fuertes de artículos de ofertas/compras; raras en noticias de mercado
+DEAL_PATTERN = re.compile(
+    r"(% off|free shipping|coupon|promo code|on sale|deal of the day|lowest price"
+    r"|prime day|black friday|cyber monday|giveaway|w/ prime)",
+    re.IGNORECASE,
+)
+
+
+def is_deal_spam(title: str, summary: str, source: str) -> bool:
+    src = (source or "").lower()
+    if any(d.split(".")[0] in src for d in EXCLUDE_DOMAINS):
+        return True
+    return bool(DEAL_PATTERN.search(f"{title or ''} {summary or ''}"))
 
 
 @dataclass
@@ -94,6 +120,8 @@ class NewsAPIClient(NewsClient):
                 "pageSize": page_size,
                 "page": page,
                 "sortBy": "publishedAt",
+                "searchIn": "title,description",
+                "excludeDomains": ",".join(EXCLUDE_DOMAINS),
             }
             data = self._request(params)
             articles = data.get("articles", [])
@@ -146,12 +174,14 @@ def _dedupe_by_url(rows: List[dict]) -> List[dict]:
 
 def build_query_for_ticker(t: str) -> str:
     t = t.upper().strip()
+    # Solo términos centrados en la empresa; los nombres de producto
+    # (Alexa, Xbox, Android...) atraen artículos de ofertas, no de mercado
     if t == "AMZN":
-        names = ["Amazon", "AWS", "Prime Video", "Ring", "Alexa"]
+        names = ["Amazon", "AWS"]
     elif t == "MSFT":
-        names = ["Microsoft", "Windows", "Azure", "Xbox", "Copilot"]
+        names = ["Microsoft", "Azure", "Copilot"]
     elif t == "GOOGL":
-        names = ["Google", "Alphabet", "YouTube", "Android", "Gemini"]
+        names = ["Google", "Alphabet", "YouTube"]
     else:
         names = [t]
     # Ej.: (AMZN OR Amazon OR AWS)
@@ -204,11 +234,16 @@ def run_cli():
                     page_size=args.page_size,
                     max_pages=args.max_pages,
                 ):
+                    title = art.title or ""
+                    summary = art.description or art.content_snippet or ""
+                    if is_deal_spam(title, summary, art.source):
+                        logging.info("Descartado (deal spam): %s | %s", art.source, title[:80])
+                        continue
                     row = {
                         "published_at": art.published_at,
                         "source": art.source,
-                        "title": art.title or "",
-                        "summary": art.description or art.content_snippet or "",
+                        "title": title,
+                        "summary": summary,
                         "url": art.url,
                         "raw_tickers": art.raw_tickers,
                     }
