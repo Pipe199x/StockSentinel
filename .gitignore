@@ -5,15 +5,13 @@ __pycache__/
 # Virtual env
 .venv/
 
-# Datos locales
-data/
+# Local data artifacts (published data lives in docs/data/)
+/data/
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Secrets / local overrides
 .env
 news_etl/config.local.yaml
-.venv/
-__pycache__/
-*.pyc
-data/

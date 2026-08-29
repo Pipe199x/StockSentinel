@@ -1,0 +1,6 @@
+{
+  "project": "StockSentinel",
+  "tickers": ["AMZN", "GOOGL", "MSFT"],
+  "news": null,
+  "stocks": null
+}

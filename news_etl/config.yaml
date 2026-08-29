@@ -1,4 +1,4 @@
-# news_etl/config.yaml — REPLACE COMPLETE
+# news_etl/config.yaml
 runtime:
   timezone: UTC
   today_override: ""
@@ -13,19 +13,13 @@ tickers:
     GOOGL: ["google", "alphabet", "youtube", "gemini", "android"]
   restrict_to_universe: true
 
-azure_language:
+# Free local sentiment (replaces Azure AI Language)
+sentiment:
   enabled: true
-  endpoint: "${AZURE_LANGUAGE_ENDPOINT}"
-  key: "${AZURE_LANGUAGE_KEY}"
-  api_version: "2023-04-01"
-  force_language: ""
-  tasks:
-    language_detection: true
-    sentiment_analysis: true
-    key_phrase_extraction: true
-    entity_recognition: true
-    entity_linking: true
-  timeout_seconds: 30
+  model: "ProsusAI/finbert"
+  device: "cpu"
+  batch_size: 16
+  max_length: 512
 
 limits:
   preview_csv_max_rows: 1000
@@ -36,16 +30,12 @@ daily_limits:
   no_ticker_per_day_limit: 0
 
 paths:
-  # Acepta archivo, *glob* o directorio. Ejemplos:
-  # "data/news_raw.ndjson"  |  "data/raw/news_*.ndjson"  |  "data/raw/"
+  # Acepta archivo, *glob* o directorio para raw_ndjson.
   raw_ndjson: "data/news_raw.ndjson"
   out_ndjson: "data/news_YYYYMMDD.ndjson"
   out_preview_csv: "data/news_preview_YYYYMMDD.csv"
   heartbeat: "data/heartbeat.txt"
-
-# Publicación a Blob: un solo bloque, sin duplicados
-blob_upload:
-  enabled: false                 # (cámbialo a false si no quieres subir)
-  connection_string: "${AZURE_STORAGE_CONNECTION_STRING}"
-  container: "datasets"
-  prefix: "news/"              # histórico irá a news/news_YYYYMMDD.* y latest a news/latest/*
+  # Publicación a GitHub Pages (comprometido al repo por el workflow)
+  history_ndjson: "docs/data/history/news_history.ndjson"
+  latest_json: "docs/data/news_latest.json"
+  manifest: "docs/data/manifest.json"

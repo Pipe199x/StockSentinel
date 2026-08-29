@@ -2,15 +2,22 @@ name: ETL Stocks (cron + manual)
 
 on:
   schedule:
-    - cron: "30 22 * * *"   # 22:30 UTC ≈ 5:30 pm Bogotá
+    - cron: "30 22 * * *"   # 22:30 UTC, after NYSE close
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-data
+  cancel-in-progress: false
+
 jobs:
-  etl:
+  etl_stocks:
     runs-on: ubuntu-latest
+
     env:
-      CONTAINER: datasets
-      DEST_ROOT: stocks
+      PYTHON_VERSION: "3.11"
 
     steps:
       - name: Checkout
@@ -19,100 +26,34 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: stocks_etl/requirements.txt
 
       - name: Install deps
         run: |
+          set -euo pipefail
           python -m pip install --upgrade pip
           pip install -r stocks_etl/requirements.txt
-          pip install pyyaml
 
-      # Importante: el ETL NO sube a Blob (blob_upload.enabled=false en config)
-      - name: Run ETL (un solo dataset + predicciones + heartbeat)
+      - name: Run ETL (prices + XGBoost forecast + publish to docs/)
         run: |
+          set -euo pipefail
           python -m stocks_etl.stocks_etl --config stocks_etl/config.yaml
+          echo "=== docs/data ==="
+          ls -lR docs/data
 
-      - name: Upload CSVs + heartbeat to Azure Blob (datasets/stocks/ + latest/)
-        uses: azure/cli@v2
-        env:
-          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-          CONTAINER: ${{ env.CONTAINER }}
-          DEST_ROOT: ${{ env.DEST_ROOT }}
-        with:
-          inlineScript: |
-            set -euo pipefail
-
-            # 1) Asegurar contenedor
-            az storage container create \
-              --name "$CONTAINER" \
-              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" 1>/dev/null
-
-            # 2) Subir histórico (fechados) desde ./data/
-            az storage blob upload-batch \
-              --destination "$CONTAINER" \
-              --source data \
-              --pattern "*.csv*" \
-              --destination-path "$DEST_ROOT" \
-              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-              --overwrite
-
-            # Subir heartbeat general
-            az storage blob upload \
-              --container-name "$CONTAINER" \
-              --file data/heartbeat.txt \
-              --name "$DEST_ROOT/heartbeat.txt" \
-              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-              --overwrite
-
-            # 3) Publicar alias latest/ (precios, predicciones, heartbeat)
-            STAMP="$(date -u +%Y%m%d)"
-            PRICES_LOCAL="data/prices_${STAMP}.csv"
-            PREDS_LOCAL="data/predictions_${STAMP}.csv"
-            HB_LOCAL="data/heartbeat.txt"
-
-            if [ -f "$PRICES_LOCAL" ]; then
-              az storage blob upload \
-                --container-name "$CONTAINER" \
-                --file "$PRICES_LOCAL" \
-                --name "$DEST_ROOT/latest/prices.csv" \
-                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-                --overwrite
-            else
-              echo "[WARN] No existe $PRICES_LOCAL"
-            fi
-
-            if [ -f "$PREDS_LOCAL" ]; then
-              az storage blob upload \
-                --container-name "$CONTAINER" \
-                --file "$PREDS_LOCAL" \
-                --name "$DEST_ROOT/latest/predictions.csv" \
-                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-                --overwrite
-            else
-              echo "[WARN] No existe $PREDS_LOCAL"
-            fi
-
-            if [ -f "$HB_LOCAL" ]; then
-              az storage blob upload \
-                --container-name "$CONTAINER" \
-                --file "$HB_LOCAL" \
-                --name "$DEST_ROOT/latest/heartbeat.txt" \
-                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-                --overwrite
-            fi
-
-      # (Opcional) Verifica que latest/* exista
-      - name: List latest blobs (smoke test)
-        if: always()
-        uses: azure/cli@v2
-        env:
-          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-          CONTAINER: ${{ env.CONTAINER }}
-          DEST_ROOT: ${{ env.DEST_ROOT }}
-        with:
-          inlineScript: |
-            az storage blob list \
-              --container-name "$CONTAINER" \
-              --prefix "$DEST_ROOT/latest/" \
-              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-              --output table
+      - name: Commit & push data
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "data: stocks update $(date -u +%F) [skip ci]"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin main && break || sleep 15
+          done

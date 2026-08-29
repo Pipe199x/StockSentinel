@@ -1,7 +1,6 @@
-fastapi
-uvicorn[standard]
-azure-storage-blob
-pandas
-python-dateutil
-orjson
-ndjson
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pandas==2.2.3
+python-dateutil==2.9.0.post0
+orjson==3.10.7
+ndjson==0.3.1

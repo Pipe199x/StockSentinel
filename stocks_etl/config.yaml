@@ -1,17 +1,17 @@
-# stocks_etl/config.yaml — REPLACE COMPLETE (MODO DIARIO)
+# stocks_etl/config.yaml
 start: "2020-01-01"
 end: null
 interval: "1d"
 
-# Ajustes de precios y eventos
-auto_adjust: false      # (si quieres ver Adj Close poblado, pon false)
+# Precios y eventos
+auto_adjust: false      # mantener Close sin ajustar; adj_close viene aparte
 actions: true
 
 # Concurrencia y calendario
 threads: 1
 calendar: "NYSE"
 
-# Salida
+# Salida local
 output_dir: "data"
 csv_compression: null  # null | gzip
 
@@ -21,7 +21,7 @@ symbols:
   - GOOGL
   - MSFT
 
-# Publicación a Blob
-blob_upload:
-  enabled: false
-  container: "datasets"               # usa env DATASETS_CONTAINER si prefieres
+# Publicación a GitHub Pages (comprometido al repo por el workflow)
+publish:
+  docs_dir: "docs/data"
+  price_window_days: 30

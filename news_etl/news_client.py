@@ -170,7 +170,7 @@ def run_cli():
     ap.add_argument("--out", required=True, help="Ruta del NDJSON de salida")
     ap.add_argument("--tickers", required=True, help="Lista separada por coma, ej.: AMZN,MSFT,GOOGL")
     ap.add_argument("--language", default="en")
-    ap.add_argument("--days", type=int, default=15, help="Ventana de días hacia atrás (incluye hoy)")
+    ap.add_argument("--days", type=int, default=2, help="Ventana de días hacia atrás (incluye hoy)")
     ap.add_argument("--page-size", type=int, default=25, help="Tamaño de página para NewsAPI")
     ap.add_argument("--max-pages", type=int, default=2, help="Máx. páginas por (ticker, día)")
     ap.add_argument("--per-day-target", type=int, default=20, help="Máx. registros a guardar por (ticker, día) en RAW")

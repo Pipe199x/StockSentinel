@@ -2,20 +2,25 @@ name: ETL News (cron + manual)
 
 on:
   schedule:
-    - cron: "15 12 * * *"   # ajústalo a tu gusto (UTC)
+    - cron: "15 12 * * *"   # 12:15 UTC daily; NewsAPI free tier delays articles ~24h
   workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-data
+  cancel-in-progress: false
 
 jobs:
   etl_news:
     runs-on: ubuntu-latest
 
     env:
-      CONTAINER: datasets
-      DEST_ROOT: news
       PYTHON_VERSION: "3.11"
       TICKERS: "AMZN,MSFT,GOOGL"
       LANGUAGE: "en"
-      DAYS: "15"                 # si tu news_client soporta --days
+      DAYS: "2"   # incremental fetch; history accumulates in docs/data/history/
 
     steps:
       - name: Checkout
@@ -25,22 +30,26 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: news_etl/requirements.txt
 
-      - name: Install deps
+      - name: Cache Hugging Face model (FinBERT)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-finbert-v1
+
+      - name: Install deps (torch CPU wheel first)
         run: |
           set -euo pipefail
           python -m pip install --upgrade pip
-          if [ -f news_etl/requirements.txt ]; then
-            pip install -r news_etl/requirements.txt
-          else
-            pip install pyyaml requests azure-ai-textanalytics
-          fi
+          pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r news_etl/requirements.txt
 
       - name: Prepare data dir
         run: mkdir -p data
 
-      # ---------- Genera RAW con tu news_client ----------
-      - name: Generate raw with NewsAPI (your news_client)
+      - name: Fetch raw news (NewsAPI)
         env:
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
         run: |
@@ -50,121 +59,26 @@ jobs:
             --tickers "${TICKERS}" \
             --language "${LANGUAGE}" \
             --days "${DAYS}"
-          echo "=== data tras news_client ==="
-          ls -l data || true
           test -s data/news_raw.ndjson
 
-      # ---------- Ejecuta ETL con tu config (SIN subir desde Python) ----------
-      - name: Run ETL (NDJSON + CSV preview + heartbeat)
-        env:
-          AZURE_LANGUAGE_KEY: ${{ secrets.AZURE_LANGUAGE_KEY }}
-          AZURE_LANGUAGE_ENDPOINT: ${{ secrets.AZURE_LANGUAGE_ENDPOINT }}
-          # Intencionalmente NO pasamos AZURE_STORAGE_CONNECTION_STRING aquí,
-          # porque la subida la hará Azure CLI más abajo.
+      - name: Run ETL (merge history + FinBERT sentiment + publish to docs/)
         run: |
           set -euo pipefail
-          # Asegura que en news_etl/config.yaml esté: blob_upload.enabled: false
           python -m news_etl.news_etl --config news_etl/config.yaml
-          echo "=== data tras ETL ==="
-          ls -l data || true
+          echo "=== docs/data ==="
+          ls -lR docs/data
 
-      # ---------- Subida a Blob: histórico + latest ----------
-      - name: Upload NDJSON/CSV + heartbeat to Azure Blob (datasets/news/ + latest/)
-        uses: azure/cli@v2
-        env:
-          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-          CONTAINER: ${{ env.CONTAINER }}
-          DEST_ROOT: ${{ env.DEST_ROOT }}
-        with:
-          inlineScript: |
-            set -euo pipefail
-
-            az storage container create \
-              --name "$CONTAINER" \
-              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" 1>/dev/null
-
-            STAMP="$(date -u +%Y%m%d)"
-            NDJSON_LOCAL="data/news_${STAMP}.ndjson"
-            PREVIEW_LOCAL="data/news_preview_${STAMP}.csv"
-            HB_LOCAL="data/heartbeat.txt"
-
-            # 1) Histórico (prefijo news/)
-            if [ -f "$NDJSON_LOCAL" ]; then
-              az storage blob upload \
-                --container-name "$CONTAINER" \
-                --file "$NDJSON_LOCAL" \
-                --name "$DEST_ROOT/news_${STAMP}.ndjson" \
-                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-                --overwrite
-            else
-              echo "[WARN] No existe $NDJSON_LOCAL"
-            fi
-
-            if [ -f "$PREVIEW_LOCAL" ]; then
-              az storage blob upload \
-                --container-name "$CONTAINER" \
-                --file "$PREVIEW_LOCAL" \
-                --name "$DEST_ROOT/news_preview_${STAMP}.csv" \
-                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-                --overwrite
-            else
-              echo "[WARN] No existe $PREVIEW_LOCAL"
-            fi
-
-            if [ -f "$HB_LOCAL" ]; then
-              az storage blob upload \
-                --container-name "$CONTAINER" \
-                --file "$HB_LOCAL" \
-                --name "$DEST_ROOT/heartbeat.txt" \
-                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-                --overwrite
-            fi
-
-            # 2) Alias latest/
-            if [ -f "$NDJSON_LOCAL" ]; then
-              az storage blob upload \
-                --container-name "$CONTAINER" \
-                --file "$NDJSON_LOCAL" \
-                --name "$DEST_ROOT/latest/news.ndjson" \
-                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-                --overwrite
-            fi
-
-            if [ -f "$PREVIEW_LOCAL" ]; then
-              az storage blob upload \
-                --container-name "$CONTAINER" \
-                --file "$PREVIEW_LOCAL" \
-                --name "$DEST_ROOT/latest/news_preview.csv" \
-                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-                --overwrite
-            fi
-
-            if [ -f "$HB_LOCAL" ]; then
-              az storage blob upload \
-                --container-name "$CONTAINER" \
-                --file "$HB_LOCAL" \
-                --name "$DEST_ROOT/latest/heartbeat.txt" \
-                --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-                --overwrite
-            fi
-
-      # ---------- Smoke test opcional ----------
-      - name: List latest news blobs (smoke test)
-        if: always()
-        uses: azure/cli@v2
-        env:
-          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-          CONTAINER: ${{ env.CONTAINER }}
-          DEST_ROOT: ${{ env.DEST_ROOT }}
-        with:
-          inlineScript: |
-            az storage blob list \
-              --container-name "$CONTAINER" \
-              --prefix "$DEST_ROOT/latest/" \
-              --connection-string "$AZURE_STORAGE_CONNECTION_STRING" \
-              --output table
-
-      # ---------- Limpieza RAW (opcional) ----------
-      - name: Cleanup local raw
-        if: always()
-        run: rm -f data/news_raw.ndjson || true
+      - name: Commit & push data
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "data: news update $(date -u +%F) [skip ci]"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin main && break || sleep 15
+          done

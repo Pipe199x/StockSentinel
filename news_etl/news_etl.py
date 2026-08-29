@@ -14,7 +14,9 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
-from .azure_language import AzureLanguageClient
+from .finbert_sentiment import finbert_enrich
+from .news_client import _dedupe_by_url
+from etl_common.manifest import update_manifest
 
 LOG = logging.getLogger(__name__)
 logging.basicConfig(
@@ -129,73 +131,6 @@ def write_preview_csv(path: str, rows: List[Dict[str, Any]]) -> Path:
         for r in rows:
             w.writerow(r)
     return p
-
-# =============================
-# Enriquecimiento Azure AI Language
-# =============================
-
-def azure_enrich(items: List[Dict[str, Any]], cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
-    if not cfg.get("enabled", False) or not items:
-        return items
-
-    endpoint = (cfg.get("endpoint") or "").rstrip("/")
-    key = cfg.get("key", "")
-    api_version = cfg.get("api_version", "2023-04-01")
-    force_language = cfg.get("force_language") or None
-    timeout_seconds = int(cfg.get("timeout_seconds", 30))
-    flags = cfg.get("tasks", {})
-
-    if not endpoint or not key:
-        LOG.warning("[AZURE] endpoint/key faltantes; se omite enriquecimiento.")
-        return items
-
-    client = AzureLanguageClient(
-        endpoint=endpoint,
-        key=key,
-        api_version=api_version,
-        force_language=force_language,
-        timeout_seconds=timeout_seconds,
-    )
-
-    docs = []
-    for i, it in enumerate(items, start=1):
-        text = " ".join(
-            str(x) for x in [
-                it.get("title") or "",
-                it.get("summary") or "",
-                it.get("source") or "",
-            ] if x
-        )
-        docs.append({"id": str(i), "text": text})
-
-    grouped = client.analyze_batch(docs, tasks=flags)
-    per_doc = AzureLanguageClient.parse_results(grouped)
-
-    out = []
-    for i, it in enumerate(items, start=1):
-        dres = per_doc.get(str(i), {})
-        lang = dres.get("language") or {}
-        sent = dres.get("sentiment") or {}
-        kps = dres.get("key_phrases") or []
-        ents = dres.get("entities") or []
-        links = dres.get("linked_entities") or []
-        enriched = dict(it)
-        if lang:
-            enriched["language"] = {
-                "iso": lang.get("iso"),
-                "name": lang.get("name"),
-                "score": lang.get("score"),
-            }
-        if sent:
-            enriched["sentiment"] = {
-                "label": sent.get("label"),
-                "score": sent.get("score", 0.0),
-            }
-        enriched["key_phrases"] = kps
-        enriched["entities"] = ents
-        enriched["linked_entities"] = links
-        out.append(enriched)
-    return out
 
 # =============================
 # Tagging de tickers
@@ -361,31 +296,19 @@ def build_preview_rows(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return rows
 
 # =============================
-# Upload a Azure Blob
+# Publicación a docs/ (GitHub Pages)
 # =============================
 
-def upload_to_blob(bcfg: Dict[str, Any], local_path: Path, dest_name: str) -> None:
-    try:
-        from azure.storage.blob import BlobServiceClient  # type: ignore
-    except Exception:
-        LOG.warning("[BLOB] azure-storage-blob no instalado; omitiendo upload.")
-        return
-    conn = bcfg.get("connection_string") or os.getenv("AZURE_STORAGE_CONNECTION_STRING") or ""
-    if not conn:
-        LOG.warning("[BLOB] Connection string vacía; omitiendo upload.")
-        return
-    container = bcfg.get("container", "datasets")
-    prefix = bcfg.get("prefix", "") or ""
-    bsc = BlobServiceClient.from_connection_string(conn)
-    client = bsc.get_container_client(container)
-    try:
-        client.create_container()
-    except Exception:
-        pass
-    blob_name = f"{prefix}{dest_name}" if prefix else dest_name
-    with local_path.open("rb") as data:
-        client.upload_blob(name=blob_name, data=data, overwrite=True)
-    LOG.info("[BLOB] Subido %s -> %s/%s", local_path, container, blob_name)
+def write_latest_json(path: str, items: List[Dict[str, Any]], today: datetime, window_days: int) -> Path:
+    p = Path(path)
+    _ensure_parent(p)
+    payload = {
+        "as_of": iso_utc_now(),
+        "window_days": window_days,
+        "articles": items,
+    }
+    p.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return p
 
 # =============================
 # MAIN
@@ -409,35 +332,45 @@ def main():
     p_out_ndjson_tpl = cfg["paths"]["out_ndjson"]
     p_out_csv_tpl = cfg["paths"]["out_preview_csv"]
     p_heartbeat = cfg["paths"]["heartbeat"]
+    p_history = cfg["paths"].get("history_ndjson", "docs/data/history/news_history.ndjson")
+    p_latest_json = cfg["paths"].get("latest_json", "docs/data/news_latest.json")
+    p_manifest = cfg["paths"].get("manifest", "docs/data/manifest.json")
 
-    # 1) Lee RAW
+    # 1) Lee RAW (fetch incremental del día)
     LOG.info("[STEP] Leyendo RAW desde %s", p_raw)
     raw_all = read_raw_items(p_raw)
 
-    # 2) Enriquecimiento Azure
-    LOG.info("[STEP] Enriqueciendo con Azure Language…")
-    enriched = azure_enrich(raw_all, cfg.get("azure_language", {}))
+    # 2) Lee histórico acumulado (ya enriquecido en corridas previas)
+    history_path = Path(p_history)
+    history_items = _read_one_ndjson(history_path) if history_path.exists() else []
+    LOG.info("[STEP] Histórico: %d items desde %s", len(history_items), p_history)
 
-    # 3) Tagging tickers
+    # 3) Tagging tickers sobre lo nuevo
     uni = TickerUniverse.from_cfg(cfg.get("tickers", {}))
-    for it in enriched:
+    for it in raw_all:
         it["tickers"] = detect_tickers(it, uni)
 
-    # 4) Ventana 15 días (por config)
-    n_days = int(cfg.get("window", {}).get("last_n_days", 15))
-    filtered = filter_last_n_days(enriched, today, n_days)
+    # 4) Merge + dedupe por URL (histórico primero: conserva versiones ya enriquecidas)
+    combined = _dedupe_by_url(history_items + raw_all)
 
-    # 5) Límite por día/ticker
+    # 5) Ventana de N días
+    n_days = int(cfg.get("window", {}).get("last_n_days", 15))
+    filtered = filter_last_n_days(combined, today, n_days)
+
+    # 6) Límite por día/ticker
     dl = cfg.get("daily_limits", {})
     per_ticker = int(dl.get("per_ticker_limit", 3))
     include_no_ticker = bool(dl.get("include_no_ticker", False))
     no_ticker_limit = int(dl.get("no_ticker_per_day_limit", 0))
     limited = select_daily_limited(filtered, per_ticker, include_no_ticker, no_ticker_limit)
 
+    # 7) Sentimiento FinBERT — solo sobre la selección final que aún no tiene score
+    limited = finbert_enrich(limited, cfg.get("sentiment", {}))
+
     # Orden final por fecha desc
     limited.sort(key=lambda x: x.get("published_at", ""), reverse=True)
 
-    # 6) Escribir salidas locales
+    # 8) Salidas locales con fecha
     stamp = today.strftime("%Y%m%d")
     out_ndjson = p_out_ndjson_tpl.replace("YYYYMMDD", stamp)
     out_csv = p_out_csv_tpl.replace("YYYYMMDD", stamp)
@@ -453,32 +386,26 @@ def main():
     hb_path.write_text(iso_utc_now() + "\n", encoding="utf-8")
     LOG.info("[OUTPUT] heartbeat=%s", hb_path)
 
-    # 7) Logs de resumen
-    LOG.info("[SUMMARY] extraidos=%d, tras_ventana=%d, seleccionados=%d", len(raw_all), len(filtered), len(limited))
-    langs = Counter([(it.get("language") or {}).get("iso") for it in limited if it.get("language")])
+    # 9) Publicación a docs/ (GitHub Pages)
+    latest_path = write_latest_json(p_latest_json, limited, today, n_days)
+    new_history = _dedupe_by_url(limited + history_items)
+    new_history.sort(key=lambda x: x.get("published_at", ""), reverse=True)
+    history_out = write_ndjson(p_history, new_history)
+    update_manifest(p_manifest, "news", {
+        "last_updated_utc": iso_utc_now(),
+        "articles": len(limited),
+        "history_articles": len(new_history),
+        "window_days": n_days,
+    })
+    LOG.info("[OUTPUT] latest_json=%s history=%s (%d items)", latest_path, history_out, len(new_history))
+
+    # 10) Logs de resumen
+    LOG.info("[SUMMARY] raw=%d, historico=%d, tras_ventana=%d, seleccionados=%d",
+             len(raw_all), len(history_items), len(filtered), len(limited))
     sents = Counter([(it.get("sentiment") or {}).get("label") for it in limited if it.get("sentiment")])
-    LOG.info("[SUMMARY] languages=%s", dict(langs))
     LOG.info("[SUMMARY] sentiment=%s", dict(sents))
     LOG.info("[SUMMARY] outputs: ndjson=%s preview_csv=%s heartbeat=%s", ndjson_path, csv_path, hb_path)
 
-    # 8) Subida a Azure Blob: histórico + latest/
-    bcfg = cfg.get("blob_upload", {}) or {}
-    if bcfg.get("enabled"):
-        LOG.info("[BLOB] Subiendo archivos (histórico + latest/)…")
-        # histórico (usa prefix p.ej. "news/")
-        upload_to_blob(bcfg, ndjson_path, f"news_{stamp}.ndjson")
-        upload_to_blob(bcfg, csv_path, f"news_preview_{stamp}.csv")
-        upload_to_blob(bcfg, hb_path, "heartbeat.txt")
-        # alias estable dentro del mismo prefix
-        upload_to_blob(bcfg, ndjson_path, "latest/news.ndjson")
-        upload_to_blob(bcfg, csv_path, "latest/news_preview.csv")
-        upload_to_blob(bcfg, hb_path, "latest/heartbeat.txt")
-
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--config", required=True)
-    args, _ = ap.parse_known_args()
-    # Reusar el parser de main() para mantener un único punto de carga de cfg
-    # (evita divergencias en futuras opciones)
     main()

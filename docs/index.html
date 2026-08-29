@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StockSentinel Data</title>
+<style>
+  body{font-family:system-ui,sans-serif;max-width:720px;margin:3rem auto;padding:0 1rem;color:#1a1a2e;background:#fafafa}
+  h1{font-size:1.6rem} code{background:#eee;padding:.1rem .3rem;border-radius:4px}
+  li{margin:.4rem 0} footer{margin-top:2rem;font-size:.85rem;color:#666}
+</style>
+</head>
+<body>
+<h1>📈 StockSentinel — public dataset</h1>
+<p>Daily-updated stock prices, FinBERT news sentiment and XGBoost forecasts for AMZN, GOOGL and MSFT. Built with GitHub Actions; served by GitHub Pages.</p>
+<ul>
+  <li><a href="data/manifest.json">manifest.json</a> — freshness metadata</li>
+  <li><a href="data/prices_latest.json">prices_latest.json</a> — last 30 days of prices</li>
+  <li><a href="data/predictions_latest.json">predictions_latest.json</a> — next-day forecasts</li>
+  <li><a href="data/news_latest.json">news_latest.json</a> — recent news with sentiment</li>
+  <li><a href="data/history/prices_history.csv">history/prices_history.csv</a> · <a href="data/history/news_history.ndjson">news_history.ndjson</a> · <a href="data/history/predictions_history.csv">predictions_history.csv</a></li>
+</ul>
+<footer>Academic project — not investment advice. <a href="https://github.com/Pipe199x/StockSentinel">Source on GitHub</a> · <a href="https://sentiment-driven-investment.lovable.app/">Frontend</a></footer>
+</body>
+</html>

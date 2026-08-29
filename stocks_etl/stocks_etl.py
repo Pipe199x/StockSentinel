@@ -10,7 +10,13 @@ from tenacity import retry, wait_exponential_jitter, stop_after_attempt
 
 from stocks_etl.features import make_features
 from stocks_etl.model_xgb import predict_next_day
-from etl_common.storage import upload_file_dual
+from stocks_etl.publish_json import (
+    write_prices_latest_json,
+    write_predictions_latest_json,
+    write_prices_history_csv,
+    append_predictions_history,
+)
+from etl_common.manifest import update_manifest
 
 warnings.simplefilter("ignore", FutureWarning)
 
@@ -162,6 +168,11 @@ def main(cfg):
         cal_name=cfg.get("calendar"),
     )
 
+    # yfinance rate limits can yield an empty frame without raising; fail loudly
+    # so the workflow fails instead of publishing empty JSON.
+    if df.empty:
+        raise SystemExit("yfinance returned no data for any symbol")
+
     # === Resumen para verificación ===
     if not df.empty:
         min_d, max_d = df["date"].min(), df["date"].max()
@@ -189,35 +200,23 @@ def main(cfg):
         hb.write(datetime.now(timezone.utc).isoformat())
     print(f"[SUMMARY] heartbeat written at {hb_path}")
 
-    # === Upload to Azure Blob (historical + latest aliases) ===
-    bu = cfg.get("blob_upload", {})
-    if bu.get("enabled", True):
-        container = bu.get("container", os.getenv("DATASETS_CONTAINER", "datasets"))
-        conn = bu.get("connection_string") or os.getenv("AZURE_STORAGE_CONNECTION_STRING")
-        stamp = datetime.now(timezone.utc).strftime("%Y%m%d")
-        # prices
-        plocal = os.path.join(out_dir, f"prices_{stamp}.csv")
-        if os.path.exists(plocal):
-            upload_file_dual(local_path=plocal, container=container,
-                             path_dated=f"stocks/prices_{stamp}.csv",
-                             path_latest="stocks/latest/prices.csv",
-                             connection_string=conn, content_type="text/csv")
-        # predictions
-        plocal = os.path.join(out_dir, f"predictions_{stamp}.csv")
-        if os.path.exists(plocal):
-            upload_file_dual(local_path=plocal, container=container,
-                             path_dated=f"stocks/predictions_{stamp}.csv",
-                             path_latest="stocks/latest/predictions.csv",
-                             connection_string=conn, content_type="text/csv")
-        # heartbeat
-        hlocal = os.path.join(out_dir, "heartbeat.txt")
-        if os.path.exists(hlocal):
-            upload_file_dual(local_path=hlocal, container=container,
-                             path_dated="stocks/heartbeat.txt",
-                             path_latest="stocks/latest/heartbeat.txt",
-                             connection_string=conn, content_type="text/plain")
+    # === Publish to docs/ (GitHub Pages) ===
+    pub = cfg.get("publish", {}) or {}
+    docs_dir = pub.get("docs_dir", "docs/data")
+    window_days = int(pub.get("price_window_days", 30))
+    prices_json = write_prices_latest_json(df, os.path.join(docs_dir, "prices_latest.json"), window_days)
+    preds_json = write_predictions_latest_json(preds, os.path.join(docs_dir, "predictions_latest.json"))
+    prices_hist = write_prices_history_csv(df, os.path.join(docs_dir, "history", "prices_history.csv"))
+    preds_hist = append_predictions_history(preds, os.path.join(docs_dir, "history", "predictions_history.csv"))
+    update_manifest(os.path.join(docs_dir, "manifest.json"), "stocks", {
+        "last_updated_utc": datetime.now(timezone.utc).isoformat(),
+        "as_of": str(df["date"].max().date()),
+        "rows": int(len(df)),
+        "price_window_days": window_days,
+    })
+    print(f"[SUMMARY] published: {prices_json}, {preds_json}, {prices_hist}, {preds_hist}")
 
-    return price_paths + pred_paths + [hb_path]
+    return price_paths + pred_paths + [hb_path, prices_json, preds_json]
 
 
 if __name__ == "__main__":
