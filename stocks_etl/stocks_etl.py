@@ -182,7 +182,7 @@ def main(cfg):
 
     # === Features & Predicción (T+1 con XGBoost) ===
     feats = make_features(df)
-    preds = predict_next_day(feats, backtest_days=30)
+    preds = predict_next_day(feats, backtest_days=30, cal_name=cfg.get("calendar"))
     try:
         print("[SUMMARY] predictions\n", preds[["ticker","as_of","last_close","pred_close_t1"]])
     except Exception:

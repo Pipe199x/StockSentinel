@@ -80,13 +80,34 @@ def _fit_predict_last(dfg: pd.DataFrame, params: XGBParams, backtest_days: int =
     }
 
 
-def predict_next_day(df_feats: pd.DataFrame, backtest_days: int = 30, params: Optional[XGBParams] = None) -> pd.DataFrame:
+def _next_trading_day(as_of: pd.Timestamp, cal_name: Optional[str]) -> str:
+    """Primera sesión bursátil estrictamente posterior a as_of (fin de semana/festivos excluidos)."""
+    start = (as_of + pd.Timedelta(days=1)).date()
+    end = (as_of + pd.Timedelta(days=14)).date()
+    if cal_name:
+        try:
+            import pandas_market_calendars as mcal
+            sched = mcal.get_calendar(cal_name).schedule(start_date=start, end_date=end)
+            if not sched.empty:
+                return sched.index[0].strftime("%Y-%m-%d")
+        except Exception:
+            pass
+    # Fallback: siguiente día hábil (lun-vie)
+    d = as_of + pd.Timedelta(days=1)
+    while d.weekday() >= 5:
+        d += pd.Timedelta(days=1)
+    return d.strftime("%Y-%m-%d")
+
+
+def predict_next_day(df_feats: pd.DataFrame, backtest_days: int = 30, params: Optional[XGBParams] = None, cal_name: Optional[str] = None) -> pd.DataFrame:
     params = params or XGBParams()
     results = []
     for tkr, dfg in df_feats.groupby("ticker", sort=False):
         dfg = dfg.sort_values("date")
         metrics = _fit_predict_last(dfg, params, backtest_days)
-        as_of = dfg["date"].max().strftime("%Y-%m-%d")
+        as_of_ts = dfg["date"].max()
+        as_of = as_of_ts.strftime("%Y-%m-%d")
+        target_date = _next_trading_day(as_of_ts, cal_name)
         # yfinance puede añadir una fila final con NaN; usar el último cierre válido
         closes = dfg["close"].dropna() if "close" in dfg.columns else pd.Series(dtype=float)
         last_close = float(closes.iloc[-1]) if not closes.empty else None
@@ -95,6 +116,7 @@ def predict_next_day(df_feats: pd.DataFrame, backtest_days: int = 30, params: Op
         results.append({
             "ticker": tkr,
             "as_of": as_of,
+            "target_date": target_date,
             "last_close": float(last_close) if last_close is not None else None,
             "pred_ret_t1": pred_ret,
             "pred_close_t1": pred_close,
