@@ -86,8 +86,10 @@ def predict_next_day(df_feats: pd.DataFrame, backtest_days: int = 30, params: Op
     for tkr, dfg in df_feats.groupby("ticker", sort=False):
         dfg = dfg.sort_values("date")
         metrics = _fit_predict_last(dfg, params, backtest_days)
-        as_of = dfg["date"].max()
-        last_close = dfg.loc[dfg.index[-1], "close"] if "close" in dfg.columns else None
+        as_of = dfg["date"].max().strftime("%Y-%m-%d")
+        # yfinance puede añadir una fila final con NaN; usar el último cierre válido
+        closes = dfg["close"].dropna() if "close" in dfg.columns else pd.Series(dtype=float)
+        last_close = float(closes.iloc[-1]) if not closes.empty else None
         pred_ret = metrics["pred_ret_t1"]
         pred_close = float(last_close * (1 + pred_ret)) if (pred_ret is not None and last_close is not None) else None
         results.append({
