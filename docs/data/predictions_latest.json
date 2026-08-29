@@ -1,0 +1,26 @@
+[
+  {
+    "ticker": "AMZN",
+    "as_of": 1787875200000,
+    "last_close": null,
+    "pred_ret_t1": -0.0112260887,
+    "pred_close_t1": null,
+    "mae_backtest_30d": 0.0073662887
+  },
+  {
+    "ticker": "GOOGL",
+    "as_of": 1787875200000,
+    "last_close": null,
+    "pred_ret_t1": -0.0026792246,
+    "pred_close_t1": null,
+    "mae_backtest_30d": 0.0080769379
+  },
+  {
+    "ticker": "MSFT",
+    "as_of": 1787875200000,
+    "last_close": null,
+    "pred_ret_t1": -0.0028583349,
+    "pred_close_t1": null,
+    "mae_backtest_30d": 0.0097993055
+  }
+]
