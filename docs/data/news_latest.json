@@ -1,7 +1,138 @@
 {
-  "as_of": "2026-08-29T19:14:04.027398+00:00",
+  "as_of": "2026-08-30T16:40:15.278186+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-08-29T16:39:57+00:00",
+      "source": "Livemint",
+      "title": "Google, Amazon, OpenAI are making AI chips — so why isn’t Nvidia losing sleep?",
+      "summary": "As of today, Nvidia seems to be getting stronger rather than weaker. And that is because AI demand is growing even faster than the shift towards custom chips.",
+      "url": "https://www.livemint.com/companies/news/google-amazon-openai-are-making-ai-chips-so-why-isn-t-nvidia-losing-sleep-11788012174932.html",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN",
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.5213
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-29T16:13:10+00:00",
+      "source": "Slashdot.org",
+      "title": "Trump Backlash Adds New Risks to the Stocks the Government Owns - Bloomberg.com",
+      "summary": "Trump Backlash Adds New Risks to the Stocks the Government OwnsBloomberg.com See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185281208",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9275
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-29T16:02:21+00:00",
+      "source": "Thurrott.com",
+      "title": "Microsoft Moves WinUI/WASDK Development to GitHub",
+      "summary": "As part of a years-long effort to open up its Windows developer technologies, Microsoft has moved WinUI development to GitHub.\nThe post Microsoft Moves WinUI/WASDK Development to GitHub appeared first on Thurrott.com.",
+      "url": "https://www.thurrott.com/dev/340841/microsoft-moves-winui-wasdk-development-to-github",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9308
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-29T16:00:58+00:00",
+      "source": "Yahoo Entertainment",
+      "title": "Star student rejected by 16 colleges, hired by Google, gets legal win in racial discrimination suit",
+      "summary": "If you click 'Accept all', we and our partners, including 251 who are part of the IAB Transparency &amp; Consent Framework, will also store and / or access information on a device (in other words, us… [+1046 chars]",
+      "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_d1cd2a7d-3396-43e7-9d9e-4ca88fa12df4",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9403
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-29T15:53:02+00:00",
+      "source": "4sysops.com",
+      "title": "GitHub expands Copilot across apps, editors, and the CLI",
+      "summary": "GitHub’s latest Copilot weekly release puts the biggest operational change in the command-line tool: its runtime has been rewritten in Rust for faster performance, while interrupted sessions can now be restored. The update also expands team-based agent work i…",
+      "url": "https://4sysops.com/archives/github-expands-copilot-across-apps-editors-and-the-cli/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6185
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-29T15:36:15+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Gaskins The Hitchhiker Killer 2026 1080p AMZN WEB-DL H264-CHORTLE",
+      "summary": "Plot: Based on true events, Gaskins: The Hitchhiker Killer follows Donald \"Pee Wee\" Gaskins, South Carolina's most infamous serial killer, as his past catches up with him, unraveling his empire in a brutal reckoning from the 1960s to the 1980s. Genre: Biograp…",
+      "url": "https://post.rlsbb.cc/gaskins-the-hitchhiker-killer-2026-1080p-amzn-web-dl-h264-chortle/",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8987
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-29T15:29:18+00:00",
+      "source": "43rumors.com",
+      "title": "OM 30mm f/3.5 macro lens for $239 only at Amazon",
+      "summary": "The OM 30mm f/3.5 macro lens is now available for $239 only at Amazon (Click here). 72h left to lock your 50% savings on the new Luminar software that is coming this fall (Click here).",
+      "url": "https://www.43rumors.com/om-30mm-f-3-5-macro-lens-for-239-only-at-amazon/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8414
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-29T15:27:52+00:00",
+      "source": "Kitploit.com",
+      "title": "Microsoft-Sentinel-SecOps",
+      "summary": "SOC operations content for Microsoft Sentinel, including hunting queries, incident response playbooks, and security event analysis for Azure cloud environments.",
+      "url": "https://kitploit.com/en/tools/github/eshlomo1/microsoft-sentinel-secops/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.943
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-08-28T19:12:30+00:00",
       "source": "Slashdot.org",
