@@ -1,7 +1,153 @@
 {
-  "as_of": "2026-08-30T16:40:15.278186+00:00",
+  "as_of": "2026-08-31T19:07:55.649750+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-08-30T19:02:18+00:00",
+      "source": "Rlsbb.cc",
+      "title": "MOBILE SUIT GUNDAM HATHAWAY The Sorcery Of Nymph Circe 2026 REPACK 1080p AMZN WEB-DL H264-ppkhoa",
+      "summary": "Kidô Senshi Gandamu Senkô no Hasauei Kirukê no Majo (original title) Plot: Hathaway Noa’s fight against the Earth Federation continues, culminating in a terrorist attack on Adelaide’s government conference. Gigi Andalucia remains crucial, her influence embody…",
+      "url": "https://post.rlsbb.cc/mobile-suit-gundam-hathaway-the-sorcery-of-nymph-circe-2026-repack-1080p-amzn-web-dl-h264-ppkhoa/",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8669
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-30T18:53:00+00:00",
+      "source": "Slashdot.org",
+      "title": "Google Maps Renamed Lake Ontario to 'Lake America' - But Only for U.S. Users",
+      "summary": "It's already happened — at least on Google Maps.\n\nGoogle's online maps reflect name changes in official government sources, Google posted Saturday. So when the U.S. Geographic Names Information System formally changed the name for \"Lake Ontario\" to \"Lake Amer…",
+      "url": "https://tech.slashdot.org/story/26/08/30/1850233/google-maps-renamed-lake-ontario-to-lake-america---but-only-for-us-users",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9153
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-30T18:52:40+00:00",
+      "source": "Slashdot.org",
+      "title": "World Mostly Shrugs Off Bessent’s ‘D-Day’ Iran Sanctions Threat - Bloomberg.com",
+      "summary": "World Mostly Shrugs Off Bessent&rsquo;s &lsquo;D-Day&rsquo; Iran Sanctions ThreatBloomberg.com See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185303564",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9366
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-30T18:52:18+00:00",
+      "source": "Slashdot.org",
+      "title": "Colts WR Keenan Allen arrested on drunken driving charges - NFL.com",
+      "summary": "Colts WR Keenan Allen arrested on drunken driving chargesNFL.com See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185303532",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8948
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-30T17:49:18+00:00",
+      "source": "Techpowerup.com",
+      "title": "PS5 Pro Stock Vanishes After GTA 6 Reveal, Prices Hit $1,300",
+      "summary": "PS5 Pro consoles have all but vanished from major US retailers in the wake of GTA 6's extended Netflix reveal, with third-party sellers on Amazon and Walmart charging as much as $1,300 for units that normally go for $899. PlayStation Direct remains the lone m…",
+      "url": "https://www.techpowerup.com/352149/ps5-pro-stock-vanishes-after-gta-6-reveal-prices-hit-usd-1-300",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9277
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-30T17:30:58+00:00",
+      "source": "Commonsensewithmoney.com",
+      "title": "AmazonBasics Permanent Markers – 24-Pack – Just $9.50!",
+      "summary": "Going through the school supply lists one more time? Need some more permanent markers for that? How about this deal?  Use Subscribe & Save to get this price!\nGet on over to Amazon and get the AmazonBasics Permanent Markers – Assorted Co...",
+      "url": "https://www.commonsensewithmoney.com/amazonbasics-permanent-markers-24-pack-just-9-50-2/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9228
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-30T16:54:12+00:00",
+      "source": "Kitploit.com",
+      "title": "Harden-Windows-Security HardenSystemSecurity-v1.0.80.0",
+      "summary": "Harden Windows Safely, Securely using Official Supported Microsoft methods and proper explanation | Always up-to-date and works with the latest build of Windows | Provides tools and Guides for Personal, Enterprise, Government and Military security levels | SL…",
+      "url": "https://kitploit.com/en/posts/github-hotcakex-harden-windows-security-hardensystemsecurity-v10800",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8303
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-30T16:02:00+00:00",
+      "source": "Futurism",
+      "title": "Microsoft Tokenmaxxing King Spent $28,000 on AI in a Single Month as Company Begs Employees to Tone Down the Ludicrous Costs",
+      "summary": "That's probably more than their salary.\nThe post Microsoft Tokenmaxxing King Spent $28,000 on AI in a Single Month as Company Begs Employees to Tone Down the Ludicrous Costs appeared first on Futurism.",
+      "url": "https://futurism.com/artificial-intelligence/microsoft-employee-ai-spending",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8763
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-08-30T14:55:00+00:00",
+      "source": "24/7 Wall St.",
+      "title": "The S&P 500 Keeps Hitting Highs — But It’s Just Microsoft and Nvidia Carrying the Entire Market",
+      "summary": "The stock market’s march to new highs has made the bull market look healthy. Earnings have rolled in, the S&P 500 has continued climbing, and investors can p...",
+      "url": "https://247wallst.com/investing/2026/08/30/the-sp-500-keeps-hitting-highs-but-its-just-microsoft-and-nvidia-carrying-the-entire-market/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9132
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-08-29T16:39:57+00:00",
       "source": "Livemint",
