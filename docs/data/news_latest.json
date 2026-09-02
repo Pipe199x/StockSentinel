@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-09-01T16:38:48.933645+00:00",
+  "as_of": "2026-09-02T16:33:53.126820+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-09-01T16:31:35+00:00",
+      "source": "Rock Paper Shotgun",
+      "title": "Double Fine are all in on making Brutal Legend 2, if you're willing to give them $100 million in their game jam Kickstarter, anyway",
+      "summary": "Under Microsoft's ownership, it was probably a safe bet that Double Fine would never get to make a Brutal Legend 2, even in this IP-obsessed world we find ourselves in. However! Microsoft don't own Double Fine anymore, and so the once again indie developer ca…",
+      "url": "https://www.rockpapershotgun.com/double-fine-are-all-in-on-making-brutal-legend-2-if-youre-willing-to-give-them-100-million-in-their-game-jam-kickstarter-anyway",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9094
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-01T16:23:14+00:00",
+      "source": "Theflightdeal.com",
+      "title": "Air Canada: Fort Lauderdale – Tokyo, Japan. $770. Roundtrip, including all Taxes",
+      "summary": "A good sale to TokyoThis is a regular economy fare with one checked bag included.Matrix Airfare Search by ITA Software will price this at $782. Use those dates on Google Flights should reprice",
+      "url": "https://www.theflightdeal.com/2026/09/01/air-canada-fort-lauderdale-tokyo-japan-770-roundtrip-including-all-taxes/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9375
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-01T16:23:05+00:00",
+      "source": "TechCrunch",
+      "title": "Amazon Alexa can now alert you when something new might tempt you to shop | TechCrunch",
+      "summary": "Amazon is adding a new Alexa-powered feature called “Update Me When” that can send personalized alerts about product launches, tours, books, shows, and other events that could trigger a purchase.",
+      "url": "https://techcrunch.com/2026/09/01/amazon-alexa-can-now-alert-you-when-something-new-might-tempt-you-to-shop/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7636
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-01T16:19:02+00:00",
+      "source": "Amazon.com",
+      "title": "Observing and evaluating production agents using OpenSearch Agent Health",
+      "summary": "Learn how to observe and evaluate production AI agents by combining an agent running on AWS with OpenSearch Agent Health. This post walks through deploying an agent and its observability pipeline to AWS, then using Agent Health to explore traces and run evalu…",
+      "url": "https://aws.amazon.com/blogs/big-data/observing-and-evaluating-production-agents-using-opensearch-agent-health/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9187
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-01T16:17:54+00:00",
+      "source": "Amazon.com",
+      "title": "From theory to delivery: How Atos upskilled 400 engineers in agentic AI",
+      "summary": "When Atos set out to upskill 400 engineers in agentic AI, hands-on learning was the missing ingredient. Over three days, engineers built multi-agent systems on AWS through an AI League event. This post explains why Atos chose the format, what engineers built …",
+      "url": "https://aws.amazon.com/blogs/machine-learning/from-theory-to-delivery-how-atos-upskilled-400-engineers-in-agentic-ai/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9281
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-01T16:17:00+00:00",
+      "source": "PRNewswire",
+      "title": "BugBase Unveils Pentest Copilot Enterprise to Automate Black-Box Pentesting",
+      "summary": "BugBase's Pentest Copilot Enterprise maps attack surfaces, follows user journeys, and delivers validated vulnerabilities across applications, APIs, networks, and cloud. SAN FRANCISCO, Sept. 1, 2026 /PRNewswire/ -- BugBase announced Pentest Copilot Enterprise,…",
+      "url": "https://www.prnewswire.com/news-releases/bugbase-unveils-pentest-copilot-enterprise-to-automate-black-box-pentesting-302866557.html",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.825
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-01T16:12:30+00:00",
+      "source": "Slashdot.org",
+      "title": "Google brings its Pics image editor to AI Pro and Ultra subscribers",
+      "summary": "Google brings its Pics image editor to AI Pro and Ultra subscribers.",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185349834",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9366
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-01T16:04:03+00:00",
+      "source": "PCMag.com",
+      "title": "Xbox Disc-to-Digital Works on Delisted Games Too: Every Working Title So Far",
+      "summary": "Deadpool, Rock Band 4, and Minecraft: Story Mode are among the titles that reportedly support Microsoft's new Disc-to-Digital program.\nMany games are lost to history when delisted from online storefronts like Microsoft's Xbox Store and the PlayStation Store. …",
+      "url": "https://uk.pcmag.com/microsoft-xbox-games/167008/xbox-disc-to-digital-works-on-delisted-games-too-every-working-title-so-far",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9226
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-01T16:03:37+00:00",
+      "source": "Googleblog.com",
+      "title": "Google Pics brings pro-level AI image creation and editing to Google Workspace",
+      "summary": "We are thrilled to announce that Google Pics is generally available starting today, bringing advanced AI image generation and precise, object-based image editing directly into your Workspace creative… [+2952 chars]",
+      "url": "https://workspaceupdates.googleblog.com/2026/09/google-pics-brings-pro-level-ai-image-creation-and-editing-to-Google-Workspace.html",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.5231
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-08-31T16:38:13+00:00",
       "source": "Ibtimes.com.au",
