@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-09-04T16:21:02.793453+00:00",
+  "as_of": "2026-09-05T15:12:54.861637+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-09-04T15:12:28+00:00",
+      "source": "Slashdot.org",
+      "title": "Google Photos Picks Up New Superpower - Droid Life",
+      "summary": "Google Photos Picks Up New SuperpowerDroid Life Google’s Gemini Spark can now manage your Google Photos libraryTechCrunch Google Photos makes finding and editing photos dead simple with Gemini Spark integrationAndroid Authority Gemini Spark Can Now Auto-Edit …",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185427328",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9247
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-04T15:12:17+00:00",
+      "source": "Slashdot.org",
+      "title": "What happened in Italian GP first practice - The Race",
+      "summary": "What happened in Italian GP first practiceThe Race See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185427326",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9444
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-04T15:10:03+00:00",
+      "source": "4sysops.com",
+      "title": "KB5120998 bugs now linked to non-English Windows 11 installations",
+      "summary": "Microsoft has narrowed the mouse-personalization bug in Windows 11 preview update KB5120998 to non-English installations and confirmed that the same release can erase desktop background settings. The update had already been reported to reset custom cursors an…",
+      "url": "https://4sysops.com/archives/kb5120998-bugs-now-linked-to-non-english-windows-11-installations/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7954
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-04T15:10:00+00:00",
+      "source": "4sysops.com",
+      "title": "Microsoft investigates two new Teams desktop access problems",
+      "summary": "Microsoft is investigating two separate Microsoft Teams desktop problems: some Windows users cannot launch the client or face startup delays of up to two minutes, while some Mac users cannot join calls or meetings. The Windows incident is tracked as TM1466820…",
+      "url": "https://4sysops.com/archives/microsoft-investigates-two-new-teams-desktop-access-problems/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8958
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-04T15:08:00+00:00",
+      "source": "9to5google.com",
+      "title": "Pixel 11 lets you make any Camera Look default with this buried setting",
+      "summary": "The Pixel 11 series is out in the hands of plenty of (hopefully) happy users, and for the most part, I can count myself among them. This generation marks a massive shift for the camera in particular, as Google has finally loosened up its HDR-centric grip on p…",
+      "url": "http://9to5google.com/2026/09/04/pixel-11-lets-you-make-any-camera-look-default-with-this-buried-setting/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5398
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-04T14:54:52+00:00",
+      "source": "iPhone in Canada",
+      "title": "ECOVACS DEEBOT X12S Is Coming to Canada With a Hardware Camera Cover",
+      "summary": "ECOVACS just unveiled the DEEBOT X12S OmniCyclone at IFA 2026 in Berlin, a follow-up to the DEEBOT X12 OmniCyclone that started selling in Canada in April, and the U.S. launch is the same day at $1,299.99 US (about $1,899 CAD) on Amazon and ecovacs.com. Canad…",
+      "url": "https://www.iphoneincanada.ca/2026/09/04/ecovacs-deebot-x12s-coming-canada/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7899
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-04T14:43:12+00:00",
+      "source": "The Cut",
+      "title": "The Best Labor Day Sales to Shop Now",
+      "summary": "It’s finally time for the long weekend (thank God). So one Cut Shop editor rounded up the best Labor Day weekend sales across all categories, from fashion and beauty to home. Shop sales from Amazon, Nordstrom, Sephora, Ulta, Away, and more.",
+      "url": "http://www.thecut.com/article/best-labor-day-sales-2026.html",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8374
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-04T14:33:50+00:00",
+      "source": "Slashdot.org",
+      "title": "Microsoft to bounce mail from outdated Exchange servers",
+      "summary": "2016 and 2019 installations must meet the October 2025 baseline to reach cloud-hosted inboxes",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185426778",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8866
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-04T14:29:39+00:00",
+      "source": "Crypto Briefing",
+      "title": "FTC alleges Amazon hid overcharges to advertisers in lawsuit backed by 22 states",
+      "summary": "The lawsuit could significantly impact Amazon's advertising credibility, potentially altering digital ad market dynamics and regulatory scrutiny.\nThe post FTC alleges Amazon hid overcharges to advertisers in lawsuit backed by 22 states appeared first on Crypt…",
+      "url": "https://cryptobriefing.com/ftc-amazon-advertising-overcharges-lawsuit/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9036
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-09-03T16:16:28+00:00",
       "source": "Amazon.com",
