@@ -1,7 +1,153 @@
 {
-  "as_of": "2026-09-05T15:12:54.861637+00:00",
+  "as_of": "2026-09-06T15:27:34.889273+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-09-05T15:25:20+00:00",
+      "source": "Rlsbb.cc",
+      "title": "MediaHuman YouTube To MP3 Converter 3.9.23 (0209)",
+      "summary": "Description: You like to listen to music on YouTube, SoundCloud or Bandcamp and want to save it for offline playing. Or you want to download the soundtrack of a new movie. Then we recommend you to try out this software developed specifically for this purpose.…",
+      "url": "https://post.rlsbb.cc/mediahuman-youtube-to-mp3-converter-3-9-23-0209/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9393
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-05T15:05:34+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Dirt Music 2020 1080p AMZN WEB-DL H264-Kitsune",
+      "summary": "Awards 1 nomination total See more awards » Plot: The stunning landscape of Western Australia is the backdrop for an impassioned tale of love and grief in Gregor Jordan's adaptation of the acclaimed novel by Tim Winton. Genre: Crime | Drama | RomanceIMDB Rati…",
+      "url": "https://post.rlsbb.cc/dirt-music-2020-1080p-amzn-web-dl-h264-kitsune/",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9053
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-05T15:05:00+00:00",
+      "source": "New York Post",
+      "title": "We found a way to get Microsoft Office for life for just $30 (MSRP $220)",
+      "summary": "Elevate your office.",
+      "url": "https://nypost.com/2026/09/05/shopping/we-found-a-way-to-get-microsoft-office-for-life-for-just-30-msrp-220/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6173
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-05T15:01:04+00:00",
+      "source": "Decrypt",
+      "title": "Update Your Browser: Google Patches Chrome Flaw Hackers Were Already Using",
+      "summary": "The update fixes a high-severity flaw in Chrome’s V8 engine, but Google has not revealed who is using it or whom they targeted.",
+      "url": "https://decrypt.co/377501/google-chrome-zero-day-exploited",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.5326
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-05T14:47:00+00:00",
+      "source": "BGR",
+      "title": "Why Is The Android Symbol A Green Robot?",
+      "summary": "Android's familiar green robot has an unusual origin story involving Google, developers, and a designer whose simple creation quickly took on a life of its own.",
+      "url": "https://www.bgr.com/2248663/android-phone-green-robot-logo-meaning-explained/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8786
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-05T14:37:53+00:00",
+      "source": "Tumblr.com",
+      "title": "8 Supplies for Upcycling Thrift-Store Furniture",
+      "summary": "Buying new furniture isn't always the smarter move. My friend rescues mid-century modern flea market finds every weekend using just eight Amazon supplies, from stripping gel to Danish oil. Total cost:...",
+      "url": "https://www.tumblr.com/weandthecolor/826927033657475072/8-supplies-for-upcycling-thrift-store-furniture",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.935
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-05T14:24:47+00:00",
+      "source": "Weandthecolor.com",
+      "title": "8 Amazon Supplies We Used for Upcycling Mid-Century Modern Thrift-Store Furniture",
+      "summary": "Upcycling thrift-store furniture sounds like a hobby for people with a garage, a truck, and unlimited patience. It isn’t. My friend does this most weekends, and he’s not handy in any traditional sense. He just knows which eight things to buy and in what order…",
+      "url": "https://weandthecolor.com/8-amazon-supplies-we-used-for-upcycling-mid-century-modern-thrift-store-furniture/211702",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9311
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-05T13:39:35+00:00",
+      "source": "4sysops.com",
+      "title": "Microsoft confirms Registry workaround still keeps uBlock Origin working in Edge",
+      "summary": "Microsoft has confirmed that a Registry-based workaround can still keep uBlock Origin and other Manifest V2 extensions running in Edge, despite the browser’s planned phase-out. The change follows Microsoft’s announcement that Edge will eventually disable thes…",
+      "url": "https://4sysops.com/archives/microsoft-confirms-registry-workaround-still-keeps-ublock-origin-working-in-edge/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.5601
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-05T13:08:57+00:00",
+      "source": "4sysops.com",
+      "title": "Exchange Online will block outdated Exchange 2016 and 2019 servers",
+      "summary": "Microsoft will begin throttling and then rejecting email from Exchange Server 2016 and 2019 systems that have not reached the October 2025 public-update baseline. The enforcement starts in the second week of September 2026 and targets hybrid servers deliverin…",
+      "url": "https://4sysops.com/archives/exchange-online-will-block-outdated-exchange-2016-and-2019-servers/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6424
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-09-04T15:12:28+00:00",
       "source": "Slashdot.org",
