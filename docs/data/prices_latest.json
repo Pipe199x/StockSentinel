@@ -1,14 +1,8 @@
 {
-  "as_of": "2026-09-05T00:17:06.008663+00:00",
+  "as_of": "2026-09-06T00:08:29.572254+00:00",
   "window_days": 30,
   "series": {
     "AMZN": [
-      {
-        "date": "2026-08-07",
-        "close": 274.48,
-        "adj_close": 274.48,
-        "volume": 33861400
-      },
       {
         "date": "2026-08-10",
         "close": 278.09,
@@ -125,146 +119,134 @@
       },
       {
         "date": "2026-09-04",
-        "close": NaN,
-        "adj_close": null,
-        "volume": 29968655
+        "close": 258.51,
+        "adj_close": 258.51,
+        "volume": 30698000
       }
     ],
     "GOOGL": [
       {
-        "date": "2026-08-07",
-        "close": 354.3,
-        "adj_close": 354.3,
-        "volume": 19859900
-      },
-      {
         "date": "2026-08-10",
         "close": 357.52,
-        "adj_close": 357.52,
+        "adj_close": 357.2903,
         "volume": 18991400
       },
       {
         "date": "2026-08-11",
         "close": 343.8,
-        "adj_close": 343.8,
+        "adj_close": 343.5791,
         "volume": 29081800
       },
       {
         "date": "2026-08-12",
         "close": 343.54,
-        "adj_close": 343.54,
+        "adj_close": 343.3193,
         "volume": 25012000
       },
       {
         "date": "2026-08-13",
         "close": 346.36,
-        "adj_close": 346.36,
+        "adj_close": 346.1375,
         "volume": 17866100
       },
       {
         "date": "2026-08-14",
         "close": 345.9,
-        "adj_close": 345.9,
+        "adj_close": 345.6778,
         "volume": 17808600
       },
       {
         "date": "2026-08-17",
         "close": 344.0,
-        "adj_close": 344.0,
+        "adj_close": 343.779,
         "volume": 18291300
       },
       {
         "date": "2026-08-18",
         "close": 344.2,
-        "adj_close": 344.2,
+        "adj_close": 343.9789,
         "volume": 19248800
       },
       {
         "date": "2026-08-19",
         "close": 344.72,
-        "adj_close": 344.72,
+        "adj_close": 344.4986,
         "volume": 19733800
       },
       {
         "date": "2026-08-20",
         "close": 340.67,
-        "adj_close": 340.67,
+        "adj_close": 340.4512,
         "volume": 18570400
       },
       {
         "date": "2026-08-21",
         "close": 344.82,
-        "adj_close": 344.82,
+        "adj_close": 344.5985,
         "volume": 20849800
       },
       {
         "date": "2026-08-24",
         "close": 348.06,
-        "adj_close": 348.06,
+        "adj_close": 347.8364,
         "volume": 26338200
       },
       {
         "date": "2026-08-25",
         "close": 346.96,
-        "adj_close": 346.96,
+        "adj_close": 346.7371,
         "volume": 20649700
       },
       {
         "date": "2026-08-26",
         "close": 342.0,
-        "adj_close": 342.0,
+        "adj_close": 341.7803,
         "volume": 20420300
       },
       {
         "date": "2026-08-27",
         "close": 340.65,
-        "adj_close": 340.65,
+        "adj_close": 340.4312,
         "volume": 23391400
       },
       {
         "date": "2026-08-28",
         "close": 346.59,
-        "adj_close": 346.59,
+        "adj_close": 346.3674,
         "volume": 25347200
       },
       {
         "date": "2026-08-31",
         "close": 339.35,
-        "adj_close": 339.35,
+        "adj_close": 339.132,
         "volume": 33493600
       },
       {
         "date": "2026-09-01",
         "close": 335.02,
-        "adj_close": 335.02,
+        "adj_close": 334.8048,
         "volume": 23342700
       },
       {
         "date": "2026-09-02",
         "close": 337.12,
-        "adj_close": 337.12,
+        "adj_close": 336.9034,
         "volume": 22582300
       },
       {
         "date": "2026-09-03",
         "close": 342.48,
-        "adj_close": 342.48,
+        "adj_close": 342.26,
         "volume": 20726900
       },
       {
         "date": "2026-09-04",
-        "close": NaN,
-        "adj_close": null,
-        "volume": 20841990
+        "close": 338.46,
+        "adj_close": 338.46,
+        "volume": 23157700
       }
     ],
     "MSFT": [
-      {
-        "date": "2026-08-07",
-        "close": 499.99,
-        "adj_close": 499.0505,
-        "volume": 28846200
-      },
       {
         "date": "2026-08-10",
         "close": 506.06,
@@ -381,9 +363,9 @@
       },
       {
         "date": "2026-09-04",
-        "close": NaN,
-        "adj_close": null,
-        "volume": 17437000
+        "close": 499.7,
+        "adj_close": 499.7,
+        "volume": 18074400
       }
     ]
   }
