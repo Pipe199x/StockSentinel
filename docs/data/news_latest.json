@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-09-07T17:44:50.071404+00:00",
+  "as_of": "2026-09-08T16:37:31.111635+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-09-07T16:30:00+00:00",
+      "source": "TheBlaze",
+      "title": "Stronger security and privacy is coming to Android, but will it come in time?",
+      "summary": "If you use an Android phone, your device could be in line to get a privacy upgrade. Google’s bringing a new web standard to its mobile operating system to protect your web traffic from potential spies. However, only a small number of devices will have access …",
+      "url": "https://www.theblaze.com/tech/android-web-privacy-hurdle",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8521
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-07T16:22:08+00:00",
+      "source": "Bleeding Cool News",
+      "title": "Bow Before Thragg with Super7's Latest Invincible DELUXE Figure",
+      "summary": "Fans are patiently waiting for the next season of the hit Amazon Prime animated series Invincible. The show has faithfully brought the popular Image Comics series to life, and collectors now have plenty of new collectibles to look forward to. The first wave o…",
+      "url": "https://bleedingcool.com/collectibles/bow-before-thragg-with-super7s-latest-invincible-deluxe-figure/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7247
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-07T16:20:27+00:00",
+      "source": "Livejournal.com",
+      "title": "The Walking Dead: Dead City 3x08 promo",
+      "summary": "Maggie and Negan must confront deadly threats as they work together to save their community from imminent peril. YouTube",
+      "url": "https://ohnotheydidnt.livejournal.com/132828475.html",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8925
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-07T16:17:46+00:00",
+      "source": "Mediaite",
+      "title": "Shocking New Video Shows Amazon Cargo Plane Overrunning Runway in Deadly Crash",
+      "summary": "Shocking new witness video showed the moment a cargo plane overran the runway in a fiery crash that killed five people and injured five others on Sunday.\nThe post Shocking New Video Shows Amazon Cargo Plane Overrunning Runway in Deadly Crash first appeared on…",
+      "url": "https://www.mediaite.com/media/tv/shocking-new-video-shows-amazon-cargo-plane-overrunning-runway-in-deadly-crash/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8819
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-07T16:03:51+00:00",
+      "source": "Israelnationalnews.com",
+      "title": "Winter and Haddad celebrate filing of Amcha Yisrael party list with baklava",
+      "summary": "[youtube:2178558]Amcha Yisrael Party chairman Ofer Winter and the slate’s number two candidate, Yoseph Haddad, were filmed celebrating with baklava after submitting their Knesset slate.",
+      "url": "https://www.israelnationalnews.com/flashes/693137",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8862
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-07T15:57:20+00:00",
+      "source": "Portableapps.com",
+      "title": "mssPortable 1.459.97 (Microsoft Safety Scanner antivirus launcher) Released",
+      "summary": "A new version of mssPortable has been released. mssPortable assists you with running the Microsoft Safety Scanner scan tool to find and remove malware. It's packaged in PortableApps.com Format so it can easily integrate with the PortableApps.com Platform. And…",
+      "url": "https://portableapps.com/news/2026-09-07--mssportable-1.459.97-released",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9139
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-07T15:53:08+00:00",
+      "source": "Bleeding Cool News",
+      "title": "Allen The Alien Joins Super7's New Line of Invincible DELUXE Figures",
+      "summary": "Invincible is back in the spotlight as brand-new collectibles begin arriving from a variety of companies. Jada Toys is bringing new 6-inch figures to life, which appear to be inspired by the hit Amazon Prime animated series. However, Super7 is taking a differ…",
+      "url": "https://bleedingcool.com/collectibles/allen-the-alien-joins-super7s-new-line-of-invincible-deluxe-figures/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6138
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-07T15:51:56+00:00",
+      "source": "Internet",
+      "title": "Fake IT Calls Target Executives in Microsoft 365 Data Theft and Extortion Attacks",
+      "summary": "Threat hunters have disclosed details of a widespread data theft and extortion threat cluster that's targeting Microsoft 365 and other software-as-a-service (SaaS) offerings through information technology (IT) help desk vishing, adversary-in-the-middle (AitM)…",
+      "url": "https://thehackernews.com/2026/09/microsoft-365-attackers-use-help-desk.html",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6687
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-07T15:45:50+00:00",
+      "source": "24/7 Wall St.",
+      "title": "Microsoft Is Close to a New All-Time High. This Number Will Determine If It Keeps Climbing",
+      "summary": "Microsoft sits within reach of a record high, yet one line item buried in its cash flow statement could either launch the stock through that ceiling or keep...",
+      "url": "https://247wallst.com/investing/2026/09/07/microsoft-is-close-to-a-new-all-time-high-this-number-will-determine-if-it-keeps-climbing/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.625
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-09-06T17:33:01+00:00",
       "source": "Slashdot.org",
