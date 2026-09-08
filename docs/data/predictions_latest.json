@@ -1,14 +1,5 @@
 [
   {
-    "ticker": "AMZN",
-    "as_of": "2026-09-04",
-    "target_date": "2026-09-08",
-    "last_close": 258.5100097656,
-    "pred_ret_t1": 0.0048088487,
-    "pred_close_t1": 259.7531452962,
-    "mae_backtest_30d": 0.0076473459
-  },
-  {
     "ticker": "GOOGL",
     "as_of": "2026-09-04",
     "target_date": "2026-09-08",
