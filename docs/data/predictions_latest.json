@@ -1,8 +1,17 @@
 [
   {
+    "ticker": "AMZN",
+    "as_of": "2026-09-08",
+    "target_date": "2026-09-09",
+    "last_close": 258.5100097656,
+    "pred_ret_t1": 0.0048088487,
+    "pred_close_t1": 259.7531452962,
+    "mae_backtest_30d": 0.0076473459
+  },
+  {
     "ticker": "GOOGL",
-    "as_of": "2026-09-04",
-    "target_date": "2026-09-08",
+    "as_of": "2026-09-08",
+    "target_date": "2026-09-09",
     "last_close": 338.4599914551,
     "pred_ret_t1": 0.0016179016,
     "pred_close_t1": 339.0075864199,
@@ -10,8 +19,8 @@
   },
   {
     "ticker": "MSFT",
-    "as_of": "2026-09-04",
-    "target_date": "2026-09-08",
+    "as_of": "2026-09-08",
+    "target_date": "2026-09-09",
     "last_close": 499.700012207,
     "pred_ret_t1": -0.0018483164,
     "pred_close_t1": 498.7764084783,
