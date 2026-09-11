@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-09-10T16:23:23.745865+00:00",
+  "as_of": "2026-09-11T16:27:26.746733+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-09-10T16:25:55+00:00",
+      "source": "Daily Signal",
+      "title": "Victor Davis Hanson: Europe’s Immigration Revolt Is Just Getting Started",
+      "summary": "Editor’s note: This is a lightly edited transcript of “Victor Davis Hanson: In His Own Words” from Daily Signal senior contributor Victor Davis Hanson. Subscribe to Victor Davis Hanson’s own YouTube channel to watch past episodes. Jack Fowler: Victor, yesterd…",
+      "url": "https://www.dailysignal.com/2026/09/10/hanson-europes-immigration-revolt/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9237
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-10T16:25:39+00:00",
+      "source": "9to5Mac",
+      "title": "AirPods 5, Apple Watch Series 12, and Ultra 4 now available on Amazon",
+      "summary": "Apple unveiled its new Apple Watch Ultra 4 and Apple Watch Series 12 lineup yesterday, plus the all-new AirPods 5. They hit shelves next Friday, September 18. \n\n\n\nAhead of that launch, Apple’s new lineup is now available to pre-order on Amazon. \n\n\n\n<ul>\n<li>P…",
+      "url": "https://9to5mac.com/2026/09/10/airpods-5-apple-watch-series-12-and-ultra-4-now-available-on-amazon/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8678
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-10T16:19:21+00:00",
+      "source": "Crypto Briefing",
+      "title": "Google launches Gemini app on Windows for desktop users",
+      "summary": "Google's Gemini app on Windows could reshape desktop productivity by integrating AI-driven tasks directly into users' existing workflows.\nThe post Google launches Gemini app on Windows for desktop users appeared first on Crypto Briefing.",
+      "url": "https://cryptobriefing.com/google-gemini-app-windows-launch/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.875
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-10T16:17:46+00:00",
+      "source": "Crypto Briefing",
+      "title": "ARK Investment Management increases Meta holdings, reduces Alphabet stake",
+      "summary": "ARK's strategic shift highlights a bold bet on Meta's AI potential, challenging prevailing market views and signaling confidence in innovation.\nThe post ARK Investment Management increases Meta holdings, reduces Alphabet stake appeared first on Crypto Briefin…",
+      "url": "https://cryptobriefing.com/ark-increases-meta-reduces-alphabet/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8885
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-10T16:16:47+00:00",
+      "source": "Crypto Briefing",
+      "title": "Polymarket appoints former Amazon finance chief Warren Jenson as CFO",
+      "summary": "Polymarket's strategic CFO hire signals its ambition to scale significantly, aiming to bridge traditional finance with crypto innovation.\nThe post Polymarket appoints former Amazon finance chief Warren Jenson as CFO appeared first on Crypto Briefing.",
+      "url": "https://cryptobriefing.com/polymarket-warren-jenson-cfo-appointment/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8131
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-10T16:08:57+00:00",
+      "source": "Amazon.com",
+      "title": "Build an end-to-end RFI questionnaire workflow using Amazon Quick Automate",
+      "summary": "Learn how to build an end-to-end RFI questionnaire workflow with Amazon Quick Automate. Read a multi-tab RFI workbook from Amazon S3, use natural-language prompts to extract and structure the questionnaire data, refine the workflow through conversation, and w…",
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-an-end-to-end-rfi-questionnaire-workflow-using-amazon-quick-automate/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9347
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-10T16:00:00+00:00",
+      "source": "Microsoft.com",
+      "title": "Detect and disrupt AI-themed attacks with Microsoft Defender",
+      "summary": "See how Microsoft Defender detects and disrupts AI-themed phishing, malware, and multi-stage attacks across the attack chain.\nThe post Detect and disrupt AI-themed attacks with Microsoft Defender appeared first on Microsoft Security Blog.",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/10/detect-and-disrupt-ai-themed-attacks-with-microsoft-defender/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.927
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-10T15:47:07+00:00",
+      "source": "Techpowerup.com",
+      "title": "Microsoft Fixes Nearly 1,000 Vulnerabilities Across Windows, Office, and Azure",
+      "summary": "In September, Microsoft released fixes for 999 vulnerabilities, making it one of the largest batches of fixes the company has ever issued. Out of these 999 patches, 723 vulnerabilities have been reportedly patched on Windows alone. For Office and Office 2016,…",
+      "url": "https://www.techpowerup.com/352561/microsoft-fixes-nearly-1-000-vulnerabilities-across-windows-office-and-azure",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5662
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-10T15:33:33+00:00",
+      "source": "Kitploit.com",
+      "title": "TATS",
+      "summary": "Analyze and track OAuth 2.0, OIDC, and Microsoft Entra ID tokens from Burp, mitmproxy, or Chrome DevTools captures. Visualize token lifecycles, detect risky scopes, and export tokens for replay via an interactive dashboard.",
+      "url": "https://kitploit.com/en/tools/github/icemoonhsv/tats/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9356
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-09-09T16:15:00+00:00",
       "source": "TechRadar",
