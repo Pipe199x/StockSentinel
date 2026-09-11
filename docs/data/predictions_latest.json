@@ -1,29 +1,29 @@
 [
   {
     "ticker": "AMZN",
-    "as_of": "2026-09-09",
-    "target_date": "2026-09-10",
-    "last_close": 256.9700012207,
-    "pred_ret_t1": 0.0050391695,
-    "pred_close_t1": 258.2649166012,
-    "mae_backtest_30d": 0.0075444321
+    "as_of": "2026-09-10",
+    "target_date": "2026-09-11",
+    "last_close": 252.3999938965,
+    "pred_ret_t1": -0.0071280068,
+    "pred_close_t1": 250.6008850291,
+    "mae_backtest_30d": 0.0081632002
   },
   {
     "ticker": "GOOGL",
-    "as_of": "2026-09-09",
-    "target_date": "2026-09-10",
-    "last_close": 338.3599853516,
-    "pred_ret_t1": -0.0011966263,
-    "pred_close_t1": 337.9550948804,
-    "mae_backtest_30d": 0.0075159016
+    "as_of": "2026-09-10",
+    "target_date": "2026-09-11",
+    "last_close": 330.6499938965,
+    "pred_ret_t1": -0.0037710702,
+    "pred_close_t1": 329.4030895717,
+    "mae_backtest_30d": 0.007636606
   },
   {
     "ticker": "MSFT",
-    "as_of": "2026-09-09",
-    "target_date": "2026-09-10",
-    "last_close": 493.950012207,
-    "pred_ret_t1": -0.0036460038,
-    "pred_close_t1": 492.149068595,
-    "mae_backtest_30d": 0.0085101004
+    "as_of": "2026-09-10",
+    "target_date": "2026-09-11",
+    "last_close": 491.6499938965,
+    "pred_ret_t1": 0.0002529555,
+    "pred_close_t1": 491.7743594551,
+    "mae_backtest_30d": 0.0085144596
   }
 ]
