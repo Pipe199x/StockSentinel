@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-14T00:20:44.195707+00:00",
+  "as_of": "2026-09-15T00:48:59.770656+00:00",
   "window_days": 30,
   "series": {
     "AMZN": [
@@ -116,6 +116,12 @@
         "close": 256.78,
         "adj_close": 256.78,
         "volume": 26682800
+      },
+      {
+        "date": "2026-09-14",
+        "close": NaN,
+        "adj_close": null,
+        "volume": 33318851
       }
     ],
     "GOOGL": [
@@ -232,6 +238,12 @@
         "close": 338.5,
         "adj_close": 338.5,
         "volume": 24677500
+      },
+      {
+        "date": "2026-09-14",
+        "close": NaN,
+        "adj_close": null,
+        "volume": 35092727
       }
     ],
     "MSFT": [
@@ -348,6 +360,12 @@
         "close": 495.63,
         "adj_close": 495.63,
         "volume": 14510500
+      },
+      {
+        "date": "2026-09-14",
+        "close": NaN,
+        "adj_close": null,
+        "volume": 23020956
       }
     ]
   }
