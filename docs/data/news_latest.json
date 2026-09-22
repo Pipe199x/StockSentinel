@@ -1,7 +1,153 @@
 {
-  "as_of": "2026-09-21T18:12:47.401117+00:00",
+  "as_of": "2026-09-22T16:56:57.906257+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-09-21T16:55:22+00:00",
+      "source": "Deadline",
+      "title": "Netflix’s Liz Franco Joins Amazon’s Nonfiction Team",
+      "summary": "EXCLUSIVE: Amazon is adding to its nonfiction team. The streamer has hired Netflix exec Liz Franco, who has worked on docuseries such as Reality Check: Inside America’s Next Top Model, Sean Combs: The Reckoning, Simone Biles Rising, and American Murder: Gabby…",
+      "url": "http://deadline.com/2026/09/netflix-exec-liz-franco-joins-amazons-nonfiction-team-1237109331/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8552
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-21T16:54:35+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Before I Do 2016 720p AMZN WEB-DL H264-playWEB",
+      "summary": "Plot: A game of Russian roulette. There are scandalous secrets and a cover up, and three people, bound to take them to the grave. Before 'I Do' draws you into the realm of passion and love, lust, lies, and friendship. A fast-paced, colorful drama with a splas…",
+      "url": "https://post.rlsbb.cc/before-i-do-2016-720p-amzn-web-dl-h264-playweb/",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9242
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-21T16:53:37+00:00",
+      "source": "RTE",
+      "title": "Behind the Story: Energy drinks and a fine for Google",
+      "summary": "Age restrictions on the sale of energy drinks to children are supported by more than three in four people, according to new research from Safefood.",
+      "url": "https://www.rte.ie/news/2026/0921/1592417-behind-the-story-energy-drinks-and-a-fine-for-google/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7456
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-21T16:53:08+00:00",
+      "source": "Slashdot.org",
+      "title": "Amazon shows Meta's Muse AI shopping agent the door",
+      "summary": "Retailer cites credentials and transparency concerns while guarding its lucrative customer journey",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185731310",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8022
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-21T16:53:00+00:00",
+      "source": "Theflightdeal.com",
+      "title": "Air Canada: Los Angeles – Singapore. $670. Roundtrip, including all Taxes",
+      "summary": "A good sale to SingaporeThis is a regular economy fare with ONE checked bag and normal size carry-on includedMatrix Airfare Search by ITA Software at $718. Use those dates on Google Flights sh",
+      "url": "https://www.theflightdeal.com/2026/09/21/air-canada-los-angeles-singapore-670-roundtrip-including-all-taxes/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.945
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-21T16:49:49+00:00",
+      "source": "Daily Signal",
+      "title": "Victor Davis Hanson: The Left’s Psychodrama Cycle Designed to Win Them Elections",
+      "summary": "Editor’s note: This is a lightly edited transcript of “Victor Davis Hanson: In His Own Words” from Daily Signal senior contributor Victor Davis Hanson. Subscribe to Victor Davis Hanson’s own YouTube channel to watch past episodes. Sami Winc: The Anthropic CEO…",
+      "url": "https://www.dailysignal.com/2026/09/21/hanson-lefts-psychodrama-cycle-elections/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9206
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-21T16:48:59+00:00",
+      "source": "Microsoft.com",
+      "title": "Azure integrations | Microsoft Copilot Blog",
+      "summary": "Azure integrations | Microsoft Copilot Blogmicrosoft.com",
+      "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/topic/azure-integrations-product-integrations/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9415
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-21T16:48:12+00:00",
+      "source": "Microsoft.com",
+      "title": "AI tool integrations | Microsoft Copilot Blog",
+      "summary": "AI tool integrations | Microsoft Copilot Blogmicrosoft.com",
+      "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/topic/ai-tool-integrations-product-integrations/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9359
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-21T15:42:51+00:00",
+      "source": "Rock Paper Shotgun",
+      "title": "Microsoft file patent for a machine learning system that would \"train\" itself on your playtime to work out when you'll be least annoyed by in-game ads",
+      "summary": "Uncle Microsoft's efforts to keep inventing the Torment Nexus proceed apace with a patent application for an in-game advertising system that might use machine learning to read your activities, and work out when you'll be least apoplectic about being suddenly …",
+      "url": "https://www.rockpapershotgun.com/microsoft-file-patent-for-a-machine-learning-system-that-would-train-itself-on-your-playtime-to-work-out-when-youll-be-least-annoyed-by-in-game-ads",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8876
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-09-20T18:08:02+00:00",
       "source": "The Times of India",
@@ -1851,150 +1997,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.8446
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-07T16:30:00+00:00",
-      "source": "TheBlaze",
-      "title": "Stronger security and privacy is coming to Android, but will it come in time?",
-      "summary": "If you use an Android phone, your device could be in line to get a privacy upgrade. Google’s bringing a new web standard to its mobile operating system to protect your web traffic from potential spies. However, only a small number of devices will have access …",
-      "url": "https://www.theblaze.com/tech/android-web-privacy-hurdle",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8521
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-07T16:22:08+00:00",
-      "source": "Bleeding Cool News",
-      "title": "Bow Before Thragg with Super7's Latest Invincible DELUXE Figure",
-      "summary": "Fans are patiently waiting for the next season of the hit Amazon Prime animated series Invincible. The show has faithfully brought the popular Image Comics series to life, and collectors now have plenty of new collectibles to look forward to. The first wave o…",
-      "url": "https://bleedingcool.com/collectibles/bow-before-thragg-with-super7s-latest-invincible-deluxe-figure/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7247
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-07T16:20:27+00:00",
-      "source": "Livejournal.com",
-      "title": "The Walking Dead: Dead City 3x08 promo",
-      "summary": "Maggie and Negan must confront deadly threats as they work together to save their community from imminent peril. YouTube",
-      "url": "https://ohnotheydidnt.livejournal.com/132828475.html",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8925
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-07T16:17:46+00:00",
-      "source": "Mediaite",
-      "title": "Shocking New Video Shows Amazon Cargo Plane Overrunning Runway in Deadly Crash",
-      "summary": "Shocking new witness video showed the moment a cargo plane overran the runway in a fiery crash that killed five people and injured five others on Sunday.\nThe post Shocking New Video Shows Amazon Cargo Plane Overrunning Runway in Deadly Crash first appeared on…",
-      "url": "https://www.mediaite.com/media/tv/shocking-new-video-shows-amazon-cargo-plane-overrunning-runway-in-deadly-crash/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8819
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-07T16:03:51+00:00",
-      "source": "Israelnationalnews.com",
-      "title": "Winter and Haddad celebrate filing of Amcha Yisrael party list with baklava",
-      "summary": "[youtube:2178558]Amcha Yisrael Party chairman Ofer Winter and the slate’s number two candidate, Yoseph Haddad, were filmed celebrating with baklava after submitting their Knesset slate.",
-      "url": "https://www.israelnationalnews.com/flashes/693137",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8862
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-07T15:57:20+00:00",
-      "source": "Portableapps.com",
-      "title": "mssPortable 1.459.97 (Microsoft Safety Scanner antivirus launcher) Released",
-      "summary": "A new version of mssPortable has been released. mssPortable assists you with running the Microsoft Safety Scanner scan tool to find and remove malware. It's packaged in PortableApps.com Format so it can easily integrate with the PortableApps.com Platform. And…",
-      "url": "https://portableapps.com/news/2026-09-07--mssportable-1.459.97-released",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9139
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-07T15:53:08+00:00",
-      "source": "Bleeding Cool News",
-      "title": "Allen The Alien Joins Super7's New Line of Invincible DELUXE Figures",
-      "summary": "Invincible is back in the spotlight as brand-new collectibles begin arriving from a variety of companies. Jada Toys is bringing new 6-inch figures to life, which appear to be inspired by the hit Amazon Prime animated series. However, Super7 is taking a differ…",
-      "url": "https://bleedingcool.com/collectibles/allen-the-alien-joins-super7s-new-line-of-invincible-deluxe-figures/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.6138
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-07T15:51:56+00:00",
-      "source": "Internet",
-      "title": "Fake IT Calls Target Executives in Microsoft 365 Data Theft and Extortion Attacks",
-      "summary": "Threat hunters have disclosed details of a widespread data theft and extortion threat cluster that's targeting Microsoft 365 and other software-as-a-service (SaaS) offerings through information technology (IT) help desk vishing, adversary-in-the-middle (AitM)…",
-      "url": "https://thehackernews.com/2026/09/microsoft-365-attackers-use-help-desk.html",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6687
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-07T15:45:50+00:00",
-      "source": "24/7 Wall St.",
-      "title": "Microsoft Is Close to a New All-Time High. This Number Will Determine If It Keeps Climbing",
-      "summary": "Microsoft sits within reach of a record high, yet one line item buried in its cash flow statement could either launch the stock through that ceiling or keep...",
-      "url": "https://247wallst.com/investing/2026/09/07/microsoft-is-close-to-a-new-all-time-high-this-number-will-determine-if-it-keeps-climbing/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.625
       },
       "sentiment_model": "ProsusAI/finbert"
     }
