@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-09-22T16:56:57.906257+00:00",
+  "as_of": "2026-09-23T16:57:01.262263+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-09-22T16:56:39+00:00",
+      "source": "Android Central",
+      "title": "Apple iPhone 18 Pro vs. Google Pixel 11: The best of iOS faces the best of Android",
+      "summary": "Wondering whether you should cash in to the Apple or the Google ecosystem? A good iPhone 18 Pro vs. Google Pixel 11 comparison will sort it out for you.",
+      "url": "https://www.androidcentral.com/phones/apple-iphone/apple-iphone-18-pro-vs-google-pixel-11",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8976
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-22T16:55:17+00:00",
+      "source": "The Daily Hodl",
+      "title": "Ireland Data Regulator Fines Google $463,000,000 Over Location Tracking",
+      "summary": "Ireland's Data Protection Commission fined Google €403,000,000 for GDPR breaches in how it processed user location data through Web & App Activity, Location History and Location Accuracy from 2018 to 2020.\nThe post Ireland Data Regulator Fines Google $463,000…",
+      "url": "https://dailyhodl.com/2026/09/22/ireland-data-regulator-fines-google-463000000-over-location-tracking/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9512
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-22T16:53:59+00:00",
+      "source": "Slashdot.org",
+      "title": "Oil prices fall after report Saudi Arabia aims to restart critical pipeline this week - CNBC",
+      "summary": "Oil prices fall after report Saudi Arabia aims to restart critical pipeline this weekCNBC See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185740814",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7801
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-22T16:53:41+00:00",
+      "source": "iPhone in Canada",
+      "title": "Microsoft Cuts 268 Xbox Jobs, Hands Over Halo to Activision",
+      "summary": "Microsoft cuts 268 Xbox jobs as Activision takes over Halo development and internal studios face massive organizational reshuffles.\nThe post Microsoft Cuts 268 Xbox Jobs, Hands Over Halo to Activision first appeared on iPhone in Canada.",
+      "url": "https://www.iphoneincanada.ca/2026/09/22/microsoft-cuts-268-xbox-jobs-hands-over-halo-to-activision/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9524
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-22T16:50:47+00:00",
+      "source": "disneyfoodblog.com",
+      "title": "This Might Be the Easiest $8 We’ve Ever Spent on Amazon",
+      "summary": "These cookbooks bring iconic Disney foods home!",
+      "url": "https://www.disneyfoodblog.com/2026/09/22/this-might-be-the-easiest-8-weve-ever-spent-on-amazon/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.82
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-22T16:50:29+00:00",
+      "source": "The Times of India",
+      "title": "Next Halo game to be made by Call of Duty makers as Microsoft lays off 268 employees: What we know",
+      "summary": "In a significant shake-up, Microsoft has let go of 268 employees from its gaming division, paving the way for Activision to spearhead the upcoming mainline Halo title for Xbox. Studios like Rare and World's Edge will now align under Activision, while Bethesda…",
+      "url": "https://economictimes.indiatimes.com/news/international/global-trends/next-halo-game-to-be-made-by-call-of-duty-makers-as-microsoft-lays-off-268-employees-what-we-know/articleshow/134416426.cms",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7719
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-22T16:48:32+00:00",
+      "source": "Amazon.com",
+      "title": "Adding custom domains to AWS Lambda MicroVMs with Application Load Balancer",
+      "summary": "Many teams want to expose their AWS Lambda MicroVMs under a custom domain they own, and satisfy CORS for browser clients, without changing the application. This post shows how, using an Application Load Balancer that rewrites the Host header and forwards over…",
+      "url": "https://aws.amazon.com/blogs/compute/adding-custom-domains-to-aws-lambda-microvms-with-application-load-balancer/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9361
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-22T16:41:42+00:00",
+      "source": "Bringatrailer.com",
+      "title": "12k-Mile 1998 Bentley Azure",
+      "summary": "This 1998 Bentley Azure is one of 207 examples produced for the model year, and it spent time as part of a museum's collection prior to being purchased by the current owner in April 2015. Since that time, 5k of the 12k miles have been added. The car is finish…",
+      "url": "https://bringatrailer.com/listing/1998-bentley-azure-12/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9351
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-22T16:33:58+00:00",
+      "source": "Deadline",
+      "title": "Korean Bestselling Thriller ‘The Kidnapping Day’ Set For Arabic-Language Movie Adaptation",
+      "summary": "Korean bestselling thriller The Kidnapping Day, which was previously adapted into a hit show at home and then acquired by Amazon Prime Video for select territories, is set for an Arabic-language movie adaptation. It is among a trio of works being acquired by …",
+      "url": "http://deadline.com/2026/09/korean-bestseller-kidnapping-day-arabic-movie-adaptation-1237110256/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8804
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-09-21T16:55:22+00:00",
       "source": "Deadline",
@@ -1853,150 +1997,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.8551
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-08T16:33:41+00:00",
-      "source": "The Times of India",
-      "title": "CCI closes real money games-related case against Google",
-      "summary": "In 2022, Winzo Games Pvt Ltd filed a complaint against Google alleging restrictions for Real Money Games (RMG) on Google Play and about advertisement policy, among others. The Competition Commission of India (CCI) in 2024 ordered a detailed probe into the mat…",
-      "url": "https://economictimes.indiatimes.com/tech/technology/cci-closes-real-money-games-related-case-against-google/articleshow/133933225.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8906
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-08T16:32:00+00:00",
-      "source": "BGR",
-      "title": "YouTube Isn't Loading For Some Users, But There Might Be A Fix",
-      "summary": "YouTube isn't loading for many users in Texas and the only fix as of now is signing out of you YouTube account and watching as a guest, but it's not perfect.",
-      "url": "https://www.bgr.com/2252785/youtube-not-loading-fix-texas/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7833
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-08T16:30:00+00:00",
-      "source": "PRNewswire",
-      "title": "AMAZON DELIVERY DRIVERS DEMAND TEAMSTERS RECOGNITION AT DRI1 FACILITY",
-      "summary": "Over 90 Drivers March on Boss to Announce Unionization After Labor Day PROVIDENCE, R.I., Sept. 8, 2026 /PRNewswire/ -- Amazon delivery drivers at the DRI1 facility in Providence, R.I., marched on the boss today to announce their unionization with Teamsters Lo…",
-      "url": "https://www.prnewswire.com/news-releases/amazon-delivery-drivers-demand-teamsters-recognition-at-dri1-facility-302872573.html",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6303
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-08T16:23:21+00:00",
-      "source": "Amazon.com",
-      "title": "Automated agent evaluation with Amazon Bedrock AgentCore and GitHub Actions",
-      "summary": "Wire Amazon Bedrock AgentCore Evaluations into a GitHub Actions pipeline: deploy an AI agent and an OAuth-protected MCP server to AgentCore runtime, invoke the agent with test prompts, score the responses, and automatically block pull requests when agent beha…",
-      "url": "https://aws.amazon.com/blogs/machine-learning/automated-agent-evaluation-with-amazon-bedrock-agentcore-and-github-actions/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9456
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-08T16:21:57+00:00",
-      "source": "Amazon.com",
-      "title": "Benchmarking small LLM inference on SageMaker AI: G7 vs G5 and G6",
-      "summary": "Benchmark two 30B Mixture-of-Experts models, Qwen3-Coder-30B and NVIDIA Nemotron-3-Nano-30B, across G5, G6, G6e, and G7 GPU instances on Amazon SageMaker AI. Compare throughput, latency, and cost-per-token, and see how G7's NVIDIA Blackwell GPUs deliver measu…",
-      "url": "https://aws.amazon.com/blogs/machine-learning/benchmarking-small-llm-inference-on-sagemaker-ai-g7-vs-g5-and-g6/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8886
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-08T16:20:31+00:00",
-      "source": "TechCrunch",
-      "title": "Google Cloud races to catch up in the AI deployment wars with Accenture deal | TechCrunch",
-      "summary": "Google Cloud expands its enterprise AI push with Accenture, betting on forward-deployed engineers to drive adoption and overcome deployment bottlenecks.",
-      "url": "https://techcrunch.com/2026/09/08/google-cloud-races-to-catch-up-in-the-ai-deployment-wars-with-accenture-deal/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.934
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-08T15:35:00+00:00",
-      "source": "TechRadar",
-      "title": "Microsoft 365 users hit by two major threat campaigns - fake IT calls and phishing emails target users across the world",
-      "summary": "BigBear 2.0 and PREY-0058 are wreaking havoc across businesses as they scam employees into handing over login credentials and MFA codes.",
-      "url": "https://www.techradar.com/pro/security/microsoft-365-users-hit-by-two-major-threat-campaigns-fake-it-calls-and-phishing-emails-target-users-across-the-world",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9508
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-08T15:22:33+00:00",
-      "source": "BleepingComputer",
-      "title": "August updates trigger 0xc0000409 errors on Windows Server 2016",
-      "summary": "Microsoft says the August 2026 security update may trigger 0xc0000409 errors on Windows Server 2016 systems where the Compatibility Appraiser diagnostic service is enabled. [...]",
-      "url": "https://www.bleepingcomputer.com/news/microsoft/august-updates-trigger-0xc0000409-errors-on-windows-server-2016/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.7165
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-08T15:00:00+00:00",
-      "source": "Ryukoku.ac.jp",
-      "title": "2026 綛9 禹礇絅磧彜羂 (Microsoft, 2026.09.08)",
-      "summary": "e障\n974 Microsoft CVE + 25 non-MS CVEhttps://msrc.microsoft.com/update-guide/releaseNote/2026-Sep\n綣:\n\r\n \n<table>\n\n<tr> <th>茖遵。</th> <th>ゴth> <th>絲上識ф</th> <th>茖遵鐚吾潟贋/th> <th>贋帥、/th>\n</th></th></th></tr>\n\r\n\n\n<tr> <td>Azure</td> <td>1</td> <td>12</td> <td>4</td>…",
-      "url": "http://www.st.ryukoku.ac.jp/~kjm/security/memo/2026/09.html#20260909_microsoft",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8446
       },
       "sentiment_model": "ProsusAI/finbert"
     }
