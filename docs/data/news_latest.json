@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-09-24T17:09:51.663477+00:00",
+  "as_of": "2026-09-25T17:10:05.250233+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-09-24T17:08:36+00:00",
+      "source": "Yahoo Entertainment",
+      "title": "Emmanuel Acho sends unexpected message after heated Leonard Fournette confrontation",
+      "summary": "Emmanuel Acho brought Leonard Fournette onto Speakeasy, his late-night YouTube show, on Wednesday night with the stated goal of exposing him. The two former NFL players spent the segment arguing live in front of the show’s chat, and by Thursday the host who a…",
+      "url": "https://sports.yahoo.com/articles/emmanuel-acho-sends-unexpected-message-170836718.html",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7199
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-24T17:07:59+00:00",
+      "source": "BusinessLine",
+      "title": "Google to test AI chips in space with first Project Suncatcher mission",
+      "summary": "Google will launch a prototype satellite to test AI hardware in low Earth orbit, exploring the potential for large-scale computing infrastructure in space.",
+      "url": "https://www.thehindubusinessline.com/news/science/google-to-test-ai-chips-in-space-with-first-project-suncatcher-mission/article71505486.ece",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7204
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-24T17:03:31+00:00",
+      "source": "GeekWire",
+      "title": "Amazon delivery drone noise sparks resident revolt in Texas: ‘It’s like a beehive up there’",
+      "summary": "New reports this week from The New York Times and NBC's TODAY show detail how residents in Richardson, Texas, — a Dallas suburb near a major Amazon fulfillment facility — are bearing the brunt of Prime Air’s ambitious expansion. Read More",
+      "url": "https://www.geekwire.com/2026/amazon-delivery-drone-noise-sparks-resident-revolt-in-texas-its-like-a-beehive-up-there/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5307
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-24T17:01:15+00:00",
+      "source": "TechCrunch",
+      "title": "Google Photos 'Clueless'-inspired virtual closet is now available on Android and iOS | TechCrunch",
+      "summary": "The AI-powered feature builds a virtual wardrobe from your photos, and is now broadly available after first rolling out to Android users in June.",
+      "url": "https://techcrunch.com/2026/09/24/google-photos-clueless-inspired-virtual-closet-is-now-available-on-android-and-ios/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8852
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-24T17:00:15+00:00",
+      "source": "Commonsensewithmoney.com",
+      "title": "Revlon 1875W Compact & Lightweight IONIC Hair Dryer – Just $14.98!",
+      "summary": "New fall hairstyle? How about a new hair dryer? This highly rated hair dryer is an Amazon’s Choice product!  How about this deal?! The small size is super handy too! \n\nGet on over to Amazon and get the Revlon 1875W Compact & Lightw...",
+      "url": "https://www.commonsensewithmoney.com/revlon-1875w-compact-lightweight-ionic-hair-dryer-just-14-98/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.85
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-24T17:00:00+00:00",
+      "source": "Theregister.com",
+      "title": "Decades-old file security flaws found in Android, Linux, macOS, and Windows",
+      "summary": "Security researchers report that Microsoft considers the side-channel leak of file events to be by design",
+      "url": "https://www.theregister.com/security/2026/09/24/decades-old-file-security-flaws-found-in-android-linux-macos-and-windows/5298672",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.6914
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-24T16:52:00+00:00",
+      "source": "Hip2save.com",
+      "title": "NEW Play-Doh Grinchmas Feast Playset Available on Amazon",
+      "summary": "Head over to Amazon where you can score this Play-Doh Dr. Seuss Grinchmas Feast Playset for just $22.03! Play-Doh Dr. Seuss Grinchmas Feast Playset Just $22.03! Perfect for little Grinch fans, this quirky playset lets kids create a Play-Doh feast, make teeth …",
+      "url": "https://hip2save.com/deals/play-doh-grinchmas-feast/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9267
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-24T16:36:52+00:00",
+      "source": "Crypto Briefing",
+      "title": "Microsoft opens quantum research center in Maryland for DARPA testing of topological qubit system",
+      "summary": "Microsoft's quantum center in Maryland signifies a pivotal step towards scalable, error-resistant quantum computing, influencing global tech strategies.\nThe post Microsoft opens quantum research center in Maryland for DARPA testing of topological qubit system…",
+      "url": "https://cryptobriefing.com/microsoft-quantum-center-darpa-maryland/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.5043
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-24T16:01:00+00:00",
+      "source": "Artsjournal.com",
+      "title": "Former Microsoft CEO Repairs Damaged Calder Mobile In U.S. Senate Building",
+      "summary": "When Kim and Jon Shirley visited Alexander Calder’s Mountains and Clouds (1976/1986) in the atrium of the Hart Senate Office Building, the stabile portion of the sculpture (the mountains) was there, but the mobile part (clouds) had been taken due to structura…",
+      "url": "https://www.artsjournal.com/2026/09/former-microsoft-ceo-repairs-damaged-calder-mobile-in-u-s-senate-building.html",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7082
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-09-23T17:07:36+00:00",
       "source": "Rlsbb.cc",
@@ -1840,150 +1984,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.8087
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-10T16:25:55+00:00",
-      "source": "Daily Signal",
-      "title": "Victor Davis Hanson: Europe’s Immigration Revolt Is Just Getting Started",
-      "summary": "Editor’s note: This is a lightly edited transcript of “Victor Davis Hanson: In His Own Words” from Daily Signal senior contributor Victor Davis Hanson. Subscribe to Victor Davis Hanson’s own YouTube channel to watch past episodes. Jack Fowler: Victor, yesterd…",
-      "url": "https://www.dailysignal.com/2026/09/10/hanson-europes-immigration-revolt/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9237
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-10T16:25:39+00:00",
-      "source": "9to5Mac",
-      "title": "AirPods 5, Apple Watch Series 12, and Ultra 4 now available on Amazon",
-      "summary": "Apple unveiled its new Apple Watch Ultra 4 and Apple Watch Series 12 lineup yesterday, plus the all-new AirPods 5. They hit shelves next Friday, September 18. \n\n\n\nAhead of that launch, Apple’s new lineup is now available to pre-order on Amazon. \n\n\n\n<ul>\n<li>P…",
-      "url": "https://9to5mac.com/2026/09/10/airpods-5-apple-watch-series-12-and-ultra-4-now-available-on-amazon/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8678
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-10T16:19:21+00:00",
-      "source": "Crypto Briefing",
-      "title": "Google launches Gemini app on Windows for desktop users",
-      "summary": "Google's Gemini app on Windows could reshape desktop productivity by integrating AI-driven tasks directly into users' existing workflows.\nThe post Google launches Gemini app on Windows for desktop users appeared first on Crypto Briefing.",
-      "url": "https://cryptobriefing.com/google-gemini-app-windows-launch/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.875
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-10T16:17:46+00:00",
-      "source": "Crypto Briefing",
-      "title": "ARK Investment Management increases Meta holdings, reduces Alphabet stake",
-      "summary": "ARK's strategic shift highlights a bold bet on Meta's AI potential, challenging prevailing market views and signaling confidence in innovation.\nThe post ARK Investment Management increases Meta holdings, reduces Alphabet stake appeared first on Crypto Briefin…",
-      "url": "https://cryptobriefing.com/ark-increases-meta-reduces-alphabet/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.8885
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-10T16:16:47+00:00",
-      "source": "Crypto Briefing",
-      "title": "Polymarket appoints former Amazon finance chief Warren Jenson as CFO",
-      "summary": "Polymarket's strategic CFO hire signals its ambition to scale significantly, aiming to bridge traditional finance with crypto innovation.\nThe post Polymarket appoints former Amazon finance chief Warren Jenson as CFO appeared first on Crypto Briefing.",
-      "url": "https://cryptobriefing.com/polymarket-warren-jenson-cfo-appointment/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8131
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-10T16:08:57+00:00",
-      "source": "Amazon.com",
-      "title": "Build an end-to-end RFI questionnaire workflow using Amazon Quick Automate",
-      "summary": "Learn how to build an end-to-end RFI questionnaire workflow with Amazon Quick Automate. Read a multi-tab RFI workbook from Amazon S3, use natural-language prompts to extract and structure the questionnaire data, refine the workflow through conversation, and w…",
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-an-end-to-end-rfi-questionnaire-workflow-using-amazon-quick-automate/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9347
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-10T16:00:00+00:00",
-      "source": "Microsoft.com",
-      "title": "Detect and disrupt AI-themed attacks with Microsoft Defender",
-      "summary": "See how Microsoft Defender detects and disrupts AI-themed phishing, malware, and multi-stage attacks across the attack chain.\nThe post Detect and disrupt AI-themed attacks with Microsoft Defender appeared first on Microsoft Security Blog.",
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/10/detect-and-disrupt-ai-themed-attacks-with-microsoft-defender/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.927
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-10T15:47:07+00:00",
-      "source": "Techpowerup.com",
-      "title": "Microsoft Fixes Nearly 1,000 Vulnerabilities Across Windows, Office, and Azure",
-      "summary": "In September, Microsoft released fixes for 999 vulnerabilities, making it one of the largest batches of fixes the company has ever issued. Out of these 999 patches, 723 vulnerabilities have been reportedly patched on Windows alone. For Office and Office 2016,…",
-      "url": "https://www.techpowerup.com/352561/microsoft-fixes-nearly-1-000-vulnerabilities-across-windows-office-and-azure",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5662
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-10T15:33:33+00:00",
-      "source": "Kitploit.com",
-      "title": "TATS",
-      "summary": "Analyze and track OAuth 2.0, OIDC, and Microsoft Entra ID tokens from Burp, mitmproxy, or Chrome DevTools captures. Visualize token lifecycles, detect risky scopes, and export tokens for replay via an interactive dashboard.",
-      "url": "https://kitploit.com/en/tools/github/icemoonhsv/tats/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9356
       },
       "sentiment_model": "ProsusAI/finbert"
     }
