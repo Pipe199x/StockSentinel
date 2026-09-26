@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-09-25T17:10:05.250233+00:00",
+  "as_of": "2026-09-26T16:22:48.215589+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-09-25T16:18:07+00:00",
+      "source": "Amazon.com",
+      "title": "Accelerate multimodal RL training with SkyRL on Amazon SageMaker HyperPod",
+      "summary": "Learn how to run SkyRL, an open-source reinforcement learning framework, on Amazon SageMaker HyperPod to post-train a Qwen3-VL-8B vision-language model with GRPO. This walkthrough covers building the container image, launching a Ray cluster from SageMaker Stu…",
+      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-multimodal-rl-training-with-skyrl-on-amazon-sagemaker-hyperpod/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8861
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-25T16:15:22+00:00",
+      "source": "Amazon.com",
+      "title": "NarrateAI: production-ready LLM quality assurance on Amazon Bedrock",
+      "summary": "NarrateAI delivers production-ready LLM quality assurance on Amazon Bedrock. This post details five techniques—adaptive pipeline orchestration, cross-account multi-model failover, real-time streaming evaluation, composite evaluation, and data accuracy verific…",
+      "url": "https://aws.amazon.com/blogs/machine-learning/narrateai-production-ready-llm-quality-assurance-on-amazon-bedrock/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9394
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-25T16:09:48+00:00",
+      "source": "9to5google.com",
+      "title": "Google Messages rolls out new swipe for timestamps and reply gesture",
+      "summary": "Following the long-press menu, Google Messages is widely rolling out new ways to access timestamps and direct replies.\n\n\n\n more…",
+      "url": "http://9to5google.com/2026/09/25/google-messages-timestamps-reply/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9126
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-25T16:09:46+00:00",
+      "source": "Amazon.com",
+      "title": "Deploying real-time personalized speech with Qwen3-TTS on Amazon SageMaker AI",
+      "summary": "Deploy the publicly available Qwen3-TTS-12Hz-1.7B-Base text-to-speech model from Amazon SageMaker JumpStart to a fully managed, real-time endpoint, and clone a voice from a short reference clip. Cross-lingual cloning preserves the speaker's identity across la…",
+      "url": "https://aws.amazon.com/blogs/machine-learning/deploying-real-time-personalized-speech-with-qwen3-tts-on-amazon-sagemaker-ai/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8878
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-25T16:05:45+00:00",
+      "source": "Daily Signal",
+      "title": "Victor Davis Hanson: 1992 Election Warns GOP It Must Sell Its Economic Record Before the Midterms",
+      "summary": "Editor’s note: This is a lightly edited transcript of “Victor Davis Hanson: In His Own Words” from Daily Signal senior contributor Victor Davis Hanson. Subscribe to Victor Davis Hanson’s own YouTube channel to watch past episodes. Sami Winc: Quickly, on Donal…",
+      "url": "https://www.dailysignal.com/2026/09/25/hanson-1992-election-warns-gop/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9281
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-25T16:05:00+00:00",
+      "source": "TechRadar",
+      "title": "New Jersey hits data center powering Microsoft Copilot with $1m fine after drone expose 62 secretly-installed gas generators",
+      "summary": "DataOne data center responsible for Microsoft's AI accused of running 62 natural gas generators without any permits.",
+      "url": "https://www.techradar.com/pro/new-jersey-hits-data-center-powering-microsoft-copilot-with-usd1m-fine-after-drone-expose-62-secretly-installed-gas-generators",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9506
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-25T15:51:17+00:00",
+      "source": "Imperva.com",
+      "title": "From Debugging to Code Execution: RCE in Microsoft DevLabs’ DebugMCP?",
+      "summary": "Introduction  AI-assisted development has crossed a threshold. The question is no longer whether your IDE communicates with an AI, it’s how deeply that AI is now wired into your local environment. The Model Context Protocol (MCP) is one of the plumbing behind…",
+      "url": "https://www.imperva.com/blog/from-debugging-to-code-execution-rce-in-microsoft-devlabs-debugmcp/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9072
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-25T15:39:51+00:00",
+      "source": "The Verge",
+      "title": "One company is at the center of a wave of rogue AI attacks",
+      "summary": "In July, OpenAI revealed that its AI agents had attacked Hugging Face without permission, sparking widespread concerns about AI safety. Since then, a string of similar incidents involving agents from Meta, Anthropic, Google, and other companies has fueled fur…",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1000644/irregular-rogue-ai-cyberattacks-hacking-openai-meta-anthropic-google",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8435
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-25T15:35:08+00:00",
+      "source": "Microsoft.com",
+      "title": "Storm-3168: Agentic-driven cloud attacks using compromised service principals",
+      "summary": "Microsoft details JADEPUFFER-linked Azure reconnaissance, resource deletion, and credential access using compromised service principals, identifying the activity as associated with Storm-3168 and providing guidance for defenders.\nThe post Storm-3168: Agentic-…",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/25/storm-3168-agentic-driven-cloud-attacks-using-compromised-service-principals/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9404
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-09-24T17:08:36+00:00",
       "source": "Yahoo Entertainment",
@@ -1855,135 +1999,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.9385
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-11T15:27:26+00:00",
-      "source": "CNBCTV18",
-      "title": "Amazon Pay plans to expand insurance offerings in broader financial services push in India - CNBC TV18",
-      "summary": "The expansion plans are part of Amazon Pay’s strategy to evolve from a payments platform to a broader financial-services business spanning payments, credit, insurance and savings and investment products.",
-      "url": "https://www.cnbctv18.com/business/amazon-pay-plans-to-expand-insurance-offerings-in-broader-financial-services-push-in-india-19989620.htm",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.7746
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-11T15:25:36+00:00",
-      "source": "Southernsavers.com",
-      "title": "Clearance Swimsuits at Amazon | Stock Up for Next Season!",
-      "summary": "Right now at Amazon, score clearance deals on swimwear for girls and women! This is a great way to get a new suit for vacation or stock up for next year. There are some really cute suits – some even come with matching cover-ups! Deal Ideas: Teen Girls Swimsui…",
-      "url": "https://www.southernsavers.com/clearance-swimsuits-at-amazon-stock-up-for-next-season/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9054
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-11T15:14:02+00:00",
-      "source": "Yahoo Entertainment",
-      "title": "Google and Accenture Team Up to Accelerate Enterprise AI Adoption",
-      "summary": "Alphabet Inc. (NASDAQ:GOOG)’s Google Cloud and Accenture plc (NYSE:ACN) have launched the Accenture Gemini Enterprise Business Group, a joint initiative desi...",
-      "url": "https://finance.yahoo.com/technology/ai/articles/google-accenture-team-accelerate-enterprise-151402810.html",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.6286
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-11T15:14:00+00:00",
-      "source": "Dansdeals.com",
-      "title": "3 Pack Of OdoBan 32oz. Ready-To-Use Disinfectant And Odor Eliminator Spray Bottles For $9.84 From Amazon",
-      "summary": "3 Pack Of OdoBan 32oz. Ready-To-Use Disinfectant And Odor Eliminator Spray Bottles For $9.84 From Amazon Multi-Purpose: Our cleaning spray is ready to use; it cleans, disinfects, freshens, and eliminates unpleasant stenches. Our set of three 32 oz spray bottl…",
-      "url": "https://www.dansdeals.com/shopping-deals/amazon/3-pack-of-odoban-32oz-ready-to-use-disinfectant-and-odor-eliminator-spray-bottles-for-9-84-from-amazon/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8868
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-11T15:10:00+00:00",
-      "source": "9to5google.com",
-      "title": "‘Lenovo Googlebook 15’ specs leak in full with ‘Google facial authentication’",
-      "summary": "Following some past leaks, another new report reveals basically everything about the upcoming “Lenovo Googlebook 15” including its full specs, but without a price tag.\n\n\n\n more…",
-      "url": "http://9to5google.com/2026/09/11/lenovo-googlebook-15-specs-leak/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9335
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-11T14:58:35+00:00",
-      "source": "Windows Central",
-      "title": "Google's Gemini app for Windows 11 uses the same keyboard shortcut as Copilot",
-      "summary": "Google just released a dedicated Gemini app for Windows, but it steps on Copilot’s toes right out of the box by claiming Alt + Space.",
-      "url": "https://www.windowscentral.com/artificial-intelligence/microsoft-copilot/googles-gemini-app-for-windows-11-uses-the-same-keyboard-shortcut-as-copilot",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL",
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9102
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-11T14:38:00+00:00",
-      "source": "TechSpot",
-      "title": "Microsoft tests a cloud-based Windows 11 reinstall option that works even when the OS is corrupted",
-      "summary": "Windows 11 Insider Beta Preview Build 26220.9343 introduces a new reinitialization option that downloads a factory version of the OS from the cloud. The new feature lets users and IT administrators reset a device without needing a USB stick or a custom image.…",
-      "url": "https://www.techspot.com/news/113823-microsoft-tests-cloud-based-windows-11-reinstall-option.html",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8201
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-11T14:00:35+00:00",
-      "source": "Hackaday",
-      "title": "This Week in Security: It’s Patch Tuesday Again, TVs Spying, Supply Chain Worms Return, Prolonged Hack Impacts, Stolen IDs",
-      "summary": "Several times this summer, Microsoft’s Patch Tuesday, the monthly roundup of major security patches for Microsoft products, has included record-breaking numbers of security fixes. The August 2026 patch set actually …read more",
-      "url": "https://hackaday.com/2026/09/11/this-week-in-security-its-patch-tuesday-again-tvs-spying-supply-chain-worms-return-prolonged-hack-impacts-stolen-ids/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8087
       },
       "sentiment_model": "ProsusAI/finbert"
     }
