@@ -1,7 +1,153 @@
 {
-  "as_of": "2026-09-27T16:57:30.041730+00:00",
+  "as_of": "2026-09-28T19:40:25.581460+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-09-27T19:34:42+00:00",
+      "source": "Al Jazeera English",
+      "title": "Bill Gates says AI without regulation is ‘completely irresponsible’",
+      "summary": "The billionaire cofounder of Microsoft says, without restrictions, AI could 'cause a billion deaths'.",
+      "url": "https://www.aljazeera.com/news/2026/9/27/bill-gates-says-ai-without-regulation-is-completely-irresponsible",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7183
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-27T19:34:05+00:00",
+      "source": "CBC News",
+      "title": "Bill Gates joins call for AI safeguards, wants to discuss concerns with Trump",
+      "summary": "AI requires safeguards that go beyond self-regulation, ‌Microsoft co-founder Bill Gates said in an interview that aired on Sunday, calling for legislation to be passed in Congress. A groundswell has ​risen in favour of federal intervention after OpenAI said i…",
+      "url": "https://www.cbc.ca/news/world/bill-gates-ai-safeguards-9.7360347",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6103
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-27T19:33:09+00:00",
+      "source": "Bringatrailer.com",
+      "title": "8k-Mile 2008 Bentley Azure",
+      "summary": "This 2008 Bentley Azure is powered by a twin-turbocharged 6.75-liter V8 linked with a six-speed automatic transmission, and it has 8k miles. The car is finished in Beluga over Beluga leather, and features include a black soft top, 19\" 12-spoke alloy wheels, a…",
+      "url": "https://bringatrailer.com/listing/2008-bentley-azure-24/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8674
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-27T19:00:24+00:00",
+      "source": "Elite Daily",
+      "title": "60 Bougie Outfits That Are Super Cheap On Amazon",
+      "summary": "Having expensive taste would be a lot more fun if it came with an unlimited shopping budget. Luckily, Amazon is full of clothes that scratch the same itch for a lot less.",
+      "url": "https://www.elitedaily.com/fashion/bougie-outfits-that-are-super-cheap-on-amazon",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9195
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-27T18:55:00+00:00",
+      "source": "Playmakerstats.com",
+      "title": "PREVIEW | Spain vs Croatia: team news, lineups, predictions (UEFA Nations League 29/09)",
+      "summary": "Spain and Croatia clash this Tuesday at the Estadio Ramón Sánchez-Pizjuán of the UEFA Nations League. The match will be broadcast live at 19:45 on Amazon Prime.Spain currently have 3 points and lie...",
+      "url": "https://www.playmakerstats.com/news/preview-spain-vs-croatia-team-news-lineups-predictions-uefa-nations-league-29-09/1216604",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8948
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-27T18:53:36+00:00",
+      "source": "Slashdot.org",
+      "title": "White House airs another government-funded ad, this time with Trump warning of ‘final battle’ - Yahoo News Singapore",
+      "summary": "White House airs another government-funded ad, this time with Trump warning of &lsquo;final battle&rsquo;Yahoo News Singapore See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185880722",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9266
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-27T18:53:26+00:00",
+      "source": "Slashdot.org",
+      "title": "Eviction of 87-year-old sparks encampment protest in Madrid over housing crisis - AP News",
+      "summary": "Eviction of 87-year-old sparks encampment protest in Madrid over housing crisisAP News See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185880720",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7994
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-27T18:51:51+00:00",
+      "source": "Rlsbb.cc",
+      "title": "The Jeffrey Dahmer Files 2013 1080p AMZN WEB-DL H264-TEPES",
+      "summary": "Awards 1 win & 2 nominations total See more awards » Plot: An experimental documentary that uses archival footage, interviews, and fictionalized scenarios to tell the story of the people around Jeffrey Dahmer, during the summer of his arrest in 1991. Genre: D…",
+      "url": "https://post.rlsbb.cc/the-jeffrey-dahmer-files-2013-1080p-amzn-web-dl-h264-tepes/",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9315
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-27T17:52:39+00:00",
+      "source": "Slashdot.org",
+      "title": "Sea level rise is reshaping a California beach town and threatening a key rail line - apnews.com",
+      "summary": "Sea level rise is reshaping a California beach town and threatening a key rail lineapnews.com See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185880164",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9041
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-09-26T16:44:32+00:00",
       "source": "Business Standard",
@@ -1823,152 +1969,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.824
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-13T18:02:51+00:00",
-      "source": "The Times of India",
-      "title": "Google DeepMind cofounder Demis Hassabis backs Anthropic boss Dario Amodei's calls for AI slowdown",
-      "summary": "Anthropic CEO Dario Amodei's call to slow down AI development and introduce third-party evaluators has sparked major reactions. Google DeepMind's Demis Hassabis supported the direction, while US Senator Bernie Sanders urged a complete pause on advanced AI and…",
-      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/google-deepmind-cofounder-demis-hassabis-backs-anthropic-boss-dario-amodeis-calls-for-ai-slowdown/articleshow/134216869.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.7783
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-13T18:00:37+00:00",
-      "source": "disneyfoodblog.com",
-      "title": "These 7 LEGO Sets From Amazon Will Turn Your House Into A Mini Disney World",
-      "summary": "These LEGO sets will create a mini Disney World in your home!",
-      "url": "https://www.disneyfoodblog.com/2026/09/13/these-7-lego-sets-from-amazon-will-turn-your-house-into-a-mini-disney-world/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8962
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-13T17:37:44+00:00",
-      "source": "Atomic14.com",
-      "title": "Why is Google still serving dodgy ads?",
-      "summary": "I accidentally clicked a shady YouTube ad that mimics an iOS “Storage Full” alert, reported it (twice), and Google still said it was fine. Meanwhile, Gemini flags it in seconds for deceptive design...",
-      "url": "https://www.atomic14.com/2026/09/13/why-is-google-still-serving-dodgy-ads",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8304
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-13T17:24:04+00:00",
-      "source": "Medium",
-      "title": "Google illegally retains customer data,and I am taking legal action against them",
-      "summary": "I stand before Google with the following clear technical evidence that cannot be denied, because it is based on unassailable software…",
-      "url": "https://medium.com/@istokovicsgyorgy79/google-illegally-retains-customer-data-and-i-am-taking-legal-action-against-them-7da0cf95941c",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6946
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-13T17:02:00+00:00",
-      "source": "Futurism",
-      "title": "Amazon Deploying AI Tech That Forces Actors’ Mouths to Match Dubbed Dialogue",
-      "summary": "But will it look any good?\nThe post Amazon Deploying AI Tech That Forces Actors’ Mouths to Match Dubbed Dialogue appeared first on Futurism.",
-      "url": "https://futurism.com/future-society/amazon-ai-force-lips-dub",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9232
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-13T16:51:26+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Ronth 2025 1080p AMZN WEB-DL H264-CPTN5DW",
-      "summary": "Awards 3 nominations total See more awards » Plot: Two patrol officers face mounting tensions during a night shift as they navigate dangerous calls while confronting their strained partnership and personal demons. Genre: DramaIMDB Rating Live: IMDB Rating: 7.…",
-      "url": "https://post.rlsbb.cc/ronth-2025-1080p-amzn-web-dl-h264-cptn5dw/",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6136
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-13T16:20:00+00:00",
-      "source": "TechRadar",
-      "title": "Microsoft is working with the American Federation of Teachers to work out how best to use AI in the classroom",
-      "summary": "American teaching federations establish “legally enforceable protections” with Microsoft to ensure the National AI Safety & Privacy Standard.",
-      "url": "https://www.techradar.com/pro/microsoft-is-working-with-the-american-federation-of-teachers-to-work-out-how-best-to-use-ai-in-the-classroom",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7956
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-13T16:13:37+00:00",
-      "source": "Forkast.news",
-      "title": "Three Patches, Zero Progress: ShieldCrash Exposes the Endpoint-Protection Plane as Microsoft’s Latest Attack Surface",
-      "summary": "Nightmare Eclipse published a proof-of-concept on GitHub on September 9, 2026. The exploit reads arbitrary files as SYSTEM on fully patched Windows 10, Windows 11, and Windows Server systems running the September 2026 security updates. It is the third consecu…",
-      "url": "https://forkast.news/three-patches-zero-progress-shieldcrash-exposes-the-endpoint-protection-plane-as-microsofts-latest-attack-surface/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9157
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-13T15:00:00+00:00",
-      "source": "Ryukoku.ac.jp",
-      "title": "菴処",
-      "summary": "2026 綛9 禹礇絅磧彜羂 (2026.09.09) \r\n\n\nd桁с\r\n\n<ul> <li> Windows礇記礫磽礑磚窿鴻ッ邃後㍼crosoft (腦 2026.09.14) \r\n <li>\r\n Windows 11礇記礫磽礑孑B⒢」⒥Microsoft∈茯/a> (腦 2026.09.14) 綵演SB Audio Class 1.0 羣、鴻\n \r\n <li>\r\n SLClaude Cowork綵演indows 11祀Hyper-V蕁/a> (腦 2026.09.14) \r\n </li></li></li><…",
-      "url": "http://www.st.ryukoku.ac.jp/~kjm/security/memo/2026/09.html#20260914_tuiki",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8889
       },
       "sentiment_model": "ProsusAI/finbert"
     }
