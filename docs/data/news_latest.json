@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-09-29T18:04:48.819030+00:00",
+  "as_of": "2026-09-30T18:00:09.086682+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-09-29T17:57:22+00:00",
+      "source": "Moneysavingmom.com",
+      "title": "Women’s No Boundaries Cargo Jogger Pants only $4.76!",
+      "summary": "These No Boundaries Cargo Jogger Pants are so cute! Amazon has these Women’s No Boundaries Cargo Jogger Pants for as low as $4.76 right now! Available in three color options in sizes XXS to XXL. Choose free in-store pickup to avoid shipping costs. Shipping is…",
+      "url": "https://moneysavingmom.com/womens-no-boundaries-cargo-jogger-pants-only-4-76/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9397
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-29T17:53:06+00:00",
+      "source": "Slashdot.org",
+      "title": "As Tennessee execution nears, Christa Pike case highlights the few women on death row - WGAL",
+      "summary": "As Tennessee execution nears, Christa Pike case highlights the few women on death rowWGAL See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185899282",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9364
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-29T17:48:21+00:00",
+      "source": "TechCrunch",
+      "title": "OpenAI takes on Microsoft with the launch of what feels a whole lot like ChatGPT's own office suite | TechCrunch",
+      "summary": "OpenAI's newly announced suite of office features puts it into mor direct competition with more traditional software companies.",
+      "url": "https://techcrunch.com/2026/09/29/openai-takes-on-microsoft-with-the-launch-of-what-feels-a-whole-lot-like-chatgpts-own-office-suite/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.5985
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-29T17:48:00+00:00",
+      "source": "ZDNet",
+      "title": "Is ChatGPT your new Google Workspace alternative? Meet Space, Pages, and slides",
+      "summary": "OpenAI now lets teams create documents, build presentations, and work with AI agents inside ChatGPT",
+      "url": "https://www.zdnet.com/innovation/chatgpt-space-pages-slides-google-workspace-alternative/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9161
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-29T17:41:10+00:00",
+      "source": "iPhone in Canada",
+      "title": "Google Reveals What Happens to Chromebooks After 2034",
+      "summary": "Google will end regular ChromeOS updates and security patches in mid-2034 as the company shifts toward Googlebook OS.\nThe post Google Reveals What Happens to Chromebooks After 2034 first appeared on iPhone in Canada.",
+      "url": "https://www.iphoneincanada.ca/2026/09/29/google-reveals-what-happens-to-chromebooks-after-2034/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.601
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-29T17:39:02+00:00",
+      "source": "Windows Central",
+      "title": "Xbox’s Mythic Achievements launch for Insiders, adding ultra‑rare goals and better stats",
+      "summary": "Microsoft has announced that it is rolling out the long-requested Xbox Mythic Achievements today for Xbox Insider users on consoles and PC. Here's an explanation of how Mythic Achievements will work and how to keep track of them.",
+      "url": "https://www.windowscentral.com/gaming/xbox/xbox-mythic-achievements-are-finally-rolling-out-for-xbox-insiders-heres-how-theyll-function-and-how-to-track-them",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9341
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-29T17:37:40+00:00",
+      "source": "BleepingComputer",
+      "title": "Windows 11 2026 Update released, here's everything you need to know",
+      "summary": "Microsoft has started rolling out Windows 11 26H2 to everyone, and while it's this year's big annual feature update, you probably won't notice a massive difference after installing it. [...]",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/windows-11-2026-update-released-heres-everything-you-need-to-know/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8969
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-29T17:14:00+00:00",
+      "source": "Amazon.com",
+      "title": "Implementing customer managed keys for AWS Lambda durable functions with Terraform",
+      "summary": "Lambda durable functions checkpoint execution state to durable storage, and for regulated payment workloads that data is sensitive. This post shows how to configure a customer managed key in AWS KMS to encrypt durable execution data, define a least-privilege …",
+      "url": "https://aws.amazon.com/blogs/compute/implementing-customer-managed-keys-for-aws-lambda-durable-functions-with-terraform/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.937
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-09-29T17:13:30+00:00",
+      "source": "MacRumors",
+      "title": "Amazon Expands $779.99 Apple Watch Ultra 4 Deal to More Models",
+      "summary": "The new Apple Watch Ultra 4 just launched this month, and Amazon is offering the first cash discounts on select models. You can get the Apple Watch Ultra 4 for $779.99, down from $799.00.\n\n\n\nNote: MacRumors is an affiliate partner with some of these vendors. …",
+      "url": "https://www.macrumors.com/2026/09/29/amazon-779-99-apple-watch-ultra-4/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9339
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-09-28T17:54:34+00:00",
       "source": "Osnews.com",
@@ -1840,150 +1984,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.8648
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-15T16:52:47+00:00",
-      "source": "Googleblog.com",
-      "title": "Set up sharing boundaries for Google Drive with unified data protection rules",
-      "summary": "We’re introducing a new capability that allows Google Workspace administrators to configure audience sharing and sensitivity-based data conditions in a single, unified rule. This unified rule flow he… [+2206 chars]",
-      "url": "https://workspaceupdates.googleblog.com/2026/09/set-up-sharing-boundaries-for-google-Drive-with-unified-data-protection-rules.html",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8399
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-15T16:45:42+00:00",
-      "source": "Order-order.com",
-      "title": "TOMORROW: The Guido Fawkes Show LIVE at 5PM",
-      "summary": "The Guido Fawkes Show LIVE launches tomorrow at 5pm. CLICK HERE to subscribe to Guido on YouTube… Expect all the rumours, gossip, and tittle-tattle Westminster doesn’t want you to hear. Join Adam Cherry, Ross Kempsell, Max Young, and special guests tomorrow. …",
-      "url": "https://order-order.com/2026/09/15/tomorrow-the-guido-fawkes-show-live-at-5pm/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9359
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-15T16:45:10+00:00",
-      "source": "Deadline",
-      "title": "Casey Bloys Celebrates HBO’s 21 Emmy Wins, Congratulates Apple, Gives Updates On ‘Last Of Us,’ ‘True Detective,’ ‘Gilded Age,’ ‘BLL’, ‘Heated Rivalry’",
-      "summary": "The year HBO was first allowed into the Emmys, 1988, and landed its first six nominations, Apple released the iMac G3, Jeff Bezos started expanding his online book store Amazon into music and video sales and Netflix was still almost a decade away from launchi…",
-      "url": "http://deadline.com/2026/09/casey-bloys-hbo-interview-emmys-heated-rivalry-harry-potter-1237103699/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8973
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-15T16:41:00+00:00",
-      "source": "Notebookcheck.net",
-      "title": "Xbox announces 13 new games coming to Game Pass this month",
-      "summary": "Microsoft has revealed the second wave of games coming to Xbox Game Pass this month. The lineup includes Kernel Hearts, Dune: Awakening, and more.",
-      "url": "https://www.notebookcheck.net/Xbox-announces-13-new-games-coming-to-Game-Pass-this-month.1400241.0.html",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9247
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-15T16:38:43+00:00",
-      "source": "Variety",
-      "title": "Emmys in Talks to Move to Amazon Prime Video Under New Licensing Arrangement, as the Broadcast Wheel Deal Ends",
-      "summary": "The Emmy “wheel” is about to pop. According to insiders, the Television Academy is in advanced talks to park the annual Emmy telecast at Amazon Prime Video — taking the ceremony off broadcast TV for the first time since its start in 1949. It would end the 31-…",
-      "url": "https://variety.com/2026/tv/news/emmys-amazon-prime-video-new-deal-1236846269/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9162
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-15T16:37:55+00:00",
-      "source": "Hip2save.com",
-      "title": "Women’s Hobo-Style Shoulder Bag Just $11.87 on Amazon (Reg. $23)",
-      "summary": "Through September 30th, hop on over to Amazon where you can snag this cute Chelmon Women’s Hobo-Style Shoulder Bag for just $11.87 (regularly $22.99)! Women’s Hobo-Style Shoulder Bag Only $11.87 (reg. $22.99)! This chic Chelmon hobo bag keeps your essentials …",
-      "url": "https://hip2save.com/deals/amazon-hobo-shoulder-bag/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9292
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-15T16:30:00+00:00",
-      "source": "Daily Signal",
-      "title": "Victor Davis Hanson: Kennedy Treated LBJ Worse Than Biden Treated Harris",
-      "summary": "Editor’s note: This is a lightly edited transcript of “Victor Davis Hanson: In His Own Words” from Daily Signal senior contributor Victor Davis Hanson. Subscribe to Victor Davis Hanson’s own YouTube channel to watch past episodes. Sami Winc: Well, Victor, I w…",
-      "url": "https://www.dailysignal.com/2026/09/15/hanson-kennedy-lbj-biden-harris/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.861
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-15T16:10:06+00:00",
-      "source": "TweakTown",
-      "title": "Microsoft releases emergency Windows 11 update to fix issues with latest September patch",
-      "summary": "Update KB5129195 lands in a hurry to undo September's damage, though Radeon owners seeing black screens and freezes apparently get nothing out of it.Continue reading at TweakTown",
-      "url": "https://www.tweaktown.com/news/113558/microsoft-releases-emergency-windows-11-update-to-fix-issues-with-latest-september-patch/index.html",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5183
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-15T16:10:04+00:00",
-      "source": "The Daily Caller",
-      "title": "Microsoft Drafts AI Code Of Conduct Over Fears Its Models Could Resist Shutdown",
-      "summary": "One of the world’s largest tech companies says it wants its advanced artificial intelligence models to remain under human control.",
-      "url": "https://dailycaller.com/2026/09/15/microsoft-artificial-intelligence-models-code-conduct-humanist",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.627
       },
       "sentiment_model": "ProsusAI/finbert"
     }
