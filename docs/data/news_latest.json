@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-10-01T18:25:26.487673+00:00",
+  "as_of": "2026-10-02T17:52:17.813632+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-01T17:45:20+00:00",
+      "source": "Android Central",
+      "title": "Amazon's Kindle just got its biggest redesign in years, and there's a page-turn remote",
+      "summary": "Amazon has re-engineered its entire Kindle lineup for flush screens and faster page turns.",
+      "url": "https://www.androidcentral.com/tablets/amazons-kindle-just-got-its-biggest-redesign-in-years-and-theres-a-page-turn-remote",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7517
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-01T17:42:32+00:00",
+      "source": "The Times of India",
+      "title": "Giant Amazon water lily blooms in Shivalik Himalayas for first time",
+      "summary": "Giant Amazon water lily Victoria amazonica blooms for first time in Uttarakhand’s Shivalik Himalayas at BSI Dehradun after two years of cultivation efforts.",
+      "url": "https://timesofindia.indiatimes.com/city/dehradun/giant-amazon-water-lily-blooms-in-shivalik-himalayas-for-first-time/articleshow/134624906.cms",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.617
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-01T17:34:56+00:00",
+      "source": "Amazon.com",
+      "title": "Build agent memory with NVIDIA NeMo Agent Toolkit and Amazon S3 Vectors",
+      "summary": "Learn how to use Amazon S3 Vectors as the persistent memory layer within the NVIDIA NeMo Agent Toolkit (NAT), deployed on Amazon Elastic Kubernetes Service (Amazon EKS). This post shows how NAT's memory subsystem works and how to implement Amazon S3 Vectors a…",
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-agent-memory-with-nvidia-nemo-agent-toolkit-and-amazon-s3-vectors/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9353
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-01T17:33:12+00:00",
+      "source": "The Times of India",
+      "title": "Bombay HC relief for actor Samantha Ruth Prabhu",
+      "summary": "Bombay High Court orders Google, Meta to remove AI deepfakes and unauthorized content misusing actor Samantha Ruth Prabhu’s name, image and voice.",
+      "url": "https://timesofindia.indiatimes.com/city/mumbai/bombay-hc-relief-for-actor-samantha-ruth-prabhu/articleshow/134624747.cms",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9097
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-01T17:32:06+00:00",
+      "source": "Slashdot.org",
+      "title": "Heat-trapping gas once frozen in Arctic ground is slowly leaking and warming the planet - apnews.com",
+      "summary": "Heat-trapping gas once frozen in Arctic ground is slowly leaking and warming the planetapnews.com See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185918940",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9396
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-01T17:26:27+00:00",
+      "source": "iPhone in Canada",
+      "title": "Former NFL Coach Spent 12 Years Building This Massive Minecraft City",
+      "summary": "Former Pittsburgh Steelers head coach Mike Tomlin is showing off a very different kind of long-term project: a sprawling Minecraft city he has been building for more than 12 years. The first YouTube episode documenting the project was released yesterday and i…",
+      "url": "https://www.iphoneincanada.ca/2026/10/01/former-nfl-coach-spent-12-years-building-this-massive-minecraft-city/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9242
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-01T17:14:36+00:00",
+      "source": "The Times of India",
+      "title": "Former LinkedIn chief Ryan Roslansky to leave Microsoft",
+      "summary": "Ryan Roslansky, who headed Microsoft's M365 apps, has decided to leave the company. He previously served as LinkedIn CEO until this year, after stepping down from that role. His departure is due to the requirement of being based full-time in Redmond, while hi…",
+      "url": "https://economictimes.indiatimes.com/news/international/business/former-linkedin-chief-ryan-roslansky-to-leave-microsoft/articleshow/134624455.cms",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.6125
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-01T17:10:36+00:00",
+      "source": "The Times of India",
+      "title": "Immigration experts concerned over delays in H-1B extension for Microsoft, Cognizant, Infosys: 'There has been no clarification'",
+      "summary": "Immigration attorneys Rahul Reddy and Emily Neumann expressed concern over some tech companies experiencing difficulties in getting H-1B extensions for",
+      "url": "https://timesofindia.indiatimes.com/world/us/immigration-experts-concerned-over-delays-in-h-1b-extension-for-microsoft-cognizant-infosys-there-has-been-no-clarification/articleshow/134624267.cms",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9584
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-01T17:04:32+00:00",
+      "source": "Jablickar.cz",
+      "title": "Používáte Office 2021? Jeho podpora brzy skončí, nástupce je nyní výrazně levnější",
+      "summary": "Komerční sdělení: The countdown has begun. On October 13, 2026, Microsoft will officially end support for Office 2021. After that date, the software will no longer receive security updates, bug fixes, or technical support. While Office 2021 will continue to r…",
+      "url": "https://jablickar.cz/pouzivate-office-2021-jeho-podpora-brzy-skonci-nastupce-je-nyni-vyrazne-levnejsi/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5167
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-09-30T18:23:10+00:00",
       "source": "The Times of India",
@@ -1840,150 +1984,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.7143
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-17T16:22:41+00:00",
-      "source": "Moneysavingmom.com",
-      "title": "Bluey Advent Calendar Book Bundle only $12.96 shipped (Reg. $30!)",
-      "summary": "Get ready for Christmas with this deal! Amazon has this Bluey The Most Amazing Advent Calendar Book Bundle for only $12.96 right now (regularly $29.99)! Hurry – this won’t last long! Sign up for a free trial of Amazon Prime to get free two-day shipping (and p…",
-      "url": "https://moneysavingmom.com/bluey-advent-calendar-book-bundle-deal/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8316
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-17T16:20:00+00:00",
-      "source": "Daily Signal",
-      "title": "Victor Davis Hanson: ‘Unassimilated Immigrants Will Make a Failed State in the United States’",
-      "summary": "Editor’s note: This is a lightly edited transcript of “Victor Davis Hanson: In His Own Words” from Daily Signal senior contributor Victor Davis Hanson. Subscribe to Victor Davis Hanson’s own YouTube channel to watch past episodes. Jack Fowler:  A 26-year-old …",
-      "url": "https://www.dailysignal.com/2026/09/17/hanson-unassimilated-immigrants-failed-state/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8916
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-17T16:19:31+00:00",
-      "source": "Amazon.com",
-      "title": "Root Cause Analysis with Amazon Managed Service for Prometheus and AWS DevOps Agent",
-      "summary": "Introduction Teams running Prometheus-instrumented workloads, whether on Kubernetes, Amazon EC2, containers, or on-premises servers, face a growing challenge: alert fatigue from static threshold monitoring and hours spent manually investigating performance de…",
-      "url": "https://aws.amazon.com/blogs/mt/root-cause-analysis-with-amazon-managed-service-for-prometheus-and-aws-devops-agent/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.6176
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-17T16:17:28+00:00",
-      "source": "Hacker News",
-      "title": "Ask HN: How to recover Google auth after phone stolen?",
-      "summary": "As we know, google has been effective at automating a lot of their systems, to the point where it can feel like there isn't any help available from a human. So what is supposed to be the plan when this type of situation happens?Basically I have a situation th…",
-      "url": "https://news.ycombinator.com/item?id=49742976",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.896
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-17T16:13:34+00:00",
-      "source": "Business Insider",
-      "title": "Amazon just gave investors a new way to bet on the AI boom",
-      "summary": "Generac is the latest winner of the AI infrastructure boom, with shares surging on a deal to provide generators to Amazon data centers.",
-      "url": "https://www.businessinsider.com/gnerac-stock-amazon-deal-warrants-amzn-gnrc-ai-data-centers-2026-9#article",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.8677
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-17T16:12:04+00:00",
-      "source": "Slashdot.org",
-      "title": "NASA spacecraft discovers a huge new crater on the moon - Phys.org",
-      "summary": "NASA spacecraft discovers a huge new crater on the moonPhys.org See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185681232",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9378
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-17T16:00:00+00:00",
-      "source": "Microsoft.com",
-      "title": "Improving email security outcomes with real-world Microsoft Defender insights",
-      "summary": "The latest email security benchmarking reports show strong Microsoft Defender performance across pre-delivery and post-delivery scenarios and reveal where threats and defenses continue to evolve.\nThe post Improving email security outcomes with real-world Micr…",
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/17/improving-email-security-outcomes-with-real-world-microsoft-defender-insights/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9232
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-17T16:00:00+00:00",
-      "source": "Dzone.com",
-      "title": "A Senior Engineer’s Guide to Foundry IQ, MCP, and the OpenAI Agents SDK",
-      "summary": "Most Foundry writeups assume you're all in on Microsoft's stack end to end: the Agent Framework for orchestration, the Foundry Agent Service for hosting, and the Responses API wrapped in Microsoft's own client. That's a reasonable default, but it's not the on…",
-      "url": "https://dzone.com/articles/foundry-iq-openai-agents",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9056
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-17T15:33:44+00:00",
-      "source": "Slashdot.org",
-      "title": "Microsoft configuration change leaves SharePoint pages drawing a blank",
-      "summary": "Validation? Apparently that comes after deployment",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185680634",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.5169
       },
       "sentiment_model": "ProsusAI/finbert"
     }
