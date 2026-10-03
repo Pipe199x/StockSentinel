@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-10-02T17:52:17.813632+00:00",
+  "as_of": "2026-10-03T16:16:44.873892+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-02T16:13:34+00:00",
+      "source": "Breitbart News",
+      "title": "Hero Pilot of Flydubai Flight Speaks in Interview with Indian PM Modi",
+      "summary": "Captain Smit Machchhar, the copilot of Flydubai Flight FZ1073, appeared on camera for the first time since the dramatic incident.\nThe post Hero Pilot of Flydubai Flight Speaks in Interview with Indian PM Modi appeared first on Breitbart.",
+      "url": "https://www.breitbart.com/asia/2026/10/02/hero-pilot-flydubai-flight-speaks-interview-indian-pm-modi/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9034
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-02T16:10:35+00:00",
+      "source": "Medianewsgroup.com",
+      "title": "Amazon to invest $1B into data center communities amid backlash",
+      "summary": "It will be used for for education, job training, water preservation projects and other local priorities.",
+      "url": "https://wirehub.medianewsgroup.com/2026/10/02/amazon-to-invest-1b-into-data-center-communities-amid-backlash-against-data-center-rollouts/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.5236
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-02T16:09:56+00:00",
+      "source": "MobileSyrup",
+      "title": "Google raises Pixel 10a price by nearly $200 in Canada",
+      "summary": "While I had my gripes with Google’s Pixel 10a being a clone of the 9a, the good thing was that both phones cost the same. Well, no longer — Google has officially jacked up the price of its budget Pixel by nearly $200. Yup, that’s right. The Pixel 10a now cost…",
+      "url": "https://mobilesyrup.com/2026/10/02/google-pixel-10a-prce-increase-canada/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6523
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-02T16:00:00+00:00",
+      "source": "PRNewswire",
+      "title": "COMPLEX AND GOOGLE PIXEL LAUNCH \"CULTURE IN FOCUS,\" AN EDITORIAL FASHION CAMPAIGN CAPTURING 11 YEARS OF STYLE ON THE NEW GOOGLE PIXEL 11",
+      "summary": "Photographers Dana Scruggs, Justin French, and Campbell Addy each shot defining style trends from the past 11 years, with the series culminating at ComplexCon's 10th anniversary The campaign opens the next chapter of the multi-year enterprise partnership betw…",
+      "url": "https://www.prnewswire.com/news-releases/complex-and-google-pixel-launch-culture-in-focus-an-editorial-fashion-campaign-capturing-11-years-of-style-on-the-new-google-pixel-11-302897289.html",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8515
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-02T15:51:19+00:00",
+      "source": "PCMag.com",
+      "title": "Google Pixel 10a Gets $100 Price Increase",
+      "summary": "Ugh. The memory shortage claims another victim. This time it's Google's budget-friendly Pixel.\nOne of the best budget Android phones is getting less affordable. Google has quietly raised the price for the Pixel 10a by $100. The Pixel 10a, which earned a PCMag…",
+      "url": "https://uk.pcmag.com/mobile-phones/167621/google-pixel-10a-gets-100-price-increase",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8334
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-02T15:50:00+00:00",
+      "source": "Amazon.com",
+      "title": "Integrate AWS DevOps Agent with third-party tools using Amazon EventBridge",
+      "summary": "Learn how to connect AWS DevOps Agent investigation events to third-party tools such as Jira using Amazon EventBridge and AWS Lambda. This post walks through a deployable AWS CDK solution that automatically creates and updates Jira issues as an investigation …",
+      "url": "https://aws.amazon.com/blogs/devops/integrate-aws-devops-agent-with-third-party-tools-using-amazon-eventbridge/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.927
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-02T15:48:26+00:00",
+      "source": "Amazon.com",
+      "title": "Sweep thousands of leases for compliance using Amazon Quick and the Adjudicated Query pattern",
+      "summary": "The Adjudicated Query pattern pairs the Amazon Quick chat agent with a bounded MCP server over a deterministic rules engine to deliver provably complete, defensible compliance answers. This post walks through the reference architecture and a deployable AWS CD…",
+      "url": "https://aws.amazon.com/blogs/machine-learning/sweep-thousands-of-leases-for-compliance-using-amazon-quick-and-the-adjudicated-query-pattern/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.925
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-02T15:31:09+00:00",
+      "source": "Israelnationalnews.com",
+      "title": "Netanyahu: 'Whoever sent the Flydubai terrorist will pay'",
+      "summary": "The prime minister said the investigation is examining whether the copilot, who he said underwent Islamist radicalization, acted on behalf of another party.",
+      "url": "https://www.israelnationalnews.com/news/434014",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.5175
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-02T15:26:53+00:00",
+      "source": "PCMag.com",
+      "title": "Microsoft's X Account Hacked, Posts Clippy Crypto Memes",
+      "summary": "The @Microsoft account reposted a tweet from a Clippy crypto account to its 13 million followers.\nMicrosoft's X account was hacked yesterday to promote Clippy-themed cryptocurrency. As The Verge reports, the @Microsoft account, which has 13 million followers,…",
+      "url": "https://uk.pcmag.com/security/167620/microsofts-x-account-hacked-posts-clippy-crypto-memes",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.4925
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-01T17:45:20+00:00",
       "source": "Android Central",
@@ -1840,150 +1984,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.9124
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-18T15:38:53+00:00",
-      "source": "Amazon.com",
-      "title": "Migrating multi-model AI agents to Amazon Bedrock AgentCore runtime",
-      "summary": "Migrate a multi-model healthcare AI agent from self-managed Amazon ECS with AWS Fargate to Amazon Bedrock AgentCore runtime, preserving triple-model orchestration and vector-enhanced knowledge retrieval while reducing infrastructure management. The framework-…",
-      "url": "https://aws.amazon.com/blogs/machine-learning/migrating-multi-model-ai-agents-to-amazon-bedrock-agentcore-runtime/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6406
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-18T15:32:30+00:00",
-      "source": "24/7 Wall St.",
-      "title": "Waymo Is Doing So Much More Than Most Understand, Keeping Me Buying Alphabet Hand Over Fist",
-      "summary": "Most investors still see Alphabet as a search-and-ads company with a cloud kicker, but there is a commercial-scale robotaxi network buried inside the valuati...",
-      "url": "https://247wallst.com/investing/2026/09/18/waymo-is-doing-so-much-more-than-most-understand-keeping-me-buying-alphabet-hand-over-fist/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9264
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-18T15:32:13+00:00",
-      "source": "TweakTown",
-      "title": "Report: Xbox tested digital game recycling and gifting in 2011 ahead of Xbox One launch",
-      "summary": "Microsoft was reportedly testing a digital-oriented ownership feature that would have given consumers wide-reaching options to manage their game libraries.Continue reading at TweakTown",
-      "url": "https://www.tweaktown.com/news/113610/report-xbox-tested-digital-game-recycling-and-gifting-in-2011-ahead-of-xbox-one-launch/index.html",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.729
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-18T15:31:34+00:00",
-      "source": "Amazon.com",
-      "title": "The new AgentCore runtime: Elastic, optimized, and consistently fast starts",
-      "summary": "Today we are announcing the new AgentCore runtime, a capability of Amazon Bedrock AgentCore built for the speed, flexibility, and cost efficiency that production agents demand. It reclaims memory as sessions release it and delivers consistent cold starts rega…",
-      "url": "https://aws.amazon.com/blogs/machine-learning/the-new-agentcore-runtime-elastic-optimized-and-consistently-fast-starts/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5496
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-18T15:30:00+00:00",
-      "source": "Amazon.com",
-      "title": "AWS RTB Fabric now supports configurable Availability Zone affinity",
-      "summary": "AWS RTB Fabric now supports configurable Availability Zone (AZ) affinity for responder gateways. With this capability, you can configure how your partners connect to your responder gateway: either in their own Availability Zone or to any Availability Zone tha…",
-      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-rtb-fabric-configurable-availability-zone-affinity/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.835
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-18T15:27:50+00:00",
-      "source": "C21media.net",
-      "title": "Mister Rogers takes the slow road to YouTube",
-      "summary": "Ellen Doherty, chief creative officer at Fred Rogers Productions, shares her experience of putting classic series Mister Rogers' Neighborhood on YouTube and says algorithms can be taught that children and parents value slower-paced content.",
-      "url": "https://www.c21media.net/department/kids-classics/mister-rogers-takes-the-slow-road-to-youtube/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9158
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-18T15:23:37+00:00",
-      "source": "Crypto Briefing",
-      "title": "Gates Foundation and Google direct $100M to AI tools for smallholder farmers",
-      "summary": "AI-driven agricultural tools could revolutionize smallholder farming, enhancing resilience and productivity, but data governance remains a concern.\nThe post Gates Foundation and Google direct $100M to AI tools for smallholder farmers appeared first on Crypto …",
-      "url": "https://cryptobriefing.com/gates-foundation-google-100m-ai-farmers/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.646
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-18T15:05:41+00:00",
-      "source": "Drupal.org",
-      "title": "Service bus provider",
-      "summary": "Service Bus Provider enables Drupal applications to publish messages to Azure Service Bus queues using reusable connection configurations and secure Microsoft authentication. It provides a Drupal-native transport for Service Queue, making it easy to connect D…",
-      "url": "https://www.drupal.org/project/service_bus_provider",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8994
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-18T15:05:02+00:00",
-      "source": "Breitbart News",
-      "title": "'Astonishing Theft': New York Times' Lawsuit Against OpenAI Reveals How AI Kingpins Think About Copyright",
-      "summary": "New filings in The New York Times' copyright lawsuit against OpenAI and Microsoft allege that OpenAI's president was told about a method for bypassing the newspaper's paywall and responded with apparent approval. One Microsoft executive commented internally t…",
-      "url": "https://www.breitbart.com/tech/2026/09/18/astonishing-theft-new-york-times-lawsuit-against-openai-reveals-how-ai-kingpins-think-about-copyright/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7143
       },
       "sentiment_model": "ProsusAI/finbert"
     }
