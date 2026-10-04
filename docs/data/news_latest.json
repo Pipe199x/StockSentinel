@@ -1,7 +1,153 @@
 {
-  "as_of": "2026-10-03T16:16:44.873892+00:00",
+  "as_of": "2026-10-04T16:51:05.305051+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-03T16:48:00+00:00",
+      "source": "Droid Life",
+      "title": "Pixel Owners Vent Over Forced Switch From Google Assistant to Gemini",
+      "summary": "To kickoff the week, Google made a big final push to rid remaining Android devices of Google Assistant and switch them to Gemini. Since Gemini is the all powerful AI tool and Google has bet its entire future on it, the idea here is that this is an upgrade ove…",
+      "url": "https://www.droid-life.com/2026/10/03/pixel-owners-vent-over-forced-switch-from-google-assistant-to-gemini/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8289
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-03T16:40:43+00:00",
+      "source": "Android Police",
+      "title": "Google Pixel 11 Pro Fold's hidden feature is fueling my Pokémon Go addiction",
+      "summary": "Google Pixel 11 Pro Fold's hidden feature is fueling my Pokémon Go addictionandroidpolice.com",
+      "url": "https://www.androidpolice.com/googles-private-space-play-pokmon-go-on-both-sides-of-pixel-fold/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9338
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-03T16:30:34+00:00",
+      "source": "Gadget Flow",
+      "title": "Amazon Kindle Colorsoft Signature Edition",
+      "summary": "The Kindle Colorsoft Signature Edition puts a 7-inch paper-like color screen in a thinner aluminum body, so comics and graphic novels finally show up in full color. Color display: The glare-free screen shows color at 150 ppi and black-and-white text..\nThe pos…",
+      "url": "https://thegadgetflow.com/product/amazon-kindle-colorsoft-signature-edition-color-ereader/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9398
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-03T16:24:59+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Ice Airport Alaska S06 720p AMZN WEB-DL H264-RAWR",
+      "summary": "Ted Stevens Airport in Anchorage, AK, relies on a diverse team to manage operations and overcome weather challenges. This includes Air Traffic Controllers, Mechanics, Police, Firefighters, and many other dedicated personnel ensuring. Links: HOMEPAGE – iMDBIce…",
+      "url": "https://post.rlsbb.cc/ice-airport-alaska-s06-720p-amzn-web-dl-h264-rawr/",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9245
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-03T16:12:16+00:00",
+      "source": "Slashdot.org",
+      "title": "Google AI Plus and free users are losing access to Gemini models, and it's happening very soon - XDA",
+      "summary": "Google AI Plus and free users are losing access to Gemini models, and it's happening very soonXDA  Just days after Gemini Argon launch, Google updates AI plans to limit free use significantlyNeowin  Google's Free and Plus Gemini Accounts Are About to Get Nerf…",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186014230",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9359
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-03T16:05:43+00:00",
+      "source": "Werd.io",
+      "title": "Amazon tries to placate data center protesters",
+      "summary": "Amazon's concessions indicate that data center protests are working. But the company is offering less than pocket change.",
+      "url": "https://werd.io/amazon-tries-to-placate-data-center-protesters/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8031
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-03T15:13:45+00:00",
+      "source": "ComicBook.com",
+      "title": "Gears of War: E-Day Has a Problem Already, and It’s Not Even Fully Out Yet",
+      "summary": "Gears of War: E-Day is out in early access ahead of its full launch on October 6 via Xbox Series X, Xbox Series S, and PC. And when it releases, it will be available via Xbox Game Pass Ultimate and PC Game Pass, a boost the Microsoft subscription service need…",
+      "url": "http://comicbook.com/gaming/news/gears-of-war-e-day-xbox-series-x-pc-multiplayer-problem/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7611
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-03T14:36:33+00:00",
+      "source": "Internet",
+      "title": "Warlock Exploits SharePoint Flaws to Disable Security Tools and Deploy Ransomware",
+      "summary": "The suspected China-linked threat actor known as Warlock is still continuing to weaponize Microsoft SharePoint vulnerabilities, likely both old and new, in attacks targeting organizations in Portuguese- and Spanish-speaking countries.\n\nThe activity, observed …",
+      "url": "https://thehackernews.com/2026/10/warlock-exploits-sharepoint-flaws-to.html",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7537
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-03T09:26:04+00:00",
+      "source": "Securityaffairs.com",
+      "title": "Antino Backdoor Lets China-Linked UAT-11587 Turn Microsoft 365 Into a C2 Channel",
+      "summary": "Cisco Talos details UAT-11587, a China-linked group using the Antino backdoor and Microsoft 365 as cover to spy on Asian governments. Cisco Talos has been tracking a cluster of espionage activity since September 2025 that it calls UAT-11587, and by July 2026 …",
+      "url": "https://securityaffairs.com/200264/apt/antino-backdoor-uses-your-inbox-as-its-control-panel.html",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9161
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-02T16:13:34+00:00",
       "source": "Breitbart News",
@@ -1838,152 +1984,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.7346
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-19T16:00:14+00:00",
-      "source": "MakeUseOf",
-      "title": "Google has officially reduced battery life on two Pixel models",
-      "summary": "These A-series Pixels have a battery problem.",
-      "url": "https://www.makeuseof.com/google-reduced-battery-life-two-pixel-models/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9644
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-19T15:52:25+00:00",
-      "source": "Slashdot.org",
-      "title": "Russia reports online attacks on electoral system on second day of parliamentary vote - reuters.com",
-      "summary": "Russia reports online attacks on electoral system on second day of parliamentary votereuters.com See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185706989",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9298
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-19T15:37:20+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Sunflower 2023 1080p AMZN WEB-DL H264-WEGOJIM",
-      "summary": "Awards 2 wins & 4 nominations total See more awards »Plot: A seventeen-year-old boy struggles to understand and embrace his sexuality as he comes of age in the working class suburbs on Melbourne’s edge.Genre: DramaIMDB Rating Live: IMDB Rating: 6.6/10 From 1,…",
-      "url": "https://post.rlsbb.cc/sunflower-2023-1080p-amzn-web-dl-h264-wegojim/",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8494
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-19T15:33:00+00:00",
-      "source": "TheStreet",
-      "title": "Amazon cargo delivery company files for Chapter 11 bankruptcy",
-      "summary": "Here’s how the filing could interrupt your package delivery.",
-      "url": "https://www.thestreet.com/travel/amazon-cargo-delivery-clj-transporting-chapter-11-bankruptcy",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.6074
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-19T15:25:03+00:00",
-      "source": "The Verge",
-      "title": "Gemini went rogue, hacked three companies, and Google hid it",
-      "summary": "In May, Gemini broke containment and hacked three different companies, but Google didn't disclose the incident until the Wall Street Journal approached the company. The hacks happened during a test of the model's cybersecurity capabilities run by third-party …",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/997795/google-gemini-rogue-ai-hack",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7246
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-19T14:46:30+00:00",
-      "source": "MacRumors",
-      "title": "Apple Watch Ultra 4 Sees First Discount After Launch, Now $779.99 on Amazon",
-      "summary": "The new Apple Watch Ultra 4 just launched yesterday, and Amazon is offering the first cash discounts on select models for the first time since their launch. You can get the Apple Watch Ultra 4 in Natural with Translucent Gray Ocean Band for $779.99, down from…",
-      "url": "https://www.macrumors.com/2026/09/19/apple-watch-ultra-4-launch-discounts/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9012
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-19T14:27:34+00:00",
-      "source": "Barchart.com",
-      "title": "1 Year Into the Microsoft Deal, IREN Is Delivering and a Rally May Follow Soon",
-      "summary": "One year on from the $9.7 billion Microsoft deal, the company is finally delivering.",
-      "url": "https://www.barchart.com/story/news/4695415/1-year-into-the-microsoft-deal-iren-is-delivering-and-a-rally-may-follow-soon",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.8687
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-19T12:30:00+00:00",
-      "source": "Futurism",
-      "title": "Microsoft Director Admitted in Internal Document That AI Is Creating a “Doom Loop” That Destroys the News Media by Stealing Its Content Without Providing Anything in Return, in Turn Making the AI Useless",
-      "summary": "\"Our AI content strategy has started a 'doom loop.'\" \nThe post Microsoft Director Admitted in Internal Document That AI Is Creating a “Doom Loop” That Destroys the News Media by Stealing Its Content Without Providing Anything in Return, in Turn Making the AI …",
-      "url": "https://futurism.com/artificial-intelligence/microsoft-executive-doom-loop",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8885
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-19T11:10:20+00:00",
-      "source": "The Times of India",
-      "title": "Microsoft CEO Satya Nadella hails Seattle’s tech growth, deepening India ties at 'IDEAS4INDIA' forum",
-      "summary": "India News: Microsoft CEO Satya Nadella praised Seattle's growing technology ecosystem and its deepening ties with India while addressing more than 40 Indian-orig.",
-      "url": "https://timesofindia.indiatimes.com/india/microsoft-ceo-satya-nadella-hails-seattles-tech-growth-deepening-india-ties-at-ideas4india-forum/articleshow/134352455.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9124
       },
       "sentiment_model": "ProsusAI/finbert"
     }
