@@ -1,7 +1,155 @@
 {
-  "as_of": "2026-10-04T16:51:05.305051+00:00",
+  "as_of": "2026-10-06T18:20:49.951709+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-05T18:20:00+00:00",
+      "source": "The Times of India",
+      "title": "Dad built a backyard coaster, now selling it for NZ$4,500",
+      "summary": "In the midst of the COVID-19 lockdown, inspired by a flurry of YouTube tutorials, Bjorn Burton took on an exciting challenge—he built a roller coaster in his backyard. With his father’s help, he engineered this thrilling ride after rigorous safety trials with…",
+      "url": "https://timesofindia.indiatimes.com/world/rest-of-world/an-auckland-father-built-his-children-a-backyard-roller-coaster-from-scratch-during-lockdown-after-testing-it-with-90kg-of-concrete-he-is-now-selling-the-entire-setup-for-nz4500/articleshow/134660199.cms",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8674
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-05T18:14:35+00:00",
+      "source": "The Information",
+      "title": "Meta and Microsoft Work to Wean Staff Off Anthropic’s Claude",
+      "summary": "Meta Platforms and Microsoft, two of Anthropic’s biggest corporate customers, are working to cut their employees’ use of Claude, a challenge for the AI firm’s efforts to sustain its explosive growth.… [+545 chars]",
+      "url": "https://www.theinformation.com/articles/meta-microsoft-work-wean-staff-anthropics-claude",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9396
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-05T18:13:49+00:00",
+      "source": "Cybernaira.com",
+      "title": "7 Best Free Traffic Sources for Affiliate Marketing in 2026",
+      "summary": "Learn the best free traffic sources for affiliate marketing, from SEO, email to YouTube and Pinterest, plus how to pick your first channel to start today.",
+      "url": "https://cybernaira.com/free-traffic-sources-for-affiliate-marketing/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9365
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-05T18:13:01+00:00",
+      "source": "Slashdot.org",
+      "title": "Hollywood takes on the tech bros - CNN",
+      "summary": "Hollywood takes on the tech brosCNN See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186031300",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9434
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-05T18:06:23+00:00",
+      "source": "Rlsbb.cc",
+      "title": "SmartGit 26.1.057",
+      "summary": "Description: SmartGit is the most popular Git GUI client at slant.co. 100,000+ developers around the world trust in SmartGit. SmartGit supports GitHub, Bitbucket, GitLab and Azure DevOps. Why prefer SmartGit as Git Client?One for All.SmartGit assists Git newb…",
+      "url": "https://post.rlsbb.cc/smartgit-26-1-057/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9075
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-05T18:05:48+00:00",
+      "source": "Rlsbb.cc",
+      "title": "All In Good Time 2012 1080p AMZN WEB-DL H264-SCOPE",
+      "summary": "Plot: For Atul Dutt and his young bride Vina married life is proving far from straightforward, when it comes to their 'first night'. Atul is so woefully inhibited by the proximity of his parents, let alone his brother's childish pranks, that his beautiful vir…",
+      "url": "https://post.rlsbb.cc/all-in-good-time-2012-1080p-amzn-web-dl-h264-scope/",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.6053
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-05T18:04:09+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Entroncamento 2026 1080p AMZN WEB-DL H264-cinepth",
+      "summary": "Entroncamento (original title) – Awards 4 wins & 2 nominations total See more awards » Plot: The film follows Laura (played by Ana Vilaça), a young woman fleeing a turbulent, troubled past. She seeks refuge in Entroncamento, a real-life, multicultural railway…",
+      "url": "https://post.rlsbb.cc/entroncamento-2026-1080p-amzn-web-dl-h264-cinepth/",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8943
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-05T18:00:18+00:00",
+      "source": "disneyfoodblog.com",
+      "title": "We Know What Every Disney Adult Will Be Buying From Amazon This Week",
+      "summary": "You can save so much money on these Disney Loungefly bags thanks to ongoing deals on Amazon!",
+      "url": "https://www.disneyfoodblog.com/2026/10/05/we-know-what-every-disney-adult-will-be-buying-from-amazon-this-week-2/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7744
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-05T17:22:13+00:00",
+      "source": "iTnews",
+      "title": "Microsoft spots new twist on ClickFix \"cache smuggling\"",
+      "summary": "Attackers now fish their malware out of the browser cache by file size alone.",
+      "url": "https://www.itnews.com.au/news/microsoft-spots-new-twist-on-clickfix-cache-smuggling-629401",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8068
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-03T16:48:00+00:00",
       "source": "Droid Life",
@@ -1688,302 +1836,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.8804
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-21T16:55:22+00:00",
-      "source": "Deadline",
-      "title": "Netflix’s Liz Franco Joins Amazon’s Nonfiction Team",
-      "summary": "EXCLUSIVE: Amazon is adding to its nonfiction team. The streamer has hired Netflix exec Liz Franco, who has worked on docuseries such as Reality Check: Inside America’s Next Top Model, Sean Combs: The Reckoning, Simone Biles Rising, and American Murder: Gabby…",
-      "url": "http://deadline.com/2026/09/netflix-exec-liz-franco-joins-amazons-nonfiction-team-1237109331/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8552
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-21T16:54:35+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Before I Do 2016 720p AMZN WEB-DL H264-playWEB",
-      "summary": "Plot: A game of Russian roulette. There are scandalous secrets and a cover up, and three people, bound to take them to the grave. Before 'I Do' draws you into the realm of passion and love, lust, lies, and friendship. A fast-paced, colorful drama with a splas…",
-      "url": "https://post.rlsbb.cc/before-i-do-2016-720p-amzn-web-dl-h264-playweb/",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9242
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-21T16:53:37+00:00",
-      "source": "RTE",
-      "title": "Behind the Story: Energy drinks and a fine for Google",
-      "summary": "Age restrictions on the sale of energy drinks to children are supported by more than three in four people, according to new research from Safefood.",
-      "url": "https://www.rte.ie/news/2026/0921/1592417-behind-the-story-energy-drinks-and-a-fine-for-google/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7456
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-21T16:53:08+00:00",
-      "source": "Slashdot.org",
-      "title": "Amazon shows Meta's Muse AI shopping agent the door",
-      "summary": "Retailer cites credentials and transparency concerns while guarding its lucrative customer journey",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185731310",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8022
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-21T16:53:00+00:00",
-      "source": "Theflightdeal.com",
-      "title": "Air Canada: Los Angeles – Singapore. $670. Roundtrip, including all Taxes",
-      "summary": "A good sale to SingaporeThis is a regular economy fare with ONE checked bag and normal size carry-on includedMatrix Airfare Search by ITA Software at $718. Use those dates on Google Flights sh",
-      "url": "https://www.theflightdeal.com/2026/09/21/air-canada-los-angeles-singapore-670-roundtrip-including-all-taxes/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.945
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-21T16:49:49+00:00",
-      "source": "Daily Signal",
-      "title": "Victor Davis Hanson: The Left’s Psychodrama Cycle Designed to Win Them Elections",
-      "summary": "Editor’s note: This is a lightly edited transcript of “Victor Davis Hanson: In His Own Words” from Daily Signal senior contributor Victor Davis Hanson. Subscribe to Victor Davis Hanson’s own YouTube channel to watch past episodes. Sami Winc: The Anthropic CEO…",
-      "url": "https://www.dailysignal.com/2026/09/21/hanson-lefts-psychodrama-cycle-elections/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9206
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-21T16:48:59+00:00",
-      "source": "Microsoft.com",
-      "title": "Azure integrations | Microsoft Copilot Blog",
-      "summary": "Azure integrations | Microsoft Copilot Blogmicrosoft.com",
-      "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/topic/azure-integrations-product-integrations/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9415
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-21T16:48:12+00:00",
-      "source": "Microsoft.com",
-      "title": "AI tool integrations | Microsoft Copilot Blog",
-      "summary": "AI tool integrations | Microsoft Copilot Blogmicrosoft.com",
-      "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/topic/ai-tool-integrations-product-integrations/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9359
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-21T15:42:51+00:00",
-      "source": "Rock Paper Shotgun",
-      "title": "Microsoft file patent for a machine learning system that would \"train\" itself on your playtime to work out when you'll be least annoyed by in-game ads",
-      "summary": "Uncle Microsoft's efforts to keep inventing the Torment Nexus proceed apace with a patent application for an in-game advertising system that might use machine learning to read your activities, and work out when you'll be least apoplectic about being suddenly …",
-      "url": "https://www.rockpapershotgun.com/microsoft-file-patent-for-a-machine-learning-system-that-would-train-itself-on-your-playtime-to-work-out-when-youll-be-least-annoyed-by-in-game-ads",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8876
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-20T18:08:02+00:00",
-      "source": "The Times of India",
-      "title": "A New York couple built their 2,500-sq-ft home for $40,000 using YouTube and discarded materials",
-      "summary": "After building a budget-friendly home in New York for just $40,000 and selling it for a striking $290,000, a couple made a spontaneous decision to relocate to Florida. Without job commitments in place, Jessica Patrzyk transitioned into real estate, while her …",
-      "url": "https://timesofindia.indiatimes.com/world/us/a-new-york-couple-built-their-2500-sq-ft-home-for-40000-using-youtube-and-discarded-materials-after-selling-it-for-290000-they-moved-to-florida-with-no-jobs-and-became-scuba-instructors/articleshow/134373285.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9254
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-20T18:01:16+00:00",
-      "source": "Screen Rant",
-      "title": "Xbox Fans Split Over New Xbox Game Pass Changes",
-      "summary": "Xbox Game Pass rumors have fans worried about the future of Day One releases, as Microsoft considers changes to its subscription service.",
-      "url": "https://screenrant.com/xbox-game-pass-2026-changes-reaction/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9463
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-20T17:33:57+00:00",
-      "source": "Fox News",
-      "title": "Scammers are buying Google ads to steal bank logins",
-      "summary": "Federal prosecutors say criminals bought sponsored search ads mimicking real banks, capturing over 5,000 login credentials and draining accounts.",
-      "url": "https://www.foxnews.com/tech/scammers-buying-google-ads-steal-bank-logins",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.7681
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-20T17:23:00+00:00",
-      "source": "Yahoo Entertainment",
-      "title": "Billionaire Bill Ackman Dumps Alphabet and Loads Up On a Mega-Cap Stock Down 15% From Its Peak",
-      "summary": "If you click 'Accept all', we and our partners, including 252 who are part of the IAB Transparency &amp; Consent Framework, will also store and / or access information on a device (in other words, us… [+1046 chars]",
-      "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_96db595f-da0b-401f-8564-0bc636bcec1c",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.5585
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-20T17:21:24+00:00",
-      "source": "Mogazmasr.com",
-      "title": "Microsoft draft Humanist AI Code of Conduct puts Mustafa Suleyman in focus — Mogaz",
-      "summary": "Microsoft unveiled a draft Humanist AI Code of Conduct, with Mustafa Suleyman and Satya Nadella pushing for human control over AI.",
-      "url": "https://www.mogazmasr.com/147895",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.833
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-20T16:55:21+00:00",
-      "source": "The Next Web",
-      "title": "Zuckerberg’s reason for refusing to coordinate on AI safety is now the argument in an antitrust suit against four rivals.",
-      "summary": "Microsoft AI chief Mustafa Suleyman told CNBC that controlling advanced AI will be a very large challenge, defended regulation, and said the industry’s safety shift is responsible rather than self-interested. He spoke the same day four consumers filed an anti…",
-      "url": "https://thenextweb.com/news/suleyman-zuckerberg-dissent-matches-antitrust-argument",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.731
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-20T16:37:22+00:00",
-      "source": "Rlsbb.cc",
-      "title": "MobLand S02E01 REPACK 720p AMZN WEB-DL Atmos H264-RAWR",
-      "summary": "Season 2, Episode 01 – “I Wanna Be Your Dog”Maeve and Conrad go to the dogs, leaving Harry to deal with the messy fallout. Jan makes a startling confession. Kevin and Seraphina both look to the future. Tattersall puts his cards on the table.Links: HOMEPAGE – …",
-      "url": "https://post.rlsbb.cc/mobland-s02e01-repack-720p-amzn-web-dl-atmos-h264-rawr/",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9236
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-20T16:35:47+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Youre Dead to Me 2025 1080p AMZN WEB-DL H264-STARSHIP",
-      "summary": "What She Doesn't Know (original title) Plot: The Film focuses on a group of high school seniors grappling with the reality of moving away to college. As if senior year couldn't be stressful enough, there is also a serial killer on the loose. Genre: HorrorIMDB…",
-      "url": "https://post.rlsbb.cc/youre-dead-to-me-2025-1080p-amzn-web-dl-h264-starship/",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7478
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-20T15:51:33+00:00",
-      "source": "Rlsbb.cc",
-      "title": "#FollowMe 2019 1080p AMZN WEB-DL H264-GLi",
-      "summary": "Plot: Three British women from London, consisting of a YouTuber and her two friends, go missing from a motel in California while travelling from Los Angeles to San Francisco after posting on social media using the the hashtag #followme. Genre: Horror | Thrill…",
-      "url": "https://post.rlsbb.cc/followme-2019-1080p-amzn-web-dl-h264-gli/",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.7346
       },
       "sentiment_model": "ProsusAI/finbert"
     }
