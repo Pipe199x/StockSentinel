@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-10-06T18:20:49.951709+00:00",
+  "as_of": "2026-10-07T18:56:53.915715+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-06T18:55:48+00:00",
+      "source": "pymnts.com",
+      "title": "CrowdStrike Launches Startup Accelerator to Combat AI-Related Threats",
+      "summary": "CrowdStrike says it is seeking applicants for its fourth annual Cybersecurity Startup Accelerator. The program, run in tandem with Nvidia and Amazon Web Services (AWS), is designed for “startups building the future of cybersecurity for the agentic era,” Crowd…",
+      "url": "https://www.pymnts.com/cybersecurity/2026/crowdstrike-launches-startup-accelerator-to-combat-ai-related-threats/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6194
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-06T18:53:42+00:00",
+      "source": "Slashdot.org",
+      "title": "Amazon kills Alexa’s ability to control Echo speakers' AUX input",
+      "summary": "Amazon hasn't made an Echo with a 3.5mm port in six years.",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186052686",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8375
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-06T18:52:25+00:00",
+      "source": "Amazon.com",
+      "title": "Improving SPIRE security and resiliency with AWS managed services",
+      "summary": "In cloud-centered environments, establishing trust between workloads is fundamental to securing machine-to-machine communication. Traditional approaches such as API keys, shared secrets, and static service account credentials weren’t designed for the scale an…",
+      "url": "https://aws.amazon.com/blogs/security/improving-spire-security-and-resiliency-with-aws-managed-services/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8786
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-06T18:47:33+00:00",
+      "source": "Droid Life",
+      "title": "Everything Fixed in October Pixel Update",
+      "summary": "Google is pushing out the October Pixel update, and inside, there’s a short list of fixes that Pixel owners should know about. We heard rumblings that folks were having issues with a few bugs on devices after the latest update, so hopefully the below list add…",
+      "url": "https://www.droid-life.com/2026/10/06/everything-fixed-in-october-pixel-update/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5046
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-06T18:43:14+00:00",
+      "source": "Yahoo Entertainment",
+      "title": "Oku Digital Health Launches From Topcon Healthcare to Transform Eye Care Into Whole-Body Health",
+      "summary": "Built on Topcon's Global Diagnostic Network and Microsoft Azure Cloud, Oku Operationalizes Healthcare from the Eye™ Across 10,000+ Connected SitesLA JOLLA, C...",
+      "url": "https://finance.yahoo.com/healthcare/articles/oku-digital-health-launches-topcon-130500095.html",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8281
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-06T18:38:55+00:00",
+      "source": "Internet",
+      "title": "Fake ChatGPT, Gemini, and Claude Ad Portals Capture Credentials and MFA Codes",
+      "summary": "Cybersecurity researchers have disclosed details of a \"human-operated phishing platform\" that impersonates advertising products for artificial intelligence (AI) chatbots like Google Gemini, Anthropic Claude, OpenAI ChatGPT, Perplexity, Meta Muse, and Manus.\n\n…",
+      "url": "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9141
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-06T18:33:42+00:00",
+      "source": "Slashdot.org",
+      "title": "Google Photos vs. Gallery app: What's the difference and which should you use?",
+      "summary": "We compare Google's Photos and Gallery apps, so you can decide which one to use.",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186052566",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9283
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-06T18:00:00+00:00",
+      "source": "PCMag.com",
+      "title": "Microsoft Surface and Windows Event 2026: All the Announcements and Analysis Live From San Francisco",
+      "summary": "We expect to learn fresh details about the Surface Laptop Ultra, the next chapter for Windows, and the future of Copilot at Microsoft's fall event. Follow along with all of our expert commentary and on-the-ground updates from San Francisco.\nSAN FRANCISCO—In w…",
+      "url": "https://uk.pcmag.com/laptops/167696/microsoft-surface-and-windows-event-2026-all-the-announcements-and-analysis-live-from-san-francisco",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.934
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-06T17:36:15+00:00",
+      "source": "Thurrott.com",
+      "title": "C# Dev Kit 11 to Arrive with .NET 11",
+      "summary": "Microsoft says it will upgrade C# Dev Kit from version 3.3 to 11, aligning it with .NET for the first time.\nThe post C# Dev Kit 11 to Arrive with .NET 11 appeared first on Thurrott.com.",
+      "url": "https://www.thurrott.com/dev/342515/c-dev-kit-11-to-arrive-with-net-11",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5262
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-05T18:20:00+00:00",
       "source": "The Times of India",
@@ -1692,150 +1836,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.63
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-22T16:56:39+00:00",
-      "source": "Android Central",
-      "title": "Apple iPhone 18 Pro vs. Google Pixel 11: The best of iOS faces the best of Android",
-      "summary": "Wondering whether you should cash in to the Apple or the Google ecosystem? A good iPhone 18 Pro vs. Google Pixel 11 comparison will sort it out for you.",
-      "url": "https://www.androidcentral.com/phones/apple-iphone/apple-iphone-18-pro-vs-google-pixel-11",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8976
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-22T16:55:17+00:00",
-      "source": "The Daily Hodl",
-      "title": "Ireland Data Regulator Fines Google $463,000,000 Over Location Tracking",
-      "summary": "Ireland's Data Protection Commission fined Google €403,000,000 for GDPR breaches in how it processed user location data through Web & App Activity, Location History and Location Accuracy from 2018 to 2020.\nThe post Ireland Data Regulator Fines Google $463,000…",
-      "url": "https://dailyhodl.com/2026/09/22/ireland-data-regulator-fines-google-463000000-over-location-tracking/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9512
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-22T16:53:59+00:00",
-      "source": "Slashdot.org",
-      "title": "Oil prices fall after report Saudi Arabia aims to restart critical pipeline this week - CNBC",
-      "summary": "Oil prices fall after report Saudi Arabia aims to restart critical pipeline this weekCNBC See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185740814",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7801
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-22T16:53:41+00:00",
-      "source": "iPhone in Canada",
-      "title": "Microsoft Cuts 268 Xbox Jobs, Hands Over Halo to Activision",
-      "summary": "Microsoft cuts 268 Xbox jobs as Activision takes over Halo development and internal studios face massive organizational reshuffles.\nThe post Microsoft Cuts 268 Xbox Jobs, Hands Over Halo to Activision first appeared on iPhone in Canada.",
-      "url": "https://www.iphoneincanada.ca/2026/09/22/microsoft-cuts-268-xbox-jobs-hands-over-halo-to-activision/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9524
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-22T16:50:47+00:00",
-      "source": "disneyfoodblog.com",
-      "title": "This Might Be the Easiest $8 We’ve Ever Spent on Amazon",
-      "summary": "These cookbooks bring iconic Disney foods home!",
-      "url": "https://www.disneyfoodblog.com/2026/09/22/this-might-be-the-easiest-8-weve-ever-spent-on-amazon/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.82
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-22T16:50:29+00:00",
-      "source": "The Times of India",
-      "title": "Next Halo game to be made by Call of Duty makers as Microsoft lays off 268 employees: What we know",
-      "summary": "In a significant shake-up, Microsoft has let go of 268 employees from its gaming division, paving the way for Activision to spearhead the upcoming mainline Halo title for Xbox. Studios like Rare and World's Edge will now align under Activision, while Bethesda…",
-      "url": "https://economictimes.indiatimes.com/news/international/global-trends/next-halo-game-to-be-made-by-call-of-duty-makers-as-microsoft-lays-off-268-employees-what-we-know/articleshow/134416426.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7719
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-22T16:48:32+00:00",
-      "source": "Amazon.com",
-      "title": "Adding custom domains to AWS Lambda MicroVMs with Application Load Balancer",
-      "summary": "Many teams want to expose their AWS Lambda MicroVMs under a custom domain they own, and satisfy CORS for browser clients, without changing the application. This post shows how, using an Application Load Balancer that rewrites the Host header and forwards over…",
-      "url": "https://aws.amazon.com/blogs/compute/adding-custom-domains-to-aws-lambda-microvms-with-application-load-balancer/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9361
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-22T16:41:42+00:00",
-      "source": "Bringatrailer.com",
-      "title": "12k-Mile 1998 Bentley Azure",
-      "summary": "This 1998 Bentley Azure is one of 207 examples produced for the model year, and it spent time as part of a museum's collection prior to being purchased by the current owner in April 2015. Since that time, 5k of the 12k miles have been added. The car is finish…",
-      "url": "https://bringatrailer.com/listing/1998-bentley-azure-12/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9351
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-22T16:33:58+00:00",
-      "source": "Deadline",
-      "title": "Korean Bestselling Thriller ‘The Kidnapping Day’ Set For Arabic-Language Movie Adaptation",
-      "summary": "Korean bestselling thriller The Kidnapping Day, which was previously adapted into a hit show at home and then acquired by Amazon Prime Video for select territories, is set for an Arabic-language movie adaptation. It is among a trio of works being acquired by …",
-      "url": "http://deadline.com/2026/09/korean-bestseller-kidnapping-day-arabic-movie-adaptation-1237110256/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8804
       },
       "sentiment_model": "ProsusAI/finbert"
     }
