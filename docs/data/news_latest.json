@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-10-07T18:56:53.915715+00:00",
+  "as_of": "2026-10-08T18:50:43.305317+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-07T18:49:40+00:00",
+      "source": "Rswebsols.com",
+      "title": "Meta and Microsoft Limit Employee Use of Claude AI Tools",
+      "summary": "Meta and Microsoft are implementing new measures to limit employee use of Claude AI—discover what this means for the future of AI in the workplace.",
+      "url": "https://www.rswebsols.com/news/meta-and-microsoft-take-steps-to-reduce-employee-usage-of-claude-ai/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8748
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-07T18:48:17+00:00",
+      "source": "Internet",
+      "title": "Attackers Hijack .gh, .sl, and .as Registries to Obtain Certificates for Google Domains",
+      "summary": "Attackers compromised three country-code top-level domains (ccTLDs) and obtained unauthorized HTTPS certificates for several Google domains, Google said on October 6.\n\nGoogle's own systems were not breached, but any domain ending in .gh (Ghana), .sl (Sierra L…",
+      "url": "https://thehackernews.com/2026/10/attackers-hijack-gh-sl-and-as.html",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7728
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-07T18:47:40+00:00",
+      "source": "The Verge",
+      "title": "Everything announced at Microsoft’s Surface Laptop Ultra event",
+      "summary": "Microsoft just wrapped up a big Windows and Surface-focused keynote in San Francisco. The biggest announcement was arguably the release details about the Surface Laptop Ultra, its new laptop that’s powered by Nvidia’s RTX Spark Arm-based chip. The machine wil…",
+      "url": "https://www.theverge.com/tech/1007147/microsoft-surface-laptop-ultra-windows-event-everything-announced",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9018
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-07T18:45:28+00:00",
+      "source": "Nvidia.com",
+      "title": "NVIDIA, Microsoft Kick Off a New Beginning for Windows PCs with RTX Spark and AI Agents",
+      "summary": "At a Microsoft event in San Francisco on Wednesday, Jensen Huang and Satya Nadella outlined how NVIDIA and Microsoft are co-engineering hardware and software for AI agents to run on Windows PCs. NVIDIA was founded because of Windows, Huang said. Now AI agents…",
+      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8433
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-07T18:40:21+00:00",
+      "source": "Dansdeals.com",
+      "title": "Save On Yumearth Organic Lollipops From Amazon",
+      "summary": "Yumearth Organic Lollipops Box: $8.02-$8.97 Yumearth Organic Vitamin C Lollipops Box: $8.02-$8.97 -Kof-K Parve. Post what deals you find!\nThe post Save On Yumearth Organic Lollipops From Amazon appeared first on DansDeals.com.",
+      "url": "https://www.dansdeals.com/shopping-deals/amazon/save-on-yumearth-organic-lollipops-from-amazon/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9482
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-07T18:40:00+00:00",
+      "source": "Hot Hardware",
+      "title": "The 6 Best Amazon Prime Big Deal Days Video Game Deals",
+      "summary": "This year’s Amazon Prime Big Deal Days event has got a little something for everyone, from sweet gaming monitors, to snazzy smartwatches, to gaming accessories that’ll round out your battle station. Console gamers aren’t being left out in the cold either, as …",
+      "url": "https://hothardware.com/news/6-best-prime-day-video-game-deals",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8773
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-07T18:38:32+00:00",
+      "source": "pymnts.com",
+      "title": "Google and Unity Team to Let Users Build Their Own Games",
+      "summary": "Google plans to launch an artificial intelligence (AI)-powered gaming platform in partnership with video game company Unity. The partnership is designed to “put game creation in the hands of millions of new creators, and bring new experiences to billions of p…",
+      "url": "https://www.pymnts.com/partnerships/2026/google-and-unity-team-to-let-users-build-their-own-games/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6114
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-07T18:35:08+00:00",
+      "source": "CNET",
+      "title": "Amazon Knows You Have a Goldfish Named Ziggy, Even if You Don’t",
+      "summary": "Flat buttocks? Own a snail? Here’s how to find out what Amazon’s About You page knows — or thinks it knows — about you as a person.",
+      "url": "https://www.cnet.com/tech/services-and-software/amazon-about-you-page-shopping-preferences/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9349
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-07T18:34:05+00:00",
+      "source": "Droid Life",
+      "title": "Google Messages Update: Games Coming Soon?",
+      "summary": "With Google Messages becoming the default texting and RCS app across Android, Google continues to show that they are fully invested by frequently adding new features. It recently got chat themes, Google Keep integration, and may soon let you place video calls…",
+      "url": "https://www.droid-life.com/2026/10/07/google-messages-update-games-coming-soon/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6835
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-06T18:55:48+00:00",
       "source": "pymnts.com",
@@ -1705,137 +1849,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.7082
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-23T17:07:36+00:00",
-      "source": "Rlsbb.cc",
-      "title": "From Old Country Bumpkin To Master Swordsman S02E12 1080p AMZN WEB-DL DUAL H264-VARYG",
-      "summary": "Note: In Japanese With English Selectable Subtitles or (HERE).Season 2, Episode 12 – “The Old Country Bumpkin Goes Home”The masked White Maiden is revealed to be none other than Beryl’s former student, Rose. Beryl and the White Maiden meet up with Allucia and…",
-      "url": "https://post.rlsbb.cc/from-old-country-bumpkin-to-master-swordsman-s02e12-1080p-amzn-web-dl-dual-h264-varyg/",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9261
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-23T17:00:00+00:00",
-      "source": "Adweek",
-      "title": "Best Buy Is Selling Amazon Fire Streaming Ads",
-      "summary": "Plus, more in-store ads are coming.",
-      "url": "https://www.adweek.com/commerce/best-buy-is-selling-amazon-fire-streaming-ads/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.853
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-23T16:59:59+00:00",
-      "source": "Babylonbee.com",
-      "title": "Ms. Rachel Announces Herbie The Puppet Has Joined Hamas As A Child Soldier",
-      "summary": "NEW YORK, NY — In a very special new episode of her popular YouTube children's program, content creator Ms. Rachel announced that her beloved sidekick, Herbie the puppet, had joined Hamas as a child soldier.",
-      "url": "https://babylonbee.com/news/ms-rachel-announces-herbie-the-puppet-has-joined-hamas-as-a-child-soldier",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.905
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-23T16:59:23+00:00",
-      "source": "43rumors.com",
-      "title": "Today only at BH: $220 off on the Samsung 4TB T7",
-      "summary": "Today only you save $680 on the Samsung 4TB T7 SSD sold by BH. MFT deals: Save big on Om Digital cameras/lenses at BHphoto,  Amazon, Adorama. Save big on Lumix cameras/lenses at BHphoto, Amazon, Adorama. Save big on Sigma lenses at BHphoto, Amazon. Adorama. S…",
-      "url": "https://www.43rumors.com/today-only-at-bh-220-off-on-the-samsung-4tb-t7/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8809
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-23T16:57:41+00:00",
-      "source": "24/7 Wall St.",
-      "title": "Alphabet Drops 4%, Meta Edges Higher as AI Rotation Splits Big Tech; Microsoft Holds Flat",
-      "summary": "Meta is surging while Alphabet slides hard, yet Microsoft sits completely unmoved and the broad tech funds are barely lower. That three-way split points to s...",
-      "url": "https://247wallst.com/investing/2026/09/23/alphabet-drops-4-meta-edges-higher-as-ai-rotation-splits-big-tech-microsoft-holds-flat/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL",
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.7847
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-23T16:47:46+00:00",
-      "source": "Ibtimes.com.au",
-      "title": "YouTube Tightens Binge-Eating Ad Rules as Korean Mukbang Stars Lose Revenue, Cut Videos",
-      "summary": "YouTube's stricter advertising enforcement has affected Korean mukbang and diet creators, with some losing monetisation, halting uploads or deleting large parts of their archives.",
-      "url": "https://www.ibtimes.com.au/youtube-rules-squeeze-korean-mukbang-creators-1875809",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9656
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-23T16:38:43+00:00",
-      "source": "Crypto Briefing",
-      "title": "Microsoft commits $15.2 billion to UAE as Middle East AI push accelerates",
-      "summary": "Microsoft's investment in UAE AI infrastructure could shift global tech dynamics, enhancing regional influence and fostering innovation leadership.\nThe post Microsoft commits $15.2 billion to UAE as Middle East AI push accelerates appeared first on Crypto Bri…",
-      "url": "https://cryptobriefing.com/microsoft-15-billion-uae-ai-cloud-investment/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6002
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-23T16:30:00+00:00",
-      "source": "PRNewswire",
-      "title": "BlueVoyant Launches Solution to Accelerate Agentic Security Adoption of Microsoft's New Integrated Security Operations Center",
-      "summary": "Deployment services to help Microsoft 365 E5, E7 and Microsoft Defender Suite customers build the foundation for an agentic SOC NEW YORK, Sept. 23, 2026 /PRNewswire/ -- BlueVoyant, a leading cybersecurity company, today announced its Microsoft Defender XDR IS…",
-      "url": "https://www.prnewswire.com/news-releases/bluevoyant-launches-solution-to-accelerate-agentic-security-adoption-of-microsofts-new-integrated-security-operations-center-302887917.html",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.63
       },
       "sentiment_model": "ProsusAI/finbert"
     }
