@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-10-08T18:50:43.305317+00:00",
+  "as_of": "2026-10-09T18:20:58.577791+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-08T18:19:30+00:00",
+      "source": "Crypto Briefing",
+      "title": "AWS CEO Matt Garman defends AI spending with a spread-out customer base",
+      "summary": "AWS's diversified customer base mitigates risk, supporting sustainable AI investment growth and positioning AWS as a key player in AI infrastructure.\nThe post AWS CEO Matt Garman defends AI spending with a spread-out customer base appeared first on Crypto Bri…",
+      "url": "https://cryptobriefing.com/aws-matt-garman-ai-investments-customers/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8164
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-08T18:17:47+00:00",
+      "source": "The Times of India",
+      "title": "US President Donald Trump buys $1 million-plus stakes in Meta, Microsoft, McDonald’s; adds SpaceX debt",
+      "summary": "Donald Trump invested over $1 million in stocks of several major companies during August. Notable purchases included Meta Platforms, McDonald's, Microsoft, and space-related debt from SpaceX. His investment activities encompass trading in shares of Nvidia and…",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/us-president-donald-trump-buys-1-million-plus-stakes-in-meta-microsoft-mcdonalds-adds-spacex-debt/articleshow/134798553.cms",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9176
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-08T18:12:19+00:00",
+      "source": "Slashdot.org",
+      "title": "US suspends Microsoft, major IT firms from key green card program - Reuters",
+      "summary": "US suspends Microsoft, major IT firms from key green card programReuters U.S. suspends Microsoft, Adobe from green-card labor program in foreign worker crackdownCNBC Trump plans to honor Microsoft’s CEO after Vance drops an H-1B visa hammer on the companyThe …",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186069248",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9374
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-08T18:12:08+00:00",
+      "source": "Slashdot.org",
+      "title": "Microsoft announces $6,000 price for Surface RTX Spark Dev Box with 128GB memory, $2000 more than AMD's Ryzen AI Halo - VideoCardz.com",
+      "summary": "Microsoft announces $6,000 price for Surface RTX Spark Dev Box with 128GB memory, $2000 more than AMD's Ryzen AI HaloVideoCardz.com Microsoft to sell $2,599 Surface Laptop Ultra containing Nvidia AI chipCNBC The tech industry wants you to run AI models at hom…",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186069244",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8819
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-08T18:11:07+00:00",
+      "source": "pymnts.com",
+      "title": "Walmart Defends Its Pricing as Amazon Kicks Off Holiday Sales",
+      "summary": "Amazon spent the week telling shoppers how much they could save. Walmart spent part of it explaining why consumers shouldn’t worry about how their prices are set. The contrast came as Amazon launched its Prime Big Deal Days event on Oct. 6-7, offering million…",
+      "url": "https://www.pymnts.com/news/retail/2026/walmart-defends-its-pricing-as-amazon-kicks-off-holiday-sales/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.5474
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-08T18:07:19+00:00",
+      "source": "TechRadar",
+      "title": "Amazon's Alexa Tablet could be the slate to win me back after my disappointing experience with the first-ever Kindle Fire",
+      "summary": "I owned the first-ever Kindle Fire Tablet, which was quickly relegated to my drawer of e-waste 15 years ago. Now, with the new Alexa Tablet, Amazon might be winning me back onside.",
+      "url": "https://www.techradar.com/tablets/i-had-immense-buyers-remorse-with-my-kindle-fire-tablet-but-amazons-new-alexa-tablet-might-be-the-gadget-to-win-me-back",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8009
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-08T18:05:52+00:00",
+      "source": "Droid Life",
+      "title": "Pixel 12 Series: Everything We Know About Google’s Next Phones",
+      "summary": "It feels a bit weird to start talking about the Pixel 12 series only a couple of months after Google officially gave us the Pixel 11 series, but that’s how this industry works. The story of the Pixel 12 and Pixel 12 Pro is already taking shape and we want you…",
+      "url": "https://www.droid-life.com/2026/10/08/pixel-12-series-everything-we-know-about-googles-next-phones/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9317
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-08T17:53:28+00:00",
+      "source": "Slashdot.org",
+      "title": "Congressional candidate says she was raped while repairing campaign signs - The Hill",
+      "summary": "Congressional candidate says she was raped while repairing campaign signsThe Hill See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186069120",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9282
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-08T17:42:52+00:00",
+      "source": "Fox News",
+      "title": "Country music singer Shane Smith puts his own spin on Johnny Cash's iconic 'Hurt' cover",
+      "summary": "Shane Smith posted a YouTube video covering \"Hurt,\" the iconic song originally written by Nine Inch Nails and famously covered by Johnny Cash.",
+      "url": "https://www.foxnews.com/outkick-culture/country-music-singer-shane-smith-puts-own-spin-johnny-cash-iconic-hurt-cover",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8613
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-07T18:49:40+00:00",
       "source": "Rswebsols.com",
@@ -1705,150 +1849,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.9404
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-24T17:08:36+00:00",
-      "source": "Yahoo Entertainment",
-      "title": "Emmanuel Acho sends unexpected message after heated Leonard Fournette confrontation",
-      "summary": "Emmanuel Acho brought Leonard Fournette onto Speakeasy, his late-night YouTube show, on Wednesday night with the stated goal of exposing him. The two former NFL players spent the segment arguing live in front of the show’s chat, and by Thursday the host who a…",
-      "url": "https://sports.yahoo.com/articles/emmanuel-acho-sends-unexpected-message-170836718.html",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7199
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-24T17:07:59+00:00",
-      "source": "BusinessLine",
-      "title": "Google to test AI chips in space with first Project Suncatcher mission",
-      "summary": "Google will launch a prototype satellite to test AI hardware in low Earth orbit, exploring the potential for large-scale computing infrastructure in space.",
-      "url": "https://www.thehindubusinessline.com/news/science/google-to-test-ai-chips-in-space-with-first-project-suncatcher-mission/article71505486.ece",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7204
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-24T17:03:31+00:00",
-      "source": "GeekWire",
-      "title": "Amazon delivery drone noise sparks resident revolt in Texas: ‘It’s like a beehive up there’",
-      "summary": "New reports this week from The New York Times and NBC's TODAY show detail how residents in Richardson, Texas, — a Dallas suburb near a major Amazon fulfillment facility — are bearing the brunt of Prime Air’s ambitious expansion. Read More",
-      "url": "https://www.geekwire.com/2026/amazon-delivery-drone-noise-sparks-resident-revolt-in-texas-its-like-a-beehive-up-there/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5307
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-24T17:01:15+00:00",
-      "source": "TechCrunch",
-      "title": "Google Photos 'Clueless'-inspired virtual closet is now available on Android and iOS | TechCrunch",
-      "summary": "The AI-powered feature builds a virtual wardrobe from your photos, and is now broadly available after first rolling out to Android users in June.",
-      "url": "https://techcrunch.com/2026/09/24/google-photos-clueless-inspired-virtual-closet-is-now-available-on-android-and-ios/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8852
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-24T17:00:15+00:00",
-      "source": "Commonsensewithmoney.com",
-      "title": "Revlon 1875W Compact & Lightweight IONIC Hair Dryer – Just $14.98!",
-      "summary": "New fall hairstyle? How about a new hair dryer? This highly rated hair dryer is an Amazon’s Choice product!  How about this deal?! The small size is super handy too! \n\nGet on over to Amazon and get the Revlon 1875W Compact & Lightw...",
-      "url": "https://www.commonsensewithmoney.com/revlon-1875w-compact-lightweight-ionic-hair-dryer-just-14-98/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.85
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-24T17:00:00+00:00",
-      "source": "Theregister.com",
-      "title": "Decades-old file security flaws found in Android, Linux, macOS, and Windows",
-      "summary": "Security researchers report that Microsoft considers the side-channel leak of file events to be by design",
-      "url": "https://www.theregister.com/security/2026/09/24/decades-old-file-security-flaws-found-in-android-linux-macos-and-windows/5298672",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.6914
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-24T16:52:00+00:00",
-      "source": "Hip2save.com",
-      "title": "NEW Play-Doh Grinchmas Feast Playset Available on Amazon",
-      "summary": "Head over to Amazon where you can score this Play-Doh Dr. Seuss Grinchmas Feast Playset for just $22.03! Play-Doh Dr. Seuss Grinchmas Feast Playset Just $22.03! Perfect for little Grinch fans, this quirky playset lets kids create a Play-Doh feast, make teeth …",
-      "url": "https://hip2save.com/deals/play-doh-grinchmas-feast/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9267
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-24T16:36:52+00:00",
-      "source": "Crypto Briefing",
-      "title": "Microsoft opens quantum research center in Maryland for DARPA testing of topological qubit system",
-      "summary": "Microsoft's quantum center in Maryland signifies a pivotal step towards scalable, error-resistant quantum computing, influencing global tech strategies.\nThe post Microsoft opens quantum research center in Maryland for DARPA testing of topological qubit system…",
-      "url": "https://cryptobriefing.com/microsoft-quantum-center-darpa-maryland/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.5043
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-24T16:01:00+00:00",
-      "source": "Artsjournal.com",
-      "title": "Former Microsoft CEO Repairs Damaged Calder Mobile In U.S. Senate Building",
-      "summary": "When Kim and Jon Shirley visited Alexander Calder’s Mountains and Clouds (1976/1986) in the atrium of the Hart Senate Office Building, the stabile portion of the sculpture (the mountains) was there, but the mobile part (clouds) had been taken due to structura…",
-      "url": "https://www.artsjournal.com/2026/09/former-microsoft-ceo-repairs-damaged-calder-mobile-in-u-s-senate-building.html",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.7082
       },
       "sentiment_model": "ProsusAI/finbert"
     }
