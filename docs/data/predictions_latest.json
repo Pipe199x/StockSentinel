@@ -9,15 +9,6 @@
     "mae_backtest_30d": 0.0087453708
   },
   {
-    "ticker": "GOOGL",
-    "as_of": "2026-10-09",
-    "target_date": "2026-10-12",
-    "last_close": 351.6600036621,
-    "pred_ret_t1": -0.0015090636,
-    "pred_close_t1": 351.1293263354,
-    "mae_backtest_30d": 0.0077192438
-  },
-  {
     "ticker": "MSFT",
     "as_of": "2026-10-09",
     "target_date": "2026-10-12",
