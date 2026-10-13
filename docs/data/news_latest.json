@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-10-12T21:16:25.228560+00:00",
+  "as_of": "2026-10-13T19:16:02.868414+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-12T19:07:00+00:00",
+      "source": "Android Central",
+      "title": "Google, Flo Health partner to elevate women's overall well-being with Fitbit Edge",
+      "summary": "Google announced a Flo Health partnership aimed at improving the personalized wellness insights and understanding women experience.",
+      "url": "https://www.androidcentral.com/wearables/fitbit/google-flo-health-partner-to-elevate-womens-well-being",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8706
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-12T19:04:49+00:00",
+      "source": "Skift",
+      "title": "Fighting Spirit’s Data Sale to Google: Court Filings Show the List Getting Longer",
+      "summary": "The deal has faced months of delays and pushback, coming to represent a thorny issue of how far bankruptcy code should go to protect employee privacy as AI makes rapid advances.",
+      "url": "https://skift.com/2026/10/12/fighting-spirits-data-sale-to-google-court-filings-show-the-list-getting-longer/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9151
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-12T18:53:49+00:00",
+      "source": "Slashdot.org",
+      "title": "Norway fined a Microsoft subsidiary $9.6 million for allegedly misusing Grindr user data",
+      "summary": "Xandr has three weeks to appeal the record penalty.",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186277024",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9461
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-12T18:53:06+00:00",
+      "source": "Slashdot.org",
+      "title": "Exclusive | Dating App Bumble in Advanced Talks to Go Private at $1 Billion Valuation - WSJ",
+      "summary": "Exclusive | Dating App Bumble in Advanced Talks to Go Private at $1 Billion ValuationWSJ See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186277014",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9374
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-12T18:47:22+00:00",
+      "source": "Business Insider",
+      "title": "This entrepreneur says Amazon nearly destroyed his business. He still shops on it every week. 'It's crazy.'",
+      "summary": "The Bed Scrunchie company made $4.5 million before Amazon deactivated its seller account. But one of the founders still can't quit shopping there.",
+      "url": "https://www.businessinsider.com/he-says-amazon-nearly-wrecked-bedscrunchie-business-still-shop-amazon-2026-10#article",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5415
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-12T18:47:00+00:00",
+      "source": "Moneysavingmom.com",
+      "title": "Grace & Stella Lip Gloss Butter only $8.95 shipped + FREE Under Eye Patches Variety Pack!",
+      "summary": "These Grace & Stella Lip Gloss Butters are so amazing! Amazon has these Grace & Stella Lip Gloss Butters for just $8.95 shipped when you check out through Subscribe & Save! Even better, you’ll receive a FREE Grace & Stella Under Eye Patches Variety Pack, 18 c…",
+      "url": "https://moneysavingmom.com/grace-stella-lip-gloss-butter-bundle-deal/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8551
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-12T18:37:00+00:00",
+      "source": "Hot Hardware",
+      "title": "Microsoft's Maia 300 AI Chip Aims To Make AI Cheaper And Faster",
+      "summary": "As Microsoft continues to build-out multi-gigawatt infrastructure deployments, its custom silicon remains a major focus. Today Microsoft reiterated that its Maia 200 is production-proven and deployed across regions in the United States, Europe, and Australia,…",
+      "url": "https://hothardware.com/news/microsofts-maia-300-ai-chip-aims-to-make-ai-cheaper-and-faster",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6499
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-12T18:32:03+00:00",
+      "source": "Slashdot.org",
+      "title": "How to find your Amazon 'About You' page (and how to edit it)",
+      "summary": "See if Amazon thinks you have \"flat buttocks.\"",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186276694",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9157
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-12T18:25:00+00:00",
+      "source": "TechRadar",
+      "title": "Trying to change your browser? It might be harder than you think, based on one simple thing",
+      "summary": "Mozilla says Microsoft is abusing its dominant position wherever it can, including the US, UK, and India.",
+      "url": "https://www.techradar.com/pro/security/trying-to-change-your-browser-it-might-be-harder-than-you-think-based-on-one-simple-thing",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8835
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-11T21:05:00+00:00",
       "source": "TechRadar",
@@ -1735,150 +1879,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.9339
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-28T17:54:34+00:00",
-      "source": "Osnews.com",
-      "title": "Windows 10 breaks far less often than Windows 11",
-      "summary": "Windows 11 received its September update on the 8th of this month, and within days Microsoft had acknowledged or investigated problems involving Remote Desktop, USB audio, Linux and WSL-based apps like Claude Cowork, and enterprise domain issues. Windows Late…",
-      "url": "https://www.osnews.com/story/146039/windows-10-breaks-far-less-often-than-windows-11/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8793
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-28T17:53:09+00:00",
-      "source": "Freerepublic.com",
-      "title": "Special Report: Google News Implements Months-Long Blackout of Major Trump Admin Fraud Crackdown",
-      "summary": "One of President Donald Trump’s major focuses has been rooting out fraud across taxpayer-funded public services. Through their White House Task Force to Eliminate Fraud, Co-chairs Vice President JD Vance and Federal Trade Commission Chair Andrew Ferguson have…",
-      "url": "https://freerepublic.com/focus/f-chat/4397175/posts",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.712
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-28T17:51:54+00:00",
-      "source": "SFGate",
-      "title": "Milpitas burglars used fake Amazon driver in home break-in, resident says",
-      "summary": "A Milpitas resident said her Ring camera was disconnected during the burglary.",
-      "url": "https://www.sfgate.com/bayarea/article/milpitas-burglary-fake-amazon-22452981.php",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8404
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-28T17:51:24+00:00",
-      "source": "Definitelynotwindows.com",
-      "title": "Definitely not Windows (Win 11 parody)",
-      "summary": "The operating system Microsoft definitely did not make. An interactive parody of Windows 11, Microsoft 365, Copilot, updates, ads, and subscriptions.",
-      "url": "https://definitelynotwindows.com/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7953
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-28T17:46:20+00:00",
-      "source": "iPhone in Canada",
-      "title": "Google Arts & Culture Overhaul Lets You Chat With Dead Artists",
-      "summary": "Google Arts & Culture turns 15 with a major mobile app redesign featuring AI-powered conversational search and interactive historical tools.\nThe post Google Arts & Culture Overhaul Lets You Chat With Dead Artists first appeared on iPhone in Canada.",
-      "url": "https://www.iphoneincanada.ca/2026/09/28/google-arts-culture-overhaul-lets-you-chat-with-dead-artists/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8999
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-28T17:40:25+00:00",
-      "source": "Hip2save.com",
-      "title": "Slim Espresso Machine w/ Milk Frother Just $89.96 Shipped on Amazon (Reg. $140)",
-      "summary": "Today, September 28th only, dash over to Amazon where you can grab this CHULUX Slim Espresso Machine with Milk Frother for as low as $89.96 shipped (regularly $139.99)! Note that this item is a Lightning Deal, so you’ll want to be quick to snag yours! CHULUX …",
-      "url": "https://hip2save.com/deals/chulux-espresso-machine/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9071
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-28T17:35:00+00:00",
-      "source": "9to5google.com",
-      "title": "TCL’s new ‘Designer’ Google TVs are just like Samsung’s The Frame, starting at $899",
-      "summary": "TCL has launched a new “Designer Series” of TV sets running Google TV with a flush mount design and matte dispaly to help your TV blend into a room as a piece of art.\n\n\n\n more…",
-      "url": "http://9to5google.com/2026/09/28/tcls-new-google-tvs-are-just-like-samsungs-the-frame-starting-at-899/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.842
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-28T17:34:35+00:00",
-      "source": "Slashdot.org",
-      "title": "The Netherlands is rolling its own software and services after U.S. sanctions took Microsoft off the table",
-      "summary": "When the U.S. imposed sanctions on the International Criminal Court, it also meant that its chief prosecutor lost access to Microsoft services, forcing the Dutch government to make alternative plans.\n                                                           …",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185890256",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8257
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-28T17:15:00+00:00",
-      "source": "Variety",
-      "title": "Amazon to Develop ‘Shadow Work’ Series Based on Adrienne Miller Short Story, Marc Resteghini to Produce (EXCLUSIVE)",
-      "summary": "In a competitive situation, Amazon MGM Studios is set to develop a series based on the short story “Shadow Work” by Adrienne Miller, Variety has learned exclusively from sources. Miller will write the pilot for the one-hour series and serve as executive produ…",
-      "url": "https://variety.com/2026/tv/news/amazon-shadow-work-adrienne-miller-short-story-resteghini-1236877358/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9277
       },
       "sentiment_model": "ProsusAI/finbert"
     }
