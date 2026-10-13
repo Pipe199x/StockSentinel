@@ -12,9 +12,9 @@
     "window_days": 15
   },
   "stocks": {
-    "last_updated_utc": "2026-10-12T01:34:40.781012+00:00",
-    "as_of": "2026-10-09",
-    "rows": 5106,
+    "last_updated_utc": "2026-10-13T03:07:19.245131+00:00",
+    "as_of": "2026-10-12",
+    "rows": 5109,
     "price_window_days": 30
   }
 }
