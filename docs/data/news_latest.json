@@ -1,7 +1,121 @@
 {
-  "as_of": "2026-10-13T19:16:02.868414+00:00",
+  "as_of": "2026-10-14T17:09:01.808693+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-13T17:08:25+00:00",
+      "source": "New York Post",
+      "title": "Apple unveils $299 HomeView smart-home hub, TV and HomePod mini in push to challenge Amazon, Google",
+      "summary": "HomeView, available Nov. 13, features a 7-inch touchscreen and a built-in camera that can recognize up to six household members.",
+      "url": "https://nypost.com/2026/10/13/business/apple-unveils-299-homeview-smart-home-hub-tv-and-homepod-mini-in-push-to-challenge-amazon-google/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN",
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7619
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-13T17:08:25+00:00",
+      "source": "New York Post",
+      "title": "Apple unveils $299 HomeView smart-home hub, TV and HomePod mini in push to challenge Amazon, Google",
+      "summary": "HomeView, available Nov. 13, features a 7-inch touchscreen and a built-in camera that can recognize up to six household members.",
+      "url": "https://nypost.com/2026/10/13/tech/apple-unveils-299-homeview-smart-home-hub-tv-and-homepod-mini-in-push-to-challenge-amazon-google/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN",
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7619
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-13T17:08:24+00:00",
+      "source": "The Times of India",
+      "title": "Google launches flagship AI model Gemini 4 Argon for developers, businesses",
+      "summary": "Alphabet's Google on Wednesday released its flagship AI model Gemini 4 Argon to developers and businesses worldwide, seeking to regain ground against rivals OpenAI and Anthropic after months of delays and a leadership shakeup at its DeepMind lab.",
+      "url": "https://economictimes.indiatimes.com/tech/technology/google-launches-flagship-ai-model-gemini-4-argon-for-developers-businesses/articleshow/134923362.cms",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9277
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-13T17:07:01+00:00",
+      "source": "Dansdeals.com",
+      "title": "50,000mAh Power Bank With 22.5W Fast Charging And 3 Outputs For $14.99 From Amazon",
+      "summary": "50,000mAh Power Bank With 22.5W Fast Charging And 3 Outputs For $14.99 From Amazon Use code: 885VC54O Enter the code at checkout, select a payment method, and press continue to final checkout for the discount to display. On mobile you must select the arrow in…",
+      "url": "https://www.dansdeals.com/shopping-deals/amazon/50000mah-power-bank-with-22-5w-fast-charging-and-3-outputs-for-14-99-from-amazon/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9515
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-13T17:00:00+00:00",
+      "source": "IGN",
+      "title": "Paper Perjury 2: Shadow of Justice - Official Reveal Trailer | IGN Fall Fan Fest 2026",
+      "summary": "Return to Azure City and join Justina in solving one of the biggest mysteries yet in Paper Perjury 2: Shadow of Justice. Watch the reveal trailer for Paper Perjury 2: Shadow of Justice, an upcoming detective visual novel follow-up to 2024's Paper Perjury by P…",
+      "url": "https://es.ign.com/paper-perjury-2-shadow-of-justice/234655/paper-perjury-2-shadow-of-justice-official-reveal-trailer-ign-fall-fan-fest-2026",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9076
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-13T16:25:00+00:00",
+      "source": "TechRadar",
+      "title": "Microsoft closes a worrying Windows 11 account bypass hack — all it took was one click",
+      "summary": "You could previously bypass creating or signing in with a Microsoft account when setting up Windows 11.",
+      "url": "https://www.techradar.com/pro/microsoft-closes-a-worrying-windows-11-account-bypass-hack-all-it-took-was-one-click",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8638
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-13T16:24:07+00:00",
+      "source": "RTE",
+      "title": "Microsoft President calls for more AI guardrails",
+      "summary": "The President of Microsoft Brad Smith has called for greater guardrails for artificial intelligence (AI).",
+      "url": "https://www.rte.ie/news/2026/1013/1595261-brad-smith-microsoft/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6164
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-12T19:07:00+00:00",
       "source": "Android Central",
@@ -1735,150 +1849,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.9546
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-29T17:57:22+00:00",
-      "source": "Moneysavingmom.com",
-      "title": "Women’s No Boundaries Cargo Jogger Pants only $4.76!",
-      "summary": "These No Boundaries Cargo Jogger Pants are so cute! Amazon has these Women’s No Boundaries Cargo Jogger Pants for as low as $4.76 right now! Available in three color options in sizes XXS to XXL. Choose free in-store pickup to avoid shipping costs. Shipping is…",
-      "url": "https://moneysavingmom.com/womens-no-boundaries-cargo-jogger-pants-only-4-76/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9397
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-29T17:53:06+00:00",
-      "source": "Slashdot.org",
-      "title": "As Tennessee execution nears, Christa Pike case highlights the few women on death row - WGAL",
-      "summary": "As Tennessee execution nears, Christa Pike case highlights the few women on death rowWGAL See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185899282",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9364
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-29T17:48:21+00:00",
-      "source": "TechCrunch",
-      "title": "OpenAI takes on Microsoft with the launch of what feels a whole lot like ChatGPT's own office suite | TechCrunch",
-      "summary": "OpenAI's newly announced suite of office features puts it into mor direct competition with more traditional software companies.",
-      "url": "https://techcrunch.com/2026/09/29/openai-takes-on-microsoft-with-the-launch-of-what-feels-a-whole-lot-like-chatgpts-own-office-suite/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.5985
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-29T17:48:00+00:00",
-      "source": "ZDNet",
-      "title": "Is ChatGPT your new Google Workspace alternative? Meet Space, Pages, and slides",
-      "summary": "OpenAI now lets teams create documents, build presentations, and work with AI agents inside ChatGPT",
-      "url": "https://www.zdnet.com/innovation/chatgpt-space-pages-slides-google-workspace-alternative/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9161
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-29T17:41:10+00:00",
-      "source": "iPhone in Canada",
-      "title": "Google Reveals What Happens to Chromebooks After 2034",
-      "summary": "Google will end regular ChromeOS updates and security patches in mid-2034 as the company shifts toward Googlebook OS.\nThe post Google Reveals What Happens to Chromebooks After 2034 first appeared on iPhone in Canada.",
-      "url": "https://www.iphoneincanada.ca/2026/09/29/google-reveals-what-happens-to-chromebooks-after-2034/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.601
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-29T17:39:02+00:00",
-      "source": "Windows Central",
-      "title": "Xbox’s Mythic Achievements launch for Insiders, adding ultra‑rare goals and better stats",
-      "summary": "Microsoft has announced that it is rolling out the long-requested Xbox Mythic Achievements today for Xbox Insider users on consoles and PC. Here's an explanation of how Mythic Achievements will work and how to keep track of them.",
-      "url": "https://www.windowscentral.com/gaming/xbox/xbox-mythic-achievements-are-finally-rolling-out-for-xbox-insiders-heres-how-theyll-function-and-how-to-track-them",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9341
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-29T17:37:40+00:00",
-      "source": "BleepingComputer",
-      "title": "Windows 11 2026 Update released, here's everything you need to know",
-      "summary": "Microsoft has started rolling out Windows 11 26H2 to everyone, and while it's this year's big annual feature update, you probably won't notice a massive difference after installing it. [...]",
-      "url": "https://www.bleepingcomputer.com/news/microsoft/windows-11-2026-update-released-heres-everything-you-need-to-know/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8969
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-29T17:14:00+00:00",
-      "source": "Amazon.com",
-      "title": "Implementing customer managed keys for AWS Lambda durable functions with Terraform",
-      "summary": "Lambda durable functions checkpoint execution state to durable storage, and for regulated payment workloads that data is sensitive. This post shows how to configure a customer managed key in AWS KMS to encrypt durable execution data, define a least-privilege …",
-      "url": "https://aws.amazon.com/blogs/compute/implementing-customer-managed-keys-for-aws-lambda-durable-functions-with-terraform/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.937
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-29T17:13:30+00:00",
-      "source": "MacRumors",
-      "title": "Amazon Expands $779.99 Apple Watch Ultra 4 Deal to More Models",
-      "summary": "The new Apple Watch Ultra 4 just launched this month, and Amazon is offering the first cash discounts on select models. You can get the Apple Watch Ultra 4 for $779.99, down from $799.00.\n\n\n\nNote: MacRumors is an affiliate partner with some of these vendors. …",
-      "url": "https://www.macrumors.com/2026/09/29/amazon-779-99-apple-watch-ultra-4/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9339
       },
       "sentiment_model": "ProsusAI/finbert"
     }
