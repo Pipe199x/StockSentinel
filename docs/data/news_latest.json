@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-10-14T17:09:01.808693+00:00",
+  "as_of": "2026-10-15T16:59:26.062350+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-14T16:57:14+00:00",
+      "source": "Dansdeals.com",
+      "title": "NYX Pro Fix Stick Correcting Concealers For $4.04-$4.51 Shipeed From Amazon",
+      "summary": "NYX Professional Makeup Pro Fix Stick Correcting Concealer Golden: $4.04-$4.51 NYX PROFESSIONAL MAKEUP Pro Fix Stick Correcting Concealer: $4.04-$4.51 NYX PROFESSIONAL MAKEUP Pro Fix Stick Correcting Concealer: $4.04-$4.51 NYX Professional Makeup Pro Fix Stic…",
+      "url": "https://www.dansdeals.com/shopping-deals/amazon/nyx-pro-fix-stick-correcting-concealers-for-4-04-4-51-shipeed-from-amazon/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9287
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-14T16:55:24+00:00",
+      "source": "Amazon.com",
+      "title": "Your serverless attendee’s guide to AWS re:Invent 2026",
+      "summary": "AWS re:Invent 2026 offers an extensive selection of serverless and application integration content, including new AWS Lambda execution models, AI agents as a new kind of serverless consumer, and maturing event-driven patterns. This guide helps you navigate th…",
+      "url": "https://aws.amazon.com/blogs/compute/your-serverless-attendees-guide-to-aws-reinvent-2026/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.884
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-14T16:53:18+00:00",
+      "source": "Slashdot.org",
+      "title": "Russia detains Japanese journalist on suspicion of spying - CNN",
+      "summary": "Russia detains Japanese journalist on suspicion of spyingCNN See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186319648",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9202
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-14T16:40:17+00:00",
+      "source": "Unity.com",
+      "title": "Hydra - Dragon with 5 Heads - Fantasy RPG Monster Character by Magic Pig Games / Infinity PBR",
+      "summary": "Fearsome 5-headed Hydra with massive customization: three head options, back options, and unlimited texture customization. Includes audio and dynamic animations like Directional Got Hit!Support, Questions, News & Updates➡️ Discord | YouTube | InfinityPBR.com➡…",
+      "url": "https://assetstore.unity.com/packages/3d/characters/creatures/hydra-dragon-with-5-heads-fantasy-rpg-monster-character-416856",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9189
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-14T16:33:38+00:00",
+      "source": "Droid Life",
+      "title": "Android XR Smart Glasses Launch in November",
+      "summary": "Thanks to an unnamed Samsung official who spoke with local media, we can go ahead place November on the calendar for when we will see the launch of Android XR. After what has been a long, slow tease of the platform by all involved (Google, Samsung, etc.), we’…",
+      "url": "https://www.droid-life.com/2026/10/14/android-xr-smart-glasses-launch-in-november/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8519
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-14T16:33:10+00:00",
+      "source": "Yahoo Entertainment",
+      "title": "Nectar Launches Customer Atlas, Extending Amazon Marketing Cloud Audience Targeting From Display Into Search Bidding",
+      "summary": "NEW YORK, October 14, 2026--Nectar, an Amazon Advanced Advertising Partner managing more than $2.5 billion in annual client sales, launched today Customer At...",
+      "url": "https://finance.yahoo.com/media-advertising/articles/nectar-launches-customer-atlas-extending-152800468.html",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5616
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-14T16:25:36+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Microsoft Office Professional Plus 2021-2024 VL v2609 Build 20430.20182",
+      "summary": "Description: Microsoft has officially announced the availability of the final version of its Office 2024 release for Windows and Mac users. Following the release of the preview version in the first half of this year, the product has been refined and is now av…",
+      "url": "https://post.rlsbb.cc/microsoft-office-professional-plus-2021-2024-vl-v2609-build-20430-20182/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8095
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-14T16:25:36+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Microsoft Office 2024 Professional Plus LTSC v2408 Build 17932.21056",
+      "summary": "Description: Office 365 ProPlus, the cloud-connected version of Office, delivers the most productive and most secure Office experience—with the lowest total cost of ownership for deployment and management. However, for customers who aren’t ready for the cloud…",
+      "url": "https://post.rlsbb.cc/microsoft-office-2024-professional-plus-ltsc-v2408-build-17932-21056/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7749
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-14T16:21:14+00:00",
+      "source": "The Verge",
+      "title": "Honey, Xbox shrunk its controller",
+      "summary": "Microsoft is officially announcing its Xbox Nano controller today, a smaller and cheaper controller that's designed to fit into your pocket. The more compact controller is also designed for \"younger players, smaller hands, or anyone seeking something portable…",
+      "url": "https://www.theverge.com/news/1011216/xbox-nano-controller-release-date-pricing",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7585
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-13T17:08:25+00:00",
       "source": "New York Post",
@@ -1705,150 +1849,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.5167
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-30T18:23:10+00:00",
-      "source": "The Times of India",
-      "title": "‘Get my narco test done’: Son under lens for mom’s murder",
-      "summary": "Kanpur police probe Uma Kushwaha’s murder; suspicion on elder son Amrish after CCTV/CDR checks, phone location, Google searches, and narco test request.",
-      "url": "https://timesofindia.indiatimes.com/city/kanpur/get-my-narco-test-done-son-under-lens-for-moms-murder/articleshow/134600809.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6846
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-30T18:22:21+00:00",
-      "source": "iPhone in Canada",
-      "title": "Amazon Slashes Kindle Scribe Colorsoft by $250 in Canada",
-      "summary": "Amazon has cut its 11-inch colour e-reader to $649.99 CAD, taking $250 off the $899.99 list price as a Limited-time deal.\nThe post Amazon Slashes Kindle Scribe Colorsoft by $250 in Canada first appeared on iPhone in Canada.",
-      "url": "https://www.iphoneincanada.ca/2026/09/30/amazon-slashes-kindle-scribe-colorsoft-by-250-in-canada/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9637
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-30T18:20:56+00:00",
-      "source": "Yanko Design",
-      "title": "A full desktop PC is hiding inside this picture frame",
-      "summary": "Dieter Rams famously said good design is honest. With all due respect to Dieter, Matt from DIY Perks has built something that lies through its teeth, and it is one of the better design ideas to come out of a YouTube build video this year. The project is a wal…",
-      "url": "https://www.yankodesign.com/2026/09/30/a-full-desktop-pc-is-hiding-inside-this-picture-frame/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-30T18:20:41+00:00",
-      "source": "Photorumors.com",
-      "title": "The Zhong Yi Pittura 30mm f/2.4 lens for GFX & XCD mount is now available for order",
-      "summary": "The new Zhong Yi Pittura 30mm f/2.4 lens for GFX & XCD mount is now available for pre-order at: ZYOptics store AliExpress Amazon B&H Photo Additional information on the lens can be found here: New Mitakon Zhongyi Optics Pittura 30mm f/2.4 lens for GFX & XCD m…",
-      "url": "https://photorumors.com/2026/09/30/the-zhong-yi-pittura-30mm-f-2-4-lens-for-gfx-xcd-mount-is-now-available-for-order-2/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9476
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-30T18:20:10+00:00",
-      "source": "Crypto Briefing",
-      "title": "AWS reportedly lifts GPU capacity prices again, with a 15% hike flagged for October 7",
-      "summary": "Rising GPU costs may drive AI firms to reassess cloud strategies, potentially impacting innovation pace and regional deployment decisions.\nThe post AWS reportedly lifts GPU capacity prices again, with a 15% hike flagged for October 7 appeared first on Crypto …",
-      "url": "https://cryptobriefing.com/aws-gpu-capacity-block-price-increase/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.918
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-30T18:17:43+00:00",
-      "source": "Israelnationalnews.com",
-      "title": "Indian Flydubai pilot who was stabbed no longer in life-threatening condition",
-      "summary": "The Indian pilot who was stabbed during the incident aboard the Flydubai flight from Dubai to Tel Aviv is no longer in life-threatening condition, although he remains seriously wounded.The pilot, who was injured during the confrontation with the copilot, mana…",
-      "url": "https://www.israelnationalnews.com/flashes/694507",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8102
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-30T18:11:10+00:00",
-      "source": "Phonescoop.com",
-      "title": "Freckle Brings a New Twist to Phones for Kids",
-      "summary": "A new startup has announced Freckle, a unique take on a phone designed exclusively for kids aged seven and up. Uniquely, it encourages exploration via the Curiosity Camera and Quests. Curiosity Camera works sort of like Google Lens; it lets kids point the cam…",
-      "url": "https://www.phonescoop.com/articles/article.php?a=23796",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8849
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-30T18:10:58+00:00",
-      "source": "IGN",
-      "title": "'Xbox Is Not for Sale' — Asha Sharma Denies Reports That Microsoft Is Considering Selling Its Gaming Business",
-      "summary": "Xbox CEO Asha Sharma has denied reports suggesting Microsoft was considering selling its gaming business.",
-      "url": "https://www.ign.com/articles/xbox-is-not-for-sale-asha-sharma-denies-reports-that-microsoft-is-considering-selling-its-gaming-business",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5868
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-09-30T18:10:37+00:00",
-      "source": "The Verge",
-      "title": "Microsoft Jewel is now on mobile.",
-      "summary": "Microsoft Jewel is now on mobile.theverge.com",
-      "url": "https://www.theverge.com/games/1002815/microsoft-jewel-is-now-on-mobile",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9546
       },
       "sentiment_model": "ProsusAI/finbert"
     }
