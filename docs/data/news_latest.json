@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-10-15T16:59:26.062350+00:00",
+  "as_of": "2026-10-16T16:37:46.781114+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-15T16:37:22+00:00",
+      "source": "Variety",
+      "title": "CNN and Google Strike Multiyear Partnership to Embrace Generative AI",
+      "summary": "CNN and Google have struck a multi-year partnership to help figure out how Google’s generative AI products can help boost engagement with its journalism. The deal appears to be early, as both sides have not revealed exactly how CNN will incorporate Google’s A…",
+      "url": "https://variety.com/2026/biz/news/cnn-google-multiyear-partnership-embrace-generative-ai-1236913151/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8376
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-15T16:35:55+00:00",
+      "source": "Sonyalpharumors.com",
+      "title": "New Sony 400mm and 600mm GM lenses are now shipping out in the US",
+      "summary": "The new lenses are now shipping out in the USA: Sony FE 400mm f/4.5 GM OSS at BHphoto, Amazon, Adorama, Fotokoch, FotoErhardt, FotoKöster, FotoLeistenscheider, Calumet, Clifton, WexUK, ParkUK. Sony FE 600mm f/6.3 GM OSS at BHphoto, Amazon, Adorama, Fotokoch, …",
+      "url": "https://www.sonyalpharumors.com/new-sony-400mm-and-600mm-gm-lenses-are-now-shipping-out-in-the-us/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9116
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-15T16:28:14+00:00",
+      "source": "Android Police",
+      "title": "Google Wallet's new card stack is confusing; here are 4 ways to fix it",
+      "summary": "Google Wallet's new card stack is confusing; here are 4 ways to fix itandroidpolice.com",
+      "url": "https://www.androidpolice.com/google-wallets-card-stack-confusing-4-ways-to-fix-it/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.5151
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-15T16:21:57+00:00",
+      "source": "Yahoo Entertainment",
+      "title": "Nicolas Cage says refusing to sign AI waiver for Spider-Noir could end his Amazon partnership",
+      "summary": "Nicolas Cage says refusing to sign AI waiver for Spider-Noir could end his Amazon partnershipyahoo.com",
+      "url": "https://www.yahoo.com/entertainment/movies/articles/nicolas-cage-says-refusing-sign-140700923.html",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5163
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-15T16:20:52+00:00",
+      "source": "Crypto Briefing",
+      "title": "Microsoft finishes pre-training MAI-Base-2, its next in-house foundation model",
+      "summary": "Microsoft's advancement in AI models could enhance its competitive edge, potentially transforming AI applications across its product ecosystem.\nThe post Microsoft finishes pre-training MAI-Base-2, its next in-house foundation model appeared first on Crypto Br…",
+      "url": "https://cryptobriefing.com/microsoft-completes-pre-training-mai-base-2/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8621
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-15T16:13:44+00:00",
+      "source": "Slashdot.org",
+      "title": "Microsoft says it made Windows 11 zippier, especially on PCs with less RAM",
+      "summary": "The whole RAM price thing is partly Microsoft's fault so it's the least it can do.",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186329142",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7109
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-15T16:11:44+00:00",
+      "source": "Breitbart News",
+      "title": "Consumer Alert: Recall Issued on Bottles of Amazon Basic Care Pain Relievers",
+      "summary": "Amazon has pulled more than 112,000 bottles of its Amazon Basic Care extra-strength acetaminophen after customers reported the tablets turned an unusual color.\nThe post Consumer Alert: Recall Issued on Bottles of Amazon Basic Care Pain Relievers appeared firs…",
+      "url": "https://www.breitbart.com/tech/2026/10/15/consumer-alert-recall-issued-on-bottles-of-amazon-basic-care-pain-relievers/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9575
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-15T16:05:00+00:00",
+      "source": "Betalist.com",
+      "title": "DOFOTT – Automatic travel time blocks added to Google Calendar events",
+      "summary": "Automatic travel time blocks added to Google Calendar events",
+      "url": "https://betalist.com/startups/dofott",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9057
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-15T15:51:33+00:00",
+      "source": "The Verge",
+      "title": "The best reason to care about Nvidia’s RTX Spark: ‘everything’ will run on Arm",
+      "summary": "Fourteen years ago this month, Microsoft released an Nvidia-powered Windows PC that would become one of the greatest tech flops in modern history. The original Microsoft Surface, which ran a stripped-down version of Windows on an Nvidia Tegra chip, bombed so …",
+      "url": "https://www.theverge.com/tech/1011705/nvidia-rtx-spark-everything-runs-on-arm",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8377
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-14T16:57:14+00:00",
       "source": "Dansdeals.com",
@@ -1705,150 +1849,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.4925
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-01T17:45:20+00:00",
-      "source": "Android Central",
-      "title": "Amazon's Kindle just got its biggest redesign in years, and there's a page-turn remote",
-      "summary": "Amazon has re-engineered its entire Kindle lineup for flush screens and faster page turns.",
-      "url": "https://www.androidcentral.com/tablets/amazons-kindle-just-got-its-biggest-redesign-in-years-and-theres-a-page-turn-remote",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7517
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-01T17:42:32+00:00",
-      "source": "The Times of India",
-      "title": "Giant Amazon water lily blooms in Shivalik Himalayas for first time",
-      "summary": "Giant Amazon water lily Victoria amazonica blooms for first time in Uttarakhand’s Shivalik Himalayas at BSI Dehradun after two years of cultivation efforts.",
-      "url": "https://timesofindia.indiatimes.com/city/dehradun/giant-amazon-water-lily-blooms-in-shivalik-himalayas-for-first-time/articleshow/134624906.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.617
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-01T17:34:56+00:00",
-      "source": "Amazon.com",
-      "title": "Build agent memory with NVIDIA NeMo Agent Toolkit and Amazon S3 Vectors",
-      "summary": "Learn how to use Amazon S3 Vectors as the persistent memory layer within the NVIDIA NeMo Agent Toolkit (NAT), deployed on Amazon Elastic Kubernetes Service (Amazon EKS). This post shows how NAT's memory subsystem works and how to implement Amazon S3 Vectors a…",
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-agent-memory-with-nvidia-nemo-agent-toolkit-and-amazon-s3-vectors/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9353
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-01T17:33:12+00:00",
-      "source": "The Times of India",
-      "title": "Bombay HC relief for actor Samantha Ruth Prabhu",
-      "summary": "Bombay High Court orders Google, Meta to remove AI deepfakes and unauthorized content misusing actor Samantha Ruth Prabhu’s name, image and voice.",
-      "url": "https://timesofindia.indiatimes.com/city/mumbai/bombay-hc-relief-for-actor-samantha-ruth-prabhu/articleshow/134624747.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9097
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-01T17:32:06+00:00",
-      "source": "Slashdot.org",
-      "title": "Heat-trapping gas once frozen in Arctic ground is slowly leaking and warming the planet - apnews.com",
-      "summary": "Heat-trapping gas once frozen in Arctic ground is slowly leaking and warming the planetapnews.com See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=185918940",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9396
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-01T17:26:27+00:00",
-      "source": "iPhone in Canada",
-      "title": "Former NFL Coach Spent 12 Years Building This Massive Minecraft City",
-      "summary": "Former Pittsburgh Steelers head coach Mike Tomlin is showing off a very different kind of long-term project: a sprawling Minecraft city he has been building for more than 12 years. The first YouTube episode documenting the project was released yesterday and i…",
-      "url": "https://www.iphoneincanada.ca/2026/10/01/former-nfl-coach-spent-12-years-building-this-massive-minecraft-city/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9242
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-01T17:14:36+00:00",
-      "source": "The Times of India",
-      "title": "Former LinkedIn chief Ryan Roslansky to leave Microsoft",
-      "summary": "Ryan Roslansky, who headed Microsoft's M365 apps, has decided to leave the company. He previously served as LinkedIn CEO until this year, after stepping down from that role. His departure is due to the requirement of being based full-time in Redmond, while hi…",
-      "url": "https://economictimes.indiatimes.com/news/international/business/former-linkedin-chief-ryan-roslansky-to-leave-microsoft/articleshow/134624455.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.6125
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-01T17:10:36+00:00",
-      "source": "The Times of India",
-      "title": "Immigration experts concerned over delays in H-1B extension for Microsoft, Cognizant, Infosys: 'There has been no clarification'",
-      "summary": "Immigration attorneys Rahul Reddy and Emily Neumann expressed concern over some tech companies experiencing difficulties in getting H-1B extensions for",
-      "url": "https://timesofindia.indiatimes.com/world/us/immigration-experts-concerned-over-delays-in-h-1b-extension-for-microsoft-cognizant-infosys-there-has-been-no-clarification/articleshow/134624267.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9584
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-01T17:04:32+00:00",
-      "source": "Jablickar.cz",
-      "title": "Používáte Office 2021? Jeho podpora brzy skončí, nástupce je nyní výrazně levnější",
-      "summary": "Komerční sdělení: The countdown has begun. On October 13, 2026, Microsoft will officially end support for Office 2021. After that date, the software will no longer receive security updates, bug fixes, or technical support. While Office 2021 will continue to r…",
-      "url": "https://jablickar.cz/pouzivate-office-2021-jeho-podpora-brzy-skonci-nastupce-je-nyni-vyrazne-levnejsi/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5167
       },
       "sentiment_model": "ProsusAI/finbert"
     }
