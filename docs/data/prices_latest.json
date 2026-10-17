@@ -1,14 +1,8 @@
 {
-  "as_of": "2026-10-16T00:36:09.675555+00:00",
+  "as_of": "2026-10-17T00:41:30.037474+00:00",
   "window_days": 30,
   "series": {
     "AMZN": [
-      {
-        "date": "2026-09-17",
-        "close": 251.19,
-        "adj_close": 251.19,
-        "volume": 30438800
-      },
       {
         "date": "2026-09-18",
         "close": 253.71,
@@ -127,144 +121,144 @@
         "date": "2026-10-15",
         "close": 254.76,
         "adj_close": 254.76,
-        "volume": 34505700
+        "volume": 34564200
+      },
+      {
+        "date": "2026-10-16",
+        "close": NaN,
+        "adj_close": null,
+        "volume": 39042387
       }
     ],
     "GOOGL": [
       {
-        "date": "2026-09-17",
-        "close": 347.33,
-        "adj_close": 347.33,
-        "volume": 19238400
-      },
-      {
         "date": "2026-09-18",
-        "close": 349.54,
-        "adj_close": 349.54,
-        "volume": 47631800
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-09-21",
-        "close": 354.97,
-        "adj_close": 354.97,
-        "volume": 30455400
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-09-22",
-        "close": 351.16,
-        "adj_close": 351.16,
-        "volume": 29788600
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-09-23",
-        "close": 337.83,
-        "adj_close": 337.83,
-        "volume": 35576200
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-09-24",
-        "close": 342.36,
-        "adj_close": 342.36,
-        "volume": 23777200
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-09-25",
-        "close": 343.92,
-        "adj_close": 343.92,
-        "volume": 21880800
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-09-28",
-        "close": 342.75,
-        "adj_close": 342.75,
-        "volume": 19318300
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-09-29",
-        "close": 340.92,
-        "adj_close": 340.92,
-        "volume": 21066900
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-09-30",
-        "close": 344.08,
-        "adj_close": 344.08,
-        "volume": 37373700
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-10-01",
-        "close": 338.24,
-        "adj_close": 338.24,
-        "volume": 33269300
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-10-02",
-        "close": 343.5,
-        "adj_close": 343.5,
-        "volume": 23772100
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-10-05",
-        "close": 346.47,
-        "adj_close": 346.47,
-        "volume": 25630600
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-10-06",
-        "close": 347.68,
-        "adj_close": 347.68,
-        "volume": 18715600
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-10-07",
-        "close": 350.5,
-        "adj_close": 350.5,
-        "volume": 20911600
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-10-08",
-        "close": 348.29,
-        "adj_close": 348.29,
-        "volume": 23511100
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-10-09",
-        "close": 351.66,
-        "adj_close": 351.66,
-        "volume": 17281500
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-10-12",
-        "close": 352.72,
-        "adj_close": 352.72,
-        "volume": 19076400
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-10-13",
-        "close": 353.78,
-        "adj_close": 353.78,
-        "volume": 23207700
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-10-14",
-        "close": 347.64,
-        "adj_close": 347.64,
-        "volume": 28018500
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       },
       {
         "date": "2026-10-15",
-        "close": 349.22,
-        "adj_close": 349.22,
-        "volume": 21287700
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
+      },
+      {
+        "date": "2026-10-16",
+        "close": NaN,
+        "adj_close": null,
+        "volume": null
       }
     ],
     "MSFT": [
-      {
-        "date": "2026-09-17",
-        "close": 497.75,
-        "adj_close": 497.75,
-        "volume": 17841600
-      },
       {
         "date": "2026-09-18",
         "close": 493.78,
@@ -383,7 +377,13 @@
         "date": "2026-10-15",
         "close": 539.44,
         "adj_close": 539.44,
-        "volume": 24132000
+        "volume": 24151200
+      },
+      {
+        "date": "2026-10-16",
+        "close": NaN,
+        "adj_close": null,
+        "volume": 24111877
       }
     ]
   }
