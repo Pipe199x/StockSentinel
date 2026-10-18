@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-10-17T15:33:01.534820+00:00",
+  "as_of": "2026-10-18T15:50:50.397823+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-17T15:48:00+00:00",
+      "source": "Futurism",
+      "title": "Amazon Has Now Deployed Over 1 Million Robots, Which Is Bad News for Its 1.5 Million Workers",
+      "summary": "\"Amazon likes to talk about its latest robots because it doesn't want to talk about the tens of thousands of Amazon workers who are injured every year.\"\nThe post Amazon Has Now Deployed Over 1 Million Robots, Which Is Bad News for Its 1.5 Million Workers appe…",
+      "url": "https://futurism.com/future-society/amazon-robotics-automation-warehouse-labor-safety",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.96
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-17T15:33:19+00:00",
+      "source": "Slashdot.org",
+      "title": "Why are some locations blurred out on Google Maps?",
+      "summary": "When using Google Maps, it isn't rare to see blurred locations. Why does this happen? The answer is simple, and it has everything to do with security.",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186350686",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8719
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-17T15:33:08+00:00",
+      "source": "Slashdot.org",
+      "title": "The dress rehearsal for an AI reckoning - Financial Times",
+      "summary": "The dress rehearsal for an AI reckoningFinancial Times Wall St Week Ahead As AI rally wobbles, stock market's spotlight turns to earningsReuters The AI Sell-Off: Just A Wobble Or Something More Serious?Seeking Alpha Microsoft, Shopify and 3 more AI stocks tha…",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186350680",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8746
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-17T15:18:51+00:00",
+      "source": "BleepingComputer",
+      "title": "Hackers breach Microsoft 365 tenants via ConnectWise supply-chain attack",
+      "summary": "ConnectWise has shut down customer access to its Cloud Backup service (formerly SkyKick Cloud Backup) after hackers accessed application identities and compromised Microsoft 365 tenants. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9466
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-17T15:12:56+00:00",
+      "source": "Slashdot.org",
+      "title": "Common problems with Amazon Alexa and how to fix them",
+      "summary": "Amazon Alexa is a very useful gadget to have at home, but it isn't exempt from having some issues. Fortunately, troubleshooting is easy as pie.",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186350574",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8698
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-17T15:04:26+00:00",
+      "source": "Mediatakeout.com",
+      "title": "Colin Kaepernick Accused Of R*pe On Graphic New Expose! (Receipts)",
+      "summary": "EXCLUSIVE: COLIN KAEPERNICK ACCUSER DROPS 12-PART YOUTUBE EXPOSÉ!! Releases Texts, Audio & Police Documents… Alleges Massive Police Cover-Up From 2014 Miami Incident!! (DETAILS) Just when former NFL star Colin Kaepernick thought he could navigate his national…",
+      "url": "https://mediatakeout.com/colin-kaepernick-accused-of-rpe-on-graphic-new-expose-receipts/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8343
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-17T15:00:00+00:00",
+      "source": "Ifixit.com",
+      "title": "This International Repair Day, iFixit and Google Have Something for Your Repair Café",
+      "summary": "One ThinkPad owner replaced the fan, refreshed the thermal paste, and reinstalled Windows. But their laptop still took minutes to boot. After installing ChromeOS Flex, it started in seconds. PCWorld’s…",
+      "url": "https://www.ifixit.com/News/119810/international-repair-day-2026",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9246
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-17T14:39:55+00:00",
+      "source": "Geeksaresexy.net",
+      "title": "Daily Deals Drop: Hisense 55″ 4K Smart TV, LEGO Star Wars Chopper, $49.99 15.6 Inch Portable Monitor, and MORE! Saturday Steals!",
+      "summary": "For today’s daily deals drop (October 17, 2026) here are some of the best deals we stumbled on while browsing the web this morning! Please note that Geeks are Sexy might get a small commission from qualifying purchases done through our posts. As an Amazon Ass…",
+      "url": "https://www.geeksaresexy.net/2026/10/17/daily-deals-drop-hisense-55-4k-smart-tv-lego-star-wars-chopper-49-99-15-6-inch-portable-monitor-and-more-saturday-steals/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8592
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-17T14:00:00+00:00",
+      "source": "PCMag.com",
+      "title": "Mozilla Is Calling Out Microsoft for Forcing Edge on Users, and It's Absolutely Right",
+      "summary": "Windows 11 constantly tries to nudge you toward Microsoft's browser. It's time for the tech giant to start respecting user choice.\nIf you've ever used Windows 11, it's no secret that the OS prioritizes Edge over competing browsers. But Mozilla doesn't think y…",
+      "url": "https://uk.pcmag.com/migrated-3765-windows-10/167981/mozilla-is-calling-out-microsoft-for-forcing-edge-on-users-and-its-absolutely-right",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8164
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-16T15:29:01+00:00",
       "source": "9to5Mac",
@@ -1703,152 +1847,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.8068
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-03T16:48:00+00:00",
-      "source": "Droid Life",
-      "title": "Pixel Owners Vent Over Forced Switch From Google Assistant to Gemini",
-      "summary": "To kickoff the week, Google made a big final push to rid remaining Android devices of Google Assistant and switch them to Gemini. Since Gemini is the all powerful AI tool and Google has bet its entire future on it, the idea here is that this is an upgrade ove…",
-      "url": "https://www.droid-life.com/2026/10/03/pixel-owners-vent-over-forced-switch-from-google-assistant-to-gemini/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8289
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-03T16:40:43+00:00",
-      "source": "Android Police",
-      "title": "Google Pixel 11 Pro Fold's hidden feature is fueling my Pokémon Go addiction",
-      "summary": "Google Pixel 11 Pro Fold's hidden feature is fueling my Pokémon Go addictionandroidpolice.com",
-      "url": "https://www.androidpolice.com/googles-private-space-play-pokmon-go-on-both-sides-of-pixel-fold/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9338
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-03T16:30:34+00:00",
-      "source": "Gadget Flow",
-      "title": "Amazon Kindle Colorsoft Signature Edition",
-      "summary": "The Kindle Colorsoft Signature Edition puts a 7-inch paper-like color screen in a thinner aluminum body, so comics and graphic novels finally show up in full color. Color display: The glare-free screen shows color at 150 ppi and black-and-white text..\nThe pos…",
-      "url": "https://thegadgetflow.com/product/amazon-kindle-colorsoft-signature-edition-color-ereader/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9398
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-03T16:24:59+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Ice Airport Alaska S06 720p AMZN WEB-DL H264-RAWR",
-      "summary": "Ted Stevens Airport in Anchorage, AK, relies on a diverse team to manage operations and overcome weather challenges. This includes Air Traffic Controllers, Mechanics, Police, Firefighters, and many other dedicated personnel ensuring. Links: HOMEPAGE – iMDBIce…",
-      "url": "https://post.rlsbb.cc/ice-airport-alaska-s06-720p-amzn-web-dl-h264-rawr/",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9245
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-03T16:12:16+00:00",
-      "source": "Slashdot.org",
-      "title": "Google AI Plus and free users are losing access to Gemini models, and it's happening very soon - XDA",
-      "summary": "Google AI Plus and free users are losing access to Gemini models, and it's happening very soonXDA  Just days after Gemini Argon launch, Google updates AI plans to limit free use significantlyNeowin  Google's Free and Plus Gemini Accounts Are About to Get Nerf…",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186014230",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9359
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-03T16:05:43+00:00",
-      "source": "Werd.io",
-      "title": "Amazon tries to placate data center protesters",
-      "summary": "Amazon's concessions indicate that data center protests are working. But the company is offering less than pocket change.",
-      "url": "https://werd.io/amazon-tries-to-placate-data-center-protesters/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8031
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-03T15:13:45+00:00",
-      "source": "ComicBook.com",
-      "title": "Gears of War: E-Day Has a Problem Already, and It’s Not Even Fully Out Yet",
-      "summary": "Gears of War: E-Day is out in early access ahead of its full launch on October 6 via Xbox Series X, Xbox Series S, and PC. And when it releases, it will be available via Xbox Game Pass Ultimate and PC Game Pass, a boost the Microsoft subscription service need…",
-      "url": "http://comicbook.com/gaming/news/gears-of-war-e-day-xbox-series-x-pc-multiplayer-problem/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7611
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-03T14:36:33+00:00",
-      "source": "Internet",
-      "title": "Warlock Exploits SharePoint Flaws to Disable Security Tools and Deploy Ransomware",
-      "summary": "The suspected China-linked threat actor known as Warlock is still continuing to weaponize Microsoft SharePoint vulnerabilities, likely both old and new, in attacks targeting organizations in Portuguese- and Spanish-speaking countries.\n\nThe activity, observed …",
-      "url": "https://thehackernews.com/2026/10/warlock-exploits-sharepoint-flaws-to.html",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.7537
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-03T09:26:04+00:00",
-      "source": "Securityaffairs.com",
-      "title": "Antino Backdoor Lets China-Linked UAT-11587 Turn Microsoft 365 Into a C2 Channel",
-      "summary": "Cisco Talos details UAT-11587, a China-linked group using the Antino backdoor and Microsoft 365 as cover to spy on Asian governments. Cisco Talos has been tracking a cluster of espionage activity since September 2025 that it calls UAT-11587, and by July 2026 …",
-      "url": "https://securityaffairs.com/200264/apt/antino-backdoor-uses-your-inbox-as-its-control-panel.html",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9161
       },
       "sentiment_model": "ProsusAI/finbert"
     }
