@@ -1,7 +1,155 @@
 {
-  "as_of": "2026-10-18T15:50:50.397823+00:00",
+  "as_of": "2026-10-19T18:43:04.827290+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-18T18:31:08+00:00",
+      "source": "The Times of India",
+      "title": "Fake e-challan app drains Rs 15,345 from resident",
+      "summary": "Chandigarh resident lost Rs 15,345 after downloading a fake e-challan app via message link; three unauthorized Google Play recharge transactions reported to cyber cell.",
+      "url": "https://timesofindia.indiatimes.com/city/chandigarh/fake-e-challan-app-drains-rs-15345-from-resident/articleshow/135034075.cms",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9166
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-18T18:22:06+00:00",
+      "source": "Entrepreneur",
+      "title": "Spend Less Time Debugging With Microsoft Visual Studio 2026 for $30",
+      "summary": "Spend Less Time Debugging With Microsoft Visual Studio 2026 for $30entrepreneur.com",
+      "url": "https://www.entrepreneur.com/business-news/tech/spend-less-time-debugging-with-microsoft-visual-studio-2026-for-30",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8835
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-18T18:20:06+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Night Terror 2026 1080p AMZN WEB-DL H264-BobDobbs",
+      "summary": "Plot: A woman battles lifelong sleep paralysis while living in rural Illinois. As nightly episodes worsen her mental state, paranormal investigators suggest her condition may have supernatural origins. Genre: HorrorIMDB Rating Live: IMDB Rating: 4.5/10 From 6…",
+      "url": "https://post.rlsbb.cc/night-terror-2026-1080p-amzn-web-dl-h264-bobdobbs/",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7686
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-18T18:20:06+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Final Orbit 2026 1080p AMZN WEB-DL H264-BobDobbs",
+      "summary": "Plot: Across a dying Earth and the far reaches of space, humanity faces its final tests. Stranded astronauts, desperate survivors, conflicted pilots and an isolated diplomat must decide what is worth saving before time runs out. Genre: Sci-FiIMDB Rating Live:…",
+      "url": "https://post.rlsbb.cc/final-orbit-2026-1080p-amzn-web-dl-h264-bobdobbs/",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9069
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-18T18:07:11+00:00",
+      "source": "Dailymail.com",
+      "title": "Microsoft pulls out of AI deal for UK data centre firm in move that could deprive Nick Clegg of £30million payout",
+      "summary": "The American tech giant was due to be the 'anchor tenant' at the AI infrastructure company's first planned UK site in Loughton, Essex, where it had agreed to rent 23,000 high-end AI chips.",
+      "url": "https://www.dailymail.com/news/article-16218555/Microsoft-pulls-AI-deal-UK-data-centre-firm-deprive-Nick-Clegg-30million-payout.html",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9192
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-18T18:00:36+00:00",
+      "source": "disneyfoodblog.com",
+      "title": "You Can Save Up to 60% on These Disney Essentials If You Get to Amazon Fast",
+      "summary": "Hurry! These Amazon deals on Disney souvenirs and vacation essentials won't last forever!",
+      "url": "https://www.disneyfoodblog.com/2026/10/18/you-can-save-up-to-60-on-these-disney-essentials-if-you-get-to-amazon-fast/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.911
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-18T17:53:13+00:00",
+      "source": "Crypto Briefing",
+      "title": "TeraWulf secures Google backing for its Lake Mariner data center campus",
+      "summary": "Google's backing of TeraWulf's data center could accelerate AI infrastructure growth, influencing tech investment and energy strategies.\nThe post TeraWulf secures Google backing for its Lake Mariner data center campus appeared first on Crypto Briefing.",
+      "url": "https://cryptobriefing.com/terawulf-google-backing-lake-mariner/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8772
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-18T17:47:00+00:00",
+      "source": "BGR",
+      "title": "Notification Lights On Google Pixel Phones Are Leaving Users Unimpressed",
+      "summary": "Your Pixel can light up to tell you who's calling, but Google gives you surprisingly few ways to use those lights. Some owners are tired of waiting for more.",
+      "url": "https://www.bgr.com/2286066/google-pixel-notification-light-leaves-users-unimpressed/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7249
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-18T17:44:00+00:00",
+      "source": "Techpowerup.com",
+      "title": "New Xbox Job Listing Hints at Physical Games Possibly Sticking Around",
+      "summary": "Microsoft has posted a job listing for an \"Xbox Games Supply Strategist,\" and the role revolves entirely around physical games. The full-time, Redmond-based position went live on October 14 and was spotted by users on X a few days later. The new hire will joi…",
+      "url": "https://www.techpowerup.com/353848/new-xbox-job-listing-hints-at-physical-games-possibly-sticking-around",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9224
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-17T15:48:00+00:00",
       "source": "Futurism",
