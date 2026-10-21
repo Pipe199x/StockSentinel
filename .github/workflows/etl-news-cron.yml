@@ -68,6 +68,9 @@ jobs:
           echo "=== docs/data ==="
           ls -lR docs/data
 
+      - name: Verify published JSON is strict JSON (no NaN)
+        run: python -m etl_common.check_json docs/data
+
       - name: Commit & push data
         run: |
           set -euo pipefail

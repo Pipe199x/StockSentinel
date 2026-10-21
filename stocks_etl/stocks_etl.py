@@ -173,6 +173,12 @@ def main(cfg):
     if df.empty:
         raise SystemExit("yfinance returned no data for any symbol")
 
+    # A failed download comes back as an all-NaN column, not an exception.
+    # A ticker with zero valid closes must fail the run, never publish a null series.
+    no_prices = [s for s in symbols if df.loc[df["ticker"] == s, "close"].notna().sum() == 0]
+    if no_prices:
+        raise SystemExit(f"yfinance returned no valid prices for {no_prices}")
+
     # === Resumen para verificación ===
     if not df.empty:
         min_d, max_d = df["date"].min(), df["date"].max()

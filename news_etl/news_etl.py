@@ -113,7 +113,7 @@ def write_ndjson(path: str, items: Iterable[Dict[str, Any]]) -> Path:
     _ensure_parent(p)
     with p.open("w", encoding="utf-8") as f:
         for obj in items:
-            f.write(json.dumps(obj, ensure_ascii=False) + "\n")
+            f.write(json.dumps(obj, ensure_ascii=False, allow_nan=False) + "\n")
     return p
 
 
@@ -307,7 +307,7 @@ def write_latest_json(path: str, items: List[Dict[str, Any]], today: datetime, w
         "window_days": window_days,
         "articles": items,
     }
-    p.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    p.write_text(json.dumps(payload, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     return p
 
 # =============================

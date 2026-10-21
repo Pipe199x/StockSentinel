@@ -21,6 +21,8 @@ def write_prices_latest_json(df: pd.DataFrame, path: str, window_days: int = 30)
     series = {}
     for tkr, dfg in recent.groupby("ticker"):
         dfg = dfg.sort_values("date")
+        # yfinance failed downloads arrive as all-NaN rows; they say nothing
+        dfg = dfg[dfg["close"].notna()]
         series[tkr] = [
             {
                 "date": d.strftime("%Y-%m-%d"),
@@ -36,7 +38,7 @@ def write_prices_latest_json(df: pd.DataFrame, path: str, window_days: int = 30)
         "series": series,
     }
     _ensure_dir(path)
-    Path(path).write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    Path(path).write_text(json.dumps(payload, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     return path
 
 
@@ -44,7 +46,7 @@ def write_predictions_latest_json(preds: pd.DataFrame, path: str) -> str:
     preds = preds.drop(columns=["model"], errors="ignore")
     _ensure_dir(path)
     records = json.loads(preds.to_json(orient="records"))
-    Path(path).write_text(json.dumps(records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    Path(path).write_text(json.dumps(records, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     return path
 
 

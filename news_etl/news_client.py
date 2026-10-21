@@ -268,7 +268,7 @@ def run_cli():
     _ensure_parent(args.out)
     with open(args.out, "w", encoding="utf-8") as f:
         for r in all_rows:
-            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+            f.write(json.dumps(r, ensure_ascii=False, allow_nan=False) + "\n")
 
     if not all_rows:
         logging.warning("No se obtuvieron artículos; el archivo queda vacío.")

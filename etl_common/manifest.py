@@ -26,5 +26,5 @@ def update_manifest(path: str, section: str, payload: Dict[str, Any]) -> Path:
     except (FileNotFoundError, json.JSONDecodeError):
         manifest = dict(DEFAULT_MANIFEST)
     manifest[section] = payload
-    p.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    p.write_text(json.dumps(manifest, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     return p
