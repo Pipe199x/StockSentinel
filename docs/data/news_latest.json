@@ -1,7 +1,153 @@
 {
-  "as_of": "2026-10-20T17:01:54.661585+00:00",
+  "as_of": "2026-10-21T17:11:01.673292+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-20T17:09:00+00:00",
+      "source": "PRNewswire",
+      "title": "Personal AI Launches MODEL‑4, Building Personal Intelligence Directly Into the Network",
+      "summary": "An Operating System (OS) that lets telecommunications operators deliver personal intelligence to every subscriber, billed alongside talk, text, and data. MODEL‑4 brings together the critical layers of AI delivery with NVIDIA, Microsoft, Rafay, Cisco, and Tele…",
+      "url": "https://www.prnewswire.com/news-releases/personal-ai-launches-model4-building-personal-intelligence-directly-into-the-network-302914421.html",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.857
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-20T17:04:29+00:00",
+      "source": "TheWrap",
+      "title": "‘Elf on the Shelf’ Creators Bring Holiday Series to Netflix Later This Year",
+      "summary": "Lumistella's “Scout Elf Squad” will also be available on the “Elf on the Shelf” YouTube channel\nThe post ‘Elf on the Shelf’ Creators Bring Holiday Series to Netflix Later This Year appeared first on TheWrap.",
+      "url": "https://www.thewrap.com/creative-content/tv-shows/scout-elf-squad-elf-on-the-shelf-netflix/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9251
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-20T17:03:38+00:00",
+      "source": "Amazon.com",
+      "title": "Introducing Amazon ECS Gateway: A fully-managed ingress solution for ECS services",
+      "summary": "Try Amazon ECS Gateway, a new account-level resource that simplifies ingress networking for containerized workloads by dynamically provisioning and managing the necessary infrastructure on your behalf, with all resources created directly in your account.",
+      "url": "https://aws.amazon.com/blogs/aws/introducing-amazon-ecs-gateway-a-fully-managed-ingress-solution-for-ecs-services/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7687
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-20T17:00:47+00:00",
+      "source": "Help Net Security",
+      "title": "Chrome flags malicious commands that scammers pass off as fixes",
+      "summary": "Google is updating Chrome’s Enhanced Protection mode to detect scam websites and warn users when a page tricks them into copying a malicious command. The company introduced Enhanced Protection for Chrome’s Safe Browsing feature in 2020 to address online scams…",
+      "url": "https://www.helpnetsecurity.com/2026/10/20/google-chrome-enhanced-protection-updates/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.643
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-20T17:00:00+00:00",
+      "source": "9to5google.com",
+      "title": "Google says Chrome’s Safe Browsing Enhanced Protection mode makes users 10x safer",
+      "summary": "Chrome today announced the latest features for Safe Browsing Enhanced Protection. Google says this mode makes users ten times safer from phishing, social engineering, notification abuse, and other scams compared to Standard Protection.\n\n\n\n more…",
+      "url": "http://9to5google.com/2026/10/20/safe-browsing-enhanced-protection-updates/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7415
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-20T16:52:59+00:00",
+      "source": "Slashdot.org",
+      "title": "AMD and Microsoft announce FSR 4.1 support for Xbox Series X|S and Xbox Ally, bringing huge performance gains - Windows Central",
+      "summary": "AMD and Microsoft announce FSR 4.1 support for Xbox Series X|S and Xbox Ally, bringing huge performance gainsWindows Central AMD is bringing FSR 4.1 to Xbox consoles and handheldsThe Verge AMD and Microsoft Bring FSR 4.1 to Xbox Series X|S, FSR Diamond Teased…",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186385862",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8869
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-20T16:52:37+00:00",
+      "source": "MobileSyrup",
+      "title": "Amazon Canada to hire 9,000 seasonal workers for the holidays",
+      "summary": "Amazon has announced plans to hire 9,000 seasonal employees in Canada this holiday season. The e-commerce giant is looking to fill roles across 55 Canadian sites, including fulfillment centres, sortation centres, and delivery stations. It adds that the averag…",
+      "url": "https://mobilesyrup.com/2026/10/20/amazon-canada-to-hire-9000-seasonal-workers-for-the-holidays/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5163
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-20T16:52:23+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Mag Mag 2026 1080p AMZN WEB-DL H264-cinepth",
+      "summary": "Awards 1 win & 1 nomination total See more awards » Plot: After her beloved is killed by the Mag Mag ghost, the protagonist, Sanae, vows revenge, but soon discovers the true identity of the person she truly owes her revenge to. Genre: Comedy | HorrorIMDB Rati…",
+      "url": "https://post.rlsbb.cc/mag-mag-2026-1080p-amzn-web-dl-h264-cinepth/",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9073
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-20T16:17:04+00:00",
+      "source": "Windows Central",
+      "title": "Microsoft walks away from flagship UK AI data center project",
+      "summary": "The planned Essex facility was expected to become one of the UK's largest AI data centers. It has now reportedly lost Microsoft's involvement and may not receive enough power until 2030.",
+      "url": "https://www.windowscentral.com/microsoft/microsoft-is-no-longer-involved-in-a-planned-uk-ai-data-center-thats-still-waiting-for-power",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8817
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-19T17:00:40+00:00",
       "source": "Thurrott.com",
@@ -1847,150 +1993,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.6835
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-06T18:55:48+00:00",
-      "source": "pymnts.com",
-      "title": "CrowdStrike Launches Startup Accelerator to Combat AI-Related Threats",
-      "summary": "CrowdStrike says it is seeking applicants for its fourth annual Cybersecurity Startup Accelerator. The program, run in tandem with Nvidia and Amazon Web Services (AWS), is designed for “startups building the future of cybersecurity for the agentic era,” Crowd…",
-      "url": "https://www.pymnts.com/cybersecurity/2026/crowdstrike-launches-startup-accelerator-to-combat-ai-related-threats/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6194
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-06T18:53:42+00:00",
-      "source": "Slashdot.org",
-      "title": "Amazon kills Alexa’s ability to control Echo speakers' AUX input",
-      "summary": "Amazon hasn't made an Echo with a 3.5mm port in six years.",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186052686",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8375
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-06T18:52:25+00:00",
-      "source": "Amazon.com",
-      "title": "Improving SPIRE security and resiliency with AWS managed services",
-      "summary": "In cloud-centered environments, establishing trust between workloads is fundamental to securing machine-to-machine communication. Traditional approaches such as API keys, shared secrets, and static service account credentials weren’t designed for the scale an…",
-      "url": "https://aws.amazon.com/blogs/security/improving-spire-security-and-resiliency-with-aws-managed-services/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8786
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-06T18:47:33+00:00",
-      "source": "Droid Life",
-      "title": "Everything Fixed in October Pixel Update",
-      "summary": "Google is pushing out the October Pixel update, and inside, there’s a short list of fixes that Pixel owners should know about. We heard rumblings that folks were having issues with a few bugs on devices after the latest update, so hopefully the below list add…",
-      "url": "https://www.droid-life.com/2026/10/06/everything-fixed-in-october-pixel-update/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5046
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-06T18:43:14+00:00",
-      "source": "Yahoo Entertainment",
-      "title": "Oku Digital Health Launches From Topcon Healthcare to Transform Eye Care Into Whole-Body Health",
-      "summary": "Built on Topcon's Global Diagnostic Network and Microsoft Azure Cloud, Oku Operationalizes Healthcare from the Eye™ Across 10,000+ Connected SitesLA JOLLA, C...",
-      "url": "https://finance.yahoo.com/healthcare/articles/oku-digital-health-launches-topcon-130500095.html",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8281
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-06T18:38:55+00:00",
-      "source": "Internet",
-      "title": "Fake ChatGPT, Gemini, and Claude Ad Portals Capture Credentials and MFA Codes",
-      "summary": "Cybersecurity researchers have disclosed details of a \"human-operated phishing platform\" that impersonates advertising products for artificial intelligence (AI) chatbots like Google Gemini, Anthropic Claude, OpenAI ChatGPT, Perplexity, Meta Muse, and Manus.\n\n…",
-      "url": "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9141
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-06T18:33:42+00:00",
-      "source": "Slashdot.org",
-      "title": "Google Photos vs. Gallery app: What's the difference and which should you use?",
-      "summary": "We compare Google's Photos and Gallery apps, so you can decide which one to use.",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186052566",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9283
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-06T18:00:00+00:00",
-      "source": "PCMag.com",
-      "title": "Microsoft Surface and Windows Event 2026: All the Announcements and Analysis Live From San Francisco",
-      "summary": "We expect to learn fresh details about the Surface Laptop Ultra, the next chapter for Windows, and the future of Copilot at Microsoft's fall event. Follow along with all of our expert commentary and on-the-ground updates from San Francisco.\nSAN FRANCISCO—In w…",
-      "url": "https://uk.pcmag.com/laptops/167696/microsoft-surface-and-windows-event-2026-all-the-announcements-and-analysis-live-from-san-francisco",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.934
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-06T17:36:15+00:00",
-      "source": "Thurrott.com",
-      "title": "C# Dev Kit 11 to Arrive with .NET 11",
-      "summary": "Microsoft says it will upgrade C# Dev Kit from version 3.3 to 11, aligning it with .NET for the first time.\nThe post C# Dev Kit 11 to Arrive with .NET 11 appeared first on Thurrott.com.",
-      "url": "https://www.thurrott.com/dev/342515/c-dev-kit-11-to-arrive-with-net-11",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5262
       },
       "sentiment_model": "ProsusAI/finbert"
     }
