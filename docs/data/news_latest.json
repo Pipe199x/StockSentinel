@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-10-22T17:09:50.727831+00:00",
+  "as_of": "2026-10-23T17:05:19.515302+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-22T16:58:02+00:00",
+      "source": "Amazon.com",
+      "title": "CVE-2026-115416 - Incorrect authorization checks in Amazon Athena engine version 3 query processing",
+      "summary": "Bulletin ID: 2026-144-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/22/2026 09:30 AM PDT \nDescription: \nAmazon Athena is an interactive query service that allows you to analyze data in Amazon S3 using standard SQL. We identi…",
+      "url": "https://aws.amazon.com/security/security-bulletins/2026-144-aws/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9484
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-22T16:54:53+00:00",
+      "source": "Techpowerup.com",
+      "title": "Microsoft Warns AI Agents Can't Be Trusted, But Continues Adoption",
+      "summary": "Microsoft is one of the few companies evaluating the dangers of AI while simultaneously implementing the latest features across its product portfolio with cutting-edge designs, advanced models, and top-tier frameworks. However, this doesn't mean the company i…",
+      "url": "https://www.techpowerup.com/354034/microsoft-warns-ai-agents-cant-be-trusted-but-continues-adoption",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8414
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-22T16:51:39+00:00",
+      "source": "TechCrunch",
+      "title": "Chinese hackers spied on thousands of companies after breaching IT giant ConnectWise | TechCrunch",
+      "summary": "Microsoft points the blame for ConnectWise's breach at a China-aligned hacker, which relied on AI agents to rapidly hack into thousands of its customers.",
+      "url": "https://techcrunch.com/2026/10/22/chinese-hackers-spied-on-thousands-of-companies-after-breaching-it-giant-connectwise/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9182
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-22T16:49:48+00:00",
+      "source": "The Verge",
+      "title": "The disastrous PHP vulnerabilities were exploited days before the patch",
+      "summary": "Hackers attempted to exploit the PHP flaws impacting sites across the web days before they were patched, according to a report from Amazon Threat Intelligence. CJ Moses, Amazon chief information security officer, writes that the company's security team found …",
+      "url": "https://www.theverge.com/tech/1016798/php-vulnerabilities-exploit-patch",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9032
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-22T16:49:27+00:00",
+      "source": "Deadline",
+      "title": "FIFA Opens World Cup Bidding For 2030 With Netflix, YouTube Among Suitors",
+      "summary": "After a record-setting World Cup last summer, FIFA has officially opened the bidding for U.S. rights to the 2030 edition of the men’s soccer tournament. The auction will also include a potential option for 2034, according to press reports Thursday. Thanks in …",
+      "url": "http://deadline.com/2026/10/fifa-opens-world-cup-bidding-2030-netflix-youtube-1237170779/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6615
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-22T16:43:05+00:00",
+      "source": "Boredpanda.com",
+      "title": "Amazon Exec Accused Of Disturbing Crime Against Female Employee On Trip, Company Allegedly Covered It Up",
+      "summary": "Danbom alleged Amazon investigators asked re-traumatizing questions about whether she had yelled “no” during the alleged incident.",
+      "url": "https://www.boredpanda.com/amazon-executive-accused-crime-against-female-employee-business-trip-cover-up/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9014
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-22T16:42:41+00:00",
+      "source": "redmondpie.com",
+      "title": "Google Maps Brings Gemini To Apple CarPlay",
+      "summary": "Google Maps brings Gemini to Apple CarPlay, adding AI-powered assistance to navigation.\nThe post Google Maps Brings Gemini To Apple CarPlay first appeared on Redmond Pie.",
+      "url": "https://www.redmondpie.com/google-maps-brings-gemini-to-apple-carplay/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.924
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-22T16:32:58+00:00",
+      "source": "Slashdot.org",
+      "title": "Sundar Pichai (allegedly) draws the line at oceans",
+      "summary": "President Trump claimed that the Google CEO refused to rename the Atlantic Ocean in Maps.",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186418028",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.5465
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-22T16:10:15+00:00",
+      "source": "Zscaler.com",
+      "title": "SEO Poisoning Campaign Delivers New Armorsteal Malware",
+      "summary": "IntroductionIn September 2026, Zscaler Threat Hunting identified an SEO poisoning campaign that used fake websites impersonating the Chocolatey package manager and the Microsoft Activation Scripts (MAS) tool to distribute a Python-based malware family we trac…",
+      "url": "https://www.zscaler.com/blogs/security-research/seo-poisoning-campaign-delivers-new-armorsteal-malware",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.82
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-21T17:08:21+00:00",
       "source": "Fortune",
@@ -1834,150 +1978,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.7371
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-08T18:19:30+00:00",
-      "source": "Crypto Briefing",
-      "title": "AWS CEO Matt Garman defends AI spending with a spread-out customer base",
-      "summary": "AWS's diversified customer base mitigates risk, supporting sustainable AI investment growth and positioning AWS as a key player in AI infrastructure.\nThe post AWS CEO Matt Garman defends AI spending with a spread-out customer base appeared first on Crypto Bri…",
-      "url": "https://cryptobriefing.com/aws-matt-garman-ai-investments-customers/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.8164
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-08T18:17:47+00:00",
-      "source": "The Times of India",
-      "title": "US President Donald Trump buys $1 million-plus stakes in Meta, Microsoft, McDonald’s; adds SpaceX debt",
-      "summary": "Donald Trump invested over $1 million in stocks of several major companies during August. Notable purchases included Meta Platforms, McDonald's, Microsoft, and space-related debt from SpaceX. His investment activities encompass trading in shares of Nvidia and…",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/us-president-donald-trump-buys-1-million-plus-stakes-in-meta-microsoft-mcdonalds-adds-spacex-debt/articleshow/134798553.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9176
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-08T18:12:19+00:00",
-      "source": "Slashdot.org",
-      "title": "US suspends Microsoft, major IT firms from key green card program - Reuters",
-      "summary": "US suspends Microsoft, major IT firms from key green card programReuters U.S. suspends Microsoft, Adobe from green-card labor program in foreign worker crackdownCNBC Trump plans to honor Microsoft’s CEO after Vance drops an H-1B visa hammer on the companyThe …",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186069248",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9374
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-08T18:12:08+00:00",
-      "source": "Slashdot.org",
-      "title": "Microsoft announces $6,000 price for Surface RTX Spark Dev Box with 128GB memory, $2000 more than AMD's Ryzen AI Halo - VideoCardz.com",
-      "summary": "Microsoft announces $6,000 price for Surface RTX Spark Dev Box with 128GB memory, $2000 more than AMD's Ryzen AI HaloVideoCardz.com Microsoft to sell $2,599 Surface Laptop Ultra containing Nvidia AI chipCNBC The tech industry wants you to run AI models at hom…",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186069244",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8819
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-08T18:11:07+00:00",
-      "source": "pymnts.com",
-      "title": "Walmart Defends Its Pricing as Amazon Kicks Off Holiday Sales",
-      "summary": "Amazon spent the week telling shoppers how much they could save. Walmart spent part of it explaining why consumers shouldn’t worry about how their prices are set. The contrast came as Amazon launched its Prime Big Deal Days event on Oct. 6-7, offering million…",
-      "url": "https://www.pymnts.com/news/retail/2026/walmart-defends-its-pricing-as-amazon-kicks-off-holiday-sales/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.5474
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-08T18:07:19+00:00",
-      "source": "TechRadar",
-      "title": "Amazon's Alexa Tablet could be the slate to win me back after my disappointing experience with the first-ever Kindle Fire",
-      "summary": "I owned the first-ever Kindle Fire Tablet, which was quickly relegated to my drawer of e-waste 15 years ago. Now, with the new Alexa Tablet, Amazon might be winning me back onside.",
-      "url": "https://www.techradar.com/tablets/i-had-immense-buyers-remorse-with-my-kindle-fire-tablet-but-amazons-new-alexa-tablet-might-be-the-gadget-to-win-me-back",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8009
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-08T18:05:52+00:00",
-      "source": "Droid Life",
-      "title": "Pixel 12 Series: Everything We Know About Google’s Next Phones",
-      "summary": "It feels a bit weird to start talking about the Pixel 12 series only a couple of months after Google officially gave us the Pixel 11 series, but that’s how this industry works. The story of the Pixel 12 and Pixel 12 Pro is already taking shape and we want you…",
-      "url": "https://www.droid-life.com/2026/10/08/pixel-12-series-everything-we-know-about-googles-next-phones/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9317
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-08T17:53:28+00:00",
-      "source": "Slashdot.org",
-      "title": "Congressional candidate says she was raped while repairing campaign signs - The Hill",
-      "summary": "Congressional candidate says she was raped while repairing campaign signsThe Hill See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186069120",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9282
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-08T17:42:52+00:00",
-      "source": "Fox News",
-      "title": "Country music singer Shane Smith puts his own spin on Johnny Cash's iconic 'Hurt' cover",
-      "summary": "Shane Smith posted a YouTube video covering \"Hurt,\" the iconic song originally written by Nine Inch Nails and famously covered by Johnny Cash.",
-      "url": "https://www.foxnews.com/outkick-culture/country-music-singer-shane-smith-puts-own-spin-johnny-cash-iconic-hurt-cover",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8613
       },
       "sentiment_model": "ProsusAI/finbert"
     }
