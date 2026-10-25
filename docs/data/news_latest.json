@@ -1,7 +1,151 @@
 {
-  "as_of": "2026-10-24T15:56:11.741884+00:00",
+  "as_of": "2026-10-25T16:15:51.479813+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-24T16:13:27+00:00",
+      "source": "Slashdot.org",
+      "title": "'The transit world is where innovation goes to die' — The U.S. lags far behind on using driverless trains, but new projects could open the floodgates - Fo",
+      "summary": "'The transit world is where innovation goes to die' &mdash; The U.S. lags far behind on using driverless trains, but new projects could open the floodgatesFortune See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186437998",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8634
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-24T16:04:47+00:00",
+      "source": "Crypto Briefing",
+      "title": "Sweden’s Government Offices blocks ChatGPT and Claude, approves Microsoft Copilot",
+      "summary": "Sweden's AI tool restrictions highlight growing concerns over data security, potentially influencing global public sector AI adoption strategies.\nThe post Sweden’s Government Offices blocks ChatGPT and Claude, approves Microsoft Copilot appeared first on Cryp…",
+      "url": "https://cryptobriefing.com/sweden-government-blocks-chatgpt-claude-copilot/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8798
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-24T16:01:03+00:00",
+      "source": "Decrypt",
+      "title": "Sweden's Government Offices Block ChatGPT and Claude, Keep Microsoft Copilot",
+      "summary": "Sweden's Government Offices will block ChatGPT and Claude on staff computers from Monday, steering civil servants to Microsoft Copilot as the only AI that passed its security review.",
+      "url": "https://decrypt.co/381763/sweden-government-offices-block-chatgpt-claude",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8917
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-24T16:00:00+00:00",
+      "source": "InfoQ.com",
+      "title": "Google Optimizes Agent Development Kit's 200K-line Python Codebase Overnight with Gemini 4 Argon",
+      "summary": "Google explained how an 11-hour unattended run of Gemini 4 Argon produced two accepted optimizations for Google Agent Development Kit's codebase, reducing in-memory session-preparation overhead by about 40% in long sessions and cold package import time by 21%…",
+      "url": "https://www.infoq.com/news/2026/10/google-argon-optimizes-adk/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.95
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-24T15:51:44+00:00",
+      "source": "Djangopackages.org",
+      "title": "django-staticgen",
+      "summary": "Push your django powered site to Amazon S3.",
+      "url": "https://www.djangopackages.org/packages/p/django-staticgen/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.939
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-24T15:20:36+00:00",
+      "source": "Crypto Briefing",
+      "title": "Amazon launches TorchNeuron to let AI developers run PyTorch code on Trainium chips",
+      "summary": "Amazon's TorchNeuron could disrupt the AI hardware market by reducing dependency on Nvidia, potentially lowering costs and increasing competition.\nThe post Amazon launches TorchNeuron to let AI developers run PyTorch code on Trainium chips appeared first on C…",
+      "url": "https://cryptobriefing.com/amazon-torchneuron-trainium-pytorch-nvidia/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.484
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-24T15:03:02+00:00",
+      "source": "MacRumors",
+      "title": "iPhone Duo Teardowns Reveal Two Batteries and More",
+      "summary": "The first iPhone Duo teardown videos have been shared by YouTube channels Phone Repair Guru and REWA Technology, providing us with a look inside the device.\n\n\n\n\n\niPhone Duo has two battery cells that can be removed with electrically-activated adhesive. There …",
+      "url": "https://www.macrumors.com/2026/10/24/iphone-duo-teardown-videos/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9445
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-24T14:12:00+00:00",
+      "source": "TVLine",
+      "title": "Carrie Boss Explains The Most Controversial Change The Show Made To Stephen King's Book",
+      "summary": "Showrunner Mike Flanagan explained why he made this major change to the story of Carrie in Amazon Prime's new adaptation of the novel, despite fan criticism.",
+      "url": "https://www.tvline.com/2290168/carrie-most-controversial-change-stephen-king-book-explained-showrunner/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8803
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-24T12:57:17+00:00",
+      "source": "Eurogamer.net",
+      "title": "Xbox's first chief operating officer Helen Chiang leaves Microsoft just three months into the job",
+      "summary": "Helen Chiang is leaving Microsoft just three months after becoming Xbox's first chief operating officer, according to a memo from CEO Asha Sharma.",
+      "url": "https://www.eurogamer.net/xbox-coo-helen-chiang-leaves-microsoft",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5565
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-23T15:54:03+00:00",
       "source": "9to5google.com",
@@ -1819,150 +1963,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.6157
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-10T17:30:14+00:00",
-      "source": "Golferinsight.com",
-      "title": "Crowd Erupts As Matsuyama Makes History On No. 15",
-      "summary": "Hideki Matsuyama drains a stunning 53-foot approach shot for birdie on No. 15, a highlight confirmed by Google News: PGA Tour coverage.",
-      "url": "https://golferinsight.com/the-crowd-erupts-as-matsuyama-makes-history-on-no-15/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8441
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-10T17:30:00+00:00",
-      "source": "Lezec.cz",
-      "title": "Jakob Schubert climbed a DNA 9c route live on YouTube",
-      "summary": "Austrian top climber Jakob Schubert climbed the 9c route “DNA” at La Ramirole in the Verdon Canyon in France today during a live broadcast on YouTube. This is believed to be the first repeat of a 9c route, and Jakob confirmed this difficulty ...",
-      "url": "https://lezec.cz/en/clanek.php?key=20603&utm_source=rss&utm_medium=link",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7826
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-10T17:25:00+00:00",
-      "source": "Jalopnik",
-      "title": "Google Maps Will Now Display Your Vehicle As A McLaren Formula 1 Race Car",
-      "summary": "Google and McLaren have partnered up to celebrate the United States GP in Austin and the upcoming Las Vegas Grand Prix with a tiny, digital race car.",
-      "url": "https://www.jalopnik.com/2279525/google-maps-vehicle-display-mclaren-formula-1-race-car/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8194
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-10T17:06:31+00:00",
-      "source": "Hollywood Reporter",
-      "title": "Nicolas Cage on True Detective, AI and Amazon After Spider-Noir",
-      "summary": "While appearing on a spotlight panel at NYCC on Saturday morning, the actor also joked that his next 'National Treasure' film would focus on the Epstein files: “That’s relevant.”",
-      "url": "http://www.hollywoodreporter.com/tv/tv-news/nicolas-cage-true-detective-anti-ai-amazon-spider-noir-1236726924/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8413
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-10T16:54:26+00:00",
-      "source": "Variety",
-      "title": "Nicolas Cage Says He’s ‘Probably Not’ Working With Amazon Again After Refusing to Sign AI Waiver for ‘Spider-Noir’: ‘I’m Not an AI-Friendly Actor’",
-      "summary": "Nicolas Cage is speaking out against Amazon after the company, which developed “Spider-Noir” for Prime Video, allegedly asked him to sign an AI waiver. “Amazon is a very AI-friendly company, to the tune of $50 billion invested in OpenAI,” Cage said Saturday d…",
-      "url": "https://variety.com/2026/tv/news/nicolas-cage-ai-waiver-amazon-spider-noir-1236907564/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.4432
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-10T16:44:53+00:00",
-      "source": "Slashdot.org",
-      "title": "ChatGPT, Gemini Call BS on Microsoft's PERM Program Ban 'Comment'",
-      "summary": "Asked to comment on the merits of the Microsoft Comment on Recent Immigration Questions, which was posted without attribution on the Microsoft On The Issues blog in response to the U.S. Government's suspension of Microsoft, Adobe, and IT outsourcing giants fr…",
-      "url": "https://slashdot.org/submission/17351414/chatgpt-gemini-call-bs-on-microsofts-perm-program-ban-comment",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.5161
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-10T16:32:00+00:00",
-      "source": "BGR",
-      "title": "What Is The AUX Port On Your Alexa Echo Speakers For?",
-      "summary": "You may have noticed your Amazon Echo Speakers have an AUX port, but what purpose does the AUX port serve on your Echo device of choice?",
-      "url": "https://www.bgr.com/2278044/aux-port-amazon-alexa-uses-explained/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9221
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-10T15:37:04+00:00",
-      "source": "Freerepublic.com",
-      "title": "Rep. Pramila Jayapal - Statement on Trump Suspending Microsoft from the PERM Program",
-      "summary": "Statement on Trump Suspending Microsoft from the PERM Program: This is a crucial issue for me as the top Democrat on the Immigration Subcommittee, the only member of Congress to have actually had an H-1B visa, and the Representative for tens of thousands of M…",
-      "url": "https://freerepublic.com/focus/f-chat/4398693/posts",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7776
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-10T14:54:01+00:00",
-      "source": "Crypto Briefing",
-      "title": "Microsoft’s AI economics shift as Azure grows 43% in fiscal Q4 2026",
-      "summary": "Microsoft's strategic AI investments are driving significant cloud growth, potentially reshaping the competitive landscape in cloud services.\nThe post Microsoft’s AI economics shift as Azure grows 43% in fiscal Q4 2026 appeared first on Crypto Briefing.",
-      "url": "https://cryptobriefing.com/microsoft-azure-43-percent-growth-ai-costs/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6913
       },
       "sentiment_model": "ProsusAI/finbert"
     }
