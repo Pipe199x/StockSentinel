@@ -1,7 +1,153 @@
 {
-  "as_of": "2026-10-25T16:15:51.479813+00:00",
+  "as_of": "2026-10-26T18:41:02.344918+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-25T18:34:00+00:00",
+      "source": "Slashdot.org",
+      "title": "Google Says Gmail and Photos Data Shared with AI Search Could Be Used for Targeted Ads",
+      "summary": "The blog Android Authority offers this TLDR:\n\nGoogle updated its privacy policy to clarify that it could use information shared through Personal Intelligence to personalize ads. Gmail, Drive, and Photos content isn't used for targeted ads by default, but conn…",
+      "url": "https://tech.slashdot.org/story/26/10/25/1528213/google-says-gmail-and-photos-data-shared-with-ai-search-could-be-used-for-targeted-ads",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.944
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-25T18:29:11+00:00",
+      "source": "The Times of India",
+      "title": "Ahmedabad: Fake cop extorts Rs 10k from couple",
+      "summary": "Ahmedabad: Fake cop Mohammad Hussain Shaikh arrested for allegedly extorting Rs 10,000 from a couple at Sabarmati Riverfront via threats and Google Pay.",
+      "url": "https://timesofindia.indiatimes.com/city/ahmedabad/ahmedabad-fake-cop-extorts-rs-10k-from-couple/articleshow/135196688.cms",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.87
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-25T18:14:17+00:00",
+      "source": "Windows Central",
+      "title": "Windows Wrap: Even Microsoft's own XBOX team didn't want Windows 11",
+      "summary": "A reported dispute inside Microsoft raises questions about whether Windows 11 is suitable for the company's next-generation XBOX plans.",
+      "url": "https://www.windowscentral.com/microsoft/windows-11/windows-11-is-apparently-so-bad-that-xbox-would-rather-cancel-hardware-than-be-forced-to-use-the-os",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9415
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-25T18:07:00+00:00",
+      "source": "InfoQ.com",
+      "title": "PHP Patches Two Critical RCE Flaws That Were Already Under Attack",
+      "summary": "PHP released 8.5.12, 8.4.27, 8.3.36, and 8.2.35 to fix two critical vulnerabilities allowing unauthenticated remote code execution. Amazon recorded an exploitation attempt four days before the patches shipped, and operators spent the day working out whether t…",
+      "url": "https://www.infoq.com/news/2026/10/php-critical-rce-patches/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5912
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-25T18:04:02+00:00",
+      "source": "Amodelrecommends.com",
+      "title": "The week I almost chopped my nipple off with a Youtube trophy...",
+      "summary": "...and other stories.",
+      "url": "https://www.amodelrecommends.com/p/the-week-i-almost-chopped-my-nipple",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8162
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-25T18:00:01+00:00",
+      "source": "disneyfoodblog.com",
+      "title": "Disney Jewelry on Amazon for People Who Don’t Want to Wear a Giant Mickey",
+      "summary": "Add a subtle touch of Disney to your outfit with these pieces of jewelry from Amazon!",
+      "url": "https://www.disneyfoodblog.com/2026/10/25/disney-jewelry-on-amazon-for-people-who-dont-want-to-wear-a-giant-mickey/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9276
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-25T17:45:00+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Hangar Rojo 2026 1080p AMZN WEB-DL H264-cinepth",
+      "summary": "Hangar Rojo (original title) – Awards 15 wins & 4 nominations total See more awards »Plot: During Chile’s 1973 coup, Air Force Captain Jorge Silva faces an internal struggle as his military academy becomes a prison camp.Genre: Drama | History | ThrillerIMDB R…",
+      "url": "https://post.rlsbb.cc/hangar-rojo-2026-1080p-amzn-web-dl-h264-cinepth/",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8818
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-25T16:41:35+00:00",
+      "source": "Funcheap.com",
+      "title": "10/28/26: GenTeam Build Day: AI Agents for Real Estate - FREE",
+      "summary": "A free evening inside Microsoft San Francisco where real estate professionals build their own working AI agents on their own laptops and leave with them running in their own accounts. Not a talk and not a demo. Doors and drinks at 5:00, a short intro ...\nThe …",
+      "url": "https://sf.funcheap.com/genteam-build-day-ai-agents-real-estate/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9449
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-25T16:38:57+00:00",
+      "source": "Windows Central",
+      "title": "Microsoft fixes 6 frustrating Windows 11 problems in October update",
+      "summary": "The October update KB5127648 for Windows 11 fixes six problems you might have overlooked, including Bluetooth issues, gaming mouse stuttering, fingerprint sign-in, printing, and VPN errors.",
+      "url": "https://www.windowscentral.com/microsoft/windows-11/windows-11s-october-2026-security-update-fixes-six-everyday-annoyances",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8769
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-24T16:13:27+00:00",
       "source": "Slashdot.org",
@@ -1817,152 +1963,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.8835
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-11T21:05:00+00:00",
-      "source": "TechRadar",
-      "title": "Microsoft isn't the only company releasing a laptop with an Nvidia RTX Spark - MSI reveals new 16-inch, 128GB beast",
-      "summary": "MSI unveils Prestige N16 Flip AI+, a 16-inch RTX Spark convertible laptop offering up to 128 GB of RAM starting from $3,299.",
-      "url": "https://www.techradar.com/pro/microsoft-isnt-the-only-company-releasing-a-laptop-with-an-nvidia-rtx-spark-msi-reveals-new-16-inch-128gb-beast",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7147
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-11T20:26:28+00:00",
-      "source": "Goodereader",
-      "title": "Would you buy Amazon Kids e-readers in 2026?",
-      "summary": "Have you purchased an Amazon Kids e-reader before, or do you plan to pick up the latest 13th-generation device?\nThe post Would you buy Amazon Kids e-readers in 2026? first appeared on Good e-Reader.",
-      "url": "https://goodereader.com/blog/kindle/would-you-buy-amazon-kids-e-readers-in-2026",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9386
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-11T20:07:35+00:00",
-      "source": "Rlsbb.cc",
-      "title": "The Spirit Of Halloween 2026 1080p AMZN WEB-DL H264-CHORTLE",
-      "summary": "Plot: Everly Stone is very firmly anti-Halloween. That is, until she is visited by three friendly yet spooky spirits who help her rediscover her true self and see what she's been missing all along. Genre: Comedy | RomanceIMDB Rating Live: IMDB Rating: 6.9/10 …",
-      "url": "https://post.rlsbb.cc/the-spirit-of-halloween-2026-1080p-amzn-web-dl-h264-chortle/",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9189
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-11T20:04:47+00:00",
-      "source": "Artsjournal.com",
-      "title": "Nicolas Cage Didn’t Sign Amazon’s AI Waiver",
-      "summary": "Good Morning, Nicolas Cage told a New York ComicCon panel that he refused to sign Amazon’s AI waiver for Spider-Noir, a series Amazon cancelled after one season and 11 Emmy nominations (Variety). Meanwhile more than two dozen staffers at HarperCollins, Simon …",
-      "url": "https://www.artsjournal.com/2026/10/nicolas-cage-didnt-sign-amazons-ai-waiver.html",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8607
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-11T19:31:27+00:00",
-      "source": "Techpowerup.com",
-      "title": "Microsoft Warns Windows Update Will Stop Working on Unpatched PCs Next Year",
-      "summary": "Microsoft is replacing the certificates that Windows PCs use to confirm they are talking to genuine Windows Update servers, and machines that miss the changeover will stop receiving updates. The company announced the rotation on October 8, and the current cer…",
-      "url": "https://www.techpowerup.com/353604/microsoft-warns-windows-update-will-stop-working-on-unpatched-pcs-next-year",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.6965
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-11T19:26:34+00:00",
-      "source": "The Times of India",
-      "title": "Google DeepMind is offering dream job for techies paying almost Rs 11 crore: ‘No degree required…’",
-      "summary": "While it may be difficult to believe, Google DeepMind is offering the role of a lifetime. Whether you find it hard to accept or not, this role is indeed real. The Polaris team at Google DeepMind is currently seeking exceptional engineers to become part of the…",
-      "url": "https://economictimes.indiatimes.com/magazines/panache/google-deepmind-is-offering-dream-job-for-techies-paying-almost-rs-11-crore-no-degree-required/articleshow/134876546.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8213
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-11T18:12:38+00:00",
-      "source": "Slashdot.org",
-      "title": "‘SNL’ Weekend Update Mocks Donald Trump Losing Nobel Peace Prize - TV Insider",
-      "summary": "&lsquo;SNL&rsquo; Weekend Update Mocks Donald Trump Losing Nobel Peace PrizeTV Insider See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186160778",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9383
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-11T18:04:02+00:00",
-      "source": "C21media.net",
-      "title": "El Reino Infantil lines up movie based on digital hit La Granja de Zenón for 2028",
-      "summary": "MIPJUNIOR: Argentine company Leader Entertainment, parent of El Reino Infantil, is preparing a feature film based on La Granja de Zenón, its hit kids’ franchise born on YouTube, with an international release planned for 2028.",
-      "url": "https://www.c21media.net/news/el-reino-infantil-lines-up-movie-based-on-digital-hit-la-granja-de-zenon-for-2028/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.866
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-11T17:40:00+00:00",
-      "source": "Hot Hardware",
-      "title": "Microsoft Will Pay You $1K To Ditch MacBooks For Surface Laptop Ultra",
-      "summary": "In addition to a number of other offers for various devices, Microsoft is offering a massive trade-in bonus of \"up to $1000\" for potential buyers of its new NVIDIA RTX Spark-powered Surface Laptop Ultra, if they're willing to trade-in a MacBook Pro.\n\nWhen usi…",
-      "url": "https://hothardware.com/news/microsoft-will-pay-you-1k-to-ditch-macbooks-for-surface-laptop-ultra",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.6157
       },
       "sentiment_model": "ProsusAI/finbert"
     }
