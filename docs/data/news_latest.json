@@ -1,7 +1,136 @@
 {
-  "as_of": "2026-10-26T18:41:02.344918+00:00",
+  "as_of": "2026-10-27T17:59:46.261016+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-26T17:58:00+00:00",
+      "source": "Theregister.com",
+      "title": "Microsoft releases emergency .NET security fixes for Google Brotli bug",
+      "summary": "Redmond joins growing list of software maintainers scrambling to patch compression flaw",
+      "url": "https://www.theregister.com/security/2026/10/26/microsoft-releases-emergency-net-security-fixes-for-google-brotli-bug/5305515",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7572
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-26T17:56:58+00:00",
+      "source": "Amazon.com",
+      "title": "Fleet-wide computer vision lifecycle at the edge with SageMaker SDK v3",
+      "summary": "Fleet-wide computer vision needs a model per camera, not one model for the whole fleet. This post presents a working Amazon SageMaker SDK v3 reference architecture that trains, quality-gates, compiles per-camera models with SageMaker Neo, and versions thousan…",
+      "url": "https://aws.amazon.com/blogs/machine-learning/fleet-wide-computer-vision-lifecycle-at-the-edge-with-sagemaker-sdk-v3/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9342
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-26T17:50:43+00:00",
+      "source": "Seclists.org",
+      "title": "Re: [tool] octomon: a terminal network monitor to analyse your Internet connection",
+      "summary": "Posted by Dovid Bender via NANOG on Oct 26Realy? I wont say what Google kept correcting it to. Maybe it says more\nabout me then the project. Either way this project is awsome and it's been\nruning since yesterday morning.",
+      "url": "https://seclists.org/nanog/2026/Oct/63",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6596
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-26T17:50:17+00:00",
+      "source": "IGN",
+      "title": "Microsoft Offer Buyouts to 60,000 Workers as It Doubles Down on AI Investment",
+      "summary": "Microsoft plans to offer buyouts to about 60,000 workers as part of the company’s efforts to trim costs and retool its workforce as it invests heavily in AI. That amounts to just over a quarter of its total staff.",
+      "url": "https://www.ign.com/articles/microsoft-voluntary-exits-60000-workers",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7121
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-26T17:49:33+00:00",
+      "source": "Abcnews.com",
+      "title": "Microsoft offers quarter of global workforce voluntary buyouts",
+      "summary": "Microsoft has offered 60,000 employees, or about 27% of its global workforce, voluntary buyouts as the software giant spends heavily on artificial intelligence",
+      "url": "https://abcnews.com/Technology/wireStory/microsoft-offers-quarter-global-workforce-voluntary-buyouts-ai-137578868",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8608
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-26T17:42:29+00:00",
+      "source": "USA Today",
+      "title": "Where to watch World Series Game 3 toight for free without cable",
+      "summary": "The 2026 World Series airs on FOX. Fubo, YouTube TV and Hulu + Live TV offer ways to watch for free tonight.",
+      "url": "https://www.usatoday.com/story/shopping/sports/streaming/2026/10/26/where-to-watch-world-series-game-3-free-brewers-rays/92442547007/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9448
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-26T17:31:36+00:00",
+      "source": "Dansdeals.com",
+      "title": "Stainless Steel Grill Brush With Scraper And Wood Handle For $9.99 From Amazon",
+      "summary": "Stainless Steel Grill Brush With Scraper And Wood Handle For $9.99 From Amazon Use code: IPZY0W2D Enter the code at checkout, select a payment method, and press continue to final checkout for the discount to display. On mobile you must select the arrow in the…",
+      "url": "https://www.dansdeals.com/shopping-deals/amazon/stainless-steel-grill-brush-with-scraper-and-wood-handle-for-9-99-from-amazon/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9516
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-26T17:27:20+00:00",
+      "source": "Amazon.com",
+      "title": "Groundhog Day for AI agents: Prompt caching patterns for using OpenAI models on Amazon Bedrock",
+      "summary": "Every time an agent takes a step, it re-reads its entire context before acting. Here is how prompt caching for OpenAI models on Amazon Bedrock lets your agent remember, cutting input cost and latency without resending the same tools, instructions, and history…",
+      "url": "https://aws.amazon.com/blogs/machine-learning/groundhog-day-for-ai-agents-prompt-caching-patterns-for-using-openai-models-on-amazon-bedrock/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9261
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-25T18:34:00+00:00",
       "source": "Slashdot.org",
@@ -1819,150 +1948,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.6164
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-12T19:07:00+00:00",
-      "source": "Android Central",
-      "title": "Google, Flo Health partner to elevate women's overall well-being with Fitbit Edge",
-      "summary": "Google announced a Flo Health partnership aimed at improving the personalized wellness insights and understanding women experience.",
-      "url": "https://www.androidcentral.com/wearables/fitbit/google-flo-health-partner-to-elevate-womens-well-being",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.8706
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-12T19:04:49+00:00",
-      "source": "Skift",
-      "title": "Fighting Spirit’s Data Sale to Google: Court Filings Show the List Getting Longer",
-      "summary": "The deal has faced months of delays and pushback, coming to represent a thorny issue of how far bankruptcy code should go to protect employee privacy as AI makes rapid advances.",
-      "url": "https://skift.com/2026/10/12/fighting-spirits-data-sale-to-google-court-filings-show-the-list-getting-longer/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9151
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-12T18:53:49+00:00",
-      "source": "Slashdot.org",
-      "title": "Norway fined a Microsoft subsidiary $9.6 million for allegedly misusing Grindr user data",
-      "summary": "Xandr has three weeks to appeal the record penalty.",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186277024",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9461
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-12T18:53:06+00:00",
-      "source": "Slashdot.org",
-      "title": "Exclusive | Dating App Bumble in Advanced Talks to Go Private at $1 Billion Valuation - WSJ",
-      "summary": "Exclusive | Dating App Bumble in Advanced Talks to Go Private at $1 Billion ValuationWSJ See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186277014",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9374
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-12T18:47:22+00:00",
-      "source": "Business Insider",
-      "title": "This entrepreneur says Amazon nearly destroyed his business. He still shops on it every week. 'It's crazy.'",
-      "summary": "The Bed Scrunchie company made $4.5 million before Amazon deactivated its seller account. But one of the founders still can't quit shopping there.",
-      "url": "https://www.businessinsider.com/he-says-amazon-nearly-wrecked-bedscrunchie-business-still-shop-amazon-2026-10#article",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5415
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-12T18:47:00+00:00",
-      "source": "Moneysavingmom.com",
-      "title": "Grace & Stella Lip Gloss Butter only $8.95 shipped + FREE Under Eye Patches Variety Pack!",
-      "summary": "These Grace & Stella Lip Gloss Butters are so amazing! Amazon has these Grace & Stella Lip Gloss Butters for just $8.95 shipped when you check out through Subscribe & Save! Even better, you’ll receive a FREE Grace & Stella Under Eye Patches Variety Pack, 18 c…",
-      "url": "https://moneysavingmom.com/grace-stella-lip-gloss-butter-bundle-deal/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8551
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-12T18:37:00+00:00",
-      "source": "Hot Hardware",
-      "title": "Microsoft's Maia 300 AI Chip Aims To Make AI Cheaper And Faster",
-      "summary": "As Microsoft continues to build-out multi-gigawatt infrastructure deployments, its custom silicon remains a major focus. Today Microsoft reiterated that its Maia 200 is production-proven and deployed across regions in the United States, Europe, and Australia,…",
-      "url": "https://hothardware.com/news/microsofts-maia-300-ai-chip-aims-to-make-ai-cheaper-and-faster",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.6499
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-12T18:32:03+00:00",
-      "source": "Slashdot.org",
-      "title": "How to find your Amazon 'About You' page (and how to edit it)",
-      "summary": "See if Amazon thinks you have \"flat buttocks.\"",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186276694",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9157
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-12T18:25:00+00:00",
-      "source": "TechRadar",
-      "title": "Trying to change your browser? It might be harder than you think, based on one simple thing",
-      "summary": "Mozilla says Microsoft is abusing its dominant position wherever it can, including the US, UK, and India.",
-      "url": "https://www.techradar.com/pro/security/trying-to-change-your-browser-it-might-be-harder-than-you-think-based-on-one-simple-thing",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8835
       },
       "sentiment_model": "ProsusAI/finbert"
     }
