@@ -1,7 +1,153 @@
 {
-  "as_of": "2026-10-27T17:59:46.261016+00:00",
+  "as_of": "2026-10-28T18:20:31.417537+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-27T18:19:11+00:00",
+      "source": "Unity.com",
+      "title": "PlayFab Hub - Cross-Platform Backend Solution by Mind Invaders Games",
+      "summary": "Simplify your Unity backend with PlayFab: no separate Azure Functions deployment by default, Economy v1/v2 helpers, editor admin tools, and six saved uGUI/UI Toolkit demos.Features• ScriptableObject configuration and typed client managers.• Authentication, pl…",
+      "url": "https://assetstore.unity.com/packages/tools/integration/playfab-hub-cross-platform-backend-solution-407538",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9292
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-27T18:14:19+00:00",
+      "source": "Amazon.com",
+      "title": "CVE-2026-115413 - AWS API MCP Server OAuth token audience validation bypass",
+      "summary": "Bulletin ID: 2026-152-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/27/2026 11:00 AM PDT \nDescription: \nThe AWS API MCP Server is an open source Model Context Protocol (MCP) server that enables AI assistants to interact with…",
+      "url": "https://aws.amazon.com/security/security-bulletins/2026-152-aws/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9485
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-27T18:13:06+00:00",
+      "source": "The Times of India",
+      "title": "Microsoft buyout offer: Will taking the exit package mean H-1B visa workers may have to leave the country?",
+      "summary": "Microsoft’s voluntary buyout gives eligible employees financial support to leave but this may also bring trouble in their living status. For some H-1B workers, accepting the exit package could affect their ability to remain in the United States.",
+      "url": "https://economictimes.indiatimes.com/news/international/us/microsoft-buyout-offer-will-taking-the-exit-package-mean-h-1b-visa-workers-may-have-to-leave-the-country/articleshow/135241014.cms",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9438
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-27T18:11:37+00:00",
+      "source": "BroBible",
+      "title": "20 Of The Greatest Southern Slang Phrases And What They Actually Mean",
+      "summary": "The old phrase goes ‘American by birth, Southern by the grace of God.’ And according to Google, the exact origins of that phrase are not known but it’s believed to be an amalgam of previously existing phrases and cultural ideas that shaped the Southern Identi…",
+      "url": "https://brobible.com/culture/article/decoding-southern-slang-best-phrases-what-they-mean/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9189
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-27T18:08:07+00:00",
+      "source": "9to5google.com",
+      "title": "Google Nest Wifi router and point get October 2026 update",
+      "summary": "The second update this year for the Nest Wifi router and point rolled out last week with two improvements.\n\n\n\n more…",
+      "url": "http://9to5google.com/2026/10/27/nest-wifi-october-2026-update/",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8835
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-27T18:03:12+00:00",
+      "source": "Amazon.com",
+      "title": "AWS named a Leader in the 2026 Gartner Magic Quadrant for Contact Center as a Service",
+      "summary": "AWS has been named a Leader in the 2026 Gartner Magic Quadrant for Contact Center as a Service (CCaaS) for AWS Connect Customer. This recognition marks an important milestone for our team, and it reflects years of work pushing on what's possible in customer e…",
+      "url": "https://aws.amazon.com/blogs/machine-learning/aws-named-a-leader-in-the-2026-gartner-magic-quadrant-for-contact-center-as-a-service/",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7943
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-27T18:03:12+00:00",
+      "source": "Freerestaurantwebsite.com",
+      "title": "Restaurant Marketing Ideas That Actually Bring Customers In",
+      "summary": "Practical restaurant marketing ideas for independent owners, from Google visibility and email to local partnerships, focused on what brings in real covers.",
+      "url": "https://freerestaurantwebsite.com/blog/restaurant-marketing-ideas",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.925
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-27T18:00:43+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Head Like A Hole 2026 1080p AMZN WEB-DL H264-cinepth",
+      "summary": "Awards 2 nominations total See more awards » Plot: In financial dire straits, a man accepts a strange, high-paying job where he must take up residence in a home and measure a hole in the wall of the basement to determine whether or not it's growing in size. G…",
+      "url": "https://post.rlsbb.cc/head-like-a-hole-2026-1080p-amzn-web-dl-h264-cinepth/",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8686
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-27T17:37:46+00:00",
+      "source": "iPhone in Canada",
+      "title": "Microsoft Authenticator Bug Let a Blank Android App Grab Work Mail",
+      "summary": "A newly patched flaw in Microsoft Authenticator for Android allowed unprivileged apps to steal access tokens for work accounts.\nThe post Microsoft Authenticator Bug Let a Blank Android App Grab Work Mail first appeared on iPhone in Canada.",
+      "url": "https://www.iphoneincanada.ca/2026/10/27/microsoft-authenticator-bug-let-a-blank-android-app-grab-work-mail/",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5475
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-26T17:58:00+00:00",
       "source": "Theregister.com",
@@ -1834,120 +1980,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.7585
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-13T17:08:25+00:00",
-      "source": "New York Post",
-      "title": "Apple unveils $299 HomeView smart-home hub, TV and HomePod mini in push to challenge Amazon, Google",
-      "summary": "HomeView, available Nov. 13, features a 7-inch touchscreen and a built-in camera that can recognize up to six household members.",
-      "url": "https://nypost.com/2026/10/13/business/apple-unveils-299-homeview-smart-home-hub-tv-and-homepod-mini-in-push-to-challenge-amazon-google/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN",
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7619
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-13T17:08:25+00:00",
-      "source": "New York Post",
-      "title": "Apple unveils $299 HomeView smart-home hub, TV and HomePod mini in push to challenge Amazon, Google",
-      "summary": "HomeView, available Nov. 13, features a 7-inch touchscreen and a built-in camera that can recognize up to six household members.",
-      "url": "https://nypost.com/2026/10/13/tech/apple-unveils-299-homeview-smart-home-hub-tv-and-homepod-mini-in-push-to-challenge-amazon-google/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN",
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7619
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-13T17:08:24+00:00",
-      "source": "The Times of India",
-      "title": "Google launches flagship AI model Gemini 4 Argon for developers, businesses",
-      "summary": "Alphabet's Google on Wednesday released its flagship AI model Gemini 4 Argon to developers and businesses worldwide, seeking to regain ground against rivals OpenAI and Anthropic after months of delays and a leadership shakeup at its DeepMind lab.",
-      "url": "https://economictimes.indiatimes.com/tech/technology/google-launches-flagship-ai-model-gemini-4-argon-for-developers-businesses/articleshow/134923362.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9277
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-13T17:07:01+00:00",
-      "source": "Dansdeals.com",
-      "title": "50,000mAh Power Bank With 22.5W Fast Charging And 3 Outputs For $14.99 From Amazon",
-      "summary": "50,000mAh Power Bank With 22.5W Fast Charging And 3 Outputs For $14.99 From Amazon Use code: 885VC54O Enter the code at checkout, select a payment method, and press continue to final checkout for the discount to display. On mobile you must select the arrow in…",
-      "url": "https://www.dansdeals.com/shopping-deals/amazon/50000mah-power-bank-with-22-5w-fast-charging-and-3-outputs-for-14-99-from-amazon/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9515
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-13T17:00:00+00:00",
-      "source": "IGN",
-      "title": "Paper Perjury 2: Shadow of Justice - Official Reveal Trailer | IGN Fall Fan Fest 2026",
-      "summary": "Return to Azure City and join Justina in solving one of the biggest mysteries yet in Paper Perjury 2: Shadow of Justice. Watch the reveal trailer for Paper Perjury 2: Shadow of Justice, an upcoming detective visual novel follow-up to 2024's Paper Perjury by P…",
-      "url": "https://es.ign.com/paper-perjury-2-shadow-of-justice/234655/paper-perjury-2-shadow-of-justice-official-reveal-trailer-ign-fall-fan-fest-2026",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9076
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-13T16:25:00+00:00",
-      "source": "TechRadar",
-      "title": "Microsoft closes a worrying Windows 11 account bypass hack — all it took was one click",
-      "summary": "You could previously bypass creating or signing in with a Microsoft account when setting up Windows 11.",
-      "url": "https://www.techradar.com/pro/microsoft-closes-a-worrying-windows-11-account-bypass-hack-all-it-took-was-one-click",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8638
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-13T16:24:07+00:00",
-      "source": "RTE",
-      "title": "Microsoft President calls for more AI guardrails",
-      "summary": "The President of Microsoft Brad Smith has called for greater guardrails for artificial intelligence (AI).",
-      "url": "https://www.rte.ie/news/2026/1013/1595261-brad-smith-microsoft/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6164
       },
       "sentiment_model": "ProsusAI/finbert"
     }
