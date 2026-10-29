@@ -2,7 +2,9 @@
 
 **Sentiment-driven stock monitoring — a fully automated, zero-cost data pipeline.**
 
-Every day, GitHub Actions fetches market prices and financial news for **AMZN, GOOGL and MSFT**, scores each headline with **FinBERT** (a finance-tuned BERT model), trains an **XGBoost** model to forecast the next day's close, and publishes everything as static JSON on **GitHub Pages** — consumed live by the [frontend](https://sentiment-driven-investment.lovable.app/).
+Every day, GitHub Actions fetches market prices and financial news for **AMZN, GOOGL and MSFT**, scores each headline with **FinBERT** (a finance-tuned BERT model), trains an **XGBoost** model to forecast the next day's close, and publishes everything as static JSON on **GitHub Pages**, together with a live dashboard.
+
+**Live dashboard: https://pipe199x.github.io/StockSentinel/**
 
 > ⚠️ **Academic project.** Predictions are for demonstration only and are not investment advice.
 
@@ -24,16 +26,16 @@ flowchart LR
     subgraph GitHub Pages
         D[docs/data/*.json<br/>+ history/]
     end
-    FE[Lovable frontend]
+    FE[Dashboard<br/>docs/index.html]
 
     YF --> SE --> D
     NA --> NE --> D
     D --> FE
 ```
 
-- **`stocks_etl/`** — downloads daily OHLCV since 2020 (NYSE calendar), builds technical features (returns, SMA, RSI, rolling volatility) and trains an XGBoost regressor per ticker to predict the next-day close. Runs at 22:30 UTC, after market close.
-- **`news_etl/`** — fetches the last 2 days of headlines per ticker, merges them with the accumulated history, applies a per-ticker daily cap, and scores new articles with [ProsusAI/finbert](https://huggingface.co/ProsusAI/finbert) on CPU. Runs at 12:15 UTC.
-- **`docs/`** — the published dataset, served by GitHub Pages. Daily data commits also keep the scheduled workflows active.
+- **`stocks_etl/`** — downloads daily OHLCV since 2020 (NYSE calendar), builds technical features (returns, SMA, RSI, rolling volatility) and trains an XGBoost regressor per ticker to predict the next-day close. Runs at 22:30 UTC, after market close, with a 07:00 UTC backup run that only works if the primary did not publish.
+- **`news_etl/`** — fetches the last 2 days of headlines per ticker, merges them with the accumulated history, applies a per-ticker daily cap, and scores new articles with [ProsusAI/finbert](https://huggingface.co/ProsusAI/finbert) on CPU. Runs at 12:15 UTC, with a 20:00 UTC backup run.
+- **`docs/`** — the dashboard (`index.html`: 1-month chart, next-day forecast, model track record, news sentiment) and the published dataset, served by GitHub Pages. Daily data commits also keep the scheduled workflows active.
 - **`api/`** — an optional FastAPI serving layer over the same data, runnable locally.
 
 ## Live data endpoints

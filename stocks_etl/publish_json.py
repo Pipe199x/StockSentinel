@@ -1,7 +1,7 @@
 """Publishers for the GitHub Pages data folder (docs/data/).
 
-The Lovable frontend fetches these static JSON/CSV files directly; GitHub
-Pages serves them with permissive CORS, so no hosted API is needed.
+The dashboard (docs/index.html) fetches these static JSON/CSV files directly;
+GitHub Pages serves them with permissive CORS, so no hosted API is needed.
 """
 import json
 import os
