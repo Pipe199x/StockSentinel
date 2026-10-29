@@ -1,6 +1,9 @@
 # stocks_etl/stocks_etl.py — REPLACE COMPLETE
 import argparse
 import os
+import random
+import tempfile
+import time
 import warnings
 from datetime import datetime, timezone
 import pandas as pd
@@ -31,9 +34,60 @@ def _download(symbols, start, end, interval, auto_adjust, actions, threads):
         auto_adjust=auto_adjust,
         actions=actions,
         group_by="ticker",
-        threads=threads,
+        # threads=1 is truthy and still starts yfinance's worker pool; concurrent
+        # writes to its SQLite cache cause intermittent 'database is locked'.
+        threads=bool(threads) and threads > 1,
         progress=False,
     )
+
+
+def _missing_symbols(df_raw, symbols):
+    """Tickers with no valid Close in the raw yfinance frame."""
+    missing = []
+    for s in symbols:
+        if isinstance(df_raw.columns, pd.MultiIndex):
+            if s not in df_raw.columns.get_level_values(0):
+                missing.append(s)
+                continue
+            dfi = df_raw[s]
+        else:
+            dfi = df_raw
+        if "Close" not in dfi.columns or dfi["Close"].notna().sum() == 0:
+            missing.append(s)
+    return missing
+
+
+def _download_with_retry(symbols, start, end, interval, auto_adjust, actions, threads, attempts=4):
+    """Batch download, then re-download failed tickers one by one with backoff.
+
+    yf.download does not raise when a ticker fails (it returns an all-NaN column),
+    so tenacity on _download alone never retries those transient failures.
+    """
+    df_raw = _download(symbols, start, end, interval, auto_adjust, actions, threads)
+    if not isinstance(df_raw.columns, pd.MultiIndex):
+        df_raw = pd.concat({symbols[0]: df_raw}, axis=1) if len(symbols) == 1 else df_raw
+
+    missing = _missing_symbols(df_raw, symbols)
+    for attempt in range(1, attempts + 1):
+        if not missing:
+            break
+        delay = 2 ** attempt + random.uniform(0, 1)
+        print(f"[RETRY] attempt {attempt}/{attempts} for {missing} in {delay:.1f}s")
+        time.sleep(delay)
+        for s in missing:
+            try:
+                dfs = _download([s], start, end, interval, auto_adjust, actions, threads)
+            except Exception as e:
+                print(f"[RETRY] {s}: {e!r}")
+                continue
+            if not isinstance(dfs.columns, pd.MultiIndex):
+                dfs = pd.concat({s: dfs}, axis=1)
+            if _missing_symbols(dfs, [s]):
+                continue
+            df_raw = df_raw.drop(columns=s, level=0, errors="ignore")
+            df_raw = pd.concat([df_raw, dfs], axis=1)
+        missing = _missing_symbols(df_raw, symbols)
+    return df_raw
 
 
 def _normalize(df_raw, symbols, auto_adjust, cal_name):
@@ -151,7 +205,11 @@ def write_predictions_csv(df_preds, base_dir):
 def main(cfg):
     symbols = cfg["symbols"]  # ej: ["AMZN","GOOGL","MSFT"]
 
-    df_raw = _download(
+    # Fresh per-run cache dir: no stale locks or corrupt SQLite from earlier runs.
+    if hasattr(yf, "set_tz_cache_location"):
+        yf.set_tz_cache_location(tempfile.mkdtemp(prefix="yf-cache-"))
+
+    df_raw = _download_with_retry(
         symbols=symbols,
         start=cfg.get("start"),
         end=cfg.get("end"),
