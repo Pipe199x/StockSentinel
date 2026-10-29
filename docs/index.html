@@ -3,23 +3,713 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>StockSentinel Data</title>
+<title>StockSentinel</title>
+<meta name="description" content="Next-day XGBoost forecasts, one-month prices and FinBERT news sentiment for AMZN, GOOGL and MSFT.">
 <style>
-  body{font-family:system-ui,sans-serif;max-width:720px;margin:3rem auto;padding:0 1rem;color:#1a1a2e;background:#fafafa}
-  h1{font-size:1.6rem} code{background:#eee;padding:.1rem .3rem;border-radius:4px}
-  li{margin:.4rem 0} footer{margin-top:2rem;font-size:.85rem;color:#666}
+  :root{
+    --bg:#fff; --fg:#202124; --muted:#5f6368; --line:#dadce0; --grid:#f1f3f4;
+    --card:#fff; --chip:#f1f3f4; --accent:#1a73e8;
+    --up:#137333; --up-bg:#e6f4ea; --up-line:#1e8e3e;
+    --down:#a50e0e; --down-bg:#fce8e6; --down-line:#d93025;
+    --neu:#5f6368; --neu-bg:#f1f3f4;
+    --ml:#8430ce; --ml-bg:#f3e8fd; --ml-soft:rgba(132,48,206,.14);
+    --warn-bg:#fef7e0; --warn-line:#f9ab00; --warn-fg:#5c4300;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#202124; --fg:#e8eaed; --muted:#9aa0a6; --line:#3c4043; --grid:#2d2f31;
+      --card:#292a2d; --chip:#303134; --accent:#8ab4f8;
+      --up:#81c995; --up-bg:rgba(129,201,149,.16); --up-line:#81c995;
+      --down:#f28b82; --down-bg:rgba(242,139,130,.16); --down-line:#f28b82;
+      --neu:#bdc1c6; --neu-bg:#303134;
+      --ml:#c58af9; --ml-bg:rgba(197,138,249,.14); --ml-soft:rgba(197,138,249,.2);
+      --warn-bg:rgba(253,214,99,.12); --warn-line:#fdd663; --warn-fg:#fdd663;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 "Google Sans",Roboto,system-ui,-apple-system,"Segoe UI",sans-serif}
+  a{color:var(--accent)}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+  .layout{display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
+  @media (min-width:960px){
+    .layout{grid-template-columns:minmax(0,1fr) 340px}
+    .side{position:sticky;top:16px;align-self:start;max-height:calc(100vh - 32px);overflow:auto;padding-right:4px}
+  }
+
+  /* Academic notice */
+  .notice{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-fg);border-radius:12px;padding:12px 16px;margin-top:16px;text-align:center;font-size:.88rem}
+  .notice strong{display:block;font-size:.95rem;margin-bottom:2px}
+
+  /* Top bar */
+  .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;flex-wrap:wrap}
+  .brand{font-weight:600;font-size:1.05rem;letter-spacing:.2px}
+  .brand span{color:var(--muted);font-weight:400}
+  .tabs{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .refresh{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:transparent;color:var(--accent);border-radius:999px;padding:6px 14px;font:inherit;font-size:.9rem;cursor:pointer}
+  .refresh[disabled]{opacity:.6;cursor:progress}
+  .refresh .ic{display:inline-block}
+  .refresh.spin .ic{animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .tab img{width:16px;height:16px;vertical-align:-3px;margin-right:6px;border-radius:3px}
+  .tab{border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:999px;padding:6px 14px;font:inherit;font-size:.9rem;cursor:pointer}
+  .tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+  :is(.tab,.refresh,.more,.item,#svg,summary):focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* Quote */
+  .quote{--trend:var(--up-line);--trend-fg:var(--up);--trend-bg:var(--up-bg)}
+  .quote.down{--trend:var(--down-line);--trend-fg:var(--down);--trend-bg:var(--down-bg)}
+  .title{display:flex;align-items:center;gap:16px}
+  .mono{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--chip);font-size:1.4rem;font-weight:600;color:var(--muted);flex:none;overflow:hidden}
+  .mono.logo{background:#fff;border:1px solid var(--line)}
+  .mono img{width:62%;height:62%;object-fit:contain}
+  .title h1{margin:0;font-size:1.6rem;font-weight:400}
+  .exch{color:var(--muted);font-size:.8rem;letter-spacing:.3px}
+  .price-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px}
+  .price{font-size:2.6rem;line-height:1}
+  .cur{color:var(--muted);font-size:1rem;margin-left:4px}
+  .badge{background:var(--trend-bg);color:var(--trend-fg);border-radius:8px;padding:4px 10px;font-weight:500}
+  .delta{color:var(--trend-fg)}
+  .meta{color:var(--muted);font-size:.8rem;margin-top:6px}
+
+  .range{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);margin-top:18px;flex-wrap:wrap}
+  .range>span{padding:8px 18px;color:var(--accent);font-weight:500;font-size:.9rem;position:relative}
+  .range>span::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:var(--accent)}
+  .legend{display:flex;gap:14px;font-size:.75rem;color:var(--muted);padding:6px 0;flex-wrap:wrap}
+  .legend i{display:inline-block;vertical-align:middle;margin-right:5px}
+  .lg-price{width:16px;height:2px;background:var(--trend)}
+  .lg-pred{width:8px;height:8px;border-radius:50%;border:2px solid var(--ml)}
+  .lg-band{width:10px;height:10px;background:var(--ml-soft);border-radius:2px}
+
+  .chart{position:relative;margin-top:6px;touch-action:pan-y;user-select:none}
+  .chart svg{display:block;width:100%;outline:none}
+  .tip{position:absolute;top:0;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:4px;padding:3px 8px;font-size:.8rem;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.12);display:none}
+  .tip b{font-weight:500;margin-right:8px}
+  .tip span{color:var(--muted)}
+  .tip em{font-style:normal;color:var(--ml);margin-left:8px}
+
+  /* Machine Learning panel */
+  .ml{margin-top:24px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card)}
+  .ml-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 20px;background:var(--ml-bg)}
+  .ml-head h2{margin:0;font-size:1.1rem;font-weight:500}
+  .pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:3px 10px;font-size:.78rem;font-weight:500;background:var(--card);color:var(--ml);border:1px solid var(--ml-soft)}
+  .ml-main{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;padding:20px}
+  @media (min-width:640px){.ml-main{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
+  .lbl{color:var(--muted);font-size:.8rem}
+  .pred{font-size:2.4rem;line-height:1.1;margin:4px 0 8px;color:var(--ml)}
+  .pred small{font-size:1rem;color:var(--muted)}
+  .dir{display:inline-flex;gap:6px;align-items:center;border-radius:8px;padding:4px 10px;font-weight:500}
+  .dir.up{background:var(--up-bg);color:var(--up)}
+  .dir.down{background:var(--down-bg);color:var(--down)}
+  .vs{color:var(--muted);font-size:.85rem;margin-left:6px}
+  .rangebar{margin-top:14px}
+  .rb-track{position:relative;height:8px;border-radius:4px;background:var(--grid);margin:8px 0 4px}
+  .rb-band{position:absolute;top:0;bottom:0;border-radius:4px;background:var(--ml-soft)}
+  .rb-dot{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--ml);border:2px solid var(--card)}
+  .rb-last{position:absolute;top:-4px;bottom:-4px;width:2px;margin-left:-1px;background:var(--muted)}
+  .rb-ends{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
+  .tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-content:start}
+  .tile{background:var(--chip);border-radius:12px;padding:12px}
+  .tile b{display:block;font-size:1.5rem;font-weight:500;margin:2px 0}
+  .tile .sub{color:var(--muted);font-size:.72rem}
+  .meter{height:4px;border-radius:2px;background:var(--grid);margin-top:6px;overflow:hidden}
+  .meter i{display:block;height:100%;background:var(--ml)}
+  .ml-sec{padding:0 20px 20px}
+  .ml-sec h3{font-size:.9rem;font-weight:500;margin:0 0 8px}
+  table{width:100%;border-collapse:collapse;font-size:.85rem;font-variant-numeric:tabular-nums}
+  th,td{padding:7px 6px;text-align:right;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--muted);font-weight:400;font-size:.75rem}
+  .ok{color:var(--up)} .ko{color:var(--down)}
+  details{border-top:1px solid var(--line);padding:14px 20px}
+  summary{cursor:pointer;font-weight:500;font-size:.9rem}
+  details p{color:var(--muted);font-size:.85rem;margin:10px 0}
+  .feats{display:flex;flex-wrap:wrap;gap:6px}
+  .feats span{background:var(--chip);border-radius:999px;padding:3px 10px;font-size:.78rem}
+  .note{color:var(--muted);font-size:.75rem;padding:0 20px 16px}
+
+  /* News (right column) */
+  .side h2{font-size:1.15rem;font-weight:400;margin:4px 0 12px}
+  .mood{background:var(--chip);border-radius:12px;padding:12px;margin-bottom:12px}
+  .mood-bar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin:8px 0 6px;background:var(--grid)}
+  .mood-bar .p{background:var(--up-line)} .mood-bar .n{background:var(--muted);opacity:.5} .mood-bar .x{background:var(--down-line)}
+  .mood-keys{display:flex;gap:12px;font-size:.75rem;color:var(--muted);flex-wrap:wrap}
+  .list{display:flex;flex-direction:column}
+  .item{display:flex;gap:12px;padding:12px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;border-radius:8px}
+  .item:hover h3{text-decoration:underline}
+  .itxt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+  .src{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+  .item h3{margin:0;font-size:.92rem;font-weight:500;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .foot{display:flex;align-items:center;gap:8px;font-size:.72rem;color:var(--muted);margin-top:auto}
+  .sent{border-radius:999px;padding:1px 8px;font-weight:500}
+  .sent.positive{background:var(--up-bg);color:var(--up)}
+  .sent.negative{background:var(--down-bg);color:var(--down)}
+  .sent.neutral{background:var(--neu-bg);color:var(--neu)}
+  .thumb{width:84px;height:84px;flex:none;border-radius:8px;overflow:hidden;background:var(--chip)}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb.ph{display:grid;place-items:center;font-size:1.6rem;font-weight:600;color:var(--muted);background:linear-gradient(135deg,var(--chip),var(--grid))}
+  .more{display:block;margin:14px auto 0;border:1px solid var(--line);background:transparent;color:var(--accent);border-radius:999px;padding:8px 20px;font:inherit;font-size:.9rem;cursor:pointer}
+  .empty,.err{color:var(--muted);font-size:.9rem}
+
+  footer{margin:48px 0 32px;padding-top:16px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
+  footer p{margin:6px 0}
+
+  @media (max-width:480px){
+    .price{font-size:2.1rem}
+    .pred{font-size:2rem}
+    .title h1{font-size:1.35rem}
+    .mono{width:44px;height:44px;font-size:1.2rem}
+    .ml-head,.ml-main{padding:14px 16px}
+    .ml-sec,.note{padding-left:16px;padding-right:16px}
+    details{padding:12px 16px}
+  }
 </style>
 </head>
 <body>
-<h1>📈 StockSentinel — public dataset</h1>
-<p>Daily-updated stock prices, FinBERT news sentiment and XGBoost forecasts for AMZN, GOOGL and MSFT. Built with GitHub Actions; served by GitHub Pages.</p>
-<ul>
-  <li><a href="data/manifest.json">manifest.json</a> — freshness metadata</li>
-  <li><a href="data/prices_latest.json">prices_latest.json</a> — last 30 days of prices</li>
-  <li><a href="data/predictions_latest.json">predictions_latest.json</a> — next-day forecasts</li>
-  <li><a href="data/news_latest.json">news_latest.json</a> — recent news with sentiment</li>
-  <li><a href="data/history/prices_history.csv">history/prices_history.csv</a> · <a href="data/history/news_history.ndjson">news_history.ndjson</a> · <a href="data/history/predictions_history.csv">predictions_history.csv</a></li>
-</ul>
-<footer>Academic project — not investment advice. <a href="https://github.com/Pipe199x/StockSentinel">Source on GitHub</a> · <a href="https://sentiment-driven-investment.lovable.app/">Frontend</a></footer>
+<div class="wrap">
+  <div class="notice" role="note">
+    <strong>⚠️ Academic Exercise Notice ⚠️</strong>
+    This is an academic prototype for demonstration purposes only. The predictions and analysis shown here should not be used for actual investment decisions.
+  </div>
+  <header class="top">
+    <div class="brand">StockSentinel <span>· ML forecasts</span></div>
+    <div class="actions">
+      <nav class="tabs" role="tablist" aria-label="Stock"></nav>
+      <button class="refresh" id="refresh" title="Reload the latest published data"><span class="ic" aria-hidden="true">↻</span>Refresh</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <main>
+      <section class="quote" id="quote" aria-live="polite">
+        <div class="title">
+          <div class="mono" id="mono" aria-hidden="true"></div>
+          <div>
+            <h1 id="name">Loading…</h1>
+            <div class="exch" id="exch"></div>
+          </div>
+        </div>
+        <div class="price-row">
+          <div><span class="price" id="price">—</span><span class="cur">USD</span></div>
+          <span class="badge" id="badge"></span>
+          <span class="delta" id="delta"></span>
+        </div>
+        <div class="meta" id="meta"></div>
+
+        <div class="range">
+          <span>1 M</span>
+          <div class="legend" aria-hidden="true">
+            <span><i class="lg-price"></i>Actual price</span>
+            <span><i class="lg-pred"></i>Model prediction</span>
+            <span><i class="lg-band"></i>Error range</span>
+          </div>
+        </div>
+        <div class="chart" id="chart">
+          <svg id="svg" tabindex="0" role="img" aria-label="One-month closing price with the model's past predictions and next-day forecast"></svg>
+          <div class="tip" id="tip"><b></b><span></span><em></em></div>
+        </div>
+      </section>
+
+      <section class="ml" id="ml" aria-labelledby="ml-h" hidden>
+        <div class="ml-head">
+          <h2 id="ml-h">Model forecast</h2>
+          <span class="pill">✦ Machine Learning · XGBoost</span>
+        </div>
+        <div class="ml-main">
+          <div>
+            <div class="lbl" id="ml-when"></div>
+            <div class="pred" id="ml-pred"></div>
+            <span class="dir" id="ml-dir"></span><span class="vs" id="ml-vs"></span>
+            <div class="rangebar" id="ml-range"></div>
+          </div>
+          <div class="tiles" id="ml-tiles"></div>
+        </div>
+        <div class="ml-sec" id="ml-hist"></div>
+        <details>
+          <summary>How the model works</summary>
+          <p>Every day after the NYSE close, an <strong>XGBoost</strong> model (400 trees, depth 4) is retrained per stock on prices since 2020. It predicts the <strong>next-day return</strong>, which is then converted to a price. Features:</p>
+          <div class="feats">
+            <span>1-day return</span><span>5-day return</span><span>5-day SMA</span><span>20-day SMA</span>
+            <span>RSI 14</span><span>10-day avg. volume</span><span>Previous close</span><span>Previous volume</span><span>Same-day close &amp; volume</span>
+          </div>
+          <p>“Direction accuracy” and “live error” compare every published prediction with the close that actually happened afterwards, so they are out-of-sample. “Backtest error” is measured on the last 30 days of the training data itself and tends to be optimistic.</p>
+        </details>
+        <div class="note">Academic project. Predictions are not financial advice.</div>
+      </section>
+    </main>
+
+    <aside class="side" aria-labelledby="news-h">
+      <h2 id="news-h">Top news</h2>
+      <div class="mood" id="mood" hidden></div>
+      <div class="list" id="news"></div>
+      <button class="more" id="more" hidden>Show more</button>
+    </aside>
+  </div>
+
+  <footer>
+    <p>Delayed prices from Yahoo Finance · sentiment by FinBERT · next-day forecast by XGBoost.</p>
+    <p>Data: <a href="data/manifest.json">manifest.json</a> · <a href="data/prices_latest.json">prices_latest.json</a> · <a href="data/predictions_latest.json">predictions_latest.json</a> · <a href="data/news_latest.json">news_latest.json</a> · <a href="data/history/prices_history.csv">prices_history.csv</a> · <a href="data/history/news_history.ndjson">news_history.ndjson</a> · <a href="data/history/predictions_history.csv">predictions_history.csv</a></p>
+    <p><a href="https://github.com/Pipe199x/StockSentinel">Source on GitHub</a> · <a href="https://sentiment-driven-investment.lovable.app/">Frontend</a> · <span id="updated"></span></p>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const COMPANIES = {
+    AMZN:  { name: "Amazon.com, Inc.",      exch: "NASDAQ", domain: "amazon.com" },
+    GOOGL: { name: "Alphabet Inc. Class A", exch: "NASDAQ", domain: "google.com" },
+    MSFT:  { name: "Microsoft Corporation", exch: "NASDAQ", domain: "microsoft.com" },
+  };
+  const logoUrl = (t) => COMPANIES[t] ? `https://www.google.com/s2/favicons?domain=${COMPANIES[t].domain}&sz=128` : null;
+  const PAGE = 8;
+  const $ = (id) => document.getElementById(id);
+  const num = new Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const pct = new Intl.NumberFormat("en-US", { style: "percent", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const pct0 = new Intl.NumberFormat("en-US", { style: "percent", maximumFractionDigits: 0 });
+  const axisFmt = new Intl.DateTimeFormat("en-US", { day: "numeric", month: "short", timeZone: "UTC" });
+  const tipFmt = new Intl.DateTimeFormat("en-US", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
+  const longFmt = new Intl.DateTimeFormat("en-US", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
+  const stampFmt = new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeStyle: "short" });
+  const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+  const SENT = { positive: "Positive", negative: "Negative", neutral: "Neutral" };
+
+  const state = { prices: {}, preds: {}, hist: [], news: [], tickers: [], ticker: null, shown: PAGE, view: null, hover: -1 };
+
+  // News data comes from third parties: only http(s), never javascript: or other schemes.
+  const safeUrl = (u) => { try { const x = new URL(u); return /^https?:$/.test(x.protocol) ? x.href : null; } catch { return null; } };
+  const day = (d) => new Date(d + "T00:00:00Z");
+  const fin = (v) => typeof v === "number" && isFinite(v);
+  const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+  const svgEl = (tag, attrs) => { const n = document.createElementNS("http://www.w3.org/2000/svg", tag); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };
+  const signed = (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + num.format(Math.abs(v));
+
+  async function fetchText(path) {
+    // Cache-buster so Refresh always gets the latest published files.
+    const r = await fetch(path + "?t=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error(path + " → HTTP " + r.status);
+    return r.text();
+  }
+  const getJSON = async (path) => JSON.parse(await fetchText(path));
+  async function getCSV(path) {
+    const [head, ...lines] = (await fetchText(path)).trim().split(/\r?\n/);
+    const cols = head.split(",");
+    return lines.map((l) => {
+      const v = l.split(","), o = {};
+      cols.forEach((c, i) => { const s = v[i] ?? ""; o[c] = s !== "" && !isNaN(+s) && c !== "as_of" && c !== "target_date" ? +s : s; });
+      return o;
+    });
+  }
+
+  async function load() {
+    const [prices, preds, hist, news, manifest] = await Promise.allSettled([
+      getJSON("data/prices_latest.json"),
+      getJSON("data/predictions_latest.json"),
+      getCSV("data/history/predictions_history.csv"),
+      getJSON("data/news_latest.json"),
+      getJSON("data/manifest.json"),
+    ]);
+    if (prices.status !== "fulfilled") {
+      $("name").textContent = "Could not load prices";
+      $("meta").textContent = String(prices.reason);
+      return;
+    }
+    state.prices = {};
+    for (const [t, rows] of Object.entries(prices.value.series || {})) {
+      state.prices[t] = rows.filter((r) => fin(r.close)).sort((a, b) => a.date.localeCompare(b.date));
+    }
+    state.preds = {};
+    if (preds.status === "fulfilled") for (const p of preds.value) state.preds[p.ticker] = p;
+    state.hist = hist.status === "fulfilled" ? hist.value : [];
+    state.news = news.status === "fulfilled" ? news.value.articles || [] : null;
+    if (manifest.status === "fulfilled" && manifest.value.stocks) {
+      $("updated").textContent = "Data updated " + stampFmt.format(new Date(manifest.value.stocks.last_updated_utc));
+    }
+
+    state.tickers = Object.keys(state.prices).filter((t) => state.prices[t].length);
+    const tabs = document.querySelector('nav[role="tablist"]');
+    tabs.replaceChildren();
+    for (const t of state.tickers) {
+      const b = el("button", "tab");
+      const logo = logoUrl(t);
+      if (logo) { const im = el("img"); im.src = logo; im.alt = ""; im.addEventListener("error", () => im.remove()); b.append(im); }
+      b.append(t);
+      b.setAttribute("role", "tab");
+      b.dataset.t = t;
+      b.addEventListener("click", () => { location.hash = t; });
+      tabs.append(b);
+    }
+    pick();
+  }
+
+  function pick() {
+    if (!state.tickers.length) return;
+    const h = decodeURIComponent(location.hash.slice(1)).toUpperCase();
+    select(state.tickers.includes(h) ? h : state.tickers[0]);
+  }
+  window.addEventListener("hashchange", pick);
+
+  // Join every published prediction with the close that actually happened on its target date.
+  function trackRecord(t) {
+    const closeBy = new Map(state.prices[t].map((p) => [p.date, p.close]));
+    const byTarget = new Map();
+    for (const h of state.hist) {
+      if (h.ticker !== t || !closeBy.has(h.target_date) || !fin(h.pred_close_t1) || !fin(h.last_close)) continue;
+      const prev = byTarget.get(h.target_date);
+      if (!prev || h.as_of > prev.as_of) byTarget.set(h.target_date, h);
+    }
+    return [...byTarget.values()]
+      .map((h) => {
+        const actual = closeBy.get(h.target_date);
+        return {
+          date: h.target_date, pred: h.pred_close_t1, actual, last: h.last_close,
+          err: Math.abs(h.pred_close_t1 - actual) / actual,
+          hit: Math.sign(h.pred_close_t1 - h.last_close) === Math.sign(actual - h.last_close),
+        };
+      })
+      .sort((a, b) => a.date.localeCompare(b.date));
+  }
+
+  function select(t) {
+    const s = state.prices[t], last = s[s.length - 1];
+    const p = state.preds[t];
+    const record = trackRecord(t);
+    const realErr = record.length ? record.reduce((a, r) => a + r.err, 0) / record.length : null;
+    const errPct = fin(realErr) && record.length >= 5 ? realErr : fin(p && p.mae_backtest_30d) ? p.mae_backtest_30d : realErr;
+    // Only drawn as a forecast when it targets a day after the last known close.
+    const forecast = p && fin(p.pred_close_t1) && p.target_date > last.date
+      ? { date: p.target_date, value: p.pred_close_t1, band: fin(errPct) ? p.pred_close_t1 * errPct : 0, ret: p.pred_ret_t1, mae: p.mae_backtest_30d }
+      : null;
+    if (state.ticker !== t) { state.shown = PAGE; state.hover = -1; }
+    state.ticker = t;
+    state.view = { t, s, forecast, record, realErr, errPct, predByDate: new Map(record.map((r) => [r.date, r.pred])) };
+    document.querySelectorAll(".tab").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.t === t)));
+    renderQuote();
+    renderChart();
+    renderML();
+    renderNews();
+  }
+
+  function renderQuote() {
+    const { t, s } = state.view, co = COMPANIES[t] || { name: t, exch: "" };
+    const first = s[0].close, last = s[s.length - 1].close, diff = last - first;
+    const mono = $("mono"), logo = logoUrl(t);
+    mono.className = "mono";
+    mono.textContent = co.name[0];
+    if (logo) {
+      const im = el("img");
+      im.alt = co.name + " logo";
+      im.addEventListener("load", () => { if (state.ticker === t) { mono.className = "mono logo"; mono.replaceChildren(im); } });
+      im.src = logo;
+    }
+    $("name").textContent = co.name;
+    $("exch").textContent = (co.exch ? co.exch + ": " : "") + t;
+    $("price").textContent = num.format(last);
+    $("quote").classList.toggle("down", diff < 0);
+    $("badge").textContent = (diff < 0 ? "↓ " : "↑ ") + pct.format(Math.abs(diff / first));
+    $("delta").textContent = signed(diff) + " past month";
+    $("meta").textContent = "Close on " + tipFmt.format(day(s[s.length - 1].date)) + " · Delayed data · Not financial advice";
+  }
+
+  function renderML() {
+    const { s, forecast: f, record, realErr } = state.view, sec = $("ml");
+    if (!f) { sec.hidden = true; return; }
+    sec.hidden = false;
+    const last = s[s.length - 1].close, diff = f.value - last, up = diff >= 0;
+
+    $("ml-when").textContent = "Predicted close for " + longFmt.format(day(f.date));
+    $("ml-pred").replaceChildren(document.createTextNode(num.format(f.value) + " "), el("small", null, "USD"));
+    const dir = $("ml-dir");
+    dir.className = "dir " + (up ? "up" : "down");
+    dir.textContent = (up ? "↑ Bullish " : "↓ Bearish ") + pct.format(Math.abs(diff / last));
+    $("ml-vs").textContent = signed(diff) + " vs. last close (" + num.format(last) + ")";
+
+    const rb = $("ml-range");
+    rb.replaceChildren();
+    if (f.band > 0) {
+      const lo = f.value - f.band, hi = f.value + f.band;
+      const min = Math.min(lo, last) - f.band * 0.4, max = Math.max(hi, last) + f.band * 0.4;
+      const at = (v) => ((v - min) / (max - min)) * 100 + "%";
+      const track = el("div", "rb-track");
+      const band = el("div", "rb-band"); band.style.left = at(lo); band.style.width = `calc(${at(hi)} - ${at(lo)})`;
+      const mark = el("div", "rb-last"); mark.style.left = at(last); mark.title = "Last close";
+      const dot = el("div", "rb-dot"); dot.style.left = at(f.value);
+      track.append(band, mark, dot);
+      const ends = el("div", "rb-ends");
+      ends.append(el("span", null, num.format(lo)), el("span", null, "likely range (± avg. error)"), el("span", null, num.format(hi)));
+      rb.append(el("div", "lbl", "Likely range · grey tick is the last close"), track, ends);
+    }
+
+    const tiles = $("ml-tiles");
+    tiles.replaceChildren();
+    const tile = (label, value, sub, meter) => {
+      const d = el("div", "tile");
+      d.append(el("div", "lbl", label), el("b", null, value), el("div", "sub", sub));
+      if (fin(meter)) { const m = el("div", "meter"), i = el("i"); i.style.width = Math.max(0, Math.min(1, meter)) * 100 + "%"; m.append(i); d.append(m); }
+      return d;
+    };
+    const hits = record.filter((r) => r.hit).length;
+    tiles.append(
+      record.length
+        ? tile("Direction accuracy", pct0.format(hits / record.length), `${hits} of ${record.length} days · out-of-sample`, hits / record.length)
+        : tile("Direction accuracy", "—", "no evaluated predictions yet"),
+      tile("Live avg. error", fin(realErr) ? pct.format(realErr) : "—", "prediction vs. actual close"),
+      tile("Backtest error", fin(f.mae) ? pct.format(f.mae) : "—", "last 30 days, in-sample"),
+      tile("Predictions evaluated", String(record.length), "within the 1-month window"),
+    );
+
+    const hist = $("ml-hist");
+    hist.replaceChildren();
+    if (record.length) {
+      const table = el("table"), thead = el("thead"), tr = el("tr"), tbody = el("tbody");
+      ["Date", "Predicted", "Actual", "Error", "Direction"].forEach((h) => tr.append(el("th", null, h)));
+      thead.append(tr);
+      for (const r of record.slice(-6).reverse()) {
+        const row = el("tr");
+        row.append(
+          el("td", null, tipFmt.format(day(r.date))),
+          el("td", null, num.format(r.pred)),
+          el("td", null, num.format(r.actual)),
+          el("td", null, pct.format(r.err)),
+          el("td", r.hit ? "ok" : "ko", r.hit ? "✓ hit" : "✗ miss"),
+        );
+        tbody.append(row);
+      }
+      table.append(thead, tbody);
+      hist.append(el("h3", null, "Recent model track record"), table);
+    }
+  }
+
+  function niceTicks(lo, hi, count) {
+    const span = hi - lo || Math.abs(hi) || 1;
+    const raw = span / (count - 1), mag = 10 ** Math.floor(Math.log10(raw)), n = raw / mag;
+    const step = (n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10) * mag;
+    const out = [];
+    for (let v = Math.floor(lo / step) * step; v <= Math.ceil(hi / step) * step + step / 2; v += step) out.push(+v.toFixed(6));
+    return { ticks: out, step };
+  }
+
+  // Current chart geometry, used by hover.
+  let geo = null;
+
+  function renderChart() {
+    const { s, forecast: f, predByDate } = state.view, svg = $("svg"), W = $("chart").clientWidth;
+    const H = Math.round(Math.min(300, Math.max(200, W * 0.4)));
+    const pad = { l: 40, r: 14, t: 34, b: 26 };
+    const N = s.length + (f ? 1 : 0);
+    // The forecast gets a wider slot so its zone and label fit.
+    const right = W - pad.r, gap = f ? Math.max(76, (right - pad.l) * 0.12) : 0;
+    const x = (i) => i >= s.length ? right
+      : pad.l + (right - gap - pad.l) * (s.length > 1 ? i / (s.length - 1) : 0.5);
+
+    const vals = s.map((p) => p.close).concat([...predByDate.values()]);
+    if (f) vals.push(f.value - f.band, f.value + f.band);
+    const { ticks, step } = niceTicks(Math.min(...vals), Math.max(...vals), 5);
+    const lo = ticks[0], hi = ticks[ticks.length - 1];
+    const y = (v) => pad.t + (H - pad.t - pad.b) * (1 - (v - lo) / (hi - lo || 1));
+    const tickFmt = new Intl.NumberFormat("en-US", { maximumFractionDigits: step < 1 ? 1 : 0 });
+
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    svg.setAttribute("height", H);
+    svg.replaceChildren();
+
+    const defs = svgEl("defs", {});
+    const grad = svgEl("linearGradient", { id: "fill", x1: 0, y1: 0, x2: 0, y2: 1 });
+    grad.append(svgEl("stop", { offset: "0", style: "stop-color:var(--trend);stop-opacity:.22" }),
+                svgEl("stop", { offset: "1", style: "stop-color:var(--trend);stop-opacity:0" }));
+    defs.append(grad);
+    svg.append(defs);
+
+    // Forecast (future) zone
+    if (f) {
+      const zx = x(s.length - 1) + gap * 0.4;
+      svg.append(svgEl("rect", { x: zx, y: pad.t - 22, width: W - zx, height: H - pad.b - pad.t + 22, rx: 6, style: "fill:var(--ml-bg)" }));
+      const zl = svgEl("text", { x: (zx + W) / 2, y: pad.t - 8, "text-anchor": "middle", "font-size": 11, "font-weight": 600, style: "fill:var(--ml)" });
+      zl.textContent = "Forecast";
+      svg.append(zl);
+    }
+
+    for (const v of ticks) {
+      svg.append(svgEl("line", { x1: pad.l, x2: W - pad.r, y1: y(v), y2: y(v), style: "stroke:var(--grid)" }));
+      const lbl = svgEl("text", { x: pad.l - 8, y: y(v) + 4, "text-anchor": "end", "font-size": 12, style: "fill:var(--muted)" });
+      lbl.textContent = tickFmt.format(v);
+      svg.append(lbl);
+    }
+
+    const nLabels = Math.max(2, Math.min(5, Math.floor((right - gap - pad.l) / 110)));
+    for (let k = 0; k < nLabels; k++) {
+      const i = Math.round((k + 0.5) * (s.length - 1) / nLabels);
+      const lbl = svgEl("text", { x: x(i), y: H - 6, "text-anchor": "middle", "font-size": 12, style: "fill:var(--muted)" });
+      lbl.textContent = axisFmt.format(day(s[i].date));
+      svg.append(lbl);
+    }
+    if (f) {
+      const lbl = svgEl("text", { x: right, y: H - 6, "text-anchor": "end", "font-size": 12, "font-weight": 600, style: "fill:var(--ml)" });
+      lbl.textContent = axisFmt.format(day(f.date));
+      svg.append(lbl);
+    }
+
+    const line = s.map((p, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(p.close).toFixed(1)).join("");
+    svg.append(svgEl("path", { d: `${line}L${x(s.length - 1)},${H - pad.b}L${x(0)},${H - pad.b}Z`, fill: "url(#fill)" }));
+    svg.append(svgEl("path", { d: line, fill: "none", "stroke-width": 2, "stroke-linejoin": "round", style: "stroke:var(--trend)" }));
+
+    // The model's past predictions over the actual days
+    s.forEach((p, i) => {
+      const v = predByDate.get(p.date);
+      if (!fin(v)) return;
+      svg.append(svgEl("line", { x1: x(i), x2: x(i), y1: y(v), y2: y(p.close), "stroke-width": 1, style: "stroke:var(--ml);opacity:.35" }));
+      svg.append(svgEl("circle", { cx: x(i), cy: y(v), r: 3.2, "stroke-width": 1.5, style: "fill:var(--card);stroke:var(--ml)" }));
+    });
+
+    // Next-day forecast
+    if (f) {
+      const fx = right, fy = y(f.value), lx = x(s.length - 1), ly = y(s[s.length - 1].close);
+      if (f.band > 0) {
+        const top = y(f.value + f.band), bot = y(f.value - f.band);
+        svg.append(svgEl("path", { d: `M${lx},${ly}L${fx},${top}L${fx},${bot}Z`, style: "fill:var(--ml-soft)" }));
+        svg.append(svgEl("line", { x1: fx, x2: fx, y1: top, y2: bot, "stroke-width": 2, style: "stroke:var(--ml);opacity:.5" }));
+      }
+      svg.append(svgEl("line", { x1: lx, y1: ly, x2: fx, y2: fy, "stroke-width": 2, "stroke-dasharray": "5 4", style: "stroke:var(--ml)" }));
+      svg.append(svgEl("circle", { cx: fx, cy: fy, r: 6, "stroke-width": 2.5, style: "fill:var(--card);stroke:var(--ml)" }));
+    }
+
+    const cross = svgEl("line", { y1: pad.t - 6, y2: H - pad.b, "stroke-dasharray": "3 3", style: "stroke:var(--muted)", visibility: "hidden" });
+    const dot = svgEl("circle", { r: 5, style: "fill:var(--trend);stroke:var(--bg);stroke-width:2", visibility: "hidden" });
+    svg.append(cross, dot);
+
+    geo = { x, y, W, N, cross, dot };
+    showHover(state.hover < N ? state.hover : -1);
+  }
+
+  function showHover(i) {
+    state.hover = i;
+    const tip = $("tip");
+    if (!geo || i < 0) {
+      tip.style.display = "none";
+      geo && geo.cross.setAttribute("visibility", "hidden");
+      geo && geo.dot.setAttribute("visibility", "hidden");
+      return;
+    }
+    const { s, forecast: f, predByDate } = state.view;
+    const isF = i >= s.length;
+    const value = isF ? f.value : s[i].close, date = isF ? f.date : s[i].date;
+    const cx = geo.x(i);
+    geo.cross.setAttribute("x1", cx); geo.cross.setAttribute("x2", cx);
+    geo.dot.setAttribute("cx", cx); geo.dot.setAttribute("cy", geo.y(value));
+    geo.dot.style.fill = isF ? "var(--ml)" : "var(--trend)";
+    geo.cross.setAttribute("visibility", "visible");
+    geo.dot.setAttribute("visibility", "visible");
+    tip.querySelector("b").textContent = num.format(value) + " USD";
+    tip.querySelector("span").textContent = (isF ? "Forecast · " : "") + tipFmt.format(day(date));
+    const model = isF ? null : predByDate.get(date);
+    tip.querySelector("em").textContent = isF && f.band > 0 ? "± " + num.format(f.band)
+      : fin(model) ? "model " + num.format(model) : "";
+    tip.style.display = "block";
+    const tw = tip.offsetWidth;
+    tip.style.left = Math.max(0, Math.min(geo.W - tw, cx - tw / 2)) + "px";
+  }
+
+  function nearest(clientX) {
+    const r = $("svg").getBoundingClientRect();
+    const fx = (clientX - r.left) * (geo.W / r.width);
+    let best = 0;
+    for (let i = 1; i < geo.N; i++) if (Math.abs(geo.x(i) - fx) < Math.abs(geo.x(best) - fx)) best = i;
+    return best;
+  }
+
+  const svg = $("svg");
+  svg.addEventListener("pointermove", (e) => geo && showHover(nearest(e.clientX)));
+  svg.addEventListener("pointerdown", (e) => geo && showHover(nearest(e.clientX)));
+  svg.addEventListener("pointerleave", () => showHover(-1));
+  svg.addEventListener("blur", () => showHover(-1));
+  svg.addEventListener("keydown", (e) => {
+    if (!geo) return;
+    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+      e.preventDefault();
+      const cur = state.hover < 0 ? geo.N - 1 : state.hover + (e.key === "ArrowRight" ? 1 : -1);
+      showHover(Math.max(0, Math.min(geo.N - 1, cur)));
+    } else if (e.key === "Escape") showHover(-1);
+  });
+
+  let rz;
+  new ResizeObserver(() => { cancelAnimationFrame(rz); rz = requestAnimationFrame(() => state.view && renderChart()); }).observe($("chart"));
+
+  function ago(iso) {
+    const secs = (new Date(iso) - Date.now()) / 1000;
+    if (!isFinite(secs)) return "";
+    const a = Math.abs(secs);
+    if (a < 3600) return rtf.format(Math.round(secs / 60), "minute");
+    if (a < 86400) return rtf.format(Math.round(secs / 3600), "hour");
+    return rtf.format(Math.round(secs / 86400), "day");
+  }
+
+  function placeholder(thumb, source) {
+    thumb.className = "thumb ph";
+    thumb.replaceChildren(document.createTextNode((source || "?")[0].toUpperCase()));
+  }
+
+  function item(a) {
+    const href = safeUrl(a.url);
+    const c = el(href ? "a" : "div", "item");
+    if (href) { c.href = href; c.target = "_blank"; c.rel = "noopener noreferrer"; }
+
+    const txt = el("div", "itxt");
+    const foot = el("div", "foot", ago(a.published_at));
+    const label = a.sentiment && a.sentiment.label;
+    if (SENT[label]) foot.append(el("span", "sent " + label, SENT[label]));
+    txt.append(el("div", "src", a.source || ""), el("h3", null, a.title || ""), foot);
+
+    const thumb = el("div", "thumb");
+    const img = safeUrl(a.image_url);
+    if (img) {
+      const im = el("img");
+      im.src = img; im.alt = ""; im.loading = "lazy"; im.decoding = "async"; im.referrerPolicy = "no-referrer";
+      im.addEventListener("error", () => placeholder(thumb, a.source));
+      thumb.append(im);
+    } else placeholder(thumb, a.source);
+
+    c.append(txt, thumb);
+    return c;
+  }
+
+  function renderMood(list) {
+    const box = $("mood");
+    const c = { positive: 0, neutral: 0, negative: 0 };
+    list.forEach((a) => { const l = a.sentiment && a.sentiment.label; if (l in c) c[l]++; });
+    const total = c.positive + c.neutral + c.negative;
+    if (!total) { box.hidden = true; return; }
+    const bar = el("div", "mood-bar");
+    [["p", c.positive], ["n", c.neutral], ["x", c.negative]].forEach(([k, v]) => { const s = el("span", k); s.style.width = (v / total) * 100 + "%"; bar.append(s); });
+    const keys = el("div", "mood-keys");
+    keys.append(el("span", null, c.positive + " positive"), el("span", null, c.neutral + " neutral"), el("span", null, c.negative + " negative"));
+    box.replaceChildren(el("div", "lbl", `Sentiment of ${total} articles · FinBERT`), bar, keys);
+    box.hidden = false;
+  }
+
+  function renderNews() {
+    const listEl = $("news"), more = $("more");
+    listEl.replaceChildren();
+    if (state.news === null) { $("mood").hidden = true; listEl.append(el("p", "err", "Could not load news.")); more.hidden = true; return; }
+    const list = state.news
+      .filter((a) => (a.tickers || []).includes(state.ticker) && a.title)
+      .sort((a, b) => (Date.parse(b.published_at) || 0) - (Date.parse(a.published_at) || 0));
+    renderMood(list);
+    if (!list.length) { listEl.append(el("p", "empty", "No recent news for " + state.ticker + ".")); more.hidden = true; return; }
+    list.slice(0, state.shown).forEach((a) => listEl.append(item(a)));
+    more.hidden = list.length <= state.shown;
+  }
+
+  $("more").addEventListener("click", () => { state.shown += PAGE; renderNews(); });
+
+  const refresh = $("refresh");
+  refresh.addEventListener("click", async () => {
+    refresh.disabled = true;
+    refresh.classList.add("spin");
+    try { await load(); } catch (e) { $("meta").textContent = String(e); }
+    finally { refresh.disabled = false; refresh.classList.remove("spin"); }
+  });
+
+  load().catch((e) => { $("name").textContent = "Error"; $("meta").textContent = String(e); });
+})();
+</script>
 </body>
 </html>

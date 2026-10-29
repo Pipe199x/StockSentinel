@@ -58,6 +58,7 @@ class Article:
     url: str
     raw_tickers: List[str]
     content_snippet: Optional[str] = None  # NewsAPI a veces da ~200 chars
+    image_url: Optional[str] = None
 
 
 class NewsClient(ABC):
@@ -152,6 +153,7 @@ class NewsAPIClient(NewsClient):
                     url=url,
                     raw_tickers=raw_tickers,
                     content_snippet=content,
+                    image_url=a.get("urlToImage") or None,
                 )
             page += 1
             time.sleep(1)
@@ -248,6 +250,7 @@ def run_cli():
                         "title": title,
                         "summary": summary,
                         "url": art.url,
+                        "image_url": art.image_url,
                         "raw_tickers": art.raw_tickers,
                     }
                     day_rows.append(row)
