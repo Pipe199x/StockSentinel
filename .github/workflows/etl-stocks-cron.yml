@@ -23,8 +23,6 @@ jobs:
 
     env:
       PYTHON_VERSION: "3.11"
-      # Keep yfinance's SQLite cache out of any shared/restored location
-      XDG_CACHE_HOME: ${{ runner.temp }}/cache
 
     steps:
       - name: Checkout
@@ -68,6 +66,10 @@ jobs:
 
       - name: Run ETL (prices + XGBoost forecast + publish to docs/)
         if: steps.guard.outputs.skip != 'true'
+        env:
+          # Keep yfinance's SQLite cache out of any shared/restored location
+          # (runner context is only allowed at step level, not job-level env)
+          XDG_CACHE_HOME: ${{ runner.temp }}/cache
         run: |
           set -euo pipefail
           # Second layer of retries for Yahoo outages/rate limits lasting longer
