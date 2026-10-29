@@ -1,7 +1,160 @@
 {
-  "as_of": "2026-10-28T18:20:31.417537+00:00",
+  "as_of": "2026-10-29T18:27:34.129866+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-28T18:26:21+00:00",
+      "source": "The Times of India",
+      "title": "In 2008, Angelina Jolie co-founded KIND with Microsoft; it has since secured legal representation for over 17,000 children in the US and supported migrant families",
+      "summary": "Kids in Need of Defense, co-founded by Angelina Jolie in 2008, assists unaccompanied children with legal representation. KIND ensures that these children receive psychosocial support and comprehensive services across the United States and Mexico. The organiza…",
+      "url": "https://timesofindia.indiatimes.com/world/us/in-2008-angelina-jolie-co-founded-kind-with-microsoft-it-has-since-secured-legal-representation-for-over-17000-children-in-the-us-and-supported-migrant-families/articleshow/135271543.cms",
+      "image_url": "https://static.toiimg.com/thumb/msid-135271913,width-1280,height-720,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8125
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-28T18:19:09+00:00",
+      "source": "The Times of India",
+      "title": "Health inspector arrested in Kovalam spa sexual exploitation case",
+      "summary": "Kovalam police arrest temporary health inspector Maya V in minor’s spa sexual exploitation case; probe tracks Google Pay transfers and possible interstate links.",
+      "url": "https://timesofindia.indiatimes.com/city/thiruvananthapuram/health-inspector-arrested-in-kovalam-spa-sexual-exploitation-case/articleshow/135276813.cms",
+      "image_url": "https://static.toiimg.com/thumb/msid-135276812,width-1280,height-720,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.757
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-28T18:15:09+00:00",
+      "source": "iPhone in Canada",
+      "title": "Discord Will Soon Make Public Server Messages Searchable on Google",
+      "summary": "Discord is making public server discussions searchable on the web with new privacy controls for admins and members to manage their data.\nThe post Discord Will Soon Make Public Server Messages Searchable on Google first appeared on iPhone in Canada.",
+      "url": "https://www.iphoneincanada.ca/2026/10/28/discord-will-soon-make-public-server-messages-searchable-on-google/",
+      "image_url": "https://cdn.iphoneincanada.ca/wp-content/uploads/2026/10/Discord-tiers.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8673
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-28T18:12:13+00:00",
+      "source": "Amazon.com",
+      "title": "Accelerating software delivery with agentic QA automation using Amazon Nova Act – Part 3",
+      "summary": "As QA test automation spreads across an organization, organizing tests and controlling who owns them becomes the real work. Part 3 of the QA Studio series on Amazon Nova Act adds applications that organize tests and report health metrics, plus team-based user…",
+      "url": "https://aws.amazon.com/blogs/machine-learning/accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-3/",
+      "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/10/27/ML-21434-featured-image.png",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.904
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-28T18:08:12+00:00",
+      "source": "Dailymail.com",
+      "title": "Former Google AI executive charged with sexually assaulting female colleague after they traveled to Minnesota for wedding",
+      "summary": "Antony Sun Liwanag, of San Francisco, allegedly sexually assaulted his female co-workers after they both attending a pre-wedding party in July in St Louis Park, Minnesota, according to prosecutors.",
+      "url": "https://www.dailymail.com/news/article-16245629/former-google-executive-charged-sexual-assult-wedding-minnesota.html",
+      "image_url": "https://i.dailymail.com/1s/2026/10/28/18/112152457-0-image-m-15_1793210498573.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8509
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-28T18:07:00+00:00",
+      "source": "Amazon.com",
+      "title": "Amazon EKS Dashboard now provides fleet-wide visibility into certificate authority (CA) rotation",
+      "summary": "Today, Amazon Elastic Kubernetes Service (Amazon EKS) announces certificate authority (CA) rotation visibility in the Amazon EKS Dashboard, giving you a consolidated view of CA rotation across your clusters. The Amazon EKS Dashboard already provides centraliz…",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-eks-dashboard-fleet-wide-visibility-certificate-authority-ca-rotation/",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8133
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-28T18:05:04+00:00",
+      "source": "Windows Central",
+      "title": "Windows Security is finally getting a Windows 11 redesign",
+      "summary": "Microsoft is redesigning Windows Security with updated navigation, layouts, typography, and controls. The refresh should make the app feel much more at home on Windows 11.",
+      "url": "https://www.windowscentral.com/microsoft/windows-11/windows-security-will-finally-look-like-it-belongs-on-windows-11",
+      "image_url": "https://cdn.mos.cms.futurecdn.net/4KJD5NkszDM8Cee5VrFp4P-1641-80.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.639
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-28T18:00:17+00:00",
+      "source": "Legalinsurrection.com",
+      "title": "Microsoft Buyout Offers for 60,000 Workers Amid $175 Billion AI Push",
+      "summary": "The question haunting Microsoft is whether its expensive vision of tomorrow will prove worth the costs in human talent and input.\nThe post Microsoft Buyout Offers for 60,000 Workers Amid $175 Billion AI Push first appeared on Le·gal In·sur·rec·tion.",
+      "url": "https://legalinsurrection.com/2026/10/microsoft-buyout-offers-for-60000-workers-amid-175-billion-ai-push/",
+      "image_url": "https://legalinsurrection.com/wp-content/uploads/2024/07/LI-62-Microsoft.png",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8996
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-28T18:00:02+00:00",
+      "source": "Commonsensewithmoney.com",
+      "title": "THE NORTH FACE Berkeley Crossbody Bag – Just $27.20!",
+      "summary": "Looking for a fun bag to take on the go, use for holiday travel or to gift to someone you love? Hurry and grab the THE NORTH FACE Berkeley Crossbody Bag  for just $27.20!\nThis item will ship free for all Amazon Prime members. Or, regular members ...",
+      "url": "https://www.commonsensewithmoney.com/north-face-berkeley-crossbody-bag-just-27-20/",
+      "image_url": "https://www.commonsensewithmoney.com/wp-content/uploads/2026/10/ambag.png",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9224
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-27T18:19:11+00:00",
       "source": "Unity.com",
@@ -1836,150 +1989,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.8377
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-14T16:57:14+00:00",
-      "source": "Dansdeals.com",
-      "title": "NYX Pro Fix Stick Correcting Concealers For $4.04-$4.51 Shipeed From Amazon",
-      "summary": "NYX Professional Makeup Pro Fix Stick Correcting Concealer Golden: $4.04-$4.51 NYX PROFESSIONAL MAKEUP Pro Fix Stick Correcting Concealer: $4.04-$4.51 NYX PROFESSIONAL MAKEUP Pro Fix Stick Correcting Concealer: $4.04-$4.51 NYX Professional Makeup Pro Fix Stic…",
-      "url": "https://www.dansdeals.com/shopping-deals/amazon/nyx-pro-fix-stick-correcting-concealers-for-4-04-4-51-shipeed-from-amazon/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9287
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-14T16:55:24+00:00",
-      "source": "Amazon.com",
-      "title": "Your serverless attendee’s guide to AWS re:Invent 2026",
-      "summary": "AWS re:Invent 2026 offers an extensive selection of serverless and application integration content, including new AWS Lambda execution models, AI agents as a new kind of serverless consumer, and maturing event-driven patterns. This guide helps you navigate th…",
-      "url": "https://aws.amazon.com/blogs/compute/your-serverless-attendees-guide-to-aws-reinvent-2026/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.884
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-14T16:53:18+00:00",
-      "source": "Slashdot.org",
-      "title": "Russia detains Japanese journalist on suspicion of spying - CNN",
-      "summary": "Russia detains Japanese journalist on suspicion of spyingCNN See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186319648",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9202
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-14T16:40:17+00:00",
-      "source": "Unity.com",
-      "title": "Hydra - Dragon with 5 Heads - Fantasy RPG Monster Character by Magic Pig Games / Infinity PBR",
-      "summary": "Fearsome 5-headed Hydra with massive customization: three head options, back options, and unlimited texture customization. Includes audio and dynamic animations like Directional Got Hit!Support, Questions, News & Updates➡️ Discord | YouTube | InfinityPBR.com➡…",
-      "url": "https://assetstore.unity.com/packages/3d/characters/creatures/hydra-dragon-with-5-heads-fantasy-rpg-monster-character-416856",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9189
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-14T16:33:38+00:00",
-      "source": "Droid Life",
-      "title": "Android XR Smart Glasses Launch in November",
-      "summary": "Thanks to an unnamed Samsung official who spoke with local media, we can go ahead place November on the calendar for when we will see the launch of Android XR. After what has been a long, slow tease of the platform by all involved (Google, Samsung, etc.), we’…",
-      "url": "https://www.droid-life.com/2026/10/14/android-xr-smart-glasses-launch-in-november/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8519
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-14T16:33:10+00:00",
-      "source": "Yahoo Entertainment",
-      "title": "Nectar Launches Customer Atlas, Extending Amazon Marketing Cloud Audience Targeting From Display Into Search Bidding",
-      "summary": "NEW YORK, October 14, 2026--Nectar, an Amazon Advanced Advertising Partner managing more than $2.5 billion in annual client sales, launched today Customer At...",
-      "url": "https://finance.yahoo.com/media-advertising/articles/nectar-launches-customer-atlas-extending-152800468.html",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5616
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-14T16:25:36+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Microsoft Office Professional Plus 2021-2024 VL v2609 Build 20430.20182",
-      "summary": "Description: Microsoft has officially announced the availability of the final version of its Office 2024 release for Windows and Mac users. Following the release of the preview version in the first half of this year, the product has been refined and is now av…",
-      "url": "https://post.rlsbb.cc/microsoft-office-professional-plus-2021-2024-vl-v2609-build-20430-20182/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8095
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-14T16:25:36+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Microsoft Office 2024 Professional Plus LTSC v2408 Build 17932.21056",
-      "summary": "Description: Office 365 ProPlus, the cloud-connected version of Office, delivers the most productive and most secure Office experience—with the lowest total cost of ownership for deployment and management. However, for customers who aren’t ready for the cloud…",
-      "url": "https://post.rlsbb.cc/microsoft-office-2024-professional-plus-ltsc-v2408-build-17932-21056/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7749
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-14T16:21:14+00:00",
-      "source": "The Verge",
-      "title": "Honey, Xbox shrunk its controller",
-      "summary": "Microsoft is officially announcing its Xbox Nano controller today, a smaller and cheaper controller that's designed to fit into your pocket. The more compact controller is also designed for \"younger players, smaller hands, or anyone seeking something portable…",
-      "url": "https://www.theverge.com/news/1011216/xbox-nano-controller-release-date-pricing",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7585
       },
       "sentiment_model": "ProsusAI/finbert"
     }
