@@ -76,3 +76,60 @@ def finbert_enrich(items: List[Dict[str, Any]], cfg: Dict[str, Any]) -> List[Dic
         max_length=int(cfg.get("max_length", 512)),
     )
     return client.enrich(items)
+
+
+def article_id(item: Dict[str, Any]) -> str:
+    """Id estable por artículo (URL, o título + fecha si no hay URL)."""
+    import hashlib
+    key = item.get("url") or f"{item.get('title', '')}|{item.get('published_at', '')}"
+    return hashlib.sha1(key.encode("utf-8")).hexdigest()[:16]
+
+
+def update_embeddings(items: List[Dict[str, Any]], path: str, cfg: Dict[str, Any]) -> int:
+    """Guarda el embedding FinBERT (768 dims, media de la última capa) de cada artículo.
+
+    Es la rama de "experto en noticias" del modelo de fusión (stocks_etl/deep): el
+    sentimiento solo es una etiqueta, el embedding conserva la semántica. Solo calcula
+    los artículos que faltan, así que la primera corrida rellena todo el histórico.
+    Devuelve cuántos embeddings nuevos se añadieron.
+    """
+    import os
+    import numpy as np
+
+    if not cfg.get("enabled", True) or not items:
+        return 0
+    ids, embs = [], np.zeros((0, 768), dtype=np.float16)
+    if os.path.exists(path):
+        with np.load(path, allow_pickle=False) as z:
+            ids, embs = list(z["ids"]), z["emb"]
+    known = set(ids)
+    pending = [it for it in items if it.get("tickers") and article_id(it) not in known]
+    if not pending:
+        return 0
+    try:
+        import torch
+        from transformers import AutoModel, AutoTokenizer
+        name = cfg.get("model", "ProsusAI/finbert")
+        tok = AutoTokenizer.from_pretrained(name)
+        model = AutoModel.from_pretrained(name).eval()
+    except Exception as exc:
+        LOG.warning("[EMBED] FinBERT unavailable (%s); skipping embeddings.", exc)
+        return 0
+
+    texts = [" ".join(str(x) for x in [it.get("title") or "", it.get("summary") or ""] if x)[:2000] or "(empty)"
+             for it in pending]
+    out = []
+    bs = int(cfg.get("batch_size", 16))
+    with torch.no_grad():
+        for i in range(0, len(texts), bs):
+            enc = tok(texts[i:i + bs], padding=True, truncation=True,
+                      max_length=int(cfg.get("max_length", 512)), return_tensors="pt")
+            hidden = model(**enc).last_hidden_state
+            mask = enc["attention_mask"].unsqueeze(-1).float()
+            out.append(((hidden * mask).sum(1) / mask.sum(1)).numpy().astype(np.float16))
+    new = np.concatenate(out)
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    np.savez_compressed(path, ids=np.array(ids + [article_id(it) for it in pending]),
+                        emb=np.concatenate([embs, new]))
+    LOG.info("[EMBED] Added %d FinBERT embedding(s) to %s.", len(pending), path)
+    return len(pending)

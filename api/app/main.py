@@ -59,14 +59,36 @@ def get_stocks_history(ticker: str | None = None, _=Depends(require_api_key)):
     return {"count": len(recs), "data": recs}
 
 
-@app.get("/v1/predictions")
-def get_predictions(ticker: str | None = None, _=Depends(require_api_key)):
-    data = read_json("predictions_latest.json")
-    if data is None:
-        raise HTTPException(404, detail="no predictions; run stocks_etl first")
+@app.get("/v1/signals")
+def get_signals(ticker: str | None = None, history: bool = False, _=Depends(require_api_key)):
+    if history:
+        text = read_text("history/signals_history.csv")
+        if text is None:
+            raise HTTPException(404, detail="no signal history; run stocks_etl first")
+        data = csv_to_records(text)
+    else:
+        data = read_json("signals_latest.json")
+        if data is None:
+            raise HTTPException(404, detail="no signals; run stocks_etl first")
     if ticker:
         data = [r for r in data if str(r.get("ticker")) == ticker]
     return {"count": len(data), "data": data}
+
+
+@app.get("/v1/validation")
+def get_validation(_=Depends(require_api_key)):
+    data = read_json("validation_report.json")
+    if data is None:
+        raise HTTPException(404, detail="no validation report; run stocks_etl first")
+    return data
+
+
+@app.get("/v1/universe")
+def get_universe(_=Depends(require_api_key)):
+    data = read_json("universe.json")
+    if data is None:
+        raise HTTPException(404, detail="no universe; run stocks_etl first")
+    return data
 
 
 @app.get("/v1/news")

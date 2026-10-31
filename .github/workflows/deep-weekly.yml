@@ -1,0 +1,68 @@
+name: Deep models (weekly)
+
+on:
+  schedule:
+    - cron: "0 9 * * 6"   # sábado 09:00 UTC: mercado cerrado, sin choque con los ETL diarios
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-data
+  cancel-in-progress: false
+
+jobs:
+  deep:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+
+    env:
+      PYTHON_VERSION: "3.11"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: stocks_etl/deep/requirements.txt
+
+      - name: Install deps (torch CPU wheel first)
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r stocks_etl/deep/requirements.txt
+
+      - name: Unit tests
+        run: python -m pytest tests -q
+
+      - name: Train and evaluate LSTM + price/news fusion (promotion gate DSR > 0.95)
+        run: python -m stocks_etl.deep.train --config stocks_etl/config.yaml
+
+      - name: Verify published JSON is strict JSON (no NaN)
+        run: python -m etl_common.check_json docs/data
+
+      - name: Commit & push data
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "data: deep models update $(date -u +%F) [skip ci]"
+          for i in 1 2 3; do
+            if git pull --rebase origin main && git push origin main; then
+              exit 0
+            fi
+            sleep 15
+          done
+          echo "Push failed after 3 attempts"
+          exit 1

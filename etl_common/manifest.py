@@ -10,7 +10,7 @@ from typing import Any, Dict
 
 DEFAULT_MANIFEST: Dict[str, Any] = {
     "project": "StockSentinel",
-    "tickers": ["AMZN", "GOOGL", "MSFT"],
+    "tickers": [],  # la lista real vive en docs/data/universe.json
     "news": None,
     "stocks": None,
 }

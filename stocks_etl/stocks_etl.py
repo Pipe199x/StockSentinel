@@ -12,12 +12,13 @@ import pandas_market_calendars as mcal
 from tenacity import retry, wait_exponential_jitter, stop_after_attempt
 
 from stocks_etl.features import make_features
-from stocks_etl.model_xgb import predict_next_day
+from stocks_etl.meta_model import make_signals
 from stocks_etl.publish_json import (
     write_prices_latest_json,
-    write_predictions_latest_json,
     write_prices_history_csv,
-    append_predictions_history,
+    write_json,
+    write_signals_latest_json,
+    append_signals_history,
 )
 from etl_common.manifest import update_manifest
 
@@ -192,18 +193,24 @@ def write_single_prices_csv(df, base_dir, compression=None):
     return [path]
 
 
-def write_predictions_csv(df_preds, base_dir):
-    """Escribe el CSV de predicciones (sin la columna 'model')."""
+def write_signals_csv(signals, base_dir):
     os.makedirs(base_dir, exist_ok=True)
-    df_preds = df_preds.drop(columns=["model"], errors="ignore")
     date_tag = datetime.now(timezone.utc).strftime("%Y%m%d")
-    path = os.path.join(base_dir, f"predictions_{date_tag}.csv")
-    df_preds.to_csv(path, index=False)
+    path = os.path.join(base_dir, f"signals_{date_tag}.csv")
+    signals.to_csv(path, index=False)
     return [path]
 
 
+def universe_symbols(cfg):
+    """Lista plana de tickers desde universe: {sector: [tickers]} (o symbols, formato antiguo)."""
+    if cfg.get("universe"):
+        return [t for tickers in cfg["universe"].values() for t in tickers]
+    return list(cfg["symbols"])
+
+
 def main(cfg):
-    symbols = cfg["symbols"]  # ej: ["AMZN","GOOGL","MSFT"]
+    symbols = universe_symbols(cfg)
+    qcfg = cfg.get("quant", {}) or {}
 
     # Fresh per-run cache dir: no stale locks or corrupt SQLite from earlier runs.
     if hasattr(yf, "set_tz_cache_location"):
@@ -244,19 +251,24 @@ def main(cfg):
         for tkr, dfg in df.groupby("ticker"):
             print(f"[SUMMARY] {tkr}: rows={len(dfg)} last={dfg['date'].max()}")
 
-    # === Features & Predicción (T+1 con XGBoost) ===
-    feats = make_features(df)
-    preds = predict_next_day(feats, backtest_days=30, cal_name=cfg.get("calendar"))
-    try:
-        print("[SUMMARY] predictions\n", preds[["ticker","as_of","last_close","pred_close_t1"]])
-    except Exception:
-        print("[SUMMARY] predictions shape:", preds.shape)
+    # === Features, régimen, meta-labeling y validación honesta ===
+    feats, meta = make_features(df, qcfg)
+    pub = cfg.get("publish", {}) or {}
+    docs_dir = pub.get("docs_dir", "docs/data")
+    signals, report = make_signals(
+        feats, meta, qcfg, cal_name=cfg.get("calendar"),
+        trials_path=os.path.join(docs_dir, "history", "trials_log.csv"),
+    )
+    m = report["meta"]
+    print(f"[SUMMARY] events={report['n_events']} trades={m.get('n_trades')} "
+          f"SR/trade={m.get('sr_per_trade', 0):.3f} DSR={m.get('dsr')} trials={report['n_trials']}")
+    print("[SUMMARY] signals\n", signals[["ticker", "regime", "strategy", "side", "p_success", "kelly_size"]])
 
     # === Guardado ===
     out_dir = cfg.get("output_dir", "data")
     compression = cfg.get("csv_compression", None)  # None | "gzip"
     price_paths = write_single_prices_csv(df, out_dir, compression=compression)
-    pred_paths = write_predictions_csv(preds, out_dir)
+    pred_paths = write_signals_csv(signals, out_dir)
 
     # === Heartbeat ===
     hb_path = os.path.join(out_dir, "heartbeat.txt")
@@ -265,22 +277,30 @@ def main(cfg):
     print(f"[SUMMARY] heartbeat written at {hb_path}")
 
     # === Publish to docs/ (GitHub Pages) ===
-    pub = cfg.get("publish", {}) or {}
-    docs_dir = pub.get("docs_dir", "docs/data")
-    window_days = int(pub.get("price_window_days", 30))
+    now = datetime.now(timezone.utc).isoformat()
+    window_days = int(pub.get("price_window_days", 60))
+    sectors = {t: sec for sec, tickers in (cfg.get("universe") or {}).items() for t in tickers}
     prices_json = write_prices_latest_json(df, os.path.join(docs_dir, "prices_latest.json"), window_days)
-    preds_json = write_predictions_latest_json(preds, os.path.join(docs_dir, "predictions_latest.json"))
+    signals_json = write_signals_latest_json(signals.assign(sector=signals["ticker"].map(sectors)),
+                                             os.path.join(docs_dir, "signals_latest.json"))
+    report_json = write_json({"as_of": str(df["date"].max().date()), "generated_utc": now, **report},
+                             os.path.join(docs_dir, "validation_report.json"))
+    universe_json = write_json({"sectors": cfg.get("universe") or {"Todos": symbols}, "benchmark": qcfg.get("benchmark")},
+                               os.path.join(docs_dir, "universe.json"))
     prices_hist = write_prices_history_csv(df, os.path.join(docs_dir, "history", "prices_history.csv"))
-    preds_hist = append_predictions_history(preds, os.path.join(docs_dir, "history", "predictions_history.csv"))
+    signals_hist = append_signals_history(signals, os.path.join(docs_dir, "history", "signals_history.csv"))
     update_manifest(os.path.join(docs_dir, "manifest.json"), "stocks", {
-        "last_updated_utc": datetime.now(timezone.utc).isoformat(),
+        "last_updated_utc": now,
         "as_of": str(df["date"].max().date()),
         "rows": int(len(df)),
+        "tickers": symbols,
         "price_window_days": window_days,
+        "dsr": (round(float(m["dsr"]), 4) if pd.notna(m.get("dsr")) else None),
     })
-    print(f"[SUMMARY] published: {prices_json}, {preds_json}, {prices_hist}, {preds_hist}")
+    print(f"[SUMMARY] published: {prices_json}, {signals_json}, {report_json}, {universe_json}, "
+          f"{prices_hist}, {signals_hist}")
 
-    return price_paths + pred_paths + [hb_path, prices_json, preds_json]
+    return price_paths + pred_paths + [hb_path, prices_json, signals_json, report_json]
 
 
 if __name__ == "__main__":

@@ -14,7 +14,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
-from .finbert_sentiment import finbert_enrich
+from .finbert_sentiment import finbert_enrich, update_embeddings
 from .news_client import _dedupe_by_url
 from etl_common.manifest import update_manifest
 
@@ -335,6 +335,7 @@ def main():
     p_history = cfg["paths"].get("history_ndjson", "docs/data/history/news_history.ndjson")
     p_latest_json = cfg["paths"].get("latest_json", "docs/data/news_latest.json")
     p_manifest = cfg["paths"].get("manifest", "docs/data/manifest.json")
+    p_embeddings = cfg["paths"].get("embeddings", "docs/data/history/news_embeddings.npz")
 
     # 1) Lee RAW (fetch incremental del día)
     LOG.info("[STEP] Leyendo RAW desde %s", p_raw)
@@ -391,11 +392,14 @@ def main():
     new_history = _dedupe_by_url(limited + history_items)
     new_history.sort(key=lambda x: x.get("published_at", ""), reverse=True)
     history_out = write_ndjson(p_history, new_history)
+    # Embeddings FinBERT para el modelo de fusión precio + noticias (stocks_etl/deep)
+    n_emb = update_embeddings(new_history, p_embeddings, cfg.get("sentiment", {}))
     update_manifest(p_manifest, "news", {
         "last_updated_utc": iso_utc_now(),
         "articles": len(limited),
         "history_articles": len(new_history),
         "window_days": n_days,
+        "new_embeddings": n_emb,
     })
     LOG.info("[OUTPUT] latest_json=%s history=%s (%d items)", latest_path, history_out, len(new_history))
 

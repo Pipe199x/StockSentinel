@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>StockSentinel</title>
-<meta name="description" content="Next-day XGBoost forecasts, one-month prices and FinBERT news sentiment for AMZN, GOOGL and MSFT.">
+<meta name="description" content="Regime-aware quant signals with triple-barrier risk, meta-labeling and honest out-of-sample validation (Purged CV, CPCV, Deflated Sharpe).">
 <style>
   :root{
     --bg:#fff; --fg:#202124; --muted:#5f6368; --line:#dadce0; --grid:#f1f3f4;
@@ -16,7 +16,7 @@
     --warn-bg:#fef7e0; --warn-line:#f9ab00; --warn-fg:#5c4300;
   }
   @media (prefers-color-scheme: dark){
-    :root{
+    :root:not([data-theme="light"]){
       --bg:#202124; --fg:#e8eaed; --muted:#9aa0a6; --line:#3c4043; --grid:#2d2f31;
       --card:#292a2d; --chip:#303134; --accent:#8ab4f8;
       --up:#81c995; --up-bg:rgba(129,201,149,.16); --up-line:#81c995;
@@ -36,33 +36,50 @@
     .side{position:sticky;top:16px;align-self:start;max-height:calc(100vh - 32px);overflow:auto;padding-right:4px}
   }
 
-  /* Academic notice */
   .notice{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-fg);border-radius:12px;padding:12px 16px;margin-top:16px;text-align:center;font-size:.88rem}
   .notice strong{display:block;font-size:.95rem;margin-bottom:2px}
 
-  /* Top bar */
   .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;flex-wrap:wrap}
   .brand{font-weight:600;font-size:1.05rem;letter-spacing:.2px}
   .brand span{color:var(--muted);font-weight:400}
-  .tabs{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
   .actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-  .refresh{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:transparent;color:var(--accent);border-radius:999px;padding:6px 14px;font:inherit;font-size:.9rem;cursor:pointer}
+  .refresh,select{border:1px solid var(--line);background:transparent;color:var(--accent);border-radius:999px;padding:6px 14px;font:inherit;font-size:.9rem;cursor:pointer}
+  select{color:var(--fg);background:var(--card)}
+  .refresh{display:inline-flex;align-items:center;gap:6px}
   .refresh[disabled]{opacity:.6;cursor:progress}
-  .refresh .ic{display:inline-block}
-  .refresh.spin .ic{animation:spin .8s linear infinite}
+  .refresh.spin .ic{display:inline-block;animation:spin .8s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
-  .tab img{width:16px;height:16px;vertical-align:-3px;margin-right:6px;border-radius:3px}
-  .tab{border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:999px;padding:6px 14px;font:inherit;font-size:.9rem;cursor:pointer}
-  .tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
-  :is(.tab,.refresh,.more,.item,#svg,summary):focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  :is(.refresh,select,.more,.item,#svg,summary,tr.pick):focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* Cards */
+  .card{margin-top:24px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card)}
+  .card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 20px;background:var(--ml-bg)}
+  .card-head h2{margin:0;font-size:1.1rem;font-weight:500}
+  .card-body{padding:16px 20px}
+  .pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:3px 10px;font-size:.78rem;font-weight:500;background:var(--card);color:var(--ml);border:1px solid var(--ml-soft)}
+  .lbl{color:var(--muted);font-size:.8rem}
+  .scroll{overflow-x:auto}
+
+  /* Signal board */
+  table{width:100%;border-collapse:collapse;font-size:.85rem;font-variant-numeric:tabular-nums}
+  th,td{padding:7px 6px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--muted);font-weight:400;font-size:.75rem}
+  tr.pick{cursor:pointer}
+  tr.pick:hover td{background:var(--grid)}
+  tr.pick[aria-current="true"] td{background:var(--ml-bg)}
+  .chip{display:inline-block;border-radius:999px;padding:1px 9px;font-size:.75rem;font-weight:500;background:var(--neu-bg);color:var(--neu)}
+  .chip.calm{background:var(--up-bg);color:var(--up)}
+  .chip.stress{background:var(--down-bg);color:var(--down)}
+  .chip.long{background:var(--up-bg);color:var(--up)}
+  .chip.short{background:var(--down-bg);color:var(--down)}
+  .ok{color:var(--up)} .ko{color:var(--down)} .mut{color:var(--muted)}
 
   /* Quote */
-  .quote{--trend:var(--up-line);--trend-fg:var(--up);--trend-bg:var(--up-bg)}
+  .quote{--trend:var(--up-line);--trend-fg:var(--up);--trend-bg:var(--up-bg);margin-top:24px}
   .quote.down{--trend:var(--down-line);--trend-fg:var(--down);--trend-bg:var(--down-bg)}
   .title{display:flex;align-items:center;gap:16px}
-  .mono{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--chip);font-size:1.4rem;font-weight:600;color:var(--muted);flex:none;overflow:hidden}
-  .mono.logo{background:#fff;border:1px solid var(--line)}
-  .mono img{width:62%;height:62%;object-fit:contain}
+  .mono{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--chip);font-size:1.05rem;font-weight:600;color:var(--muted);flex:none}
   .title h1{margin:0;font-size:1.6rem;font-weight:400}
   .exch{color:var(--muted);font-size:.8rem;letter-spacing:.3px}
   .price-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px}
@@ -71,65 +88,51 @@
   .badge{background:var(--trend-bg);color:var(--trend-fg);border-radius:8px;padding:4px 10px;font-weight:500}
   .delta{color:var(--trend-fg)}
   .meta{color:var(--muted);font-size:.8rem;margin-top:6px}
-
   .range{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);margin-top:18px;flex-wrap:wrap}
   .range>span{padding:8px 18px;color:var(--accent);font-weight:500;font-size:.9rem;position:relative}
   .range>span::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:var(--accent)}
   .legend{display:flex;gap:14px;font-size:.75rem;color:var(--muted);padding:6px 0;flex-wrap:wrap}
-  .legend i{display:inline-block;vertical-align:middle;margin-right:5px}
-  .lg-price{width:16px;height:2px;background:var(--trend)}
-  .lg-pred{width:8px;height:8px;border-radius:50%;border:2px solid var(--ml)}
-  .lg-band{width:10px;height:10px;background:var(--ml-soft);border-radius:2px}
-
+  .legend i{display:inline-block;vertical-align:middle;margin-right:5px;width:16px;height:2px}
+  .lg-price{background:var(--trend)} .lg-tp{background:var(--up-line)} .lg-sl{background:var(--down-line)}
   .chart{position:relative;margin-top:6px;touch-action:pan-y;user-select:none}
   .chart svg{display:block;width:100%;outline:none}
   .tip{position:absolute;top:0;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:4px;padding:3px 8px;font-size:.8rem;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.12);display:none}
   .tip b{font-weight:500;margin-right:8px}
   .tip span{color:var(--muted)}
-  .tip em{font-style:normal;color:var(--ml);margin-left:8px}
 
-  /* Machine Learning panel */
-  .ml{margin-top:24px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card)}
-  .ml-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 20px;background:var(--ml-bg)}
-  .ml-head h2{margin:0;font-size:1.1rem;font-weight:500}
-  .pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:3px 10px;font-size:.78rem;font-weight:500;background:var(--card);color:var(--ml);border:1px solid var(--ml-soft)}
-  .ml-main{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;padding:20px}
-  @media (min-width:640px){.ml-main{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
-  .lbl{color:var(--muted);font-size:.8rem}
-  .pred{font-size:2.4rem;line-height:1.1;margin:4px 0 8px;color:var(--ml)}
-  .pred small{font-size:1rem;color:var(--muted)}
-  .dir{display:inline-flex;gap:6px;align-items:center;border-radius:8px;padding:4px 10px;font-weight:500}
-  .dir.up{background:var(--up-bg);color:var(--up)}
-  .dir.down{background:var(--down-bg);color:var(--down)}
-  .vs{color:var(--muted);font-size:.85rem;margin-left:6px}
-  .rangebar{margin-top:14px}
-  .rb-track{position:relative;height:8px;border-radius:4px;background:var(--grid);margin:8px 0 4px}
-  .rb-band{position:absolute;top:0;bottom:0;border-radius:4px;background:var(--ml-soft)}
-  .rb-dot{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--ml);border:2px solid var(--card)}
-  .rb-last{position:absolute;top:-4px;bottom:-4px;width:2px;margin-left:-1px;background:var(--muted)}
-  .rb-ends{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
+  /* Signal detail */
+  .sig-main{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+  @media (min-width:640px){.sig-main{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}}
+  .big{font-size:2.2rem;line-height:1.1;margin:4px 0 8px}
+  .big.long{color:var(--up)} .big.short{color:var(--down)} .big.flat{color:var(--muted)}
+  .why{color:var(--muted);font-size:.85rem;margin:6px 0 0}
   .tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-content:start}
-  .tile{background:var(--chip);border-radius:12px;padding:12px}
-  .tile b{display:block;font-size:1.5rem;font-weight:500;margin:2px 0}
+  @media (min-width:640px){.tiles.t3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  .tile{background:var(--chip);border-radius:12px;padding:12px;min-width:0}
+  .tile b{display:block;font-size:1.35rem;font-weight:500;margin:2px 0}
   .tile .sub{color:var(--muted);font-size:.72rem}
   .meter{height:4px;border-radius:2px;background:var(--grid);margin-top:6px;overflow:hidden}
   .meter i{display:block;height:100%;background:var(--ml)}
-  .ml-sec{padding:0 20px 20px}
-  .ml-sec h3{font-size:.9rem;font-weight:500;margin:0 0 8px}
-  table{width:100%;border-collapse:collapse;font-size:.85rem;font-variant-numeric:tabular-nums}
-  th,td{padding:7px 6px;text-align:right;border-bottom:1px solid var(--line)}
-  th:first-child,td:first-child{text-align:left}
-  th{color:var(--muted);font-weight:400;font-size:.75rem}
-  .ok{color:var(--up)} .ko{color:var(--down)}
+  h3{font-size:.9rem;font-weight:500;margin:18px 0 8px}
+
+  /* Validation */
+  .verdict{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .verdict .big{margin:0}
+  .verdict.pass .big{color:var(--up)} .verdict.fail .big{color:var(--down)}
+  .bars{display:flex;flex-direction:column;gap:6px}
+  .bar{display:grid;grid-template-columns:110px minmax(0,1fr) 64px;gap:8px;align-items:center;font-size:.8rem}
+  .bar .tr{position:relative;height:10px;background:var(--grid);border-radius:5px}
+  .bar .tr i{position:absolute;top:0;bottom:0;border-radius:5px;background:var(--ml)}
+  .bar .tr i.neg{background:var(--down-line)}
+  .bar .tr .zero{position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--muted)}
+  .bar span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+  ul.lim{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:.82rem}
   details{border-top:1px solid var(--line);padding:14px 20px}
   summary{cursor:pointer;font-weight:500;font-size:.9rem}
   details p{color:var(--muted);font-size:.85rem;margin:10px 0}
-  .feats{display:flex;flex-wrap:wrap;gap:6px}
-  .feats span{background:var(--chip);border-radius:999px;padding:3px 10px;font-size:.78rem}
-  .note{color:var(--muted);font-size:.75rem;padding:0 20px 16px}
 
-  /* News (right column) */
-  .side h2{font-size:1.15rem;font-weight:400;margin:4px 0 12px}
+  /* News */
+  .side h2{font-size:1.15rem;font-weight:400;margin:28px 0 12px}
   .mood{background:var(--chip);border-radius:12px;padding:12px;margin-bottom:12px}
   .mood-bar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin:8px 0 6px;background:var(--grid)}
   .mood-bar .p{background:var(--up-line)} .mood-bar .n{background:var(--muted);opacity:.5} .mood-bar .x{background:var(--down-line)}
@@ -138,7 +141,7 @@
   .item{display:flex;gap:12px;padding:12px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;border-radius:8px}
   .item:hover h3{text-decoration:underline}
   .itxt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
-  .src{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+  .src{font-size:.75rem;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
   .item h3{margin:0;font-size:.92rem;font-weight:500;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
   .foot{display:flex;align-items:center;gap:8px;font-size:.72rem;color:var(--muted);margin-top:auto}
   .sent{border-radius:999px;padding:1px 8px;font-weight:500}
@@ -156,12 +159,11 @@
 
   @media (max-width:480px){
     .price{font-size:2.1rem}
-    .pred{font-size:2rem}
+    .big{font-size:1.8rem}
     .title h1{font-size:1.35rem}
-    .mono{width:44px;height:44px;font-size:1.2rem}
-    .ml-head,.ml-main{padding:14px 16px}
-    .ml-sec,.note{padding-left:16px;padding-right:16px}
+    .card-head,.card-body{padding:14px 16px}
     details{padding:12px 16px}
+    .bar{grid-template-columns:80px minmax(0,1fr) 56px}
   }
 </style>
 </head>
@@ -169,18 +171,30 @@
 <div class="wrap">
   <div class="notice" role="note">
     <strong>⚠️ Academic Exercise Notice ⚠️</strong>
-    This is an academic prototype for demonstration purposes only. The predictions and analysis shown here should not be used for actual investment decisions.
+    This is an academic prototype for demonstration purposes only. The signals and analysis shown here should not be used for actual investment decisions.
   </div>
   <header class="top">
-    <div class="brand">StockSentinel <span>· ML forecasts</span></div>
+    <div class="brand">StockSentinel <span>· quant signals</span></div>
     <div class="actions">
-      <nav class="tabs" role="tablist" aria-label="Stock"></nav>
+      <label class="lbl" for="pick">Asset</label>
+      <select id="pick"></select>
       <button class="refresh" id="refresh" title="Reload the latest published data"><span class="ic" aria-hidden="true">↻</span>Refresh</button>
     </div>
   </header>
 
   <div class="layout">
     <main>
+      <section class="card" aria-labelledby="board-h">
+        <div class="card-head">
+          <h2 id="board-h">Today's signals</h2>
+          <span class="pill" id="board-asof"></span>
+        </div>
+        <div class="card-body scroll">
+          <table id="board" aria-describedby="board-note"></table>
+          <p class="lbl" id="board-note">The market regime (hidden Markov model on SPY) decides whether to trade at all. The primary rule proposes a side; the meta-model keeps it only if P(success) beats Kelly, and sizes it at ½ Kelly × volatility target. Click a row for details.</p>
+        </div>
+      </section>
+
       <section class="quote" id="quote" aria-live="polite">
         <div class="title">
           <div class="mono" id="mono" aria-hidden="true"></div>
@@ -195,46 +209,50 @@
           <span class="delta" id="delta"></span>
         </div>
         <div class="meta" id="meta"></div>
-
         <div class="range">
-          <span>1 M</span>
+          <span>2 M</span>
           <div class="legend" aria-hidden="true">
-            <span><i class="lg-price"></i>Actual price</span>
-            <span><i class="lg-pred"></i>Model prediction</span>
-            <span><i class="lg-band"></i>Error range</span>
+            <span><i class="lg-price"></i>Close</span>
+            <span><i class="lg-tp"></i>Take profit</span>
+            <span><i class="lg-sl"></i>Stop loss</span>
           </div>
         </div>
         <div class="chart" id="chart">
-          <svg id="svg" tabindex="0" role="img" aria-label="One-month closing price with the model's past predictions and next-day forecast"></svg>
-          <div class="tip" id="tip"><b></b><span></span><em></em></div>
+          <svg id="svg" tabindex="0" role="img" aria-label="Recent closing prices with the current signal's take-profit and stop-loss barriers"></svg>
+          <div class="tip" id="tip"><b></b><span></span></div>
         </div>
       </section>
 
-      <section class="ml" id="ml" aria-labelledby="ml-h" hidden>
-        <div class="ml-head">
-          <h2 id="ml-h">Model forecast</h2>
-          <span class="pill">✦ Machine Learning · XGBoost</span>
+      <section class="card" id="sig" aria-labelledby="sig-h" hidden>
+        <div class="card-head">
+          <h2 id="sig-h">Signal &amp; risk</h2>
+          <span class="pill">✦ Regime → primary rule → meta-model</span>
         </div>
-        <div class="ml-main">
-          <div>
-            <div class="lbl" id="ml-when"></div>
-            <div class="pred" id="ml-pred"></div>
-            <span class="dir" id="ml-dir"></span><span class="vs" id="ml-vs"></span>
-            <div class="rangebar" id="ml-range"></div>
+        <div class="card-body">
+          <div class="sig-main">
+            <div id="sig-call"></div>
+            <div class="tiles" id="sig-tiles"></div>
           </div>
-          <div class="tiles" id="ml-tiles"></div>
+          <h3>Risk (fat tails, never a normal distribution)</h3>
+          <div class="tiles t3" id="risk-tiles"></div>
+          <div id="sig-hist"></div>
         </div>
-        <div class="ml-sec" id="ml-hist"></div>
+      </section>
+
+      <section class="card" id="val" aria-labelledby="val-h" hidden>
+        <div class="card-head">
+          <h2 id="val-h">Honest validation</h2>
+          <span class="pill">Purged K-Fold · CPCV · Deflated Sharpe</span>
+        </div>
+        <div class="card-body" id="val-body"></div>
         <details>
-          <summary>How the model works</summary>
-          <p>Every day after the NYSE close, an <strong>XGBoost</strong> model (400 trees, depth 4) is retrained per stock on prices since 2020. It predicts the <strong>next-day return</strong>, which is then converted to a price. Features:</p>
-          <div class="feats">
-            <span>1-day return</span><span>5-day return</span><span>5-day SMA</span><span>20-day SMA</span>
-            <span>RSI 14</span><span>10-day avg. volume</span><span>Previous close</span><span>Previous volume</span><span>Same-day close &amp; volume</span>
-          </div>
-          <p>“Direction accuracy” and “live error” compare every published prediction with the close that actually happened afterwards, so they are out-of-sample. “Backtest error” is measured on the last 30 days of the training data itself and tends to be optimistic.</p>
+          <summary>How the strategy works</summary>
+          <p><strong>1. Regime first.</strong> A 3-state hidden Markov model on SPY returns and volatility (forward-filtered, so it never looks ahead) labels the market as calm, normal or stress. In stress the system stays flat.</p>
+          <p><strong>2. Primary rule.</strong> If the Hurst exponent is ≥ 0.5 the asset is persistent and the rule follows the 20-day move (momentum). If it is &lt; 0.5 the rule trades mean reversion: an Ornstein-Uhlenbeck fit on the distance to fair value gives a z-score and a half-life, and the rule enters when |z| ≥ 1.5 and the half-life is short.</p>
+          <p><strong>3. Triple barrier.</strong> Take profit and stop loss are 1.5 × GARCH volatility scaled to the holding period; the time barrier is the OU half-life (3–20 sessions). Barriers widen automatically when volatility rises.</p>
+          <p><strong>4. Meta-labeling.</strong> An XGBoost classifier on stationary features (log returns, fractionally differentiated price, realized and GARCH volatility, Hurst, z-score, half-life, regime probabilities, beta) estimates the probability that the primary signal ends in profit after costs. That probability sets the size via half Kelly.</p>
+          <p><strong>5. Validation.</strong> Every number in this card is out-of-sample: purged K-fold with embargo, combinatorial purged CV for a distribution of Sharpe ratios, and the Deflated Sharpe Ratio, which penalizes every configuration ever tried (logged in <a href="data/history/trials_log.csv">trials_log.csv</a>).</p>
         </details>
-        <div class="note">Academic project. Predictions are not financial advice.</div>
       </section>
     </main>
 
@@ -247,24 +265,20 @@
   </div>
 
   <footer>
-    <p>Delayed prices from Yahoo Finance · sentiment by FinBERT · next-day forecast by XGBoost.</p>
-    <p>Data: <a href="data/manifest.json">manifest.json</a> · <a href="data/prices_latest.json">prices_latest.json</a> · <a href="data/predictions_latest.json">predictions_latest.json</a> · <a href="data/news_latest.json">news_latest.json</a> · <a href="data/history/prices_history.csv">prices_history.csv</a> · <a href="data/history/news_history.ndjson">news_history.ndjson</a> · <a href="data/history/predictions_history.csv">predictions_history.csv</a></p>
+    <p>Delayed prices from Yahoo Finance · sentiment by FinBERT · regime, signals and risk by StockSentinel's quant pipeline.</p>
+    <p>Data: <a href="data/manifest.json">manifest.json</a> · <a href="data/universe.json">universe.json</a> · <a href="data/signals_latest.json">signals_latest.json</a> · <a href="data/validation_report.json">validation_report.json</a> · <a href="data/deep_report.json">deep_report.json</a> · <a href="data/prices_latest.json">prices_latest.json</a> · <a href="data/news_latest.json">news_latest.json</a> · <a href="data/history/signals_history.csv">signals_history.csv</a> · <a href="data/history/trials_log.csv">trials_log.csv</a> · <a href="data/history/prices_history.csv">prices_history.csv</a></p>
     <p><a href="https://github.com/Pipe199x/StockSentinel">Source on GitHub</a> · <span id="updated"></span></p>
   </footer>
 </div>
 
 <script>
 (() => {
-  const COMPANIES = {
-    AMZN:  { name: "Amazon.com, Inc.",      exch: "NASDAQ", domain: "amazon.com" },
-    GOOGL: { name: "Alphabet Inc. Class A", exch: "NASDAQ", domain: "google.com" },
-    MSFT:  { name: "Microsoft Corporation", exch: "NASDAQ", domain: "microsoft.com" },
-  };
-  const logoUrl = (t) => COMPANIES[t] ? `https://www.google.com/s2/favicons?domain=${COMPANIES[t].domain}&sz=128` : null;
   const PAGE = 8;
   const $ = (id) => document.getElementById(id);
   const num = new Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const dec = new Intl.NumberFormat("en-US", { minimumFractionDigits: 3, maximumFractionDigits: 3 });
   const pct = new Intl.NumberFormat("en-US", { style: "percent", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const pct1 = new Intl.NumberFormat("en-US", { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const pct0 = new Intl.NumberFormat("en-US", { style: "percent", maximumFractionDigits: 0 });
   const axisFmt = new Intl.DateTimeFormat("en-US", { day: "numeric", month: "short", timeZone: "UTC" });
   const tipFmt = new Intl.DateTimeFormat("en-US", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
@@ -272,19 +286,25 @@
   const stampFmt = new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeStyle: "short" });
   const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
   const SENT = { positive: "Positive", negative: "Negative", neutral: "Neutral" };
+  const REGIME = { calm: "Calm", normal: "Normal", stress: "Stress" };
+  const STRAT = { none: "No setup", momentum: "Momentum", mean_reversion: "Mean reversion" };
+  const SIDE = { 1: ["Long", "long"], "-1": ["Short", "short"], 0: ["Flat", "flat"] };
 
-  const state = { prices: {}, preds: {}, hist: [], news: [], tickers: [], ticker: null, shown: PAGE, view: null, hover: -1 };
+  const state = { prices: {}, signals: {}, order: [], sectors: {}, hist: [], news: [], report: null, ticker: null, shown: PAGE, view: null, hover: -1 };
 
-  // News data comes from third parties: only http(s), never javascript: or other schemes.
   const safeUrl = (u) => { try { const x = new URL(u); return /^https?:$/.test(x.protocol) ? x.href : null; } catch { return null; } };
   const day = (d) => new Date(d + "T00:00:00Z");
   const fin = (v) => typeof v === "number" && isFinite(v);
   const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
   const svgEl = (tag, attrs) => { const n = document.createElementNS("http://www.w3.org/2000/svg", tag); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };
   const signed = (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + num.format(Math.abs(v));
+  const f = (v, fmt, dash = "—") => fin(v) ? fmt.format(v) : dash;
+  const chip = (text, cls) => el("span", "chip " + (cls || ""), text);
+  // The primary rule proposes a side; the meta-model decides. Size 0 means vetoed.
+  const traded = (s) => !!(s && s.side && s.kelly_size > 0);
+  const action = (s) => traded(s) ? SIDE[s.side] : s && s.side ? ["Flat · vetoed", "flat"] : SIDE[0];
 
   async function fetchText(path) {
-    // Cache-buster so Refresh always gets the latest published files.
     const r = await fetch(path + "?t=" + Date.now(), { cache: "no-store" });
     if (!r.ok) throw new Error(path + " → HTTP " + r.status);
     return r.text();
@@ -293,20 +313,24 @@
   async function getCSV(path) {
     const [head, ...lines] = (await fetchText(path)).trim().split(/\r?\n/);
     const cols = head.split(",");
+    const text = new Set(["as_of", "t_max_date", "ticker", "regime", "market_regime", "strategy"]);
     return lines.map((l) => {
       const v = l.split(","), o = {};
-      cols.forEach((c, i) => { const s = v[i] ?? ""; o[c] = s !== "" && !isNaN(+s) && c !== "as_of" && c !== "target_date" ? +s : s; });
+      cols.forEach((c, i) => { const s = v[i] ?? ""; o[c] = s !== "" && !isNaN(+s) && !text.has(c) ? +s : s; });
       return o;
     });
   }
 
   async function load() {
-    const [prices, preds, hist, news, manifest] = await Promise.allSettled([
+    const [prices, signals, report, universe, hist, news, manifest, deep] = await Promise.allSettled([
       getJSON("data/prices_latest.json"),
-      getJSON("data/predictions_latest.json"),
-      getCSV("data/history/predictions_history.csv"),
+      getJSON("data/signals_latest.json"),
+      getJSON("data/validation_report.json"),
+      getJSON("data/universe.json"),
+      getCSV("data/history/signals_history.csv"),
       getJSON("data/news_latest.json"),
       getJSON("data/manifest.json"),
+      getJSON("data/deep_report.json"),
     ]);
     if (prices.status !== "fulfilled") {
       $("name").textContent = "Could not load prices";
@@ -317,166 +341,316 @@
     for (const [t, rows] of Object.entries(prices.value.series || {})) {
       state.prices[t] = rows.filter((r) => fin(r.close)).sort((a, b) => a.date.localeCompare(b.date));
     }
-    state.preds = {};
-    if (preds.status === "fulfilled") for (const p of preds.value) state.preds[p.ticker] = p;
+    state.signals = {};
+    if (signals.status === "fulfilled") for (const s of signals.value) state.signals[s.ticker] = s;
+    state.report = report.status === "fulfilled" ? report.value : null;
+    state.deep = deep.status === "fulfilled" ? deep.value : null;
     state.hist = hist.status === "fulfilled" ? hist.value : [];
     state.news = news.status === "fulfilled" ? news.value.articles || [] : null;
     if (manifest.status === "fulfilled" && manifest.value.stocks) {
       $("updated").textContent = "Data updated " + stampFmt.format(new Date(manifest.value.stocks.last_updated_utc));
     }
 
-    state.tickers = Object.keys(state.prices).filter((t) => state.prices[t].length);
-    const tabs = document.querySelector('nav[role="tablist"]');
-    tabs.replaceChildren();
-    for (const t of state.tickers) {
-      const b = el("button", "tab");
-      const logo = logoUrl(t);
-      if (logo) { const im = el("img"); im.src = logo; im.alt = ""; im.addEventListener("error", () => im.remove()); b.append(im); }
-      b.append(t);
-      b.setAttribute("role", "tab");
-      b.dataset.t = t;
-      b.addEventListener("click", () => { location.hash = t; });
-      tabs.append(b);
+    // Universe order and sectors come from the pipeline config, not from this page.
+    const sectors = universe.status === "fulfilled" ? universe.value.sectors || {} : { All: Object.keys(state.prices) };
+    state.sectors = {};
+    state.order = [];
+    const pickEl = $("pick");
+    pickEl.replaceChildren();
+    for (const [sec, tickers] of Object.entries(sectors)) {
+      const g = el("optgroup");
+      g.label = sec;
+      for (const t of tickers) {
+        if (!state.prices[t] || !state.prices[t].length) continue;
+        state.sectors[t] = sec;
+        state.order.push(t);
+        const o = el("option", null, t);
+        o.value = t;
+        g.append(o);
+      }
+      if (g.children.length) pickEl.append(g);
     }
+    renderBoard();
+    renderValidation();
     pick();
   }
 
   function pick() {
-    if (!state.tickers.length) return;
+    if (!state.order.length) return;
     const h = decodeURIComponent(location.hash.slice(1)).toUpperCase();
-    select(state.tickers.includes(h) ? h : state.tickers[0]);
+    select(state.order.includes(h) ? h : state.order[0]);
   }
   window.addEventListener("hashchange", pick);
+  $("pick").addEventListener("change", (e) => { location.hash = e.target.value; });
 
-  // Join every published prediction with the close that actually happened on its target date.
-  function trackRecord(t) {
-    const closeBy = new Map(state.prices[t].map((p) => [p.date, p.close]));
-    const byTarget = new Map();
-    for (const h of state.hist) {
-      if (h.ticker !== t || !closeBy.has(h.target_date) || !fin(h.pred_close_t1) || !fin(h.last_close)) continue;
-      const prev = byTarget.get(h.target_date);
-      if (!prev || h.as_of > prev.as_of) byTarget.set(h.target_date, h);
+  function renderBoard() {
+    const table = $("board"), thead = el("thead"), tr = el("tr"), tbody = el("tbody");
+    ["Asset", "Sector", "Market", "Asset regime", "Setup", "Signal", "P(success)", "Size", "1-day VaR 95%"].forEach((h) => tr.append(el("th", null, h)));
+    thead.append(tr);
+    const any = Object.values(state.signals)[0];
+    $("board-asof").textContent = any ? "As of " + tipFmt.format(day(any.as_of)) : "No signals";
+    // Executed trades first, then vetoed setups, then the rest in sector order.
+    const rank = (t) => { const s = state.signals[t]; return traded(s) ? 2 : s && s.side ? 1 : 0; };
+    const rows = [...state.order].sort((a, b) => rank(b) - rank(a));
+    for (const t of rows) {
+      const s = state.signals[t];
+      if (!s) continue;
+      const row = el("tr", "pick");
+      row.tabIndex = 0;
+      row.dataset.t = t;
+      const [sideTxt, sideCls] = action(s);
+      const td = (child, cls) => { const c = el("td", cls); if (child instanceof Node) c.append(child); else c.textContent = child; return c; };
+      row.append(
+        td(t), td(state.sectors[t] || "", "mut"),
+        td(chip(REGIME[s.market_regime] || "—", s.market_regime)),
+        td(chip(REGIME[s.regime] || "—", s.regime)),
+        td(STRAT[s.strategy] || "—", s.strategy === "none" ? "mut" : ""),
+        td(chip(sideTxt, sideCls)),
+        td(f(s.p_success, pct0)),
+        td(s.kelly_size > 0 ? pct1.format(s.kelly_size) : "—"),
+        td(f(s.var_95, pct)),
+      );
+      row.addEventListener("click", () => { location.hash = t; });
+      row.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); location.hash = t; } });
+      tbody.append(row);
     }
-    return [...byTarget.values()]
-      .map((h) => {
-        const actual = closeBy.get(h.target_date);
-        return {
-          date: h.target_date, pred: h.pred_close_t1, actual, last: h.last_close,
-          err: Math.abs(h.pred_close_t1 - actual) / actual,
-          hit: Math.sign(h.pred_close_t1 - h.last_close) === Math.sign(actual - h.last_close),
-        };
-      })
-      .sort((a, b) => a.date.localeCompare(b.date));
+    table.replaceChildren(thead, tbody);
+  }
+
+  // Follow every past signal until it touched a barrier, using the published closes.
+  function outcomes(t) {
+    const s = state.prices[t];
+    const out = [];
+    for (const h of state.hist) {
+      if (h.ticker !== t || !h.side || !(h.kelly_size > 0) || !fin(h.tp) || !fin(h.sl)) continue;
+      const i0 = s.findIndex((p) => p.date === h.as_of);
+      if (i0 < 0) continue;
+      let res = { as_of: h.as_of, side: h.side, entry: h.last_close, size: h.kelly_size, outcome: "open", ret: null, exit: null };
+      for (let i = i0 + 1; i < s.length; i++) {
+        const c = s[i].close, r = h.side * (c / h.last_close - 1);
+        if (h.side * (c - h.tp) >= 0) { res = { ...res, outcome: "take profit", ret: r, exit: s[i].date }; break; }
+        if (h.side * (c - h.sl) <= 0) { res = { ...res, outcome: "stop loss", ret: r, exit: s[i].date }; break; }
+        if (h.t_max_date && s[i].date >= h.t_max_date) { res = { ...res, outcome: "time", ret: r, exit: s[i].date }; break; }
+        res.ret = r;
+      }
+      out.push(res);
+    }
+    return out.sort((a, b) => b.as_of.localeCompare(a.as_of));
   }
 
   function select(t) {
-    const s = state.prices[t], last = s[s.length - 1];
-    const p = state.preds[t];
-    const record = trackRecord(t);
-    const realErr = record.length ? record.reduce((a, r) => a + r.err, 0) / record.length : null;
-    const errPct = fin(realErr) && record.length >= 5 ? realErr : fin(p && p.mae_backtest_30d) ? p.mae_backtest_30d : realErr;
-    // Only drawn as a forecast when it targets a day after the last known close.
-    const forecast = p && fin(p.pred_close_t1) && p.target_date > last.date
-      ? { date: p.target_date, value: p.pred_close_t1, band: fin(errPct) ? p.pred_close_t1 * errPct : 0, ret: p.pred_ret_t1, mae: p.mae_backtest_30d }
-      : null;
+    const s = state.prices[t];
     if (state.ticker !== t) { state.shown = PAGE; state.hover = -1; }
     state.ticker = t;
-    state.view = { t, s, forecast, record, realErr, errPct, predByDate: new Map(record.map((r) => [r.date, r.pred])) };
-    document.querySelectorAll(".tab").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.t === t)));
+    state.view = { t, s, sig: state.signals[t] || null };
+    $("pick").value = t;
+    document.querySelectorAll("tr.pick").forEach((r) => r.setAttribute("aria-current", String(r.dataset.t === t)));
     renderQuote();
     renderChart();
-    renderML();
+    renderSignal();
     renderNews();
   }
 
   function renderQuote() {
-    const { t, s } = state.view, co = COMPANIES[t] || { name: t, exch: "" };
+    const { t, s } = state.view;
     const first = s[0].close, last = s[s.length - 1].close, diff = last - first;
-    const mono = $("mono"), logo = logoUrl(t);
-    mono.className = "mono";
-    mono.textContent = co.name[0];
-    if (logo) {
-      const im = el("img");
-      im.alt = co.name + " logo";
-      im.addEventListener("load", () => { if (state.ticker === t) { mono.className = "mono logo"; mono.replaceChildren(im); } });
-      im.src = logo;
-    }
-    $("name").textContent = co.name;
-    $("exch").textContent = (co.exch ? co.exch + ": " : "") + t;
+    $("mono").textContent = t.slice(0, 4);
+    $("name").textContent = t;
+    $("exch").textContent = state.sectors[t] || "";
     $("price").textContent = num.format(last);
     $("quote").classList.toggle("down", diff < 0);
     $("badge").textContent = (diff < 0 ? "↓ " : "↑ ") + pct.format(Math.abs(diff / first));
-    $("delta").textContent = signed(diff) + " past month";
+    $("delta").textContent = signed(diff) + " over the window";
     $("meta").textContent = "Close on " + tipFmt.format(day(s[s.length - 1].date)) + " · Delayed data · Not financial advice";
   }
 
-  function renderML() {
-    const { s, forecast: f, record, realErr } = state.view, sec = $("ml");
-    if (!f) { sec.hidden = true; return; }
+  function tile(label, value, sub, meter) {
+    const d = el("div", "tile");
+    d.append(el("div", "lbl", label), el("b", null, value), el("div", "sub", sub));
+    if (fin(meter)) { const m = el("div", "meter"), i = el("i"); i.style.width = Math.max(0, Math.min(1, meter)) * 100 + "%"; m.append(i); d.append(m); }
+    return d;
+  }
+
+  function why(sig) {
+    if (sig.market_regime === "stress") return "The market is in a stress regime: the system stays flat until volatility normalizes.";
+    if (sig.strategy === "none") {
+      if (fin(sig.hurst) && sig.hurst < 0.5) return `Anti-persistent asset (Hurst ${dec.format(sig.hurst)}) but no stretch: |z| = ${f(Math.abs(sig.zscore), num)} is below 1.5 or the half-life is too long.`;
+      return `Persistent asset (Hurst ${f(sig.hurst, dec)}) but the 20-day move and the distance to fair value disagree.`;
+    }
+    if (sig.strategy === "momentum") return `Hurst ${dec.format(sig.hurst)} ≥ 0.5: moves tend to persist, so the rule follows the 20-day trend.`;
+    return `Hurst ${dec.format(sig.hurst)} < 0.5 and price is ${f(Math.abs(sig.zscore), num)} σ from fair value: the OU model expects a pull back within ~${f(sig.half_life, num)} sessions.`;
+  }
+
+  function renderSignal() {
+    const { t, sig } = state.view, sec = $("sig");
+    if (!sig) { sec.hidden = true; return; }
     sec.hidden = false;
-    const last = s[s.length - 1].close, diff = f.value - last, up = diff >= 0;
-
-    $("ml-when").textContent = "Predicted close for " + longFmt.format(day(f.date));
-    $("ml-pred").replaceChildren(document.createTextNode(num.format(f.value) + " "), el("small", null, "USD"));
-    const dir = $("ml-dir");
-    dir.className = "dir " + (up ? "up" : "down");
-    dir.textContent = (up ? "↑ Bullish " : "↓ Bearish ") + pct.format(Math.abs(diff / last));
-    $("ml-vs").textContent = signed(diff) + " vs. last close (" + num.format(last) + ")";
-
-    const rb = $("ml-range");
-    rb.replaceChildren();
-    if (f.band > 0) {
-      const lo = f.value - f.band, hi = f.value + f.band;
-      const min = Math.min(lo, last) - f.band * 0.4, max = Math.max(hi, last) + f.band * 0.4;
-      const at = (v) => ((v - min) / (max - min)) * 100 + "%";
-      const track = el("div", "rb-track");
-      const band = el("div", "rb-band"); band.style.left = at(lo); band.style.width = `calc(${at(hi)} - ${at(lo)})`;
-      const mark = el("div", "rb-last"); mark.style.left = at(last); mark.title = "Last close";
-      const dot = el("div", "rb-dot"); dot.style.left = at(f.value);
-      track.append(band, mark, dot);
-      const ends = el("div", "rb-ends");
-      ends.append(el("span", null, num.format(lo)), el("span", null, "likely range (± avg. error)"), el("span", null, num.format(hi)));
-      rb.append(el("div", "lbl", "Likely range · grey tick is the last close"), track, ends);
+    const [sideTxt, sideCls] = action(sig);
+    const call = $("sig-call");
+    call.replaceChildren(
+      el("div", "lbl", "Signal for the next sessions · " + (STRAT[sig.strategy] || "")),
+      el("div", "big " + sideCls, sideTxt + (traded(sig) ? " · " + pct1.format(sig.kelly_size) : "")),
+      el("p", "why", why(sig)),
+    );
+    if (traded(sig)) {
+      call.append(el("p", "why",
+        `Take profit ${num.format(sig.tp)} · stop loss ${num.format(sig.sl)} · time limit ${longFmt.format(day(sig.t_max_date))} (${sig.t_max_days} sessions).`));
+    } else if (sig.side) {
+      call.append(el("p", "why",
+        `The primary rule proposes ${SIDE[sig.side][0].toLowerCase()}, but the meta-model puts its chance of ending in profit after costs at ${f(sig.p_success, pct0)}. ` +
+        "With symmetric barriers half Kelly is zero below 50%, so there is no trade."));
     }
 
-    const tiles = $("ml-tiles");
-    tiles.replaceChildren();
-    const tile = (label, value, sub, meter) => {
-      const d = el("div", "tile");
-      d.append(el("div", "lbl", label), el("b", null, value), el("div", "sub", sub));
-      if (fin(meter)) { const m = el("div", "meter"), i = el("i"); i.style.width = Math.max(0, Math.min(1, meter)) * 100 + "%"; m.append(i); d.append(m); }
-      return d;
-    };
-    const hits = record.filter((r) => r.hit).length;
-    tiles.append(
-      record.length
-        ? tile("Direction accuracy", pct0.format(hits / record.length), `${hits} of ${record.length} days · out-of-sample`, hits / record.length)
-        : tile("Direction accuracy", "—", "no evaluated predictions yet"),
-      tile("Live avg. error", fin(realErr) ? pct.format(realErr) : "—", "prediction vs. actual close"),
-      tile("Backtest error", fin(f.mae) ? pct.format(f.mae) : "—", "last 30 days, in-sample"),
-      tile("Predictions evaluated", String(record.length), "within the 1-month window"),
+    $("sig-tiles").replaceChildren(
+      tile("P(success)", f(sig.p_success, pct0), "meta-model, after costs", sig.p_success),
+      tile("Market regime", REGIME[sig.market_regime] || "—", "P(stress) " + f(sig.market_p_stress, pct0), sig.market_p_stress),
+      tile("Hurst", f(sig.hurst, dec), sig.hurst >= 0.5 ? "persistent · trend" : "anti-persistent · reverts"),
+      tile("Distance to fair value", fin(sig.zscore) ? num.format(sig.zscore) + " σ" : "—", "OU half-life " + f(sig.half_life, num) + " sessions"),
+    );
+    $("risk-tiles").replaceChildren(
+      tile("GARCH volatility", f(sig.sigma_garch, pct), "next day · persistence " + f(sig.garch_persistence, dec)),
+      tile("VaR 95% · 1 day", f(sig.var_95, pct), "t-Student, ν = " + f(sig.garch_nu, num)),
+      tile("Expected shortfall 99%", f(sig.es_99, pct), "average loss in the worst 1%"),
+      tile("Cornish-Fisher VaR 95%", f(sig.var_95_cornish_fisher, pct), "corrected for skew and kurtosis"),
+      tile(`Monte Carlo · ${sig.mc_horizon_days} days`, `${f(sig.mc_p05, pct1)} / ${f(sig.mc_p95, pct1)}`, "5th / 95th percentile, fat tails"),
+      tile("P(loss > 10%)", f(sig.mc_prob_loss_10pct, pct1), `within ${sig.mc_horizon_days} sessions`, sig.mc_prob_loss_10pct),
     );
 
-    const hist = $("ml-hist");
+    const hist = $("sig-hist");
     hist.replaceChildren();
-    if (record.length) {
-      const table = el("table"), thead = el("thead"), tr = el("tr"), tbody = el("tbody");
-      ["Date", "Predicted", "Actual", "Error", "Direction"].forEach((h) => tr.append(el("th", null, h)));
-      thead.append(tr);
-      for (const r of record.slice(-6).reverse()) {
-        const row = el("tr");
-        row.append(
-          el("td", null, tipFmt.format(day(r.date))),
-          el("td", null, num.format(r.pred)),
-          el("td", null, num.format(r.actual)),
-          el("td", null, pct.format(r.err)),
-          el("td", r.hit ? "ok" : "ko", r.hit ? "✓ hit" : "✗ miss"),
-        );
-        tbody.append(row);
-      }
-      table.append(thead, tbody);
-      hist.append(el("h3", null, "Recent model track record"), table);
+    const rec = outcomes(t);
+    hist.append(el("h3", null, "Live track record of this asset's executed signals"));
+    if (!rec.length) { hist.append(el("p", "lbl", "No executed signals for this asset inside the price window yet. Each new trade is followed until it touches a barrier.")); return; }
+    const table = el("table"), thead = el("thead"), tr = el("tr"), tbody = el("tbody");
+    ["Date", "Side", "Entry", "Outcome", "Return", "Size"].forEach((h) => tr.append(el("th", null, h)));
+    thead.append(tr);
+    for (const r of rec.slice(0, 8)) {
+      const row = el("tr");
+      const [st] = SIDE[r.side] || SIDE[0];
+      row.append(
+        el("td", null, tipFmt.format(day(r.as_of))), el("td", null, st), el("td", null, num.format(r.entry)),
+        el("td", r.outcome === "take profit" ? "ok" : r.outcome === "stop loss" ? "ko" : "mut", r.outcome),
+        el("td", fin(r.ret) ? (r.ret >= 0 ? "ok" : "ko") : "mut", f(r.ret, pct)),
+        el("td", null, r.size > 0 ? pct1.format(r.size) : "—"),
+      );
+      tbody.append(row);
     }
+    table.append(thead, tbody);
+    const wrap = el("div", "scroll");
+    wrap.append(table);
+    hist.append(wrap);
+  }
+
+  function bars(items, fmt) {
+    const box = el("div", "bars");
+    const maxAbs = Math.max(...items.map(([, v]) => Math.abs(v)), 1e-9);
+    const hasNeg = items.some(([, v]) => v < 0);
+    for (const [label, v] of items) {
+      const row = el("div", "bar"), trk = el("div", "tr"), i = el("i", v < 0 ? "neg" : "");
+      if (hasNeg) {
+        const w = Math.abs(v) / maxAbs * 50;
+        i.style.left = (v < 0 ? 50 - w : 50) + "%"; i.style.width = w + "%";
+        const z = el("div", "zero"); z.style.left = "50%"; trk.append(z);
+      } else { i.style.left = "0"; i.style.width = (v / maxAbs) * 100 + "%"; }
+      trk.append(i);
+      row.append(el("span", null, label), trk, el("span", null, fmt(v)));
+      box.append(row);
+    }
+    return box;
+  }
+
+  function renderValidation() {
+    const r = state.report, sec = $("val");
+    if (!r || !r.meta) { sec.hidden = true; return; }
+    sec.hidden = false;
+    const m = r.meta, p = r.primary || {}, body = $("val-body");
+    const pass = fin(m.dsr) && m.dsr > r.dsr_threshold;
+    const verdict = el("div", "verdict " + (pass ? "pass" : "fail"));
+    const left = el("div");
+    left.append(el("div", "lbl", "Deflated Sharpe Ratio"), el("div", "big", f(m.dsr, dec)));
+    verdict.append(left, el("p", "why",
+      (pass ? `Above ${r.dsr_threshold}: the edge is unlikely to be luck` : `Below ${r.dsr_threshold}: the edge cannot be told apart from luck`) +
+      `, after deflating for ${r.n_trials} configuration${r.n_trials === 1 ? "" : "s"} tried, ${m.n_trades} out-of-sample trades and their skew/kurtosis.`));
+    body.replaceChildren(verdict);
+
+    body.append(el("h3", null, "Primary rule alone vs. with the meta-model (out-of-sample)"));
+    const cmp = el("table"), ch = el("thead"), chr = el("tr"), cb = el("tbody");
+    ["", "Trades", "Win rate", "Expected value / trade", "Sharpe (annual)", "Worst losing streak"].forEach((h) => chr.append(el("th", null, h)));
+    ch.append(chr);
+    for (const [name, s] of [["Primary rule", p], ["+ Meta-model", m]]) {
+      const row = el("tr");
+      row.append(el("td", null, name), el("td", null, String(s.n_trades ?? "—")), el("td", null, f(s.win_rate, pct1)),
+        el("td", fin(s.expected_value) ? (s.expected_value > 0 ? "ok" : "ko") : "", f(s.expected_value, pct)),
+        el("td", fin(s.sr_annualized) ? (s.sr_annualized > 0 ? "ok" : "ko") : "", f(s.sr_annualized, num)),
+        el("td", null, String(s.max_losing_streak ?? "—")));
+      cb.append(row);
+    }
+    cmp.append(ch, cb);
+    const cw = el("div", "scroll"); cw.append(cmp); body.append(cw);
+
+    const tiles = el("div", "tiles t3");
+    tiles.append(
+      tile("Trials logged", String(r.n_trials), "every config change counts"),
+      tile("Trades needed", String(m.min_trades_for_edge ?? "—"), `to detect a ${f(m.win_rate, pct1)} win rate (α 5%, power 80%)`, fin(m.min_trades_for_edge) ? m.n_trades / m.min_trades_for_edge : null),
+      tile("Expected losing streak", f(m.expected_streak, num), `−${f(m.streak_drawdown_1pct, pct1)} at 1% risk · −${f(m.streak_drawdown_5pct, pct1)} at 5%`),
+    );
+    body.append(tiles);
+
+    if (Array.isArray(r.cpcv_path_sr) && r.cpcv_path_sr.length) {
+      body.append(el("h3", null, "Sharpe per trade on every CPCV path (one backtest is one path; these are " + r.cpcv_path_sr.length + ")"));
+      body.append(bars(r.cpcv_path_sr.map((v, i) => ["Path " + (i + 1), v]), (v) => dec.format(v)));
+    }
+    if (Array.isArray(r.folds) && r.folds.length) {
+      body.append(el("h3", null, "Purged K-Fold: Sharpe per trade by test period (does the edge decay?)"));
+      body.append(bars(r.folds.map((x) => [x.test_from.slice(0, 7) + "…", x.sr_per_trade]), (v) => dec.format(v)));
+    }
+    const c = r.correlation || {};
+    if (fin(c.market_stress_days)) {
+      body.append(el("h3", null, "Diversification: average correlation between assets"));
+      body.append(bars([["Calm days", c.market_calm_days], ["All days", c.all_days], ["Stress days", c.market_stress_days]], (v) => num.format(v)));
+      body.append(el("p", "lbl", "Correlations jump in a crisis; diversification only counts if it survives those days."));
+    }
+    const fi = Object.entries(r.feature_importance || {}).slice(0, 8);
+    if (fi.length) {
+      body.append(el("h3", null, "What the meta-model looks at"));
+      body.append(bars(fi, (v) => pct0.format(v)));
+    }
+    renderDeep(body);
+    if (Array.isArray(r.limitations) && r.limitations.length) {
+      body.append(el("h3", null, "What this validation does not cover"));
+      const ul = el("ul", "lim");
+      r.limitations.forEach((l) => ul.append(el("li", null, l)));
+      body.append(ul);
+    }
+  }
+
+  // Weekly LSTM and price+news fusion: shown, but only used if they pass the promotion gate.
+  function renderDeep(body) {
+    const d = state.deep;
+    if (!d) return;
+    body.append(el("h3", null, "Deep meta-models (retrained weekly · " + tipFmt.format(day(d.as_of)) + ")"));
+    const table = el("table"), thead = el("thead"), tr = el("tr"), tbody = el("tbody");
+    ["Model", "Trades", "Sharpe (annual)", "DSR", "Status"].forEach((h) => tr.append(el("th", null, h)));
+    thead.append(tr);
+    const fu = d.fusion || {};
+    const rows = [
+      ["XGBoost (daily baseline)", d.xgb, "baseline"],
+      ["LSTM on price features", d.lstm, d.lstm && d.lstm.promoted ? "promoted" : "in evaluation"],
+      ["LSTM + FinBERT cross-attention", fu, fu.status === "insufficient_data"
+        ? `waiting for data · ${fu.events_with_news_coverage} of ${fu.min_events} events with news`
+        : fu.promoted ? "promoted" : "in evaluation"],
+    ];
+    for (const [name, s, status] of rows) {
+      const row = el("tr");
+      row.append(el("td", null, name), el("td", null, s && fin(s.n_trades) ? String(s.n_trades) : "—"),
+        el("td", s && fin(s.sr_annualized) ? (s.sr_annualized > 0 ? "ok" : "ko") : "", s ? f(s.sr_annualized, num) : "—"),
+        el("td", null, s ? f(s.dsr, dec) : "—"),
+        el("td", status === "promoted" ? "ok" : "mut", status));
+      tbody.append(row);
+    }
+    table.append(thead, tbody);
+    const w = el("div", "scroll"); w.append(table); body.append(w);
+    body.append(el("p", "lbl", "A deep model replaces nothing unless its Deflated Sharpe beats 0.95 and it beats XGBoost on the same out-of-sample events. Every model tried is logged as a trial."));
   }
 
   function niceTicks(lo, hi, count) {
@@ -488,21 +662,18 @@
     return { ticks: out, step };
   }
 
-  // Current chart geometry, used by hover.
   let geo = null;
 
   function renderChart() {
-    const { s, forecast: f, predByDate } = state.view, svg = $("svg"), W = $("chart").clientWidth;
+    const { s, sig } = state.view, svg = $("svg"), W = $("chart").clientWidth;
     const H = Math.round(Math.min(300, Math.max(200, W * 0.4)));
-    const pad = { l: 40, r: 14, t: 34, b: 26 };
-    const N = s.length + (f ? 1 : 0);
-    // The forecast gets a wider slot so its zone and label fit.
-    const right = W - pad.r, gap = f ? Math.max(76, (right - pad.l) * 0.12) : 0;
-    const x = (i) => i >= s.length ? right
-      : pad.l + (right - gap - pad.l) * (s.length > 1 ? i / (s.length - 1) : 0.5);
+    const pad = { l: 44, r: 14, t: 34, b: 26 };
+    const active = traded(sig) && fin(sig.tp) && fin(sig.sl);
+    const right = W - pad.r, gap = active ? Math.max(90, (right - pad.l) * 0.16) : 0;
+    const x = (i) => pad.l + (right - gap - pad.l) * (s.length > 1 ? i / (s.length - 1) : 0.5);
 
-    const vals = s.map((p) => p.close).concat([...predByDate.values()]);
-    if (f) vals.push(f.value - f.band, f.value + f.band);
+    const vals = s.map((p) => p.close);
+    if (active) vals.push(sig.tp, sig.sl);
     const { ticks, step } = niceTicks(Math.min(...vals), Math.max(...vals), 5);
     const lo = ticks[0], hi = ticks[ticks.length - 1];
     const y = (v) => pad.t + (H - pad.t - pad.b) * (1 - (v - lo) / (hi - lo || 1));
@@ -511,7 +682,6 @@
     svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
     svg.setAttribute("height", H);
     svg.replaceChildren();
-
     const defs = svgEl("defs", {});
     const grad = svgEl("linearGradient", { id: "fill", x1: 0, y1: 0, x2: 0, y2: 1 });
     grad.append(svgEl("stop", { offset: "0", style: "stop-color:var(--trend);stop-opacity:.22" }),
@@ -519,12 +689,12 @@
     defs.append(grad);
     svg.append(defs);
 
-    // Forecast (future) zone
-    if (f) {
-      const zx = x(s.length - 1) + gap * 0.4;
+    const lx = x(s.length - 1);
+    if (active) {
+      const zx = lx + 8;
       svg.append(svgEl("rect", { x: zx, y: pad.t - 22, width: W - zx, height: H - pad.b - pad.t + 22, rx: 6, style: "fill:var(--ml-bg)" }));
       const zl = svgEl("text", { x: (zx + W) / 2, y: pad.t - 8, "text-anchor": "middle", "font-size": 11, "font-weight": 600, style: "fill:var(--ml)" });
-      zl.textContent = "Forecast";
+      zl.textContent = "Signal · " + sig.t_max_days + " sessions";
       svg.append(zl);
     }
 
@@ -534,7 +704,6 @@
       lbl.textContent = tickFmt.format(v);
       svg.append(lbl);
     }
-
     const nLabels = Math.max(2, Math.min(5, Math.floor((right - gap - pad.l) / 110)));
     for (let k = 0; k < nLabels; k++) {
       const i = Math.round((k + 0.5) * (s.length - 1) / nLabels);
@@ -542,42 +711,27 @@
       lbl.textContent = axisFmt.format(day(s[i].date));
       svg.append(lbl);
     }
-    if (f) {
-      const lbl = svgEl("text", { x: right, y: H - 6, "text-anchor": "end", "font-size": 12, "font-weight": 600, style: "fill:var(--ml)" });
-      lbl.textContent = axisFmt.format(day(f.date));
-      svg.append(lbl);
-    }
 
     const line = s.map((p, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(p.close).toFixed(1)).join("");
-    svg.append(svgEl("path", { d: `${line}L${x(s.length - 1)},${H - pad.b}L${x(0)},${H - pad.b}Z`, fill: "url(#fill)" }));
+    svg.append(svgEl("path", { d: `${line}L${lx},${H - pad.b}L${x(0)},${H - pad.b}Z`, fill: "url(#fill)" }));
     svg.append(svgEl("path", { d: line, fill: "none", "stroke-width": 2, "stroke-linejoin": "round", style: "stroke:var(--trend)" }));
 
-    // The model's past predictions over the actual days
-    s.forEach((p, i) => {
-      const v = predByDate.get(p.date);
-      if (!fin(v)) return;
-      svg.append(svgEl("line", { x1: x(i), x2: x(i), y1: y(v), y2: y(p.close), "stroke-width": 1, style: "stroke:var(--ml);opacity:.35" }));
-      svg.append(svgEl("circle", { cx: x(i), cy: y(v), r: 3.2, "stroke-width": 1.5, style: "fill:var(--card);stroke:var(--ml)" }));
-    });
-
-    // Next-day forecast
-    if (f) {
-      const fx = right, fy = y(f.value), lx = x(s.length - 1), ly = y(s[s.length - 1].close);
-      if (f.band > 0) {
-        const top = y(f.value + f.band), bot = y(f.value - f.band);
-        svg.append(svgEl("path", { d: `M${lx},${ly}L${fx},${top}L${fx},${bot}Z`, style: "fill:var(--ml-soft)" }));
-        svg.append(svgEl("line", { x1: fx, x2: fx, y1: top, y2: bot, "stroke-width": 2, style: "stroke:var(--ml);opacity:.5" }));
+    if (active) {
+      const ly = y(s[s.length - 1].close);
+      for (const [v, color, name] of [[sig.tp, "var(--up-line)", "TP"], [sig.sl, "var(--down-line)", "SL"]]) {
+        svg.append(svgEl("line", { x1: lx, x2: right, y1: y(v), y2: y(v), "stroke-width": 2, "stroke-dasharray": "6 4", style: `stroke:${color}` }));
+        const t = svgEl("text", { x: right, y: y(v) - 5, "text-anchor": "end", "font-size": 11, "font-weight": 600, style: `fill:${color}` });
+        t.textContent = name + " " + num.format(v);
+        svg.append(t);
       }
-      svg.append(svgEl("line", { x1: lx, y1: ly, x2: fx, y2: fy, "stroke-width": 2, "stroke-dasharray": "5 4", style: "stroke:var(--ml)" }));
-      svg.append(svgEl("circle", { cx: fx, cy: fy, r: 6, "stroke-width": 2.5, style: "fill:var(--card);stroke:var(--ml)" }));
+      svg.append(svgEl("circle", { cx: lx, cy: ly, r: 5, "stroke-width": 2.5, style: "fill:var(--card);stroke:var(--ml)" }));
     }
 
     const cross = svgEl("line", { y1: pad.t - 6, y2: H - pad.b, "stroke-dasharray": "3 3", style: "stroke:var(--muted)", visibility: "hidden" });
     const dot = svgEl("circle", { r: 5, style: "fill:var(--trend);stroke:var(--bg);stroke-width:2", visibility: "hidden" });
     svg.append(cross, dot);
-
-    geo = { x, y, W, N, cross, dot };
-    showHover(state.hover < N ? state.hover : -1);
+    geo = { x, y, W, N: s.length, cross, dot };
+    showHover(state.hover < s.length ? state.hover : -1);
   }
 
   function showHover(i) {
@@ -589,20 +743,13 @@
       geo && geo.dot.setAttribute("visibility", "hidden");
       return;
     }
-    const { s, forecast: f, predByDate } = state.view;
-    const isF = i >= s.length;
-    const value = isF ? f.value : s[i].close, date = isF ? f.date : s[i].date;
-    const cx = geo.x(i);
+    const p = state.view.s[i], cx = geo.x(i);
     geo.cross.setAttribute("x1", cx); geo.cross.setAttribute("x2", cx);
-    geo.dot.setAttribute("cx", cx); geo.dot.setAttribute("cy", geo.y(value));
-    geo.dot.style.fill = isF ? "var(--ml)" : "var(--trend)";
+    geo.dot.setAttribute("cx", cx); geo.dot.setAttribute("cy", geo.y(p.close));
     geo.cross.setAttribute("visibility", "visible");
     geo.dot.setAttribute("visibility", "visible");
-    tip.querySelector("b").textContent = num.format(value) + " USD";
-    tip.querySelector("span").textContent = (isF ? "Forecast · " : "") + tipFmt.format(day(date));
-    const model = isF ? null : predByDate.get(date);
-    tip.querySelector("em").textContent = isF && f.band > 0 ? "± " + num.format(f.band)
-      : fin(model) ? "model " + num.format(model) : "";
+    tip.querySelector("b").textContent = num.format(p.close) + " USD";
+    tip.querySelector("span").textContent = tipFmt.format(day(p.date));
     tip.style.display = "block";
     const tw = tip.offsetWidth;
     tip.style.left = Math.max(0, Math.min(geo.W - tw, cx - tw / 2)) + "px";
@@ -651,13 +798,11 @@
     const href = safeUrl(a.url);
     const c = el(href ? "a" : "div", "item");
     if (href) { c.href = href; c.target = "_blank"; c.rel = "noopener noreferrer"; }
-
     const txt = el("div", "itxt");
     const foot = el("div", "foot", ago(a.published_at));
     const label = a.sentiment && a.sentiment.label;
     if (SENT[label]) foot.append(el("span", "sent " + label, SENT[label]));
     txt.append(el("div", "src", a.source || ""), el("h3", null, a.title || ""), foot);
-
     const thumb = el("div", "thumb");
     const img = safeUrl(a.image_url);
     if (img) {
@@ -666,7 +811,6 @@
       im.addEventListener("error", () => placeholder(thumb, a.source));
       thumb.append(im);
     } else placeholder(thumb, a.source);
-
     c.append(txt, thumb);
     return c;
   }

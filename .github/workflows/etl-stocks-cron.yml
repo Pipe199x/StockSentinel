@@ -19,7 +19,7 @@ jobs:
   etl_stocks:
     # Pinned so a runner image migration cannot silently break the daily job
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     env:
       PYTHON_VERSION: "3.11"
@@ -64,7 +64,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r stocks_etl/requirements.txt
 
-      - name: Run ETL (prices + XGBoost forecast + publish to docs/)
+      - name: Unit tests (purged CV, triple barrier, DSR, risk)
+        if: steps.guard.outputs.skip != 'true'
+        run: python -m pytest tests -q
+
+      - name: Run ETL (prices + regime + meta-labeled signals + validation + publish to docs/)
         if: steps.guard.outputs.skip != 'true'
         env:
           # Keep yfinance's SQLite cache out of any shared/restored location

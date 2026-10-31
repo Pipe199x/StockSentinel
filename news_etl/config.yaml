@@ -41,3 +41,5 @@ paths:
   history_ndjson: "docs/data/history/news_history.ndjson"
   latest_json: "docs/data/news_latest.json"
   manifest: "docs/data/manifest.json"
+  # Embeddings FinBERT (768 dims) por artículo, para el modelo de fusión de stocks_etl/deep
+  embeddings: "docs/data/history/news_embeddings.npz"

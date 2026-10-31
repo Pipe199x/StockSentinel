@@ -2,14 +2,13 @@ import glob
 import os
 import pandas as pd
 
-BASE = os.path.join(os.path.dirname(__file__), "..", "stocks_etl", "..", "ETL", "data")
 BASE = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data"))
 
 # Ajusta BASE si tu output_dir es distinto
 
 def main():
-    csvs = sorted(glob.glob(os.path.join(BASE, "*_prices_*.csv")))
-    preds = sorted(glob.glob(os.path.join(BASE, "predictions_*.csv")))
+    csvs = sorted(glob.glob(os.path.join(BASE, "prices_*.csv")))
+    preds = sorted(glob.glob(os.path.join(BASE, "signals_*.csv")))
     if not csvs:
         print("No hay CSV de precios en", BASE)
         return
