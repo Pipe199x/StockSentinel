@@ -284,6 +284,7 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
         "limitations": [
             "Survivorship bias: the universe only contains companies alive today (yfinance has no delisted tickers).",
             "GARCH and HMM parameters are fitted on the full history; the volatility and regime series themselves are filtered (past-only).",
+            "The per-asset HMM can switch between two near-equally likely fits as data arrives; only the market (SPY) regime gates trading, and it is stable.",
             "Daily bars only: no volume bars, order book or intraday sessions.",
             "Barriers are checked on daily closes, not intraday highs/lows.",
             "With few trials the DSR is close to a Probabilistic Sharpe Ratio against zero.",

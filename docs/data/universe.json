@@ -1,0 +1,48 @@
+{
+  "sectors": {
+    "Tecnología": [
+      "AAPL",
+      "MSFT",
+      "GOOGL",
+      "AMZN",
+      "NVDA"
+    ],
+    "Salud": [
+      "JNJ",
+      "UNH",
+      "PFE"
+    ],
+    "Energía": [
+      "XOM",
+      "CVX"
+    ],
+    "Finanzas": [
+      "JPM",
+      "BAC",
+      "GS"
+    ],
+    "Consumo básico": [
+      "PG",
+      "KO",
+      "WMT"
+    ],
+    "Consumo discrecional": [
+      "HD",
+      "MCD"
+    ],
+    "Industria": [
+      "CAT",
+      "BA"
+    ],
+    "Utilities": [
+      "NEE"
+    ],
+    "ETFs": [
+      "SPY",
+      "QQQ",
+      "GLD",
+      "TLT"
+    ]
+  },
+  "benchmark": "SPY"
+}

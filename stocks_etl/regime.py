@@ -75,12 +75,14 @@ def fit_garch(log_ret: pd.Series) -> Tuple[pd.Series, Dict[str, float]]:
     return sigma, params
 
 
-def hmm_filtered_regimes(X: np.ndarray, n_states: int = 3, seed: int = 42) -> np.ndarray:
+def hmm_filtered_regimes(X: np.ndarray, n_states: int = 3, seed: int = 42, restarts: int = 1) -> np.ndarray:
     """Probabilidades filtradas P(estado_t | x_1..x_t) de un HMM gaussiano.
 
     Los estados se ordenan por la media de la columna 1 (volatilidad) para que las
     etiquetas no cambien entre reentrenamientos: 0 = calma, 1 = normal, 2 = estrés.
-    Filas con NaN reciben NaN.
+    EM cae en óptimos locales: con una sola inicialización un día más de datos puede
+    duplicar los días de estrés. Se reinicia `restarts` veces y se queda el de mayor
+    verosimilitud. Filas con NaN reciben NaN.
     """
     from hmmlearn.hmm import GaussianHMM
 
@@ -93,8 +95,13 @@ def hmm_filtered_regimes(X: np.ndarray, n_states: int = 3, seed: int = 42) -> np
     Z = (Xo - mu) / sd
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
-        model = GaussianHMM(n_components=n_states, covariance_type="full", n_iter=200, random_state=seed)
-        model.fit(Z)
+        model, best = None, -np.inf
+        for k in range(max(1, restarts)):
+            m = GaussianHMM(n_components=n_states, covariance_type="full", n_iter=200, random_state=seed + k)
+            m.fit(Z)
+            score = m.score(Z)
+            if np.isfinite(score) and score > best:
+                model, best = m, score
     order = np.argsort(model.means_[:, 1])
     log_b = np.column_stack([
         multivariate_normal.logpdf(Z, mean=model.means_[k], cov=model.covars_[k], allow_singular=True)

@@ -34,6 +34,7 @@ universe:
 quant:
   benchmark: SPY
   regime_source: market # el estrés del mercado (HMM de SPY) apaga la operativa
+  hmm_restarts: 10      # reinicios de EM: evita que el régimen salte entre óptimos locales
   seed: 42
   hurst_window: 100
   ou_span: 20

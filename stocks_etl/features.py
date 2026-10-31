@@ -86,7 +86,8 @@ def _ticker_features(dfg: pd.DataFrame, cfg: dict) -> Tuple[pd.DataFrame, Dict]:
     sigma, garch = fit_garch(dfg["log_ret_1"])
     dfg["sigma_garch"] = sigma
 
-    probs = hmm_filtered_regimes(dfg[["log_ret_1", "rv_20"]].to_numpy(), seed=int(cfg.get("seed", 42)))
+    probs = hmm_filtered_regimes(dfg[["log_ret_1", "rv_20"]].to_numpy(), seed=int(cfg.get("seed", 42)),
+                                 restarts=int(cfg.get("hmm_restarts", 1)))
     dfg["p_calm"], dfg["p_normal"], dfg["p_stress"] = probs[:, 0], probs[:, 1], probs[:, 2]
     dfg["regime"] = np.where(np.isnan(probs).any(axis=1), np.nan, np.nanargmax(np.nan_to_num(probs, nan=-1), axis=1))
 

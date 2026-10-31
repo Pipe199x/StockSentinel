@@ -12,9 +12,37 @@
     "window_days": 15
   },
   "stocks": {
-    "last_updated_utc": "2026-10-31T01:44:30.290510+00:00",
+    "last_updated_utc": "2026-10-31T16:01:38.261015+00:00",
     "as_of": "2026-10-30",
-    "rows": 5151,
-    "price_window_days": 30
+    "rows": 74375,
+    "tickers": [
+      "AAPL",
+      "MSFT",
+      "GOOGL",
+      "AMZN",
+      "NVDA",
+      "JNJ",
+      "UNH",
+      "PFE",
+      "XOM",
+      "CVX",
+      "JPM",
+      "BAC",
+      "GS",
+      "PG",
+      "KO",
+      "WMT",
+      "HD",
+      "MCD",
+      "CAT",
+      "BA",
+      "NEE",
+      "SPY",
+      "QQQ",
+      "GLD",
+      "TLT"
+    ],
+    "price_window_days": 60,
+    "dsr": 0.9717
   }
 }

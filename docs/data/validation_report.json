@@ -1,0 +1,152 @@
+{
+  "as_of": "2026-10-30",
+  "generated_utc": "2026-10-31T16:01:38.261015+00:00",
+  "folds": [
+    {
+      "test_from": "2015-04-14",
+      "test_to": "2017-09-13",
+      "n_train": 19317,
+      "n_test": 4941,
+      "accuracy": 0.5454361465290427,
+      "sr_per_trade": 0.11133327283730245
+    },
+    {
+      "test_from": "2017-09-13",
+      "test_to": "2020-01-03",
+      "n_train": 19152,
+      "n_test": 4940,
+      "accuracy": 0.5680161943319838,
+      "sr_per_trade": 0.038566140777566996
+    },
+    {
+      "test_from": "2020-01-03",
+      "test_to": "2022-04-22",
+      "n_train": 19611,
+      "n_test": 4940,
+      "accuracy": 0.5580971659919028,
+      "sr_per_trade": 0.03883242879271616
+    },
+    {
+      "test_from": "2022-04-22",
+      "test_to": "2024-07-24",
+      "n_train": 19378,
+      "n_test": 4940,
+      "accuracy": 0.5382591093117409,
+      "sr_per_trade": -0.004521978671864451
+    },
+    {
+      "test_from": "2024-07-24",
+      "test_to": "2026-10-28",
+      "n_train": 19692,
+      "n_test": 4940,
+      "accuracy": 0.5550607287449393,
+      "sr_per_trade": 0.049719400020243346
+    }
+  ],
+  "cpcv_path_sr": [
+    0.032825165920163026,
+    0.029512342834615044,
+    0.01830541629807682,
+    0.031299791494828824,
+    0.03389159335182122
+  ],
+  "meta": {
+    "n_trades": 2651,
+    "years": 11.55,
+    "win_rate": 0.5152772538664655,
+    "avg_win": 0.029193105709011655,
+    "avg_loss": 0.030451240658005748,
+    "expected_value": 0.0002821343466512787,
+    "sr_per_trade": 0.04741533065208157,
+    "sr_annualized": 0.7184837649246736,
+    "skew": 1.696204332820174,
+    "kurtosis": 24.732548431236058,
+    "max_losing_streak": 10,
+    "dsr": 0.971730964949456,
+    "expected_streak": 9.96942734648406,
+    "streak_drawdown_1pct": 0.09533999694216244,
+    "streak_drawdown_5pct": 0.40032340160701063,
+    "min_trades_for_edge": 8405
+  },
+  "primary": {
+    "n_trades": 5284,
+    "years": 11.55,
+    "win_rate": 0.4653671461014383,
+    "avg_win": 0.026592042551356283,
+    "avg_loss": 0.027008781447046222,
+    "expected_value": -0.0020647189542241616,
+    "sr_per_trade": -0.054394158510286304,
+    "sr_annualized": -1.1636623385293126,
+    "skew": -0.02498329597672378,
+    "kurtosis": 6.54575718937072,
+    "max_losing_streak": 17
+  },
+  "n_events": 24701,
+  "n_trials": 5,
+  "var_sr_used": 9.521652154618857e-05,
+  "dsr_threshold": 0.95,
+  "edge_is_significant": true,
+  "trades_by_regime": {
+    "calm": 1241,
+    "normal": 1410
+  },
+  "regimes_undercovered": [],
+  "feature_importance": {
+    "side": 0.21956035494804382,
+    "strategy": 0.1203923225402832,
+    "mkt_regime": 0.05101468414068222,
+    "hurst": 0.04811422526836395,
+    "ffd_close": 0.04704977571964264,
+    "zscore": 0.04645558446645737,
+    "half_life": 0.04517713561654091,
+    "p_stress": 0.0450606495141983,
+    "beta_spy": 0.04324254393577576,
+    "rv_20": 0.04230784624814987,
+    "rv_10": 0.04184119403362274,
+    "mkt_p_stress": 0.040280163288116455,
+    "log_ret_20": 0.039558760821819305,
+    "sigma_garch": 0.03802243620157242,
+    "log_ret_5": 0.03700181096792221,
+    "regime": 0.03385896980762482,
+    "vol_z": 0.03125917539000511,
+    "log_ret_1": 0.029802314937114716
+  },
+  "correlation": {
+    "all_days": 0.3188659605666164,
+    "market_stress_days": 0.5280397746659804,
+    "market_calm_days": 0.15348520254836065,
+    "n_stress_days": 317
+  },
+  "config": {
+    "benchmark": "SPY",
+    "cost_bps": 5,
+    "cpcv_groups": 6,
+    "cpcv_k": 2,
+    "embargo_pct": 0.01,
+    "hmm_restarts": 10,
+    "hurst_window": 100,
+    "k_sl": 1.5,
+    "k_tp": 1.5,
+    "kelly_fraction": 0.5,
+    "max_half_life": 20,
+    "mc_horizon": 20,
+    "momentum_horizon": 10,
+    "n_splits": 5,
+    "ou_span": 20,
+    "ou_window": 100,
+    "regime_source": "market",
+    "seed": 42,
+    "t_max_cap": 20,
+    "t_max_min": 3,
+    "target_vol": 0.2,
+    "z_entry": 1.5
+  },
+  "limitations": [
+    "Survivorship bias: the universe only contains companies alive today (yfinance has no delisted tickers).",
+    "GARCH and HMM parameters are fitted on the full history; the volatility and regime series themselves are filtered (past-only).",
+    "The per-asset HMM can switch between two near-equally likely fits as data arrives; only the market (SPY) regime gates trading, and it is stable.",
+    "Daily bars only: no volume bars, order book or intraday sessions.",
+    "Barriers are checked on daily closes, not intraday highs/lows.",
+    "With few trials the DSR is close to a Probabilistic Sharpe Ratio against zero."
+  ]
+}

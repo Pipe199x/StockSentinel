@@ -1,0 +1,50 @@
+{
+  "as_of": "2026-10-30",
+  "generated_utc": "2026-10-31T15:58:51.852067+00:00",
+  "n_events": 24701,
+  "xgb": {
+    "n_trades": 2640,
+    "years": 11.55,
+    "win_rate": 0.5159090909090909,
+    "avg_win": 0.029478945134163815,
+    "avg_loss": 0.03047340328657003,
+    "expected_value": 0.00045655828503583795,
+    "sr_per_trade": 0.05052401935609291,
+    "sr_annualized": 0.7639996648824279,
+    "skew": 1.7150284579155464,
+    "kurtosis": 24.92441491840401,
+    "max_losing_streak": 10,
+    "n_trials": 4,
+    "dsr": 0.9805863307625184
+  },
+  "lstm": {
+    "n_trades": 2364,
+    "years": 11.55,
+    "win_rate": 0.5088832487309645,
+    "avg_win": 0.028122372171192393,
+    "avg_loss": 0.02961997291247526,
+    "expected_value": -0.0002358607569540299,
+    "sr_per_trade": 0.04413425270682242,
+    "sr_annualized": 0.631528312205558,
+    "skew": 1.1838473641282927,
+    "kurtosis": 22.72664038787033,
+    "max_losing_streak": 10,
+    "n_trials": 5,
+    "dsr": 0.9467017271384165,
+    "promoted": false
+  },
+  "fusion": {
+    "events_with_news_coverage": 17,
+    "min_events": 500,
+    "news_tickers": [
+      "AMZN",
+      "GOOGL",
+      "MSFT"
+    ],
+    "news_since": "2026-08-28",
+    "status": "insufficient_data",
+    "promoted": false
+  },
+  "signals": [],
+  "promoted_model": null
+}
