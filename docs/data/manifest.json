@@ -6,10 +6,11 @@
     "MSFT"
   ],
   "news": {
-    "last_updated_utc": "2026-10-30T18:00:05.130457+00:00",
+    "last_updated_utc": "2026-10-31T17:15:17.230582+00:00",
     "articles": 123,
-    "history_articles": 546,
-    "window_days": 15
+    "history_articles": 555,
+    "window_days": 15,
+    "new_embeddings": 27
   },
   "stocks": {
     "last_updated_utc": "2026-10-31T16:01:38.261015+00:00",

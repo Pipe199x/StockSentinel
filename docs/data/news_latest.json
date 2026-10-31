@@ -1,7 +1,160 @@
 {
-  "as_of": "2026-10-30T18:00:05.122634+00:00",
+  "as_of": "2026-10-31T17:15:14.402891+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-30T17:12:11+00:00",
+      "source": "The Times of India",
+      "title": "Google loses $500bn as China stocks suffer worst rout since 2016: What's happening to global AI?",
+      "summary": "For the past few years, artificial intelligence has been Wall Street's favourite investment story.",
+      "url": "https://timesofindia.indiatimes.com/business/international-business/google-loses-500bn-as-china-stocks-suffer-worst-rout-since-2016-whats-happening-to-global-ai/articleshow/135369988.cms",
+      "image_url": "https://static.toiimg.com/thumb/msid-135371395,width-1280,height-720,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.6316
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-30T17:09:06+00:00",
+      "source": "Business Standard",
+      "title": "Nasdaq hits near three-month low as Amazon, Intel rattle AI trade",
+      "summary": "The Nasdaq fell 2.48% as Amazon's rising AI spending and Intel's cash-burn warning triggered a tech selloff, with the two companies facing nearly $200 billion in combined market value losses.",
+      "url": "https://www.business-standard.com/world-news/nasdaq-hits-near-three-month-low-as-amazon-intel-rattle-ai-trade-126103001910_1.html",
+      "image_url": "https://bsmedia.business-standard.com/_media/bs/img/article/2020-12/27/thumb/fitandfill/1200X628/1609043964-1336.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.975
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-30T17:08:41+00:00",
+      "source": "Techpowerup.com",
+      "title": "(PR) Evercade Nexus Handheld Console Now Available",
+      "summary": "Blaze Entertainment is proud to announce that the Evercade Nexus, the newest retro gaming handheld console from Evercade, is now available on Amazon, Funstock, Best Buy and GameStop, as well as other Evercade retailers across Europe and the US. Evercade conti…",
+      "url": "https://www.techpowerup.com/354324/evercade-nexus-handheld-console-now-available",
+      "image_url": "https://www.techpowerup.com/img/fGHX1LOfhzZrhpcB.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6857
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-30T17:00:00+00:00",
+      "source": "Amazon.com",
+      "title": "Amazon MSK now supports TLS 1.3 for data in transit",
+      "summary": "Amazon MSK now supports version 1.3 of Transport Layer Security (TLS) protocol for MSK Provisioned clusters through encryption policies. TLS 1.3 delivers faster, more secure encryption for streaming data and is increasingly required by compliance frameworks a…",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-tls/",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6742
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-30T16:55:02+00:00",
+      "source": "Portableapps.com",
+      "title": "Google Chrome Portable 156.0.8078.80 Stable (web browser) Released",
+      "summary": "A new version of Google Chrome Portable Stable has been released. Google Chrome Portable is a web browser that runs web pages and applications quickly. The latest Beta and Dev builds are also available. It's packaged as a portable app, so you can take your br…",
+      "url": "https://portableapps.com/news/2026-10-30--google-chrome-portable-156.0.8078.80-released",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.942
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-30T16:50:22+00:00",
+      "source": "MacRumors",
+      "title": "The MacRumors Show: OLED MacBook Pro, iPad Mini 8, and More",
+      "summary": "On this week's episode of The MacRumors Show, we discuss Apple's newly announced OLED MacBook Pro, iPad mini with A20 Pro, and M6 versions of the iMac and entry-level 14-inch ‌MacBook Pro‌.\n\n\n\n\r\nSubscribe to The MacRumors Show YouTube channel for more videos\n…",
+      "url": "https://www.macrumors.com/2026/10/30/the-macrumors-show-oled-macbook-pro/",
+      "image_url": "https://images.macrumors.com/t/kLyL9ESZ6JvIf7h3R6f5-DPqhvE=/2500x/article-new/2026/10/TMRS-115-MacBook-PROLED-Thumb.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9391
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-30T16:46:38+00:00",
+      "source": "The Daily Caller",
+      "title": "Microsoft Turns To Wall Street For $25 Billion As AI Spending Bill Hits $170 Billion",
+      "summary": "Microsoft is returning to the U.S. bond market for the first time in more than nine years, seeking at least $25 billion as the technology giant pours billions into artificial intelligence infrastructure.",
+      "url": "https://dailycaller.com/2026/10/30/microsoft-turns-to-wall-street-for-25-billion-as-ai-spending-bill-hits-170-billion",
+      "image_url": "https://images.dailycaller.com/image/width=1280,height=549,fit=cover,format=webp,f=auto/https://cdn01.dailycaller.com/wp-content/uploads/2023/07/MICROSOFT.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7952
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-30T15:52:04+00:00",
+      "source": "Bing.com",
+      "title": "Your content, your choice: clearer preferences for training and grounding",
+      "summary": "Microsoft is expanding web publisher choice with independent preferences for training and grounding, building on a shared industry training preference – without changing eligibility for Bing search results.",
+      "url": "https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/",
+      "image_url": "https://blogs.bing.com/api/media/assets/uploads/2026/10/531a56e0-1a18-46af-b4f0-55fa20a35079-Meta-tag-blog-image_-660-by-360-pixels.png",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5228
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-30T15:26:21+00:00",
+      "source": "Mactrast.com",
+      "title": "Russia Now Requires Apple to Store Its Customers’ Communications and Hand Them Over Upon Demand",
+      "summary": "As of October 2, Apple and Microsoft are considered “organizers of information dissemination,” on Russia's state surveillance registry, according to Russia’s communications watchdog Roskomnadzor.Read More...",
+      "url": "https://www.mactrast.com/2026/10/russia-now-requires-apple-to-store-its-customers-communication-and-hand-them-over-upon-request/",
+      "image_url": "https://www.mactrast.com/wp-content/uploads/2026/10/Russian-KGB-Watching-Citizen-Use-iPhone-1024x572.jpeg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9382
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-29T17:58:34+00:00",
       "source": "Consequence.net",
@@ -1854,150 +2007,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.8164
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-16T15:29:01+00:00",
-      "source": "9to5Mac",
-      "title": "Deals: New Apple TV 4K first discount, HomeView, iPhone Duo trade offers, AirPods Pro 3, more",
-      "summary": "Joining the $50 price drop on AirPods Pro 3 to pair with your new Duo, we are now tracking the very first discount on the next-generation Apple TV 4K – Amazon will also ship it to you much faster than Apple can. Those offers join ongoing HomeView deals (you’l…",
-      "url": "https://9to5mac.com/2026/10/16/deals-new-apple-tv-4k-homeview-iphone-duo-airpods/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7422
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-16T15:23:10+00:00",
-      "source": "Amazon.com",
-      "title": "Introducing Reflection Beam: an open-weight model for agentic coding on AWS",
-      "summary": "Reflection AI's Beam is an open-weight model for agentic coding and long-horizon tasks. This post shows how to deploy Beam on AWS: start with an Amazon SageMaker JumpStart real-time endpoint, or use Amazon SageMaker HyperPod Inference with JumpStart, SGLang, …",
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-reflection-beam-an-open-weight-model-for-agentic-coding-on-aws/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9335
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-16T15:20:57+00:00",
-      "source": "Yanko Design",
-      "title": "Amazon’s new Bee AI devices help you remember more without taking notes",
-      "summary": "Remembering details from meetings, conversations, and everyday interactions is hard when you're splitting your attention between listening and taking notes. Amazon is addressing this with Bee Frontier and Bee Eclipse, two personal AI devices designed to captu…",
-      "url": "https://www.yankodesign.com/2026/10/16/amazons-new-bee-ai-devices-help-you-remember-more-without-taking-notes/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9221
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-16T15:20:01+00:00",
-      "source": "CryptoSlate",
-      "title": "Microsoft exposes how USDT-funded phishing network targeted 75,000 organizations",
-      "summary": "Domain seizures and account shutdowns hit YAM Store and phishing-kit services, while reported asset freezes remain unquantified.\nRead the full story on CryptoSlateUnderstand the crypto stories that matter and what to watch next. Get The Catalyst in your inbox",
-      "url": "https://cryptoslate.com/microsoft-exposes-how-usdt-funded-phishing-network-targeted-75000-organizations/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9092
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-16T15:19:03+00:00",
-      "source": "Helpdeskgeek.com",
-      "title": "KB5127648 Smart App Control Bug: Windows 11 October 2026 Update Known Issue Explained",
-      "summary": "Microsoft confirms KB5127648 (Oct 13, 2026) can gray out Smart App Control on Windows 11 PCs. Here's who's affected and Microsoft's official workaround.\nThe post KB5127648 Smart App Control Bug: Windows 11 October 2026 Update Known Issue Explained first appea…",
-      "url": "https://helpdeskgeek.com/kb5127648-smart-app-control-known-issue-windows-11/#article",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7545
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-16T15:18:00+00:00",
-      "source": "PRNewswire",
-      "title": "FOX NEWS DIGITAL LEADS ALL NEWS BRANDS WITH MULTIPLATFORM VIEWS AND MINUTES THROUGHOUT THE THIRD QUARTER",
-      "summary": "FOX News Marks 8th Consecutive Quarter as Top News Brand on YouTube CNN Marks its Worst Quarter Since 2015 Across All Key Performance Indicators NEW YORK, Oct. 16, 2026 /PRNewswire/ -- During the third quarter of 2026, FOX News Digital led all news brands and…",
-      "url": "https://www.prnewswire.com/news-releases/fox-news-digital-leads-all-news-brands-with-multiplatform-views-and-minutes-throughout-the-third-quarter-302911383.html",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9086
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-16T15:01:50+00:00",
-      "source": "9to5google.com",
-      "title": "Google says fix for Android Auto’s missing signal icon is rolling out, and it actually is [U]",
-      "summary": "After weeks of back and forth, Google has officially confirmed a fix is rolling out for Android Auto’s missing signal icon.\n\n\n\n more…",
-      "url": "http://9to5google.com/2026/10/16/android-auto-signal-icon-fix/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8351
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-16T15:00:41+00:00",
-      "source": "Ubergizmo",
-      "title": "Google Universal Cart Launches For Easier Online Shopping",
-      "summary": "Google has officially launched its Universal Cart, a shopping feature designed to make online purchases easier by bringing products from multiple retailers into one place. Announced on October 15, the tool is integrated with Google Search and the Gemini app, …",
-      "url": "https://www.ubergizmo.com/2026/10/google-universal-cart-launches-for-easier-online-shopping/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5413
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-16T15:00:05+00:00",
-      "source": "Ubergizmo",
-      "title": "Microsoft Celebrates Xbox 25th Anniversary With Free Game Bundle",
-      "summary": "To celebrate the 25th anniversary of its Xbox division, Microsoft has announced a special promotion for Windows 11 PC buyers. Starting in November, customers who purchase eligible hardware (like the new Surface Laptop Ultra) from participating U.S. retailers …",
-      "url": "https://www.ubergizmo.com/2026/10/xbox-5th-anniversary-bundle/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6061
       },
       "sentiment_model": "ProsusAI/finbert"
     }
