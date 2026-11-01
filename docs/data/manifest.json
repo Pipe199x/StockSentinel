@@ -13,7 +13,7 @@
     "new_embeddings": 27
   },
   "stocks": {
-    "last_updated_utc": "2026-11-01T01:23:12.101490+00:00",
+    "last_updated_utc": "2026-11-01T13:57:39.835363+00:00",
     "as_of": "2026-10-30",
     "rows": 74375,
     "tickers": [
@@ -44,6 +44,6 @@
       "TLT"
     ],
     "price_window_days": 60,
-    "dsr": 0.927
+    "dsr": 0.9517
   }
 }
