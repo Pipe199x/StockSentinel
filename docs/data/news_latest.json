@@ -1,7 +1,164 @@
 {
-  "as_of": "2026-10-31T17:15:14.402891+00:00",
+  "as_of": "2026-11-01T17:55:58.929961+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-10-31T17:54:15+00:00",
+      "source": "New York Post",
+      "title": "Popular supplement sold at Whole Foods and Amazon recalled over salmonella concerns",
+      "summary": "A popular supplement touted to help reduce stress and improve sleep is being recalled for concerns over salmonella contamination.",
+      "url": "https://nypost.com/2026/10/31/health/popular-supplement-sold-at-whole-foods-recalled-for-salmonella-concerns/",
+      "image_url": "https://nypost.com/wp-content/uploads/sites/2/2026/10/crop-41612221_47d75d.jpg?quality=75&strip=all&w=1200",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9171
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-31T17:52:36+00:00",
+      "source": "Getpublishub.com",
+      "title": "Show HN: Publishub. An AI copilot for video creators and editors.",
+      "summary": "See the exact second viewers drop off your Reels, TikToks and Shorts, why they leave and what to cut. AI editing notes in ~3 min. Free, no sign-up.",
+      "url": "https://www.getpublishub.com",
+      "image_url": "https://www.getpublishub.com/og?lang=en&v=14",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9168
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-31T17:40:00+00:00",
+      "source": "Hot Hardware",
+      "title": "Microsoft Just Gave Edge A 33% Speed Boost, Contributes Tech To Chromium Source",
+      "summary": "Microsoft Edge is now the first browser to support Windows 11's new \"accelerated app launches\" feature, which can improve launch speeds by 15-33%, depending on how intensely you're multitasking. If you're on Microsoft Edge version 150 or later",
+      "url": "https://hothardware.com/news/microsoft-just-gave-edge-a-33-speed-boost-contributes-tech-to-chromium-source",
+      "image_url": "https://images.hothardware.com/contentimages/newsitem/72001/content/16x9_2133x1200_highres-microsof-edge-browser.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.722
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-31T17:38:16+00:00",
+      "source": "The Times of India",
+      "title": "YouTube clip morphed, woman alleges online blackmail",
+      "summary": "Hubballi woman files cyber complaint after YouTube clip morphed with obscene content; suspects threaten to circulate it on WhatsApp, Instagram and Telegram.",
+      "url": "https://timesofindia.indiatimes.com/city/hubballi/youtube-clip-morphed-woman-alleges-online-blackmail/articleshow/135408477.cms",
+      "image_url": "https://static.toiimg.com/photo/msid-47529300/47529300.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.902
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-31T17:35:02+00:00",
+      "source": "The Times of India",
+      "title": "Free AI bootcamp for small businesses in NK",
+      "summary": "KCCI launches free AI bootcamp in North Karnataka for small businesses: 4 weeks training + 4 weeks mentoring, Microsoft certificate for eligible firms.",
+      "url": "https://timesofindia.indiatimes.com/city/hubballi/free-ai-bootcamp-for-small-businesses-in-nk/articleshow/135408402.cms",
+      "image_url": "https://static.toiimg.com/photo/msid-47529300/47529300.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7768
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-31T16:34:38+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Mirzapur The Movie 2026 Extended 1080p AMZN WEB-DL H264-playWEB",
+      "summary": "Plot: The battle for Mirzapur’s throne escalates as old enemies resurface and new threats emerge. Blood debts must be paid while power-hungry contenders fight to control the city’s violent underworld.Genre: Action | Crime | DramaIMDB Rating Live: IMDB Rating:…",
+      "url": "https://post.rlsbb.cc/mirzapur-the-movie-2026-extended-1080p-amzn-web-dl-h264-playweb/",
+      "image_url": null,
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8771
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-31T16:32:10+00:00",
+      "source": "Slashdot.org",
+      "title": "French lawmakers approve $11.2 billion internet tax based on traffic usage, costs $0.65 per gigabyte of content accessed",
+      "summary": "French lawmakers have approved an amendment proposing a €0.055-per-gigabyte tax on digital content delivered to internet subscribers in France. The measure could generate an estimated €10 billion annually, with companies including Google, Meta, Netflix and po…",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186534208",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7839
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-31T16:14:20+00:00",
+      "source": "Slashdot.org",
+      "title": "US midterms: 3 days to go – What latest polls say as early voting surges - Al Jazeera",
+      "summary": "US midterms: 3 days to go &ndash; What latest polls say as early voting surgesAl Jazeera See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186534050",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9214
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-10-31T16:00:33+00:00",
+      "source": "Rlsbb.cc",
+      "title": "A Requiem for Desire 2026 1080p AMZN WEB-DL H264-AXON",
+      "summary": "Awards 6 wins total See more awards »Plot: A journey to the past awakens the passion within Rose. A timeless spirited romance between the Present and the Victorian Era.Genre: DramaIMDB Rating Live: IMDB Rating: 5/10 From 24 UsersTMDB Rating: N/ARotten Rating:…",
+      "url": "https://post.rlsbb.cc/a-requiem-for-desire-2026-1080p-amzn-web-dl-h264-axon/",
+      "image_url": null,
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8327
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-30T17:12:11+00:00",
       "source": "The Times of India",
@@ -1863,150 +2020,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.9224
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-17T15:48:00+00:00",
-      "source": "Futurism",
-      "title": "Amazon Has Now Deployed Over 1 Million Robots, Which Is Bad News for Its 1.5 Million Workers",
-      "summary": "\"Amazon likes to talk about its latest robots because it doesn't want to talk about the tens of thousands of Amazon workers who are injured every year.\"\nThe post Amazon Has Now Deployed Over 1 Million Robots, Which Is Bad News for Its 1.5 Million Workers appe…",
-      "url": "https://futurism.com/future-society/amazon-robotics-automation-warehouse-labor-safety",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.96
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-17T15:33:19+00:00",
-      "source": "Slashdot.org",
-      "title": "Why are some locations blurred out on Google Maps?",
-      "summary": "When using Google Maps, it isn't rare to see blurred locations. Why does this happen? The answer is simple, and it has everything to do with security.",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186350686",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8719
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-17T15:33:08+00:00",
-      "source": "Slashdot.org",
-      "title": "The dress rehearsal for an AI reckoning - Financial Times",
-      "summary": "The dress rehearsal for an AI reckoningFinancial Times Wall St Week Ahead As AI rally wobbles, stock market's spotlight turns to earningsReuters The AI Sell-Off: Just A Wobble Or Something More Serious?Seeking Alpha Microsoft, Shopify and 3 more AI stocks tha…",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186350680",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8746
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-17T15:18:51+00:00",
-      "source": "BleepingComputer",
-      "title": "Hackers breach Microsoft 365 tenants via ConnectWise supply-chain attack",
-      "summary": "ConnectWise has shut down customer access to its Cloud Backup service (formerly SkyKick Cloud Backup) after hackers accessed application identities and compromised Microsoft 365 tenants. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9466
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-17T15:12:56+00:00",
-      "source": "Slashdot.org",
-      "title": "Common problems with Amazon Alexa and how to fix them",
-      "summary": "Amazon Alexa is a very useful gadget to have at home, but it isn't exempt from having some issues. Fortunately, troubleshooting is easy as pie.",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186350574",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8698
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-17T15:04:26+00:00",
-      "source": "Mediatakeout.com",
-      "title": "Colin Kaepernick Accused Of R*pe On Graphic New Expose! (Receipts)",
-      "summary": "EXCLUSIVE: COLIN KAEPERNICK ACCUSER DROPS 12-PART YOUTUBE EXPOSÉ!! Releases Texts, Audio & Police Documents… Alleges Massive Police Cover-Up From 2014 Miami Incident!! (DETAILS) Just when former NFL star Colin Kaepernick thought he could navigate his national…",
-      "url": "https://mediatakeout.com/colin-kaepernick-accused-of-rpe-on-graphic-new-expose-receipts/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8343
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-17T15:00:00+00:00",
-      "source": "Ifixit.com",
-      "title": "This International Repair Day, iFixit and Google Have Something for Your Repair Café",
-      "summary": "One ThinkPad owner replaced the fan, refreshed the thermal paste, and reinstalled Windows. But their laptop still took minutes to boot. After installing ChromeOS Flex, it started in seconds. PCWorld’s…",
-      "url": "https://www.ifixit.com/News/119810/international-repair-day-2026",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9246
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-17T14:39:55+00:00",
-      "source": "Geeksaresexy.net",
-      "title": "Daily Deals Drop: Hisense 55″ 4K Smart TV, LEGO Star Wars Chopper, $49.99 15.6 Inch Portable Monitor, and MORE! Saturday Steals!",
-      "summary": "For today’s daily deals drop (October 17, 2026) here are some of the best deals we stumbled on while browsing the web this morning! Please note that Geeks are Sexy might get a small commission from qualifying purchases done through our posts. As an Amazon Ass…",
-      "url": "https://www.geeksaresexy.net/2026/10/17/daily-deals-drop-hisense-55-4k-smart-tv-lego-star-wars-chopper-49-99-15-6-inch-portable-monitor-and-more-saturday-steals/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8592
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-17T14:00:00+00:00",
-      "source": "PCMag.com",
-      "title": "Mozilla Is Calling Out Microsoft for Forcing Edge on Users, and It's Absolutely Right",
-      "summary": "Windows 11 constantly tries to nudge you toward Microsoft's browser. It's time for the tech giant to start respecting user choice.\nIf you've ever used Windows 11, it's no secret that the OS prioritizes Edge over competing browsers. But Mozilla doesn't think y…",
-      "url": "https://uk.pcmag.com/migrated-3765-windows-10/167981/mozilla-is-calling-out-microsoft-for-forcing-edge-on-users-and-its-absolutely-right",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8164
       },
       "sentiment_model": "ProsusAI/finbert"
     }
