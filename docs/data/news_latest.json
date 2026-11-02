@@ -1,7 +1,146 @@
 {
-  "as_of": "2026-11-01T17:55:58.929961+00:00",
+  "as_of": "2026-11-02T21:42:25.302506+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-11-01T21:41:30+00:00",
+      "source": "Kitploit.com",
+      "title": "waf-dojo",
+      "summary": "Hands-on AWS WAF training game with tutorials, scored labs, and exams where players write Web ACL rules to block real attack shapes while avoiding false positives.",
+      "url": "https://kitploit.com/en/tools/github/nishikawaakira/waf-dojo",
+      "image_url": "https://assets.kitploit.com/production/public/tools/58673/a37c7fdbcfdebc360db74858b95fc3e28c769e8799b4da04b163261e7d8b7e52-social-v1.webp",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9278
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-01T21:21:06+00:00",
+      "source": "Rlsbb.cc",
+      "title": "The Craft 1996 1080p AMZN WEB-DL H264-BLOOM",
+      "summary": "Awards 1 win & 7 nominations total See more awards » Plot: A young girl new to a Catholic school befriends a coven of witches whom the other students either shun or fear. But when a powerful invocation goes wrong, the consequences could endanger their lives. …",
+      "url": "https://post.rlsbb.cc/the-craft-1996-1080p-amzn-web-dl-h264-bloom/",
+      "image_url": null,
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7613
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-01T21:16:00+00:00",
+      "source": "Wccftech",
+      "title": "Lenovo’s IdeaPad Slim 3X Is The Ideal Windows 11 Notebook For Budget Laptop Hunters; Snapdragon X, 16GB RAM & 512GB Configuration Available On Amazon For $620",
+      "summary": "It’s no secret that laptops are getting pricier with the DRAM shortage in effect, but Amazon has a banger of a deal in the form of the Lenovo IdeaPad 3X, as its $620 price tag will give budget buyers new hope. After all, it’s a Copilot+ PC that’s equipped wit…",
+      "url": "https://wccftech.com/lenovo-ideapad-slim-3x-snapdragon-x-amazon-deal/",
+      "image_url": "https://cdn.wccftech.com/wp-content/uploads/2026/11/Lenovos-IdeaPad-Slim-3X.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5904
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-01T20:53:32+00:00",
+      "source": "Slashdot.org",
+      "title": "Federal judge dismisses Trump attempt to interfere in Alaska Senate race - NBC News",
+      "summary": "Federal judge dismisses Trump attempt to interfere in Alaska Senate raceNBC News See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186549263",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9065
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-01T20:44:36+00:00",
+      "source": "9to5google.com",
+      "title": "Wear OS adding ‘system status bar’ to apps, Wear OS 7.1 coming",
+      "summary": "Earlier this week, Google revealed that a “later platform release of Wear OS” is adding a “system status bar.”\n\n\n\n more…",
+      "url": "http://9to5google.com/2026/11/01/wear-os-status-bar/",
+      "image_url": "https://9to5google.com/wp-content/uploads/sites/4/2026/06/Wear-OS-7-cover.jpg?quality=82&strip=all&resize=1200,628",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.895
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-01T20:33:40+00:00",
+      "source": "Slashdot.org",
+      "title": "Judge dismisses DOJ lawsuit over Alaska Senate election - CNBC",
+      "summary": "Judge dismisses DOJ lawsuit over Alaska Senate electionCNBC See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186549097",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8058
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-01T20:13:38+00:00",
+      "source": "Techpowerup.com",
+      "title": "Microsoft Adds Cloud Rebuild Recovery to Windows 11 in Latest Preview Update",
+      "summary": "Microsoft has introduced Cloud Rebuild, a recovery option that can wipe and reinstall Windows 11 by pulling a fresh image and the PC's drivers from Windows Update, even when the system refuses to boot. It ships with KB5127936, the optional preview update rele…",
+      "url": "https://www.techpowerup.com/354388/microsoft-adds-cloud-rebuild-recovery-to-windows-11-in-latest-preview-update",
+      "image_url": "https://www.techpowerup.com/img/NupumpDLJTPcFYVe.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8396
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-01T19:45:17+00:00",
+      "source": "Business Insider",
+      "title": "Microsoft AI chief says AI is not conscious and we should keep it that way",
+      "summary": "Microsoft AI CEO Mustafa Suleyman said developers should only build AI models that \"are not conscious and not deserving of rights.\"",
+      "url": "https://www.businessinsider.com/mustafa-suleyman-microsoft-ai-consciousness-2026-11#article",
+      "image_url": "https://i.insider.com/6ae780f8f3bee449b3d2a08b?width=1200&format=jpeg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9138
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-10-31T17:54:15+00:00",
       "source": "New York Post",
@@ -1872,154 +2011,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.8714
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-18T18:31:08+00:00",
-      "source": "The Times of India",
-      "title": "Fake e-challan app drains Rs 15,345 from resident",
-      "summary": "Chandigarh resident lost Rs 15,345 after downloading a fake e-challan app via message link; three unauthorized Google Play recharge transactions reported to cyber cell.",
-      "url": "https://timesofindia.indiatimes.com/city/chandigarh/fake-e-challan-app-drains-rs-15345-from-resident/articleshow/135034075.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9166
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-18T18:22:06+00:00",
-      "source": "Entrepreneur",
-      "title": "Spend Less Time Debugging With Microsoft Visual Studio 2026 for $30",
-      "summary": "Spend Less Time Debugging With Microsoft Visual Studio 2026 for $30entrepreneur.com",
-      "url": "https://www.entrepreneur.com/business-news/tech/spend-less-time-debugging-with-microsoft-visual-studio-2026-for-30",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8835
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-18T18:20:06+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Night Terror 2026 1080p AMZN WEB-DL H264-BobDobbs",
-      "summary": "Plot: A woman battles lifelong sleep paralysis while living in rural Illinois. As nightly episodes worsen her mental state, paranormal investigators suggest her condition may have supernatural origins. Genre: HorrorIMDB Rating Live: IMDB Rating: 4.5/10 From 6…",
-      "url": "https://post.rlsbb.cc/night-terror-2026-1080p-amzn-web-dl-h264-bobdobbs/",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7686
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-18T18:20:06+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Final Orbit 2026 1080p AMZN WEB-DL H264-BobDobbs",
-      "summary": "Plot: Across a dying Earth and the far reaches of space, humanity faces its final tests. Stranded astronauts, desperate survivors, conflicted pilots and an isolated diplomat must decide what is worth saving before time runs out. Genre: Sci-FiIMDB Rating Live:…",
-      "url": "https://post.rlsbb.cc/final-orbit-2026-1080p-amzn-web-dl-h264-bobdobbs/",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9069
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-18T18:07:11+00:00",
-      "source": "Dailymail.com",
-      "title": "Microsoft pulls out of AI deal for UK data centre firm in move that could deprive Nick Clegg of £30million payout",
-      "summary": "The American tech giant was due to be the 'anchor tenant' at the AI infrastructure company's first planned UK site in Loughton, Essex, where it had agreed to rent 23,000 high-end AI chips.",
-      "url": "https://www.dailymail.com/news/article-16218555/Microsoft-pulls-AI-deal-UK-data-centre-firm-deprive-Nick-Clegg-30million-payout.html",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9192
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-18T18:00:36+00:00",
-      "source": "disneyfoodblog.com",
-      "title": "You Can Save Up to 60% on These Disney Essentials If You Get to Amazon Fast",
-      "summary": "Hurry! These Amazon deals on Disney souvenirs and vacation essentials won't last forever!",
-      "url": "https://www.disneyfoodblog.com/2026/10/18/you-can-save-up-to-60-on-these-disney-essentials-if-you-get-to-amazon-fast/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.911
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-18T17:53:13+00:00",
-      "source": "Crypto Briefing",
-      "title": "TeraWulf secures Google backing for its Lake Mariner data center campus",
-      "summary": "Google's backing of TeraWulf's data center could accelerate AI infrastructure growth, influencing tech investment and energy strategies.\nThe post TeraWulf secures Google backing for its Lake Mariner data center campus appeared first on Crypto Briefing.",
-      "url": "https://cryptobriefing.com/terawulf-google-backing-lake-mariner/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8772
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-18T17:47:00+00:00",
-      "source": "BGR",
-      "title": "Notification Lights On Google Pixel Phones Are Leaving Users Unimpressed",
-      "summary": "Your Pixel can light up to tell you who's calling, but Google gives you surprisingly few ways to use those lights. Some owners are tired of waiting for more.",
-      "url": "https://www.bgr.com/2286066/google-pixel-notification-light-leaves-users-unimpressed/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.7249
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-18T17:44:00+00:00",
-      "source": "Techpowerup.com",
-      "title": "New Xbox Job Listing Hints at Physical Games Possibly Sticking Around",
-      "summary": "Microsoft has posted a job listing for an \"Xbox Games Supply Strategist,\" and the role revolves entirely around physical games. The full-time, Redmond-based position went live on October 14 and was spotted by users on X a few days later. The new hire will joi…",
-      "url": "https://www.techpowerup.com/353848/new-xbox-job-listing-hints-at-physical-games-possibly-sticking-around",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9224
       },
       "sentiment_model": "ProsusAI/finbert"
     }
