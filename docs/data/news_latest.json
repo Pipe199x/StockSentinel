@@ -1,7 +1,162 @@
 {
-  "as_of": "2026-11-02T21:42:25.302506+00:00",
+  "as_of": "2026-11-03T19:29:23.265838+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-11-02T19:26:51+00:00",
+      "source": "Livejournal.com",
+      "title": "Trailer for ‘The Man With the Bag’",
+      "summary": "When Santa's magic bag is stolen, he turns to his naughty list to find Vance, a former thief, to help him get it back. YouTube",
+      "url": "https://ohnotheydidnt.livejournal.com/133096018.html",
+      "image_url": "https://l-files.livejournal.net/og_image/3616053/519906?v=1793647622",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9072
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-02T19:23:06+00:00",
+      "source": "Tubefilter",
+      "title": "Top 5 Branded Videos of the Week: Keeping cash",
+      "summary": "Welcome to our rundown of the most-watched branded YouTube videos of the week. We’re publishing this snippet of a larger Gospel Stats Weekly Brand Report in order to analyze sponsorship trends in the creator economy. Any video launched in tandem with an offic…",
+      "url": "https://www.tubefilter.com/2026/11/02/top-5-branded-videos-mrbeast-veritasium-civil-rights-lawyer-2/",
+      "image_url": "https://www.tubefilter.com/wp-content/uploads/2026/10/mrbeast-weight.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9322
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-02T19:21:56+00:00",
+      "source": "Search Engine Journal",
+      "title": "Google Says No AI Click Reporting News Yet, Ahead Of UK Deadline via @sejournal, @MattGSouthern",
+      "summary": "Google says it has nothing to announce on adding more AI search data to Search Console, ahead of a UK compliance date.\nThe post Google Says No AI Click Reporting News Yet, Ahead Of UK Deadline appeared first on Search Engine Journal.",
+      "url": "https://www.searchenginejournal.com/google-ai-click-reporting-uk-deadline/595663/",
+      "image_url": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/11/google-search-console-ai-reporting-featured.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9422
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-02T19:19:50+00:00",
+      "source": "Amazon.com",
+      "title": "CVE-2026-120497 - Stored cross-site scripting in the HTML report generator of aidlc-traceability in AWS AI-DLC Workflows",
+      "summary": "Bulletin ID: 2026-163-AWS Publication Date: 11/02/2026 11:00 AM PST \nDescription: \naidlc-traceability is an open source command-line tool, formerly published in the awslabs/aidlc-workflows repository, that generates traceability-matrix reports from a project'…",
+      "url": "https://aws.amazon.com/security/security-bulletins/2026-163-aws/",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9519
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-02T19:11:03+00:00",
+      "source": "Sonyalpharumors.com",
+      "title": "Brand new Sony USA holiday deals: First ever discount on the Sony A1II and A9III",
+      "summary": "The Sony USA Holdiay deals are now live and we have some hot first time deals! Special mentions: First ever $200 off on the Sony a1 II at BHphoto, Amazon, Adorama $400 off on the Sony a9 III at BHphoto, Amazon, Adorama $200 off on the Sony FE 300mm f/2.8 GM O…",
+      "url": "https://www.sonyalpharumors.com/brand-new-sony-usa-holiday-deals-first-ever-discount-on-the-sony-a1ii-and-a9iii/",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6682
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-02T19:09:02+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Home Town Takeover Canada S01E02 1080p AMZN WEB-DL H264-NTb",
+      "summary": "Season 1, Episode 02 – “Better on Harbour Quay”Marnie’s home and a struggling restaurant, both on the line.Links: HOMEPAGE – TVDBHome.Town.Takeover.Canada.S01E02.720p.WEB.H264-JFFMKV | AC3 / dolby digital plus | 1.35GBNFO - Subtitles – Screenshot – Torrent – …",
+      "url": "https://post.rlsbb.cc/home-town-takeover-canada-s01e02-1080p-amzn-web-dl-h264-ntb/",
+      "image_url": null,
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8462
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-02T18:43:24+00:00",
+      "source": "The Verge",
+      "title": "Xbox’s former COO has ‘serious concerns’ about her abrupt departure",
+      "summary": "Xbox's former chief operating officer, Helen Chiang, suddenly left Microsoft less than two weeks ago after being promoted into the role in July. I wrote in my Notepad newsletter last week that it seemed very weird for Chiang to suddenly depart Microsoft after…",
+      "url": "https://www.theverge.com/news/1024649/xbox-chief-operating-officer-helen-chiang-depature-comments",
+      "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25485114/STK048_XBOX2__A.png?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.683
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-02T18:16:44+00:00",
+      "source": "iLounge",
+      "title": "Apple Placed on Registry for State Surveillance in Russia",
+      "summary": "Apple has been put on the State Surveillance Registry by Russia, as they face disclosure and data retention requirements after the company has been added. Roskomnadzor, the communications regulator of Russia, listed Microsoft and Apple on the 2nd of October, …",
+      "url": "https://www.ilounge.com/news/apple/apple-placed-on-registry-for-state-surveillance-in-russia",
+      "image_url": "https://www.ilounge.com/wp-content/uploads/2026/11/image-6.png",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.685
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-02T18:09:13+00:00",
+      "source": "Breitbart News",
+      "title": "Nolte: Pilot Prayed ‘Our Father’ on Doomed Learjet Co-Piloted by 20-Year-Old Woman",
+      "summary": "The copilot of the doomed Learjet that hit like a missile on the side of a Florida road was a 20-year-old woman named Nathalia Gadelha Filgueiras.\nThe post Nolte: Pilot Prayed ‘Our Father’ on Doomed Learjet Co-Piloted by 20-Year-Old Woman appeared first on Br…",
+      "url": "https://www.breitbart.com/politics/2026/11/02/nolte-pilot-prayed-our-father-doomed-learjet-co-piloted-20-year-old-woman/",
+      "image_url": "https://media.breitbart.com/media/2026/11/Learjet-crash-640x335.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9051
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-11-01T21:41:30+00:00",
       "source": "Kitploit.com",
@@ -1867,150 +2022,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.8817
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-19T17:00:40+00:00",
-      "source": "Thurrott.com",
-      "title": "Microsoft Has a Strategy to Secure AI Agents",
-      "summary": "Microsoft is addressing the recent explosion in AI safety risks by formalizing its strategy to protect its customers. It's surprisingly straightforward: You cannot trust AI.\nThe post Microsoft Has a Strategy to Secure AI Agents appeared first on Thurrott.com.",
-      "url": "https://www.thurrott.com/a-i/343031/microsoft-has-a-strategy-to-secure-ai-agents",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8913
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-19T17:00:39+00:00",
-      "source": "Googleblog.com",
-      "title": "Gemini in Google Sheets is now available on iOS devices",
-      "summary": "Building upon the power of Gemini in Sheets on the web and our recent launch on Android devices, we’re excited to announce that you can now use Gemini in Google Sheets on your iOS device to quickly a… [+1621 chars]",
-      "url": "https://workspaceupdates.googleblog.com/2026/10/gemini-in-google-sheets-is-now-available-on-iOS-devices.html",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.649
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-19T17:00:19+00:00",
-      "source": "TheWrap",
-      "title": "Sony Pictures TV Hires Lauren Glaubach as EVP Distribution, Digital and Social Platforms",
-      "summary": "The former Pinterest exec will drive Sony's expansion across YouTube and digital platforms in the newly created role\nThe post Sony Pictures TV Hires Lauren Glaubach as EVP Distribution, Digital and Social Platforms appeared first on TheWrap.",
-      "url": "https://www.thewrap.com/creative-content/tv-shows/sony-pictures-tv-lauren-glaubach-evp-distribution-digital-social-platforms/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9002
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-19T17:00:17+00:00",
-      "source": "MakeUseOf",
-      "title": "Google Maps hides nearly 20 years of Street View history, and it’s a time machine for your hometown",
-      "summary": "Google keeps a time machine of your hometown and you can get sucked in for hours reliving old memories.",
-      "url": "https://www.makeuseof.com/google-maps-hides-years-of-street-view-history/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9234
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-19T16:53:00+00:00",
-      "source": "Newser",
-      "title": "Brazil Election Puts Amazon's Future on the Line",
-      "summary": "Brazil's presidential race could help decide whether the Amazon keeps functioning as a rainforest. In the New York Times , Sergio Peçanha and Ana Ionova lay out how much is at stake as right-wing senator Flávio Bolsonaro, son of former president Jair Bolsonar…",
-      "url": "https://www.newser.com/story/398393/brazil-election-puts-amazons-future-on-the-line.html",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8212
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-19T16:49:19+00:00",
-      "source": "Amazon.com",
-      "title": "Pegasus 1.5 from TwelveLabs is now available in Amazon Bedrock",
-      "summary": "TwelveLabs Pegasus 1.5 is now available in Amazon Bedrock. The video language model turns long-form video into structured, timestamped metadata: define the moments that matter and get every matching segment back as JSON, with new video segmentation, multimoda…",
-      "url": "https://aws.amazon.com/blogs/machine-learning/pegasus-1-5-from-twelvelabs-is-now-available-in-amazon-bedrock/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.932
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-19T16:37:50+00:00",
-      "source": "Rlsbb.cc",
-      "title": "PlayerFab 7.0.6.4",
-      "summary": "Description: PlayerFab makes it accessible for users to playback local videos, DVD/Blu-ray/UHD discs, and videos from Amazon and Netflix. Are you still looking for an all-inclusive media player? Armed with PlayerFab, there is no need to worry about compatibil…",
-      "url": "https://post.rlsbb.cc/playerfab-7-0-6-4/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.861
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-19T16:00:00+00:00",
-      "source": "Microsoft.com",
-      "title": "Bring Your Own Model to the GitHub Copilot SDK with C#",
-      "summary": "The GitHub Copilot SDK gives your application an agent runtime. BYOK lets you keep that runtime while sending model requests to your own Microsoft Foundry or Azure OpenAI deployment. Here is the complete C# setup.\nThe post Bring Your Own Model to the GitHub C…",
-      "url": "https://devblogs.microsoft.com/dotnet/bring-your-own-model-to-the-github-copilot-sdk-with-csharp/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.949
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-19T15:00:33+00:00",
-      "source": "Ubergizmo",
-      "title": "All From The Cloud! Reinstalling Windows 11 Without A USB Drive Now Made Possible",
-      "summary": "Microsoft has released a major Windows 11 update to the Release Preview channel, identified as build package KB5127936. This rollout introduces significant system enhancements focused on interface customization, cloud-based system recovery, and overall perfor…",
-      "url": "https://www.ubergizmo.com/2026/10/all-from-the-cloud-reinstalling-windows-11-without-a-usb-drive-now-made-possible/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.8714
       },
       "sentiment_model": "ProsusAI/finbert"
     }
