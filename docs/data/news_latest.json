@@ -1,7 +1,114 @@
 {
-  "as_of": "2026-11-04T19:43:54.819791+00:00",
+  "as_of": "2026-11-05T19:56:14.500636+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-11-04T19:55:10+00:00",
+      "source": "Digital Journal",
+      "title": "Google turns off AI for schoolchildren by default",
+      "summary": "The search engine juggernaut dominates technology in American schools. Its education apps, including Gmail, Docs and the Classroom platform, are used in classrooms across the country, and its low-cost Chromebook laptops are the devices US schools most often i…",
+      "url": "https://www.digitaljournal.com/article/google-turns-off-ai-for-schoolchildren-by-default/",
+      "image_url": "https://www.digitaljournal.com/wp-content/uploads/2026/11/ebe346d83d3125d7f70b502797130571f985e34c.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9353
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-04T19:52:25+00:00",
+      "source": "Slashdot.org",
+      "title": "Cynthia Erivo to Play Tupac Shakur’s Mother in Universal’s Snoop Dogg Biopic (Exclusive) - The Hollywood Reporter",
+      "summary": "Cynthia Erivo to Play Tupac Shakur&rsquo;s Mother in Universal&rsquo;s Snoop Dogg Biopic (Exclusive)The Hollywood Reporter See more headlines &amp; perspectives on Google News ...",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186592680",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.941
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-04T19:51:48+00:00",
+      "source": "Twit.tv",
+      "title": "WW 1008: The Thurrottification of Tech - Microsoft FY27 Q1 Results & XBOX COO Mystery",
+      "summary": "Microsoft's business unit shuffle and shrouded AI spending spark a sharp conversation on whether shareholders and users can trust what's hidden behind new financial reports. Also, Start11 v3 adds Start widgets and menu sharing, plus Taskbar Islands, app group…",
+      "url": "https://twit.tv/shows/windows-weekly/episodes/1008",
+      "image_url": "https://elroy.twit.tv/sites/default/files/images/episodes/2026/11/863623/hero/WW1008_thumbnail.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8265
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-04T19:37:43+00:00",
+      "source": "CNBC",
+      "title": "Hyperscalers and Apple surge after election results remove investor uncertainty",
+      "summary": "Apple, Amazon, Google, Meta and Microsoft stock was up after the midterms, while stocks tied to Trump advisor Elon Musk and data centers fell on Wednesday.",
+      "url": "https://www.cnbc.com/2026/11/04/apple-and-other-big-tech-stocks-surge-after-2026-midterm-elections.html",
+      "image_url": "https://image.cnbcfm.com/api/v1/image/108364987-1789747291534-gettyimages-2295274523-AFP_C8PG29Z.jpeg?v=1789747390&w=1920&h=1080",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN",
+        "GOOGL",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7699
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-04T19:37:23+00:00",
+      "source": "Crypto Briefing",
+      "title": "Amazon and Microsoft add close to $445 billion in market value in one morning",
+      "summary": "The surge in market value highlights investor optimism about regulatory benefits for tech giants amid political shifts and cloud growth trends.\nThe post Amazon and Microsoft add close to $445 billion in market value in one morning appeared first on Crypto Bri…",
+      "url": "https://cryptobriefing.com/amazon-microsoft-add-445-billion-market-value/",
+      "image_url": "https://static.cryptobriefing.com/wp-content/uploads/2026/11/04143709/library-amazon-and-microsoft-add-close-to-445-billion-in-market--800x450.png",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7269
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-04T19:17:22+00:00",
+      "source": "Rlsbb.cc",
+      "title": "The Silence of the Earth 2026 1080p AMZN WEB-DL H264-playWEB",
+      "summary": "Awards 1 win total See more awards » Plot: In the wake of the appalling murders of three environmental activists in Latin America—Berta Cáceres, Paulo Paulino Guajajara, and Aldo Zamora—a call for political action. Genre: DocumentaryIMDB Rating Live: IMDB Rat…",
+      "url": "https://post.rlsbb.cc/el-silencio-de-la-tierra-2026-1080p-amzn-web-dl-h264-playweb/",
+      "image_url": null,
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8889
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-11-03T19:41:00+00:00",
       "source": "RTE",
@@ -1884,135 +1991,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.82
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-21T17:08:21+00:00",
-      "source": "Fortune",
-      "title": "Microsoft and Alphabet object to blockchain versions of their shares—but their veto only goes so far",
-      "summary": "Sixteen companies have opposed plans to trade tokenized versions of their shares on Cuomo-backed platform OKXICE.",
-      "url": "https://fortune.com/2026/10/21/microsoft-alphabet-object-blockchain-versions-shares-veto/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL",
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.5827
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-21T17:06:26+00:00",
-      "source": "PCMag.com",
-      "title": "Amazon Kindle (2026) Review: The Same Old Kindle With a Sleeker Design",
-      "summary": "Amazon's entry-level 6-inch Kindle has finally caught up in design with the rest of the lineup. Swapping plastic borders for a sleek, edge-to-edge glass face—and adding an optional aluminum back—gives the base model a surprisingly high-end feel. Underneath th…",
-      "url": "https://me.pcmag.com/en/ebook-readers/38407/amazon-kindle-2026-review-the-same-old-kindle-with-a-sleeker-design",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.6308
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-21T17:06:26+00:00",
-      "source": "PCMag.com",
-      "title": "Amazon Kindle (2026) Review: The Same Old Kindle With a Sleeker Design",
-      "summary": "Amazon's entry-level 6-inch Kindle has finally caught up in design with the rest of the lineup. Swapping plastic borders for a sleek, edge-to-edge glass face—and adding an optional aluminum back—gives the base model a surprisingly high-end feel. Underneath th…",
-      "url": "https://uk.pcmag.com/ebook-readers/168036/amazon-kindle-2026-review-the-same-old-kindle-with-a-sleeker-design",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.6308
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-21T17:04:02+00:00",
-      "source": "Financial Post",
-      "title": "Notified Opens Model Context Protocol (MCP) Beta Program for PR and IR Data and Services",
-      "summary": "New MCP Server Connects Content OS™ and IR Hub™ to Leading AI Agents and Client-Built Systems Key Facts: Notified MCP connects Notified’s Content OS and IR Hub platforms to AI agents, starting with Microsoft Teams and Copilot and the agents clients build them…",
-      "url": "https://financialpost.com/globe-newswire/notified-opens-model-context-protocol-mcp-beta-program-for-pr-and-ir-data-and-services",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8719
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-21T17:03:50+00:00",
-      "source": "Amazon.com",
-      "title": "Best practices for integrating IAM Roles Anywhere with your PKI",
-      "summary": "Using temporary credentials is a security best practice to reduce the risk from credentials getting compromised. With AWS IAM Roles Anywhere, now your workloads outside of Amazon Web Services (AWS) will be able to access AWS resources by obtaining temporary s…",
-      "url": "https://aws.amazon.com/blogs/security/best-practices-for-integrating-iam-roles-anywhere-with-your-pki/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8338
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-21T17:00:16+00:00",
-      "source": "Yahoo Entertainment",
-      "title": "Europe's financial regulators query GOOGLE over outage that hit banks...",
-      "summary": "By Phoebe Seers and Elizabeth Howcroft LONDON/PARIS, Oct 21 (Reuters) - Financial regulators in Europe are questioning Google after a cloud computing outage...",
-      "url": "https://finance.yahoo.com/technology/articles/europes-financial-regulators-query-google-154104572.html",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.88
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-21T17:00:00+00:00",
-      "source": "Securityweek.com",
-      "title": "Google Hardens Chrome Against ClickFix Attacks, Insecure HTTP Connections",
-      "summary": "Protections have been added against scams and social engineering, including new site warnings and server-side Gemini analysis.\nThe post Google Hardens Chrome Against ClickFix Attacks, Insecure HTTP Connections appeared first on SecurityWeek.",
-      "url": "https://www.securityweek.com/google-hardens-chrome-against-clickfix-attacks-insecure-http-connections/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8943
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-21T16:42:20+00:00",
-      "source": "Microsoft.com",
-      "title": "Python Engineering at Microsoft: Pylance + Pyrefly: bring your preferred type checker to Visual Studio Code",
-      "summary": "Announcing the Type Server Protocol and our partnership with Meta",
-      "url": "https://devblogs.microsoft.com/python/announcing-tsp/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8733
       },
       "sentiment_model": "ProsusAI/finbert"
     }
