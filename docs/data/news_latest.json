@@ -1,7 +1,160 @@
 {
-  "as_of": "2026-11-05T19:56:14.500636+00:00",
+  "as_of": "2026-11-06T19:23:09.538683+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-11-05T19:21:56+00:00",
+      "source": "Amazon.com",
+      "title": "Introducing AWS account access manager: IAM role flexibility with centralized workforce access",
+      "summary": "AWS Identity and Access Management (IAM) is introducing account access manager, a flexible new way to manage workforce access to your Amazon Web Services (AWS) accounts. This combines the IAM role flexibility your teams already rely on, delivered through the …",
+      "url": "https://aws.amazon.com/blogs/security/introducing-aws-account-access-manager-iam-role-flexibility-with-centralized-workforce-access/",
+      "image_url": "https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2026/05/13/AdobeStock_1376596821-1260x630.jpeg",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6011
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-05T19:19:21+00:00",
+      "source": "Crypto Briefing",
+      "title": "Google TPUv7 posts strong agentic inference results against Nvidia GB300",
+      "summary": "Google's TPUv7 advancements could intensify competition in AI hardware, prompting Nvidia to enhance cost efficiency and performance.\nThe post Google TPUv7 posts strong agentic inference results against Nvidia GB300 appeared first on Crypto Briefing.",
+      "url": "https://cryptobriefing.com/google-tpuv7-agentic-inference-benchmarks-nvidia/",
+      "image_url": "https://static.cryptobriefing.com/wp-content/uploads/2026/11/05141902/library-google-tpuv7-posts-strong-agentic-inference-results-agai-800x450.png",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9181
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-05T19:15:00+00:00",
+      "source": "Deadline",
+      "title": "Teyonah Parris To Co-Star Opposite Denzel Washington In New Thriller From Christopher McQuarrie And United Artists",
+      "summary": "EXCLUSIVE: Teyonah Parris is set to star opposite Denzel Washington in Amazon MGM Studios’ and United Artists’ untitled thriller with Christopher McQuarrie on board to direct. The film, which is penned by Scott Barkan and Gregg Zehentner, will be released in …",
+      "url": "http://deadline.com/2026/11/teyonah-parris-denzel-washington-christopher-mcquarrie-1237214613/",
+      "image_url": "https://deadline.com/wp-content/uploads/2026/11/Teyonah-Pariss-and-Denzel-Washington.jpg?w=1024",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9281
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-05T19:14:10+00:00",
+      "source": "Knowyourmeme.com",
+      "title": "\"More Like a Quesadilla\" Guy",
+      "summary": "The \"More Like a Quesadilla\" Guy is a series of memes based on a scene of YouTuber Chad Wild Clay, seen in the background of the Spy Ninjas music video for \"Come Back Daniel\" on his own YouTube channel, reacting with a shocked face after Regina sings, \"Think …",
+      "url": "https://knowyourmeme.com/memes/more-like-a-quesadilla-guy",
+      "image_url": "https://i.kym-cdn.com/entries/icons/original/000/057/719/quesadillaguy.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5177
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-05T19:13:41+00:00",
+      "source": "Slashdot.org",
+      "title": "Google, Meta and TikTok are all suing California to block social media law intended to help kids",
+      "summary": "Assembly Bill 1709 demands that platforms remove \"psychologically exploitative features.\"",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186605029",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8857
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-05T19:00:42+00:00",
+      "source": "Commonsensewithmoney.com",
+      "title": "LEGO Creator 3 in 1 Playful Cat Building Set 31163 – Just $19.95!",
+      "summary": "Don’t miss grabbing this awesome set for your Lego fan! It is sure to be a fan favorite! Want some thing fun to add to the gift closet? This set is so much fun and it is a GREAT price! Check out this deal!   \n\nGet on over to Amazon and ...",
+      "url": "https://www.commonsensewithmoney.com/lego-creator-3-1-playful-cat-building-set-31163-just-19-95/",
+      "image_url": "https://www.commonsensewithmoney.com/wp-content/uploads/2026/11/amlegocat.png",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8089
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-05T18:35:04+00:00",
+      "source": "Boredpanda.com",
+      "title": "Neuroscientist Explains Why 20YO Learjet Copilot May Have Left Her Mic On As Plane Slammed Into Trailer park",
+      "summary": "The co-pilot had earned her pilot's license at just 17 and hoped to pursue a career as a commercial airline pilot.",
+      "url": "https://www.boredpanda.com/neuroscientist-explains-reason-nathalia-filgueiras-mic-on-learjet-crash/",
+      "image_url": "https://static.boredpanda.com/blog/wp-content/uploads/2026/11/fb_image_6aeca66078e0e.png",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7636
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-05T18:08:39+00:00",
+      "source": "Thurrott.com",
+      "title": "Windows Weekly 1008: The Thurrottification of Tech",
+      "summary": "Mikah, Richard, and Paul discuss Microsoft earnings, Windows 11, RTX Spark, more earnings, AI and dev, XBOX and gaming, and more.\nThe post Windows Weekly 1008: The Thurrottification of Tech appeared first on Thurrott.com.",
+      "url": "https://www.thurrott.com/podcasts/windows-weekly/343570/windows-weekly-1008-the-thurrottification-of-tech",
+      "image_url": "https://thurrott-assets.nyc3.digitaloceanspaces.com/web/wp-content/uploads/sites/2/2026/11/WW1008.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9466
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-05T18:05:00+00:00",
+      "source": "Microsoft.com",
+      "title": "Modernize your .NET apps for Windows Arm64 with GitHub Copilot",
+      "summary": "Modernize your .NET apps for Windows Arm64 with the GitHub Copilot upgrade agent, from identifying migration blockers to planning and making code changes.\nThe post Modernize your .NET apps for Windows Arm64 with GitHub Copilot appeared first on .NET Blog.",
+      "url": "https://devblogs.microsoft.com/dotnet/modernize-dotnet-apps-for-windows-arm64/",
+      "image_url": "https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2026/11/modernize-net-apps-for-windows-arm64.webp",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9147
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-11-04T19:55:10+00:00",
       "source": "Digital Journal",
@@ -1847,150 +2000,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.8789
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-22T16:58:02+00:00",
-      "source": "Amazon.com",
-      "title": "CVE-2026-115416 - Incorrect authorization checks in Amazon Athena engine version 3 query processing",
-      "summary": "Bulletin ID: 2026-144-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 10/22/2026 09:30 AM PDT \nDescription: \nAmazon Athena is an interactive query service that allows you to analyze data in Amazon S3 using standard SQL. We identi…",
-      "url": "https://aws.amazon.com/security/security-bulletins/2026-144-aws/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9484
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-22T16:54:53+00:00",
-      "source": "Techpowerup.com",
-      "title": "Microsoft Warns AI Agents Can't Be Trusted, But Continues Adoption",
-      "summary": "Microsoft is one of the few companies evaluating the dangers of AI while simultaneously implementing the latest features across its product portfolio with cutting-edge designs, advanced models, and top-tier frameworks. However, this doesn't mean the company i…",
-      "url": "https://www.techpowerup.com/354034/microsoft-warns-ai-agents-cant-be-trusted-but-continues-adoption",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8414
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-22T16:51:39+00:00",
-      "source": "TechCrunch",
-      "title": "Chinese hackers spied on thousands of companies after breaching IT giant ConnectWise | TechCrunch",
-      "summary": "Microsoft points the blame for ConnectWise's breach at a China-aligned hacker, which relied on AI agents to rapidly hack into thousands of its customers.",
-      "url": "https://techcrunch.com/2026/10/22/chinese-hackers-spied-on-thousands-of-companies-after-breaching-it-giant-connectwise/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9182
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-22T16:49:48+00:00",
-      "source": "The Verge",
-      "title": "The disastrous PHP vulnerabilities were exploited days before the patch",
-      "summary": "Hackers attempted to exploit the PHP flaws impacting sites across the web days before they were patched, according to a report from Amazon Threat Intelligence. CJ Moses, Amazon chief information security officer, writes that the company's security team found …",
-      "url": "https://www.theverge.com/tech/1016798/php-vulnerabilities-exploit-patch",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9032
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-22T16:49:27+00:00",
-      "source": "Deadline",
-      "title": "FIFA Opens World Cup Bidding For 2030 With Netflix, YouTube Among Suitors",
-      "summary": "After a record-setting World Cup last summer, FIFA has officially opened the bidding for U.S. rights to the 2030 edition of the men’s soccer tournament. The auction will also include a potential option for 2034, according to press reports Thursday. Thanks in …",
-      "url": "http://deadline.com/2026/10/fifa-opens-world-cup-bidding-2030-netflix-youtube-1237170779/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6615
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-22T16:43:05+00:00",
-      "source": "Boredpanda.com",
-      "title": "Amazon Exec Accused Of Disturbing Crime Against Female Employee On Trip, Company Allegedly Covered It Up",
-      "summary": "Danbom alleged Amazon investigators asked re-traumatizing questions about whether she had yelled “no” during the alleged incident.",
-      "url": "https://www.boredpanda.com/amazon-executive-accused-crime-against-female-employee-business-trip-cover-up/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9014
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-22T16:42:41+00:00",
-      "source": "redmondpie.com",
-      "title": "Google Maps Brings Gemini To Apple CarPlay",
-      "summary": "Google Maps brings Gemini to Apple CarPlay, adding AI-powered assistance to navigation.\nThe post Google Maps Brings Gemini To Apple CarPlay first appeared on Redmond Pie.",
-      "url": "https://www.redmondpie.com/google-maps-brings-gemini-to-apple-carplay/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.924
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-22T16:32:58+00:00",
-      "source": "Slashdot.org",
-      "title": "Sundar Pichai (allegedly) draws the line at oceans",
-      "summary": "President Trump claimed that the Google CEO refused to rename the Atlantic Ocean in Maps.",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186418028",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.5465
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-22T16:10:15+00:00",
-      "source": "Zscaler.com",
-      "title": "SEO Poisoning Campaign Delivers New Armorsteal Malware",
-      "summary": "IntroductionIn September 2026, Zscaler Threat Hunting identified an SEO poisoning campaign that used fake websites impersonating the Chocolatey package manager and the Microsoft Activation Scripts (MAS) tool to distribute a Python-based malware family we trac…",
-      "url": "https://www.zscaler.com/blogs/security-research/seo-poisoning-campaign-delivers-new-armorsteal-malware",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.82
       },
       "sentiment_model": "ProsusAI/finbert"
     }
