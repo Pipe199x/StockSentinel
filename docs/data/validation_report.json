@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-06",
-  "generated_utc": "2026-11-07T02:14:04.693637+00:00",
+  "generated_utc": "2026-11-08T01:44:17.493393+00:00",
   "folds": [
     {
       "test_from": "2015-04-14",
@@ -62,7 +62,7 @@
     "skew": 0.7382238774430138,
     "kurtosis": 20.765109123892625,
     "max_losing_streak": 12,
-    "dsr": 0.7179676013604925,
+    "dsr": 0.6336958995435822,
     "expected_streak": 10.236106741186054,
     "streak_drawdown_1pct": 0.09776143605632148,
     "streak_drawdown_5pct": 0.4084704484508307,
@@ -83,7 +83,7 @@
   },
   "n_events": 24781,
   "n_trials": 5,
-  "var_sr_used": 0.00013584421770025258,
+  "var_sr_used": 0.00023795070880827017,
   "dsr_threshold": 0.95,
   "edge_is_significant": false,
   "trades_by_regime": {
