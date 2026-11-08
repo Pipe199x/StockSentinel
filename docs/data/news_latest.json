@@ -1,7 +1,166 @@
 {
-  "as_of": "2026-11-07T17:45:00.581570+00:00",
+  "as_of": "2026-11-08T17:55:39.310075+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-11-07T17:45:38+00:00",
+      "source": "New York Post",
+      "title": "Obsessed Americans Google serial killers 3.8M times a month — and here are the most popular monsters",
+      "summary": "A new survey from VIP Grinders reveals Americans are fascinated with serial killers with more than 3.8 million Google searches a month for the top 13, while each state has its most fascinating killer.",
+      "url": "https://nypost.com/2026/11/07/us-news/americans-google-serial-killers-3-8-million-times-a-month/",
+      "image_url": "https://nypost.com/wp-content/uploads/sites/2/2026/10/145983416.jpg?quality=75&strip=all&w=1200",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9034
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-07T17:41:34+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Danes In Distress S01E04 1080p AMZN WEB-DL H264-GRANiTEN",
+      "summary": "Note: In Danish With English Selectable Subtitles or (HERE).Season 1, Episode 04 – “A4 The Pool Accident in India”In India, Kevin’s father breaks his neck when he falls into a swimming pool that is being filled. In Greece, tourist Helen has an encounter with …",
+      "url": "https://post.rlsbb.cc/danes-in-distress-s01e04-1080p-amzn-web-dl-h264-graniten/",
+      "image_url": null,
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5754
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-07T17:41:29+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Danes In Distress S01E03 1080p AMZN WEB-DL H264-GRANiTEN",
+      "summary": "Note: In Danish With English Selectable Subtitles or (HERE).Season 1, Episode 03 – “Bone Express”In Italy, 23-year-old Viktor has crashed while skiing and is being rescued home with the Bone Express ambulance plane. In Greece, bartender Lene has had a blood c…",
+      "url": "https://post.rlsbb.cc/danes-in-distress-s01e03-1080p-amzn-web-dl-h264-graniten/",
+      "image_url": null,
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.5276
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-07T17:41:23+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Danes In Distress S01E02 1080p AMZN WEB-DL H264-GRANiTEN",
+      "summary": "Note: In Danish With English Selectable Subtitles or (HERE).Season 1, Episode 02 – “Accident in Greece”Emil falls badly by the hotel pool while on vacation in Greece and is paralyzed. In France, Henrik has fallen down the stairs.Links: HOMEPAGE – TVGUiDEDanes…",
+      "url": "https://post.rlsbb.cc/danes-in-distress-s01e02-1080p-amzn-web-dl-h264-graniten/",
+      "image_url": null,
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5188
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-07T17:33:19+00:00",
+      "source": "Slashdot.org",
+      "title": "5 Google Messages settings you might want to disable",
+      "summary": "Google Messages is easily one of the best messaging apps available on Android, but that doesn't mean it's configured perfectly out of the box.",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186639285",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8822
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-07T17:32:05+00:00",
+      "source": "Slashdot.org",
+      "title": "Protesters break into Microsoft data centre site in Amsterdam - Al Jazeera",
+      "summary": "Protesters break into Microsoft data centre site in AmsterdamAl Jazeera Activists break into building site of Microsoft datacentre in AmsterdamThe Guardian Protesters break into Microsoft data center site in Amsterdam as Europe’s backlash spreadsAP News Prote…",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186639245",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8765
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-07T17:31:16+00:00",
+      "source": "MakeUseOf",
+      "title": "Something big always happens to Microsoft in October, and there's a reason why",
+      "summary": "Microsoft likes October too much, but the reason is not what you think.",
+      "url": "https://www.makeuseof.com/why-microsoft-launches-october/",
+      "image_url": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/11/calendar-app-open-on-macos.jpg?w=1600&h=900&fit=crop",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.654
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-07T17:12:00+00:00",
+      "source": "Digital Journal",
+      "title": "Dutch activists invade site of Microsoft’s planned data centre",
+      "summary": "Several hundred activists opposed to the construction of a Microsoft data centre in Amsterdam occupied the site on Friday, responding to a call for a two-day protest across Europe. \nThe post Dutch activists invade site of Microsoft’s planned data centre appea…",
+      "url": "https://www.digitaljournal.com/article/dutch-activists-invade-site-of-microsofts-planned-data-centre/",
+      "image_url": "https://www.digitaljournal.com/wp-content/uploads/2026/11/78a675e4f1b1c969a164b86637476effa7b191af.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7276
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-07T17:00:00+00:00",
+      "source": "TechRadar",
+      "title": "I’m sick of Google running my life, but the /e/OS Fairphone wasn't the de-Googled solution I needed",
+      "summary": "I’m sick of Google running my life, but the Fairphone 6 Plus with /e/ OS was unfortunately not the de-Googled solution I needed.",
+      "url": "https://www.techradar.com/phones/android/i-spent-a-month-trying-to-de-google-with-the-fairphone-6-plus-but-it-left-me-wishing-for-my-android-phone-back",
+      "image_url": "https://cdn.mos.cms.futurecdn.net/eSKx4zQMBveA6wkUUP2oeD-1920-80.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6585
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-11-06T17:43:32+00:00",
       "source": "Crypto Briefing",
@@ -1864,150 +2023,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.8769
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-24T16:13:27+00:00",
-      "source": "Slashdot.org",
-      "title": "'The transit world is where innovation goes to die' — The U.S. lags far behind on using driverless trains, but new projects could open the floodgates - Fo",
-      "summary": "'The transit world is where innovation goes to die' &mdash; The U.S. lags far behind on using driverless trains, but new projects could open the floodgatesFortune See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186437998",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8634
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-24T16:04:47+00:00",
-      "source": "Crypto Briefing",
-      "title": "Sweden’s Government Offices blocks ChatGPT and Claude, approves Microsoft Copilot",
-      "summary": "Sweden's AI tool restrictions highlight growing concerns over data security, potentially influencing global public sector AI adoption strategies.\nThe post Sweden’s Government Offices blocks ChatGPT and Claude, approves Microsoft Copilot appeared first on Cryp…",
-      "url": "https://cryptobriefing.com/sweden-government-blocks-chatgpt-claude-copilot/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8798
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-24T16:01:03+00:00",
-      "source": "Decrypt",
-      "title": "Sweden's Government Offices Block ChatGPT and Claude, Keep Microsoft Copilot",
-      "summary": "Sweden's Government Offices will block ChatGPT and Claude on staff computers from Monday, steering civil servants to Microsoft Copilot as the only AI that passed its security review.",
-      "url": "https://decrypt.co/381763/sweden-government-offices-block-chatgpt-claude",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8917
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-24T16:00:00+00:00",
-      "source": "InfoQ.com",
-      "title": "Google Optimizes Agent Development Kit's 200K-line Python Codebase Overnight with Gemini 4 Argon",
-      "summary": "Google explained how an 11-hour unattended run of Gemini 4 Argon produced two accepted optimizations for Google Agent Development Kit's codebase, reducing in-memory session-preparation overhead by about 40% in long sessions and cold package import time by 21%…",
-      "url": "https://www.infoq.com/news/2026/10/google-argon-optimizes-adk/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.95
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-24T15:51:44+00:00",
-      "source": "Djangopackages.org",
-      "title": "django-staticgen",
-      "summary": "Push your django powered site to Amazon S3.",
-      "url": "https://www.djangopackages.org/packages/p/django-staticgen/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.939
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-24T15:20:36+00:00",
-      "source": "Crypto Briefing",
-      "title": "Amazon launches TorchNeuron to let AI developers run PyTorch code on Trainium chips",
-      "summary": "Amazon's TorchNeuron could disrupt the AI hardware market by reducing dependency on Nvidia, potentially lowering costs and increasing competition.\nThe post Amazon launches TorchNeuron to let AI developers run PyTorch code on Trainium chips appeared first on C…",
-      "url": "https://cryptobriefing.com/amazon-torchneuron-trainium-pytorch-nvidia/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.484
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-24T15:03:02+00:00",
-      "source": "MacRumors",
-      "title": "iPhone Duo Teardowns Reveal Two Batteries and More",
-      "summary": "The first iPhone Duo teardown videos have been shared by YouTube channels Phone Repair Guru and REWA Technology, providing us with a look inside the device.\n\n\n\n\n\niPhone Duo has two battery cells that can be removed with electrically-activated adhesive. There …",
-      "url": "https://www.macrumors.com/2026/10/24/iphone-duo-teardown-videos/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9445
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-24T14:12:00+00:00",
-      "source": "TVLine",
-      "title": "Carrie Boss Explains The Most Controversial Change The Show Made To Stephen King's Book",
-      "summary": "Showrunner Mike Flanagan explained why he made this major change to the story of Carrie in Amazon Prime's new adaptation of the novel, despite fan criticism.",
-      "url": "https://www.tvline.com/2290168/carrie-most-controversial-change-stephen-king-book-explained-showrunner/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8803
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-24T12:57:17+00:00",
-      "source": "Eurogamer.net",
-      "title": "Xbox's first chief operating officer Helen Chiang leaves Microsoft just three months into the job",
-      "summary": "Helen Chiang is leaving Microsoft just three months after becoming Xbox's first chief operating officer, according to a memo from CEO Asha Sharma.",
-      "url": "https://www.eurogamer.net/xbox-coo-helen-chiang-leaves-microsoft",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5565
       },
       "sentiment_model": "ProsusAI/finbert"
     }
