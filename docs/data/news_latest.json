@@ -1,7 +1,164 @@
 {
-  "as_of": "2026-11-08T17:55:39.310075+00:00",
+  "as_of": "2026-11-09T22:19:52.244726+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-11-08T22:17:00+00:00",
+      "source": "BGR",
+      "title": "This Highly-Rated Amazon Keychain Can Help You Learn Coding",
+      "summary": "For around $30, you can get this tiny Game Boy-like console that fits on your keychain. You can even use it to learn how to code your own games.",
+      "url": "https://www.bgr.com/2306855/keychain-helps-learn-coding/",
+      "image_url": "https://www.bgr.com/img/gallery/this-highly-rated-amazon-keychain-can-help-you-learn-coding/l-intro-1793816428.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8754
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-08T22:16:57+00:00",
+      "source": "Rlsbb.cc",
+      "title": "The Traitors Italy S02E03 1080p AMZN WEB-DL H264-TBK",
+      "summary": "Note: In Italian With English Selectable Subtitles or (HERE). Season 2, Episode 03 – \"Dietro la maschera\"To save those who have been taken, everyone will have to decide how much they are willing to sacrifice. Meanwhile, the most anticipated moment arrives: th…",
+      "url": "https://post.rlsbb.cc/the-traitors-italy-s02e03-1080p-amzn-web-dl-h264-tbk/",
+      "image_url": null,
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9047
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-08T22:16:10+00:00",
+      "source": "Rlsbb.cc",
+      "title": "The Traitors Italy S02E02 1080p AMZN WEB-DL H264-TBK",
+      "summary": "Note: In Italian With English Selectable Subtitles or (HERE). Season 2, Episode 02 – \"La fortezza mente\"At breakfast, Alessia reveals the name of the person who was murdered. Suspicions mount, while a secret passage and a mysterious painting sow chaos within …",
+      "url": "https://post.rlsbb.cc/the-traitors-italy-s02e02-1080p-amzn-web-dl-h264-tbk/",
+      "image_url": null,
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.5223
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-08T21:51:43+00:00",
+      "source": "New York Post",
+      "title": "Warriors rookie Yaxel Lendeborg gets honest about recent pricey purchase: ‘Man, this is crazy’",
+      "summary": "Warriors rookie Yaxel Lendeborg just bought a house for his mom. He shared the news in a YouTube video, where he took fans along on the sweet surprise. Lendeborg spoke...",
+      "url": "https://nypost.com/2026/11/08/sports/warriors-rookie-yaxel-lendeborg-gets-honest-about-recent-pricey-purchase/?utm_source=yahoo&amp;utm_campaign=nypost&amp;utm_medium=referral",
+      "image_url": "https://s.yimg.com/lo/mysterio/api/a8ef62157e20abbb50f2d531916e3e815252fa3c81cdf704e6aed128c4d50e6a/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fny_post_sports_articles_389%2Fa222cf10d906c86bc931ad729291ebc0.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8933
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-08T21:51:43+00:00",
+      "source": "New York Post",
+      "title": "Warriors rookie Yaxel Lendeborg gets honest about recent pricey purchase: ‘Man, this is crazy’",
+      "summary": "Warriors rookie Yaxel Lendeborg just bought a house for his mom. He shared the news in a YouTube video, where he took fans along on the sweet surprise. Lendeborg spoke to reporters about the purchase, saying he felt like he had “truly made it.” Yaxel Lendebor…",
+      "url": "https://nypost.com/2026/11/08/sports/warriors-rookie-yaxel-lendeborg-gets-honest-about-recent-pricey-purchase/",
+      "image_url": "https://nypost.com/wp-content/uploads/sites/2/2026/11/newspress-collage-mu5v1ygg9-1794172902862.jpg?quality=75&strip=all&1794154920&w=1200",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9096
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-08T21:33:29+00:00",
+      "source": "Slashdot.org",
+      "title": "Don't like Google Health's AI Coach? Here's how to turn it off",
+      "summary": "If this Premium feature is bugging you, there's good news: you aren't stuck with it.",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186656580",
+      "image_url": null,
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6923
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-08T18:50:00+00:00",
+      "source": "Futurism",
+      "title": "Microsoft AI CEO Says He’s Open to Agents Deserving Rights If He Sees the Right Evidence",
+      "summary": "Prompt them their rights.\nThe post Microsoft AI CEO Says He’s Open to Agents Deserving Rights If He Sees the Right Evidence appeared first on Futurism.",
+      "url": "https://futurism.com/artificial-intelligence/microsoft-ai-ceo-agents-rights-evidence",
+      "image_url": "https://futurism.com/wp-content/uploads/2026/11/microsoft-ai-ceo-agents-rights.jpg?quality=85&w=1200",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9301
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-08T18:41:29+00:00",
+      "source": "Sankakucomplex.com",
+      "title": "Microsoft Patents AI That Could Rewrite Livestream Speech & Alter Speakers’ Lips",
+      "summary": "Microsoft has filed a patent application for an artificial intelligence system capable of changing what people say during livestreams while simultaneously altering their lip movements to match the replacement words – which many immediately believe will be abu…",
+      "url": "https://news.sankakucomplex.com/n/rk5HKMvHuxNJtqrVrly_1Q",
+      "image_url": "https://news.sankakucomplex.com/wp-content/uploads/2024/03/KisaragiChihaya-Gyaru-Art-by-JabaraTornado-2024-Thumb.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5837
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-08T15:40:41+00:00",
+      "source": "Techpowerup.com",
+      "title": "Microsoft Patent Application Describes AI That Edits Live Speech",
+      "summary": "Microsoft has filed a patent application for an AI system that can change what someone says in a live video and redraw their lips to match. The filing, US 2026/0341309 A1, was submitted in April 2025, published on October 29, 2026, and first spotted by patent…",
+      "url": "https://www.techpowerup.com/354585/microsoft-patent-application-describes-ai-that-edits-live-speech",
+      "image_url": "https://www.techpowerup.com/img/zH2dqvLb05frSSPM.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9227
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-11-07T17:45:38+00:00",
       "source": "New York Post",
@@ -1877,152 +2034,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.9261
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-25T18:34:00+00:00",
-      "source": "Slashdot.org",
-      "title": "Google Says Gmail and Photos Data Shared with AI Search Could Be Used for Targeted Ads",
-      "summary": "The blog Android Authority offers this TLDR:\n\nGoogle updated its privacy policy to clarify that it could use information shared through Personal Intelligence to personalize ads. Gmail, Drive, and Photos content isn't used for targeted ads by default, but conn…",
-      "url": "https://tech.slashdot.org/story/26/10/25/1528213/google-says-gmail-and-photos-data-shared-with-ai-search-could-be-used-for-targeted-ads",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.944
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-25T18:29:11+00:00",
-      "source": "The Times of India",
-      "title": "Ahmedabad: Fake cop extorts Rs 10k from couple",
-      "summary": "Ahmedabad: Fake cop Mohammad Hussain Shaikh arrested for allegedly extorting Rs 10,000 from a couple at Sabarmati Riverfront via threats and Google Pay.",
-      "url": "https://timesofindia.indiatimes.com/city/ahmedabad/ahmedabad-fake-cop-extorts-rs-10k-from-couple/articleshow/135196688.cms",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.87
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-25T18:14:17+00:00",
-      "source": "Windows Central",
-      "title": "Windows Wrap: Even Microsoft's own XBOX team didn't want Windows 11",
-      "summary": "A reported dispute inside Microsoft raises questions about whether Windows 11 is suitable for the company's next-generation XBOX plans.",
-      "url": "https://www.windowscentral.com/microsoft/windows-11/windows-11-is-apparently-so-bad-that-xbox-would-rather-cancel-hardware-than-be-forced-to-use-the-os",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9415
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-25T18:07:00+00:00",
-      "source": "InfoQ.com",
-      "title": "PHP Patches Two Critical RCE Flaws That Were Already Under Attack",
-      "summary": "PHP released 8.5.12, 8.4.27, 8.3.36, and 8.2.35 to fix two critical vulnerabilities allowing unauthenticated remote code execution. Amazon recorded an exploitation attempt four days before the patches shipped, and operators spent the day working out whether t…",
-      "url": "https://www.infoq.com/news/2026/10/php-critical-rce-patches/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5912
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-25T18:04:02+00:00",
-      "source": "Amodelrecommends.com",
-      "title": "The week I almost chopped my nipple off with a Youtube trophy...",
-      "summary": "...and other stories.",
-      "url": "https://www.amodelrecommends.com/p/the-week-i-almost-chopped-my-nipple",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8162
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-25T18:00:01+00:00",
-      "source": "disneyfoodblog.com",
-      "title": "Disney Jewelry on Amazon for People Who Don’t Want to Wear a Giant Mickey",
-      "summary": "Add a subtle touch of Disney to your outfit with these pieces of jewelry from Amazon!",
-      "url": "https://www.disneyfoodblog.com/2026/10/25/disney-jewelry-on-amazon-for-people-who-dont-want-to-wear-a-giant-mickey/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9276
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-25T17:45:00+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Hangar Rojo 2026 1080p AMZN WEB-DL H264-cinepth",
-      "summary": "Hangar Rojo (original title) – Awards 15 wins & 4 nominations total See more awards »Plot: During Chile’s 1973 coup, Air Force Captain Jorge Silva faces an internal struggle as his military academy becomes a prison camp.Genre: Drama | History | ThrillerIMDB R…",
-      "url": "https://post.rlsbb.cc/hangar-rojo-2026-1080p-amzn-web-dl-h264-cinepth/",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8818
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-25T16:41:35+00:00",
-      "source": "Funcheap.com",
-      "title": "10/28/26: GenTeam Build Day: AI Agents for Real Estate - FREE",
-      "summary": "A free evening inside Microsoft San Francisco where real estate professionals build their own working AI agents on their own laptops and leave with them running in their own accounts. Not a talk and not a demo. Doors and drinks at 5:00, a short intro ...\nThe …",
-      "url": "https://sf.funcheap.com/genteam-build-day-ai-agents-real-estate/",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9449
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-25T16:38:57+00:00",
-      "source": "Windows Central",
-      "title": "Microsoft fixes 6 frustrating Windows 11 problems in October update",
-      "summary": "The October update KB5127648 for Windows 11 fixes six problems you might have overlooked, including Bluetooth issues, gaming mouse stuttering, fingerprint sign-in, printing, and VPN errors.",
-      "url": "https://www.windowscentral.com/microsoft/windows-11/windows-11s-october-2026-security-update-fixes-six-everyday-annoyances",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8769
       },
       "sentiment_model": "ProsusAI/finbert"
     }
