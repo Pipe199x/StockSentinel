@@ -1,7 +1,164 @@
 {
-  "as_of": "2026-11-09T22:19:52.244726+00:00",
+  "as_of": "2026-11-10T19:42:49.038859+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-11-09T19:39:41+00:00",
+      "source": "TechCrunch",
+      "title": "YouTube streaming data returns to Billboard charts, ending major disagreement | TechCrunch",
+      "summary": "YouTube will resume sharing streaming data with Billboard in 2027 after changes to the chart formula give more weight to free, ad-supported music streams.",
+      "url": "https://techcrunch.com/2026/11/09/youtube-streaming-data-returns-to-billboard-charts-ending-major-disagreement/",
+      "image_url": "https://techcrunch.com/wp-content/uploads/2026/04/GettyImages-2242441443.jpg?resize=1200,800",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.494
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-09T19:33:44+00:00",
+      "source": "Entrepreneur",
+      "title": "This Former NASA Engineer Has 85 Million YouTube Subscribers. He Says This Is How to Differentiate Your Videos From AI Slop.",
+      "summary": "The YouTube star explains what makes content valuable as it gets cheaper to produce.",
+      "url": "https://www.entrepreneur.com/business-news/he-has-85-7-million-youtube-subscribers-this-is-how-to-differentiate-your-videos-from-ai-slop",
+      "image_url": "https://www.entrepreneur.com/wp-content/uploads/sites/2/2026/11/Mark-Rober-GettyImages-2297533234.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.924
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-09T19:15:00+00:00",
+      "source": "Deadline",
+      "title": "Son Lux Says Its ‘Your Mother Your Mother Your Mother’ Score Reflected The Islamic Faith – Sound & Screen Film",
+      "summary": "There are not many Muslim action movies, so Your Mother Your Mother Your Mother is already unique. Its music reflects the disparate elements at play in the film, too. Son Lux wrote the score for the Orion Pictures/Amazon MGM Studios film, as well the song “No…",
+      "url": "http://deadline.com/2026/11/son-lux-your-mother-your-mother-your-mother-music-interview-1237216126/",
+      "image_url": "https://deadline.com/wp-content/uploads/2026/11/Your-Mother-Your-Mother-Son-Lux-SSFilm.jpg?w=1024",
+      "raw_tickers": [],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9255
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-09T19:09:57+00:00",
+      "source": "Rlsbb.cc",
+      "title": "Babystar 2026 SUBBED 1080p AMZN WEB-DL H264-cinepth",
+      "summary": "Awards 2 nominations total See more awards »Plot: A family vlogger’s teen daughter discovers she’s both the star and victim of her parents’ content in Joscha Bongard’s Babystar.Genre: Comedy | DramaIMDB Rating Live: IMDB Rating: 6.1/10 From 197 UsersTMDB Rati…",
+      "url": "https://post.rlsbb.cc/babystar-2026-subbed-1080p-amzn-web-dl-h264-cinepth/",
+      "image_url": null,
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8203
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-09T19:09:51+00:00",
+      "source": "Rlsbb.cc",
+      "title": "The Oldest Person In The World 2026 1080p AMZN WEB-DL H264-cinepth",
+      "summary": "Awards 1 nomination total See more awards »Plot: A ten-year worldwide exploration tracks successive holders of the oldest living person title. A study of longevity transforms into reflection on time’s flow, fate’s unpredictability, and the joy of human existe…",
+      "url": "https://post.rlsbb.cc/the-oldest-person-in-the-world-2026-1080p-amzn-web-dl-h264-cinepth/",
+      "image_url": null,
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9203
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-09T18:59:00+00:00",
+      "source": "The Gadgeteer",
+      "title": "The week in gadgets: the 10 most popular stories of November 3 to 9",
+      "summary": "Second edition of the weekly chart, and the rule hasn’t changed: we don’t pick the ten, you do. Every story below is ranked by its biggest single day in Google Discover across the week of November 3 to 9, and…",
+      "url": "https://the-gadgeteer.com/2026/11/09/the-week-in-gadgets-the-10-most-popular-stories-of-november-3-to-9/",
+      "image_url": "https://the-gadgeteer.com/wp-content/uploads/2026/11/week-in-gadgets-nov-3-9-hero-v3.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9258
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-09T18:01:16+00:00",
+      "source": "MakeUseOf",
+      "title": "The reason Microsoft Word files break in other apps goes deeper than you think",
+      "summary": "The same document can look professional in one app and completely drunk in another.",
+      "url": "https://www.makeuseof.com/why-word-docx-files-break-in-other-editors/",
+      "image_url": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/11/microsoft-word-and-libreoffice-opening-the-same-docx-file-side-by-side.png?w=1600&h=900&fit=crop",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7477
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-09T17:28:13+00:00",
+      "source": "pymnts.com",
+      "title": "Microsoft AI Chief Mustafa Suleyman: Agents Could Deserve Rights if Evidence Emerges",
+      "summary": "Microsoft AI CEO Mustafa Suleyman said in a Nov. 1 post on social platform X that artificial intelligence agents could eventually deserve rights if researchers establish they are conscious, but developers should not design them that way. https://t.co/6VpPCdA4…",
+      "url": "https://www.pymnts.com/news/artificial-intelligence/2026/microsoft-ai-chief-mustafa-suleyman-agents-could-deserve-rights-if-evidence-emerges/",
+      "image_url": "https://www.pymnts.com/wp-content/uploads/2023/11/artificial-intelligence-AI.jpg",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8701
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-09T17:22:54+00:00",
+      "source": "Microsoft.com",
+      "title": "Surface Pro 13-inch Flex Keyboard for Business - Wireless Keyboard Cover | Microsoft Store",
+      "summary": "Transform your Surface Pro tablet into a laptop with the Surface Pro 13-inch Flex Keyboard for Business. The cover case works both attached or detached as a wireless keyboard. Features innovative hot keys including the new Copilot key, a large glass touchpad,…",
+      "url": "https://www.microsoft.com/en-gb/d/surface-pro-13-inch-flex-keyboard-for-business/8mq7njvw89wn",
+      "image_url": "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/SPW5B-2000x1500-BB-00",
+      "raw_tickers": [],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8936
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-11-08T22:17:00+00:00",
       "source": "BGR",
@@ -1905,135 +2062,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.5475
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-26T17:58:00+00:00",
-      "source": "Theregister.com",
-      "title": "Microsoft releases emergency .NET security fixes for Google Brotli bug",
-      "summary": "Redmond joins growing list of software maintainers scrambling to patch compression flaw",
-      "url": "https://www.theregister.com/security/2026/10/26/microsoft-releases-emergency-net-security-fixes-for-google-brotli-bug/5305515",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL",
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.7572
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-26T17:56:58+00:00",
-      "source": "Amazon.com",
-      "title": "Fleet-wide computer vision lifecycle at the edge with SageMaker SDK v3",
-      "summary": "Fleet-wide computer vision needs a model per camera, not one model for the whole fleet. This post presents a working Amazon SageMaker SDK v3 reference architecture that trains, quality-gates, compiles per-camera models with SageMaker Neo, and versions thousan…",
-      "url": "https://aws.amazon.com/blogs/machine-learning/fleet-wide-computer-vision-lifecycle-at-the-edge-with-sagemaker-sdk-v3/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9342
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-26T17:50:43+00:00",
-      "source": "Seclists.org",
-      "title": "Re: [tool] octomon: a terminal network monitor to analyse your Internet connection",
-      "summary": "Posted by Dovid Bender via NANOG on Oct 26Realy? I wont say what Google kept correcting it to. Maybe it says more\nabout me then the project. Either way this project is awsome and it's been\nruning since yesterday morning.",
-      "url": "https://seclists.org/nanog/2026/Oct/63",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6596
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-26T17:50:17+00:00",
-      "source": "IGN",
-      "title": "Microsoft Offer Buyouts to 60,000 Workers as It Doubles Down on AI Investment",
-      "summary": "Microsoft plans to offer buyouts to about 60,000 workers as part of the company’s efforts to trim costs and retool its workforce as it invests heavily in AI. That amounts to just over a quarter of its total staff.",
-      "url": "https://www.ign.com/articles/microsoft-voluntary-exits-60000-workers",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7121
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-26T17:49:33+00:00",
-      "source": "Abcnews.com",
-      "title": "Microsoft offers quarter of global workforce voluntary buyouts",
-      "summary": "Microsoft has offered 60,000 employees, or about 27% of its global workforce, voluntary buyouts as the software giant spends heavily on artificial intelligence",
-      "url": "https://abcnews.com/Technology/wireStory/microsoft-offers-quarter-global-workforce-voluntary-buyouts-ai-137578868",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8608
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-26T17:42:29+00:00",
-      "source": "USA Today",
-      "title": "Where to watch World Series Game 3 toight for free without cable",
-      "summary": "The 2026 World Series airs on FOX. Fubo, YouTube TV and Hulu + Live TV offer ways to watch for free tonight.",
-      "url": "https://www.usatoday.com/story/shopping/sports/streaming/2026/10/26/where-to-watch-world-series-game-3-free-brewers-rays/92442547007/",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9448
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-26T17:31:36+00:00",
-      "source": "Dansdeals.com",
-      "title": "Stainless Steel Grill Brush With Scraper And Wood Handle For $9.99 From Amazon",
-      "summary": "Stainless Steel Grill Brush With Scraper And Wood Handle For $9.99 From Amazon Use code: IPZY0W2D Enter the code at checkout, select a payment method, and press continue to final checkout for the discount to display. On mobile you must select the arrow in the…",
-      "url": "https://www.dansdeals.com/shopping-deals/amazon/stainless-steel-grill-brush-with-scraper-and-wood-handle-for-9-99-from-amazon/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9516
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-26T17:27:20+00:00",
-      "source": "Amazon.com",
-      "title": "Groundhog Day for AI agents: Prompt caching patterns for using OpenAI models on Amazon Bedrock",
-      "summary": "Every time an agent takes a step, it re-reads its entire context before acting. Here is how prompt caching for OpenAI models on Amazon Bedrock lets your agent remember, cutting input cost and latency without resending the same tools, instructions, and history…",
-      "url": "https://aws.amazon.com/blogs/machine-learning/groundhog-day-for-ai-agents-prompt-caching-patterns-for-using-openai-models-on-amazon-bedrock/",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9261
       },
       "sentiment_model": "ProsusAI/finbert"
     }
