@@ -1,5 +1,5 @@
 # stocks_etl/config.yaml
-start: "2015-01-01"   # más historia = más regímenes vistos (2018, 2020, 2022, 2025)
+start: "2005-01-01"   # incluye 2008: con 500 sesiones de entrenamiento se opera desde ~2007
 end: null
 interval: "1d"
 
@@ -35,6 +35,10 @@ quant:
   benchmark: SPY
   regime_source: market # el estrés del mercado (HMM de SPY) apaga la operativa
   hmm_restarts: 10      # reinicios de EM: evita que el régimen salte entre óptimos locales
+  pit_refit: true       # GARCH/HMM se reajustan cada año solo con datos anteriores (sin look-ahead)
+  pit_min_train: 500    # sesiones de entrenamiento inicial; ahí no se opera
+  pit_refit_years: 1
+  pit_hmm_restarts: 3   # reinicios de EM por reajuste anual (hmm_restarts solo aplica sin pit_refit)
   seed: 42
   hurst_window: 100
   ou_span: 20
@@ -48,6 +52,7 @@ quant:
   k_sl: 1.5             # stop loss   = k_sl · σ_GARCH · sqrt(t_max)
   cost_bps: 5           # por lado (10 pb ida y vuelta)
   kelly_fraction: 0.5   # nunca Kelly completo
+  max_es_loss: 0.01     # tope: el Expected Shortfall (1%) de una operación no cuesta más del 1% del capital
   target_vol: 0.20      # volatilidad anual objetivo por posición
   n_splits: 5           # Purged K-Fold
   embargo_pct: 0.01

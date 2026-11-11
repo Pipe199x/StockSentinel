@@ -1,0 +1,201 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import { IconMoon, IconRefresh, IconSun } from "@tabler/icons-react";
+import { Navbar, NavBody, NavItems, MobileNav, MobileNavHeader, MobileNavMenu, MobileNavToggle, NavbarLogo, NavbarButton } from "@/components/ui/resizable-navbar";
+import { GridWithDots } from "@/block/background-grid-with-dots";
+import StatsWithNumberTicker, { type StatItem } from "@/block/stats-with-number-ticker";
+import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { Watermark } from "@/components/brand/watermark";
+import { SignalsBoard } from "@/components/dashboard/signals-board";
+import { AssetDetail } from "@/components/dashboard/asset-detail";
+import { Validation } from "@/components/dashboard/validation";
+import { Paper } from "@/components/dashboard/paper";
+import { Models, NewsFeed } from "@/components/dashboard/models-news";
+import { useDashboard } from "@/lib/data";
+import { ago, longDate, num, REGIME } from "@/lib/format";
+
+const NAV = [
+  { name: "Signals", link: "#signals" },
+  { name: "Asset", link: "#asset" },
+  { name: "Validation", link: "#validation" },
+  { name: "Paper", link: "#paper" },
+  { name: "Models", link: "#models" },
+  { name: "News", link: "#news" },
+];
+
+function ThemeToggle() {
+  const [dark, setDark] = useState(true);
+  useEffect(() => setDark(document.documentElement.classList.contains("dark")), []);
+  const flip = () => {
+    const next = !dark;
+    document.documentElement.classList.toggle("dark", next);
+    try {
+      localStorage.setItem("theme", next ? "dark" : "light");
+    } catch {}
+    setDark(next);
+  };
+  return (
+    <NavbarButton as="button" variant="secondary" onClick={flip} aria-label={dark ? "Switch to light mode" : "Switch to dark mode"} className="px-2">
+      {dark ? <IconSun className="h-4 w-4" /> : <IconMoon className="h-4 w-4" />}
+    </NavbarButton>
+  );
+}
+
+export default function Home() {
+  const { data, error, loading, reload } = useDashboard();
+  const [ticker, setTicker] = useState<string | null>(null);
+  const [menu, setMenu] = useState(false);
+
+  const signals = data?.signals ?? [];
+  useEffect(() => {
+    if (!ticker && signals.length) {
+      const best = [...signals].sort((a, b) => (b.kelly_size || 0) - (a.kelly_size || 0))[0];
+      setTicker(best.ticker);
+    }
+  }, [signals, ticker]);
+  const selected = signals.find((s) => s.ticker === ticker) ?? null;
+
+  const kpis: StatItem[] = useMemo(() => {
+    const r = data?.report;
+    const p = data?.paper;
+    const mkt = signals[0]?.market_regime ?? null;
+    const active = signals.filter((s) => s.kelly_size > 0).length;
+    return [
+      {
+        label: "Market regime",
+        value: null,
+        text: REGIME[mkt ?? ""] ?? "—",
+        tone: mkt === "stress" ? "bad" : mkt === "calm" ? "good" : "neutral",
+        description: `HMM on SPY, P(stress) ${num((signals[0]?.market_p_stress ?? 0) * 100, 0)}%. Stress means stay flat.`,
+      },
+      {
+        label: "Active signals",
+        value: active,
+        format: (v) => Math.round(v).toString(),
+        description: `${active} of ${signals.length} assets have a non-zero size today.`,
+      },
+      {
+        label: "Deflated Sharpe",
+        value: r?.meta.dsr ?? null,
+        format: (v) => v.toFixed(3),
+        tone: r?.edge_is_significant ? "good" : "neutral",
+        description: r?.edge_is_significant ? "Above the 0.95 bar: the edge is unlikely to be luck." : "Below the 0.95 bar: the edge is not proven yet.",
+      },
+      {
+        label: "Paper trading",
+        value: p ? p.total_return * 100 : null,
+        format: (v) => `${v >= 0 ? "+" : ""}${v.toFixed(2)}%`,
+        tone: p ? (p.total_return >= 0 ? "good" : "bad") : "neutral",
+        description: p ? `Gate 0: ${p.gate0.status}. ${p.counts.closed}/${p.gate0.min_trades} closed trades.` : "Starts with the next pipeline run.",
+      },
+    ];
+  }, [data, signals]);
+
+  const updated = data?.manifest?.stocks?.last_updated_utc;
+
+  return (
+    <div id="top" className="relative isolate min-h-screen overflow-x-clip">
+      {/* Aceternity background + Ocean Data Group watermarks (both pointer-events-none, aria-hidden) */}
+      <div className="fixed inset-0 -z-10">
+        <GridWithDots className="[mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_80%)]" />
+      </div>
+      <Watermark variant="tile" fixed opacity={0.035} className="z-0" />
+      <Watermark variant="corner" fixed position="bottom-right" opacity={0.6} className="z-50" />
+
+      <Navbar>
+        <NavBody>
+          <NavbarLogo />
+          <NavItems items={NAV} />
+          <div className="relative z-20 flex items-center gap-2">
+            <ThemeToggle />
+            <NavbarButton as="button" variant="dark" onClick={reload} className="flex items-center gap-1.5">
+              <IconRefresh className="h-4 w-4" /> Refresh
+            </NavbarButton>
+          </div>
+        </NavBody>
+        <MobileNav>
+          <MobileNavHeader>
+            <NavbarLogo />
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <MobileNavToggle isOpen={menu} onClick={() => setMenu(!menu)} />
+            </div>
+          </MobileNavHeader>
+          <MobileNavMenu isOpen={menu} onClose={() => setMenu(false)}>
+            {NAV.map((n) => (
+              <a key={n.link} href={n.link} onClick={() => setMenu(false)} className="w-full text-neutral-700 dark:text-neutral-200">
+                {n.name}
+              </a>
+            ))}
+            <NavbarButton as="button" variant="dark" onClick={() => { setMenu(false); reload(); }} className="w-full">
+              Refresh data
+            </NavbarButton>
+          </MobileNavMenu>
+        </MobileNav>
+      </Navbar>
+
+      <main className="relative z-10 mx-auto max-w-7xl space-y-6 px-4 pt-10 pb-24 md:px-6">
+        <div role="note" className="rounded-xl border border-amber-500/30 bg-amber-500/[0.06] px-4 py-3 text-sm text-amber-900 dark:text-amber-200">
+          <strong>Academic prototype.</strong> Signals and analysis are for demonstration only and are not investment advice.
+        </div>
+
+        <header className="pt-4">
+          <p className="text-xs font-semibold tracking-[0.2em] text-cyan-700 uppercase dark:text-cyan-300/80">Quant signals · honest validation</p>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-5xl">StockSentinel</h1>
+          <p className="mt-3 max-w-2xl text-neutral-600 dark:text-neutral-300">
+            Regime-aware signals for {signals.length || 25} assets, validated out-of-sample with purged cross-validation and the Deflated Sharpe, and
+            tracked live in a paper portfolio.
+            {data?.report && <> Data as of {longDate(data.report.as_of)}.</>}
+          </p>
+        </header>
+
+        {error && (
+          <div role="alert" className="rounded-xl border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm">
+            {error} <button onClick={reload} className="ml-2 underline">Try again</button>
+          </div>
+        )}
+
+        <CardSpotlight color="#14152b" radius={420} className="rounded-2xl border border-neutral-200 bg-white p-6 md:p-8 dark:border-white/[0.1] dark:bg-[#101124]">
+          {loading && !data ? (
+            <div className="grid grid-cols-2 gap-6 lg:grid-cols-4" aria-busy="true">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="h-24 animate-pulse rounded-lg bg-neutral-200 dark:bg-white/[0.06]" />
+              ))}
+            </div>
+          ) : (
+            <StatsWithNumberTicker items={kpis} />
+          )}
+        </CardSpotlight>
+
+        {data && (
+          <>
+            <div className="space-y-6">
+              <SignalsBoard signals={signals} selected={ticker} onSelect={(t) => { setTicker(t); document.getElementById("asset")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} />
+              <AssetDetail signal={selected} series={(ticker && data.prices?.series[ticker]) || []} />
+            </div>
+            <Validation report={data.report} />
+            <Paper paper={data.paper} />
+            <Models deep={data.deep} />
+            <NewsFeed news={data.news} />
+          </>
+        )}
+      </main>
+
+      <footer className="relative z-10 border-t border-neutral-200 px-4 py-8 text-xs text-neutral-500 dark:border-white/[0.08]">
+        <div className="mx-auto max-w-7xl space-y-2">
+          <p>Delayed prices from Yahoo Finance · sentiment by FinBERT · regime, signals, risk and paper trading by StockSentinel&apos;s quant pipeline.</p>
+          <p className="flex flex-wrap gap-x-3 gap-y-1">
+            {["manifest.json", "signals_latest.json", "validation_report.json", "paper_summary.json", "deep_report.json", "prices_latest.json", "news_latest.json", "history/paper_trades.csv", "history/signals_history.csv", "history/trials_log.csv"].map((f) => (
+              <a key={f} href={`/data/${f}`} className="underline-offset-4 hover:underline">{f}</a>
+            ))}
+          </p>
+          <p>
+            <a href="https://github.com/Pipe199x/StockSentinel" className="underline-offset-4 hover:underline">Source on GitHub</a>
+            {updated && <> · updated {ago(updated)}</>} · An Ocean Data Group project.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}

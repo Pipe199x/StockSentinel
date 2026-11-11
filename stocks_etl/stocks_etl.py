@@ -13,6 +13,7 @@ from tenacity import retry, wait_exponential_jitter, stop_after_attempt
 
 from stocks_etl.features import make_features
 from stocks_etl.meta_model import make_signals
+from stocks_etl.paper import run_paper
 from stocks_etl.publish_json import (
     write_prices_latest_json,
     write_prices_history_csv,
@@ -289,6 +290,15 @@ def main(cfg):
                                os.path.join(docs_dir, "universe.json"))
     prices_hist = write_prices_history_csv(df, os.path.join(docs_dir, "history", "prices_history.csv"))
     signals_hist = append_signals_history(signals, os.path.join(docs_dir, "history", "signals_history.csv"))
+    # === Paper trading (Gate 0): the published signals, executed with next-open fills ===
+    ledger, paper = run_paper(df, signals, report, qcfg, os.path.join(docs_dir, "history", "paper_trades.csv"))
+    paper_json = write_json(paper, os.path.join(docs_dir, "paper_summary.json"))
+    print(f"[SUMMARY] paper: {paper['counts']} gate0={paper['gate0']['status']} total_return={paper['total_return']:.4f}")
+    update_manifest(os.path.join(docs_dir, "manifest.json"), "paper", {
+        "last_updated_utc": now, "as_of": paper["as_of"], "counts": paper["counts"],
+        "gate0": paper["gate0"]["status"],
+    })
+
     update_manifest(os.path.join(docs_dir, "manifest.json"), "stocks", {
         "last_updated_utc": now,
         "as_of": str(df["date"].max().date()),
@@ -300,7 +310,7 @@ def main(cfg):
     print(f"[SUMMARY] published: {prices_json}, {signals_json}, {report_json}, {universe_json}, "
           f"{prices_hist}, {signals_hist}")
 
-    return price_paths + pred_paths + [hb_path, prices_json, signals_json, report_json]
+    return price_paths + pred_paths + [hb_path, prices_json, signals_json, report_json, paper_json]
 
 
 if __name__ == "__main__":

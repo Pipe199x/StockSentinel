@@ -118,3 +118,114 @@ def hmm_filtered_regimes(X: np.ndarray, n_states: int = 3, seed: int = 42, resta
         filt[t] = log_alpha
     out[ok] = np.exp(filt)
     return out
+
+
+# --- Point-in-time (sin look-ahead) -------------------------------------------
+# Los parámetros de GARCH y del HMM también son información: si se ajustan con toda la
+# historia, el σ y el régimen de 2010 "conocen" 2020. Aquí se reajustan una vez por año
+# con datos ANTERIORES a esa fecha y se aplican hacia adelante hasta el siguiente ajuste.
+
+def refit_boundaries(dates: pd.Index, min_train: int, every_years: int = 1) -> list:
+    """Posiciones donde se reajusta: primera sesión de cada año (o cada `every_years`)
+    con al menos `min_train` observaciones previas. Siempre ordenadas."""
+    years = pd.DatetimeIndex(dates).year
+    out, last_year = [], None
+    for i in range(1, len(years)):
+        if years[i] != years[i - 1] and i >= min_train:
+            if last_year is None or years[i] - last_year >= every_years:
+                out.append(i)
+                last_year = years[i]
+    return out
+
+
+def fit_garch_pit(log_ret: pd.Series, dates, min_train: int = 500, every_years: int = 1):
+    """σ condicional y ν (grados de libertad) sin mirar el futuro.
+
+    Para cada segmento [b_k, b_{k+1}) los parámetros se estiman con los datos < b_k y el
+    filtro GARCH (que solo usa el pasado) corre con esos parámetros fijos. Antes del primer
+    ajuste todo es NaN: no se opera en el periodo de entrenamiento inicial.
+    Devuelve (sigma, nu, params_hoy); params_hoy usa toda la historia y solo sirve para el
+    riesgo de la señal de hoy, nunca para el backtest.
+    """
+    from arch import arch_model
+
+    sigma = pd.Series(np.nan, index=log_ret.index)
+    nu = pd.Series(np.nan, index=log_ret.index)
+    r_all = log_ret * 100.0
+    bounds = refit_boundaries(pd.DatetimeIndex(dates), min_train, every_years)
+    for k, b in enumerate(bounds):
+        end = bounds[k + 1] if k + 1 < len(bounds) else len(log_ret)
+        train = r_all.iloc[:b].dropna()
+        if len(train) < min_train // 2:
+            continue
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            res = arch_model(train, mean="Constant", vol="GARCH", p=1, q=1, dist="t").fit(disp="off",
+                                                                                         show_warning=False)
+            seg = r_all.iloc[:end].dropna()
+            fixed = arch_model(seg, mean="Constant", vol="GARCH", p=1, q=1, dist="t").fix(res.params)
+        cv = (fixed.conditional_volatility / 100.0).reindex(log_ret.index)
+        sl = slice(b, end)
+        sigma.iloc[sl] = cv.iloc[sl].to_numpy()
+        nu.iloc[sl] = float(res.params["nu"])
+    _, today = fit_garch(log_ret)
+    return sigma, nu, today
+
+
+def _hmm_fit(Z: np.ndarray, n_states: int, seed: int, restarts: int):
+    from hmmlearn.hmm import GaussianHMM
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        model, best = None, -np.inf
+        for k in range(max(1, restarts)):
+            m = GaussianHMM(n_components=n_states, covariance_type="full", n_iter=200, random_state=seed + k)
+            m.fit(Z)
+            score = m.score(Z)
+            if np.isfinite(score) and score > best:
+                model, best = m, score
+    return model
+
+
+def _hmm_forward(model, Z: np.ndarray) -> np.ndarray:
+    order = np.argsort(model.means_[:, 1])
+    log_b = np.column_stack([
+        multivariate_normal.logpdf(Z, mean=model.means_[k], cov=model.covars_[k], allow_singular=True)
+        for k in order
+    ])
+    log_A = np.log(model.transmat_[np.ix_(order, order)] + 1e-300)
+    log_alpha = np.log(model.startprob_[order] + 1e-300) + log_b[0]
+    log_alpha -= logsumexp(log_alpha)
+    filt = np.empty_like(log_b)
+    filt[0] = log_alpha
+    for t in range(1, len(Z)):
+        log_alpha = logsumexp(log_alpha[:, None] + log_A, axis=0) + log_b[t]
+        log_alpha -= logsumexp(log_alpha)
+        filt[t] = log_alpha
+    return np.exp(filt)
+
+
+def hmm_filtered_regimes_pit(X: np.ndarray, dates: pd.Index, min_train: int = 500, n_states: int = 3,
+                             seed: int = 42, restarts: int = 3, every_years: int = 1) -> np.ndarray:
+    """Como hmm_filtered_regimes, pero cada año el HMM (y la estandarización) se ajusta solo
+    con filas anteriores al segmento; el filtro forward corre con ese modelo fijo."""
+    X = np.asarray(X, dtype=float)
+    out = np.full((len(X), n_states), np.nan)
+    ok = np.isfinite(X).all(axis=1)
+    bounds = refit_boundaries(pd.DatetimeIndex(dates), min_train, every_years)
+    for k, b in enumerate(bounds):
+        end = bounds[k + 1] if k + 1 < len(bounds) else len(X)
+        tr = ok.copy()
+        tr[b:] = False
+        if tr.sum() < min_train // 2:
+            continue
+        mu, sd = X[tr].mean(axis=0), X[tr].std(axis=0)
+        sd[sd == 0] = 1.0
+        model = _hmm_fit((X[tr] - mu) / sd, n_states, seed, restarts)
+        if model is None:
+            continue
+        rows = np.flatnonzero(ok[:end])
+        probs = _hmm_forward(model, (X[rows] - mu) / sd)
+        seg = rows >= b
+        out[rows[seg]] = probs[seg]
+    return out

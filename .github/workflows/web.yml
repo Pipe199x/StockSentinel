@@ -1,0 +1,63 @@
+name: Web dashboard (build + publish to docs/)
+
+# Rebuilds the Aceternity dashboard when its source changes and commits the static
+# export into docs/ (GitHub Pages). Data stays out of this: the pages fetch
+# docs/data/*.json at runtime, which the ETL jobs keep updating.
+on:
+  push:
+    branches: [main]
+    paths: ["web/**", ".github/workflows/web.yml"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-data
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      # Aceternity components are vendored in web/src, so the build needs no registry token.
+      - name: Install
+        run: npm ci --no-audit --no-fund
+
+      - name: Build and sync into docs/
+        run: npm run publish:docs
+
+      - name: Commit & push
+        working-directory: .
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A docs ':!docs/data'
+          if git diff --cached --quiet; then
+            echo "Dashboard unchanged."
+            exit 0
+          fi
+          git commit -m "web: rebuild dashboard [skip ci]"
+          for i in 1 2 3; do
+            if git pull --rebase origin main && git push origin main; then
+              exit 0
+            fi
+            sleep 15
+          done
+          echo "Push failed after 3 attempts"
+          exit 1
