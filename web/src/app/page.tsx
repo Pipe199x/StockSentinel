@@ -13,7 +13,7 @@ import { Validation } from "@/components/dashboard/validation";
 import { Paper } from "@/components/dashboard/paper";
 import { Models, NewsFeed } from "@/components/dashboard/models-news";
 import { useDashboard } from "@/lib/data";
-import { ago, longDate, num, REGIME } from "@/lib/format";
+import { longDate, num, REGIME } from "@/lib/format";
 
 const NAV = [
   { name: "Signals", link: "#signals" },
@@ -92,8 +92,6 @@ export default function Home() {
     ];
   }, [data, signals]);
 
-  const updated = data?.manifest?.stocks?.last_updated_utc;
-
   return (
     <div id="top" className="relative isolate min-h-screen overflow-x-clip">
       {/* Aceternity background + Ocean Data Group watermarks (both pointer-events-none, aria-hidden) */}
@@ -135,11 +133,7 @@ export default function Home() {
         </MobileNav>
       </Navbar>
 
-      <main className="relative z-10 mx-auto max-w-7xl space-y-6 px-4 pt-10 pb-24 md:px-6">
-        <div role="note" className="rounded-xl border border-amber-500/30 bg-amber-500/[0.06] px-4 py-3 text-sm text-amber-900 dark:text-amber-200">
-          <strong>Academic prototype.</strong> Signals and analysis are for demonstration only and are not investment advice.
-        </div>
-
+      <main className="relative z-10 mx-auto max-w-7xl space-y-6 px-4 pt-10 pb-16 md:px-6">
         <header className="pt-4">
           <p className="text-xs font-semibold tracking-[0.2em] text-cyan-700 uppercase dark:text-cyan-300/80">Quant signals · honest validation</p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-5xl">StockSentinel</h1>
@@ -182,20 +176,6 @@ export default function Home() {
         )}
       </main>
 
-      <footer className="relative z-10 border-t border-neutral-200 px-4 py-8 text-xs text-neutral-500 dark:border-white/[0.08]">
-        <div className="mx-auto max-w-7xl space-y-2">
-          <p>Delayed prices from Yahoo Finance · sentiment by FinBERT · regime, signals, risk and paper trading by StockSentinel&apos;s quant pipeline.</p>
-          <p className="flex flex-wrap gap-x-3 gap-y-1">
-            {["manifest.json", "signals_latest.json", "validation_report.json", "paper_summary.json", "deep_report.json", "prices_latest.json", "news_latest.json", "history/paper_trades.csv", "history/signals_history.csv", "history/trials_log.csv"].map((f) => (
-              <a key={f} href={`/data/${f}`} className="underline-offset-4 hover:underline">{f}</a>
-            ))}
-          </p>
-          <p>
-            <a href="https://github.com/Pipe199x/StockSentinel" className="underline-offset-4 hover:underline">Source on GitHub</a>
-            {updated && <> · updated {ago(updated)}</>} · An Ocean Data Group project.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }
