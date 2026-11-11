@@ -14,7 +14,7 @@ from scipy.stats import kurtosis, skew
 from xgboost import XGBClassifier
 
 from stocks_etl.features import MODEL_FEATURES
-from stocks_etl.labeling import triple_barrier
+from stocks_etl.labeling import triple_barrier, triple_barrier_ohlc
 from stocks_etl.primary import STRATEGY_NAMES, primary_side
 from stocks_etl.regime import REGIME_NAMES
 from stocks_etl.risk import (
@@ -35,26 +35,51 @@ def _model(seed: int) -> XGBClassifier:
     )
 
 
-def build_events(feats: pd.DataFrame, cfg: dict) -> Tuple[pd.DataFrame, pd.DataFrame]:
-    """Une señal primaria + triple barrera. Devuelve (eventos etiquetados, última fila por ticker)."""
+def build_events(feats: pd.DataFrame, cfg: dict, resolver=None) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    """Une señal primaria + triple barrera. Devuelve (eventos etiquetados, última fila por ticker).
+
+    Opciones de investigación (por defecto apagadas, el pipeline diario no cambia):
+      - cfg['barrier_mode'] == 'intraday': barreras sobre máximos/mínimos (triple_barrier_ohlc);
+        ``resolver(ticker, date, tp_price, sl_price, side)`` desempata días con doble toque.
+      - columna ``eligible`` en feats: solo se generan eventos en días en que el ticker
+        pertenecía al universo point-in-time (sin sesgo de supervivencia).
+    """
     k_tp, k_sl = float(cfg.get("k_tp", 1.5)), float(cfg.get("k_sl", 1.5))
     cost = 2 * float(cfg.get("cost_bps", 5)) / 1e4
+    intraday = cfg.get("barrier_mode", "close") == "intraday"
+    global_last = feats["date"].max()
     events, latest = [], []
     for tkr, f in feats.groupby("ticker", sort=False):
         f = f.sort_values("date").reset_index(drop=True)
         f = pd.concat([f, primary_side(f, cfg)], axis=1)
         f["sigma_event"] = f["sigma_garch"] * np.sqrt(f["t_max"])
         latest.append(f.iloc[[-1]])
-        pos = np.flatnonzero(f["side"].to_numpy() != 0)
+        mask = f["side"].to_numpy() != 0
+        if "eligible" in f.columns:
+            mask &= f["eligible"].fillna(False).to_numpy(dtype=bool)
+        pos = np.flatnonzero(mask)
         if len(pos) == 0:
             continue
-        tb = triple_barrier(f["close"].to_numpy(), pos, f["side"].to_numpy()[pos],
-                            f["sigma_event"].to_numpy()[pos], k_tp, k_sl, f["t_max"].to_numpy()[pos])
+        args = (pos, f["side"].to_numpy()[pos], f["sigma_event"].to_numpy()[pos], k_tp, k_sl,
+                f["t_max"].to_numpy()[pos])
+        if intraday:
+            dates = f["date"].to_numpy()
+            resolve = None
+            if resolver is not None:
+                resolve = (lambda p, tp_px, sl_px, s, _t=tkr, _d=dates:
+                           resolver(_t, pd.Timestamp(_d[p]), tp_px, sl_px, s))
+            tb = triple_barrier_ohlc(f["open"].to_numpy(), f["high"].to_numpy(), f["low"].to_numpy(),
+                                     f["close"].to_numpy(), *args, resolve=resolve,
+                                     series_ended=bool(f["date"].iloc[-1] < global_last))
+        else:
+            tb = triple_barrier(f["close"].to_numpy(), *args)
         ev = f.iloc[pos].reset_index(drop=True)
         ev["start"] = ev["date"]
         ev["end"] = f["date"].to_numpy()[tb["end_pos"].to_numpy()]
         ev["ret"] = tb["ret"].to_numpy()
         ev["barrier"] = tb["barrier"].to_numpy()
+        if "ambiguous" in tb:
+            ev["ambiguous"] = tb["ambiguous"].to_numpy()
         events.append(ev)
     ev = pd.concat(events, ignore_index=True) if events else pd.DataFrame()
     if not ev.empty:
@@ -204,10 +229,10 @@ def _risk_row(f_hist: pd.DataFrame, garch: Dict, cfg: dict) -> Dict:
 
 
 def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name: Optional[str] = None,
-                 trials_path: Optional[str] = None) -> Tuple[pd.DataFrame, Dict]:
+                 trials_path: Optional[str] = None, resolver=None) -> Tuple[pd.DataFrame, Dict]:
     """Punto de entrada: devuelve (señales del día por ticker, informe de validación)."""
     seed = int(cfg.get("seed", 42))
-    ev, latest = build_events(feats, cfg)
+    ev, latest = build_events(feats, cfg, resolver=resolver)
     if len(ev) < 200:
         raise SystemExit(f"Solo {len(ev)} eventos etiquetados: muestra insuficiente para validar")
     report, oof = evaluate(ev, cfg)
