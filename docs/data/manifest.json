@@ -13,9 +13,9 @@
     "new_embeddings": 9
   },
   "stocks": {
-    "last_updated_utc": "2026-11-11T02:07:17.866164+00:00",
-    "as_of": "2026-11-10",
-    "rows": 74550,
+    "last_updated_utc": "2026-11-11T14:51:37.814378+00:00",
+    "as_of": "2026-11-11",
+    "rows": 74575,
     "tickers": [
       "AAPL",
       "MSFT",
@@ -44,6 +44,6 @@
       "TLT"
     ],
     "price_window_days": 60,
-    "dsr": 0.9272
+    "dsr": 0.9063
   }
 }
