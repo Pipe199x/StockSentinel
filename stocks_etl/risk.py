@@ -77,3 +77,12 @@ def max_losing_streak(wins) -> int:
         cur = 0 if w else cur + 1
         best = max(best, cur)
     return best
+
+
+def es_cap(sigma_daily: float, nu: float, t_max: float, max_loss: float, alpha: float = 0.01) -> float:
+    """Tamaño máximo para que el Expected Shortfall (cola del 1%) de la operación, a lo largo
+    de su vida (σ·√t), no cueste más que `max_loss` del capital. Sin datos válidos -> 0."""
+    if not (sigma_daily and np.isfinite(sigma_daily) and np.isfinite(nu) and t_max and t_max > 0):
+        return 0.0
+    es = var_es_t(sigma_daily * math.sqrt(float(t_max)), nu, alpha)["es"]
+    return float(max_loss / es) if es > 0 else 0.0

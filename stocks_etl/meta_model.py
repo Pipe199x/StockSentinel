@@ -14,11 +14,11 @@ from scipy.stats import kurtosis, skew
 from xgboost import XGBClassifier
 
 from stocks_etl.features import MODEL_FEATURES
-from stocks_etl.labeling import triple_barrier
+from stocks_etl.labeling import triple_barrier, triple_barrier_ohlc
 from stocks_etl.primary import STRATEGY_NAMES, primary_side
 from stocks_etl.regime import REGIME_NAMES
 from stocks_etl.risk import (
-    cornish_fisher_var, expected_max_losing_streak, kelly_fraction, max_losing_streak,
+    cornish_fisher_var, es_cap, expected_max_losing_streak, kelly_fraction, max_losing_streak,
     mc_t_paths, streak_drawdown, var_es_t, vol_target_scale,
 )
 from stocks_etl.validation import (
@@ -35,26 +35,51 @@ def _model(seed: int) -> XGBClassifier:
     )
 
 
-def build_events(feats: pd.DataFrame, cfg: dict) -> Tuple[pd.DataFrame, pd.DataFrame]:
-    """Une señal primaria + triple barrera. Devuelve (eventos etiquetados, última fila por ticker)."""
+def build_events(feats: pd.DataFrame, cfg: dict, resolver=None) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    """Une señal primaria + triple barrera. Devuelve (eventos etiquetados, última fila por ticker).
+
+    Opciones de investigación (por defecto apagadas, el pipeline diario no cambia):
+      - cfg['barrier_mode'] == 'intraday': barreras sobre máximos/mínimos (triple_barrier_ohlc);
+        ``resolver(ticker, date, tp_price, sl_price, side)`` desempata días con doble toque.
+      - columna ``eligible`` en feats: solo se generan eventos en días en que el ticker
+        pertenecía al universo point-in-time (sin sesgo de supervivencia).
+    """
     k_tp, k_sl = float(cfg.get("k_tp", 1.5)), float(cfg.get("k_sl", 1.5))
     cost = 2 * float(cfg.get("cost_bps", 5)) / 1e4
+    intraday = cfg.get("barrier_mode", "close") == "intraday"
+    global_last = feats["date"].max()
     events, latest = [], []
     for tkr, f in feats.groupby("ticker", sort=False):
         f = f.sort_values("date").reset_index(drop=True)
         f = pd.concat([f, primary_side(f, cfg)], axis=1)
         f["sigma_event"] = f["sigma_garch"] * np.sqrt(f["t_max"])
         latest.append(f.iloc[[-1]])
-        pos = np.flatnonzero(f["side"].to_numpy() != 0)
+        mask = f["side"].to_numpy() != 0
+        if "eligible" in f.columns:
+            mask &= f["eligible"].fillna(False).to_numpy(dtype=bool)
+        pos = np.flatnonzero(mask)
         if len(pos) == 0:
             continue
-        tb = triple_barrier(f["close"].to_numpy(), pos, f["side"].to_numpy()[pos],
-                            f["sigma_event"].to_numpy()[pos], k_tp, k_sl, f["t_max"].to_numpy()[pos])
+        args = (pos, f["side"].to_numpy()[pos], f["sigma_event"].to_numpy()[pos], k_tp, k_sl,
+                f["t_max"].to_numpy()[pos])
+        if intraday:
+            dates = f["date"].to_numpy()
+            resolve = None
+            if resolver is not None:
+                resolve = (lambda p, tp_px, sl_px, s, _t=tkr, _d=dates:
+                           resolver(_t, pd.Timestamp(_d[p]), tp_px, sl_px, s))
+            tb = triple_barrier_ohlc(f["open"].to_numpy(), f["high"].to_numpy(), f["low"].to_numpy(),
+                                     f["close"].to_numpy(), *args, resolve=resolve,
+                                     series_ended=bool(f["date"].iloc[-1] < global_last))
+        else:
+            tb = triple_barrier(f["close"].to_numpy(), *args)
         ev = f.iloc[pos].reset_index(drop=True)
         ev["start"] = ev["date"]
         ev["end"] = f["date"].to_numpy()[tb["end_pos"].to_numpy()]
         ev["ret"] = tb["ret"].to_numpy()
         ev["barrier"] = tb["barrier"].to_numpy()
+        if "ambiguous" in tb:
+            ev["ambiguous"] = tb["ambiguous"].to_numpy()
         events.append(ev)
     ev = pd.concat(events, ignore_index=True) if events else pd.DataFrame()
     if not ev.empty:
@@ -67,17 +92,60 @@ def build_events(feats: pd.DataFrame, cfg: dict) -> Tuple[pd.DataFrame, pd.DataF
     return ev, pd.concat(latest, ignore_index=True)
 
 
+def position_size(p: float, sigma: float, nu: float, t_max: float, cfg: dict) -> Tuple[float, str]:
+    """½ Kelly × objetivo de volatilidad, recortado para que el Expected Shortfall (1%) de la
+    operación no cueste más de `max_es_loss` del capital. Devuelve (tamaño, límite activo)."""
+    payoff = float(cfg.get("k_tp", 1.5)) / float(cfg.get("k_sl", 1.5))
+    size = kelly_fraction(p, payoff, float(cfg.get("kelly_fraction", 0.5))) *         vol_target_scale(sigma, float(cfg.get("target_vol", 0.20)))
+    max_loss = cfg.get("max_es_loss")
+    if max_loss and size > 0:
+        cap = es_cap(sigma, nu, t_max, float(max_loss))
+        if cap < size:
+            return cap, "es"
+    return size, "kelly"
+
+
+STRESS_WINDOWS = {
+    "GFC 2008": ("2007-10-09", "2009-03-09"),
+    "COVID crash": ("2020-02-19", "2020-04-30"),
+    "2022 bear market": ("2022-01-03", "2022-10-12"),
+    "April 2025 sell-off": ("2025-04-02", "2025-04-30"),
+}
+
+
+def _stress_windows(trades: pd.DataFrame, feats: pd.DataFrame, bench: str) -> Dict:
+    """Operaciones fuera de muestra que empezaron dentro de cada crisis, y el retorno del
+    benchmark en ese periodo como contexto. Una ventana sin datos se marca covered=False."""
+    spy = feats.loc[feats["ticker"] == bench, ["date", "close"]].copy()
+    spy["date"] = pd.to_datetime(spy["date"]).dt.tz_localize(None)
+    spy = spy.set_index("date")["close"]
+    out = {}
+    for name, (a, b) in STRESS_WINDOWS.items():
+        a, b = pd.Timestamp(a), pd.Timestamp(b)
+        px = spy[(spy.index >= a) & (spy.index <= b)]
+        row = {"from": str(a.date()), "to": str(b.date()), "covered": bool(len(px) > 1),
+               "benchmark_return": float(px.iloc[-1] / px.iloc[0] - 1) if len(px) > 1 else None,
+               "n_trades": 0, "win_rate": None, "expected_value": None, "pnl_sum": 0.0}
+        if not trades.empty:
+            t = trades[(trades["start"] >= a) & (trades["start"] <= b)]
+            if len(t):
+                wins = t["ret_net"] > 0
+                row.update({"n_trades": int(len(t)), "win_rate": float(wins.mean()),
+                            "expected_value": float(t["ret_net"].mean()), "pnl_sum": float(t["pnl"].sum())})
+        out[name] = row
+    return out
+
+
 def sequential_trades(ev: pd.DataFrame, prob: np.ndarray, cfg: dict, use_meta: bool = True) -> pd.DataFrame:
     """Backtest sin solapamiento: por ticker, una posición a la vez hasta tocar barrera.
 
     Con meta-modelo: se opera si p > 0.5 y el tamaño es Kelly fraccionado × objetivo de
     volatilidad. Sin él (línea base primaria): se opera todo con tamaño 1.
     """
-    payoff = float(cfg.get("k_tp", 1.5)) / float(cfg.get("k_sl", 1.5))
-    frac = float(cfg.get("kelly_fraction", 0.5))
-    target = float(cfg.get("target_vol", 0.20))
     rows = []
     d = ev.assign(prob=prob)
+    if "garch_nu" not in d:
+        d["garch_nu"] = np.nan
     for tkr, g in d.groupby("ticker", sort=False):
         busy_until = None
         for r in g.sort_values("start").itertuples():
@@ -86,7 +154,7 @@ def sequential_trades(ev: pd.DataFrame, prob: np.ndarray, cfg: dict, use_meta: b
             if use_meta:
                 if not np.isfinite(r.prob) or r.prob <= 0.5:
                     continue
-                size = kelly_fraction(r.prob, payoff, frac) * vol_target_scale(r.sigma_garch, target)
+                size, _ = position_size(r.prob, r.sigma_garch, r.garch_nu, r.t_max, cfg)
                 if size <= 0:
                     continue
             else:
@@ -204,10 +272,10 @@ def _risk_row(f_hist: pd.DataFrame, garch: Dict, cfg: dict) -> Dict:
 
 
 def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name: Optional[str] = None,
-                 trials_path: Optional[str] = None) -> Tuple[pd.DataFrame, Dict]:
+                 trials_path: Optional[str] = None, resolver=None) -> Tuple[pd.DataFrame, Dict]:
     """Punto de entrada: devuelve (señales del día por ticker, informe de validación)."""
     seed = int(cfg.get("seed", 42))
-    ev, latest = build_events(feats, cfg)
+    ev, latest = build_events(feats, cfg, resolver=resolver)
     if len(ev) < 200:
         raise SystemExit(f"Solo {len(ev)} eventos etiquetados: muestra insuficiente para validar")
     report, oof = evaluate(ev, cfg)
@@ -224,12 +292,13 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
         last_close = float(r.close)
         side = int(r.side)
         p = None
-        size = 0.0
+        size, limit = 0.0, None
         if side != 0 and pd.notna(r.sigma_event):
             x = pd.DataFrame([{c: getattr(r, c) for c in FEATURES}])
             p = float(final.predict_proba(x)[0, 1])
-            size = kelly_fraction(p, payoff, float(cfg.get("kelly_fraction", 0.5))) * \
-                vol_target_scale(r.sigma_garch, float(cfg.get("target_vol", 0.20)))
+            nu = getattr(r, "garch_nu", np.nan)
+            size, limit = position_size(p, r.sigma_garch, nu if pd.notna(nu) else meta[r.ticker]["garch"]["nu"],
+                                        r.t_max, cfg)
         regime = int(r.regime) if pd.notna(r.regime) else None
         row = {
             "ticker": r.ticker,
@@ -246,6 +315,7 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
             "side": side,
             "p_success": p,
             "kelly_size": round(size, 4),
+            "size_limit": limit if size > 0 else None,
             "tp": last_close * (1 + side * k_tp * r.sigma_event) if side else None,
             "sl": last_close * (1 - side * k_sl * r.sigma_event) if side else None,
             "t_max_days": int(r.t_max) if side else None,
@@ -279,10 +349,14 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
         "regimes_undercovered": [REGIME_NAMES[k] for k in (0, 1) if int(by_regime.get(k, 0)) < 30],
         "feature_importance": importance,
         "correlation": _correlation_regimes(feats, cfg.get("benchmark", "SPY")),
+        "stress_windows": _stress_windows(meta_trades, feats, cfg.get("benchmark", "SPY")),
         "config": model_cfg,
         # lo que esta validación NO cubre; se publica para no vender un backtest perfecto
         "limitations": [
             "Survivorship bias: the universe only contains companies alive today (yfinance has no delisted tickers).",
+            ("GARCH and HMM parameters are refitted once a year using only earlier data (point-in-time); "
+             "the first %d sessions are training only and are never traded." % int(cfg.get("pit_min_train", 500)))
+            if cfg.get("pit_refit") else
             "GARCH and HMM parameters are fitted on the full history; the volatility and regime series themselves are filtered (past-only).",
             "The per-asset HMM can switch between two near-equally likely fits as data arrives; only the market (SPY) regime gates trading, and it is stable.",
             "Daily bars only: no volume bars, order book or intraday sessions.",

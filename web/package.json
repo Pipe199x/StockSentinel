@@ -1,0 +1,36 @@
+{
+  "name": "stocksentinel-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/link-data.mjs && next dev",
+    "build": "next build",
+    "publish:docs": "next build && node scripts/sync-docs.mjs",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.9.0",
+    "@radix-ui/react-tabs": "^1.2.1",
+    "@react-three/fiber": "^9.8.2",
+    "@tabler/icons-react": "^3.51.0",
+    "class-variance-authority": "^0.7.1",
+    "cn": "^0.5.2",
+    "lucide-react": "^1.69.0",
+    "motion": "^14.9.1",
+    "next": "16.4.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "shadcn": "^4.23.0",
+    "three": "^0.187.0",
+    "tw-animate-css": "^1.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "^0.187.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

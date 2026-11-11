@@ -11,7 +11,8 @@ from typing import Dict, Tuple
 import numpy as np
 import pandas as pd
 
-from stocks_etl.regime import fit_garch, hmm_filtered_regimes, hurst_rolling, ou_features
+from stocks_etl.regime import (fit_garch, fit_garch_pit, hmm_filtered_regimes, hmm_filtered_regimes_pit,
+                               hurst_rolling, ou_features)
 
 # Columnas que ve el meta-modelo (además de 'side', que añade primary.py)
 MODEL_FEATURES = [
@@ -45,14 +46,14 @@ def ffd(x: pd.Series, d: float, thres: float = 1e-3, max_width: int = 120) -> pd
     return pd.Series(y, index=x.index)
 
 
-def min_ffd_d(x: pd.Series, p_value: float = 0.05) -> float:
+def min_ffd_d(x: pd.Series, p_value: float = 0.05, head_n: int = None) -> float:
     """El d más pequeño que vuelve estacionaria la serie (ADF), conservando máxima memoria.
 
     Se elige con la primera mitad de la historia para no mirar el futuro.
     """
     from statsmodels.tsa.stattools import adfuller
 
-    head = x.iloc[: len(x) // 2]
+    head = x.iloc[: head_n] if head_n else x.iloc[: len(x) // 2]
     for d in np.round(np.arange(0.1, 1.01, 0.1), 2):
         y = ffd(head, d).dropna()
         if len(y) < 50:
@@ -71,7 +72,11 @@ def _ticker_features(dfg: pd.DataFrame, cfg: dict) -> Tuple[pd.DataFrame, Dict]:
     dfg["rv_10"] = dfg["log_ret_1"].rolling(10, min_periods=5).std()
     dfg["rv_20"] = dfg["log_ret_1"].rolling(20, min_periods=10).std()
 
-    d = min_ffd_d(logp)
+    pit = bool(cfg.get("pit_refit", False))
+    min_train = int(cfg.get("pit_min_train", 500))
+    every = int(cfg.get("pit_refit_years", 1))
+    # point-in-time: d se elige solo con el periodo de entrenamiento inicial (no se opera ahí)
+    d = min_ffd_d(logp, head_n=min_train if pit else None)
     dfg["ffd_close"] = ffd(logp, d)
 
     dfg["hurst"] = hurst_rolling(logp, window=int(cfg.get("hurst_window", 100)))
@@ -83,11 +88,18 @@ def _ticker_features(dfg: pd.DataFrame, cfg: dict) -> Tuple[pd.DataFrame, Dict]:
     logv = np.log(dfg["volume"].where(dfg["volume"] > 0))
     dfg["vol_z"] = (logv - logv.rolling(60, min_periods=20).mean()) / logv.rolling(60, min_periods=20).std()
 
-    sigma, garch = fit_garch(dfg["log_ret_1"])
+    obs = dfg[["log_ret_1", "rv_20"]].to_numpy()
+    seed = int(cfg.get("seed", 42))
+    if pit:
+        sigma, nu, garch = fit_garch_pit(dfg["log_ret_1"], dfg["date"], min_train, every)
+        probs = hmm_filtered_regimes_pit(obs, dfg["date"], min_train, seed=seed,
+                                         restarts=int(cfg.get("pit_hmm_restarts", 3)), every_years=every)
+    else:
+        sigma, garch = fit_garch(dfg["log_ret_1"])
+        nu = pd.Series(garch["nu"], index=dfg.index)
+        probs = hmm_filtered_regimes(obs, seed=seed, restarts=int(cfg.get("hmm_restarts", 1)))
     dfg["sigma_garch"] = sigma
-
-    probs = hmm_filtered_regimes(dfg[["log_ret_1", "rv_20"]].to_numpy(), seed=int(cfg.get("seed", 42)),
-                                 restarts=int(cfg.get("hmm_restarts", 1)))
+    dfg["garch_nu"] = nu
     dfg["p_calm"], dfg["p_normal"], dfg["p_stress"] = probs[:, 0], probs[:, 1], probs[:, 2]
     dfg["regime"] = np.where(np.isnan(probs).any(axis=1), np.nan, np.nanargmax(np.nan_to_num(probs, nan=-1), axis=1))
 
