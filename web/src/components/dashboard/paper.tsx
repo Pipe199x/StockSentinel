@@ -4,6 +4,7 @@ import { LineChart } from "@/components/charts/line-chart";
 import { cn } from "@/lib/utils";
 import { num, pct, signedPct, shortDate, SIDE, fin } from "@/lib/format";
 import type { PaperRow, PaperSummary } from "@/lib/data";
+import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { Panel, Pill, Stat } from "./panel";
 
 const REASON: Record<string, string> = { tp: "Take profit", sl: "Stop", time: "Time limit", entry_gap: "Gap at entry" };
@@ -83,12 +84,12 @@ export function Paper({ paper }: { paper: PaperSummary | null }) {
           </p>
         </div>
         <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-3">
+          <HoverEffect className="grid grid-cols-2 gap-1">
             <Stat label="Total return" value={signedPct(paper.total_return)} tone={paper.total_return >= 0 ? "good" : "bad"} />
             <Stat label="Closed / open" value={`${paper.counts.closed} / ${paper.counts.open + paper.counts.pending}`} />
             <Stat label="Win rate" value={pct(paper.win_rate, 0)} />
             <Stat label="EV / trade" value={signedPct(paper.expected_value, 2)} />
-          </div>
+          </HoverEffect>
           <div className="rounded-xl border border-neutral-200 p-4 dark:border-white/[0.08]">
             <div className="flex items-center justify-between text-xs text-neutral-500">
               <span>Evidence collected</span>

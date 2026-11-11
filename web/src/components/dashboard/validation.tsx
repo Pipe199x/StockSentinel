@@ -2,11 +2,21 @@
 
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { Bars } from "@/components/charts/line-chart";
+import FrequentlyAskedQuestionsAccordion from "@/block/frequently-asked-questions-accordion";
 import { Tooltip } from "@/components/ui/tooltip-card";
 import { cn } from "@/lib/utils";
 import { num, pct, signedPct, longDate, fin } from "@/lib/format";
 import type { ValidationReport } from "@/lib/data";
+import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { Panel, Pill, Stat } from "./panel";
+
+const HOW_IT_WORKS = [
+  { question: "1. Regime first", answer: "A 3-state hidden Markov model on SPY returns and volatility labels the market calm, normal or stress, refitted yearly on past data only. In stress the system stays flat." },
+  { question: "2. Primary rule", answer: "Hurst ≥ 0.5 follows the 20-day move (momentum); Hurst < 0.5 trades Ornstein-Uhlenbeck mean reversion when |z| ≥ 1.5 and the half-life is short." },
+  { question: "3. Triple barrier", answer: "Take profit and stop are 1.5 × GARCH volatility over the holding period; the time barrier is the OU half-life." },
+  { question: "4. Meta-labeling and size", answer: "XGBoost on stationary features estimates P(profit after costs). Size is ½ Kelly × volatility target, capped so the 1% Expected Shortfall costs at most 1% of equity." },
+  { question: "5. Validation", answer: "Purged K-fold with embargo, CPCV and the Deflated Sharpe, which penalizes every configuration ever tried." },
+];
 
 export function Validation({ report }: { report: ValidationReport | null }) {
   if (!report) return null;
@@ -46,12 +56,12 @@ export function Validation({ report }: { report: ValidationReport | null }) {
           title="Meta-model trades"
           description={`${num(m.years, 1)} years, ${m.n_trades?.toLocaleString()} trades, costs included. Needs ${m.min_trades_for_edge?.toLocaleString() ?? "—"} to confirm the edge.`}
           header={
-            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+            <HoverEffect className="grid grid-cols-2 gap-1 md:grid-cols-4">
               <Stat label="Win rate" value={pct(m.win_rate)} />
               <Stat label="EV / trade" value={signedPct(m.expected_value, 3)} tone={fin(m.expected_value) ? (m.expected_value! > 0 ? "good" : "bad") : undefined} />
               <Stat label="Sharpe (ann.)" value={num(m.sr_annualized, 2)} />
               <Stat label="Worst streak" value={`${m.max_losing_streak ?? "—"}`} sub={`5%-risk drawdown ${pct(m.streak_drawdown_5pct, 0)}`} />
-            </div>
+            </HoverEffect>
           }
         />
         <BentoGridItem
@@ -65,10 +75,10 @@ export function Validation({ report }: { report: ValidationReport | null }) {
           title="Primary rule alone"
           description="Without the meta-model filter. Shows how much of the result comes from the filter."
           header={
-            <div className="grid grid-cols-2 gap-3">
+            <HoverEffect className="grid grid-cols-2 gap-1">
               <Stat label="Sharpe (ann.)" value={num(report.primary.sr_annualized, 2)} tone={fin(report.primary.sr_annualized) ? (report.primary.sr_annualized! > 0 ? "good" : "bad") : undefined} />
               <Stat label="Trades" value={report.primary.n_trades?.toLocaleString() ?? "—"} />
-            </div>
+            </HoverEffect>
           }
         />
         {windows.length > 0 && (
@@ -117,10 +127,10 @@ export function Validation({ report }: { report: ValidationReport | null }) {
           title="Correlation in crises"
           description="Average correlation between assets. Diversification that disappears in stress is not diversification."
           header={
-            <div className="grid grid-cols-2 gap-3">
+            <HoverEffect className="grid grid-cols-2 gap-1">
               <Stat label="Calm days" value={num(report.correlation.market_calm_days, 2)} />
               <Stat label="Stress days" value={num(report.correlation.market_stress_days, 2)} tone="bad" />
-            </div>
+            </HoverEffect>
           }
         />
       </BentoGrid>
@@ -134,16 +144,9 @@ export function Validation({ report }: { report: ValidationReport | null }) {
             ))}
           </ul>
         </div>
-        <details className="rounded-xl border border-neutral-200 p-4 text-sm dark:border-white/[0.08]">
-          <summary className="cursor-pointer font-semibold">How the strategy works</summary>
-          <div className="mt-3 space-y-2 text-neutral-600 dark:text-neutral-300">
-            <p><strong>1. Regime first.</strong> A 3-state hidden Markov model on SPY returns and volatility labels the market calm, normal or stress, refitted yearly on past data only. In stress the system stays flat.</p>
-            <p><strong>2. Primary rule.</strong> Hurst ≥ 0.5 follows the 20-day move (momentum); Hurst &lt; 0.5 trades Ornstein-Uhlenbeck mean reversion when |z| ≥ 1.5 and the half-life is short.</p>
-            <p><strong>3. Triple barrier.</strong> Take profit and stop are 1.5 × GARCH volatility over the holding period; the time barrier is the OU half-life.</p>
-            <p><strong>4. Meta-labeling.</strong> XGBoost on stationary features estimates P(profit after costs); size is ½ Kelly × volatility target, capped so the 1% Expected Shortfall costs at most 1% of equity.</p>
-            <p><strong>5. Validation.</strong> Purged K-fold with embargo, CPCV and the Deflated Sharpe, which penalizes every configuration ever tried.</p>
-          </div>
-        </details>
+        <div className="rounded-xl border border-neutral-200 p-4 dark:border-white/[0.08]">
+          <FrequentlyAskedQuestionsAccordion title="How the strategy works" faqs={HOW_IT_WORKS} />
+        </div>
       </div>
     </Panel>
   );

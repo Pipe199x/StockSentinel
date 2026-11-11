@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { Tooltip } from "@/components/ui/tooltip-card";
-import { cn } from "@/lib/utils";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { ago, num, pct, safeUrl, signedPct } from "@/lib/format";
 import type { Article, DeepModel, DeepReport, News } from "@/lib/data";
+import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { Panel, Pill, Stat } from "./panel";
 
 function ModelCard({ name, blurb, m }: { name: string; blurb: string; m?: DeepModel & { status?: string } }) {
@@ -24,11 +25,11 @@ function ModelCard({ name, blurb, m }: { name: string; blurb: string; m?: DeepMo
       description={blurb}
       header={
         m && fin3(m.dsr) ? (
-          <div className="grid grid-cols-3 gap-3">
+          <HoverEffect className="grid grid-cols-3 gap-1">
             <Stat label="DSR" value={num(m.dsr, 3)} tone={(m.dsr ?? 0) > 0.95 ? "good" : undefined} />
             <Stat label="EV / trade" value={signedPct(m.expected_value, 3)} />
             <Stat label="Trades" value={m.n_trades?.toLocaleString() ?? "—"} />
-          </div>
+          </HoverEffect>
         ) : (
           <p className="text-sm text-neutral-500">No evaluation yet.</p>
         )
@@ -57,7 +58,7 @@ function ArticleCard({ a }: { a: Article }) {
   const href = safeUrl(a.url);
   const s = a.sentiment;
   const body = (
-    <article className="group/news rounded-xl border border-neutral-200 p-3 transition hover:border-cyan-500/40 hover:bg-cyan-500/[0.03] dark:border-white/[0.08]">
+    <article className="group/news h-full rounded-xl border border-neutral-200 bg-white/60 p-3 transition hover:border-cyan-500/40 dark:border-white/[0.08] dark:bg-[#101124]/60">
       <div className="flex items-center justify-between gap-2 text-xs text-neutral-500">
         <span className="truncate">{a.source} · {ago(a.published_at)}</span>
         {s && <Pill tone={SENT_TONE[s.label]}>{s.label} {pct(s.score, 0)}</Pill>}
@@ -85,18 +86,22 @@ export function NewsFeed({ news }: { news: News | null }) {
       title="Top news"
       aside={<Pill tone={mood > 0.1 ? "good" : mood < -0.1 ? "bad" : "neutral"}>Mood {mood >= 0 ? "+" : ""}{num(mood, 2)}</Pill>}
     >
-      <div className="grid gap-3 sm:grid-cols-2">
+      <HoverEffect className="gap-1 md:grid-cols-2 lg:grid-cols-2">
         {list.slice(0, shown).map((a) => (
           <ArticleCard key={a.url + a.published_at} a={a} />
         ))}
-      </div>
+      </HoverEffect>
       {shown < list.length && (
-        <button
-          onClick={() => setShown((n) => n + 8)}
-          className={cn("mt-4 w-full rounded-lg border border-neutral-200 py-2 text-sm font-medium transition hover:bg-neutral-100 dark:border-white/10 dark:hover:bg-white/[0.04]")}
-        >
-          Show more
-        </button>
+        <div className="mt-4 flex justify-center">
+          <HoverBorderGradient
+            as="button"
+            onClick={() => setShown((n) => n + 8)}
+            containerClassName="rounded-full"
+            className="flex items-center gap-2 bg-white text-sm text-neutral-800 dark:bg-[#0c0d1c] dark:text-white"
+          >
+            Show more news
+          </HoverBorderGradient>
+        </div>
       )}
     </Panel>
   );

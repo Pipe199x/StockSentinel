@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 /**
- * Section shell. Uses the same surface classes as Aceternity's BentoGridItem so the
- * plain sections and the bento grids read as one system (custom only as a layout wrapper).
+ * Section shell: Aceternity GlowingEffect border on the same surface as the BentoGridItem
+ * cards. The wrapper itself is only layout (title row + content).
  */
 export function Panel({
   id,
@@ -28,7 +29,8 @@ export function Panel({
         className,
       )}
     >
-      <header className="mb-5 flex flex-wrap items-end justify-between gap-3">
+      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
+      <header className="relative mb-5 flex flex-wrap items-end justify-between gap-3">
         <div>
           {eyebrow && <p className="text-xs font-semibold tracking-[0.18em] text-cyan-700 uppercase dark:text-cyan-300/80">{eyebrow}</p>}
           <h2 id={id ? `${id}-h` : undefined} className="mt-1 text-xl font-semibold tracking-tight md:text-2xl">
@@ -37,7 +39,7 @@ export function Panel({
         </div>
         {aside}
       </header>
-      {children}
+      <div className="relative">{children}</div>
     </section>
   );
 }

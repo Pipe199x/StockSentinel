@@ -6,6 +6,7 @@ import { Navbar, NavBody, NavItems, MobileNav, MobileNavHeader, MobileNavMenu, M
 import { GridWithDots } from "@/block/background-grid-with-dots";
 import StatsWithNumberTicker, { type StatItem } from "@/block/stats-with-number-ticker";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { LoaderTwo } from "@/components/ui/loader";
 import { Watermark } from "@/components/brand/watermark";
 import { SignalsBoard } from "@/components/dashboard/signals-board";
 import { AssetDetail } from "@/components/dashboard/asset-detail";
@@ -152,10 +153,8 @@ export default function Home() {
 
         <CardSpotlight color="#14152b" radius={420} className="rounded-2xl border border-neutral-200 bg-white p-6 md:p-8 dark:border-white/[0.1] dark:bg-[#101124]">
           {loading && !data ? (
-            <div className="grid grid-cols-2 gap-6 lg:grid-cols-4" aria-busy="true">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <div key={i} className="h-24 animate-pulse rounded-lg bg-neutral-200 dark:bg-white/[0.06]" />
-              ))}
+            <div className="grid h-24 place-items-center" aria-busy="true" aria-label="Loading data">
+              <LoaderTwo />
             </div>
           ) : (
             <StatsWithNumberTicker items={kpis} />

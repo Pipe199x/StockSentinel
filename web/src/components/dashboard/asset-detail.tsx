@@ -4,6 +4,7 @@ import { Tabs } from "@/components/ui/tabs";
 import { LineChart } from "@/components/charts/line-chart";
 import { num, pct, signedPct, REGIME, SIDE, STRATEGY, SECTOR_EN, longDate, fin } from "@/lib/format";
 import type { PricePoint, Signal } from "@/lib/data";
+import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { Panel, Pill, Stat } from "./panel";
 
 function why(s: Signal) {
@@ -25,7 +26,7 @@ export function AssetDetail({ signal, series }: { signal: Signal | null; series:
   const signalTab = (
     <div className="h-full space-y-4 overflow-y-auto rounded-2xl border border-neutral-200 bg-white p-4 dark:border-white/[0.08] dark:bg-[#101124]">
       <p className="text-sm text-neutral-600 dark:text-neutral-300">{why(s)}</p>
-      <div className="grid grid-cols-2 gap-3">
+      <HoverEffect className="grid grid-cols-2 gap-1">
         <Stat label="Side" value={SIDE[String(s.side)]} tone={on ? (s.side === 1 ? "good" : "bad") : undefined} />
         <Stat label="P(success)" value={pct(s.p_success, 0)} />
         <Stat label="Size" value={on ? pct(s.kelly_size) : "—"} sub={on ? (s.size_limit === "es" ? "capped by ES" : "½ Kelly × vol target") : undefined} />
@@ -34,14 +35,14 @@ export function AssetDetail({ signal, series }: { signal: Signal | null; series:
         <Stat label="OU z-score" value={num(s.zscore, 2)} />
         <Stat label="Half-life" value={fin(s.half_life) ? `${num(s.half_life, 1)} d` : "—"} />
         <Stat label="Asset regime" value={REGIME[s.regime ?? ""] ?? "—"} sub={`P(stress) ${pct(s.p_stress, 0)}`} />
-      </div>
+      </HoverEffect>
     </div>
   );
 
   const riskTab = (
     <div className="h-full space-y-4 overflow-y-auto rounded-2xl border border-neutral-200 bg-white p-4 dark:border-white/[0.08] dark:bg-[#101124]">
       <p className="text-sm text-neutral-600 dark:text-neutral-300">Fat tails only: Student-t GARCH, Cornish-Fisher and a t-distributed Monte Carlo. Never a normal distribution.</p>
-      <div className="grid grid-cols-2 gap-3">
+      <HoverEffect className="grid grid-cols-2 gap-1">
         <Stat label="GARCH σ (daily)" value={pct(s.sigma_garch, 2)} sub={`persistence ${num(s.garch_persistence, 3)}`} />
         <Stat label="Tail ν" value={num(s.garch_nu, 1)} sub="lower = fatter tails" />
         <Stat label="VaR 95% (1d)" value={pct(s.var_95, 2)} />
@@ -50,7 +51,7 @@ export function AssetDetail({ signal, series }: { signal: Signal | null; series:
         <Stat label={`MC ${s.mc_horizon_days ?? 20}d median`} value={signedPct(s.mc_p50)} />
         <Stat label="MC 5–95%" value={`${signedPct(s.mc_p05, 0)} / ${signedPct(s.mc_p95, 0)}`} />
         <Stat label="P(loss > 10%)" value={pct(s.mc_prob_loss_10pct, 1)} />
-      </div>
+      </HoverEffect>
     </div>
   );
 
