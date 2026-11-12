@@ -178,6 +178,40 @@ def compare(ledger: pd.DataFrame, signals: pd.DataFrame, ev: pd.DataFrame, cand:
     }
 
 
+def run_replay(feats, meta, prices, qcfg, cal, months=24, embargo=5, trials_path=None, tag="replay"):
+    """Validation (CPCV range, DSR) + day-by-day replay for one configuration."""
+    last = pd.to_datetime(feats["date"]).dt.tz_localize(None).max().normalize()
+    start = (last - pd.DateOffset(months=months)).normalize()
+    print(f"[{tag}] window {start.date()} .. {last.date()}")
+
+    # the comparison range: the same validation the daily run publishes. trials_path=None
+    # means it is not logged (and the DSR is not deflated for other attempts).
+    print(f"[{tag}] purged K-fold + CPCV on the full history")
+    _, report = make_signals(feats, meta, qcfg, cal_name=cal, trials_path=trials_path)
+
+    ev, _ = build_events(feats, qcfg)
+    cand = candidates(feats, qcfg, start)
+    prob = walk_forward_probs(ev, cand, qcfg, embargo)
+    signals = build_signals(cand, prob, qcfg, cal)
+    print(f"[{tag}] {len(cand)} primary candidates, {len(signals)} sized signals")
+
+    ledger = replay_ledger(prices, signals, start, qcfg.get("cost_bps", 5))
+    summary = summarize(ledger, prices, report, str(last.date()))
+    summary["window"] = {"from": str(start.date()), "to": str(last.date()), "months": months,
+                         "retrain": "monthly", "embargo_bdays": embargo}
+    m = report["meta"]
+    summary["backtest"] = {k: m.get(k) for k in ("dsr", "sr_per_trade", "sr_annualized", "expected_value",
+                                                 "win_rate", "n_trades", "years")}
+    summary["backtest"].update({"cpcv_path_sr": report["cpcv_path_sr"], "n_trials": report["n_trials"],
+                                "stress_windows": report.get("stress_windows")})
+    summary["diagnostics"] = compare(ledger, signals, ev, cand, prob, qcfg)
+
+    ledger.to_csv(OUT / f"{tag}_trades.csv", index=False)
+    signals.to_csv(OUT / f"{tag}_signals.csv", index=False)
+    (OUT / f"{tag}_summary.json").write_text(json.dumps(summary, indent=2, default=str), encoding="utf-8")
+    return summary
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default="stocks_etl/config.yaml")
@@ -193,33 +227,8 @@ def main():
 
     prices = load_prices(cfg, a.refresh)
     feats, meta = load_features(prices, qcfg, a.refresh)
-    last = pd.to_datetime(feats["date"]).dt.tz_localize(None).max().normalize()
-    start = (last - pd.DateOffset(months=a.months)).normalize()
-    print(f"[replay] window {start.date()} .. {last.date()}")
-
-    # the comparison range: the same validation the daily run publishes (not logged as a trial)
-    print("[validation] purged K-fold + CPCV on the full history")
-    _, report = make_signals(feats, meta, qcfg, cal_name=cal, trials_path=None)
-
-    ev, _ = build_events(feats, qcfg)
-    cand = candidates(feats, qcfg, start)
-    prob = walk_forward_probs(ev, cand, qcfg, a.embargo)
-    signals = build_signals(cand, prob, qcfg, cal)
-    print(f"[replay] {len(cand)} primary candidates, {len(signals)} sized signals")
-
-    ledger = replay_ledger(prices, signals, start, qcfg.get("cost_bps", 5))
-    summary = summarize(ledger, prices, report, str(last.date()))
-    summary["window"] = {"from": str(start.date()), "to": str(last.date()), "months": a.months,
-                         "retrain": "monthly", "embargo_bdays": a.embargo}
-    summary["backtest"] = {"dsr": report["meta"].get("dsr"), "sr_per_trade": report["meta"].get("sr_per_trade"),
-                           "expected_value": report["meta"].get("expected_value"),
-                           "cpcv_path_sr": report["cpcv_path_sr"]}
-    summary["diagnostics"] = compare(ledger, signals, ev, cand, prob, qcfg)
-
-    ledger.to_csv(OUT / "replay_trades.csv", index=False)
-    signals.to_csv(OUT / "replay_signals.csv", index=False)
+    summary = run_replay(feats, meta, prices, qcfg, cal, a.months, a.embargo)
     slim = {k: v for k, v in summary.items() if k not in ("equity_curve", "positions", "recent_closed")}
-    (OUT / "replay_summary.json").write_text(json.dumps(summary, indent=2, default=str), encoding="utf-8")
     print(json.dumps(slim, indent=2, default=str))
 
 

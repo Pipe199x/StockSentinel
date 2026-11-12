@@ -14,7 +14,7 @@ from scipy.stats import kurtosis, skew
 from xgboost import XGBClassifier
 
 from stocks_etl.features import MODEL_FEATURES
-from stocks_etl.labeling import triple_barrier, triple_barrier_ohlc
+from stocks_etl.labeling import triple_barrier, triple_barrier_live, triple_barrier_ohlc
 from stocks_etl.primary import STRATEGY_NAMES, primary_side
 from stocks_etl.regime import REGIME_NAMES
 from stocks_etl.risk import (
@@ -62,7 +62,11 @@ def build_events(feats: pd.DataFrame, cfg: dict, resolver=None) -> Tuple[pd.Data
             continue
         args = (pos, f["side"].to_numpy()[pos], f["sigma_event"].to_numpy()[pos], k_tp, k_sl,
                 f["t_max"].to_numpy()[pos])
-        if intraday:
+        if cfg.get("barrier_mode") == "live":
+            tb = triple_barrier_live(f["open"].to_numpy(), f["high"].to_numpy(), f["low"].to_numpy(),
+                                     f["close"].to_numpy(), *args,
+                                     series_ended=bool(f["date"].iloc[-1] < global_last))
+        elif intraday:
             dates = f["date"].to_numpy()
             resolve = None
             if resolver is not None:

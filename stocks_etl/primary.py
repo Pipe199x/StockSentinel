@@ -29,6 +29,12 @@ def primary_side(f: pd.DataFrame, cfg: dict) -> pd.DataFrame:
     trend = ok & ~stress & (f["hurst"] >= 0.5) & (np.sign(f["log_ret_20"]) == np.sign(f["zscore"]))
     revert = ok & ~stress & (f["hurst"] < 0.5) & (f["half_life"] <= max_hl) & (f["zscore"].abs() >= z_entry)
 
+    allowed = cfg.get("strategies") or ["momentum", "mean_reversion"]
+    if "momentum" not in allowed:
+        trend &= False
+    if "mean_reversion" not in allowed:
+        revert &= False
+
     side = np.zeros(len(f), dtype=int)
     side[trend.to_numpy()] = np.sign(f.loc[trend, "log_ret_20"]).astype(int)
     side[revert.to_numpy()] = -np.sign(f.loc[revert, "zscore"]).astype(int)
