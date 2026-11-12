@@ -48,6 +48,60 @@ def triple_barrier(close: np.ndarray, event_pos: np.ndarray, side: np.ndarray, s
     return pd.DataFrame({"start_pos": event_pos, "end_pos": out_end, "ret": out_ret, "barrier": out_bar})
 
 
+def triple_barrier_live(open_: np.ndarray, high: np.ndarray, low: np.ndarray, close: np.ndarray,
+                        event_pos: np.ndarray, side: np.ndarray, sigma: np.ndarray,
+                        k_tp: float, k_sl: float, t_max: np.ndarray, series_ended: bool = False) -> pd.DataFrame:
+    """Triple barrera ejecutada como el bot de paper trading (stocks_etl.paper._walk).
+
+    Take profit y stop se publican en precio desde el cierre del día de la señal; la entrada
+    es la APERTURA de la sesión siguiente. Si esa apertura ya cruzó una barrera, la orden
+    sale plana ('entry_gap'). Después: gap en la apertura -> sale a la apertura; toque
+    intradía -> sale en la barrera; ambos el mismo día -> stop; barrera de tiempo al cierre
+    de la sesión t_max contada desde la señal. Retornos medidos desde el precio de entrada.
+    """
+    o, h, l, c = (np.asarray(a, dtype=float) for a in (open_, high, low, close))
+    n = len(c)
+    m = len(event_pos)
+    out_end = np.empty(m, dtype=int)
+    out_ret = np.full(m, np.nan)
+    out_bar = np.empty(m, dtype=object)
+    for i, (p0, s, sg, tm) in enumerate(zip(event_pos, side, sigma, t_max)):
+        c0 = c[p0]
+        tp, sl = c0 * (1 + s * k_tp * sg), c0 * (1 - s * k_sl * sg)
+        out_end[i], out_bar[i] = p0, "open"
+        if p0 + 1 > n - 1:
+            continue
+        e = o[p0 + 1] if np.isfinite(o[p0 + 1]) else c[p0 + 1]
+        exit_p = p0 + int(tm)
+        for p in range(p0 + 1, min(exit_p, n - 1) + 1):
+            px, why = None, None
+            if p == p0 + 1:
+                if s * (e - tp) >= 0 or s * (e - sl) <= 0:
+                    px, why = e, "entry_gap"
+            elif np.isfinite(o[p]):
+                if s * (o[p] - tp) >= 0:
+                    px, why = o[p], "tp"
+                elif s * (o[p] - sl) <= 0:
+                    px, why = o[p], "sl"
+            if px is None:
+                hit_tp = (h[p] >= tp) if s > 0 else (l[p] <= tp)
+                hit_sl = (l[p] <= sl) if s > 0 else (h[p] >= sl)
+                if hit_sl:
+                    px, why = sl, "sl"
+                elif hit_tp:
+                    px, why = tp, "tp"
+            if px is None and p >= exit_p:
+                px, why = c[p], "t"
+            if px is not None:
+                out_end[i], out_ret[i], out_bar[i] = p, s * (px / e - 1), why
+                break
+        else:
+            if series_ended and exit_p > n - 1:
+                last = n - 1
+                out_end[i], out_ret[i], out_bar[i] = last, s * (c[last] / e - 1), "delist"
+    return pd.DataFrame({"start_pos": event_pos, "end_pos": out_end, "ret": out_ret, "barrier": out_bar})
+
+
 def triple_barrier_ohlc(open_: np.ndarray, high: np.ndarray, low: np.ndarray, close: np.ndarray,
                         event_pos: np.ndarray, side: np.ndarray, sigma: np.ndarray,
                         k_tp: float, k_sl: float, t_max: np.ndarray,

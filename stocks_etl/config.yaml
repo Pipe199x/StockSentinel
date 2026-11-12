@@ -45,7 +45,9 @@ quant:
   ou_window: 100
   z_entry: 1.5          # |z| para entrar en reversión a la media
   max_half_life: 20     # vida media máxima operable (sesiones)
-  momentum_horizon: 10  # barrera de tiempo de momentum (sesiones)
+  momentum_horizon: 20  # barrera de tiempo de momentum (sesiones). V4, promovido 2026-11-11
+  strategies: [momentum]  # V2/V4: la reversión a la media perdía dinero; se apaga
+  barrier_mode: live    # backtest con la ejecución real: entrada a la apertura siguiente, barreras intradía
   t_max_min: 3
   t_max_cap: 20
   k_tp: 1.5             # take profit = k_tp · σ_GARCH · sqrt(t_max)

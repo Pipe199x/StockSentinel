@@ -40,7 +40,7 @@ flowchart LR
 - **`stocks_etl/`** — downloads daily OHLCV since 2005, so the 2008 crisis is out-of-sample (NYSE calendar), and runs the quant pipeline at 22:30 UTC, after market close, with a 07:00 UTC backup run that only works if the primary did not publish:
   - `features.py`: stationary features only (log returns, fractionally differentiated price, realized and GARCH volatility, Hurst exponent, Ornstein-Uhlenbeck z-score and half-life, beta). No RSI or moving averages.
   - `regime.py`: GARCH(1,1) with Student-t innovations and a 3-state hidden Markov model, forward-filtered. With `pit_refit` (on), their parameters are refitted once a year using only earlier data, and the first 500 sessions are training only: no look-ahead in the parameters either.
-  - `primary.py`: a fixed rule. Stay flat in a market stress regime, use momentum when Hurst ≥ 0.5, and use OU mean reversion when Hurst < 0.5.
+  - `primary.py`: a fixed rule. Stay flat in a market stress regime and use momentum when Hurst ≥ 0.5 (20-session hold). OU mean reversion is still implemented but switched off (`strategies: [momentum]`) since variant V4 (see `research/replay/`).
   - `labeling.py`: triple barrier with volatility-scaled take profit and stop loss, plus a half-life time barrier.
   - `meta_model.py`: an XGBoost classifier that estimates P(the primary signal is right after costs), sized at ½ Kelly × volatility target and capped so the trade's 1% Expected Shortfall costs at most `max_es_loss` (1%) of equity. The report adds a `stress_windows` breakdown (2008, COVID, 2022, April 2025).
   - `validation.py`: Purged K-Fold with embargo, CPCV, Deflated Sharpe, sample-size test and a trial log.

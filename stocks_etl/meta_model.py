@@ -14,7 +14,7 @@ from scipy.stats import kurtosis, skew
 from xgboost import XGBClassifier
 
 from stocks_etl.features import MODEL_FEATURES
-from stocks_etl.labeling import triple_barrier, triple_barrier_ohlc
+from stocks_etl.labeling import triple_barrier, triple_barrier_live, triple_barrier_ohlc
 from stocks_etl.primary import STRATEGY_NAMES, primary_side
 from stocks_etl.regime import REGIME_NAMES
 from stocks_etl.risk import (
@@ -62,7 +62,11 @@ def build_events(feats: pd.DataFrame, cfg: dict, resolver=None) -> Tuple[pd.Data
             continue
         args = (pos, f["side"].to_numpy()[pos], f["sigma_event"].to_numpy()[pos], k_tp, k_sl,
                 f["t_max"].to_numpy()[pos])
-        if intraday:
+        if cfg.get("barrier_mode") == "live":
+            tb = triple_barrier_live(f["open"].to_numpy(), f["high"].to_numpy(), f["low"].to_numpy(),
+                                     f["close"].to_numpy(), *args,
+                                     series_ended=bool(f["date"].iloc[-1] < global_last))
+        elif intraday:
             dates = f["date"].to_numpy()
             resolve = None
             if resolver is not None:
@@ -360,7 +364,7 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
             "GARCH and HMM parameters are fitted on the full history; the volatility and regime series themselves are filtered (past-only).",
             "The per-asset HMM can switch between two near-equally likely fits as data arrives; only the market (SPY) regime gates trading, and it is stable.",
             "Daily bars only: no volume bars, order book or intraday sessions.",
-            "Barriers are checked on daily closes, not intraday highs/lows.",
+            ("Trades enter at the next session's open and barriers use intraday highs/lows, exactly like the paper ledger; a day that touches both counts as the stop." if cfg.get("barrier_mode") == "live" else "Barriers are checked on daily closes, not intraday highs/lows."),
             "With few trials the DSR is close to a Probabilistic Sharpe Ratio against zero.",
         ],
     })

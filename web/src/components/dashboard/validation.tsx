@@ -12,8 +12,8 @@ import { Panel, Pill, Stat } from "./panel";
 
 const HOW_IT_WORKS = [
   { question: "1. Regime first", answer: "A 3-state hidden Markov model on SPY returns and volatility labels the market calm, normal or stress, refitted yearly on past data only. In stress the system stays flat." },
-  { question: "2. Primary rule", answer: "Hurst ≥ 0.5 follows the 20-day move (momentum); Hurst < 0.5 trades Ornstein-Uhlenbeck mean reversion when |z| ≥ 1.5 and the half-life is short." },
-  { question: "3. Triple barrier", answer: "Take profit and stop are 1.5 × GARCH volatility over the holding period; the time barrier is the OU half-life." },
+  { question: "2. Primary rule", answer: "Momentum only: when Hurst ≥ 0.5 it follows the 20-day move if price sits on the same side of its fair value. Mean reversion was switched off after it lost money in the replay." },
+  { question: "3. Triple barrier", answer: "Take profit and stop are 1.5 × GARCH volatility over the holding period, with a 20-session time limit. The backtest enters at the next open and checks barriers intraday, exactly like the paper ledger." },
   { question: "4. Meta-labeling and size", answer: "XGBoost on stationary features estimates P(profit after costs). Size is ½ Kelly × volatility target, capped so the 1% Expected Shortfall costs at most 1% of equity." },
   { question: "5. Validation", answer: "Purged K-fold with embargo, CPCV and the Deflated Sharpe, which penalizes every configuration ever tried." },
 ];

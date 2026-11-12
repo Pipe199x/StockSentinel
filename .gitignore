@@ -15,3 +15,6 @@ Thumbs.db
 # Secrets / local overrides
 .env
 news_etl/config.local.yaml
+
+# Research outputs
+research/replay/out/
