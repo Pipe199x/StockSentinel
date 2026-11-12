@@ -2,7 +2,7 @@
 
 **Regime-aware quant signals with honest validation — a fully automated, zero-cost data pipeline.**
 
-Every day, GitHub Actions downloads prices for a diversified universe (21 stocks across 8 sectors plus SPY, QQQ, GLD and TLT), detects the **market regime**, generates **meta-labeled signals** with triple-barrier risk and **fractional Kelly** sizing, validates them out-of-sample with **Purged K-Fold, CPCV and the Deflated Sharpe Ratio**, and publishes everything as static JSON on **GitHub Pages** with a live dashboard. News headlines are scored with **FinBERT**, and weekly jobs evaluate an LSTM and a price + news cross-attention model behind a promotion gate.
+Every day, GitHub Actions downloads prices from the Massive API for a diversified universe (21 stocks across 8 sectors plus SPY, QQQ, GLD and TLT), detects the **market regime**, generates **meta-labeled signals** with triple-barrier risk and **fractional Kelly** sizing, validates them out-of-sample with **Purged K-Fold, CPCV and the Deflated Sharpe Ratio**, and publishes everything as static JSON to a **private** dashboard (Cloudflare Pages behind Cloudflare Access). Massive news headlines are scored with **FinBERT**, and weekly jobs evaluate an LSTM and a price + news cross-attention model behind a promotion gate.
 
 The methodology follows the quantitative approach described by Julián Castillo (Castle Quant), which builds on López de Prado's *Advances in Financial Machine Learning*.
 
@@ -18,15 +18,15 @@ The methodology follows the quantitative approach described by Julián Castillo 
 ```mermaid
 flowchart LR
     subgraph Sources
-        YF[yfinance<br/>daily OHLCV]
-        NA[NewsAPI.org<br/>headlines]
+        YF[Massive API<br/>daily OHLCV]
+        NA[Massive API<br/>news]
     end
     subgraph GitHub Actions - daily cron
         SE[stocks_etl<br/>regime + meta-labeled signals + validation]
         DW[stocks_etl.deep<br/>weekly LSTM + news fusion]
         NE[news_etl<br/>dedupe + FinBERT sentiment]
     end
-    subgraph GitHub Pages
+    subgraph Cloudflare Pages + Access - private
         D[docs/data/*.json<br/>+ history/]
     end
     FE[Dashboard<br/>docs/index.html]
@@ -37,7 +37,7 @@ flowchart LR
     D --> FE
 ```
 
-- **`stocks_etl/`** — downloads daily OHLCV since 2005, so the 2008 crisis is out-of-sample (NYSE calendar), and runs the quant pipeline at 22:30 UTC, after market close, with a 07:00 UTC backup run that only works if the primary did not publish:
+- **`stocks_etl/`** — downloads split-adjusted daily OHLCV from Massive since 2016-11-14, the plan's rolling 10-year window (NYSE calendar; 2008 is not covered), and runs the quant pipeline at 22:30 UTC, after market close, with a 07:00 UTC backup run that only works if the primary did not publish:
   - `features.py`: stationary features only (log returns, fractionally differentiated price, realized and GARCH volatility, Hurst exponent, Ornstein-Uhlenbeck z-score and half-life, beta). No RSI or moving averages.
   - `regime.py`: GARCH(1,1) with Student-t innovations and a 3-state hidden Markov model, forward-filtered. With `pit_refit` (on), their parameters are refitted once a year using only earlier data, and the first 500 sessions are training only: no look-ahead in the parameters either.
   - `primary.py`: a fixed rule. Stay flat in a market stress regime and use momentum when Hurst ≥ 0.5 (20-session hold). OU mean reversion is still implemented but switched off (`strategies: [momentum]`) since variant V4 (see `research/replay/`).
@@ -49,7 +49,7 @@ flowchart LR
 - **`stocks_etl/deep/`** — weekly (Saturday) LSTM and LSTM + FinBERT cross-attention meta-models. A model is only promoted if its Deflated Sharpe exceeds 0.95 and it beats XGBoost on the same out-of-sample events.
 - **`news_etl/`** — fetches the last 2 days of headlines per ticker, merges them with the accumulated history, applies a per-ticker daily cap, and scores new articles with [ProsusAI/finbert](https://huggingface.co/ProsusAI/finbert) on CPU. It also stores a 768-dimension FinBERT embedding per article for the fusion model. Runs at 12:15 UTC, with a 20:00 UTC backup run.
 - **`web/`** — the dashboard source: Next.js 16 static export built with Aceternity UI Pro components (registry `@aceternity`) and the Ocean Data Group watermark. `npm run publish:docs` builds it into `docs/`; the `web.yml` workflow does that on every push to `main` that touches `web/`. Pages fetch `docs/data/*.json` at runtime, so daily data updates need no rebuild.
-- **`docs/`** — the built dashboard plus the published dataset, served by GitHub Pages. Daily data commits also keep the scheduled workflows active.
+- **`docs/`** — the built dashboard plus the published dataset, served by Cloudflare Pages (private, behind Access). Daily data commits also keep the scheduled workflows active.
 - **`api/`** — an optional FastAPI serving layer over the same data, runnable locally.
 
 ## Live data endpoints
@@ -77,11 +77,11 @@ pip install torch --index-url https://download.pytorch.org/whl/cpu
 pip install -r stocks_etl/deep/requirements.txt
 python -m stocks_etl.deep.train --config stocks_etl/config.yaml
 
-# News (needs a free NewsAPI key; FinBERT downloads ~440MB on first run)
-cp .env.example .env   # set NEWSAPI_KEY
+# Prices and news need a Massive key (Stocks Developer); FinBERT downloads ~440MB on first run
+cp .env.example .env   # set MASSIVE_API_KEY
 pip install torch --index-url https://download.pytorch.org/whl/cpu
 pip install -r news_etl/requirements.txt
-python -m news_etl.news_client --out data/news_raw.ndjson --tickers AMZN,MSFT,GOOGL --days 2
+python -m news_etl.news_client --out data/news_raw.ndjson --tickers AAPL,MSFT,GOOGL --days 2
 python -m news_etl.news_etl --config news_etl/config.yaml
 ```
 
@@ -103,7 +103,8 @@ uvicorn api.app.main:app --reload
 
 ## Notes and limitations
 
-- NewsAPI's free tier delays articles ~24h and caps at 100 requests/day; the incremental fetch uses ~12.
-- Every published performance number is out-of-sample (purged CV), and every configuration change is logged as a trial that the Deflated Sharpe penalizes. Known gaps are published in `validation_report.json` → `limitations`. These include survivorship bias and barriers checked on daily closes (both addressed by the optional Massive research run in `research/massive/`).
-- News covers AMZN, MSFT and GOOGL only, because of the NewsAPI free-tier quota. The price + news fusion model stays in `insufficient_data` until there are enough events with news.
-- Entire stack runs on free tiers: GitHub Actions, GitHub Pages, NewsAPI free plan, Hugging Face model hosting.
+- **Data license:** Massive's individual plan forbids redistributing its data. The repo is private and the dashboard is served by Cloudflare Pages behind Cloudflare Access (owner's email only). Never make either public while Massive data is in `docs/data`.
+- Massive Stocks Developer costs $79/month and is the only data source (prices and news); `MASSIVE_API_KEY` is an Actions secret.
+- Every published performance number is out-of-sample (purged CV), and every configuration change is logged as a trial that the Deflated Sharpe penalizes. Known gaps are published in `validation_report.json` → `limitations`. These include survivorship bias: the point-in-time re-test with delisted stocks (`research/massive/`, M2) did not reach DSR 0.95, so there is no proven edge.
+- News covers the 21 stocks of the universe. The price + news fusion model stays in `insufficient_data` until there are enough events with news.
+- Everything else runs on free tiers: GitHub Actions (private-repo minutes), Cloudflare Pages and Access, Hugging Face model hosting. yfinance is used only by the research baselines (`research/requirements.txt`).

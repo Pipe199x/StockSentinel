@@ -26,13 +26,14 @@ import numpy as np
 import pandas as pd
 import yaml
 
-from stocks_etl.meta_model import (FEATURES, _model, _nth_trading_day, build_events, make_signals,
+from stocks_etl.meta_model import (_model, feature_cols, _nth_trading_day, build_events, make_signals,
                                    position_size, sequential_trades)
 from stocks_etl.paper import COLUMNS, summarize, update_ledger
 from stocks_etl.primary import primary_side
 from stocks_etl.validation import sharpe
 
 OUT = Path("research/replay/out")
+YF_START = "2005-01-01"  # the replay results on record were computed on this history
 
 
 # ---------------------------------------------------------------- data
@@ -44,13 +45,13 @@ def load_prices(cfg: dict, refresh: bool) -> pd.DataFrame:
         df = pd.read_csv(path)
         df["date"] = pd.to_datetime(df["date"], utc=True)
         return df
-    from stocks_etl.stocks_etl import _download_with_retry, _normalize, universe_symbols
+    from research.yf_prices import _download_with_retry, _normalize
+    from stocks_etl.stocks_etl import universe_symbols
     symbols = universe_symbols(cfg)
-    raw = _download_with_retry(symbols=symbols, start=cfg.get("start"), end=cfg.get("end"),
-                               interval=cfg.get("interval", "1d"), auto_adjust=cfg.get("auto_adjust", True),
-                               actions=cfg.get("actions", True), threads=cfg.get("threads", 1))
-    df = _normalize(df_raw=raw, symbols=symbols, auto_adjust=cfg.get("auto_adjust", True),
-                    cal_name=cfg.get("calendar"))
+    # research baseline: yfinance from 2005, split-adjusted only (the live pipeline is Massive-only from 2016)
+    raw = _download_with_retry(symbols=symbols, start=YF_START, end=cfg.get("end"), interval="1d",
+                               auto_adjust=False, actions=True, threads=1)
+    df = _normalize(df_raw=raw, symbols=symbols, auto_adjust=False, cal_name=cfg.get("calendar"))
     if df.empty:
         raise SystemExit("yfinance returned no data")
     OUT.mkdir(parents=True, exist_ok=True)
@@ -79,7 +80,10 @@ def candidates(feats: pd.DataFrame, cfg: dict, start: pd.Timestamp) -> pd.DataFr
         f = pd.concat([f, primary_side(f, cfg)], axis=1)
         f["sigma_event"] = f["sigma_garch"] * np.sqrt(f["t_max"])
         f["day"] = pd.to_datetime(f["date"]).dt.tz_localize(None).dt.normalize()
-        out.append(f[(f["side"] != 0) & (f["day"] >= start) & np.isfinite(f["sigma_event"])])
+        keep = (f["side"] != 0) & (f["day"] >= start) & np.isfinite(f["sigma_event"])
+        if "eligible" in f.columns:  # point-in-time universe: never trade a stock outside it
+            keep &= f["eligible"].fillna(False).astype(bool)
+        out.append(f[keep])
     return pd.concat(out, ignore_index=True).sort_values(["day", "ticker"]).reset_index(drop=True)
 
 
@@ -94,9 +98,9 @@ def walk_forward_probs(ev: pd.DataFrame, cand: pd.DataFrame, cfg: dict, embargo_
         train = ev[ev["end"] < cutoff]
         if len(train) < 200 or train["label"].nunique() < 2:
             continue
-        model = _model(seed).fit(train[FEATURES], train["label"])
+        model = _model(seed).fit(train[feature_cols(cfg)], train["label"])
         idx = np.flatnonzero((months == m).to_numpy())
-        prob[idx] = model.predict_proba(cand.iloc[idx][FEATURES])[:, 1]
+        prob[idx] = model.predict_proba(cand.iloc[idx][feature_cols(cfg)])[:, 1]
     return prob
 
 

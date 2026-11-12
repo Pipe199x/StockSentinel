@@ -1,7 +1,7 @@
 name: Web dashboard (build + publish to docs/)
 
 # Rebuilds the Aceternity dashboard when its source changes and commits the static
-# export into docs/ (GitHub Pages). Data stays out of this: the pages fetch
+# export into docs/ (served by Cloudflare Pages behind Cloudflare Access). Data stays out of this: the pages fetch
 # docs/data/*.json at runtime, which the ETL jobs keep updating.
 on:
   push:

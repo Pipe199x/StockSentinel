@@ -1,0 +1,86 @@
+{
+  "as_of": "2026-11-12",
+  "started": "2026-11-12",
+  "counts": {
+    "pending": 3,
+    "open": 0,
+    "closed": 0
+  },
+  "win_rate": null,
+  "expected_value": null,
+  "sr_per_trade": null,
+  "total_return": 0.0,
+  "equity_curve": [],
+  "positions": [
+    {
+      "ticker": "HD",
+      "signal_date": "2026-11-12",
+      "side": 1,
+      "size": 0.0288,
+      "p_success": 0.5771902203559875,
+      "tp": 401.1534493384254,
+      "sl": 295.13295066157457,
+      "exit_by": "2026-12-11",
+      "status": "pending",
+      "entry_date": null,
+      "entry_price": null,
+      "last_checked": null,
+      "exit_date": null,
+      "exit_price": null,
+      "exit_reason": null,
+      "ret_gross": null,
+      "ret_net": null
+    },
+    {
+      "ticker": "JPM",
+      "signal_date": "2026-11-12",
+      "side": 1,
+      "size": 0.0343,
+      "p_success": 0.6632269620895386,
+      "tp": 386.5670112815741,
+      "sl": 300.9929887184258,
+      "exit_by": "2026-12-11",
+      "status": "pending",
+      "entry_date": null,
+      "entry_price": null,
+      "last_checked": null,
+      "exit_date": null,
+      "exit_price": null,
+      "exit_reason": null,
+      "ret_gross": null,
+      "ret_net": null
+    },
+    {
+      "ticker": "MCD",
+      "signal_date": "2026-11-12",
+      "side": 1,
+      "size": 0.0036,
+      "p_success": 0.5056102275848389,
+      "tp": 309.29797715364543,
+      "sl": 237.7020228463546,
+      "exit_by": "2026-12-11",
+      "status": "pending",
+      "entry_date": null,
+      "entry_price": null,
+      "last_checked": null,
+      "exit_date": null,
+      "exit_price": null,
+      "exit_reason": null,
+      "ret_gross": null,
+      "ret_net": null
+    }
+  ],
+  "recent_closed": [],
+  "gate0": {
+    "status": "collecting",
+    "reason": "0 of 30 closed trades needed before judging",
+    "min_trades": 30,
+    "live_sr_per_trade": null,
+    "backtest_sr_per_trade": 0.09698320251322079,
+    "backtest_expected_value": 0.004740033693070491,
+    "backtest_cpcv_range": [
+      0.014203712939441879,
+      0.08868276529254156
+    ]
+  }
+}

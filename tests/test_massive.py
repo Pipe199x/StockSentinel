@@ -104,3 +104,25 @@ def test_build_events_intraday_end_to_end():
     feats["eligible"] = feats["ticker"] != "BBB"
     ev_e, _ = build_events(feats, cfg)
     assert "BBB" not in set(ev_e["ticker"])
+
+
+def test_replay_candidates_respect_point_in_time_universe():
+    from research.replay.paper_replay import candidates
+    days = pd.bdate_range("2026-01-05", periods=4, tz="UTC")
+    f = pd.DataFrame({"date": days, "ticker": "ZZA", "hurst": 0.6, "zscore": 1.0, "half_life": 5.0,
+                      "log_ret_20": 0.05, "sigma_garch": 0.01, "regime": 0, "close": 100.0,
+                      "eligible": [True, False, True, False]})
+    c = candidates(f, {}, pd.Timestamp("2026-01-01"))
+    assert list(c["day"].dt.day) == [5, 7]
+
+
+def test_news_features_only_use_articles_before_the_close():
+    from research.massive.news import news_features
+    feats = pd.DataFrame({"date": pd.to_datetime(["2026-01-06", "2026-01-12"], utc=True), "ticker": "ZZA"})
+    arts = pd.DataFrame({"ticker": "ZZA", "sent": [0.8, -0.4, 0.9],
+                         "published_utc": pd.to_datetime(["2026-01-05T15:00Z",    # counted on the 6th
+                                                          "2026-01-06T21:30Z",    # after the 6th's close
+                                                          "2026-01-06T19:00Z"], utc=True)})
+    out = news_features(arts, feats)
+    assert out["news_count_5d"].tolist() == [2.0, 0.0]          # the 12th: all three are more than 5 days old
+    assert out["news_sent_5d"].iloc[0] == pytest.approx((0.8 + 0.9) / 2)

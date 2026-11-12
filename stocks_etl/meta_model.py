@@ -28,6 +28,11 @@ from stocks_etl.validation import (
 FEATURES = MODEL_FEATURES + ["side", "strategy"]
 
 
+def feature_cols(cfg: dict) -> List[str]:
+    """Meta-model inputs: the fixed list plus research-only extras (cfg['extra_features'])."""
+    return FEATURES + [c for c in (cfg.get("extra_features") or []) if c not in FEATURES]
+
+
 def _model(seed: int) -> XGBClassifier:
     return XGBClassifier(
         n_estimators=300, learning_rate=0.05, max_depth=3, subsample=0.8, colsample_bytree=0.8,
@@ -198,7 +203,7 @@ def _trade_stats(trades: pd.DataFrame) -> Dict:
 def evaluate(ev: pd.DataFrame, cfg: dict) -> Tuple[Dict, np.ndarray]:
     """Purged K-Fold (OOF) + CPCV. Devuelve (informe, probabilidades OOF)."""
     seed = int(cfg.get("seed", 42))
-    X, y = ev[FEATURES], ev["label"].to_numpy()
+    X, y = ev[feature_cols(cfg)], ev["label"].to_numpy()
     starts, ends = ev["start"].to_numpy(), ev["end"].to_numpy()
     emb = float(cfg.get("embargo_pct", 0.01))
 
@@ -285,8 +290,9 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
     report, oof = evaluate(ev, cfg)
     meta_trades = report.pop("_meta_trades")
 
-    final = _model(seed).fit(ev[FEATURES], ev["label"])
-    importance = dict(sorted(zip(FEATURES, final.feature_importances_.astype(float)), key=lambda kv: -kv[1]))
+    cols = feature_cols(cfg)
+    final = _model(seed).fit(ev[cols], ev["label"])
+    importance = dict(sorted(zip(cols, final.feature_importances_.astype(float)), key=lambda kv: -kv[1]))
 
     payoff = float(cfg.get("k_tp", 1.5)) / float(cfg.get("k_sl", 1.5))
     k_tp, k_sl = float(cfg.get("k_tp", 1.5)), float(cfg.get("k_sl", 1.5))
@@ -298,7 +304,7 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
         p = None
         size, limit = 0.0, None
         if side != 0 and pd.notna(r.sigma_event):
-            x = pd.DataFrame([{c: getattr(r, c) for c in FEATURES}])
+            x = pd.DataFrame([{c: getattr(r, c) for c in cols}])
             p = float(final.predict_proba(x)[0, 1])
             nu = getattr(r, "garch_nu", np.nan)
             size, limit = position_size(p, r.sigma_garch, nu if pd.notna(nu) else meta[r.ticker]["garch"]["nu"],
@@ -357,7 +363,9 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
         "config": model_cfg,
         # lo que esta validación NO cubre; se publica para no vender un backtest perfecto
         "limitations": [
-            "Survivorship bias: the universe only contains companies alive today (yfinance has no delisted tickers).",
+            ("Survivorship bias: the live universe is 25 companies alive today. A point-in-time test including delisted "
+             "stocks (research/massive, M2) did not reach DSR 0.95."),
+            "History starts on 2016-11-14 (Massive plan window): the 2008 crisis is not tested.",
             ("GARCH and HMM parameters are refitted once a year using only earlier data (point-in-time); "
              "the first %d sessions are training only and are never traded." % int(cfg.get("pit_min_train", 500)))
             if cfg.get("pit_refit") else

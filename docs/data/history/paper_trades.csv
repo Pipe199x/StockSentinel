@@ -1,0 +1,4 @@
+ticker,signal_date,side,size,p_success,tp,sl,exit_by,status,entry_date,entry_price,last_checked,exit_date,exit_price,exit_reason,ret_gross,ret_net
+HD,2026-11-12,1,0.0288,0.5771902203559875,401.1534493384254,295.13295066157457,2026-12-11,pending,,,,,,,,
+JPM,2026-11-12,1,0.0343,0.6632269620895386,386.5670112815741,300.9929887184258,2026-12-11,pending,,,,,,,,
+MCD,2026-11-12,1,0.0036,0.5056102275848389,309.29797715364543,237.7020228463546,2026-12-11,pending,,,,,,,,

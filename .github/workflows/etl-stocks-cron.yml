@@ -71,13 +71,12 @@ jobs:
       - name: Run ETL (prices + regime + meta-labeled signals + validation + publish to docs/)
         if: steps.guard.outputs.skip != 'true'
         env:
-          # Keep yfinance's SQLite cache out of any shared/restored location
-          # (runner context is only allowed at step level, not job-level env)
-          XDG_CACHE_HOME: ${{ runner.temp }}/cache
+          # Prices come from Massive only. Sent only as an Authorization header, never logged.
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
         run: |
           set -euo pipefail
-          # Second layer of retries for Yahoo outages/rate limits lasting longer
-          # than the in-process per-ticker retries.
+          # Second layer of retries for Massive outages lasting longer than the
+          # in-process request retries.
           for i in 1 2 3; do
             if python -m stocks_etl.stocks_etl --config stocks_etl/config.yaml; then
               break

@@ -2,7 +2,7 @@ name: ETL News (cron + manual)
 
 on:
   schedule:
-    - cron: "15 12 * * *"   # 12:15 UTC daily; NewsAPI free tier delays articles ~24h
+    - cron: "15 12 * * *"   # 12:15 UTC daily (Massive news, no quota limit)
     # Backup run: only does work if the primary run did not publish (see guard step).
     - cron: "0 20 * * *"
   workflow_dispatch: {}
@@ -22,8 +22,7 @@ jobs:
 
     env:
       PYTHON_VERSION: "3.11"
-      TICKERS: "AMZN,MSFT,GOOGL"
-      LANGUAGE: "en"
+      TICKERS: "AAPL,MSFT,GOOGL,AMZN,NVDA,JNJ,UNH,PFE,XOM,CVX,JPM,BAC,GS,PG,KO,WMT,HD,MCD,CAT,BA,NEE"  # the 21 stocks of the universe (no ETFs)
       DAYS: "2"   # incremental fetch; history accumulates in docs/data/history/
 
     steps:
@@ -78,16 +77,15 @@ jobs:
         if: steps.guard.outputs.skip != 'true'
         run: mkdir -p data
 
-      - name: Fetch raw news (NewsAPI)
+      - name: Fetch raw news (Massive)
         if: steps.guard.outputs.skip != 'true'
         env:
-          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
         run: |
           set -euo pipefail
           python -m news_etl.news_client \
             --out data/news_raw.ndjson \
             --tickers "${TICKERS}" \
-            --language "${LANGUAGE}" \
             --days "${DAYS}"
           test -s data/news_raw.ndjson
 
