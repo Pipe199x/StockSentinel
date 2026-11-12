@@ -7,6 +7,9 @@ import type { Signal } from "@/lib/data";
 import { Panel, Pill } from "./panel";
 import { Tooltip } from "@/components/ui/tooltip-card";
 
+
+// First column stays put while the table scrolls sideways on phones (opaque = panel color).
+const STICKY = "sticky left-0 z-[1] bg-white sm:static sm:bg-transparent dark:bg-[#14152b] sm:dark:bg-transparent";
 export function SignalsBoard({ signals, selected, onSelect }: { signals: Signal[]; selected: string | null; onSelect: (t: string) => void }) {
   const rows = [...signals].sort((a, b) => (b.kelly_size || 0) - (a.kelly_size || 0) || a.ticker.localeCompare(b.ticker));
   const active = rows.filter((s) => s.kelly_size > 0).length;
@@ -23,12 +26,13 @@ export function SignalsBoard({ signals, selected, onSelect }: { signals: Signal[
         </div>
       }
     >
-      <div className="-mx-2 overflow-x-auto">
+      <p className="mb-2 text-xs text-neutral-500 sm:hidden">Swipe the table sideways for levels and dates →</p>
+      <div className="-mx-2 overflow-x-auto overscroll-x-contain">
         <table className="w-full min-w-[640px] border-separate border-spacing-0 text-sm">
           <thead>
             <tr className="text-left text-[11px] tracking-wide text-neutral-500 uppercase">
               {["Asset", "Regime", "Setup", "Side", "P(win)", "Size", "Take profit", "Stop", "Exit by"].map((h) => (
-                <th key={h} className="border-b border-neutral-200 px-2 py-2 font-medium dark:border-white/[0.08]">{h}</th>
+                <th key={h} className={cn("border-b border-neutral-200 px-2 py-2 font-medium dark:border-white/[0.08]", h === "Asset" && STICKY)}>{h}</th>
               ))}
             </tr>
           </thead>
@@ -48,7 +52,7 @@ export function SignalsBoard({ signals, selected, onSelect }: { signals: Signal[
                     !on && "text-neutral-500",
                   )}
                 >
-                  <td className="border-b border-neutral-100 px-2 py-2.5 dark:border-white/[0.04]">
+                  <td className={cn("border-b border-neutral-100 px-2 py-2.5 dark:border-white/[0.04]", STICKY)}>
                     <span className="font-semibold text-neutral-900 dark:text-white">{s.ticker}</span>
                     <span className="ml-2 hidden text-xs text-neutral-500 sm:inline">{SECTOR_EN[s.sector ?? ""] ?? s.sector}</span>
                   </td>
