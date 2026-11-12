@@ -25,7 +25,7 @@ function ModelCard({ name, blurb, m }: { name: string; blurb: string; m?: DeepMo
       description={blurb}
       header={
         m && fin3(m.dsr) ? (
-          <HoverEffect className="grid grid-cols-3 gap-1">
+          <HoverEffect className="grid grid-cols-2 gap-1 sm:grid-cols-3">
             <Stat label="DSR" value={num(m.dsr, 3)} tone={(m.dsr ?? 0) > 0.95 ? "good" : undefined} />
             <Stat label="EV / trade" value={signedPct(m.expected_value, 3)} />
             <Stat label="Trades" value={m.n_trades?.toLocaleString() ?? "—"} />

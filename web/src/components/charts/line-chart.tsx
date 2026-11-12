@@ -93,8 +93,8 @@ export function LineChart({
             <stop offset="100%" stopColor={up ? "#10b981" : "#f43f5e"} stopOpacity="0" />
           </linearGradient>
         </defs>
-        {ticks(geo.lo, geo.hi).map((t) => (
-          <g key={t}>
+        {ticks(geo.lo, geo.hi).map((t, i) => (
+          <g key={`${i}-${t}`}>
             <line x1={PAD.l} x2={W - PAD.r} y1={geo.y(t)} y2={geo.y(t)} className="stroke-neutral-200 dark:stroke-white/[0.06]" />
             <text x={W - PAD.r + 6} y={geo.y(t)} dominantBaseline="middle" className="fill-neutral-500 text-[11px]">
               {format(t)}
@@ -146,7 +146,7 @@ export function Bars({ items, format, threshold }: { items: { label: string; val
   return (
     <ul className="space-y-2">
       {items.map((it) => (
-        <li key={it.label} className="grid grid-cols-[6.5rem_1fr_4.5rem] items-center gap-3 text-xs">
+        <li key={it.label} className="grid grid-cols-[5rem_1fr_3.75rem] items-center gap-2 text-xs sm:grid-cols-[6.5rem_1fr_4.5rem] sm:gap-3">
           <span className="truncate text-neutral-500">{it.label}</span>
           <span className="relative h-2 rounded-full bg-neutral-200 dark:bg-white/[0.06]">
             <span

@@ -19,7 +19,7 @@ export type StatItem = {
 export default function StatsWithNumberTicker({ items, className }: { items: StatItem[]; className?: string }) {
   return (
     <section className={cn("group/container relative w-full", className)}>
-      <div className="relative z-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="relative z-20 grid grid-cols-2 gap-x-4 gap-y-5 sm:gap-6 lg:grid-cols-4">
         {items.map((item, index) => (
           <motion.div
             initial={{ y: 20, opacity: 0, filter: "blur(4px)" }}
@@ -28,13 +28,13 @@ export default function StatsWithNumberTicker({ items, className }: { items: Sta
             key={item.label}
             className={cn("group/card relative overflow-hidden rounded-lg")}
           >
-            <p className="text-xs font-semibold tracking-[0.18em] text-cyan-700 uppercase dark:text-cyan-300/80">
+            <p className="text-[10px] font-semibold tracking-[0.14em] text-cyan-700 uppercase sm:text-xs sm:tracking-[0.18em] dark:text-cyan-300/80">
               {item.label}
             </p>
             <div className="mt-2 flex items-center gap-2">
               <p
                 className={cn(
-                  "text-3xl font-bold text-neutral-700 tabular-nums dark:text-neutral-200",
+                  "text-2xl font-bold text-neutral-700 tabular-nums sm:text-3xl dark:text-neutral-200",
                   item.tone === "good" && "text-emerald-600 dark:text-emerald-400",
                   item.tone === "bad" && "text-rose-600 dark:text-rose-400",
                 )}
@@ -42,7 +42,7 @@ export default function StatsWithNumberTicker({ items, className }: { items: Sta
                 {item.text ?? (item.value == null ? "—" : <AnimatedNumber value={item.value} format={item.format} />)}
               </p>
             </div>
-            <p className="mt-3 text-sm text-balance text-neutral-600 dark:text-neutral-300">{item.description}</p>
+            <p className="mt-2 text-xs text-balance text-neutral-600 sm:mt-3 sm:text-sm dark:text-neutral-300">{item.description}</p>
           </motion.div>
         ))}
       </div>

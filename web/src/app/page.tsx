@@ -8,6 +8,7 @@ import StatsWithNumberTicker, { type StatItem } from "@/block/stats-with-number-
 import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { LoaderTwo } from "@/components/ui/loader";
 import { Watermark } from "@/components/brand/watermark";
+import { LinesGradientShader } from "@/block/lines-gradient-shader";
 import { SignalsBoard } from "@/components/dashboard/signals-board";
 import { AssetDetail } from "@/components/dashboard/asset-detail";
 import { Validation } from "@/components/dashboard/validation";
@@ -24,6 +25,19 @@ const NAV = [
   { name: "Models", link: "#models" },
   { name: "News", link: "#news" },
 ];
+
+/** True on phone-width screens; drives lighter shader settings. */
+function useIsPhone() {
+  const [phone, setPhone] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 640px)");
+    const sync = () => setPhone(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+  return phone;
+}
 
 function ThemeToggle() {
   const [dark, setDark] = useState(true);
@@ -47,6 +61,7 @@ export default function Home() {
   const { data, error, loading, reload } = useDashboard();
   const [ticker, setTicker] = useState<string | null>(null);
   const [menu, setMenu] = useState(false);
+  const phone = useIsPhone();
 
   const signals = data?.signals ?? [];
   useEffect(() => {
@@ -95,12 +110,12 @@ export default function Home() {
 
   return (
     <div id="top" className="relative isolate min-h-screen overflow-x-clip">
-      {/* Aceternity background + Ocean Data Group watermarks (both pointer-events-none, aria-hidden) */}
+      {/* Aceternity background + two Ocean Data Group watermarks (pointer-events-none, aria-hidden) */}
       <div className="fixed inset-0 -z-10">
         <GridWithDots className="[mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_80%)]" />
       </div>
-      <Watermark variant="tile" fixed opacity={0.035} className="z-0" />
-      <Watermark variant="corner" fixed position="bottom-right" opacity={0.6} className="z-50" />
+      <Watermark variant="center" fixed opacity={0.04} label={false} className="z-0" />
+      <Watermark variant="corner" fixed position="bottom-right" opacity={phone ? 0.4 : 0.6} className="z-50 origin-bottom-right scale-75 sm:scale-100" />
 
       <Navbar>
         <NavBody>
@@ -135,6 +150,18 @@ export default function Home() {
       </Navbar>
 
       <main className="relative z-10 mx-auto max-w-7xl space-y-6 px-4 pt-10 pb-16 md:px-6">
+        <section className="relative isolate pt-4 pb-10">
+          <LinesGradientShader
+            className="absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 bg-white dark:bg-[#0c0d1c]"
+            bandCount={phone ? 4 : 5}
+            bandSpacing={40}
+            bandThickness={phone ? 70 : 100}
+            waveAmplitude={0.2}
+            speed={1}
+            targetFps={phone ? 24 : 30}
+          />
+          {/* fades the bands into the page so the hero has no hard bottom edge */}
+          <div aria-hidden className="pointer-events-none absolute bottom-0 left-1/2 -z-10 h-24 w-screen -translate-x-1/2 bg-gradient-to-b from-transparent to-white dark:to-[#0c0d1c]" />
         <header className="pt-4">
           <p className="text-xs font-semibold tracking-[0.2em] text-cyan-700 uppercase dark:text-cyan-300/80">Quant signals · honest validation</p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-5xl">StockSentinel</h1>
@@ -151,7 +178,7 @@ export default function Home() {
           </div>
         )}
 
-        <CardSpotlight color="#14152b" radius={420} className="rounded-2xl border border-neutral-200 bg-white p-6 md:p-8 dark:border-white/[0.1] dark:bg-[#101124]">
+        <CardSpotlight color="#14152b" radius={420} className="mt-6 rounded-2xl border border-neutral-200 bg-white/80 p-4 sm:p-6 md:p-8 dark:border-white/[0.1] dark:bg-[#101124]/80 backdrop-blur-md">
           {loading && !data ? (
             <div className="grid h-24 place-items-center" aria-busy="true" aria-label="Loading data">
               <LoaderTwo />
@@ -160,6 +187,7 @@ export default function Home() {
             <StatsWithNumberTicker items={kpis} />
           )}
         </CardSpotlight>
+        </section>
 
         {data && (
           <>
