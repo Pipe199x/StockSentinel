@@ -9,11 +9,11 @@
   "win_rate": null,
   "expected_value": null,
   "sr_per_trade": null,
-  "total_return": -0.0006790986508502517,
+  "total_return": -0.0011355905769563357,
   "equity_curve": [
     {
       "date": "2026-11-12",
-      "equity": 0.9993209013491497
+      "equity": 0.9988644094230437
     }
   ],
   "positions": [
@@ -119,11 +119,11 @@
     "reason": "0 of 30 closed trades needed before judging",
     "min_trades": 30,
     "live_sr_per_trade": null,
-    "backtest_sr_per_trade": 0.10358003793814742,
-    "backtest_expected_value": 0.005078607291416296,
+    "backtest_sr_per_trade": 0.08986966707316332,
+    "backtest_expected_value": 0.002378849755603346,
     "backtest_cpcv_range": [
-      0.05946240247254355,
-      0.1032636321800546
+      0.042761113960155875,
+      0.08491476765727621
     ]
   }
 }

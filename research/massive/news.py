@@ -87,29 +87,9 @@ def score(df: pd.DataFrame, cache: Path = NEWS / "finbert_scores.csv") -> pd.Dat
 
 
 def news_features(scored: pd.DataFrame, feats: pd.DataFrame) -> pd.DataFrame:
-    """Adds news_sent_5d and news_count_5d to feats using only articles known before each close."""
-    out = feats.copy()
-    out["news_sent_5d"] = 0.0
-    out["news_count_5d"] = 0.0
-    if scored.empty:
-        return out
-    day = pd.to_datetime(out["date"]).dt.tz_convert("UTC").dt.normalize()
-    close = day + pd.Timedelta(hours=CLOSE_UTC_HOUR)
-    for t, g in scored.groupby("ticker"):
-        m = (out["ticker"] == t).to_numpy()
-        if not m.any():
-            continue
-        g = g.sort_values("published_utc")
-        s = g["sent"].fillna(0.0).to_numpy()
-        tsv = g["published_utc"].to_numpy()
-        csum = np.concatenate([[0.0], np.cumsum(s)])
-        hi = np.searchsorted(tsv, close[m].to_numpy(), side="left")          # strictly before the close
-        lo = np.searchsorted(tsv, (close[m] - pd.Timedelta(days=WINDOW_DAYS)).to_numpy(), side="left")
-        n = hi - lo
-        out.loc[m, "news_count_5d"] = n.astype(float)
-        out.loc[m, "news_sent_5d"] = np.where(n > 0, (csum[hi] - csum[lo]) / np.maximum(n, 1), 0.0)
-    return out
-
+    """Thin wrapper around the shared helper so research and live use identical logic."""
+    from etl_common.news_features import news_features as _nf
+    return _nf(feats, scored)
 
 def main():
     import yaml

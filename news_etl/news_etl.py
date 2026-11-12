@@ -368,6 +368,20 @@ def main():
     # 7) Sentimiento FinBERT — solo sobre la selección final que aún no tiene score
     limited = finbert_enrich(limited, cfg.get("sentiment", {}))
 
+    # 7b) Mantén fresca la tabla de sentimiento del meta-modelo (stocks_etl) para TODOS los
+    # tickers del universo bursátil, usando las etiquetas de Massive (raw_tickers), no solo
+    # los 3 del detector por palabra clave. Best-effort: nunca rompe la corrida de noticias.
+    try:
+        import yaml as _yaml
+        from etl_common.news_features import append_sentiment
+        uni = _yaml.safe_load(open("stocks_etl/config.yaml", encoding="utf-8")).get("universe", {})
+        stock_universe = {t for v in uni.values() for t in v}
+        enriched_all = finbert_enrich(_dedupe_by_url(raw_all), cfg.get("sentiment", {}))
+        n_app = append_sentiment(enriched_all, "docs/data/history/news_sentiment.csv", stock_universe)
+        LOG.info("[STEP] news_sentiment.csv += %d filas (universo bursátil)", n_app)
+    except Exception as e:  # noqa: BLE001
+        LOG.warning("append a news_sentiment.csv omitido: %s", e)
+
     # Orden final por fecha desc
     limited.sort(key=lambda x: x.get("published_at", ""), reverse=True)
 
