@@ -1,15 +1,10 @@
-# stocks_etl/stocks_etl.py — REPLACE COMPLETE
+# stocks_etl/stocks_etl.py — daily ETL; prices from Massive only
 import argparse
 import os
-import random
-import tempfile
-import time
 import warnings
 from datetime import datetime, timezone
 import pandas as pd
-import yfinance as yf
 import pandas_market_calendars as mcal
-from tenacity import retry, wait_exponential_jitter, stop_after_attempt
 
 from stocks_etl.features import make_features
 from stocks_etl.meta_model import make_signals
@@ -24,162 +19,6 @@ from stocks_etl.publish_json import (
 from etl_common.manifest import update_manifest
 
 warnings.simplefilter("ignore", FutureWarning)
-
-
-@retry(wait=wait_exponential_jitter(initial=1, max=30), stop=stop_after_attempt(5))
-def _download(symbols, start, end, interval, auto_adjust, actions, threads):
-    return yf.download(
-        tickers=symbols,
-        start=start,
-        end=end,
-        interval=interval,
-        auto_adjust=auto_adjust,
-        actions=actions,
-        group_by="ticker",
-        # threads=1 is truthy and still starts yfinance's worker pool; concurrent
-        # writes to its SQLite cache cause intermittent 'database is locked'.
-        threads=bool(threads) and threads > 1,
-        progress=False,
-    )
-
-
-def _missing_symbols(df_raw, symbols):
-    """Tickers with no valid Close in the raw yfinance frame."""
-    missing = []
-    for s in symbols:
-        if isinstance(df_raw.columns, pd.MultiIndex):
-            if s not in df_raw.columns.get_level_values(0):
-                missing.append(s)
-                continue
-            dfi = df_raw[s]
-        else:
-            dfi = df_raw
-        if "Close" not in dfi.columns or dfi["Close"].notna().sum() == 0:
-            missing.append(s)
-    return missing
-
-
-def _download_with_retry(symbols, start, end, interval, auto_adjust, actions, threads, attempts=4):
-    """Batch download, then re-download failed tickers one by one with backoff.
-
-    yf.download does not raise when a ticker fails (it returns an all-NaN column),
-    so tenacity on _download alone never retries those transient failures.
-    """
-    df_raw = _download(symbols, start, end, interval, auto_adjust, actions, threads)
-    if not isinstance(df_raw.columns, pd.MultiIndex):
-        df_raw = pd.concat({symbols[0]: df_raw}, axis=1) if len(symbols) == 1 else df_raw
-
-    missing = _missing_symbols(df_raw, symbols)
-    for attempt in range(1, attempts + 1):
-        if not missing:
-            break
-        delay = 2 ** attempt + random.uniform(0, 1)
-        print(f"[RETRY] attempt {attempt}/{attempts} for {missing} in {delay:.1f}s")
-        time.sleep(delay)
-        for s in missing:
-            try:
-                dfs = _download([s], start, end, interval, auto_adjust, actions, threads)
-            except Exception as e:
-                print(f"[RETRY] {s}: {e!r}")
-                continue
-            if not isinstance(dfs.columns, pd.MultiIndex):
-                dfs = pd.concat({s: dfs}, axis=1)
-            if _missing_symbols(dfs, [s]):
-                continue
-            df_raw = df_raw.drop(columns=s, level=0, errors="ignore")
-            df_raw = pd.concat([df_raw, dfs], axis=1)
-        missing = _missing_symbols(df_raw, symbols)
-    return df_raw
-
-
-def _normalize(df_raw, symbols, auto_adjust, cal_name):
-    """Normaliza a un esquema uniforme y concatena todo en un solo DataFrame."""
-    records = []
-    cal = mcal.get_calendar(cal_name) if cal_name else None
-
-    for s in symbols:
-        dfi = df_raw[s] if isinstance(df_raw.columns, pd.MultiIndex) else df_raw
-        if dfi.empty:
-            continue
-
-        # reset index y estandarizar nombres
-        dfi = dfi.reset_index()
-        dfi.columns = [str(c).lower() for c in dfi.columns]
-
-        # detectar columna temporal de forma robusta (date/datetime/primera datetime)
-        dt_col = None
-        for cand in ("date", "datetime"):
-            if cand in dfi.columns:
-                dt_col = cand
-                break
-        if dt_col is None:
-            for c in dfi.columns:
-                if pd.api.types.is_datetime64_any_dtype(dfi[c]):
-                    dt_col = c
-                    break
-        if dt_col is None and pd.api.types.is_datetime64_any_dtype(dfi.index):
-            dfi = dfi.reset_index().rename(columns={"index": "date"})
-            dt_col = "date"
-        if dt_col is None:
-            raise ValueError(f"No se encontró columna de tiempo. Columnas: {list(dfi.columns)}")
-
-        # renombrar OHLC/acciones
-        rename = {"adj close": "adj_close", "stock splits": "stock_splits"}
-        dfi = dfi.rename(columns=rename)
-
-        # crear columna 'date' UTC y eliminar la original si es distinta
-        dfi["date"] = pd.to_datetime(dfi[dt_col], utc=True)
-        if dt_col != "date":
-            dfi = dfi.drop(columns=[dt_col])
-
-        dfi["ticker"] = s
-
-        # consistencia de columnas
-        if auto_adjust and "adj_close" not in dfi.columns:
-            dfi["adj_close"] = pd.NA
-        for c in ("dividends", "stock_splits"):
-            if c not in dfi.columns:
-                dfi[c] = 0.0
-
-        # filtrar a días de mercado (diario)
-        if cal is not None and "date" in dfi.columns:
-            try:
-                start_d = dfi["date"].min().date()
-                end_d = dfi["date"].max().date()
-                sched = cal.schedule(start_date=start_d, end_date=end_d)
-                valid = pd.Index(
-                    pd.to_datetime(sched.index)
-                    .tz_localize("America/New_York")
-                    .tz_convert("UTC")
-                    .normalize()
-                )
-                dfi = dfi[dfi["date"].dt.normalize().isin(valid)]
-            except Exception:
-                pass
-
-        records.append(
-            dfi[
-                [
-                    "date",
-                    "ticker",
-                    "open",
-                    "high",
-                    "low",
-                    "close",
-                    "adj_close",
-                    "volume",
-                    "dividends",
-                    "stock_splits",
-                ]
-            ]
-        )
-
-    out = (
-        pd.concat(records, ignore_index=True).sort_values(["ticker", "date"])
-        if records
-        else pd.DataFrame()
-    )
-    return out
 
 
 def write_single_prices_csv(df, base_dir, compression=None):
@@ -209,41 +48,67 @@ def universe_symbols(cfg):
     return list(cfg["symbols"])
 
 
+def _trading_days(df, cal_name):
+    """Keep only NYSE sessions (drops any stray non-session bar)."""
+    if df.empty or not cal_name:
+        return df
+    sched = mcal.get_calendar(cal_name).schedule(start_date=df["date"].min().date(),
+                                                  end_date=df["date"].max().date())
+    valid = pd.DatetimeIndex(pd.to_datetime(sched.index)).tz_localize("UTC").normalize()
+    return df[df["date"].isin(valid)]
+
+
+def massive_frame(rows, ticker):
+    """Massive daily aggregates -> the pipeline schema (date = session day at 00:00 UTC)."""
+    if not rows:
+        return pd.DataFrame()
+    d = pd.DataFrame(rows)
+    day = pd.to_datetime(d["t"], unit="ms", utc=True).dt.tz_convert("America/New_York").dt.tz_localize(None)
+    return pd.DataFrame({"date": day.dt.normalize().dt.tz_localize("UTC"), "ticker": ticker,
+                         "open": d["o"].astype(float), "high": d["h"].astype(float), "low": d["l"].astype(float),
+                         "close": d["c"].astype(float), "adj_close": pd.NA, "volume": d["v"].astype(float),
+                         "dividends": 0.0, "stock_splits": 0.0})
+
+
+def load_prices(cfg, symbols, client=None):
+    """Daily bars from Massive only (split-adjusted, adjusted=true). History is the plan's
+    rolling window (massive_history_years), never earlier than cfg['start']."""
+    if client is None:
+        from etl_common.massive import MassiveClient, load_api_key
+        client = MassiveClient(load_api_key())
+    end = cfg.get("end") or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    years = int(cfg.get("massive_history_years", 10))
+    start = pd.Timestamp(end) - pd.DateOffset(years=years) + pd.Timedelta(days=7)
+    if cfg.get("start"):
+        start = max(start, pd.Timestamp(cfg["start"]))
+    parts = []
+    for s in symbols:
+        rows = client.daily_aggs(s, start.strftime("%Y-%m-%d"), end)
+        if not rows:
+            raise SystemExit(f"Massive returned no daily bars for {s}")
+        parts.append(massive_frame(rows, s))
+    df = _trading_days(pd.concat(parts, ignore_index=True), cfg.get("calendar"))
+    df = df.sort_values(["ticker", "date"]).reset_index(drop=True)
+    print(f"[MASSIVE] {len(df)} rows {df['date'].min().date()}..{df['date'].max().date()}")
+    return df
+
+
+
+
 def main(cfg):
     symbols = universe_symbols(cfg)
     qcfg = cfg.get("quant", {}) or {}
 
-    # Fresh per-run cache dir: no stale locks or corrupt SQLite from earlier runs.
-    if hasattr(yf, "set_tz_cache_location"):
-        yf.set_tz_cache_location(tempfile.mkdtemp(prefix="yf-cache-"))
+    df = load_prices(cfg, symbols)
 
-    df_raw = _download_with_retry(
-        symbols=symbols,
-        start=cfg.get("start"),
-        end=cfg.get("end"),
-        interval=cfg.get("interval", "1d"),
-        auto_adjust=cfg.get("auto_adjust", True),
-        actions=cfg.get("actions", True),
-        threads=cfg.get("threads", 1),
-    )
-
-    df = _normalize(
-        df_raw=df_raw,
-        symbols=symbols,
-        auto_adjust=cfg.get("auto_adjust", True),
-        cal_name=cfg.get("calendar"),
-    )
-
-    # yfinance rate limits can yield an empty frame without raising; fail loudly
-    # so the workflow fails instead of publishing empty JSON.
+    # Fail loudly instead of publishing empty JSON.
     if df.empty:
-        raise SystemExit("yfinance returned no data for any symbol")
+        raise SystemExit("Massive returned no data for any symbol")
 
-    # A failed download comes back as an all-NaN column, not an exception.
     # A ticker with zero valid closes must fail the run, never publish a null series.
     no_prices = [s for s in symbols if df.loc[df["ticker"] == s, "close"].notna().sum() == 0]
     if no_prices:
-        raise SystemExit(f"yfinance returned no valid prices for {no_prices}")
+        raise SystemExit(f"Massive returned no valid prices for {no_prices}")
 
     # === Resumen para verificación ===
     if not df.empty:

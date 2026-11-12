@@ -1,14 +1,9 @@
 # stocks_etl/config.yaml
-start: "2005-01-01"   # incluye 2008: con 500 sesiones de entrenamiento se opera desde ~2007
+# Precios: solo Massive (barras diarias ajustadas por splits, adjusted=true)
+start: "2016-11-14"   # primera sesión de la ventana de 10 años del plan; sin 2008 (se opera desde ~2018)
 end: null
-interval: "1d"
+massive_history_years: 10  # historia del plan Stocks Developer
 
-# Precios y eventos
-auto_adjust: false      # mantener Close sin ajustar; adj_close viene aparte
-actions: true
-
-# Concurrencia y calendario
-threads: 1
 calendar: "NYSE"
 
 # Salida local
@@ -47,6 +42,7 @@ quant:
   max_half_life: 20     # vida media máxima operable (sesiones)
   momentum_horizon: 20  # barrera de tiempo de momentum (sesiones). V4, promovido 2026-11-11
   strategies: [momentum]  # V2/V4: la reversión a la media perdía dinero; se apaga
+  data_source: massive  # cambiar la fuente de datos es un intento más (queda en trials_log)
   barrier_mode: live    # backtest con la ejecución real: entrada a la apertura siguiente, barreras intradía
   t_max_min: 3
   t_max_cap: 20
