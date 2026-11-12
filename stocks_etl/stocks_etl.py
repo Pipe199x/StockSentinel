@@ -17,6 +17,7 @@ from stocks_etl.publish_json import (
     append_signals_history,
 )
 from etl_common.manifest import update_manifest
+from etl_common.news_features import NEWS_FEATURES, load_sentiment, news_features
 
 warnings.simplefilter("ignore", FutureWarning)
 
@@ -121,6 +122,15 @@ def main(cfg):
     feats, meta = make_features(df, qcfg)
     pub = cfg.get("publish", {}) or {}
     docs_dir = pub.get("docs_dir", "docs/data")
+
+    # Noticias: añade news_sent_5d / news_count_5d (point-in-time, antes del cierre) si el
+    # meta-modelo los pide. Si falta la tabla, las features quedan en 0 y el modelo sigue igual.
+    if any(c in (qcfg.get("extra_features") or []) for c in NEWS_FEATURES):
+        sent_path = os.path.join(docs_dir, "history", "news_sentiment.csv")
+        scored = load_sentiment(sent_path)
+        feats = news_features(feats, scored)
+        print(f"[SUMMARY] news sentiment rows={len(scored)} "
+              f"(events with news={int((feats['news_count_5d'] > 0).sum())})")
     signals, report = make_signals(
         feats, meta, qcfg, cal_name=cfg.get("calendar"),
         trials_path=os.path.join(docs_dir, "history", "trials_log.csv"),

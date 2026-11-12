@@ -43,6 +43,9 @@ quant:
   momentum_horizon: 20  # barrera de tiempo de momentum (sesiones). V4, promovido 2026-11-11
   strategies: [momentum]  # V2/V4: la reversión a la media perdía dinero; se apaga
   data_source: massive  # cambiar la fuente de datos es un intento más (queda en trials_log)
+  # Noticias (Massive + FinBERT) como features del meta-modelo. Validado en M3: mejora el
+  # replay (Gate 0 pasa) aunque el DSR sigue < 0.95. Cada feature nuevo es un intento más.
+  extra_features: [news_sent_5d, news_count_5d]
   barrier_mode: live    # backtest con la ejecución real: entrada a la apertura siguiente, barreras intradía
   t_max_min: 3
   t_max_cap: 20
