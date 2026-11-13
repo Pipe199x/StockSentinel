@@ -2,7 +2,7 @@
   "as_of": "2026-11-12",
   "started": "2026-11-11",
   "counts": {
-    "pending": 0,
+    "pending": 1,
     "open": 5,
     "closed": 0
   },
@@ -111,6 +111,25 @@
       "exit_reason": null,
       "ret_gross": null,
       "ret_net": null
+    },
+    {
+      "ticker": "TLT",
+      "signal_date": "2026-11-12",
+      "side": -1,
+      "size": 0.001,
+      "p_success": 0.5009915828704834,
+      "tp": 75.84715999853076,
+      "sl": 83.59284000146924,
+      "exit_by": "2026-12-11",
+      "status": "pending",
+      "entry_date": null,
+      "entry_price": null,
+      "last_checked": null,
+      "exit_date": null,
+      "exit_price": null,
+      "exit_reason": null,
+      "ret_gross": null,
+      "ret_net": null
     }
   ],
   "recent_closed": [],
@@ -119,11 +138,11 @@
     "reason": "0 of 30 closed trades needed before judging",
     "min_trades": 30,
     "live_sr_per_trade": null,
-    "backtest_sr_per_trade": 0.08986966707316332,
-    "backtest_expected_value": 0.002378849755603346,
+    "backtest_sr_per_trade": 0.056249636309136916,
+    "backtest_expected_value": 0.0012697108421693866,
     "backtest_cpcv_range": [
-      0.042761113960155875,
-      0.08491476765727621
+      0.014972831333603222,
+      0.06461096339285499
     ]
   }
 }

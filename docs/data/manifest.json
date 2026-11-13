@@ -13,7 +13,7 @@
     "new_embeddings": 8
   },
   "stocks": {
-    "last_updated_utc": "2026-11-12T22:07:31.210247+00:00",
+    "last_updated_utc": "2026-11-13T02:50:41.621603+00:00",
     "as_of": "2026-11-12",
     "rows": 62700,
     "tickers": [
@@ -44,13 +44,13 @@
       "TLT"
     ],
     "price_window_days": 60,
-    "dsr": 0.8167
+    "dsr": 0.5766
   },
   "paper": {
-    "last_updated_utc": "2026-11-12T22:07:31.210247+00:00",
+    "last_updated_utc": "2026-11-13T02:50:41.621603+00:00",
     "as_of": "2026-11-12",
     "counts": {
-      "pending": 0,
+      "pending": 1,
       "open": 5,
       "closed": 0
     },
