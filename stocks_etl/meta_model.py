@@ -71,9 +71,11 @@ def build_events(feats: pd.DataFrame, cfg: dict, resolver=None) -> Tuple[pd.Data
         args = (pos, f["side"].to_numpy()[pos], f["sigma_event"].to_numpy()[pos], k_tp, k_sl,
                 f["t_max"].to_numpy()[pos])
         if mode == "live":
+            # cash dividends (split-adjusted) with ex-date in (entry, exit]: longs receive them, shorts pay
+            div = f["dividends"].to_numpy(dtype=float) if "dividends" in f else None
             tb = triple_barrier_live(f["open"].to_numpy(), f["high"].to_numpy(), f["low"].to_numpy(),
                                      f["close"].to_numpy(), *args,
-                                     series_ended=bool(f["date"].iloc[-1] < global_last))
+                                     series_ended=bool(f["date"].iloc[-1] < global_last), div=div)
         elif intraday:
             dates = f["date"].to_numpy()
             resolve = None
@@ -92,6 +94,9 @@ def build_events(feats: pd.DataFrame, cfg: dict, resolver=None) -> Tuple[pd.Data
         ev["barrier"] = tb["barrier"].to_numpy()
         if "ambiguous" in tb:
             ev["ambiguous"] = tb["ambiguous"].to_numpy()
+        for k in ("entry_px", "exit_px", "div"):
+            if k in tb:
+                ev[k] = tb[k].to_numpy()
         events.append(ev)
     ev = pd.concat(events, ignore_index=True) if events else pd.DataFrame()
     if not ev.empty:

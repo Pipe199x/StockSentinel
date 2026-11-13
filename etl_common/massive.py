@@ -95,6 +95,17 @@ class MassiveClient:
                              {"adjusted": str(adjusted).lower(), "sort": "asc", "limit": 50000})
         return data.get("results", []) or []
 
+    def dividends(self, ticker: str, start: str) -> Iterator[Dict]:
+        """Cash distributions with ex-date on/after `start` (cash_amount is per share as of the
+        ex-date, i.e. NOT adjusted for later splits)."""
+        return self.paginate("/v3/reference/dividends", {"ticker": ticker, "ex_dividend_date.gte": start,
+                                                         "order": "asc", "sort": "ex_dividend_date", "limit": 1000})
+
+    def splits(self, ticker: str, start: str) -> Iterator[Dict]:
+        """Splits executed on/after `start` (split_from -> split_to shares)."""
+        return self.paginate("/v3/reference/splits", {"ticker": ticker, "execution_date.gte": start,
+                                                      "order": "asc", "sort": "execution_date", "limit": 1000})
+
     def news(self, ticker: str, since_utc: str, limit: int = 1000) -> Iterator[Dict]:
         """News articles tagged with `ticker`, published at or after `since_utc`, newest first."""
         return self.paginate("/v2/reference/news", {"ticker": ticker, "published_utc.gte": since_utc,

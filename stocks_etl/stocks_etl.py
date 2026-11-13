@@ -19,6 +19,7 @@ from stocks_etl.publish_json import (
     write_signals_latest_json,
     append_signals_history,
 )
+from etl_common.corporate_actions import refresh_dividends
 from etl_common.manifest import update_manifest
 from etl_common.news_features import CLOSE_UTC_HOUR
 from etl_common.sessions import drop_incomplete_sessions
@@ -194,6 +195,13 @@ def main(cfg, now_utc=None, offline_prices=None, docs_dir=None):
     if quality.fatal:
         raise SystemExit("[DATA] fatal data-quality problems: " + " | ".join(quality.fatal))
 
+    # === Dividendos (escala de precios ajustada por splits): largos cobran, cortos pagan ===
+    df, div_status = refresh_dividends(df, symbols, os.path.join(docs_dir, "history", "dividends.csv"),
+                                       offline=bool(offline_prices))
+    print(f"[DIVIDENDS] source={div_status['source']} rows={div_status['rows']} "
+          f"ex-dates in prices={int((df['dividends'] > 0).sum())}" +
+          (f" error={div_status['error']}" if div_status["error"] else ""))
+
     # === Resumen para verificación ===
     min_d, max_d = df["date"].min(), df["date"].max()
     print(f"[SUMMARY] prices rows={len(df)} tickers={df['ticker'].nunique()} dates={min_d}..{max_d}")
@@ -208,6 +216,7 @@ def main(cfg, now_utc=None, offline_prices=None, docs_dir=None):
     )
     as_of = str(df["date"].max().date())
     report.update({"strategy_label": cfg.get("strategy_label"), "data_quality": quality.as_dict(),
+                   "dividends": div_status,
                    "data_freshness": _data_freshness(docs_dir, as_of, quality.last_session),
                    "environment": _environment()})
     # Un ticker sin la última sesión publica su señal, pero nunca abre posición ese día.
