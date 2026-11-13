@@ -6,6 +6,10 @@ massive_history_years: 10  # historia del plan Stocks Developer
 
 calendar: "NYSE"
 
+# Etiqueta legible de la configuración en vivo. Está FUERA de `quant:` a propósito: solo las
+# claves de `quant:` forman el hash de configuración (trials_log.csv / Deflated Sharpe).
+strategy_label: "V4+news"
+
 # Salida local
 output_dir: "data"
 csv_compression: null  # null | gzip
@@ -71,8 +75,9 @@ deep:
   news_days: 5          # noticias de los 5 días previos (nunca del mismo día)
   news_items: 8
   min_news_events: 500  # bajo esto la fusión con noticias no se entrena
+  embeddings_cache: ".cache/news_embeddings.npz"  # embeddings FinBERT: caché de Actions, no git
 
-# Publicación a GitHub Pages (comprometido al repo por el workflow)
+# Publicación a docs/data (dashboard privado tras Cloudflare Access; lo commitea el workflow)
 publish:
   docs_dir: "docs/data"
   price_window_days: 60

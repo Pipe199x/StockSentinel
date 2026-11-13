@@ -20,11 +20,6 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
 
-    env:
-      PYTHON_VERSION: "3.11"
-      TICKERS: "AAPL,MSFT,GOOGL,AMZN,NVDA,JNJ,UNH,PFE,XOM,CVX,JPM,BAC,GS,PG,KO,WMT,HD,MCD,CAT,BA,NEE"  # the 21 stocks of the universe (no ETFs)
-      DAYS: "2"   # incremental fetch; history accumulates in docs/data/history/
-
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -50,52 +45,13 @@ jobs:
           EOF
           cat "$GITHUB_OUTPUT"
 
-      - name: Setup Python
+      # Tickers come from docs/data/universe.json (the 21 stocks, no ETFs): one source of truth.
+      - name: Update news (fetch + FinBERT + publish to docs/data)
         if: steps.guard.outputs.skip != 'true'
-        uses: actions/setup-python@v6
+        uses: ./.github/actions/update-news
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
-          cache: pip
-          cache-dependency-path: news_etl/requirements.txt
-
-      - name: Cache Hugging Face model (FinBERT)
-        if: steps.guard.outputs.skip != 'true'
-        uses: actions/cache@v5
-        with:
-          path: ~/.cache/huggingface
-          key: hf-finbert-v1
-
-      - name: Install deps (torch CPU wheel first)
-        if: steps.guard.outputs.skip != 'true'
-        run: |
-          set -euo pipefail
-          python -m pip install --upgrade pip
-          pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cpu
-          pip install -r news_etl/requirements.txt
-
-      - name: Prepare data dir
-        if: steps.guard.outputs.skip != 'true'
-        run: mkdir -p data
-
-      - name: Fetch raw news (Massive)
-        if: steps.guard.outputs.skip != 'true'
-        env:
-          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
-        run: |
-          set -euo pipefail
-          python -m news_etl.news_client \
-            --out data/news_raw.ndjson \
-            --tickers "${TICKERS}" \
-            --days "${DAYS}"
-          test -s data/news_raw.ndjson
-
-      - name: Run ETL (merge history + FinBERT sentiment + publish to docs/)
-        if: steps.guard.outputs.skip != 'true'
-        run: |
-          set -euo pipefail
-          python -m news_etl.news_etl --config news_etl/config.yaml
-          echo "=== docs/data ==="
-          ls -lR docs/data
+          massive_api_key: ${{ secrets.MASSIVE_API_KEY }}
+          days: "2"
 
       - name: Verify published JSON is strict JSON (no NaN)
         if: steps.guard.outputs.skip != 'true'

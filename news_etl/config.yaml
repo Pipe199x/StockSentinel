@@ -7,8 +7,10 @@ window:
   last_n_days: 15
 
 tickers:
-  # Solo términos de empresa: los nombres de producto (alexa, xbox, android...)
-  # etiquetan artículos de ofertas de consumo como noticias del ticker
+  # Los tickers de cada noticia son las etiquetas de Massive dentro del universo bursátil
+  # (docs/data/universe.json, las 21 acciones). Estos alias son solo el respaldo para items
+  # sin etiquetas. Solo términos de empresa: los nombres de producto (alexa, xbox, android...)
+  # etiquetan ofertas de consumo, y los símbolos sueltos (ko, ba, hd, gs) palabras comunes.
   universe:
     AMZN: ["amazon", "aws"]
     MSFT: ["microsoft", "azure", "copilot", "bing"]
@@ -37,9 +39,8 @@ paths:
   out_ndjson: "data/news_YYYYMMDD.ndjson"
   out_preview_csv: "data/news_preview_YYYYMMDD.csv"
   heartbeat: "data/heartbeat.txt"
-  # Publicación a GitHub Pages (comprometido al repo por el workflow)
+  # Publicación a docs/data (dashboard privado tras Cloudflare Access; el workflow lo commitea)
   history_ndjson: "docs/data/history/news_history.ndjson"
   latest_json: "docs/data/news_latest.json"
   manifest: "docs/data/manifest.json"
-  # Embeddings FinBERT (768 dims) por artículo, para el modelo de fusión de stocks_etl/deep
-  embeddings: "docs/data/history/news_embeddings.npz"
+  # Los embeddings FinBERT del modelo de fusión los calcula el job semanal (stocks_etl/deep)

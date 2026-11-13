@@ -60,16 +60,25 @@ def _dedupe_by_url(rows: List[dict]) -> List[dict]:
 # Massive (/v2/reference/news): tickers come tagged by the provider, no keyword search
 # -----------------------------
 def massive_rows(articles: Iterable[Dict], ticker: str, universe: set) -> List[dict]:
-    """Massive news items -> the RAW row schema used by news_etl (the RAW schema news_etl.news_etl reads)."""
+    """Massive news items -> the RAW row schema read by news_etl.news_etl.
+
+    The rows keep what the historical backfill (research/massive/news.py) kept, so the live
+    sentiment table is built exactly like the one the meta-model was trained on:
+      - `id`: Massive's article id (the backfill's key; a url hash would duplicate rows);
+      - `all_tickers`: every Massive tag (the "more than 3 tickers = round-up" rule uses all
+        of them, not only the universe ones);
+      - `is_spam`: flagged, never dropped here (the backfill had no spam filter; the
+        dashboard drops flagged items downstream).
+    """
     rows = []
     for a in articles:
         title = a.get("title") or ""
         summary = a.get("description") or ""
         source = (a.get("publisher") or {}).get("name") or "unknown"
-        if is_deal_spam(title, summary, source):
-            continue
-        tagged = [t for t in (a.get("tickers") or []) if t in universe] or [ticker]
+        all_tags = sorted(set(a.get("tickers") or []))
+        tagged = [t for t in all_tags if t in universe] or [ticker]
         rows.append({
+            "id": a.get("id"),
             "published_at": a.get("published_utc"),
             "source": source,
             "title": title,
@@ -77,11 +86,15 @@ def massive_rows(articles: Iterable[Dict], ticker: str, universe: set) -> List[d
             "url": a.get("article_url") or "",
             "image_url": a.get("image_url"),
             "raw_tickers": sorted(set(tagged)),
+            "all_tickers": all_tags,
+            "is_spam": is_deal_spam(title, summary, source),
         })
     return rows
 
 
-def fetch_massive(tickers: List[str], since: datetime, per_day_target: int) -> List[dict]:
+def fetch_massive(tickers: List[str], since: datetime, per_day_target: int = 0) -> List[dict]:
+    """Every article for each ticker since `since`. per_day_target > 0 caps rows per
+    (ticker, day); the default 0 keeps all of them, like the backfill the model learned from."""
     from etl_common.massive import MassiveClient, load_api_key
     client = MassiveClient(load_api_key())
     universe = set(tickers)
@@ -89,14 +102,21 @@ def fetch_massive(tickers: List[str], since: datetime, per_day_target: int) -> L
     for t in tickers:
         rows = massive_rows(client.news(t, since.strftime("%Y-%m-%dT%H:%M:%SZ")), t, universe)
         per_day: Dict[str, int] = {}
-        for r in rows:  # newest first: keep the latest per_day_target per (ticker, day)
+        for r in rows:  # newest first: with a cap, keep the latest per_day_target per (ticker, day)
             day = (r["published_at"] or "")[:10]
-            if per_day.get(day, 0) >= per_day_target:
+            if per_day_target and per_day.get(day, 0) >= per_day_target:
                 continue
             per_day[day] = per_day.get(day, 0) + 1
             out.append(r)
         logging.info("[massive] %s: %d articles", t, len(rows))
     return out
+
+
+def tickers_from_universe(path: str) -> List[str]:
+    """Stock tickers from the published universe.json (ETFs excluded: they have no company news)."""
+    with open(path, encoding="utf-8") as fh:
+        sectors = json.load(fh).get("sectors", {})
+    return sorted({t for sec, tks in sectors.items() if sec.upper() != "ETFS" for t in tks})
 
 
 # -----------------------------
@@ -105,9 +125,12 @@ def fetch_massive(tickers: List[str], since: datetime, per_day_target: int) -> L
 def run_cli():
     ap = argparse.ArgumentParser(description="Descarga noticias de Massive y genera NDJSON RAW.")
     ap.add_argument("--out", required=True, help="Ruta del NDJSON de salida")
-    ap.add_argument("--tickers", required=True, help="Lista separada por coma, ej.: AMZN,MSFT,GOOGL")
+    ap.add_argument("--tickers", default=None, help="Lista separada por coma, ej.: AMZN,MSFT,GOOGL")
+    ap.add_argument("--tickers-from", default=None,
+                    help="universe.json publicado: usa todas sus acciones (sin ETFs) en lugar de --tickers")
     ap.add_argument("--days", type=int, default=2, help="Ventana de días hacia atrás (incluye hoy)")
-    ap.add_argument("--per-day-target", type=int, default=20, help="Máx. registros a guardar por (ticker, día) en RAW")
+    ap.add_argument("--per-day-target", type=int, default=0,
+                    help="Máx. registros por (ticker, día) en RAW; 0 = sin tope (como el histórico)")
     args = ap.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s | %(message)s")
@@ -115,7 +138,12 @@ def run_cli():
     # Ventana [hoy-(days-1) .. hoy]
     today_utc = datetime.utcnow().replace(microsecond=0)
     start_window = (today_utc - timedelta(days=max(1, args.days) - 1)).replace(hour=0, minute=0, second=0, microsecond=0)
-    tickers = [t.strip().upper() for t in args.tickers.split(",") if t.strip()]
+    if args.tickers_from:
+        tickers = tickers_from_universe(args.tickers_from)
+    elif args.tickers:
+        tickers = [t.strip().upper() for t in args.tickers.split(",") if t.strip()]
+    else:
+        ap.error("pass --tickers or --tickers-from")
     logging.info("Tickers: %s | Ventana: %s → %s", tickers, start_window.date(), today_utc.date())
 
     all_rows = _dedupe_by_url(fetch_massive(tickers, start_window, args.per_day_target))

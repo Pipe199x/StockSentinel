@@ -38,8 +38,7 @@ def signed_sentiment(label: str, score: float) -> float:
     return 0.0
 
 
-def load_sentiment(path: str | Path) -> pd.DataFrame:
-    """Read the sentiment table; empty frame (right columns) if it is missing."""
+def _read_sentiment(path: str | Path) -> pd.DataFrame:
     p = Path(path)
     if not p.exists():
         return pd.DataFrame(columns=SENTIMENT_COLUMNS)
@@ -47,6 +46,29 @@ def load_sentiment(path: str | Path) -> pd.DataFrame:
     df["published_utc"] = pd.to_datetime(df["published_utc"], utc=True)
     df["sent"] = df["sent"].astype(float)
     return df
+
+
+def _is_legacy_id(ids: pd.Series) -> pd.Series:
+    """Rows written by live runs before 2026-11-14 used sha1(url)[:16] instead of Massive's id."""
+    return ids.astype(str).str.fullmatch(r"[0-9a-f]{16}")
+
+
+def drop_legacy_twins(df: pd.DataFrame) -> pd.DataFrame:
+    """Drop legacy url-hash rows that duplicate a Massive-id row (same ticker and timestamp):
+    the same article counted twice would inflate news_count_5d."""
+    if df.empty:
+        return df
+    legacy = _is_legacy_id(df["id"])
+    if not legacy.any():
+        return df
+    massive = set(zip(df.loc[~legacy, "ticker"], df.loc[~legacy, "published_utc"]))
+    twin = np.fromiter(((t, p) in massive for t, p in zip(df["ticker"], df["published_utc"])), bool, len(df))
+    return df[~(legacy.to_numpy() & twin)].reset_index(drop=True)
+
+
+def load_sentiment(path: str | Path) -> pd.DataFrame:
+    """Read the sentiment table (duplicated legacy rows removed); empty frame if it is missing."""
+    return drop_legacy_twins(_read_sentiment(path))
 
 
 def _stable_id(item: dict) -> str:
@@ -58,35 +80,52 @@ def _stable_id(item: dict) -> str:
 def append_sentiment(items, path: str | Path, universe) -> int:
     """Append signed-sentiment rows for FinBERT-enriched news items to the table.
 
-    Each item needs 'sentiment' ({label, score}), 'published_at', and provider tags in
-    'raw_tickers' (falls back to 'tickers'). One row per (article, universe ticker), deduped
-    by (id, ticker) against what is already on disk. Keeps the meta-model's news current
-    without re-downloading history. Best-effort: returns how many rows were added.
+    Built exactly like the historical backfill the meta-model was trained on
+    (research/massive/news.py): one row per (Massive article id, tagged universe ticker);
+    an article with more than MAX_TICKERS Massive tags (all of them, not only universe
+    ones) is a market round-up and is skipped; spam is not filtered. Items need
+    'sentiment' ({label, score}), 'published_at', 'id' and 'all_tickers' (older items
+    without them fall back to the url hash and 'raw_tickers'/'tickers').
+
+    Self-healing: a row first stored under the legacy url hash is re-keyed to the Massive
+    id when that article is fetched again, and legacy rows duplicating a Massive-id row
+    are dropped. Best-effort: returns how many new rows were added.
     """
     universe = set(universe or [])
-    existing = load_sentiment(path)
+    raw = _read_sentiment(path)
+    existing = drop_legacy_twins(raw)
+    healed = len(existing) < len(raw)
     seen = set(zip(existing["id"], existing["ticker"])) if len(existing) else set()
-    rows = []
+    rows, rekey = [], {}
     for it in items:
         s = it.get("sentiment") or {}
         if not s:
             continue
         sent = signed_sentiment(s.get("label", ""), s.get("score", 0.0))
         pub = it.get("published_at") or it.get("published_utc")
-        tags = it.get("raw_tickers") or it.get("tickers") or []
+        tags = it.get("all_tickers") or it.get("raw_tickers") or it.get("tickers") or []
         if len(tags) > MAX_TICKERS or not pub:
             continue
-        aid = _stable_id(it)
+        legacy = _stable_id(it)
+        aid = it.get("id") or legacy
         for t in tags:
-            if t in universe and (aid, t) not in seen:
+            if t not in universe or (aid, t) in seen:
+                continue
+            if aid != legacy and (legacy, t) in seen:   # stored before under its url hash: re-key it
+                rekey[(legacy, t)] = aid
+            else:
                 rows.append((aid, t, pub, sent))
-                seen.add((aid, t))
-    if not rows:
+            seen.add((aid, t))
+    if not rows and not rekey and not healed:
         return 0
-    add = pd.DataFrame(rows, columns=SENTIMENT_COLUMNS)
-    add["published_utc"] = pd.to_datetime(add["published_utc"], utc=True)
-    out = add if existing.empty else pd.concat([existing, add], ignore_index=True)
-    out = out.sort_values("published_utc")
+    out = existing.copy()
+    if rekey:
+        out["id"] = [rekey.get((i, t), i) for i, t in zip(out["id"], out["ticker"])]
+    if rows:
+        add = pd.DataFrame(rows, columns=SENTIMENT_COLUMNS)
+        add["published_utc"] = pd.to_datetime(add["published_utc"], utc=True)
+        out = add if out.empty else pd.concat([out, add], ignore_index=True)
+    out = out.sort_values("published_utc", kind="stable")
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     out.to_csv(path, index=False)
     return len(rows)

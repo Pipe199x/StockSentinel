@@ -58,3 +58,11 @@ def test_models_forward_shapes():
     for cls, kw in [(LSTMMeta, {}), (FusionMeta, {"E": E, "M": M})]:
         p = fit_predict(cls, X, S, y, tr, te, epochs=1, hidden=8, **kw)
         assert p.shape == (16,) and np.all((p >= 0) & (p <= 1))
+
+
+def test_xgb_baseline_sees_the_live_model_features():
+    # the weekly baseline must be the live meta-model: news features included when configured
+    from stocks_etl.deep.train import baseline_features
+    from stocks_etl.meta_model import feature_cols
+    q = {"extra_features": ["news_sent_5d", "news_count_5d"]}
+    assert baseline_features(q) == feature_cols(q) and "news_sent_5d" in baseline_features(q)

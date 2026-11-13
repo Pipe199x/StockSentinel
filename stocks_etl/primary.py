@@ -18,10 +18,10 @@ STRATEGY_NAMES = {0: "none", 1: "momentum", 2: "mean_reversion"}
 def primary_side(f: pd.DataFrame, cfg: dict) -> pd.DataFrame:
     z_entry = float(cfg.get("z_entry", 1.5))
     max_hl = float(cfg.get("max_half_life", 20))
-    mom_h = int(cfg.get("momentum_horizon", 10))
+    mom_h = int(cfg.get("momentum_horizon", 20))
     t_min, t_cap = int(cfg.get("t_max_min", 3)), int(cfg.get("t_max_cap", 20))
 
-    regime_col = "mkt_regime" if cfg.get("regime_source", "asset") == "market" else "regime"
+    regime_col = "mkt_regime" if cfg.get("regime_source", "market") == "market" else "regime"
     needed = ["hurst", "zscore", "half_life", "log_ret_20", "sigma_garch", regime_col]
     ok = f[needed].notna().all(axis=1) & np.isfinite(f["sigma_garch"])
     stress = f[regime_col] == 2

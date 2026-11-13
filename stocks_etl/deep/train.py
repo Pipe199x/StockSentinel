@@ -3,14 +3,19 @@
     python -m stocks_etl.deep.train --config stocks_etl/config.yaml
 
 Compara LSTM y fusión (precio + noticias) contra el XGBoost diario sobre los MISMOS
-eventos y con el mismo Purged K-Fold. Un modelo deep solo se promueve si su Deflated
-Sharpe supera 0.95 y además mejora al XGBoost; si no, queda "en evaluación". Cada
-modelo probado se registra en trials_log.csv: también es un intento.
+eventos, con el mismo Purged K-Fold y las MISMAS features que el modelo en vivo (noticias
+incluidas). Un modelo deep es "promovible" si su Deflated Sharpe supera 0.95 y además mejora
+al XGBoost. Es informativo: nada consume todavía sus señales. Cada modelo probado se
+registra en trials_log.csv: también es un intento.
+
+Los embeddings FinBERT de la rama de noticias se calculan aquí (caché de Actions entre
+semanas), no en el job diario: un .npz reescrito y commiteado cada día inflaba git.
 """
 import argparse
+import json
 import os
 from datetime import datetime, timezone
-from typing import Dict, Optional
+from typing import Dict, List, Optional
 
 import numpy as np
 import pandas as pd
@@ -18,10 +23,32 @@ import yaml
 
 from stocks_etl.deep.data import STATIC, build_sequences, load_news, news_coverage, news_tensor, standardize
 from stocks_etl.deep.models import FusionMeta, LSTMMeta, fit_predict
-from stocks_etl.features import make_features
-from stocks_etl.meta_model import FEATURES, _model, _trade_stats, build_events, sequential_trades
+from stocks_etl.meta_model import _model, _trade_stats, build_events, feature_cols, sequential_trades
+from stocks_etl.pipeline import build_feature_frame
 from stocks_etl.publish_json import write_json
-from stocks_etl.validation import PurgedKFold, deflated_sharpe, log_trial, read_trials
+from stocks_etl.validation import PurgedKFold, config_hash, deflated_sharpe, log_trial, read_trials
+
+DEFAULT_EMB_CACHE = ".cache/news_embeddings.npz"
+
+
+def baseline_features(qcfg: dict) -> List[str]:
+    """The XGBoost baseline sees exactly the live meta-model's inputs (extra_features included)."""
+    return feature_cols(qcfg)
+
+
+def refresh_embeddings(history_path: str, emb_path: str, news_cfg_path: str = "news_etl/config.yaml") -> int:
+    """FinBERT embeddings for every article of news_history that is not in the cache yet."""
+    from news_etl.finbert_sentiment import update_embeddings
+    try:
+        with open(news_cfg_path, encoding="utf-8") as fh:
+            scfg = (yaml.safe_load(fh) or {}).get("sentiment", {}) or {}
+    except FileNotFoundError:
+        scfg = {}
+    items = []
+    if os.path.exists(history_path):
+        with open(history_path, encoding="utf-8") as fh:
+            items = [json.loads(line) for line in fh if line.strip()]
+    return update_embeddings(items, emb_path, scfg)
 
 
 def _oof(ev: pd.DataFrame, cfg: dict, predict) -> np.ndarray:
@@ -67,7 +94,8 @@ def main(cfg: dict) -> Dict:
 
     df = pd.read_csv(os.path.join(docs, "history", "prices_history.csv"), parse_dates=["date"])
     df["date"] = pd.to_datetime(df["date"], utc=True)
-    feats, meta = make_features(df, qcfg)
+    feats, meta = build_feature_frame(df, qcfg, docs)
+    cols = baseline_features(qcfg)
     ev, latest = build_events(feats, qcfg)
     as_of = str(feats["date"].max().date())
 
@@ -82,14 +110,18 @@ def main(cfg: dict) -> Dict:
 
     def xgb_predict(tr, te, rows=None):
         rows = ev if rows is None else rows
-        m = _model(seed).fit(rows[FEATURES].iloc[tr], rows["label"].iloc[tr])
-        return m.predict_proba(rows[FEATURES].iloc[te])[:, 1]
+        m = _model(seed).fit(rows[cols].iloc[tr], rows["label"].iloc[tr])
+        return m.predict_proba(rows[cols].iloc[te])[:, 1]
 
     def lstm_predict(tr, te):
         return fit_predict(LSTMMeta, standardize(X, tr), S, y, tr, te, epochs=epochs, seed=seed, hidden=hidden)
 
     xgb_oof = _oof(ev, qcfg, xgb_predict)
-    report = {"as_of": as_of, "generated_utc": datetime.now(timezone.utc).isoformat(), "n_events": int(len(ev))}
+    report = {"as_of": as_of, "generated_utc": datetime.now(timezone.utc).isoformat(), "n_events": int(len(ev)),
+              "config_hash": config_hash(base_trial), "informational": True,
+              "note": ("Deep models are evaluated weekly against the live XGBoost on the same events and features. "
+                       "'promoted' means the model passed the gate (DSR > 0.95 and beats XGBoost); nothing trades "
+                       "on it yet. The report is stale when its config_hash differs from validation_report.json.")}
     # el XGB ya está registrado por el ETL diario con esta misma configuración: no es un intento nuevo
     report["xgb"] = _score(ev, xgb_oof, qcfg, None, trials_path, as_of)
     report["lstm"] = _score(ev, _oof(ev, qcfg, lstm_predict), qcfg, {**base_trial, "model": "lstm", **deep_trial},
@@ -99,8 +131,10 @@ def main(cfg: dict) -> Dict:
           f"DSR={report['lstm'].get('dsr')}")
 
     # --- fusión precio + noticias: solo donde hay noticias con embedding ----------------
-    news = load_news(os.path.join(docs, "history", "news_history.ndjson"),
-                     os.path.join(docs, "history", "news_embeddings.npz"))
+    hist_path = os.path.join(docs, "history", "news_history.ndjson")
+    emb_path = os.environ.get("NEWS_EMB_CACHE") or dcfg.get("embeddings_cache", DEFAULT_EMB_CACHE)
+    print(f"[DEEP] FinBERT embeddings: +{refresh_embeddings(hist_path, emb_path)} -> {emb_path}")
+    news = load_news(hist_path, emb_path)
     cov = news_coverage(ev[["ticker", "start"]], news)
     min_events = int(dcfg.get("min_news_events", 500))
     fusion: Dict = {"events_with_news_coverage": int(cov.sum()), "min_events": min_events,
