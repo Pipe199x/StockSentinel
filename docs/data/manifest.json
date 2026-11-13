@@ -13,9 +13,9 @@
     "new_embeddings": 8
   },
   "stocks": {
-    "last_updated_utc": "2026-11-13T02:50:41.621603+00:00",
-    "as_of": "2026-11-12",
-    "rows": 62700,
+    "last_updated_utc": "2026-11-13T15:02:01.189219+00:00",
+    "as_of": "2026-11-13",
+    "rows": 62725,
     "tickers": [
       "AAPL",
       "MSFT",
@@ -44,14 +44,14 @@
       "TLT"
     ],
     "price_window_days": 60,
-    "dsr": 0.5766
+    "dsr": 0.6885
   },
   "paper": {
-    "last_updated_utc": "2026-11-13T02:50:41.621603+00:00",
-    "as_of": "2026-11-12",
+    "last_updated_utc": "2026-11-13T15:02:01.189219+00:00",
+    "as_of": "2026-11-13",
     "counts": {
-      "pending": 1,
-      "open": 5,
+      "pending": 0,
+      "open": 6,
       "closed": 0
     },
     "gate0": "collecting"

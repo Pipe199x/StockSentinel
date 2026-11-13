@@ -1,19 +1,23 @@
 {
-  "as_of": "2026-11-12",
+  "as_of": "2026-11-13",
   "started": "2026-11-11",
   "counts": {
-    "pending": 1,
-    "open": 5,
+    "pending": 0,
+    "open": 6,
     "closed": 0
   },
   "win_rate": null,
   "expected_value": null,
   "sr_per_trade": null,
-  "total_return": -0.0011355905769563357,
+  "total_return": -0.001086667670898045,
   "equity_curve": [
     {
       "date": "2026-11-12",
       "equity": 0.9988644094230437
+    },
+    {
+      "date": "2026-11-13",
+      "equity": 0.998913332329102
     }
   ],
   "positions": [
@@ -29,7 +33,7 @@
       "status": "open",
       "entry_date": "2026-11-12",
       "entry_price": 355.07000732421875,
-      "last_checked": "2026-11-12",
+      "last_checked": "2026-11-13",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -48,7 +52,7 @@
       "status": "open",
       "entry_date": "2026-11-12",
       "entry_price": 346.0199890136719,
-      "last_checked": "2026-11-12",
+      "last_checked": "2026-11-13",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -67,7 +71,7 @@
       "status": "open",
       "entry_date": "2026-11-12",
       "entry_price": 277.0,
-      "last_checked": "2026-11-12",
+      "last_checked": "2026-11-13",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -86,7 +90,7 @@
       "status": "open",
       "entry_date": "2026-11-12",
       "entry_price": 86.93000030517578,
-      "last_checked": "2026-11-12",
+      "last_checked": "2026-11-13",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -105,7 +109,7 @@
       "status": "open",
       "entry_date": "2026-11-12",
       "entry_price": 405.0799865722656,
-      "last_checked": "2026-11-12",
+      "last_checked": "2026-11-13",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -121,10 +125,10 @@
       "tp": 75.84715999853076,
       "sl": 83.59284000146924,
       "exit_by": "2026-12-11",
-      "status": "pending",
-      "entry_date": null,
-      "entry_price": null,
-      "last_checked": null,
+      "status": "open",
+      "entry_date": "2026-11-13",
+      "entry_price": 79.3,
+      "last_checked": "2026-11-13",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -138,11 +142,11 @@
     "reason": "0 of 30 closed trades needed before judging",
     "min_trades": 30,
     "live_sr_per_trade": null,
-    "backtest_sr_per_trade": 0.056249636309136916,
-    "backtest_expected_value": 0.0012697108421693866,
+    "backtest_sr_per_trade": 0.06983548653889628,
+    "backtest_expected_value": 0.002105552767559797,
     "backtest_cpcv_range": [
-      0.014972831333603222,
-      0.06461096339285499
+      0.003580793764036725,
+      0.06154250190355167
     ]
   }
 }
