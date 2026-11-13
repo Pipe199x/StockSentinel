@@ -70,6 +70,34 @@ def test_rerun_is_idempotent_and_one_position_per_ticker():
     assert len(led) == 1
 
 
+def test_open_position_rewalks_from_entry_after_partial_bar():
+    # 2026-11-13 incident: a session first seen as a partial bar (no touch yet) must be
+    # re-checked once its full bar exists, not skipped because last_checked already covers it.
+    partial = FLAT[:2] + [(100, 101, 99.5, 100.5)]
+    led = update_ledger(load_ledger("x"), _px(FLAT[:1]), _sig(), 5)        # pending
+    led = update_ledger(led, _px(partial), _sig(), 5)                      # open, checked on a partial day 2
+    assert led.iloc[0].status == "open" and led.iloc[0].last_checked == str(DAYS[2].date())
+    full = FLAT[:2] + [(100, 111, 99.5, 108)] + FLAT[3:]                   # the full day 2 touched TP
+    led = update_ledger(led, _px(full), _sig(), 5)
+    r = led.iloc[0]
+    assert (r.status, r.exit_reason, r.exit_date, r.exit_price) == ("closed", "tp", str(DAYS[2].date()), 110.0)
+
+
+def test_closed_row_is_revised_and_reported_when_bars_change():
+    sig = _sig(exit_by=4)
+    led = update_ledger(update_ledger(load_ledger("x"), _px(FLAT[:1]), sig, 5), _px(FLAT), sig, 5)
+    assert led.iloc[0].exit_reason == "time"
+    revised = FLAT[:3] + [(99, 100, 94, 96)] + FLAT[4:]                    # corrected bar: day 3 hit the stop
+    revisions = []
+    led = update_ledger(led, _px(revised), sig, 5, revisions=revisions)
+    assert (led.iloc[0].exit_reason, led.iloc[0].exit_date) == ("sl", str(DAYS[3].date()))
+    assert len(revisions) == 1 and revisions[0]["old"]["exit_reason"] == "time"
+    # unchanged bars: closed rows stay as they are and nothing is reported
+    again = []
+    update_ledger(led, _px(revised), sig, 5, revisions=again)
+    assert again == []
+
+
 def test_summary_gate_collecting_and_equity():
     rows = list(FLAT)
     rows[2] = (104, 111, 103, 105)

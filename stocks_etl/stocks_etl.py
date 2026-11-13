@@ -18,25 +18,35 @@ from stocks_etl.publish_json import (
 )
 from etl_common.manifest import update_manifest
 from etl_common.news_features import NEWS_FEATURES, load_sentiment, news_features
+from etl_common.sessions import drop_incomplete_sessions
 
 warnings.simplefilter("ignore", FutureWarning)
 
 
-def write_single_prices_csv(df, base_dir, compression=None):
+def _utc_now(now_utc=None) -> datetime:
+    """One clock for the whole run (overridable with --now for reproducible runs)."""
+    if now_utc is None:
+        return datetime.now(timezone.utc)
+    ts = pd.Timestamp(now_utc)
+    ts = ts.tz_localize("UTC") if ts.tzinfo is None else ts.tz_convert("UTC")
+    return ts.to_pydatetime()
+
+
+def write_single_prices_csv(df, base_dir, compression=None, now=None):
     """Escribe un SOLO CSV combinado con todos los tickers."""
     if df.empty:
         return []
     os.makedirs(base_dir, exist_ok=True)
-    date_tag = datetime.now(timezone.utc).strftime("%Y%m%d")
+    date_tag = _utc_now(now).strftime("%Y%m%d")
     filename = f"prices_{date_tag}.csv" + (".gz" if compression == "gzip" else "")
     path = os.path.join(base_dir, filename)
     df.to_csv(path, index=False, compression=compression)
     return [path]
 
 
-def write_signals_csv(signals, base_dir):
+def write_signals_csv(signals, base_dir, now=None):
     os.makedirs(base_dir, exist_ok=True)
-    date_tag = datetime.now(timezone.utc).strftime("%Y%m%d")
+    date_tag = _utc_now(now).strftime("%Y%m%d")
     path = os.path.join(base_dir, f"signals_{date_tag}.csv")
     signals.to_csv(path, index=False)
     return [path]
@@ -71,17 +81,34 @@ def massive_frame(rows, ticker):
                          "dividends": 0.0, "stock_splits": 0.0})
 
 
-def load_prices(cfg, symbols, client=None):
-    """Daily bars from Massive only (split-adjusted, adjusted=true). History is the plan's
-    rolling window (massive_history_years), never earlier than cfg['start']."""
-    if client is None:
-        from etl_common.massive import MassiveClient, load_api_key
-        client = MassiveClient(load_api_key())
-    end = cfg.get("end") or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+def _history_start(cfg, end: str) -> pd.Timestamp:
     years = int(cfg.get("massive_history_years", 10))
     start = pd.Timestamp(end) - pd.DateOffset(years=years) + pd.Timedelta(days=7)
     if cfg.get("start"):
         start = max(start, pd.Timestamp(cfg["start"]))
+    return start
+
+
+def _complete_sessions_only(df, cfg, now_utc):
+    """Drop the bar of any session that has not closed (+30 min): a daily bar fetched during
+    market hours is partial and must never reach features, signals or the paper ledger."""
+    before = len(df)
+    df = drop_incomplete_sessions(df, now_utc, cfg.get("calendar") or "NYSE")
+    if len(df) < before:
+        print(f"[SESSIONS] dropped {before - len(df)} rows from sessions that have not closed yet")
+    return df
+
+
+def load_prices(cfg, symbols, client=None, now_utc=None):
+    """Daily bars from Massive only (split-adjusted, adjusted=true). History is the plan's
+    rolling window (massive_history_years), never earlier than cfg['start']. Only complete
+    sessions are kept."""
+    if client is None:
+        from etl_common.massive import MassiveClient, load_api_key
+        client = MassiveClient(load_api_key())
+    now = _utc_now(now_utc)
+    end = cfg.get("end") or now.strftime("%Y-%m-%d")
+    start = _history_start(cfg, end)
     parts = []
     for s in symbols:
         rows = client.daily_aggs(s, start.strftime("%Y-%m-%d"), end)
@@ -89,18 +116,37 @@ def load_prices(cfg, symbols, client=None):
             raise SystemExit(f"Massive returned no daily bars for {s}")
         parts.append(massive_frame(rows, s))
     df = _trading_days(pd.concat(parts, ignore_index=True), cfg.get("calendar"))
+    df = _complete_sessions_only(df, cfg, now)
     df = df.sort_values(["ticker", "date"]).reset_index(drop=True)
     print(f"[MASSIVE] {len(df)} rows {df['date'].min().date()}..{df['date'].max().date()}")
     return df
 
 
+def load_prices_offline(path, cfg, symbols, now_utc=None):
+    """Same frame as load_prices, read from a saved prices_history.csv (no API calls):
+    for reproducible local runs and before/after comparisons."""
+    now = _utc_now(now_utc)
+    df = pd.read_csv(path)
+    df["date"] = pd.to_datetime(df["date"]).dt.tz_localize("UTC")
+    df = df[df["ticker"].isin(symbols)]
+    end = cfg.get("end") or now.strftime("%Y-%m-%d")
+    day = df["date"].dt.tz_localize(None)
+    df = df[(day >= _history_start(cfg, end)) & (day <= pd.Timestamp(end))]
+    df = _complete_sessions_only(df, cfg, now)
+    df = df.sort_values(["ticker", "date"]).reset_index(drop=True)
+    print(f"[OFFLINE] {len(df)} rows {df['date'].min().date()}..{df['date'].max().date()} from {path}")
+    return df
 
 
-def main(cfg):
+def main(cfg, now_utc=None, offline_prices=None, docs_dir=None):
     symbols = universe_symbols(cfg)
     qcfg = cfg.get("quant", {}) or {}
+    run_now = _utc_now(now_utc)
 
-    df = load_prices(cfg, symbols)
+    if offline_prices:
+        df = load_prices_offline(offline_prices, cfg, symbols, run_now)
+    else:
+        df = load_prices(cfg, symbols, now_utc=run_now)
 
     # Fail loudly instead of publishing empty JSON.
     if df.empty:
@@ -121,7 +167,7 @@ def main(cfg):
     # === Features, régimen, meta-labeling y validación honesta ===
     feats, meta = make_features(df, qcfg)
     pub = cfg.get("publish", {}) or {}
-    docs_dir = pub.get("docs_dir", "docs/data")
+    docs_dir = docs_dir or pub.get("docs_dir", "docs/data")
 
     # Noticias: añade news_sent_5d / news_count_5d (point-in-time, antes del cierre) si el
     # meta-modelo los pide. Si falta la tabla, las features quedan en 0 y el modelo sigue igual.
@@ -143,20 +189,21 @@ def main(cfg):
     # === Guardado ===
     out_dir = cfg.get("output_dir", "data")
     compression = cfg.get("csv_compression", None)  # None | "gzip"
-    price_paths = write_single_prices_csv(df, out_dir, compression=compression)
-    pred_paths = write_signals_csv(signals, out_dir)
+    price_paths = write_single_prices_csv(df, out_dir, compression=compression, now=run_now)
+    pred_paths = write_signals_csv(signals, out_dir, now=run_now)
 
     # === Heartbeat ===
     hb_path = os.path.join(out_dir, "heartbeat.txt")
     with open(hb_path, "w", encoding="utf-8") as hb:
-        hb.write(datetime.now(timezone.utc).isoformat())
+        hb.write(run_now.isoformat())
     print(f"[SUMMARY] heartbeat written at {hb_path}")
 
-    # === Publish to docs/ (GitHub Pages) ===
-    now = datetime.now(timezone.utc).isoformat()
+    # === Publish to docs/data (private dashboard behind Cloudflare Access) ===
+    now = run_now.isoformat()
     window_days = int(pub.get("price_window_days", 60))
     sectors = {t: sec for sec, tickers in (cfg.get("universe") or {}).items() for t in tickers}
-    prices_json = write_prices_latest_json(df, os.path.join(docs_dir, "prices_latest.json"), window_days)
+    prices_json = write_prices_latest_json(df, os.path.join(docs_dir, "prices_latest.json"), window_days,
+                                           now=run_now)
     signals_json = write_signals_latest_json(signals.assign(sector=signals["ticker"].map(sectors)),
                                              os.path.join(docs_dir, "signals_latest.json"))
     report_json = write_json({"as_of": str(df["date"].max().date()), "generated_utc": now, **report},
@@ -192,10 +239,16 @@ if __name__ == "__main__":
     import yaml
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="stocks_etl/config.yaml")
+    parser.add_argument("--offline-prices", default=None,
+                        help="read prices from a saved prices_history.csv instead of Massive")
+    parser.add_argument("--docs-dir", default=None,
+                        help="publish into this folder instead of publish.docs_dir (e.g. a temp copy)")
+    parser.add_argument("--now", default=None,
+                        help="run as if the clock were this UTC time (ISO 8601), for reproducible runs")
     args = parser.parse_args()
     with open(args.config, "r", encoding="utf-8") as f:
         cfg = yaml.safe_load(f)
-    paths = main(cfg)
+    paths = main(cfg, now_utc=args.now, offline_prices=args.offline_prices, docs_dir=args.docs_dir)
     print("Archivos generados:")
     for pth in paths:
         print(" -", pth)
