@@ -1,7 +1,182 @@
 {
-  "as_of": "2026-11-13T00:58:17.526132+00:00",
+  "as_of": "2026-11-13T19:41:15.049850+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-11-13T17:50:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Kaplan Fox Alerts Alphabet Inc. (NASDAQ: GOOGL, GOOG) Investors to a Securities Class Action Lawsuit – Contact the Firm Before Deadline on December 1, 2026 for Leadership Role",
+      "summary": "Kaplan Fox has filed a securities class action lawsuit against Alphabet Inc. on behalf of investors who purchased shares between May 19, 2026 and July 16, 2026. The lawsuit alleges that Alphabet made false statements regarding its Gemini 3.5 Pro AI model, concealing disappointing training results and significant launch delays. Following Bloomberg's report of the delays on July 16, 2026, Alphabet's stock price fell 4.4%. The deadline to move for lead plaintiff status is December 1, 2026.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/13/3402893/1020/en/kaplan-fox-alerts-alphabet-inc-nasdaq-googl-goog-investors-to-a-securities-class-action-lawsuit-contact-the-firm-before-deadline-on-december-1-2026-for-leadership-role.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/711aa439-0e7d-4b53-8daa-452f70fe946a",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9649
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-13T14:43:00Z",
+      "source": "Zacks Investment Research",
+      "title": "CBRS Q3 Earnings Beat Estimates, Revenues Rise on Strong Cloud Growth",
+      "summary": "Cerebras Systems (CBRS) reported Q3 2026 earnings of 13 cents per share, beating estimates, with revenues surging 70% year-over-year to $230.87 million. Cloud revenues soared 272% to $144.91 million driven by AI inference demand and higher pricing. The company secured partnerships with Oracle and Microsoft, raised 2026 revenue guidance to $940-$960 million, and expects to triple revenues in 2027 with expanding data center capacity.",
+      "url": "https://www.zacks.com/stock/news/3029619/cbrs-q3-earnings-beat-estimates-revenues-rise-on-strong-cloud-growth?cid=CS-ZC-FT-analyst_blog|earnings_article-3029619",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/d3/848.jpg",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9542
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-13T13:45:03Z",
+      "source": "Zacks Investment Research",
+      "title": "Why Microsoft (MSFT) is a Top Growth Stock for the Long-Term",
+      "summary": "Zacks Premium offers Style Scores (Value, Growth, Momentum, and VGM) that work alongside the Zacks Rank to help investors identify stocks with the highest likelihood of outperformance. The Zacks Rank #1 stocks have averaged +23.7% annual returns since 1988. Microsoft is highlighted as a stock to watch with a #3 Hold rank and B VGM Score, showing strong growth prospects with 10.9% forecasted earnings growth.",
+      "url": "https://www.zacks.com/stock/news/3029501/why-microsoft-msft-is-a-top-growth-stock-for-the-long-term?cid=CS-ZC-FT-fundamental_analysis|zacks_education_growth_score-3029501",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default176.jpg",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6691
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-13T13:00:06Z",
+      "source": "Zacks Investment Research",
+      "title": "Alphabet Inc. (GOOGL) is Attracting Investor Attention: Here is What You Should Know",
+      "summary": "Alphabet has been attracting investor attention despite a -14.5% decline over the past month, significantly underperforming the S&P 500's -2.6% drop. While the company shows strong revenue growth projections of 26.7-32.2% for the current and next fiscal years, earnings estimate revisions have declined by 3.4% over the last 30 days. The stock received a Zacks Rank #3 (Hold) rating, suggesting it may perform in line with the broader market in the near term, and is trading at a discount to peers with a B valuation grade.",
+      "url": "https://www.zacks.com/stock/news/3029333/alphabet-inc-googl-is-attracting-investor-attention-here-is-what-you-should-know?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3029333",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default261.jpg",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9207
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-13T13:00:05Z",
+      "source": "Zacks Investment Research",
+      "title": "Investors Heavily Search Amazon.com, Inc. (AMZN): Here is What You Need to Know",
+      "summary": "Amazon stock has gained 5% over the past month, outperforming the S&P 500's -2.6% decline. While current quarter earnings are expected to grow 26.7% year-over-year, the consensus estimate has declined 3.3% in the last 30 days. Amazon holds a Zacks Rank #3 (Hold) rating with a D valuation grade, indicating it trades at a premium to peers and is expected to perform in line with the broader market in the near term.",
+      "url": "https://www.zacks.com/stock/news/3029335/investors-heavily-search-amazon-com-inc-amzn-here-is-what-you-need-to-know?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3029335",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default220.jpg",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8911
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-13T13:00:04Z",
+      "source": "Zacks Investment Research",
+      "title": "Alphabet Inc. (GOOG) Is a Trending Stock: Facts to Know Before Betting on It",
+      "summary": "Alphabet (GOOG) has been trending on Zacks.com with shares down 14.4% over the past month, significantly underperforming the S&P 500's -2.6% decline. While the company shows strong revenue growth projections of 26.7-32.5% for the current and next fiscal years, recent earnings estimate revisions have been negative (-4.1% over 30 days for current quarter). The stock received a Zacks Rank #3 (Hold) rating, suggesting it may perform in line with the broader market in the near term.",
+      "url": "https://www.zacks.com/stock/news/3029343/alphabet-inc-goog-is-a-trending-stock-facts-to-know-before-betting-on-it?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3029343",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default19.jpg",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9718
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-13T13:00:04Z",
+      "source": "Zacks Investment Research",
+      "title": "Microsoft Corporation (MSFT) is Attracting Investor Attention: Here is What You Should Know",
+      "summary": "Microsoft is receiving significant investor attention with strong earnings growth expectations of +17.4% for the current quarter and +10.9% for the fiscal year. The company has consistently beaten consensus estimates and shows solid revenue growth projections of +18.8% year-over-year. However, it carries a Zacks Rank #3 (Hold) rating, suggesting near-term performance in line with the broader market, and trades at par valuation with peers.",
+      "url": "https://www.zacks.com/stock/news/3029345/microsoft-corporation-msft-is-attracting-investor-attention-here-is-what-you-should-know?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3029345",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default308.jpg",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9545
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-13T12:37:00Z",
+      "source": "The Motley Fool",
+      "title": "What's Wrong With Amazon.com (AMZN) Stock, and Is It a Buy in November?",
+      "summary": "Amazon stock has gained 9% over the past year, below its historical averages, but the company remains fundamentally strong with 12% revenue growth, record operating margins of 13.9%, and AWS cloud revenue surging 39% year-over-year. While concerns exist around slowing e-commerce growth, heavy AI capital expenditures, and shrinking free cash flow, the author recommends Amazon as a buy for long-term investors given its reasonable forward P/E ratio of 25 (below its five-year average of 38) and strong growth metrics.",
+      "url": "https://www.fool.com/investing/2026/11/13/whats-wrong-with-amazoncom-amzn-stock-and-is-it-a/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893088%2Ffool-amazon.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.5913
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-13T10:14:00Z",
+      "source": "The Motley Fool",
+      "title": "Amazon Is the Only \"Magnificent Seven\" Stock I'd Buy With $1,000 Right Now",
+      "summary": "Amazon CEO Andy Jassy claims the company could run two trillion-dollar businesses within a decade through AWS and its online retail operations. AWS grew 39% last quarter with a $578 billion backlog, while Amazon's retail business is expanding rapidly with grocery sales tripling faster than other categories. The company is investing heavily in AI infrastructure and custom chips, though this has resulted in negative free cash flow of $42.4 billion over the past 12 months.",
+      "url": "https://www.fool.com/investing/2026/11/13/amazon-is-the-only-magnificent-seven-stock-id-buy/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893375%2Famazon-locker-with-package-inside.png&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9163
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-11-12T18:45:00Z",
       "source": "The Motley Fool",
