@@ -1,14 +1,8 @@
 {
-  "as_of": "2026-11-13T15:02:01.207087+00:00",
+  "as_of": "2026-11-14T02:38:32.054619+00:00",
   "window_days": 60,
   "series": {
     "AAPL": [
-      {
-        "date": "2026-09-15",
-        "close": 331.34,
-        "adj_close": null,
-        "volume": 31748183
-      },
       {
         "date": "2026-09-16",
         "close": 332.41,
@@ -263,18 +257,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 359.92,
+        "close": 356.27,
         "adj_close": null,
-        "volume": 4608826
+        "volume": 40027479
       }
     ],
     "AMZN": [
-      {
-        "date": "2026-09-15",
-        "close": 248.42,
-        "adj_close": null,
-        "volume": 36275442
-      },
       {
         "date": "2026-09-16",
         "close": 245.96,
@@ -529,18 +517,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 268.745,
+        "close": 266.66,
         "adj_close": null,
-        "volume": 3287028
+        "volume": 31168512
       }
     ],
     "BA": [
-      {
-        "date": "2026-09-15",
-        "close": 209.69,
-        "adj_close": null,
-        "volume": 3600731
-      },
       {
         "date": "2026-09-16",
         "close": 201.96,
@@ -795,18 +777,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 171.45,
+        "close": 171.5,
         "adj_close": null,
-        "volume": 408824
+        "volume": 5308820
       }
     ],
     "BAC": [
-      {
-        "date": "2026-09-15",
-        "close": 59.52,
-        "adj_close": null,
-        "volume": 50859668
-      },
       {
         "date": "2026-09-16",
         "close": 57.9,
@@ -1061,18 +1037,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 50.875,
+        "close": 51.02,
         "adj_close": null,
-        "volume": 1473332
+        "volume": 20008105
       }
     ],
     "CAT": [
-      {
-        "date": "2026-09-15",
-        "close": 783.54,
-        "adj_close": null,
-        "volume": 2262764
-      },
       {
         "date": "2026-09-16",
         "close": 782.72,
@@ -1327,18 +1297,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 603.39,
+        "close": 600.2,
         "adj_close": null,
-        "volume": 133448
+        "volume": 2293034
       }
     ],
     "CVX": [
-      {
-        "date": "2026-09-15",
-        "close": 217.77,
-        "adj_close": null,
-        "volume": 9561598
-      },
       {
         "date": "2026-09-16",
         "close": 211.54,
@@ -1593,18 +1557,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 216.655,
+        "close": 219.89,
         "adj_close": null,
-        "volume": 274625
+        "volume": 7579317
       }
     ],
     "GLD": [
-      {
-        "date": "2026-09-15",
-        "close": 394.15,
-        "adj_close": null,
-        "volume": 6705452
-      },
       {
         "date": "2026-09-16",
         "close": 391.74,
@@ -1859,18 +1817,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 357.11,
+        "close": 355.45,
         "adj_close": null,
-        "volume": 841364
+        "volume": 12174334
       }
     ],
     "GOOGL": [
-      {
-        "date": "2026-09-15",
-        "close": 344.98,
-        "adj_close": null,
-        "volume": 21928572
-      },
       {
         "date": "2026-09-16",
         "close": 342.87,
@@ -2125,18 +2077,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 302.72,
+        "close": 295.77,
         "adj_close": null,
-        "volume": 4611650
+        "volume": 30798618
       }
     ],
     "GS": [
-      {
-        "date": "2026-09-15",
-        "close": 976.67,
-        "adj_close": null,
-        "volume": 2356138
-      },
       {
         "date": "2026-09-16",
         "close": 937.98,
@@ -2391,18 +2337,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 921.355,
+        "close": 916.56,
         "adj_close": null,
-        "volume": 137936
+        "volume": 1266301
       }
     ],
     "HD": [
-      {
-        "date": "2026-09-15",
-        "close": 305.48,
-        "adj_close": null,
-        "volume": 4497244
-      },
       {
         "date": "2026-09-16",
         "close": 302.47,
@@ -2657,18 +2597,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 345.245,
+        "close": 348.69,
         "adj_close": null,
-        "volume": 422506
+        "volume": 4474031
       }
     ],
     "JNJ": [
-      {
-        "date": "2026-09-15",
-        "close": 267.2,
-        "adj_close": null,
-        "volume": 5284830
-      },
       {
         "date": "2026-09-16",
         "close": 267.28,
@@ -2923,18 +2857,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 285.38,
+        "close": 285.75,
         "adj_close": null,
-        "volume": 400756
+        "volume": 6291245
       }
     ],
     "JPM": [
-      {
-        "date": "2026-09-15",
-        "close": 352.49,
-        "adj_close": null,
-        "volume": 14030793
-      },
       {
         "date": "2026-09-16",
         "close": 348.92,
@@ -3189,18 +3117,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 345.555,
+        "close": 346.19,
         "adj_close": null,
-        "volume": 240586
+        "volume": 4201040
       }
     ],
     "KO": [
-      {
-        "date": "2026-09-15",
-        "close": 88.71,
-        "adj_close": null,
-        "volume": 13152144
-      },
       {
         "date": "2026-09-16",
         "close": 87.87,
@@ -3455,18 +3377,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 98.79,
+        "close": 99.25,
         "adj_close": null,
-        "volume": 1367273
+        "volume": 18037685
       }
     ],
     "MCD": [
-      {
-        "date": "2026-09-15",
-        "close": 252.78,
-        "adj_close": null,
-        "volume": 4788906
-      },
       {
         "date": "2026-09-16",
         "close": 248.56,
@@ -3721,18 +3637,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 274.545,
+        "close": 271.97,
         "adj_close": null,
-        "volume": 196258
+        "volume": 4672733
       }
     ],
     "MSFT": [
-      {
-        "date": "2026-09-15",
-        "close": 497.12,
-        "adj_close": null,
-        "volume": 17794612
-      },
       {
         "date": "2026-09-16",
         "close": 490.3,
@@ -3987,18 +3897,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 519.85,
+        "close": 523.88,
         "adj_close": null,
-        "volume": 3388039
+        "volume": 26189246
       }
     ],
     "NEE": [
-      {
-        "date": "2026-09-15",
-        "close": 81.07,
-        "adj_close": null,
-        "volume": 11507942
-      },
       {
         "date": "2026-09-16",
         "close": 80.37,
@@ -4253,18 +4157,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 85.335,
+        "close": 85.12,
         "adj_close": null,
-        "volume": 892759
+        "volume": 11748221
       }
     ],
     "NVDA": [
-      {
-        "date": "2026-09-15",
-        "close": 212.17,
-        "adj_close": null,
-        "volume": 88059658
-      },
       {
         "date": "2026-09-16",
         "close": 213.9,
@@ -4519,18 +4417,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 162.47,
+        "close": 162.85,
         "adj_close": null,
-        "volume": 74315533
+        "volume": 366463971
       }
     ],
     "PFE": [
-      {
-        "date": "2026-09-15",
-        "close": 27.55,
-        "adj_close": null,
-        "volume": 40435888
-      },
       {
         "date": "2026-09-16",
         "close": 27.46,
@@ -4785,18 +4677,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 28.79,
+        "close": 28.89,
         "adj_close": null,
-        "volume": 1789218
+        "volume": 21598787
       }
     ],
     "PG": [
-      {
-        "date": "2026-09-15",
-        "close": 146.67,
-        "adj_close": null,
-        "volume": 8804854
-      },
       {
         "date": "2026-09-16",
         "close": 147.02,
@@ -5051,18 +4937,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 169.385,
+        "close": 169.8,
         "adj_close": null,
-        "volume": 330761
+        "volume": 6944702
       }
     ],
     "QQQ": [
-      {
-        "date": "2026-09-15",
-        "close": 704.54,
-        "adj_close": null,
-        "volume": 26631661
-      },
       {
         "date": "2026-09-16",
         "close": 704.72,
@@ -5317,18 +5197,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 683.8892,
+        "close": 679.89,
         "adj_close": null,
-        "volume": 4503134
+        "volume": 42108955
       }
     ],
     "SPY": [
-      {
-        "date": "2026-09-15",
-        "close": 757.39,
-        "adj_close": null,
-        "volume": 46194964
-      },
       {
         "date": "2026-09-16",
         "close": 754.05,
@@ -5583,18 +5457,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 756.08,
+        "close": 754.37,
         "adj_close": null,
-        "volume": 3554062
+        "volume": 38890362
       }
     ],
     "TLT": [
-      {
-        "date": "2026-09-15",
-        "close": 80.71,
-        "adj_close": null,
-        "volume": 35032953
-      },
       {
         "date": "2026-09-16",
         "close": 80.88,
@@ -5849,18 +5717,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 79.2577,
+        "close": 79.38,
         "adj_close": null,
-        "volume": 4471685
+        "volume": 31851863
       }
     ],
     "UNH": [
-      {
-        "date": "2026-09-15",
-        "close": 375.93,
-        "adj_close": null,
-        "volume": 4393582
-      },
       {
         "date": "2026-09-16",
         "close": 375.26,
@@ -6115,18 +5977,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 405.035,
+        "close": 407.46,
         "adj_close": null,
-        "volume": 308716
+        "volume": 3472018
       }
     ],
     "WMT": [
-      {
-        "date": "2026-09-15",
-        "close": 108.09,
-        "adj_close": null,
-        "volume": 19316333
-      },
       {
         "date": "2026-09-16",
         "close": 107.5,
@@ -6381,18 +6237,12 @@
       },
       {
         "date": "2026-11-13",
-        "close": 127.65,
+        "close": 128.09,
         "adj_close": null,
-        "volume": 1142876
+        "volume": 16639011
       }
     ],
     "XOM": [
-      {
-        "date": "2026-09-15",
-        "close": 169.32,
-        "adj_close": null,
-        "volume": 12336368
-      },
       {
         "date": "2026-09-16",
         "close": 163.32,
@@ -6647,9 +6497,9 @@
       },
       {
         "date": "2026-11-13",
-        "close": 169.48,
+        "close": 170.59,
         "adj_close": null,
-        "volume": 599542
+        "volume": 11480104
       }
     ]
   }
