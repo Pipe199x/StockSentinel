@@ -24,7 +24,9 @@ export function Locked({ children, className, badge = false }: { children: React
   if (!locked) return <>{children}</>;
   return (
     <span className={cn("relative inline-block", className)}>
-      <span aria-hidden className="pointer-events-none blur-[5px] select-none">
+      {/* inline-block + isolate: WebKit (all iOS browsers) skips `filter` on a plain inline span
+          whose content is an SVG, so the odds ring stayed sharp on phones. */}
+      <span aria-hidden className="pointer-events-none isolate inline-block blur-[5px] select-none [&_svg]:blur-[5px]">
         {children}
       </span>
       <span className="sr-only">Locked</span>
