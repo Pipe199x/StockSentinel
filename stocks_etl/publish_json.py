@@ -16,8 +16,9 @@ def _ensure_dir(path: str) -> None:
     Path(path).parent.mkdir(parents=True, exist_ok=True)
 
 
-def write_prices_latest_json(df: pd.DataFrame, path: str, window_days: int = 30) -> str:
-    cutoff = datetime.now(timezone.utc) - timedelta(days=window_days)
+def write_prices_latest_json(df: pd.DataFrame, path: str, window_days: int = 30, now: datetime = None) -> str:
+    now = now or datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=window_days)
     recent = df[df["date"] >= cutoff]
     series = {}
     for tkr, dfg in recent.groupby("ticker"):
@@ -34,7 +35,7 @@ def write_prices_latest_json(df: pd.DataFrame, path: str, window_days: int = 30)
             for d, c, a, v in zip(dfg["date"], dfg["close"], dfg["adj_close"], dfg["volume"])
         ]
     payload = {
-        "as_of": datetime.now(timezone.utc).isoformat(),
+        "as_of": now.isoformat(),
         "window_days": window_days,
         "series": series,
     }

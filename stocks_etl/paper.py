@@ -4,9 +4,12 @@ No broker, no keys. Every run:
   1. Positions waiting for entry ('pending') fill at the OPEN of the first session after
      their signal date, keeping the published take-profit, stop-loss and exit date.
   2. Open positions are walked session by session with the same rules as the backtest
-     (labeling.triple_barrier_ohlc): a gap through a barrier fills at the open, an intraday
+     (labeling.triple_barrier_live): a gap through a barrier fills at the open, an intraday
      touch fills at the barrier, both barriers on the same day count as the stop, and the
-     time limit closes at that session's close.
+     time limit closes at that session's close. The walk always restarts at the ENTRY day,
+     so the result is a pure function of the stored entry/barriers and the complete bars:
+     a session first seen as a partial bar is re-checked once its full bar exists.
+     Closed rows are re-verified the same way; any change is reported, never silent.
   3. Today's signals with a non-zero size become new 'pending' rows (one position per
      ticker at a time). Rows are keyed by ticker + signal date, so re-runs never duplicate.
 
@@ -15,7 +18,7 @@ compares live results with the backtest range: Gate 0 passes only on a large eno
 """
 import math
 from pathlib import Path
-from typing import Dict, Tuple
+from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 import pandas as pd
@@ -25,6 +28,7 @@ from stocks_etl.validation import sharpe
 COLUMNS = ["ticker", "signal_date", "side", "size", "p_success", "tp", "sl", "exit_by", "status",
            "entry_date", "entry_price", "last_checked", "exit_date", "exit_price", "exit_reason",
            "ret_gross", "ret_net"]
+OUTCOME = ["exit_date", "exit_price", "exit_reason", "ret_gross", "ret_net"]
 MIN_TRADES = 30  # below this the comparison is noise (see 1 Nov / 4 Nov videos)
 
 
@@ -46,7 +50,12 @@ def _bars(prices: pd.DataFrame) -> Dict[str, pd.DataFrame]:
 
 
 def _walk(row: dict, bars: pd.DataFrame, cost: float) -> dict:
-    """Advance one pending/open position through the sessions not yet checked."""
+    """Walk one position from its ENTRY day through every complete session in `bars`.
+
+    A pending row first fills at the open of the session after its signal date. From there
+    the outcome is recomputed from scratch on every run (never resumed from `last_checked`),
+    so it only depends on entry price, barriers, exit date and complete bars.
+    """
     s = int(row["side"])
     tp, sl = float(row["tp"]), float(row["sl"])
     exit_by = pd.Timestamp(row["exit_by"])
@@ -58,11 +67,9 @@ def _walk(row: dict, bars: pd.DataFrame, cost: float) -> dict:
         o = after["open"].iloc[0]
         entry = float(o) if np.isfinite(o) else float(after["close"].iloc[0])
         row.update(status="open", entry_date=str(day.date()), entry_price=entry)
-        start = day
-        first = True
-    else:
-        start = pd.Timestamp(row["last_checked"]) + pd.Timedelta(days=1)
-        first = False
+    row = dict(row, status="open", **{k: np.nan for k in OUTCOME})
+    start = pd.Timestamp(row["entry_date"])
+    first = True
     entry = float(row["entry_price"])
     for day, b in bars[bars.index >= start].iterrows():
         o, h, l, c = (float(b[k]) for k in ("open", "high", "low", "close"))
@@ -93,13 +100,35 @@ def _walk(row: dict, bars: pd.DataFrame, cost: float) -> dict:
     return row
 
 
-def update_ledger(ledger: pd.DataFrame, prices: pd.DataFrame, signals: pd.DataFrame, cost_bps: float) -> pd.DataFrame:
+def _same_outcome(a: dict, b: dict) -> bool:
+    if str(a.get("exit_date")) != str(b.get("exit_date")) or str(a.get("exit_reason")) != str(b.get("exit_reason")):
+        return False
+    return all(np.isclose(float(a[k]), float(b[k]), rtol=1e-9, atol=1e-12, equal_nan=True)
+               for k in ("exit_price", "ret_net"))
+
+
+def _verify_closed(row: dict, bars: pd.DataFrame, cost: float, revisions: Optional[List[dict]]) -> dict:
+    """Re-walk a closed row; replace it only if complete bars now give another outcome."""
+    new = _walk(dict(row), bars, cost)
+    if new["status"] != "closed" or _same_outcome(row, new):
+        return row  # unchanged, or the bars no longer reach the exit (e.g. a run with an earlier --now)
+    if revisions is not None:
+        revisions.append({"ticker": row["ticker"], "signal_date": str(row["signal_date"]),
+                          "old": {k: row.get(k) for k in OUTCOME}, "new": {k: new.get(k) for k in OUTCOME}})
+    return new
+
+
+def update_ledger(ledger: pd.DataFrame, prices: pd.DataFrame, signals: pd.DataFrame, cost_bps: float,
+                  revisions: Optional[List[dict]] = None) -> pd.DataFrame:
     bars = _bars(prices)
     cost = 2 * float(cost_bps) / 1e4
     rows = []
     for row in ledger.to_dict("records"):
-        if row["status"] in ("pending", "open") and row["ticker"] in bars:
-            row = _walk(row, bars[row["ticker"]], cost)
+        if row["ticker"] in bars:
+            if row["status"] in ("pending", "open"):
+                row = _walk(row, bars[row["ticker"]], cost)
+            elif row["status"] == "closed":
+                row = _verify_closed(row, bars[row["ticker"]], cost, revisions)
         rows.append(row)
     seen = {(r["ticker"], str(r["signal_date"])) for r in rows}
     busy = {r["ticker"] for r in rows if r["status"] in ("pending", "open")}
@@ -182,8 +211,13 @@ def summarize(ledger: pd.DataFrame, prices: pd.DataFrame, report: Dict, as_of: s
 
 def run_paper(prices: pd.DataFrame, signals: pd.DataFrame, report: Dict, cfg: dict,
               ledger_path: str) -> Tuple[pd.DataFrame, Dict]:
-    led = update_ledger(load_ledger(ledger_path), prices, signals, cfg.get("cost_bps", 5))
+    revisions: List[dict] = []
+    led = update_ledger(load_ledger(ledger_path), prices, signals, cfg.get("cost_bps", 5), revisions=revisions)
     Path(ledger_path).parent.mkdir(parents=True, exist_ok=True)
     led.to_csv(ledger_path, index=False)
+    for r in revisions:
+        print(f"[PAPER] revised closed row {r['ticker']} {r['signal_date']}: {r['old']} -> {r['new']}")
     as_of = str(pd.to_datetime(prices["date"]).max().date())
-    return led, summarize(led, prices, report, as_of)
+    summary = summarize(led, prices, report, as_of)
+    summary["ledger_integrity"] = {"revised_rows": revisions}
+    return led, summary

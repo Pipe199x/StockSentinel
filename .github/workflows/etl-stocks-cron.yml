@@ -2,10 +2,12 @@ name: ETL Stocks (cron + manual)
 
 on:
   schedule:
-    - cron: "30 22 * * *"   # 22:30 UTC, after NYSE close
-    # Backup run: only does work if the primary run did not publish (see guard step).
-    # GitHub often starts scheduled runs 2-4 h late, so leave a wide margin.
-    - cron: "0 7 * * *"
+    # 01:30 UTC: after the post-market session, so the day's volume bar is final.
+    - cron: "30 1 * * *"
+    # Backup: GitHub starts scheduled runs hours late (up to ~8 h observed). 04:00 + 8 h is
+    # still before the 13:30 UTC summer open. The old 07:00 backup started at 14:59 UTC on
+    # 2026-11-13, mid-session, and published from a partial bar.
+    - cron: "0 4 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -28,25 +30,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Skip backup run if data is already fresh
+      - name: Skip scheduled run if data already covers the last completed session
         id: guard
         run: |
           set -euo pipefail
-          if [ "${{ github.event.schedule }}" != "0 7 * * *" ]; then
+          # Manual runs always execute. Scheduled runs (primary and backup) skip when
+          # manifest.stocks.as_of already covers the last session that has closed; this
+          # also skips weekend reruns. Standard library only (runs before setup-python).
+          if [ "${{ github.event_name }}" != "schedule" ]; then
             echo "skip=false" >> "$GITHUB_OUTPUT"
-            exit 0
+          else
+            python3 -m etl_common.freshness docs/data/manifest.json >> "$GITHUB_OUTPUT"
           fi
-          python3 - <<'EOF' >> "$GITHUB_OUTPUT"
-          import json
-          from datetime import datetime, timezone
-          try:
-              m = json.load(open("docs/data/manifest.json"))
-              ts = datetime.fromisoformat(m["stocks"]["last_updated_utc"])
-              age_h = (datetime.now(timezone.utc) - ts).total_seconds() / 3600
-          except Exception:
-              age_h = float("inf")  # unreadable manifest: run the ETL
-          print(f"skip={'true' if age_h < 12 else 'false'}")
-          EOF
           cat "$GITHUB_OUTPUT"
 
       - name: Setup Python
