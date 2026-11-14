@@ -7,48 +7,38 @@
 
 <h1 align="center">StockSentinel</h1>
 
-<p align="center"><b>The market speaks every day. Very few people are actually listening.</b></p>
-
-<p align="center"><i>A private intelligence desk by Ocean Data Group.</i></p>
+<p align="center"><b>It already decided. You just haven't seen it yet.</b></p>
 
 ---
 
-## Most people trade on noise. This was built to hear the signal.
+Every night, while you sleep, something reads the market (25 assets, the headlines,
+the mood underneath it all) and makes up its mind.
 
-Every evening, while most investors are still scrolling headlines, StockSentinel has already done its homework. It reads the market, weighs what matters, ignores what doesn't, and delivers one calm, clear picture of where things stand.
+It doesn't hesitate. It doesn't get attached. It doesn't explain itself to strangers.
 
-There are no hot tips, no hype, and no guesswork. It's a disciplined second opinion that never gets tired, never gets emotional and never stops paying attention.
+By morning the choice is made. A few people know what it is.
 
-## What you get
+## For the nerds
 
-- **A daily read on the market's mood.** Know when conditions favour action and when the smartest move is to stand aside.
-- **Clear, ranked opportunities.** Each one comes with where to step in, where to step out and how much is sensible to put on the table.
-- **Risk first, always.** Every idea is sized to protect what you already have before it reaches for more.
-- **Radical honesty.** StockSentinel tells you when the evidence is strong and, just as importantly, when it isn't. It grades itself more strictly than any brochure ever will.
-- **A live track record you can watch unfold.** No cherry-picked screenshots: every call is logged and followed through to the end.
-- **News, distilled.** The headlines that matter for what you hold, already read for you.
-- **One private dashboard, on any screen.** It's built for your phone as much as your desk.
+- **Data:** Massive (prices, dividends, splits, news). Complete sessions only, point-in-time features, no look-ahead.
+- **Gate:** a hidden Markov model on the broad market. In stress, it does nothing at all.
+- **Edge hunt:** a momentum rule proposes; an XGBoost meta-model with FinBERT news sentiment disposes. Labels from the triple barrier.
+- **Sizing:** ½ Kelly × volatility target, capped by Expected Shortfall.
+- **Honesty:** purged K-fold + CPCV, and a Deflated Sharpe that charges for every version ever tried. A paper ledger fills every call at the next open and keeps the score.
+- **Plumbing:** GitHub Actions → static JSON → Next.js 16 on Cloudflare Pages. The interesting part sits behind a Pages Function that only opens for a valid license key.
 
-## Who it's for
+## And then
 
-For people who would rather be **right for the right reasons** than lucky:
+Today's answer is already published.<br>
+Yesterday's is already playing out.<br>
+Tomorrow's is being computed tonight.
 
-- investors who want structure instead of instinct,
-- professionals with no time to watch screens all day,
-- anyone tired of paying for opinions dressed up as research.
+You can keep reading READMEs.
 
-## Why it's different
-
-The approach behind StockSentinel is the kind usually kept inside institutional walls. How it works stays with us; that's the point. What you see is the result: a quieter mind, fewer impulsive decisions, and a clear view of the market every single day.
-
-## Access
-
-StockSentinel is **private and invitation-only**. Seats are deliberately limited.
-
-**Want in?** Reach out to **Ocean Data Group** to request access.
+**→ [trading.oceandatagroup.ai](https://trading.oceandatagroup.ai)**
 
 ---
 
-<sub>StockSentinel provides information for educational and research purposes only and is not personalised investment advice. Markets carry risk, and past behaviour does not guarantee future results.</sub>
+<sub>Model portfolio; results are hypothetical. Not investment advice.</sub>
 
-<p align="center"><sub>© Ocean Data Group · Private</sub></p>
+<p align="center"><sub>© Ocean Data Group</sub></p>
