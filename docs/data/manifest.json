@@ -6,15 +6,16 @@
     "MSFT"
   ],
   "news": {
-    "last_updated_utc": "2026-11-14T18:00:19.306331+00:00",
-    "articles": 125,
-    "history_articles": 682,
-    "window_days": 15,
-    "new_embeddings": 8
+    "last_updated_utc": "2026-11-14T21:19:58.750904+00:00",
+    "fetched_utc": "2026-11-14T21:19:12.132815+00:00",
+    "articles": 166,
+    "history_articles": 735,
+    "window_days": 15
   },
   "stocks": {
-    "last_updated_utc": "2026-11-14T02:38:32.043401+00:00",
+    "last_updated_utc": "2026-11-14T21:20:00.386310+00:00",
     "as_of": "2026-11-13",
+    "config_hash": "c3f2b4fc9bfd",
     "rows": 62725,
     "tickers": [
       "AAPL",
@@ -44,15 +45,16 @@
       "TLT"
     ],
     "price_window_days": 60,
-    "dsr": 0.6885
+    "dsr": 0.845
   },
   "paper": {
-    "last_updated_utc": "2026-11-14T02:38:32.043401+00:00",
+    "last_updated_utc": "2026-11-14T21:20:00.386310+00:00",
     "as_of": "2026-11-13",
     "counts": {
       "pending": 0,
       "open": 6,
-      "closed": 0
+      "closed": 0,
+      "missed": 0
     },
     "gate0": "collecting"
   }
