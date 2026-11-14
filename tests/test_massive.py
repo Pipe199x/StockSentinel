@@ -112,7 +112,7 @@ def test_replay_candidates_respect_point_in_time_universe():
     f = pd.DataFrame({"date": days, "ticker": "ZZA", "hurst": 0.6, "zscore": 1.0, "half_life": 5.0,
                       "log_ret_20": 0.05, "sigma_garch": 0.01, "regime": 0, "close": 100.0,
                       "eligible": [True, False, True, False]})
-    c = candidates(f, {}, pd.Timestamp("2026-01-01"))
+    c = candidates(f, {"regime_source": "asset"}, pd.Timestamp("2026-01-01"))
     assert list(c["day"].dt.day) == [5, 7]
 
 

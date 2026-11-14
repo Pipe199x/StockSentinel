@@ -1,7 +1,7 @@
-"""Publishers for the GitHub Pages data folder (docs/data/).
+"""Publishers for the dashboard's data folder (docs/data/).
 
-The dashboard (docs/index.html) fetches these static JSON/CSV files directly;
-GitHub Pages serves them with permissive CORS, so no hosted API is needed.
+The dashboard fetches these static JSON/CSV files at runtime. Cloudflare Pages serves them
+behind Cloudflare Access (owner only): Massive's license forbids publishing its data.
 """
 import json
 import os

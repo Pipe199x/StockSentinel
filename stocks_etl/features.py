@@ -72,7 +72,7 @@ def _ticker_features(dfg: pd.DataFrame, cfg: dict) -> Tuple[pd.DataFrame, Dict]:
     dfg["rv_10"] = dfg["log_ret_1"].rolling(10, min_periods=5).std()
     dfg["rv_20"] = dfg["log_ret_1"].rolling(20, min_periods=10).std()
 
-    pit = bool(cfg.get("pit_refit", False))
+    pit = bool(cfg.get("pit_refit", True))
     min_train = int(cfg.get("pit_min_train", 500))
     every = int(cfg.get("pit_refit_years", 1))
     # point-in-time: d se elige solo con el periodo de entrenamiento inicial (no se opera ahí)

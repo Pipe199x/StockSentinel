@@ -1,0 +1,3 @@
+# Daily bot commits and PRs both touch the trial log: keep both sides' rows on merge;
+# log_trial/read_trials dedupe by config_hash, so a union merge never double-counts.
+docs/data/history/trials_log.csv merge=union

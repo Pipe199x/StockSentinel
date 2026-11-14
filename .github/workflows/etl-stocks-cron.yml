@@ -63,6 +63,18 @@ jobs:
         if: steps.guard.outputs.skip != 'true'
         run: python -m pytest tests -q
 
+      # News up to the signal day's 20:00 UTC cutoff BEFORE the features are built, so live
+      # features see the same articles the backtest will see later (GitHub delays the news cron
+      # by hours). Best effort: if it fails, the ETL runs with the news it has and publishes
+      # data_freshness.news_fresh = false.
+      - name: Update news up to the cutoff
+        if: steps.guard.outputs.skip != 'true'
+        continue-on-error: true
+        uses: ./.github/actions/update-news
+        with:
+          massive_api_key: ${{ secrets.MASSIVE_API_KEY }}
+          days: "2"
+
       - name: Run ETL (prices + regime + meta-labeled signals + validation + publish to docs/)
         if: steps.guard.outputs.skip != 'true'
         env:
@@ -101,7 +113,7 @@ jobs:
             echo "No data changes to commit."
             exit 0
           fi
-          git commit -m "data: stocks update $(date -u +%F) [skip ci]"
+          git commit -m "data: stocks + news update $(date -u +%F) [skip ci]"
           for i in 1 2 3; do
             if git pull --rebase origin main && git push origin main; then
               exit 0

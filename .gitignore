@@ -18,3 +18,8 @@ news_etl/config.local.yaml
 
 # Research outputs
 research/replay/out/
+
+# Research reports from Massive data (license: personal use, never published) and local caches
+/reports/
+/.cache/
+.pytest_cache/

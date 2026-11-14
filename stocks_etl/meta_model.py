@@ -22,7 +22,7 @@ from stocks_etl.risk import (
     mc_t_paths, streak_drawdown, var_es_t, vol_target_scale,
 )
 from stocks_etl.validation import (
-    PurgedKFold, cpcv_paths, cpcv_splits, deflated_sharpe, log_trial, min_sample_size, sharpe,
+    PurgedKFold, config_hash, cpcv_paths, cpcv_splits, deflated_sharpe, log_trial, min_sample_size, sharpe,
 )
 
 FEATURES = MODEL_FEATURES + ["side", "strategy"]
@@ -43,15 +43,18 @@ def _model(seed: int) -> XGBClassifier:
 def build_events(feats: pd.DataFrame, cfg: dict, resolver=None) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """Une señal primaria + triple barrera. Devuelve (eventos etiquetados, última fila por ticker).
 
-    Opciones de investigación (por defecto apagadas, el pipeline diario no cambia):
-      - cfg['barrier_mode'] == 'intraday': barreras sobre máximos/mínimos (triple_barrier_ohlc);
-        ``resolver(ticker, date, tp_price, sl_price, side)`` desempata días con doble toque.
-      - columna ``eligible`` en feats: solo se generan eventos en días en que el ticker
-        pertenecía al universo point-in-time (sin sesgo de supervivencia).
+    cfg['barrier_mode'] (por defecto 'live', la ejecución del bot de paper trading):
+      - 'live': entrada a la apertura siguiente, barreras intradía (triple_barrier_live);
+      - 'intraday': entrada al cierre, barreras sobre máximos/mínimos (triple_barrier_ohlc);
+        ``resolver(ticker, date, tp_price, sl_price, side)`` desempata días con doble toque;
+      - 'close': entrada y barreras sobre cierres (triple_barrier).
+    Columna ``eligible`` en feats (investigación): solo se generan eventos en días en que el
+    ticker pertenecía al universo point-in-time (sin sesgo de supervivencia).
     """
     k_tp, k_sl = float(cfg.get("k_tp", 1.5)), float(cfg.get("k_sl", 1.5))
     cost = 2 * float(cfg.get("cost_bps", 5)) / 1e4
-    intraday = cfg.get("barrier_mode", "close") == "intraday"
+    mode = cfg.get("barrier_mode", "live")
+    intraday = mode == "intraday"
     global_last = feats["date"].max()
     events, latest = [], []
     for tkr, f in feats.groupby("ticker", sort=False):
@@ -67,7 +70,7 @@ def build_events(feats: pd.DataFrame, cfg: dict, resolver=None) -> Tuple[pd.Data
             continue
         args = (pos, f["side"].to_numpy()[pos], f["sigma_event"].to_numpy()[pos], k_tp, k_sl,
                 f["t_max"].to_numpy()[pos])
-        if cfg.get("barrier_mode") == "live":
+        if mode == "live":
             tb = triple_barrier_live(f["open"].to_numpy(), f["high"].to_numpy(), f["low"].to_numpy(),
                                      f["close"].to_numpy(), *args,
                                      series_ended=bool(f["date"].iloc[-1] < global_last))
@@ -114,8 +117,9 @@ def position_size(p: float, sigma: float, nu: float, t_max: float, cfg: dict) ->
     return size, "kelly"
 
 
+# Crisis windows inside the traded history (Massive's rolling 10-year window starts in
+# 2016 and the first 500 sessions are training only, so 2008 cannot be tested here).
 STRESS_WINDOWS = {
-    "GFC 2008": ("2007-10-09", "2009-03-09"),
     "COVID crash": ("2020-02-19", "2020-04-30"),
     "2022 bear market": ("2022-01-03", "2022-10-12"),
     "April 2025 sell-off": ("2025-04-02", "2025-04-30"),
@@ -259,6 +263,8 @@ def _nth_trading_day(as_of: pd.Timestamp, n: int, cal_name: Optional[str]) -> st
 
 
 def _risk_row(f_hist: pd.DataFrame, garch: Dict, cfg: dict) -> Dict:
+    """Next-day risk from the point-in-time GARCH that also sizes the trade (sigma_next is its
+    one-step forecast; the sigma_t used for barriers and size is published as sigma_garch)."""
     sigma, nu, mu = garch["sigma_next"], garch["nu"], garch["mu"]
     r = f_hist["log_ret_1"].dropna().iloc[-252:]
     v95 = var_es_t(sigma, nu, 0.05, mu)
@@ -266,7 +272,7 @@ def _risk_row(f_hist: pd.DataFrame, garch: Dict, cfg: dict) -> Dict:
     horizon = int(cfg.get("mc_horizon", 20))
     paths = mc_t_paths(mu, sigma, nu, horizon, int(cfg.get("mc_paths", 10000)), int(cfg.get("seed", 42)))
     return {
-        "sigma_garch": sigma,
+        "sigma_next": sigma,
         "garch_persistence": garch["persistence"],
         "garch_nu": nu,
         "var_95": v95["var"],
@@ -332,6 +338,7 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
             "t_max_date": _nth_trading_day(as_of, int(r.t_max), cal_name) if side else None,
         }
         row.update(_risk_row(feats[feats["ticker"] == r.ticker], meta[r.ticker]["garch"], cfg))
+        row["sigma_garch"] = float(r.sigma_garch) if pd.notna(r.sigma_garch) else None  # sizes the trade
         rows.append(row)
     signals = pd.DataFrame(rows)
 
@@ -349,6 +356,7 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
 
     by_regime = meta_trades.groupby("regime").size() if not meta_trades.empty else pd.Series(dtype=int)
     report.update({
+        "config_hash": config_hash(model_cfg),
         "n_events": int(len(ev)),
         "n_trials": n_trials,
         "var_sr_used": var_sr,
@@ -363,9 +371,10 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
         "config": model_cfg,
         # lo que esta validación NO cubre; se publica para no vender un backtest perfecto
         "limitations": [
-            ("Survivorship bias: the live universe is 25 companies alive today. A point-in-time test including delisted "
-             "stocks (research/massive, M2) did not reach DSR 0.95."),
-            "History starts on 2016-11-14 (Massive plan window): the 2008 crisis is not tested.",
+            ("Survivorship bias: the live universe is 21 companies alive today plus 4 ETFs. A point-in-time test "
+             "including delisted stocks (research/massive, M2) did not reach DSR 0.95."),
+            ("History is Massive's rolling 10-year window (it starts in late 2016 and moves forward daily): the 2008 "
+             "crisis is not tested."),
             ("GARCH and HMM parameters are refitted once a year using only earlier data (point-in-time); "
              "the first %d sessions are training only and are never traded." % int(cfg.get("pit_min_train", 500)))
             if cfg.get("pit_refit") else

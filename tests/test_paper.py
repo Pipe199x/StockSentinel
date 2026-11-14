@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import pytest
 
@@ -96,6 +97,57 @@ def test_closed_row_is_revised_and_reported_when_bars_change():
     again = []
     update_ledger(led, _px(revised), sig, 5, revisions=again)
     assert again == []
+
+
+def test_signal_published_after_the_open_is_missed_not_filled():
+    # signal on Mon 2026-01-05; the next session opens Tue 14:30 UTC
+    late = update_ledger(load_ledger("x"), _px(FLAT[:1]), _sig(), 5, published_utc="2026-01-06T15:00:00+00:00")
+    assert (late.iloc[0].status, late.iloc[0].exit_reason) == ("missed", "late_publish")
+    led = update_ledger(late, _px(FLAT[:3]), _sig(day=2), 5, published_utc="2026-01-08T02:00:00+00:00")
+    assert list(led["status"]) == ["missed", "pending"]          # a missed row never blocks the ticker
+    ok = update_ledger(load_ledger("x"), _px(FLAT[:1]), _sig(), 5, published_utc="2026-01-06T02:00:00+00:00",
+                       config_hash="h1", strategy_label="V4")
+    assert (ok.iloc[0].status, ok.iloc[0].config_hash, ok.iloc[0].strategy_label) == ("pending", "h1", "V4")
+
+
+def test_legacy_rows_are_tagged_once(tmp_path):
+    path = tmp_path / "ledger.csv"
+    pd.DataFrame({"ticker": ["HD", "TLT"], "signal_date": ["2026-11-11", "2026-11-12"], "side": [1, -1],
+                  "size": [0.03, 0.001], "status": ["open", "open"]}).to_csv(path, index=False)
+    led = load_ledger(str(path))
+    assert list(led["config_hash"]) == ["f71882e35e28", "c3f2b4fc9bfd"]
+    assert list(led["strategy_label"]) == ["V4", "V4+news"]
+    led.to_csv(path, index=False)
+    assert list(load_ledger(str(path))["config_hash"]) == ["f71882e35e28", "c3f2b4fc9bfd"]   # idempotent
+
+
+def _closed(rets, h="h1"):
+    return pd.DataFrame([{"ticker": "AAA", "signal_date": str(DAYS[0].date()), "side": 1, "size": 0.05,
+                          "status": "closed", "entry_date": str(DAYS[1].date()), "entry_price": 100.0,
+                          "exit_date": str(DAYS[2].date()), "exit_price": 100.0, "exit_reason": "time",
+                          "ret_net": r, "config_hash": h, "strategy_label": h} for r in rets])
+
+
+def _gate(led, cpcv=(0.05, 0.06, 0.07)):
+    rep = {"config_hash": "h1", "cpcv_path_sr": list(cpcv), "meta": {"sr_per_trade": 0.06}}
+    return summarize(led, _px(FLAT), rep, "2026-01-14")
+
+
+def test_gate0_states_and_current_config_only():
+    rng = np.random.default_rng(0)
+    good = list(0.004 + 0.02 * rng.standard_normal(40))
+    s = _gate(_closed(good[:10]))
+    assert s["gate0"]["status"] == "collecting" and s["gate0"]["n_closed"] == 10
+    s = _gate(_closed(good))
+    assert s["gate0"]["status"] == "pass" and s["gate0"]["min_detectable_gap"] > 0
+    flat_neg = [x - np.mean(good) - 0.0001 for x in good]                 # EV slightly negative, noisy
+    assert _gate(_closed(flat_neg))["gate0"]["status"] == "inconclusive"
+    bad = list(-0.02 + 0.005 * rng.standard_normal(40))                   # far below a strong backtest
+    assert _gate(_closed(bad), cpcv=(0.5, 0.6, 0.7))["gate0"]["status"] == "fail"
+    # trades of another configuration never count for the current one
+    s = _gate(pd.concat([_closed(good[:10]), _closed(bad, h="old")], ignore_index=True))
+    assert s["gate0"]["status"] == "collecting" and s["current_closed"] == 10 and s["counts"]["closed"] == 50
+    assert {r["config_hash"] for r in s["by_config"]} == {"h1", "old"}
 
 
 def test_summary_gate_collecting_and_equity():

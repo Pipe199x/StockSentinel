@@ -58,21 +58,28 @@ def fit_garch(log_ret: pd.Series) -> Tuple[pd.Series, Dict[str, float]]:
     r = log_ret.dropna() * 100.0
     res = arch_model(r, mean="Constant", vol="GARCH", p=1, q=1, dist="t").fit(disp="off", show_warning=False)
     sigma = (res.conditional_volatility / 100.0).reindex(log_ret.index)
-    p = res.params
     fc = float(np.sqrt(res.forecast(horizon=1, reindex=False).variance.iloc[-1, 0]) / 100.0)
+    return sigma, garch_param_dict(res.params, fc)
+
+
+def garch_param_dict(p, sigma_next: float) -> Dict[str, float]:
+    """arch parameters (returns in %) -> the dict the pipeline publishes. With a GJR term
+    (gamma, the leverage effect) persistence is alpha + beta + gamma/2."""
+    gamma = float(p["gamma[1]"]) if "gamma[1]" in p.index else 0.0
     params = {
         "mu": float(p["mu"]) / 100.0,
         "omega": float(p["omega"]),
         "alpha": float(p["alpha[1]"]),
         "beta": float(p["beta[1]"]),
+        "gamma": gamma,
         "nu": float(p["nu"]),
-        "sigma_next": fc,
+        "sigma_next": float(sigma_next),
     }
-    params["persistence"] = params["alpha"] + params["beta"]
+    params["persistence"] = params["alpha"] + params["beta"] + gamma / 2.0
     params["sigma_long_run"] = (
         math.sqrt(params["omega"] / (1 - params["persistence"])) / 100.0 if params["persistence"] < 1 else float("nan")
     )
-    return sigma, params
+    return params
 
 
 def hmm_filtered_regimes(X: np.ndarray, n_states: int = 3, seed: int = 42, restarts: int = 1) -> np.ndarray:
@@ -144,8 +151,9 @@ def fit_garch_pit(log_ret: pd.Series, dates, min_train: int = 500, every_years: 
     Para cada segmento [b_k, b_{k+1}) los parámetros se estiman con los datos < b_k y el
     filtro GARCH (que solo usa el pasado) corre con esos parámetros fijos. Antes del primer
     ajuste todo es NaN: no se opera en el periodo de entrenamiento inicial.
-    Devuelve (sigma, nu, params_hoy); params_hoy usa toda la historia y solo sirve para el
-    riesgo de la señal de hoy, nunca para el backtest.
+    Devuelve (sigma, nu, params_hoy). params_hoy son los parámetros del ÚLTIMO segmento
+    point-in-time (los que dimensionan la operación de hoy) con su pronóstico a un día
+    (sigma_next): el riesgo publicado es el mismo modelo que fija tamaño y barreras.
     """
     from arch import arch_model
 
@@ -153,6 +161,7 @@ def fit_garch_pit(log_ret: pd.Series, dates, min_train: int = 500, every_years: 
     nu = pd.Series(np.nan, index=log_ret.index)
     r_all = log_ret * 100.0
     bounds = refit_boundaries(pd.DatetimeIndex(dates), min_train, every_years)
+    today = None
     for k, b in enumerate(bounds):
         end = bounds[k + 1] if k + 1 < len(bounds) else len(log_ret)
         train = r_all.iloc[:b].dropna()
@@ -164,11 +173,15 @@ def fit_garch_pit(log_ret: pd.Series, dates, min_train: int = 500, every_years: 
                                                                                          show_warning=False)
             seg = r_all.iloc[:end].dropna()
             fixed = arch_model(seg, mean="Constant", vol="GARCH", p=1, q=1, dist="t").fix(res.params)
+            if end == len(log_ret):  # last segment: one-step forecast with the point-in-time parameters
+                fc = float(np.sqrt(fixed.forecast(horizon=1, reindex=False).variance.iloc[-1, 0]) / 100.0)
+                today = garch_param_dict(res.params, fc)
         cv = (fixed.conditional_volatility / 100.0).reindex(log_ret.index)
         sl = slice(b, end)
         sigma.iloc[sl] = cv.iloc[sl].to_numpy()
         nu.iloc[sl] = float(res.params["nu"])
-    _, today = fit_garch(log_ret)
+    if today is None:  # history too short for a point-in-time fit: fall back to the full sample
+        _, today = fit_garch(log_ret)
     return sigma, nu, today
 
 
