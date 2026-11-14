@@ -17,7 +17,9 @@ from stocks_etl.publish_json import (
     write_prices_latest_json,
     write_prices_history_csv,
     write_json,
-    write_signals_latest_json,
+    write_public_and_premium,
+    redact_signals,
+    redact_paper,
     append_signals_history,
 )
 from etl_common.corporate_actions import refresh_dividends
@@ -262,13 +264,14 @@ def main(cfg, now_utc=None, offline_prices=None, docs_dir=None):
     print(f"[ADVISOR] calendar SR={cs.get('sharpe')} sortino={cs.get('sortino')} maxDD={cs.get('max_drawdown')} "
           f"n_eff={adv['meta']['effective_n']:.0f} DSR_eff={adv['meta']['dsr_effective']} "
           f"flags={[f['code'] for f in report['red_flags']]} gate1={paper['gate1']['status']}")
-    signals_json = write_signals_latest_json(signals.assign(sector=signals["ticker"].map(sectors)),
-                                             os.path.join(docs_dir, "signals_latest.json"))
+    # Paywall: full signals → premium/, the public file names no pick (publish_json.redact_signals).
+    signals_json = write_public_and_premium(signals.assign(sector=signals["ticker"].map(sectors)).to_dict(orient="records"),
+                                            docs_dir, "signals_latest.json", redact_signals)
     report_json = write_json({"as_of": as_of, "generated_utc": now, **report},
                              os.path.join(docs_dir, "validation_report.json"))
-    risk_json = write_json({"generated_utc": now, **adv["risk"]}, os.path.join(docs_dir, "risk_report.json"))
+    risk_json = write_public_and_premium({"generated_utc": now, **adv["risk"]}, docs_dir, "risk_report.json")
     signals_hist = append_signals_history(signals, os.path.join(docs_dir, "history", "signals_history.csv"))
-    paper_json = write_json(paper, os.path.join(docs_dir, "paper_summary.json"))
+    paper_json = write_public_and_premium(paper, docs_dir, "paper_summary.json", redact_paper)
     print(f"[SUMMARY] paper: {paper['counts']} gate0={paper['gate0']['status']} total_return={paper['total_return']:.4f}")
     update_manifest(os.path.join(docs_dir, "manifest.json"), "paper", {
         "last_updated_utc": now, "as_of": paper["as_of"], "counts": paper["counts"],

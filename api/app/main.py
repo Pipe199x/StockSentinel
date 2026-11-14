@@ -67,7 +67,7 @@ def get_signals(ticker: str | None = None, history: bool = False, _=Depends(requ
             raise HTTPException(404, detail="no signal history; run stocks_etl first")
         data = csv_to_records(text)
     else:
-        data = read_json("signals_latest.json")
+        data = read_json("premium/signals_latest.json")  # the public file is redacted (paywall)
         if data is None:
             raise HTTPException(404, detail="no signals; run stocks_etl first")
     if ticker:

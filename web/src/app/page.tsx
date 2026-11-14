@@ -8,7 +8,7 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ReactLenis } from "lenis/react";
-import { IconActivity, IconChartLine, IconMoon, IconNews, IconRefresh, IconShieldHalf, IconSun } from "@tabler/icons-react";
+import { IconActivity, IconChartLine, IconLock, IconMoon, IconNews, IconRefresh, IconShieldHalf, IconSun } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { LoaderTwo } from "@/components/ui/loader";
 import { Watermark } from "@/components/brand/watermark";
@@ -24,6 +24,7 @@ import { TrackRecord } from "@/components/dashboard/track-record";
 import { TechnicalDetails } from "@/components/dashboard/trust";
 import { ACCOUNT, money, Story } from "@/components/dashboard/story";
 import { useDashboard } from "@/lib/data";
+import { PaywallContext, UnlockDialog } from "@/components/dashboard/paywall";
 import { longDate, num } from "@/lib/format";
 import { diffVisit, readSnapshot, takeSnapshot, writeSnapshot, type VisitDiff } from "@/lib/last-visit";
 
@@ -73,8 +74,11 @@ const INPUTS: HeroNode[] = [
 ];
 
 export default function Home() {
-  const { data, error, loading, reload } = useDashboard();
+  const { data, error, loading, reload, unlock, logout } = useDashboard();
   const [visit, setVisit] = useState<VisitDiff | null>(null);
+  const [unlockOpen, setUnlockOpen] = useState(false);
+  const locked = data?.locked ?? true;
+  const paywall = { locked, openUnlock: () => setUnlockOpen(true) };
   const reduced = useReducedMotion();
 
   // Diff against the previous visit once per page load, then remember what was seen.
@@ -86,17 +90,27 @@ export default function Home() {
   }, [data, visit]);
 
   const signals = data?.signals ?? [];
-  const copy = heroCopy(signals);
+  const copy = heroCopy(signals, locked);
   const idle = signals.filter((s) => !copy.active.includes(s)).sort((a, b) => a.ticker.localeCompare(b.ticker));
   // Right side of the diagram: today's picks first, then (dimmed) assets that got no pick.
   const outputs: HeroNode[] = [
-    ...copy.active.map((s) => ({
+    ...copy.active.map((s, i) => ({
       key: s.ticker,
-      label: `${s.ticker}: ${s.side === 1 ? "long" : "short"} pick today`,
+      label: locked ? `Pick ${i + 1}: locked` : `${s.ticker}: ${s.side === 1 ? "long" : "short"} pick today`,
       href: "#trades",
-      content: <span className={s.side === 1 ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-400"}>{s.ticker}</span>,
+      content: (
+        <span className={s.side === 1 ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-400"}>
+          {locked ? <span aria-hidden className="blur-[4px] select-none">XXX</span> : s.ticker}
+        </span>
+      ),
     })),
-    ...idle.map((s) => ({ key: s.ticker, label: `${s.ticker}: no pick today`, href: "#trades", muted: true, content: s.ticker })),
+    ...idle.map((s) => ({
+      key: s.ticker,
+      label: locked ? "Asset with no pick today" : `${s.ticker}: no pick today`,
+      href: "#trades",
+      muted: true,
+      content: locked ? <span aria-hidden className="blur-[4px] select-none">XXX</span> : s.ticker,
+    })),
   ].slice(0, 4);
 
   const r = data?.report;
@@ -140,6 +154,16 @@ export default function Home() {
             <button type="button" onClick={reload} aria-label="Refresh data" className={iconBtn}>
               <IconRefresh className="h-4 w-4" />
             </button>
+            {data &&
+              (locked ? (
+                <button type="button" onClick={paywall.openUnlock} className="flex h-9 items-center gap-1.5 rounded-full bg-(--folio-ink) px-3.5 text-sm font-medium text-(--folio-paper)">
+                  <IconLock className="h-4 w-4" /> Unlock
+                </button>
+              ) : (
+                <button type="button" onClick={logout} className="flex h-9 items-center rounded-full px-3.5 text-sm text-(--folio-muted) ring-1 ring-black/10 hover:text-(--folio-ink) dark:ring-white/12">
+                  Sign out
+                </button>
+              ))}
           </>
         }
         eyebrow={data && <HeroEyebrow signals={signals} report={r ?? null} />}
@@ -193,12 +217,12 @@ export default function Home() {
             </Reveal>
           </Section>
 
-          <FAQ heading="Questions, answered" subheading="What people ask before they read the picks." questions={faq} className="bg-[#fafaf7] dark:bg-[#0e0e0c]" />
+          <FAQ heading="Questions, answered" subheading="What people ask before they read the picks." questions={faq} locked={locked} onUnlock={paywall.openUnlock} className="bg-[#fafaf7] dark:bg-[#0e0e0c]" />
 
           <Section id="details" className="pt-0 md:pt-0">
             <SectionHeader align="stack" title="Technical details" description="The statistics behind the story, for people who want them." />
             <div className="mt-8">
-              <TechnicalDetails report={data.report} risk={data.risk} deep={data.deep} />
+              <TechnicalDetails report={data.report} risk={data.risk} deep={data.deep} locked={locked} />
             </div>
           </Section>
 
@@ -215,5 +239,12 @@ export default function Home() {
     </div>
   );
 
-  return reduced ? page : <ReactLenis root options={{ anchors: { offset: -72 }, lerp: 0.1 }}>{page}</ReactLenis>;
+  const gated = (
+    <PaywallContext.Provider value={paywall}>
+      {page}
+      <UnlockDialog open={unlockOpen} onClose={() => setUnlockOpen(false)} onUnlock={unlock} />
+    </PaywallContext.Provider>
+  );
+
+  return reduced ? gated : <ReactLenis root options={{ anchors: { offset: -72 }, lerp: 0.1 }}>{gated}</ReactLenis>;
 }

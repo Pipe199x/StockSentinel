@@ -68,7 +68,7 @@ jobs:
             echo "No data changes to commit."
             exit 0
           fi
-          git commit -m "data: news update $(date -u +%F) [skip ci]"
+          git commit -m "data: news update $(date -u +%F)"
           for i in 1 2 3; do
             if git pull --rebase origin main && git push origin main; then
               exit 0

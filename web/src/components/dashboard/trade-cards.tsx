@@ -15,6 +15,7 @@ import { num, pct, signedPct, shortDate, SECTOR_EN, STRATEGY, REGIME } from "@/l
 import type { News, Prices, Signal } from "@/lib/data";
 import { AssetBody, priceChange } from "./asset-detail";
 import { Pill } from "./panel";
+import { Locked, usePaywall } from "./paywall";
 
 /** Custom: a small P(win) ring (no ring primitive in the registry). */
 function WinRing({ p, size = 56 }: { p: number | null; size?: number }) {
@@ -48,6 +49,8 @@ function WinRing({ p, size = 56 }: { p: number | null; size?: number }) {
 
 function TradeCard({ s, id, onOpen, fresh }: { s: Signal; id: string; onOpen: () => void; fresh: boolean }) {
   const long = s.side === 1;
+  const { locked } = usePaywall();
+  // Locked: placeholders only (the public data has no ticker, levels, odds or size).
   return (
     <motion.button
       layoutId={`card-${s.ticker}-${id}`}
@@ -59,38 +62,47 @@ function TradeCard({ s, id, onOpen, fresh }: { s: Signal; id: string; onOpen: ()
       <div className="flex items-start justify-between gap-3">
         <div>
           <motion.h3 layoutId={`title-${s.ticker}-${id}`} className="text-2xl font-bold tracking-tight">
-            {s.ticker}
+            <Locked badge>{locked ? "XXXX" : s.ticker}</Locked>
           </motion.h3>
-          <p className="text-xs text-neutral-500">{SECTOR_EN[s.sector ?? ""] ?? s.sector} · {STRATEGY[s.strategy]}</p>
+          <p className="text-xs text-neutral-500">
+            <Locked>{locked ? "Sector name" : SECTOR_EN[s.sector ?? ""] ?? s.sector}</Locked> · {STRATEGY[s.strategy]}
+          </p>
         </div>
-        <WinRing p={s.p_success} />
+        <Locked>
+          <WinRing p={locked ? 0.5 : s.p_success} />
+        </Locked>
       </div>
       <div className="flex items-center gap-2">
         <span className={cn("inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-sm font-semibold", long ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300" : "bg-rose-500/15 text-rose-700 dark:text-rose-300")}>
           {long ? <IconArrowUpRight className="h-4 w-4" /> : <IconArrowDownRight className="h-4 w-4" />}
           {long ? "Long" : "Short"}
         </span>
-        <span className="text-sm text-neutral-600 dark:text-neutral-300">size {pct(s.kelly_size)}</span>
+        <span className="text-sm text-neutral-600 dark:text-neutral-300">
+          size <Locked>{locked ? "0.0%" : pct(s.kelly_size)}</Locked>
+        </span>
       </div>
       <dl className="grid grid-cols-3 gap-2 text-xs">
         {[
-          ["Target", num(s.tp), "text-emerald-600 dark:text-emerald-400"],
-          ["Stop", num(s.sl), "text-rose-600 dark:text-rose-400"],
-          ["Exit by", shortDate(s.t_max_date), ""],
-        ].map(([k, v, c]) => (
-          <div key={k} className="rounded-lg bg-neutral-100 px-2 py-1.5 dark:bg-white/[0.04]">
+          ["Target", locked ? "000.00" : num(s.tp), "text-emerald-600 dark:text-emerald-400", true],
+          ["Stop", locked ? "000.00" : num(s.sl), "text-rose-600 dark:text-rose-400", true],
+          ["Exit by", shortDate(s.t_max_date), "", false],
+        ].map(([k, v, c, gated]) => (
+          <div key={String(k)} className="rounded-lg bg-neutral-100 px-2 py-1.5 dark:bg-white/[0.04]">
             <dt className="text-neutral-500">{k}</dt>
-            <dd className={cn("font-semibold tabular-nums", c)}>{v}</dd>
+            <dd className={cn("font-semibold tabular-nums", String(c))}>{gated ? <Locked>{v}</Locked> : v}</dd>
           </div>
         ))}
       </dl>
-      <span className="text-xs font-medium text-cyan-700 group-hover:underline dark:text-cyan-300">Open details →</span>
+      <span className="text-xs font-medium text-cyan-700 group-hover:underline dark:text-cyan-300">{locked ? "Unlock to see this pick →" : "Open details →"}</span>
     </motion.button>
   );
 }
 
 export function TradeCards({ signals, prices, news, newTickers }: { signals: Signal[]; prices: Prices | null; news: News | null; newTickers: string[] }) {
-  const [active, setActive] = useState<Signal | null>(null);
+  const [active, setActiveRaw] = useState<Signal | null>(null);
+  const { locked, openUnlock } = usePaywall();
+  // Locked: a card opens the unlock dialog, never the spotlight (it needs the real ticker).
+  const setActive = (s: Signal | null) => (s && locked ? openUnlock() : setActiveRaw(s));
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
   const lenis = useLenis();
@@ -136,7 +148,12 @@ export function TradeCards({ signals, prices, news, newTickers }: { signals: Sig
         </div>
       )}
 
-      {idle.length > 0 && (
+      {idle.length > 0 && locked && (
+        <p className="mt-6 text-xs text-neutral-500">
+          {idle.length} other assets have no pick today. <button type="button" onClick={openUnlock} className="font-medium text-cyan-700 underline-offset-4 hover:underline dark:text-cyan-300">Unlock</button> to see their names and why.
+        </p>
+      )}
+      {idle.length > 0 && !locked && (
         <div className="mt-6">
           <p className="mb-2 text-xs text-neutral-500">Watching ({idle.length}): no trade today. Tap one to see why.</p>
           <div className="flex flex-wrap gap-1.5">

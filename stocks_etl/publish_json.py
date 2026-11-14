@@ -101,6 +101,47 @@ def write_signals_latest_json(signals: pd.DataFrame, path: str) -> str:
     return write_json(signals.to_dict(orient="records"), path)
 
 
+# === Paywall: the public files carry no pick identity; the full ones go to docs/data/premium/ ===
+# (served only behind the Cloudflare Pages Function in functions/data/_middleware.ts).
+PUBLIC_PICK_FIELDS = ("as_of", "side", "strategy", "t_max_date", "t_max_days", "market_regime", "market_p_stress")
+
+
+def redact_signals(records: list) -> dict:
+    """Public view of signals_latest: today's picks without ticker, levels, odds or size.
+
+    Idle assets are only counted: naming them would reveal the picks by elimination."""
+    active = [r for r in records if (r.get("kelly_size") or 0) > 0]
+    first = records[0] if records else {}
+    return {
+        "as_of": first.get("as_of"),
+        "market_regime": first.get("market_regime"),
+        "market_p_stress": first.get("market_p_stress"),
+        "n_assets": len(records),
+        "n_idle": len(records) - len(active),
+        "picks": [{k: r.get(k) for k in PUBLIC_PICK_FIELDS} for r in active],
+    }
+
+
+def redact_paper(paper: dict) -> dict:
+    """Public view of paper_summary: totals and curve stay; open positions lose ticker, size and prices."""
+    out = {k: v for k, v in paper.items() if k not in ("positions", "rescore")}
+    open_rows = paper.get("positions") or []
+    out["positions"] = [{"side": r.get("side"), "status": r.get("status"), "exit_by": r.get("exit_by")} for r in open_rows]
+    out["invested"] = float(sum((r.get("size") or 0) for r in open_rows))
+    return out
+
+
+def write_public_and_premium(obj, docs_dir: str, name: str, redact=None) -> str:
+    """Full file → docs/data/premium/<name>; redacted copy (or nothing) → docs/data/<name>."""
+    full = write_json(obj, os.path.join(docs_dir, "premium", name))
+    public = os.path.join(docs_dir, name)
+    if redact is not None:
+        write_json(redact(json.loads(Path(full).read_text(encoding="utf-8"))), public)
+    elif os.path.exists(public):
+        os.remove(public)  # premium-only file: no public copy left behind
+    return full
+
+
 def append_signals_history(signals: pd.DataFrame, path: str) -> str:
     """Una fila por (ticker, as_of): permite medir después cómo terminó cada señal."""
     cols = ["ticker", "as_of", "last_close", "regime", "market_regime", "strategy", "side", "p_success",

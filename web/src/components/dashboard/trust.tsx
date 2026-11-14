@@ -12,6 +12,7 @@ import { Validation } from "./validation";
 import { Risk } from "./risk";
 import { Models } from "./models";
 import { PanelBare } from "./panel";
+import { LockedBlock } from "./paywall";
 
 const TABS = [
   { key: "validation", label: "Validation" },
@@ -20,7 +21,21 @@ const TABS = [
 ] as const;
 type Key = (typeof TABS)[number]["key"];
 
-export function TechnicalDetails({ report, risk, deep }: { report: ValidationReport | null; risk: RiskReport | null; deep: DeepReport | null }) {
+/** Locked stand-in: a dummy grid of figures (no real values) behind the blur. */
+function PlaceholderPanel() {
+  return (
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      {Array.from({ length: 8 }, (_, i) => (
+        <div key={i} className="rounded-xl p-4 ring-1 ring-black/8 dark:ring-white/10">
+          <p className="text-xs text-neutral-500">Statistic name</p>
+          <p className="mt-1 text-2xl font-semibold tabular-nums">0.000</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function TechnicalDetails({ report, risk, deep, locked = false }: { report: ValidationReport | null; risk: RiskReport | null; deep: DeepReport | null; locked?: boolean }) {
   const [open, setOpen] = useState<Key | null>(null);
   return (
     <div>
@@ -43,11 +58,17 @@ export function TechnicalDetails({ report, risk, deep }: { report: ValidationRep
       <AnimatePresence mode="wait" initial={false}>
         {open && (
           <motion.div key={open} role="tabpanel" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.25 }} className="mt-6">
-            <PanelBare.Provider value>
-              {open === "validation" && <Validation report={report} />}
-              {open === "risk" && <Risk risk={risk} />}
-              {open === "models" && <Models deep={deep} />}
-            </PanelBare.Provider>
+            {locked ? (
+              <LockedBlock label="Unlock the technical details">
+                <PlaceholderPanel />
+              </LockedBlock>
+            ) : (
+              <PanelBare.Provider value>
+                {open === "validation" && <Validation report={report} />}
+                {open === "risk" && <Risk risk={risk} />}
+                {open === "models" && <Models deep={deep} />}
+              </PanelBare.Provider>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

@@ -223,7 +223,10 @@ export type PaperSummary = {
   sr_per_trade: number | null;
   total_return: number;
   equity_curve: { date: string; equity: number }[];
+  /** Locked (public) file: open rows keep only side, status and exit_by. */
   positions: PaperRow[];
+  /** Public file only: share of the account in open positions (sizes are redacted). */
+  invested?: number;
   recent_closed: PaperRow[];
   gate0: {
     status: "collecting" | "pass" | "fail" | "inconclusive";
@@ -244,6 +247,8 @@ export type Universe = { sectors: Record<string, string[]>; benchmark: string };
 export type Manifest = { stocks?: { last_updated_utc: string; as_of: string }; news?: { last_updated_utc: string } };
 
 export type Dashboard = {
+  /** true when the premium files were refused: tickers, levels and odds below are placeholders. */
+  locked: boolean;
   signals: Signal[];
   report: ValidationReport | null;
   prices: Prices | null;
@@ -255,11 +260,38 @@ export type Dashboard = {
   manifest: Manifest | null;
 };
 
+/** Public signals_latest.json (stocks_etl/publish_json.redact_signals): no ticker, level, odds or size. */
+type PublicSignals = {
+  as_of: string;
+  market_regime: Regime;
+  market_p_stress: number | null;
+  n_assets: number;
+  n_idle: number;
+  picks: Pick<Signal, "as_of" | "side" | "strategy" | "t_max_date" | "t_max_days" | "market_regime" | "market_p_stress">[];
+};
+
+/**
+ * Placeholder signals for the locked page, so every component keeps one shape. The values are
+ * deliberately meaningless; components check `locked` and show blurred dummy text instead.
+ */
+function placeholderSignals(p: PublicSignals): Signal[] {
+  const blank = {
+    last_close: 0, regime: null, p_stress: null, hurst: null, half_life: null, zscore: null, p_success: null,
+    tp: null, sl: null, sector: null,
+  };
+  const picks = p.picks.map((s, i) => ({ ...blank, ...s, ticker: `PICK ${i + 1}`, kelly_size: 1 }) as Signal);
+  const idle = Array.from({ length: p.n_idle }, (_, i) =>
+    ({ ...blank, ticker: `ASSET ${i + 1}`, as_of: p.as_of, side: 0, strategy: "none", kelly_size: 0, t_max_days: null, t_max_date: null,
+      market_regime: p.market_regime, market_p_stress: p.market_p_stress }) as Signal,
+  );
+  return [...picks, ...idle];
+}
+
 const BASE = "/data/";
 
 async function getJSON<T>(name: string): Promise<T | null> {
   try {
-    const r = await fetch(`${BASE}${name}?t=${Date.now()}`, { cache: "no-store" });
+    const r = await fetch(`${BASE}${name}?t=${Date.now()}`, { cache: "no-store", credentials: "same-origin" });
     if (!r.ok) return null;
     return (await r.json()) as T;
   } catch {
@@ -274,20 +306,29 @@ export function useDashboard() {
 
   const load = useCallback(async () => {
     setLoading(true);
-    const [signals, report, prices, news, deep, paper, universe, manifest, risk] = await Promise.all([
-      getJSON<Signal[]>("signals_latest.json"),
+    // Premium first: the Pages Function answers 401 without a valid session (functions/data/_middleware.ts).
+    const [fullSignals, fullPaper, deep, risk, report, prices, news, universe, manifest] = await Promise.all([
+      getJSON<Signal[]>("premium/signals_latest.json"),
+      getJSON<PaperSummary>("premium/paper_summary.json"),
+      getJSON<DeepReport>("premium/deep_report.json"),
+      getJSON<RiskReport>("premium/risk_report.json"),
       getJSON<ValidationReport>("validation_report.json"),
       getJSON<Prices>("prices_latest.json"),
       getJSON<News>("news_latest.json"),
-      getJSON<DeepReport>("deep_report.json"),
-      getJSON<PaperSummary>("paper_summary.json"),
       getJSON<Universe>("universe.json"),
       getJSON<Manifest>("manifest.json"),
-      getJSON<RiskReport>("risk_report.json"),
     ]);
-    if (!signals) setError("Could not load the published signals.");
-    else setError(null);
-    setData({ signals: signals ?? [], report, prices, news, deep, paper, risk, universe, manifest });
+    const locked = !Array.isArray(fullSignals);
+    let signals: Signal[] = fullSignals ?? [];
+    let paper = fullPaper;
+    if (locked) {
+      const [pub, pubPaper] = await Promise.all([getJSON<PublicSignals>("signals_latest.json"), getJSON<PaperSummary>("paper_summary.json")]);
+      signals = pub?.picks ? placeholderSignals(pub) : [];
+      paper = pubPaper;
+      if (!pub) setError("Could not load today's picks.");
+      else setError(null);
+    } else setError(null);
+    setData({ locked, signals, report, prices, news, deep: locked ? null : deep, paper, risk: locked ? null : risk, universe, manifest });
     setLoading(false);
   }, []);
 
@@ -295,5 +336,33 @@ export function useDashboard() {
     load();
   }, [load]);
 
-  return { data, error, loading, reload: load };
+  /** Checks a Gumroad license key server-side; on success the session cookie unlocks /data/premium. */
+  const unlock = useCallback(
+    async (key: string): Promise<string | null> => {
+      try {
+        const r = await fetch("/api/unlock", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ license_key: key }),
+          credentials: "same-origin",
+        });
+        const body = (await r.json().catch(() => ({}))) as { error?: string };
+        if (!r.ok) return body.error ?? "That license key did not work.";
+        await load();
+        return null;
+      } catch {
+        return "Could not reach the server. Check your connection and try again.";
+      }
+    },
+    [load],
+  );
+
+  const logout = useCallback(async () => {
+    try {
+      await fetch("/api/logout", { method: "POST", credentials: "same-origin" });
+    } catch {}
+    await load();
+  }, [load]);
+
+  return { data, error, loading, reload: load, unlock, logout };
 }

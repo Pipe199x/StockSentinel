@@ -52,7 +52,7 @@ jobs:
             echo "Dashboard unchanged."
             exit 0
           fi
-          git commit -m "web: rebuild dashboard [skip ci]"
+          git commit -m "web: rebuild dashboard"
           for i in 1 2 3; do
             if git pull --rebase origin main && git push origin main; then
               exit 0
