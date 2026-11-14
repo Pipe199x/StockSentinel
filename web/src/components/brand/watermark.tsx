@@ -34,6 +34,8 @@ export type WatermarkProps = {
   label?: boolean;
   /** Pin to the viewport instead of the positioned parent. */
   fixed?: boolean;
+  /** Corner variant only: make the mark a link (opens in a new tab). */
+  href?: string;
   className?: string;
   style?: CSSProperties;
 };
@@ -68,6 +70,7 @@ export function Watermark({
   position = "bottom-right",
   label = true,
   fixed = false,
+  href,
   className,
   style,
 }: WatermarkProps) {
@@ -112,21 +115,37 @@ export function Watermark({
     );
   }
 
+  const mark = (
+    <>
+      <OceanMark className="h-7 w-auto sm:h-8" />
+      {label && (
+        <span className="flex flex-col text-[0.7rem] leading-[1.05] sm:text-xs" style={FONT}>
+          <span className="font-bold tracking-wide">Ocean</span>
+          <span>Data Group</span>
+        </span>
+      )}
+    </>
+  );
   return (
     <div
-      aria-hidden
+      aria-hidden={href ? undefined : true}
       className={cn(layer, "flex p-4 sm:p-6", CORNER_CLASS[position])}
       style={layerStyle}
     >
-      <div className="flex items-center gap-2">
-        <OceanMark className="h-7 w-auto sm:h-8" />
-        {label && (
-          <span className="flex flex-col text-[0.7rem] leading-[1.05] sm:text-xs" style={FONT}>
-            <span className="font-bold tracking-wide">Ocean</span>
-            <span>Data Group</span>
-          </span>
-        )}
-      </div>
+      {href ? (
+        // Only the mark is clickable; the rest of the overlay stays click-through.
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener"
+          aria-label="Ocean Data Group"
+          className="pointer-events-auto flex h-fit items-center gap-2 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current"
+        >
+          {mark}
+        </a>
+      ) : (
+        <div className="flex items-center gap-2">{mark}</div>
+      )}
     </div>
   );
 }
