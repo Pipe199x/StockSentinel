@@ -22,7 +22,6 @@ import pandas as pd
 import yaml
 
 from stocks_etl.deep.data import STATIC, build_sequences, load_news, news_coverage, news_tensor, standardize
-from stocks_etl.deep.models import FusionMeta, LSTMMeta, fit_predict
 from stocks_etl.meta_model import _model, _trade_stats, build_events, feature_cols, sequential_trades
 from stocks_etl.pipeline import build_feature_frame
 from stocks_etl.publish_json import write_public_and_premium
@@ -83,6 +82,9 @@ def _promote(deep: Dict, base: Dict) -> bool:
 
 
 def main(cfg: dict) -> Dict:
+    # torch only here: the daily stocks job (no torch) imports this module for baseline_features.
+    from stocks_etl.deep.models import FusionMeta, LSTMMeta, fit_predict
+
     qcfg = cfg.get("quant", {}) or {}
     dcfg = cfg.get("deep", {}) or {}
     docs = (cfg.get("publish") or {}).get("docs_dir", "docs/data")
