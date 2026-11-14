@@ -7,6 +7,11 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 const DOT = { positive: "bg-emerald-500", negative: "bg-rose-500", neutral: "bg-neutral-400" } as const;
 const SENT = { positive: "Positive", negative: "Negative", neutral: "Neutral" } as const;
+const PILL = {
+  positive: "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300",
+  negative: "bg-rose-500/12 text-rose-700 dark:text-rose-300",
+  neutral: "bg-neutral-500/12 text-neutral-600 dark:text-neutral-300",
+} as const;
 
 export const newest = (news: News | null) => [...(news?.articles ?? [])].sort((a, b) => b.published_at.localeCompare(a.published_at));
 
@@ -24,7 +29,12 @@ export function Headline({ a, compact }: { a: Article; compact?: boolean }) {
       >
         <span className="line-clamp-3 text-base leading-snug text-pretty text-neutral-800 dark:text-neutral-200">{a.title}</span>
         <span className="flex items-center gap-2.5 text-xs text-neutral-500">
-          <span className={cn("h-2 w-2 shrink-0 rounded-full", s ? DOT[s] : "bg-neutral-300")} aria-label={s ? `${SENT[s]} sentiment` : undefined} role={s ? "img" : undefined} />
+          {s && (
+            <span className={cn("inline-flex shrink-0 items-center gap-1.5 rounded-full px-2 py-0.5 font-medium", PILL[s])}>
+              <span aria-hidden className={cn("h-1.5 w-1.5 rounded-full", DOT[s])} />
+              {SENT[s]}
+            </span>
+          )}
           {a.tickers?.length ? <span className="font-semibold text-neutral-900 dark:text-white">{a.tickers.slice(0, 3).join(" · ")}</span> : null}
           <span className="truncate">{a.source} · {ago(a.published_at)}</span>
         </span>

@@ -25,7 +25,7 @@ from stocks_etl.deep.data import STATIC, build_sequences, load_news, news_covera
 from stocks_etl.deep.models import FusionMeta, LSTMMeta, fit_predict
 from stocks_etl.meta_model import _model, _trade_stats, build_events, feature_cols, sequential_trades
 from stocks_etl.pipeline import build_feature_frame
-from stocks_etl.publish_json import write_json
+from stocks_etl.publish_json import write_public_and_premium
 from stocks_etl.validation import PurgedKFold, config_hash, deflated_sharpe, log_trial, read_trials
 
 DEFAULT_EMB_CACHE = ".cache/news_embeddings.npz"
@@ -180,8 +180,9 @@ def main(cfg: dict) -> Dict:
                        for t, s, v in zip(live["ticker"], live["side"], p)]
     report["signals"] = signals
     report["promoted_model"] = "lstm" if report["lstm"]["promoted"] else "fusion" if fusion.get("promoted") else None
-    write_json(report, os.path.join(docs, "deep_report.json"))
-    print(f"[DEEP] promoted={report['promoted_model']} -> {os.path.join(docs, 'deep_report.json')}")
+    # Paywall: carries live tickers, so premium only (served behind functions/data/_middleware.ts).
+    out = write_public_and_premium(report, docs, "deep_report.json")
+    print(f"[DEEP] promoted={report['promoted_model']} -> {out}")
     return report
 
 

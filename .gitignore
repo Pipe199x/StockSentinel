@@ -23,3 +23,6 @@ research/replay/out/
 /reports/
 /.cache/
 .pytest_cache/
+
+# Cloudflare Pages Functions local secrets (paywall): never commit
+.dev.vars

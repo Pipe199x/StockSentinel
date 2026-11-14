@@ -8,6 +8,7 @@ import type { PaperRow, PaperSummary, ValidationReport } from "@/lib/data";
 import type { VisitDiff } from "@/lib/last-visit";
 import { Pill } from "./panel";
 import { ACCOUNT, compactMoney, money, signedMoney } from "./story";
+import { Locked, usePaywall } from "./paywall";
 
 const REASON: Record<string, string> = { tp: "Take profit", sl: "Stop", time: "Time limit", entry_gap: "Gap at entry", late_publish: "Published after the open" };
 
@@ -63,15 +64,27 @@ function streak(closed: PaperRow[]) {
 }
 
 function PositionChip({ r, pNow }: { r: PaperRow; pNow?: number | null }) {
+  const { locked } = usePaywall();
+  // Locked: the public ledger row has only side, status and exit date; the rest are placeholders.
   return (
     <div className="flex items-center justify-between gap-3 rounded-xl border border-neutral-200 px-3 py-2 text-sm dark:border-white/[0.08]">
       <div className="flex items-center gap-2">
-        <span className="font-semibold">{r.ticker}</span>
+        <span className="font-semibold">
+          <Locked>{locked ? "XXXX" : r.ticker}</Locked>
+        </span>
         <span className={cn("text-xs", r.side === 1 ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-400")}>{SIDE[String(r.side)]}</span>
       </div>
       <div className="flex items-center gap-2 text-xs text-neutral-500">
-        <span className="tabular-nums text-neutral-700 dark:text-neutral-300">{money(ACCOUNT * r.size)}</span>
-        {fin(pNow) && <span>chance of profit now {pct(pNow, 0)}</span>}
+        <span className="tabular-nums text-neutral-700 dark:text-neutral-300">
+          <Locked>{locked ? "$00,000,000" : money(ACCOUNT * r.size)}</Locked>
+        </span>
+        {locked ? (
+          <span>
+            chance of profit now <Locked>00%</Locked>
+          </span>
+        ) : (
+          fin(pNow) && <span>chance of profit now {pct(pNow, 0)}</span>
+        )}
         <span>exit by {shortDate(r.exit_by)}</span>
       </div>
     </div>
@@ -145,7 +158,8 @@ export function TrackRecord({ paper, visit, report }: { paper: PaperSummary | nu
   const st = streak(paper.recent_closed);
   const rescore = Object.fromEntries((paper.rescore ?? []).map((r) => [`${r.ticker}-${r.signal_date}`, r.p_profit_now]));
   const open = paper.positions;
-  const invested = Math.min(1, open.reduce((s, r) => s + (r.size || 0), 0));
+  // Public (locked) file carries only the total share invested; the full one has per-row sizes.
+  const invested = Math.min(1, paper.invested ?? open.reduce((s, r) => s + (r.size || 0), 0));
   const value = ACCOUNT * (1 + paper.total_return);
   const tp = visit?.tpHits ?? 0;
 
@@ -193,7 +207,7 @@ export function TrackRecord({ paper, visit, report }: { paper: PaperSummary | nu
         <div>
           <h3 className="mb-2 text-sm font-semibold">Open now ({open.length})</h3>
           <div className="space-y-1.5">
-            {open.length ? open.map((r) => <PositionChip key={`${r.ticker}-${r.signal_date}`} r={r} pNow={rescore[`${r.ticker}-${r.signal_date}`]} />) : <p className="text-sm text-neutral-500">No open positions.</p>}
+            {open.length ? open.map((r, i) => <PositionChip key={r.ticker ? `${r.ticker}-${r.signal_date}` : `locked-${i}`} r={r} pNow={rescore[`${r.ticker}-${r.signal_date}`]} />) : <p className="text-sm text-neutral-500">No open positions.</p>}
           </div>
         </div>
         <div>
