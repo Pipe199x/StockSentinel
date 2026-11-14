@@ -20,10 +20,10 @@ By morning the choice is made. A few people know what it is.
 
 ## For the nerds
 
-- **Data:** Massive (prices, dividends, splits, news). Complete sessions only, point-in-time features, no look-ahead.
-- **Gate:** a hidden Markov model on the broad market. In stress, it does nothing at all.
-- **Edge hunt:** a momentum rule proposes; an XGBoost meta-model with FinBERT news sentiment disposes. Labels from the triple barrier.
-- **Sizing:** ½ Kelly × volatility target, capped by Expected Shortfall.
+- **Data:** licensed institutional market data and news. Complete sessions only, point-in-time features, no look-ahead.
+- **Gate:** a regime model on the broad market. In stress, it does nothing at all.
+- **Edge hunt:** a rule proposes; a meta-model that also reads the news disposes. Labels from the triple barrier.
+- **Sizing:** fractional Kelly with a volatility target and a hard cap on tail risk.
 - **Honesty:** purged K-fold + CPCV, and a Deflated Sharpe that charges for every version ever tried. A paper ledger fills every call at the next open and keeps the score.
 - **Plumbing:** GitHub Actions → static JSON → Next.js 16 on Cloudflare Pages. The interesting part sits behind a Pages Function that only opens for a valid license key.
 
