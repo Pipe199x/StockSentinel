@@ -30,6 +30,7 @@ def test_public_signals_name_no_asset():
     for p in out["picks"]:
         assert not SECRET_SIGNAL_KEYS & set(p)
         assert p["side"] == 1 and "t_max_date" not in p and "t_max_days" not in p  # exit date is paid
+        assert "strategy" not in p  # the setup (the method) is paid too
 
 
 def test_public_paper_hides_open_positions():
