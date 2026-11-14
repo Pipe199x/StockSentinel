@@ -24,7 +24,7 @@ function sideSentence(active: Signal[]) {
     .join(" ");
 }
 
-export function heroCopy(signals: Signal[]) {
+export function heroCopy(signals: Signal[], locked = false) {
   const active = signals.filter((s) => s.kelly_size > 0).sort((a, b) => b.kelly_size - a.kelly_size);
   const stress = signals[0]?.market_regime === "stress";
   const n = stress ? 0 : active.length;
@@ -34,7 +34,9 @@ export function heroCopy(signals: Signal[]) {
     lead: stress
       ? "The market is in a stress period, and StockSentinel does not trade in stress periods. Not advice."
       : n
-        ? `${sideSentence(active)} Not advice.`
+        ? locked
+          ? "Unlock to see them. Not advice."
+          : `${sideSentence(active)} Not advice.`
         : "No asset met StockSentinel's rules today. Not advice.",
   };
 }

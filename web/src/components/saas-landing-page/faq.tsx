@@ -21,10 +21,15 @@ export function FAQ({
   questions,
   children,
   className,
+  locked = false,
+  onUnlock,
 }: {
   heading: string;
   subheading?: string;
   questions: Question[];
+  /** Paywall: answers are shown blurred with an unlock button. */
+  locked?: boolean;
+  onUnlock?: () => void;
   /** Extra content under the header column (e.g. the technical details). */
   children?: React.ReactNode;
   className?: string;
@@ -45,6 +50,8 @@ export function FAQ({
               item={item}
               isOpen={open === index}
               onToggle={() => setOpen(open === index ? null : index)}
+              locked={locked}
+              onUnlock={onUnlock}
             />
           ))}
         </ul>
@@ -57,10 +64,14 @@ function FAQItem({
   item,
   isOpen,
   onToggle,
+  locked,
+  onUnlock,
 }: {
   item: Question;
   isOpen: boolean;
   onToggle: () => void;
+  locked?: boolean;
+  onUnlock?: () => void;
 }) {
   const id = useId();
   const reduceMotion = useReducedMotion();
@@ -101,7 +112,22 @@ function FAQItem({
             }}
             className="overflow-hidden"
           >
-            <p className={cn(text.body, "max-w-prose pb-5")}>{item.answer}</p>
+            {locked ? (
+              <div className="relative pb-5">
+                <p aria-hidden className={cn(text.body, "pointer-events-none max-w-prose blur-[5px] select-none")}>
+                  {item.answer}
+                </p>
+                <button
+                  type="button"
+                  onClick={onUnlock}
+                  className="absolute top-1 left-0 rounded-full bg-neutral-900 px-3 py-1.5 text-xs font-medium text-white shadow-md dark:bg-white dark:text-neutral-900"
+                >
+                  Unlock to read the answer
+                </button>
+              </div>
+            ) : (
+              <p className={cn(text.body, "max-w-prose pb-5")}>{item.answer}</p>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

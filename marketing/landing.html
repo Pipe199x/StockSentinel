@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>StockSentinel — daily stock picks, every result published</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root { --ink:#1a1a1a; --paper:#fafaf7; --card:#ffffff; --muted:#5f5f5b; --line:#e4e4de; --blue:#4b6bfb; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#f4f4f0; --paper:#0e0e0c; --card:#1c1c1a; --muted:#a8a89f; --line:#2c2c28; --blue:#6d8bff; }
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .card { background: var(--card); border: 1px solid var(--line); }
+  .muted { color: var(--muted); }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; min-height:44px; padding:.65rem 1.25rem; border-radius:9999px; font-weight:600; cursor:pointer; transition:transform .12s ease, opacity .2s; }
+  .btn:active { transform: scale(.97); }
+  .btn-solid { background: var(--ink); color: var(--paper); }
+  .btn-outline { border:1px solid var(--line); background: var(--card); color: var(--ink); }
+  .btn:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+  .blur-demo { filter: blur(5px); user-select: none; }
+  .reveal { opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity:1; transform:none; }
+  .beam { background: linear-gradient(90deg, transparent, var(--blue), transparent); background-size: 200% 100%; animation: beam 3.5s linear infinite; }
+  @keyframes beam { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; transition:none; } .beam { animation:none; } html { scroll-behavior:auto; } }
+  details > summary { list-style: none; } details > summary::-webkit-details-marker { display:none; }
+  details[open] .plus { transform: rotate(45deg); }
+</style>
+</head>
+<body class="antialiased">
+
+<header class="sticky top-0 z-30 backdrop-blur" style="background: color-mix(in srgb, var(--paper) 85%, transparent)">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6" aria-label="Primary">
+    <span class="flex items-center gap-2 font-semibold tracking-tight">
+      <span aria-hidden="true" class="grid h-7 w-7 place-items-center rounded-lg text-white" style="background: linear-gradient(180deg,#6d8bff,#4b6bfb)">◐</span>
+      <span data-gumroad-field="name">StockSentinel</span>
+    </span>
+    <a class="btn btn-solid" data-gumroad-action="buy" href="#buy">Get access · <span data-gumroad-field="price">—</span></a>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-4 pt-16 pb-12 text-center sm:px-6 sm:pt-24">
+    <p class="mx-auto inline-flex rounded-full px-3 py-1 text-xs muted card">New picks every market day · Not advice</p>
+    <h1 class="mx-auto mt-5 max-w-3xl text-4xl font-medium tracking-tight sm:text-6xl">Today's stock picks, with the target, the stop and the odds</h1>
+    <p class="mx-auto mt-5 max-w-xl text-lg muted">StockSentinel reads prices for 25 assets, financial news and the mood of the market every day, and publishes the trades its rules select. Unlock the picks on the site with your license key.</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a class="btn btn-solid" data-gumroad-action="buy" href="#buy">Unlock today's picks</a>
+      <a class="btn btn-outline" href="#how">How it works</a>
+    </div>
+    <p class="mt-4 text-sm muted"><span data-gumroad-field="rating">Be the first to review</span> · <span data-gumroad-field="review-count">no reviews yet</span></p>
+  </section>
+
+  <!-- Locked pick preview (illustration, no real data) -->
+  <section class="mx-auto max-w-6xl px-4 pb-20 sm:px-6" aria-labelledby="preview-h">
+    <h2 id="preview-h" class="sr-only">What a pick looks like</h2>
+    <div class="relative mx-auto max-w-3xl">
+      <div class="beam mx-auto mb-6 h-px w-2/3" aria-hidden="true"></div>
+      <div class="grid gap-4 sm:grid-cols-3" aria-hidden="true">
+        <div class="card rounded-2xl p-5 reveal"><p class="text-2xl font-bold blur-demo">XXXX</p><p class="mt-3 text-sm"><span class="rounded-full px-2 py-0.5 text-emerald-700 dark:text-emerald-300" style="background:rgba(16,185,129,.15)">↗ Long</span></p><p class="mt-3 text-xs muted">Target <span class="blur-demo">000.00</span> · Stop <span class="blur-demo">000.00</span></p></div>
+        <div class="card rounded-2xl p-5 reveal"><p class="text-2xl font-bold blur-demo">XXXX</p><p class="mt-3 text-sm"><span class="rounded-full px-2 py-0.5 text-emerald-700 dark:text-emerald-300" style="background:rgba(16,185,129,.15)">↗ Long</span></p><p class="mt-3 text-xs muted">Target <span class="blur-demo">000.00</span> · Stop <span class="blur-demo">000.00</span></p></div>
+        <div class="card rounded-2xl p-5 reveal"><p class="text-2xl font-bold blur-demo">XXXX</p><p class="mt-3 text-sm"><span class="rounded-full px-2 py-0.5 text-rose-700 dark:text-rose-300" style="background:rgba(244,63,94,.15)">↘ Short</span></p><p class="mt-3 text-xs muted">Target <span class="blur-demo">000.00</span> · Stop <span class="blur-demo">000.00</span></p></div>
+      </div>
+      <p class="mt-4 text-center text-sm muted">Illustration of locked picks. Buyers see the real tickers and levels on the site.</p>
+    </div>
+  </section>
+
+  <!-- What you unlock -->
+  <section class="px-4 py-20 sm:px-6" style="background: var(--card)" aria-labelledby="unlock-h">
+    <div class="mx-auto max-w-6xl">
+      <h2 id="unlock-h" class="text-3xl font-medium tracking-tight sm:text-4xl reveal">What you unlock</h2>
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="card rounded-2xl p-6 reveal"><h3 class="font-semibold">Today's picks</h3><p class="mt-2 text-sm muted">Every ticker, long or short, with its profit target, stop and exit date.</p></div>
+        <div class="card rounded-2xl p-6 reveal"><h3 class="font-semibold">The odds and the size</h3><p class="mt-2 text-sm muted">The model's chance that each trade reaches its target first, and the share of the account it uses.</p></div>
+        <div class="card rounded-2xl p-6 reveal"><h3 class="font-semibold">Open positions</h3><p class="mt-2 text-sm muted">The model portfolio's live positions in dollars, and how they stand today.</p></div>
+        <div class="card rounded-2xl p-6 reveal"><h3 class="font-semibold">The technical details</h3><p class="mt-2 text-sm muted">Validation, risk and model statistics behind every result.</p></div>
+      </div>
+      <p class="mt-6 text-sm muted">Free for everyone on the site: the full past-test story and the latest news.</p>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="mx-auto max-w-6xl px-4 py-20 sm:px-6" aria-labelledby="how-h">
+    <h2 id="how-h" class="text-3xl font-medium tracking-tight sm:text-4xl reveal">How it works</h2>
+    <ol class="mt-10 grid gap-4 sm:grid-cols-3">
+      <li class="card rounded-2xl p-6 reveal"><p class="text-sm font-semibold" style="color:var(--blue)">1</p><h3 class="mt-1 font-semibold">Get access</h3><p class="mt-2 text-sm muted">Check out here on Gumroad.</p></li>
+      <li class="card rounded-2xl p-6 reveal"><p class="text-sm font-semibold" style="color:var(--blue)">2</p><h3 class="mt-1 font-semibold">Copy your license key</h3><p class="mt-2 text-sm muted">It is in your Gumroad receipt and library.</p></li>
+      <li class="card rounded-2xl p-6 reveal"><p class="text-sm font-semibold" style="color:var(--blue)">3</p><h3 class="mt-1 font-semibold">Unlock the site</h3><p class="mt-2 text-sm muted">Open <a class="underline underline-offset-4" href="https://trading.oceandatagroup.ai" target="_blank" rel="noopener">trading.oceandatagroup.ai</a>, press Unlock and paste the key.</p></li>
+    </ol>
+  </section>
+
+  <!-- FAQ -->
+  <section class="px-4 py-20 sm:px-6" style="background: var(--card)" aria-labelledby="faq-h">
+    <div class="mx-auto max-w-3xl">
+      <h2 id="faq-h" class="text-3xl font-medium tracking-tight sm:text-4xl">Questions</h2>
+      <div class="mt-8 divide-y" style="border-top:1px solid var(--line); border-bottom:1px solid var(--line); --tw-divide-opacity:1">
+        <details class="py-4"><summary class="flex cursor-pointer items-center justify-between gap-4 font-medium">Is this investment advice?<span class="plus transition-transform muted" aria-hidden="true">+</span></summary><p class="mt-3 text-sm muted">No. The picks show what StockSentinel's rules select. They are not a recommendation to buy or sell anything, and they don't consider your situation.</p></details>
+        <details class="py-4"><summary class="flex cursor-pointer items-center justify-between gap-4 font-medium">Are the results real money?<span class="plus transition-transform muted" aria-hidden="true">+</span></summary><p class="mt-3 text-sm muted">No. The past test and the model portfolio are hypothetical: they apply the rules to market data, including trading costs. Past results don't promise future returns.</p></details>
+        <details class="py-4"><summary class="flex cursor-pointer items-center justify-between gap-4 font-medium">How often are there new picks?<span class="plus transition-transform muted" aria-hidden="true">+</span></summary><p class="mt-3 text-sm muted">The site updates every market day. Some days have several picks, some have none, and in a market stress period StockSentinel does not trade.</p></details>
+        <details class="py-4"><summary class="flex cursor-pointer items-center justify-between gap-4 font-medium">Where do I use my license key?<span class="plus transition-transform muted" aria-hidden="true">+</span></summary><p class="mt-3 text-sm muted">On trading.oceandatagroup.ai: press Unlock and paste it. The site remembers it on that browser for 7 days.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buy -->
+  <section id="buy" class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <div class="card mx-auto max-w-3xl rounded-3xl p-8 text-center sm:p-12 reveal">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Unlock today's picks</h2>
+      <p class="mx-auto mt-3 max-w-md muted">Tickers, targets, stops, odds, open positions and the technical details.</p>
+      <p class="mt-6 text-4xl font-semibold" data-gumroad-field="price">—</p>
+      <a class="btn btn-solid mt-6" data-gumroad-action="buy" href="#buy">I want this</a>
+    </div>
+  </section>
+</main>
+
+<footer class="px-4 py-10 text-center text-xs muted sm:px-6">
+  <p>StockSentinel by Ocean Data Group. Hypothetical results; past results don't promise future returns. Not investment advice.</p>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { threshold: 0.15 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+</body>
+</html>
