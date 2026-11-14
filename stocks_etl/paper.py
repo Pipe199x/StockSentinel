@@ -31,8 +31,8 @@ from stocks_etl.validation import sharpe
 # config_hash / strategy_label (which configuration produced it).
 COLUMNS = ["ticker", "signal_date", "side", "size", "p_success", "tp", "sl", "exit_by", "status",
            "entry_date", "entry_price", "last_checked", "exit_date", "exit_price", "exit_reason",
-           "ret_gross", "ret_net", "published_utc", "config_hash", "strategy_label"]
-OUTCOME = ["exit_date", "exit_price", "exit_reason", "ret_gross", "ret_net"]
+           "ret_gross", "ret_net", "published_utc", "config_hash", "strategy_label", "div_cash"]
+OUTCOME = ["exit_date", "exit_price", "exit_reason", "ret_gross", "ret_net", "div_cash"]
 MIN_TRADES = 30  # below this the comparison is noise (see 1 Nov / 4 Nov videos)
 Z95_ONE_SIDED = 1.6449
 
@@ -82,7 +82,11 @@ def _bars(prices: pd.DataFrame) -> Dict[str, pd.DataFrame]:
     p = prices.copy()
     p["day"] = pd.to_datetime(p["date"]).dt.tz_localize(None).dt.normalize()
     p = p.dropna(subset=["close"])
-    return {t: g.set_index("day").sort_index()[["open", "high", "low", "close"]] for t, g in p.groupby("ticker")}
+    if "dividends" not in p:
+        p["dividends"] = 0.0
+    p["dividends"] = p["dividends"].fillna(0.0).astype(float)
+    cols = ["open", "high", "low", "close", "dividends"]
+    return {t: g.set_index("day").sort_index()[cols] for t, g in p.groupby("ticker")}
 
 
 def _walk(row: dict, bars: pd.DataFrame, cost: float) -> dict:
@@ -107,8 +111,11 @@ def _walk(row: dict, bars: pd.DataFrame, cost: float) -> dict:
     start = pd.Timestamp(row["entry_date"])
     first = True
     entry = float(row["entry_price"])
+    div = 0.0   # cash dividends with ex-date in (entry day, today]: longs receive, shorts pay
     for day, b in bars[bars.index >= start].iterrows():
         o, h, l, c = (float(b[k]) for k in ("open", "high", "low", "close"))
+        if not first:
+            div += float(b["dividends"])
         px, reason = None, None
         if first and (s * (entry - tp) >= 0 or s * (entry - sl) <= 0):
             px, reason = entry, "entry_gap"  # the open already crossed a barrier: the bracket fills flat
@@ -129,11 +136,45 @@ def _walk(row: dict, bars: pd.DataFrame, cost: float) -> dict:
         first = False
         row["last_checked"] = str(day.date())
         if px is not None:
-            g = s * (px / entry - 1)
+            g = s * ((px + div) / entry - 1)
             row.update(status="closed", exit_date=str(day.date()), exit_price=px, exit_reason=reason,
-                       ret_gross=g, ret_net=g - cost)
+                       ret_gross=g, ret_net=g - cost, div_cash=div)
             break
     return row
+
+
+SPLIT_TOL = 0.02
+
+
+def rebase_for_splits(ledger: pd.DataFrame, prices: pd.DataFrame) -> Tuple[pd.DataFrame, List[dict]]:
+    """Keep stored prices on the scale of the split-adjusted bars.
+
+    When a split happens during (or after) a position, Massive re-adjusts the whole history, so
+    the ledger's entry, TP, SL, exit and dividend amounts are left on the old scale and every
+    barrier would look crossed. If the entry day's open now differs from the stored entry price
+    by more than 2% (a split ratio, not a data revision), all of the row's price fields are
+    rescaled by that ratio; returns are ratios and do not change. Pending rows have no fill to
+    compare with and are left alone (a split between signal and fill is not handled).
+    """
+    bars = _bars(prices)
+    out = ledger.copy()
+    rebased: List[dict] = []
+    for i in range(len(out)):
+        r = out.iloc[i]
+        if r["status"] not in ("open", "closed") or r["ticker"] not in bars or pd.isna(r["entry_date"]):
+            continue
+        b, d = bars[r["ticker"]], pd.Timestamp(r["entry_date"])
+        if d not in b.index or pd.isna(r["entry_price"]) or float(r["entry_price"]) <= 0:
+            continue
+        o = float(b.at[d, "open"]) if np.isfinite(b.at[d, "open"]) else float(b.at[d, "close"])
+        k = o / float(r["entry_price"])
+        if not np.isfinite(k) or abs(k - 1) <= SPLIT_TOL:
+            continue
+        for c in ("entry_price", "tp", "sl", "exit_price", "div_cash"):
+            if pd.notna(out[c].iat[i]):
+                out.iat[i, out.columns.get_loc(c)] = float(out[c].iat[i]) * k
+        rebased.append({"ticker": r["ticker"], "signal_date": str(r["signal_date"]), "factor": k})
+    return out, rebased
 
 
 def _same_outcome(a: dict, b: dict) -> bool:
@@ -208,9 +249,11 @@ def equity_curve(ledger: pd.DataFrame, prices: pd.DataFrame) -> pd.DataFrame:
                       ((trades["status"] == "open") | (pd.to_datetime(trades["exit_date"]) > day))]
         unreal = 0.0
         for r in live.itertuples():
-            px = bars[r.ticker]["close"].get(day, np.nan)
+            b = bars[r.ticker]
+            px = b["close"].get(day, np.nan)
             if np.isfinite(px):
-                unreal += float(r.size) * int(r.side) * (px / float(r.entry_price) - 1)
+                d = float(b["dividends"][(b.index > pd.Timestamp(r.entry_date)) & (b.index <= day)].sum())
+                unreal += float(r.size) * int(r.side) * ((px + d) / float(r.entry_price) - 1)
         out.append({"date": str(day.date()), "equity": realized * (1 + unreal)})
     return pd.DataFrame(out)
 
@@ -310,7 +353,10 @@ def run_paper(prices: pd.DataFrame, signals: pd.DataFrame, report: Dict, cfg: di
               cal: str = "NYSE") -> Tuple[pd.DataFrame, Dict]:
     revisions: List[dict] = []
     published = (pd.Timestamp(now) if now is not None else pd.Timestamp.now(tz="UTC")).isoformat()
-    led = update_ledger(load_ledger(ledger_path), prices, signals, cfg.get("cost_bps", 5), revisions=revisions,
+    led, rebased = rebase_for_splits(load_ledger(ledger_path), prices)
+    for r in rebased:
+        print(f"[PAPER] split rebase {r['ticker']} {r['signal_date']}: prices x {r['factor']:.6f}")
+    led = update_ledger(led, prices, signals, cfg.get("cost_bps", 5), revisions=revisions,
                         published_utc=published, config_hash=report.get("config_hash"),
                         strategy_label=strategy_label, cal=cal)
     Path(ledger_path).parent.mkdir(parents=True, exist_ok=True)
@@ -319,5 +365,5 @@ def run_paper(prices: pd.DataFrame, signals: pd.DataFrame, report: Dict, cfg: di
         print(f"[PAPER] revised closed row {r['ticker']} {r['signal_date']}: {r['old']} -> {r['new']}")
     as_of = str(pd.to_datetime(prices["date"]).max().date())
     summary = summarize(led, prices, report, as_of)
-    summary["ledger_integrity"] = {"revised_rows": revisions}
+    summary["ledger_integrity"] = {"revised_rows": revisions, "rebased_for_splits": rebased}
     return led, summary

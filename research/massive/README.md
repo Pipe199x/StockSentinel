@@ -28,4 +28,4 @@ Results: `reports/massive/results.md` and `results.json`. Raw data: `data/massiv
 - A symbol that is reused by another company after a >10-session gap is split into `TICKER~1`;
   renames (e.g. FB -> META) look like a delisting plus a new listing.
 - Delisted trades exit at the last exchange close; real post-delisting (OTC) prices are often lower.
-- Prices are split-adjusted, not dividend-adjusted (same as the live pipeline).
+- Prices are split-adjusted, not dividend-adjusted (as the live pipeline was then; since 2026-11-14 it adds cash dividends to trade returns).
