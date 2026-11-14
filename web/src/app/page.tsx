@@ -186,7 +186,13 @@ export default function Home() {
             <Reveal>
               <SectionHeader title="Today's picks" description="Tap a pick for its chart, the reasons behind it, the risk and its news. Not advice." />
               <div className="mt-10">
-                <TradeCards signals={signals} prices={data.prices} news={data.news} newTickers={visit?.newSignals ?? []} />
+                <TradeCards
+                  signals={signals}
+                  prices={data.prices}
+                  news={data.news}
+                  newTickers={visit?.newSignals ?? []}
+                  universe={Object.values(data.universe?.sectors ?? {}).flat().sort()}
+                />
               </div>
             </Reveal>
           </Section>

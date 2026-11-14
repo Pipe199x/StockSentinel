@@ -85,7 +85,9 @@ function PositionChip({ r, pNow }: { r: PaperRow; pNow?: number | null }) {
         ) : (
           fin(pNow) && <span>chance of profit now {pct(pNow, 0)}</span>
         )}
-        <span>exit by {shortDate(r.exit_by)}</span>
+        <span>
+          exit by <Locked>{locked ? "Dec 00" : shortDate(r.exit_by)}</Locked>
+        </span>
       </div>
     </div>
   );

@@ -85,7 +85,7 @@ function TradeCard({ s, id, onOpen, fresh }: { s: Signal; id: string; onOpen: ()
         {[
           ["Target", locked ? "000.00" : num(s.tp), "text-emerald-600 dark:text-emerald-400", true],
           ["Stop", locked ? "000.00" : num(s.sl), "text-rose-600 dark:text-rose-400", true],
-          ["Exit by", shortDate(s.t_max_date), "", false],
+          ["Exit by", locked ? "Dec 00" : shortDate(s.t_max_date), "", true],
         ].map(([k, v, c, gated]) => (
           <div key={String(k)} className="rounded-lg bg-neutral-100 px-2 py-1.5 dark:bg-white/[0.04]">
             <dt className="text-neutral-500">{k}</dt>
@@ -98,7 +98,7 @@ function TradeCard({ s, id, onOpen, fresh }: { s: Signal; id: string; onOpen: ()
   );
 }
 
-export function TradeCards({ signals, prices, news, newTickers }: { signals: Signal[]; prices: Prices | null; news: News | null; newTickers: string[] }) {
+export function TradeCards({ signals, prices, news, newTickers, universe = [] }: { signals: Signal[]; prices: Prices | null; news: News | null; newTickers: string[]; universe?: string[] }) {
   const [active, setActiveRaw] = useState<Signal | null>(null);
   const { locked, openUnlock } = usePaywall();
   // Locked: a card opens the unlock dialog, never the spotlight (it needs the real ticker).
@@ -148,10 +148,26 @@ export function TradeCards({ signals, prices, news, newTickers }: { signals: Sig
         </div>
       )}
 
-      {idle.length > 0 && locked && (
-        <p className="mt-6 text-xs text-neutral-500">
-          {idle.length} other assets have no pick today. <button type="button" onClick={openUnlock} className="font-medium text-cyan-700 underline-offset-4 hover:underline dark:text-cyan-300">Unlock</button> to see their names and why.
-        </p>
+      {locked && universe.length > 0 && (
+        // Locked: the whole watch list (all assets, alphabetical, picks not marked). Listing only the
+        // no-pick assets would reveal the picks by subtracting them from the public universe.
+        <div className="mt-6">
+          <p className="mb-2 text-xs text-neutral-500">
+            StockSentinel watches these {universe.length} assets. Tap one to see if it is one of today&apos;s picks.
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {universe.map((t) => (
+              <button
+                key={t}
+                type="button"
+                onClick={openUnlock}
+                className="rounded-full border border-neutral-200 bg-white/60 px-3 py-1 text-xs font-medium text-neutral-600 transition-colors hover:border-cyan-500/50 hover:text-neutral-900 focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:outline-none dark:border-white/[0.08] dark:bg-white/[0.03] dark:text-neutral-400 dark:hover:text-white"
+              >
+                {t}
+              </button>
+            ))}
+          </div>
+        </div>
       )}
       {idle.length > 0 && !locked && (
         <div className="mt-6">

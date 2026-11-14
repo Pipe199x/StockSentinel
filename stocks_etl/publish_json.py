@@ -103,7 +103,7 @@ def write_signals_latest_json(signals: pd.DataFrame, path: str) -> str:
 
 # === Paywall: the public files carry no pick identity; the full ones go to docs/data/premium/ ===
 # (served only behind the Cloudflare Pages Function in functions/data/_middleware.ts).
-PUBLIC_PICK_FIELDS = ("as_of", "side", "strategy", "t_max_date", "t_max_days", "market_regime", "market_p_stress")
+PUBLIC_PICK_FIELDS = ("as_of", "side", "strategy", "market_regime", "market_p_stress")  # exit date is paid too
 
 
 def redact_signals(records: list) -> dict:
@@ -126,7 +126,7 @@ def redact_paper(paper: dict) -> dict:
     """Public view of paper_summary: totals and curve stay; open positions lose ticker, size and prices."""
     out = {k: v for k, v in paper.items() if k not in ("positions", "rescore")}
     open_rows = paper.get("positions") or []
-    out["positions"] = [{"side": r.get("side"), "status": r.get("status"), "exit_by": r.get("exit_by")} for r in open_rows]
+    out["positions"] = [{"side": r.get("side"), "status": r.get("status")} for r in open_rows]
     out["invested"] = float(sum((r.get("size") or 0) for r in open_rows))
     return out
 

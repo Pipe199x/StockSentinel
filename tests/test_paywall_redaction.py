@@ -29,7 +29,7 @@ def test_public_signals_name_no_asset():
     assert out["n_assets"] == 5 and out["n_idle"] == 3 and len(out["picks"]) == 2
     for p in out["picks"]:
         assert not SECRET_SIGNAL_KEYS & set(p)
-        assert p["side"] == 1 and p["t_max_date"] == "2026-12-11"
+        assert p["side"] == 1 and "t_max_date" not in p and "t_max_days" not in p  # exit date is paid
 
 
 def test_public_paper_hides_open_positions():
@@ -40,7 +40,7 @@ def test_public_paper_hides_open_positions():
     out = redact_paper(paper)
     text = json.dumps(out)
     assert "NEE" not in text and "rescore" not in out
-    assert out["positions"] == [{"side": 1, "status": "open", "exit_by": "2026-12-10"}]
+    assert out["positions"] == [{"side": 1, "status": "open"}]  # no exit date either
     assert abs(out["invested"] - 0.036) < 1e-12 and out["total_return"] == -0.001
 
 
