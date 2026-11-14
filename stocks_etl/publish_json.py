@@ -103,7 +103,7 @@ def write_signals_latest_json(signals: pd.DataFrame, path: str) -> str:
 
 # === Paywall: the public files carry no pick identity; the full ones go to docs/data/premium/ ===
 # (served only behind the Cloudflare Pages Function in functions/data/_middleware.ts).
-PUBLIC_PICK_FIELDS = ("as_of", "side", "strategy", "market_regime", "market_p_stress")  # exit date is paid too
+PUBLIC_PICK_FIELDS = ("as_of", "side", "market_regime", "market_p_stress")  # exit date and setup are paid too
 
 
 def redact_signals(records: list) -> dict:

@@ -122,7 +122,7 @@ export default function Home() {
     {
       question: "How does it pick?",
       answer:
-        "First it checks the market mood; in a stress period it does not trade. Then a momentum rule looks for assets with a trend, and a second model estimates the chance each trade reaches its profit target before its stop. Only trades where that chance is high enough get a size.",
+        "First it checks the mood of the whole market; in a stress period it stays out. Then its rules look for assets with a clear setup, and a second model estimates the chance each trade reaches its target before its stop. Only the strongest get a size.",
     },
     {
       question: `What is the ${money(ACCOUNT)} model portfolio?`,
