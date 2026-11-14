@@ -140,8 +140,10 @@ function pct(canvas: DiagramLayout["canvas"], point: Point) {
 function Wordmark() {
   return (
     <a
-      href="#top"
-      aria-label="StockSentinel, back to top"
+      href={ODG_URL}
+      target="_blank"
+      rel="noopener"
+      aria-label="StockSentinel, powered by Ocean Data Group (opens oceandatagroup.ai in a new tab)"
       className="inline-flex items-center gap-2 rounded-full text-(--folio-ink) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--folio-ink)"
     >
       <OceanMark className="size-6 text-(--folio-ink)" />
