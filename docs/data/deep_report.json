@@ -1,40 +1,40 @@
 {
-  "as_of": "2026-11-06",
-  "generated_utc": "2026-11-07T15:17:09.754396+00:00",
-  "n_events": 24781,
+  "as_of": "2026-11-13",
+  "generated_utc": "2026-11-14T15:27:48.712959+00:00",
+  "n_events": 9831,
   "xgb": {
-    "n_trades": 2694,
-    "years": 11.56,
-    "win_rate": 0.505939123979213,
-    "avg_win": 0.029188820214880142,
-    "avg_loss": 0.03084716908729851,
-    "expected_value": -0.0004726132525288383,
-    "sr_per_trade": 0.024929617288621895,
-    "sr_annualized": 0.3805388301076043,
-    "skew": 0.7382232950356455,
-    "kurtosis": 20.765102662755538,
-    "max_losing_streak": 12,
-    "n_trials": 5,
-    "dsr": 0.7179674828771215
+    "n_trades": 533,
+    "years": 7.79,
+    "win_rate": 0.5215759849906192,
+    "avg_win": 0.055443487009723014,
+    "avg_loss": 0.05230838621991986,
+    "expected_value": 0.003892403194415455,
+    "sr_per_trade": 0.08237601548933257,
+    "sr_annualized": 0.6814254707159152,
+    "skew": 0.03430066444546337,
+    "kurtosis": 3.1816215603429647,
+    "max_losing_streak": 9,
+    "n_trials": 14,
+    "dsr": 0.7828605653833831
   },
   "lstm": {
-    "n_trades": 2334,
-    "years": 11.56,
-    "win_rate": 0.5197086546700943,
-    "avg_win": 0.02839120186201154,
-    "avg_loss": 0.029370547600709986,
-    "expected_value": 0.0006487335039520627,
-    "sr_per_trade": 0.05994096426329284,
-    "sr_annualized": 0.8516452383242451,
-    "skew": 1.4631520901306345,
-    "kurtosis": 28.312236406440146,
-    "max_losing_streak": 9,
-    "n_trials": 5,
-    "dsr": 0.9809228429149918,
-    "promoted": true
+    "n_trades": 384,
+    "years": 7.77,
+    "win_rate": 0.515625,
+    "avg_win": 0.057227604545836315,
+    "avg_loss": 0.05309289726593409,
+    "expected_value": 0.003791111480760029,
+    "sr_per_trade": 0.035090553085226794,
+    "sr_annualized": 0.24672960874813887,
+    "skew": -0.04709383257795301,
+    "kurtosis": 2.7109822047893903,
+    "max_losing_streak": 8,
+    "n_trials": 15,
+    "dsr": 0.3974464719120845,
+    "promoted": false
   },
   "fusion": {
-    "events_with_news_coverage": 23,
+    "events_with_news_coverage": 13,
     "min_events": 500,
     "news_tickers": [
       "AMZN",
@@ -45,85 +45,6 @@
     "status": "insufficient_data",
     "promoted": false
   },
-  "signals": [
-    {
-      "ticker": "BAC",
-      "as_of": "2026-11-06",
-      "side": -1,
-      "p_success_lstm": 0.49451324343681335
-    },
-    {
-      "ticker": "CAT",
-      "as_of": "2026-11-06",
-      "side": 1,
-      "p_success_lstm": 0.5552452802658081
-    },
-    {
-      "ticker": "GLD",
-      "as_of": "2026-11-06",
-      "side": -1,
-      "p_success_lstm": 0.4901290535926819
-    },
-    {
-      "ticker": "GOOGL",
-      "as_of": "2026-11-06",
-      "side": 1,
-      "p_success_lstm": 0.6503746509552002
-    },
-    {
-      "ticker": "HD",
-      "as_of": "2026-11-06",
-      "side": 1,
-      "p_success_lstm": 0.5427351593971252
-    },
-    {
-      "ticker": "MCD",
-      "as_of": "2026-11-06",
-      "side": -1,
-      "p_success_lstm": 0.4855956733226776
-    },
-    {
-      "ticker": "NEE",
-      "as_of": "2026-11-06",
-      "side": 1,
-      "p_success_lstm": 0.5949293971061707
-    },
-    {
-      "ticker": "NVDA",
-      "as_of": "2026-11-06",
-      "side": 1,
-      "p_success_lstm": 0.6236883997917175
-    },
-    {
-      "ticker": "PG",
-      "as_of": "2026-11-06",
-      "side": -1,
-      "p_success_lstm": 0.4916553497314453
-    },
-    {
-      "ticker": "QQQ",
-      "as_of": "2026-11-06",
-      "side": 1,
-      "p_success_lstm": 0.6776865720748901
-    },
-    {
-      "ticker": "SPY",
-      "as_of": "2026-11-06",
-      "side": 1,
-      "p_success_lstm": 0.6008763909339905
-    },
-    {
-      "ticker": "TLT",
-      "as_of": "2026-11-06",
-      "side": 1,
-      "p_success_lstm": 0.6423842310905457
-    },
-    {
-      "ticker": "XOM",
-      "as_of": "2026-11-06",
-      "side": 1,
-      "p_success_lstm": 0.5351948142051697
-    }
-  ],
-  "promoted_model": "lstm"
+  "signals": [],
+  "promoted_model": null
 }

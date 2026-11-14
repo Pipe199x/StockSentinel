@@ -1,7 +1,167 @@
 {
-  "as_of": "2026-11-13T19:41:15.049850+00:00",
+  "as_of": "2026-11-14T18:00:16.764674+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "published_at": "2026-11-14T14:45:02Z",
+      "source": "The Motley Fool",
+      "title": "Billionaire Bill Ackman Says There’s a Huge Disconnect in Wall Street’s Expectations for Amazon, Microsoft, Meta, and Alphabet",
+      "summary": "Bill Ackman argues that Wall Street analysts are underestimating the revenue growth potential from the massive capital expenditures being made by Amazon, Microsoft, Meta, and Alphabet in AI data centers. He estimates these companies can generate 15-25% returns on invested capital from their data center buildouts, suggesting consensus estimates for minimal revenue growth are too pessimistic. At current valuations of 21-28x forward earnings, all four companies appear undervalued, with Alphabet and Meta being particularly attractive.",
+      "url": "https://www.fool.com/investing/2026/11/14/bill-ackman-huge-disconnect-wall-street-expectations-for-hyperscalers/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F0e408c08a1cfd33013206c1210bcdad661648846-1290x860.png&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "GOOGL",
+        "MSFT"
+      ],
+      "tickers": [
+        "AMZN",
+        "GOOGL",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.948
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-14T12:46:02Z",
+      "source": "The Motley Fool",
+      "title": "Why Advanced Micro Devices Stock Surged This Week",
+      "summary": "AMD stock rallied 19% this week driven by strong AI infrastructure spending signals and a major deal with Google Cloud to supply 5th Gen EPYC server processors. CoreWeave's raised capital expenditure guidance to $37-39 billion and Google Cloud's selection of AMD processors for confidential computing systems reinforced investor confidence in sustained data center demand. However, AMD's elevated P/E ratio of 117.6 leaves little room for error, with future performance dependent on maintaining hyperscaler capital spending momentum.",
+      "url": "https://www.fool.com/coverage/market-movers/2026/11/14/why-advanced-micro-devices-stock-surged-this-week/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F99d61d89f55051fca7e218805afa0fbd631f7103-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9543
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-14T12:45:00Z",
+      "source": "The Motley Fool",
+      "title": "The Blockchain Boom Is Still Happening Behind the Scenes. These 3 Growth Stocks Will Benefit.",
+      "summary": "Blockchain technology is being integrated silently into mainstream products and services rather than being promoted as a standalone technology. Three growth stocks are well-positioned to benefit from blockchain expansion: Block (formerly Square) is pioneering blockchain-enabled fintech services, IBM's enterprise blockchain platform is solving real-world problems in supply chain and food safety, and Amazon Web Services powers most public blockchains and is experiencing accelerating cloud growth.",
+      "url": "https://www.fool.com/investing/2026/11/14/the-blockchain-boom-is-still-happening-behind-the/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893983%2Fgettyimages-1096888822-1200x800-5b2df79.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.5266
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-14T11:30:02Z",
+      "source": "The Motley Fool",
+      "title": "What's Going on With CoreWeave Stock?",
+      "summary": "CoreWeave delivered quarterly financial results that impressed the stock market and investors. However, the stock fell over 6% on November 13, 2026, amid AI-cloud selling pressures and reported $4 billion loan talks. Despite challenges from competitors like Microsoft, Oracle, and Nebius Group, CoreWeave reports AI demand is 10 times its capacity through 2027.",
+      "url": "https://www.fool.com/investing/2026/11/14/what-s-going-on-with-coreweave-stock/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Ff5c22dd953e50127b99f77f2945c4348c3a37e75-1280x720.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "MSFT",
+        "NVDA"
+      ],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9565
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-14T11:20:02Z",
+      "source": "The Motley Fool",
+      "title": "Qualcomm Is Cheap Enough to Hold Through 2030",
+      "summary": "Qualcomm stock has fallen 33% from its May high and now trades at just 9.6x management's fiscal 2029 earnings target, making it attractive for long-term investors. While handset chip sales have declined 26% year-over-year, the company is building a new growth engine through its data center business, which is forecast to reach a $7 billion annual run rate by end of fiscal 2027. With Amazon as a key customer and a $60 billion purchase option contract, Qualcomm's diversification into data center, automotive, and IoT segments is expected to grow over 60% in fiscal 2027, offsetting losses from Apple's shift to proprietary modems.",
+      "url": "https://www.fool.com/investing/2026/11/14/qualcomm-is-cheap-enough-to-hold-through-2030/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F06b40206208c0b23c38d6afdf58f5ebb34f738e2-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7851
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-14T10:33:00Z",
+      "source": "The Motley Fool",
+      "title": "Sundar Pichai Reported Alphabet's Cloud Revenue Grew 103% Last Quarter While the Gemini App Reached 1 Billion Monthly Users. Is Google Cloud Becoming a Bigger Growth Driver Than Search?",
+      "summary": "Alphabet reported Google Cloud revenue grew 103% year-over-year to $30.7 billion in Q3, while the Gemini App reached 1 billion monthly users. However, Google Search growth slowed to 12% from 17% in Q2, raising concerns about AI's impact on search monetization. Cloud is emerging as Alphabet's primary growth engine with a $561 billion customer backlog, but the stock fell 28% from its peak amid worries about search's long-term viability and massive capital spending pressures.",
+      "url": "https://www.fool.com/investing/2026/11/14/sundar-pichai-alphabet-cloud-revenue-gemini-search/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F890968%2Falphabet-company-name-on-red-filter-with-office-in-background_the-motley-fool.png&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9707
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-13T22:10:28Z",
+      "source": "The Motley Fool",
+      "title": "Stock Market Today, Nov. 13: Cerebras Surges Over 11% on Record Q3 Revenue and Raised 2026 Guidance",
+      "summary": "Cerebras Systems surged 11.22% after reporting record Q3 revenue of $210.8 million (55% YoY growth) and raising 2026 guidance. The company added Microsoft as a customer alongside Oracle and Amazon. The stock rally was also supported by Nvidia CEO Jensen Huang's resignation, potentially opening market share opportunities for Cerebras.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/13/stock-market-today-nov-13-cerebras-surges-over-11-on-record-q3-revenue-and-raised-2026-guidance/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F966e6b7238dec442a1dc1e6e4cae342d4c3c8928-1285x734.png&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "MSFT",
+        "NVDA"
+      ],
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9401
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "published_at": "2026-11-13T20:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Gatekeeper Now Available to Buy in AWS Marketplace, Giving Compliance-Driven Organisations a Faster Route to Vendor Governance",
+      "summary": "Gatekeeper, a unified Vendor and Contract Lifecycle Management solution, is now available for purchase through AWS Marketplace. The platform consolidates vendor risk, contracts, compliance and spend management into a single system, with AI agents running exclusively on Amazon Bedrock to keep customer data in-region. This enables compliance-driven organizations to streamline vendor governance through their existing AWS accounts.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/13/3402936/0/en/gatekeeper-now-available-to-buy-in-aws-marketplace-giving-compliance-driven-organisations-a-faster-route-to-vendor-governance.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/b31b3112-e7de-4a8f-94eb-6eb46e76a161",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7916
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "published_at": "2026-11-13T17:50:00Z",
       "source": "GlobeNewswire Inc.",
@@ -117,25 +277,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "published_at": "2026-11-13T13:00:04Z",
-      "source": "Zacks Investment Research",
-      "title": "Microsoft Corporation (MSFT) is Attracting Investor Attention: Here is What You Should Know",
-      "summary": "Microsoft is receiving significant investor attention with strong earnings growth expectations of +17.4% for the current quarter and +10.9% for the fiscal year. The company has consistently beaten consensus estimates and shows solid revenue growth projections of +18.8% year-over-year. However, it carries a Zacks Rank #3 (Hold) rating, suggesting near-term performance in line with the broader market, and trades at par valuation with peers.",
-      "url": "https://www.zacks.com/stock/news/3029345/microsoft-corporation-msft-is-attracting-investor-attention-here-is-what-you-should-know?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3029345",
-      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default308.jpg",
-      "raw_tickers": [
-        "MSFT"
-      ],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9545
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "published_at": "2026-11-13T12:37:00Z",
       "source": "The Motley Fool",
       "title": "What's Wrong With Amazon.com (AMZN) Stock, and Is It a Buy in November?",
@@ -151,29 +292,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.5913
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-13T10:14:00Z",
-      "source": "The Motley Fool",
-      "title": "Amazon Is the Only \"Magnificent Seven\" Stock I'd Buy With $1,000 Right Now",
-      "summary": "Amazon CEO Andy Jassy claims the company could run two trillion-dollar businesses within a decade through AWS and its online retail operations. AWS grew 39% last quarter with a $578 billion backlog, while Amazon's retail business is expanding rapidly with grocery sales tripling faster than other categories. The company is investing heavily in AI infrastructure and custom chips, though this has resulted in negative free cash flow of $42.4 billion over the past 12 months.",
-      "url": "https://www.fool.com/investing/2026/11/13/amazon-is-the-only-magnificent-seven-stock-id-buy/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893375%2Famazon-locker-with-package-inside.png&w=1200&op=resize",
-      "raw_tickers": [
-        "AAPL",
-        "AMZN",
-        "GOOGL",
-        "MSFT",
-        "NVDA"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9163
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -2093,159 +2211,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.8327
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-30T17:12:11+00:00",
-      "source": "The Times of India",
-      "title": "Google loses $500bn as China stocks suffer worst rout since 2016: What's happening to global AI?",
-      "summary": "For the past few years, artificial intelligence has been Wall Street's favourite investment story.",
-      "url": "https://timesofindia.indiatimes.com/business/international-business/google-loses-500bn-as-china-stocks-suffer-worst-rout-since-2016-whats-happening-to-global-ai/articleshow/135369988.cms",
-      "image_url": "https://static.toiimg.com/thumb/msid-135371395,width-1280,height-720,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.6316
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-30T17:09:06+00:00",
-      "source": "Business Standard",
-      "title": "Nasdaq hits near three-month low as Amazon, Intel rattle AI trade",
-      "summary": "The Nasdaq fell 2.48% as Amazon's rising AI spending and Intel's cash-burn warning triggered a tech selloff, with the two companies facing nearly $200 billion in combined market value losses.",
-      "url": "https://www.business-standard.com/world-news/nasdaq-hits-near-three-month-low-as-amazon-intel-rattle-ai-trade-126103001910_1.html",
-      "image_url": "https://bsmedia.business-standard.com/_media/bs/img/article/2020-12/27/thumb/fitandfill/1200X628/1609043964-1336.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.975
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-30T17:08:41+00:00",
-      "source": "Techpowerup.com",
-      "title": "(PR) Evercade Nexus Handheld Console Now Available",
-      "summary": "Blaze Entertainment is proud to announce that the Evercade Nexus, the newest retro gaming handheld console from Evercade, is now available on Amazon, Funstock, Best Buy and GameStop, as well as other Evercade retailers across Europe and the US. Evercade conti…",
-      "url": "https://www.techpowerup.com/354324/evercade-nexus-handheld-console-now-available",
-      "image_url": "https://www.techpowerup.com/img/fGHX1LOfhzZrhpcB.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.6857
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-30T17:00:00+00:00",
-      "source": "Amazon.com",
-      "title": "Amazon MSK now supports TLS 1.3 for data in transit",
-      "summary": "Amazon MSK now supports version 1.3 of Transport Layer Security (TLS) protocol for MSK Provisioned clusters through encryption policies. TLS 1.3 delivers faster, more secure encryption for streaming data and is increasingly required by compliance frameworks a…",
-      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-tls/",
-      "image_url": null,
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6742
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-30T16:55:02+00:00",
-      "source": "Portableapps.com",
-      "title": "Google Chrome Portable 156.0.8078.80 Stable (web browser) Released",
-      "summary": "A new version of Google Chrome Portable Stable has been released. Google Chrome Portable is a web browser that runs web pages and applications quickly. The latest Beta and Dev builds are also available. It's packaged as a portable app, so you can take your br…",
-      "url": "https://portableapps.com/news/2026-10-30--google-chrome-portable-156.0.8078.80-released",
-      "image_url": null,
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.942
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-30T16:50:22+00:00",
-      "source": "MacRumors",
-      "title": "The MacRumors Show: OLED MacBook Pro, iPad Mini 8, and More",
-      "summary": "On this week's episode of The MacRumors Show, we discuss Apple's newly announced OLED MacBook Pro, iPad mini with A20 Pro, and M6 versions of the iMac and entry-level 14-inch ‌MacBook Pro‌.\n\n\n\n\r\nSubscribe to The MacRumors Show YouTube channel for more videos\n…",
-      "url": "https://www.macrumors.com/2026/10/30/the-macrumors-show-oled-macbook-pro/",
-      "image_url": "https://images.macrumors.com/t/kLyL9ESZ6JvIf7h3R6f5-DPqhvE=/2500x/article-new/2026/10/TMRS-115-MacBook-PROLED-Thumb.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9391
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-30T16:46:38+00:00",
-      "source": "The Daily Caller",
-      "title": "Microsoft Turns To Wall Street For $25 Billion As AI Spending Bill Hits $170 Billion",
-      "summary": "Microsoft is returning to the U.S. bond market for the first time in more than nine years, seeking at least $25 billion as the technology giant pours billions into artificial intelligence infrastructure.",
-      "url": "https://dailycaller.com/2026/10/30/microsoft-turns-to-wall-street-for-25-billion-as-ai-spending-bill-hits-170-billion",
-      "image_url": "https://images.dailycaller.com/image/width=1280,height=549,fit=cover,format=webp,f=auto/https://cdn01.dailycaller.com/wp-content/uploads/2023/07/MICROSOFT.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.7952
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-30T15:52:04+00:00",
-      "source": "Bing.com",
-      "title": "Your content, your choice: clearer preferences for training and grounding",
-      "summary": "Microsoft is expanding web publisher choice with independent preferences for training and grounding, building on a shared industry training preference – without changing eligibility for Bing search results.",
-      "url": "https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/",
-      "image_url": "https://blogs.bing.com/api/media/assets/uploads/2026/10/531a56e0-1a18-46af-b4f0-55fa20a35079-Meta-tag-blog-image_-660-by-360-pixels.png",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5228
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-30T15:26:21+00:00",
-      "source": "Mactrast.com",
-      "title": "Russia Now Requires Apple to Store Its Customers’ Communications and Hand Them Over Upon Demand",
-      "summary": "As of October 2, Apple and Microsoft are considered “organizers of information dissemination,” on Russia's state surveillance registry, according to Russia’s communications watchdog Roskomnadzor.Read More...",
-      "url": "https://www.mactrast.com/2026/10/russia-now-requires-apple-to-store-its-customers-communication-and-hand-them-over-upon-request/",
-      "image_url": "https://www.mactrast.com/wp-content/uploads/2026/10/Russian-KGB-Watching-Citizen-Use-iPhone-1024x572.jpeg",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9382
       },
       "sentiment_model": "ProsusAI/finbert"
     }
