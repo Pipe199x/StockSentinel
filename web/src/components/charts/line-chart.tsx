@@ -8,6 +8,9 @@ import { useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { fin, num, shortDate } from "@/lib/format";
 
+const monthYear = (iso?: string | null) =>
+  iso ? new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(iso.slice(0, 10) + "T00:00:00Z")) : "—";
+
 export type Point = { date: string; value: number };
 export type Level = { value: number; label: string; tone: "gain" | "loss" | "muted" };
 
@@ -74,7 +77,11 @@ export function LineChart({
     setHover(Math.min(points.length - 1, Math.max(0, i)));
   };
 
-  const dateTicks = [0, Math.floor((points.length - 1) / 2), points.length - 1];
+  // Set: with 1-2 points the first/mid/last indices collide (duplicate keys).
+  const dateTicks = [...new Set([0, Math.floor((points.length - 1) / 2), points.length - 1])];
+  // Charts longer than ~10 months label month + year ("Feb 2019"); shorter ones day + month.
+  const spanDays = (Date.parse(last.date) - Date.parse(points[0].date)) / 864e5;
+  const tickDate = spanDays > 300 ? monthYear : shortDate;
 
   return (
     <div className={cn("relative", className)}>
@@ -103,7 +110,7 @@ export function LineChart({
         ))}
         {dateTicks.map((i) => (
           <text key={i} x={geo.x(i)} y={H - 6} textAnchor={i === 0 ? "start" : i === points.length - 1 ? "end" : "middle"} className="fill-neutral-500 text-[11px]">
-            {shortDate(points[i]?.date)}
+            {tickDate(points[i]?.date)}
           </text>
         ))}
         {area && <path d={geo.a} fill="url(#lc-fill)" />}
@@ -126,7 +133,7 @@ export function LineChart({
         {hp && (
           <g>
             <line x1={geo.x(hover!)} x2={geo.x(hover!)} y1={PAD.t} y2={H - PAD.b} className="stroke-neutral-400/60" />
-            <circle cx={geo.x(hover!)} cy={geo.y(hp.value)} r={4} className={cn("fill-white dark:fill-[#0c0d1c]", stroke)} strokeWidth={2} />
+            <circle cx={geo.x(hover!)} cy={geo.y(hp.value)} r={4} className={cn("fill-white dark:fill-[#0e0e0c]", stroke)} strokeWidth={2} />
           </g>
         )}
       </svg>

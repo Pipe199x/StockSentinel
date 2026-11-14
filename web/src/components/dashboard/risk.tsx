@@ -47,7 +47,7 @@ export function Risk({ risk }: { risk: RiskReport | null }) {
     >
       <BentoGrid className="max-w-none md:auto-rows-auto">
         <BentoGridItem
-          className="md:col-span-1 dark:bg-[#101124]"
+          className="md:col-span-1 dark:bg-[#1c1c1a]"
           title={
             <Tooltip content="From the market hidden Markov model: expected regime duration is 1/(1 − p_stay). Regimes are memoryless, so a 50-session regime lasts 100+ sessions only ~13% of the time.">
               <span className="underline decoration-dotted underline-offset-4">Market regime</span>
@@ -64,7 +64,7 @@ export function Risk({ risk }: { risk: RiskReport | null }) {
           }
         />
         <BentoGridItem
-          className="md:col-span-2 dark:bg-[#101124]"
+          className="md:col-span-2 dark:bg-[#1c1c1a]"
           title={
             <Tooltip content="5,000 one-year paths of the strategy's own daily returns: a block bootstrap of real days (keeps volatility clustering) and Student-t shocks (fat tails). The key number is the chance of breaching the maximum-loss limit.">
               <span className="underline decoration-dotted underline-offset-4">Monte Carlo of the strategy</span>
@@ -83,7 +83,7 @@ export function Risk({ risk }: { risk: RiskReport | null }) {
           }
         />
         <BentoGridItem
-          className="md:col-span-2 dark:bg-[#101124]"
+          className="md:col-span-2 dark:bg-[#1c1c1a]"
           title={
             <Tooltip content="Expected Shortfall of today's paper book with the correlations of market-stress days: results tested one by one say nothing about the day everything falls together.">
               <span className="underline decoration-dotted underline-offset-4">Live paper book</span>
@@ -115,7 +115,7 @@ export function Risk({ risk }: { risk: RiskReport | null }) {
           }
         />
         <BentoGridItem
-          className="md:col-span-1 dark:bg-[#101124]"
+          className="md:col-span-1 dark:bg-[#1c1c1a]"
           title={
             <Tooltip content="GARCH(1,1) Student-t on SPY. Persistence near 1 means shocks fade slowly; when it is ~1 the long-run variance is not identified and the sample volatility is used instead.">
               <span className="underline decoration-dotted underline-offset-4">Market volatility</span>

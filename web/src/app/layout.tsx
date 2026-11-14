@@ -11,16 +11,17 @@ export const metadata: Metadata = {
   icons: { icon: "/brand/odg-mark-navy.svg" },
 };
 
-// Dark by default (the ODG dashboards are dark); the theme toggle stores the choice.
-const themeScript = `try{var t=localStorage.getItem("theme");document.documentElement.classList.toggle("dark",t?t==="dark":true)}catch(e){document.documentElement.classList.add("dark")}`;
+// Light by default (the SaaS template look); the theme toggle stores the choice.
+const themeScript = `try{document.documentElement.classList.toggle("dark",localStorage.getItem("theme")==="dark")}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* suppressHydrationWarning: browser extensions rewrite this tag before React hydrates. */}
+        <script suppressHydrationWarning dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="min-h-full bg-white font-sans text-neutral-900 dark:bg-[#0c0d1c] dark:text-neutral-100">
+      <body className="min-h-full bg-[#fafaf7] font-sans text-neutral-900 dark:bg-[#0e0e0c] dark:text-neutral-100">
         {children}
       </body>
     </html>
