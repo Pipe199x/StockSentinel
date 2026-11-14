@@ -128,6 +128,8 @@ function narrowLayout(inputs: HeroNode[], outputs: HeroNode[], l: HeroLabels): D
 
 export type NavLink = { href: string; label: string };
 
+export const ODG_URL = "https://oceandatagroup.ai";
+
 function pct(canvas: DiagramLayout["canvas"], point: Point) {
   return {
     left: `${(point.x / canvas.w) * 100}%`,
@@ -143,7 +145,12 @@ function Wordmark() {
       className="inline-flex items-center gap-2 rounded-full text-(--folio-ink) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--folio-ink)"
     >
       <OceanMark className="size-6 text-(--folio-ink)" />
-      <span className="text-sm font-medium tracking-tight">StockSentinel</span>
+      <span className="flex flex-col leading-tight">
+        <span className="text-sm font-medium tracking-tight">StockSentinel</span>
+        <span className="text-[10px] text-(--folio-muted)">
+          Powered by <span className="font-semibold">Ocean Data Group</span>
+        </span>
+      </span>
     </a>
   );
 }
@@ -359,9 +366,15 @@ function DiagramCanvas({ layout, className }: { layout: DiagramLayout; className
       )}
 
       <div className="absolute z-20 -translate-x-1/2 -translate-y-1/2" style={pct(canvas, layout.hub)}>
-        <div className="grid size-14 place-items-center rounded-2xl bg-linear-to-b from-[#6d8bff] to-(--folio-blue) text-white shadow-[0_8px_20px_-8px_#4b6bfb] sm:size-16 dark:shadow-none">
-          <OceanMark className="size-8 sm:size-9" title="StockSentinel" />
-        </div>
+        <a
+          href={ODG_URL}
+          target="_blank"
+          rel="noopener"
+          aria-label="Ocean Data Group (opens in a new tab)"
+          className="grid size-14 place-items-center rounded-2xl bg-linear-to-b from-[#6d8bff] to-(--folio-blue) text-white shadow-[0_8px_20px_-8px_#4b6bfb] transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--folio-ink) sm:size-16 dark:shadow-none"
+        >
+          <OceanMark className="size-8 sm:size-9" />
+        </a>
       </div>
 
       {layout.nodes.map((node) => {

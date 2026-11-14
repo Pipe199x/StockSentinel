@@ -8,11 +8,11 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ReactLenis } from "lenis/react";
-import { IconActivity, IconChartLine, IconLock, IconMoon, IconNews, IconRefresh, IconShieldHalf, IconSun } from "@tabler/icons-react";
+import { IconActivity, IconChartLine, IconLock, IconMoon, IconNews, IconShieldHalf, IconSun } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { LoaderTwo } from "@/components/ui/loader";
 import { Watermark } from "@/components/brand/watermark";
-import { Hero, type HeroNode } from "@/components/saas-landing-page/hero";
+import { Hero, ODG_URL, type HeroNode } from "@/components/saas-landing-page/hero";
 import { FOLIO_THEME, Section, SectionHeader } from "@/components/saas-landing-page/ui";
 import { FAQ, type Question } from "@/components/saas-landing-page/faq";
 import { CTA } from "@/components/saas-landing-page/cta";
@@ -74,7 +74,7 @@ const INPUTS: HeroNode[] = [
 ];
 
 export default function Home() {
-  const { data, error, loading, reload, unlock, logout } = useDashboard();
+  const { data, error, loading, unlock, logout } = useDashboard();
   const [visit, setVisit] = useState<VisitDiff | null>(null);
   const [unlockOpen, setUnlockOpen] = useState(false);
   const locked = data?.locked ?? true;
@@ -144,16 +144,13 @@ export default function Home() {
 
   const page = (
     <div className={cn("relative isolate min-h-screen w-full overflow-x-clip bg-(--folio-paper) text-(--folio-ink)", FOLIO_THEME)}>
-      <Watermark variant="corner" fixed position="bottom-right" opacity={0.5} className="z-50 origin-bottom-right scale-75 sm:scale-100" />
+      <Watermark variant="corner" fixed position="bottom-right" opacity={0.5} href={ODG_URL} className="z-50 origin-bottom-right scale-75 sm:scale-100" />
 
       <Hero
         links={LINKS}
         actions={
           <>
             <ThemeToggle />
-            <button type="button" onClick={reload} aria-label="Refresh data" className={iconBtn}>
-              <IconRefresh className="h-4 w-4" />
-            </button>
             {data &&
               (locked ? (
                 <button type="button" onClick={paywall.openUnlock} className="flex h-9 items-center gap-1.5 rounded-full bg-(--folio-ink) px-3.5 text-sm font-medium text-(--folio-paper)">
