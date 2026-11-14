@@ -65,7 +65,9 @@ function TradeCard({ s, id, onOpen, fresh }: { s: Signal; id: string; onOpen: ()
             <Locked badge>{locked ? "XXXX" : s.ticker}</Locked>
           </motion.h3>
           <p className="text-xs text-neutral-500">
-            <Locked>{locked ? "Sector name" : SECTOR_EN[s.sector ?? ""] ?? s.sector}</Locked> · {STRATEGY[s.strategy]}
+            {/* Locked: no setup name either; the method is part of what buyers pay for. */}
+            <Locked>{locked ? "Sector name" : SECTOR_EN[s.sector ?? ""] ?? s.sector}</Locked>
+            {!locked && <> · {STRATEGY[s.strategy]}</>}
           </p>
         </div>
         <Locked>
