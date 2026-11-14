@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 import pandas as pd
 import pandas_market_calendars as mcal
 
+from stocks_etl import advisor_report
 from stocks_etl.meta_model import make_signals
 from stocks_etl.paper import run_paper
 from stocks_etl.pipeline import build_feature_frame
@@ -210,9 +211,9 @@ def main(cfg, now_utc=None, offline_prices=None, docs_dir=None):
 
     # === Features (+ noticias point-in-time), régimen, meta-labeling y validación honesta ===
     feats, meta = build_feature_frame(df, qcfg, docs_dir)
-    signals, report = make_signals(
+    signals, report, internals = make_signals(
         feats, meta, qcfg, cal_name=cfg.get("calendar"),
-        trials_path=os.path.join(docs_dir, "history", "trials_log.csv"),
+        trials_path=os.path.join(docs_dir, "history", "trials_log.csv"), return_internals=True,
     )
     as_of = str(df["date"].max().date())
     report.update({"strategy_label": cfg.get("strategy_label"), "data_quality": quality.as_dict(),
@@ -246,17 +247,27 @@ def main(cfg, now_utc=None, offline_prices=None, docs_dir=None):
     sectors = {t: sec for sec, tickers in (cfg.get("universe") or {}).items() for t in tickers}
     prices_json = write_prices_latest_json(df, os.path.join(docs_dir, "prices_latest.json"), window_days,
                                            now=run_now)
+    universe_json = write_json({"sectors": cfg.get("universe") or {"Todos": symbols}, "benchmark": qcfg.get("benchmark")},
+                               os.path.join(docs_dir, "universe.json"))
+    prices_hist = write_prices_history_csv(df, os.path.join(docs_dir, "history", "prices_history.csv"))
+    # === Paper trading (Gate 0): the published signals, executed with next-open fills ===
+    ledger, paper = run_paper(df, signals, report, qcfg, os.path.join(docs_dir, "history", "paper_trades.csv"),
+                              now=run_now, strategy_label=cfg.get("strategy_label"), cal=cal)
+    # === Capa de medición del asesor (informativa: no cambia ninguna operación) ===
+    adv = advisor_report.build(df, feats, meta, internals, report, signals, ledger, paper, cfg, docs_dir)
+    report["meta"].update(adv["meta"])
+    report.update(adv["validation"])
+    paper.update(adv["paper"])
+    cs = adv["meta"]["calendar"]
+    print(f"[ADVISOR] calendar SR={cs.get('sharpe')} sortino={cs.get('sortino')} maxDD={cs.get('max_drawdown')} "
+          f"n_eff={adv['meta']['effective_n']:.0f} DSR_eff={adv['meta']['dsr_effective']} "
+          f"flags={[f['code'] for f in report['red_flags']]} gate1={paper['gate1']['status']}")
     signals_json = write_signals_latest_json(signals.assign(sector=signals["ticker"].map(sectors)),
                                              os.path.join(docs_dir, "signals_latest.json"))
     report_json = write_json({"as_of": as_of, "generated_utc": now, **report},
                              os.path.join(docs_dir, "validation_report.json"))
-    universe_json = write_json({"sectors": cfg.get("universe") or {"Todos": symbols}, "benchmark": qcfg.get("benchmark")},
-                               os.path.join(docs_dir, "universe.json"))
-    prices_hist = write_prices_history_csv(df, os.path.join(docs_dir, "history", "prices_history.csv"))
+    risk_json = write_json({"generated_utc": now, **adv["risk"]}, os.path.join(docs_dir, "risk_report.json"))
     signals_hist = append_signals_history(signals, os.path.join(docs_dir, "history", "signals_history.csv"))
-    # === Paper trading (Gate 0): the published signals, executed with next-open fills ===
-    ledger, paper = run_paper(df, signals, report, qcfg, os.path.join(docs_dir, "history", "paper_trades.csv"),
-                              now=run_now, strategy_label=cfg.get("strategy_label"), cal=cal)
     paper_json = write_json(paper, os.path.join(docs_dir, "paper_summary.json"))
     print(f"[SUMMARY] paper: {paper['counts']} gate0={paper['gate0']['status']} total_return={paper['total_return']:.4f}")
     update_manifest(os.path.join(docs_dir, "manifest.json"), "paper", {
@@ -276,7 +287,7 @@ def main(cfg, now_utc=None, offline_prices=None, docs_dir=None):
     print(f"[SUMMARY] published: {prices_json}, {signals_json}, {report_json}, {universe_json}, "
           f"{prices_hist}, {signals_hist}")
 
-    return price_paths + pred_paths + [hb_path, prices_json, signals_json, report_json, paper_json]
+    return price_paths + pred_paths + [hb_path, prices_json, signals_json, report_json, risk_json, paper_json]
 
 
 if __name__ == "__main__":

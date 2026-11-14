@@ -178,7 +178,9 @@ def sequential_trades(ev: pd.DataFrame, prob: np.ndarray, cfg: dict, use_meta: b
             else:
                 size = 1.0
             rows.append({"ticker": tkr, "start": r.start, "end": r.end, "side": r.side, "strategy": r.strategy,
-                         "regime": r.mkt_regime, "size": size, "ret_net": r.ret_net, "pnl": size * r.ret_net})
+                         "regime": r.mkt_regime, "size": size, "ret_net": r.ret_net, "pnl": size * r.ret_net,
+                         "barrier": r.barrier, "entry_px": getattr(r, "entry_px", np.nan),
+                         "exit_px": getattr(r, "exit_px", np.nan), "div": getattr(r, "div", 0.0)})
             busy_until = r.end
     return pd.DataFrame(rows)
 
@@ -291,9 +293,47 @@ def _risk_row(f_hist: pd.DataFrame, garch: Dict, cfg: dict) -> Dict:
     }
 
 
+def _oof_probs(ev: pd.DataFrame, cfg: dict, seed: int) -> np.ndarray:
+    """Out-of-fold probabilities with Purged K-Fold for a given model seed."""
+    X, y = ev[feature_cols(cfg)], ev["label"].to_numpy()
+    starts, ends = ev["start"].to_numpy(), ev["end"].to_numpy()
+    oof = np.full(len(ev), np.nan)
+    for tr, te in PurgedKFold(int(cfg.get("n_splits", 5)), float(cfg.get("embargo_pct", 0.01))).split(starts, ends):
+        oof[te] = _model(seed).fit(X.iloc[tr], y[tr]).predict_proba(X.iloc[te])[:, 1]
+    return oof
+
+
+def stability(ev: pd.DataFrame, cfg: dict, seeds, n_trials: int, var_sr: float) -> Dict:
+    """How much the headline numbers move with the model seed alone (not trials: nothing is
+    logged). The same config on the same prices also moved between Windows and Linux CI."""
+    runs = []
+    for sd in seeds:
+        st = _trade_stats(sequential_trades(ev, _oof_probs(ev, cfg, int(sd)), cfg))
+        dsr = (deflated_sharpe(st["sr_per_trade"], n_trials, var_sr, st["skew"], st["kurtosis"], st["n_trades"])
+               if st.get("n_trades", 0) > 1 else None)
+        runs.append({"seed": int(sd), "n_trades": st.get("n_trades"), "sr_per_trade": st.get("sr_per_trade"),
+                     "expected_value": st.get("expected_value"), "dsr": dsr})
+    vals = lambda k: [r[k] for r in runs if r[k] is not None]  # noqa: E731
+    return {"runs": runs, "sr_range": [min(vals("sr_per_trade")), max(vals("sr_per_trade"))] if vals("sr_per_trade") else None,
+            "dsr_range": [min(vals("dsr")), max(vals("dsr"))] if vals("dsr") else None}
+
+
+def _thesis(r, p: float) -> str:
+    """The advisor's first question: can you explain simply how the profit is generated?"""
+    reg = REGIME_NAMES.get(int(r.mkt_regime)) if pd.notna(r.mkt_regime) else "unknown"
+    if int(r.strategy) == 1:
+        return (f"Momentum: 20-session return {np.expm1(r.log_ret_20):+.1%} with Hurst {r.hurst:.2f} >= 0.5 "
+                f"(moves tend to persist); market regime {reg}; meta-model P(success after costs) {p:.0%}.")
+    return (f"Mean reversion: z-score {r.zscore:+.2f} with half-life {r.half_life:.0f} sessions and Hurst "
+            f"{r.hurst:.2f} < 0.5 (moves tend to revert); market regime {reg}; P(success after costs) {p:.0%}.")
+
+
 def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name: Optional[str] = None,
-                 trials_path: Optional[str] = None, resolver=None) -> Tuple[pd.DataFrame, Dict]:
-    """Punto de entrada: devuelve (señales del día por ticker, informe de validación)."""
+                 trials_path: Optional[str] = None, resolver=None, return_internals: bool = False):
+    """Punto de entrada: devuelve (señales del día por ticker, informe de validación).
+
+    return_internals=True añade un tercer elemento {events, meta_trades} para la capa de
+    medición (stocks_etl.advisor_report); las señales y el informe no cambian."""
     seed = int(cfg.get("seed", 42))
     ev, latest = build_events(feats, cfg, resolver=resolver)
     if len(ev) < 200:
@@ -344,6 +384,21 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
         }
         row.update(_risk_row(feats[feats["ticker"] == r.ticker], meta[r.ticker]["garch"], cfg))
         row["sigma_garch"] = float(r.sigma_garch) if pd.notna(r.sigma_garch) else None  # sizes the trade
+        # The advisor's four questions before any investment: how is the profit made (thesis),
+        # what do I lose in the worst case (stop and Expected Shortfall as % of equity), which
+        # system is behind it (rule + config hash in the report), and who else bears the risk
+        # (nobody: paper trading). Informational: size and side do not change.
+        traded = bool(side and size > 0)
+        nu_t = getattr(r, "garch_nu", np.nan)
+        nu_t = nu_t if pd.notna(nu_t) else meta[r.ticker]["garch"]["nu"]
+        row.update({
+            "thesis": _thesis(r, p) if side and p is not None else None,
+            "risk_to_stop_pct_equity": float(size * k_sl * r.sigma_event) if traded else 0.0,
+            "es_trade_pct_equity": (float(size * var_es_t(r.sigma_garch * np.sqrt(float(r.t_max)), nu_t, 0.01)["es"])
+                                    if traded else 0.0),
+            "market_p_stress_10": (float(r.mkt_p_stress_10) if "mkt_p_stress_10" in latest
+                                   and pd.notna(r.mkt_p_stress_10) else None),
+        })
         rows.append(row)
     signals = pd.DataFrame(rows)
 
@@ -390,6 +445,8 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
             "With few trials the DSR is close to a Probabilistic Sharpe Ratio against zero.",
         ],
     })
+    if return_internals:
+        return signals, report, {"events": ev, "meta_trades": meta_trades}
     return signals, report
 
 

@@ -55,6 +55,35 @@ export function AssetDetail({ signal, series }: { signal: Signal | null; series:
     </div>
   );
 
+  const questionsTab = (
+    <div className="h-full space-y-3 overflow-y-auto rounded-2xl border border-neutral-200 bg-white p-4 text-sm dark:border-white/[0.08] dark:bg-[#101124]">
+      <p className="text-xs text-neutral-500">The four questions to answer before risking a dollar.</p>
+      <div>
+        <p className="font-semibold">1. How is the profit generated?</p>
+        <p className="text-neutral-600 dark:text-neutral-300">{s.thesis ?? why(s)}</p>
+      </div>
+      <div>
+        <p className="font-semibold">2. What do I lose in the worst case?</p>
+        <p className="text-neutral-600 dark:text-neutral-300">
+          {on
+            ? `If the stop is hit: about ${pct(s.risk_to_stop_pct_equity, 2)} of equity. The average of the worst 1% outcomes over the trade (Expected Shortfall): ${pct(s.es_trade_pct_equity, 2)} of equity, capped at 1% by design.`
+            : "Nothing today: there is no position."}
+          {fin(s.market_p_stress_10) && ` Chance the market enters a stress regime within 10 sessions: ${pct(s.market_p_stress_10, 0)}.`}
+        </p>
+      </div>
+      <div>
+        <p className="font-semibold">3. Do I understand the system behind it?</p>
+        <p className="text-neutral-600 dark:text-neutral-300">
+          A fixed, pre-declared rule plus a meta-model, validated out of sample (see Validation). Every change is logged as a trial.
+        </p>
+      </div>
+      <div>
+        <p className="font-semibold">4. Who else gets hurt if it goes wrong?</p>
+        <p className="text-neutral-600 dark:text-neutral-300">Nobody: this is simulated paper trading, no real money.</p>
+      </div>
+    </div>
+  );
+
   return (
     <Panel
       id="asset"
@@ -82,6 +111,7 @@ export function AssetDetail({ signal, series }: { signal: Signal | null; series:
           tabs={[
             { title: "Signal", value: "signal", content: signalTab },
             { title: "Risk", value: "risk", content: riskTab },
+            { title: "4 questions", value: "questions", content: questionsTab },
           ]}
           activeTabClassName="bg-cyan-500/15 dark:bg-cyan-400/15"
           contentClassName="mt-4"
