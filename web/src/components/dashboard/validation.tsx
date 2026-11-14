@@ -6,17 +6,34 @@ import FrequentlyAskedQuestionsAccordion from "@/block/frequently-asked-question
 import { Tooltip } from "@/components/ui/tooltip-card";
 import { cn } from "@/lib/utils";
 import { num, pct, signedPct, longDate, fin } from "@/lib/format";
-import type { ValidationReport } from "@/lib/data";
+import type { RedFlag, ValidationReport } from "@/lib/data";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { Panel, Pill, Stat } from "./panel";
 
 const HOW_IT_WORKS = [
   { question: "1. Regime first", answer: "A 3-state hidden Markov model on SPY returns and volatility labels the market calm, normal or stress, refitted yearly on past data only. In stress the system stays flat." },
   { question: "2. Primary rule", answer: "Momentum only: when Hurst ≥ 0.5 it follows the 20-day move if price sits on the same side of its fair value. Mean reversion was switched off after it lost money in the replay." },
-  { question: "3. Triple barrier", answer: "Take profit and stop are 1.5 × GARCH volatility over the holding period, with a 20-session time limit. The backtest enters at the next open and checks barriers intraday, exactly like the paper ledger." },
+  { question: "3. Triple barrier", answer: "Take profit and stop are 1.5 × GARCH volatility over the holding period, with a 20-session time limit. The backtest enters at the next open and checks barriers intraday, exactly like the paper ledger. Cash dividends with an ex-date inside the trade are credited to longs and charged to shorts." },
   { question: "4. Meta-labeling and size", answer: "XGBoost on stationary features estimates P(profit after costs). Size is ½ Kelly × volatility target, capped so the 1% Expected Shortfall costs at most 1% of equity." },
-  { question: "5. Validation", answer: "Purged K-fold with embargo, CPCV and the Deflated Sharpe, which penalizes every configuration ever tried." },
+  { question: "5. Validation", answer: "Purged K-fold with embargo, CPCV and the Deflated Sharpe, which penalizes every configuration ever tried. Overlapping trades are not independent, so the effective sample size and a Deflated Sharpe on it are published too." },
 ];
+
+const FLAG_TONE: Record<RedFlag["severity"], "bad" | "warn" | "info"> = { critical: "bad", warning: "warn", info: "info" };
+
+function RedFlags({ flags }: { flags?: RedFlag[] }) {
+  if (!flags?.length) return null;
+  return (
+    <div className="mb-5 flex flex-wrap gap-2" aria-label="Red flags">
+      {flags.map((f, i) => (
+        <Tooltip key={`${f.code}-${i}`} content={f.message}>
+          <span>
+            <Pill tone={FLAG_TONE[f.severity]}>{f.message.length > 64 ? `${f.message.slice(0, 62)}…` : f.message}</Pill>
+          </span>
+        </Tooltip>
+      ))}
+    </div>
+  );
+}
 
 export function Validation({ report }: { report: ValidationReport | null }) {
   if (!report) return null;
@@ -27,23 +44,24 @@ export function Validation({ report }: { report: ValidationReport | null }) {
     <Panel
       id="validation"
       eyebrow="Out-of-sample only"
-      title="Honest validation"
+      title="Out-of-sample validation"
       aside={
         <div className="flex flex-wrap gap-2">
-          <Pill tone={sig ? "good" : "warn"}>{sig ? "Edge is significant" : "Edge not proven yet"}</Pill>
+          <Pill>DSR {num(m.dsr, 3)} · line {report.dsr_threshold}</Pill>
           <Pill>{report.n_trials} trials logged</Pill>
         </div>
       }
     >
+      <RedFlags flags={report.red_flags} />
       <BentoGrid className="max-w-none md:auto-rows-auto">
         <BentoGridItem
-          className="md:col-span-1 dark:bg-[#101124]"
+          className="md:col-span-1 dark:bg-[#1c1c1a]"
           title={
             <Tooltip content="Deflated Sharpe Ratio (Bailey & López de Prado): the probability that the Sharpe is real after penalizing every configuration ever tried, skew and fat tails. 0.95 is the bar.">
               <span className="underline decoration-dotted underline-offset-4">Deflated Sharpe</span>
             </Tooltip>
           }
-          description={`Bar is ${report.dsr_threshold}. ${sig ? "Above it: the edge is unlikely to be luck." : "Below it: the result could still be luck."}`}
+          description={`Researchers use ${report.dsr_threshold} as the line. This result is ${sig ? "above" : "below"} it.`}
           header={
             <div className="flex items-end gap-3">
               <span className={cn("text-5xl font-bold tabular-nums", sig ? "text-emerald-500" : "text-amber-500")}>{num(m.dsr, 3)}</span>
@@ -52,7 +70,7 @@ export function Validation({ report }: { report: ValidationReport | null }) {
           }
         />
         <BentoGridItem
-          className="md:col-span-2 dark:bg-[#101124]"
+          className="md:col-span-2 dark:bg-[#1c1c1a]"
           title="Meta-model trades"
           description={`${num(m.years, 1)} years, ${m.n_trades?.toLocaleString()} trades, costs included. Needs ${m.min_trades_for_edge?.toLocaleString() ?? "—"} to confirm the edge.`}
           header={
@@ -64,14 +82,49 @@ export function Validation({ report }: { report: ValidationReport | null }) {
             </HoverEffect>
           }
         />
+        {m.calendar && (
+          <BentoGridItem
+            className="md:col-span-3 dark:bg-[#1c1c1a]"
+            title={
+              <Tooltip content="All out-of-sample trades spread over the sessions they were open, marked to the close each day. Sortino uses the downside deviation over every session, counting good days as zero.">
+                <span className="underline decoration-dotted underline-offset-4">The advisor&apos;s scorecard (calendar time)</span>
+              </Tooltip>
+            }
+            description={`Effective sample: ${num(m.effective_n, 0)} independent trades out of ${m.n_trades?.toLocaleString()} (overlapping trades share information), Deflated Sharpe on it ${num(m.dsr_effective, 3)}. Seed stability: Sharpe/trade ${report.stability?.sr_range ? `${num(report.stability.sr_range[0], 3)}–${num(report.stability.sr_range[1], 3)}` : "—"}, DSR ${report.stability?.dsr_range ? `${num(report.stability.dsr_range[0], 2)}–${num(report.stability.dsr_range[1], 2)}` : "—"}.`}
+            header={
+              <HoverEffect className="grid grid-cols-2 gap-1 md:grid-cols-6">
+                <Stat label="Sharpe" value={num(m.calendar.sharpe, 2)} sub={`excess of T-bills ${num(m.calendar.sharpe_excess_rf, 2)}`} />
+                <Stat label="Sortino" value={num(m.calendar.sortino, 2)} sub={`÷ Sharpe ${num(m.calendar.sortino_to_sharpe, 2)}`} />
+                <Stat label="Max drawdown" value={pct(m.calendar.max_drawdown, 1)} tone="bad" />
+                <Stat label="CAGR" value={signedPct(m.calendar.cagr, 1)} sub={`Calmar ${num(m.calendar.calmar, 2)}`} />
+                <Stat label="Profit factor" value={num(m.calendar.profit_factor, 2)} sub={`payoff ${num(m.calendar.payoff_ratio, 2)}`} />
+                <Stat label="Time in market" value={pct(m.calendar.time_in_market, 0)} sub={`avg gross ${pct(m.calendar.avg_gross_exposure, 0)}`} />
+              </HoverEffect>
+            }
+          />
+        )}
+        {report.by_regime && Object.keys(report.by_regime).length > 0 && (
+          <BentoGridItem
+            className="md:col-span-3 dark:bg-[#1c1c1a]"
+            title="Results by market regime"
+            description={`The regime decides whether to trade at all (stress: flat). Scenarios with fewer than 30 trades: ${report.scenario_coverage?.undercovered?.join(", ") || "none"}.`}
+            header={
+              <HoverEffect className="grid grid-cols-2 gap-1 md:grid-cols-4">
+                {Object.entries(report.by_regime).map(([k, b]) => (
+                  <Stat key={k} label={`${k} · ${b.n} trades`} value={signedPct(b.expected_value, 2)} sub={`win ${pct(b.win_rate, 0)} · SR/trade ${num(b.sr_per_trade, 3)}`} tone={fin(b.expected_value) ? (b.expected_value! > 0 ? "good" : "bad") : undefined} />
+                ))}
+              </HoverEffect>
+            }
+          />
+        )}
         <BentoGridItem
-          className="md:col-span-2 dark:bg-[#101124]"
+          className="md:col-span-2 dark:bg-[#1c1c1a]"
           title="CPCV: a distribution of histories, not one"
           description="Sharpe per trade on each combinatorial purged path. One lucky path is not an edge."
           header={<Bars items={report.cpcv_path_sr.map((v, i) => ({ label: `Path ${i + 1}`, value: v }))} format={(v) => num(v, 3)} />}
         />
         <BentoGridItem
-          className="md:col-span-1 dark:bg-[#101124]"
+          className="md:col-span-1 dark:bg-[#1c1c1a]"
           title="Primary rule alone"
           description="Without the meta-model filter. Shows how much of the result comes from the filter."
           header={
@@ -83,7 +136,7 @@ export function Validation({ report }: { report: ValidationReport | null }) {
         />
         {windows.length > 0 && (
           <BentoGridItem
-            className="md:col-span-3 dark:bg-[#101124]"
+            className="md:col-span-3 dark:bg-[#1c1c1a]"
             title="Crisis windows"
             description="Out-of-sample trades that started inside each crisis, next to what SPY did over the same window."
             header={
@@ -117,13 +170,13 @@ export function Validation({ report }: { report: ValidationReport | null }) {
           />
         )}
         <BentoGridItem
-          className="md:col-span-2 dark:bg-[#101124]"
+          className="md:col-span-2 dark:bg-[#1c1c1a]"
           title="Purged K-fold (one path through time)"
           description="Accuracy and Sharpe per trade on each test fold, with an embargo between train and test."
           header={<Bars items={report.folds.map((f) => ({ label: `${f.test_from.slice(0, 4)}–${f.test_to.slice(0, 4)}`, value: f.sr_per_trade }))} format={(v) => num(v, 3)} />}
         />
         <BentoGridItem
-          className="md:col-span-1 dark:bg-[#101124]"
+          className="md:col-span-1 dark:bg-[#1c1c1a]"
           title="Correlation in crises"
           description="Average correlation between assets. Diversification that disappears in stress is not diversification."
           header={

@@ -1,14 +1,18 @@
 # stocks_etl/stocks_etl.py — daily ETL; prices from Massive only
 import argparse
+import json
 import os
+import platform
+import sys
 import warnings
 from datetime import datetime, timezone
 import pandas as pd
 import pandas_market_calendars as mcal
 
-from stocks_etl.features import make_features
+from stocks_etl import advisor_report
 from stocks_etl.meta_model import make_signals
 from stocks_etl.paper import run_paper
+from stocks_etl.pipeline import build_feature_frame
 from stocks_etl.publish_json import (
     write_prices_latest_json,
     write_prices_history_csv,
@@ -16,9 +20,11 @@ from stocks_etl.publish_json import (
     write_signals_latest_json,
     append_signals_history,
 )
+from etl_common.corporate_actions import refresh_dividends
 from etl_common.manifest import update_manifest
-from etl_common.news_features import NEWS_FEATURES, load_sentiment, news_features
+from etl_common.news_features import CLOSE_UTC_HOUR
 from etl_common.sessions import drop_incomplete_sessions
+from etl_common.validation import validate_prices
 
 warnings.simplefilter("ignore", FutureWarning)
 
@@ -138,10 +144,36 @@ def load_prices_offline(path, cfg, symbols, now_utc=None):
     return df
 
 
+def _environment() -> dict:
+    """Which platform produced the published numbers: the same config hash on the same prices
+    gave DSR 0.817 on Windows / Python 3.13 and 0.577 on the Linux / Python 3.11 CI runner."""
+    import numpy, scipy, xgboost, arch, hmmlearn
+    return {"python": sys.version.split()[0], "platform": platform.platform(), "numpy": numpy.__version__,
+            "pandas": pd.__version__, "scipy": scipy.__version__, "xgboost": xgboost.__version__,
+            "arch": arch.__version__, "hmmlearn": hmmlearn.__version__}
+
+
+def _data_freshness(docs_dir: str, as_of: str, last_session) -> dict:
+    """Did the news reach the signal day's cutoff (20:00 UTC) before the features were built?"""
+    try:
+        with open(os.path.join(docs_dir, "manifest.json"), encoding="utf-8") as fh:
+            news = json.load(fh).get("news") or {}
+    except (FileNotFoundError, json.JSONDecodeError):
+        news = {}
+    fetched = news.get("fetched_utc") or news.get("last_updated_utc")
+    cutoff = pd.Timestamp(as_of, tz="UTC") + pd.Timedelta(hours=CLOSE_UTC_HOUR)
+    return {"prices_as_of": as_of, "last_completed_session": last_session, "news_fetched_utc": fetched,
+            "news_cutoff_utc": cutoff.isoformat(),
+            "news_fresh": bool(fetched) and pd.Timestamp(fetched) >= cutoff}
+
+
 def main(cfg, now_utc=None, offline_prices=None, docs_dir=None):
     symbols = universe_symbols(cfg)
     qcfg = cfg.get("quant", {}) or {}
     run_now = _utc_now(now_utc)
+    pub = cfg.get("publish", {}) or {}
+    docs_dir = docs_dir or pub.get("docs_dir", "docs/data")
+    cal = cfg.get("calendar") or "NYSE"
 
     if offline_prices:
         df = load_prices_offline(offline_prices, cfg, symbols, run_now)
@@ -157,33 +189,44 @@ def main(cfg, now_utc=None, offline_prices=None, docs_dir=None):
     if no_prices:
         raise SystemExit(f"Massive returned no valid prices for {no_prices}")
 
+    # === Calidad de datos: lo fatal detiene la corrida; lo demás se marca y se publica ===
+    df, quality = validate_prices(df, cal, run_now, qcfg.get("benchmark", "SPY"))
+    for f in quality.flags[:10]:
+        print(f"[DATA] flag {f}")
+    if quality.fatal:
+        raise SystemExit("[DATA] fatal data-quality problems: " + " | ".join(quality.fatal))
+
+    # === Dividendos (escala de precios ajustada por splits): largos cobran, cortos pagan ===
+    df, div_status = refresh_dividends(df, symbols, os.path.join(docs_dir, "history", "dividends.csv"),
+                                       offline=bool(offline_prices))
+    print(f"[DIVIDENDS] source={div_status['source']} rows={div_status['rows']} "
+          f"ex-dates in prices={int((df['dividends'] > 0).sum())}" +
+          (f" error={div_status['error']}" if div_status["error"] else ""))
+
     # === Resumen para verificación ===
-    if not df.empty:
-        min_d, max_d = df["date"].min(), df["date"].max()
-        print(f"[SUMMARY] prices rows={len(df)} tickers={df['ticker'].nunique()} dates={min_d}..{max_d}")
-        for tkr, dfg in df.groupby("ticker"):
-            print(f"[SUMMARY] {tkr}: rows={len(dfg)} last={dfg['date'].max()}")
+    min_d, max_d = df["date"].min(), df["date"].max()
+    print(f"[SUMMARY] prices rows={len(df)} tickers={df['ticker'].nunique()} dates={min_d}..{max_d}")
+    for tkr, dfg in df.groupby("ticker"):
+        print(f"[SUMMARY] {tkr}: rows={len(dfg)} last={dfg['date'].max()}")
 
-    # === Features, régimen, meta-labeling y validación honesta ===
-    feats, meta = make_features(df, qcfg)
-    pub = cfg.get("publish", {}) or {}
-    docs_dir = docs_dir or pub.get("docs_dir", "docs/data")
-
-    # Noticias: añade news_sent_5d / news_count_5d (point-in-time, antes del cierre) si el
-    # meta-modelo los pide. Si falta la tabla, las features quedan en 0 y el modelo sigue igual.
-    if any(c in (qcfg.get("extra_features") or []) for c in NEWS_FEATURES):
-        sent_path = os.path.join(docs_dir, "history", "news_sentiment.csv")
-        scored = load_sentiment(sent_path)
-        feats = news_features(feats, scored)
-        print(f"[SUMMARY] news sentiment rows={len(scored)} "
-              f"(events with news={int((feats['news_count_5d'] > 0).sum())})")
-    signals, report = make_signals(
+    # === Features (+ noticias point-in-time), régimen, meta-labeling y validación honesta ===
+    feats, meta = build_feature_frame(df, qcfg, docs_dir)
+    signals, report, internals = make_signals(
         feats, meta, qcfg, cal_name=cfg.get("calendar"),
-        trials_path=os.path.join(docs_dir, "history", "trials_log.csv"),
+        trials_path=os.path.join(docs_dir, "history", "trials_log.csv"), return_internals=True,
     )
+    as_of = str(df["date"].max().date())
+    report.update({"strategy_label": cfg.get("strategy_label"), "data_quality": quality.as_dict(),
+                   "dividends": div_status,
+                   "data_freshness": _data_freshness(docs_dir, as_of, quality.last_session),
+                   "environment": _environment()})
+    # Un ticker sin la última sesión publica su señal, pero nunca abre posición ese día.
+    signals["data_stale"] = signals["ticker"].isin(quality.stale)
+    signals.loc[signals["data_stale"], "kelly_size"] = 0.0
     m = report["meta"]
-    print(f"[SUMMARY] events={report['n_events']} trades={m.get('n_trades')} "
-          f"SR/trade={m.get('sr_per_trade', 0):.3f} DSR={m.get('dsr')} trials={report['n_trials']}")
+    print(f"[SUMMARY] config={report['config_hash']} ({cfg.get('strategy_label')}) events={report['n_events']} "
+          f"trades={m.get('n_trades')} SR/trade={m.get('sr_per_trade', 0):.3f} DSR={m.get('dsr')} "
+          f"trials={report['n_trials']} news_fresh={report['data_freshness']['news_fresh']}")
     print("[SUMMARY] signals\n", signals[["ticker", "regime", "strategy", "side", "p_success", "kelly_size"]])
 
     # === Guardado ===
@@ -204,16 +247,27 @@ def main(cfg, now_utc=None, offline_prices=None, docs_dir=None):
     sectors = {t: sec for sec, tickers in (cfg.get("universe") or {}).items() for t in tickers}
     prices_json = write_prices_latest_json(df, os.path.join(docs_dir, "prices_latest.json"), window_days,
                                            now=run_now)
-    signals_json = write_signals_latest_json(signals.assign(sector=signals["ticker"].map(sectors)),
-                                             os.path.join(docs_dir, "signals_latest.json"))
-    report_json = write_json({"as_of": str(df["date"].max().date()), "generated_utc": now, **report},
-                             os.path.join(docs_dir, "validation_report.json"))
     universe_json = write_json({"sectors": cfg.get("universe") or {"Todos": symbols}, "benchmark": qcfg.get("benchmark")},
                                os.path.join(docs_dir, "universe.json"))
     prices_hist = write_prices_history_csv(df, os.path.join(docs_dir, "history", "prices_history.csv"))
-    signals_hist = append_signals_history(signals, os.path.join(docs_dir, "history", "signals_history.csv"))
     # === Paper trading (Gate 0): the published signals, executed with next-open fills ===
-    ledger, paper = run_paper(df, signals, report, qcfg, os.path.join(docs_dir, "history", "paper_trades.csv"))
+    ledger, paper = run_paper(df, signals, report, qcfg, os.path.join(docs_dir, "history", "paper_trades.csv"),
+                              now=run_now, strategy_label=cfg.get("strategy_label"), cal=cal)
+    # === Capa de medición del asesor (informativa: no cambia ninguna operación) ===
+    adv = advisor_report.build(df, feats, meta, internals, report, signals, ledger, paper, cfg, docs_dir)
+    report["meta"].update(adv["meta"])
+    report.update(adv["validation"])
+    paper.update(adv["paper"])
+    cs = adv["meta"]["calendar"]
+    print(f"[ADVISOR] calendar SR={cs.get('sharpe')} sortino={cs.get('sortino')} maxDD={cs.get('max_drawdown')} "
+          f"n_eff={adv['meta']['effective_n']:.0f} DSR_eff={adv['meta']['dsr_effective']} "
+          f"flags={[f['code'] for f in report['red_flags']]} gate1={paper['gate1']['status']}")
+    signals_json = write_signals_latest_json(signals.assign(sector=signals["ticker"].map(sectors)),
+                                             os.path.join(docs_dir, "signals_latest.json"))
+    report_json = write_json({"as_of": as_of, "generated_utc": now, **report},
+                             os.path.join(docs_dir, "validation_report.json"))
+    risk_json = write_json({"generated_utc": now, **adv["risk"]}, os.path.join(docs_dir, "risk_report.json"))
+    signals_hist = append_signals_history(signals, os.path.join(docs_dir, "history", "signals_history.csv"))
     paper_json = write_json(paper, os.path.join(docs_dir, "paper_summary.json"))
     print(f"[SUMMARY] paper: {paper['counts']} gate0={paper['gate0']['status']} total_return={paper['total_return']:.4f}")
     update_manifest(os.path.join(docs_dir, "manifest.json"), "paper", {
@@ -223,7 +277,8 @@ def main(cfg, now_utc=None, offline_prices=None, docs_dir=None):
 
     update_manifest(os.path.join(docs_dir, "manifest.json"), "stocks", {
         "last_updated_utc": now,
-        "as_of": str(df["date"].max().date()),
+        "as_of": as_of,
+        "config_hash": report["config_hash"],
         "rows": int(len(df)),
         "tickers": symbols,
         "price_window_days": window_days,
@@ -232,7 +287,7 @@ def main(cfg, now_utc=None, offline_prices=None, docs_dir=None):
     print(f"[SUMMARY] published: {prices_json}, {signals_json}, {report_json}, {universe_json}, "
           f"{prices_hist}, {signals_hist}")
 
-    return price_paths + pred_paths + [hb_path, prices_json, signals_json, report_json, paper_json]
+    return price_paths + pred_paths + [hb_path, prices_json, signals_json, report_json, risk_json, paper_json]
 
 
 if __name__ == "__main__":

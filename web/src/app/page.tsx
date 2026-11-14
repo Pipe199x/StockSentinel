@@ -1,46 +1,45 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { IconMoon, IconRefresh, IconSun } from "@tabler/icons-react";
-import { Navbar, NavBody, NavItems, MobileNav, MobileNavHeader, MobileNavMenu, MobileNavToggle, NavbarLogo, NavbarButton } from "@/components/ui/resizable-navbar";
-import { GridWithDots } from "@/block/background-grid-with-dots";
-import StatsWithNumberTicker, { type StatItem } from "@/block/stats-with-number-ticker";
-import { CardSpotlight } from "@/components/ui/card-spotlight";
+/**
+ * StockSentinel on the Aceternity "SaaS landing page" template:
+ * Hero (beam diagram) → Today's picks → Latest headlines → the story → Model portfolio → FAQ →
+ * Technical details → CTA → Footer. Every number comes from the published JSON (docs/data).
+ */
+import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
+import { ReactLenis } from "lenis/react";
+import { IconActivity, IconChartLine, IconMoon, IconNews, IconRefresh, IconShieldHalf, IconSun } from "@tabler/icons-react";
+import { cn } from "@/lib/utils";
 import { LoaderTwo } from "@/components/ui/loader";
 import { Watermark } from "@/components/brand/watermark";
-import { LinesGradientShader } from "@/block/lines-gradient-shader";
-import { SignalsBoard } from "@/components/dashboard/signals-board";
-import { AssetDetail } from "@/components/dashboard/asset-detail";
-import { Validation } from "@/components/dashboard/validation";
-import { Paper } from "@/components/dashboard/paper";
-import { Models, NewsFeed } from "@/components/dashboard/models-news";
+import { Hero, type HeroNode } from "@/components/saas-landing-page/hero";
+import { FOLIO_THEME, Section, SectionHeader } from "@/components/saas-landing-page/ui";
+import { FAQ, type Question } from "@/components/saas-landing-page/faq";
+import { CTA } from "@/components/saas-landing-page/cta";
+import { Footer } from "@/components/saas-landing-page/footer";
+import { heroCopy, HeroEyebrow, HeroFacts } from "@/components/dashboard/verdict";
+import { HeadlineStrip } from "@/components/dashboard/headlines";
+import { TradeCards } from "@/components/dashboard/trade-cards";
+import { TrackRecord } from "@/components/dashboard/track-record";
+import { TechnicalDetails } from "@/components/dashboard/trust";
+import { ACCOUNT, money, Story } from "@/components/dashboard/story";
 import { useDashboard } from "@/lib/data";
-import { longDate, num, REGIME } from "@/lib/format";
+import { longDate, num } from "@/lib/format";
+import { diffVisit, readSnapshot, takeSnapshot, writeSnapshot, type VisitDiff } from "@/lib/last-visit";
 
-const NAV = [
-  { name: "Signals", link: "#signals" },
-  { name: "Asset", link: "#asset" },
-  { name: "Validation", link: "#validation" },
-  { name: "Paper", link: "#paper" },
-  { name: "Models", link: "#models" },
-  { name: "News", link: "#news" },
+const LINKS = [
+  { href: "#trades", label: "Today's picks" },
+  { href: "#story", label: "The story" },
+  { href: "#track", label: "Model portfolio" },
+  { href: "#faq", label: "FAQ" },
 ];
+const NOTE = "Model portfolio; results are hypothetical. Not advice.";
 
-/** True on phone-width screens; drives lighter shader settings. */
-function useIsPhone() {
-  const [phone, setPhone] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 640px)");
-    const sync = () => setPhone(mq.matches);
-    sync();
-    mq.addEventListener("change", sync);
-    return () => mq.removeEventListener("change", sync);
-  }, []);
-  return phone;
-}
+const iconBtn =
+  "grid size-9 place-items-center rounded-full text-(--folio-ink) ring-1 ring-black/10 transition hover:bg-black/[0.04] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--folio-ink) dark:ring-white/12 dark:hover:bg-white/[0.06]";
 
 function ThemeToggle() {
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(false);
   useEffect(() => setDark(document.documentElement.classList.contains("dark")), []);
   const flip = () => {
     const next = !dark;
@@ -51,158 +50,170 @@ function ThemeToggle() {
     setDark(next);
   };
   return (
-    <NavbarButton as="button" variant="secondary" onClick={flip} aria-label={dark ? "Switch to light mode" : "Switch to dark mode"} className="px-2">
+    <button type="button" onClick={flip} aria-label={dark ? "Switch to light mode" : "Switch to dark mode"} className={iconBtn}>
       {dark ? <IconSun className="h-4 w-4" /> : <IconMoon className="h-4 w-4" />}
-    </NavbarButton>
+    </button>
   );
 }
 
+/** Sections rise into place as they scroll into view. */
+function Reveal({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.6, ease: "easeOut" }}>
+      {children}
+    </motion.div>
+  );
+}
+
+const INPUTS: HeroNode[] = [
+  { key: "prices", label: "Prices for 25 assets", content: <IconChartLine className="size-5" /> },
+  { key: "news", label: "Financial news", content: <IconNews className="size-5" /> },
+  { key: "mood", label: "Market mood", content: <IconActivity className="size-5" /> },
+  { key: "risk", label: "Risk limits", content: <IconShieldHalf className="size-5" /> },
+];
+
 export default function Home() {
   const { data, error, loading, reload } = useDashboard();
-  const [ticker, setTicker] = useState<string | null>(null);
-  const [menu, setMenu] = useState(false);
-  const phone = useIsPhone();
+  const [visit, setVisit] = useState<VisitDiff | null>(null);
+  const reduced = useReducedMotion();
+
+  // Diff against the previous visit once per page load, then remember what was seen.
+  useEffect(() => {
+    if (!data || visit) return;
+    const closed = data.paper?.recent_closed ?? [];
+    setVisit(diffVisit(readSnapshot(), data.signals, closed));
+    writeSnapshot(takeSnapshot(data.signals, closed));
+  }, [data, visit]);
 
   const signals = data?.signals ?? [];
-  useEffect(() => {
-    if (!ticker && signals.length) {
-      const best = [...signals].sort((a, b) => (b.kelly_size || 0) - (a.kelly_size || 0))[0];
-      setTicker(best.ticker);
-    }
-  }, [signals, ticker]);
-  const selected = signals.find((s) => s.ticker === ticker) ?? null;
+  const copy = heroCopy(signals);
+  const idle = signals.filter((s) => !copy.active.includes(s)).sort((a, b) => a.ticker.localeCompare(b.ticker));
+  // Right side of the diagram: today's picks first, then (dimmed) assets that got no pick.
+  const outputs: HeroNode[] = [
+    ...copy.active.map((s) => ({
+      key: s.ticker,
+      label: `${s.ticker}: ${s.side === 1 ? "long" : "short"} pick today`,
+      href: "#trades",
+      content: <span className={s.side === 1 ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-400"}>{s.ticker}</span>,
+    })),
+    ...idle.map((s) => ({ key: s.ticker, label: `${s.ticker}: no pick today`, href: "#trades", muted: true, content: s.ticker })),
+  ].slice(0, 4);
 
-  const kpis: StatItem[] = useMemo(() => {
-    const r = data?.report;
-    const p = data?.paper;
-    const mkt = signals[0]?.market_regime ?? null;
-    const active = signals.filter((s) => s.kelly_size > 0).length;
-    return [
-      {
-        label: "Market regime",
-        value: null,
-        text: REGIME[mkt ?? ""] ?? "—",
-        tone: mkt === "stress" ? "bad" : mkt === "calm" ? "good" : "neutral",
-        description: `HMM on SPY, P(stress) ${num((signals[0]?.market_p_stress ?? 0) * 100, 0)}%. Stress means stay flat.`,
-      },
-      {
-        label: "Active signals",
-        value: active,
-        format: (v) => Math.round(v).toString(),
-        description: `${active} of ${signals.length} assets have a non-zero size today.`,
-      },
-      {
-        label: "Deflated Sharpe",
-        value: r?.meta.dsr ?? null,
-        format: (v) => v.toFixed(3),
-        tone: r?.edge_is_significant ? "good" : "neutral",
-        description: r?.edge_is_significant ? "Above the 0.95 bar: the edge is unlikely to be luck." : "Below the 0.95 bar: the edge is not proven yet.",
-      },
-      {
-        label: "Paper trading",
-        value: p ? p.total_return * 100 : null,
-        format: (v) => `${v >= 0 ? "+" : ""}${v.toFixed(2)}%`,
-        tone: p ? (p.total_return >= 0 ? "good" : "bad") : "neutral",
-        description: p ? `Gate 0: ${p.gate0.status}. ${p.counts.closed}/${p.gate0.min_trades} closed trades.` : "Starts with the next pipeline run.",
-      },
-    ];
-  }, [data, signals]);
+  const r = data?.report;
+  const faq: Question[] = [
+    {
+      question: "What is StockSentinel?",
+      answer: `A system that reads market prices for ${signals.length || 25} assets, financial news and the mood of the overall market every market day, and publishes the trades its rules select. Ocean Data Group builds and runs it.`,
+    },
+    {
+      question: "How does it pick?",
+      answer:
+        "First it checks the market mood; in a stress period it does not trade. Then a momentum rule looks for assets with a trend, and a second model estimates the chance each trade reaches its profit target before its stop. Only trades where that chance is high enough get a size.",
+    },
+    {
+      question: `What is the ${money(ACCOUNT)} model portfolio?`,
+      answer: `An account that starts at ${money(ACCOUNT)} and follows every pick with the same rules: it buys at the next day's open, sells at the target, the stop or the exit date, and pays 0.10% in costs per trade. All figures on this page are for that account.`,
+    },
+    {
+      question: "Why is most of the money in cash?",
+      answer:
+        "Each pick gets a small share of the account, sized so that one bad trade costs at most about 1% of the account. With a few picks open at a time, most of the account stays in cash.",
+    },
+    {
+      question: "How was it tested?",
+      answer: r
+        ? `On ${num(r.meta.years, 1)} years of market history it had never seen while it was built: ${r.meta.n_trades.toLocaleString()} trades in total. The chance that the results come from skill rather than luck is ${Math.round((r.meta.dsr ?? 0) * 100)}%; researchers use ${Math.round(r.dsr_threshold * 100)}% as the line. Since ${data?.paper?.started ? longDate(data.paper.started) : "launch"} the model portfolio also follows the picks as they happen.`
+        : "On years of market history it had never seen while it was built, and from launch on in a model portfolio that follows the picks as they happen.",
+    },
+    { question: "Is this advice?", answer: "No. The picks and the model portfolio show what StockSentinel's rules do. They are not a recommendation to buy or sell anything." },
+  ];
 
-  return (
-    <div id="top" className="relative isolate min-h-screen overflow-x-clip">
-      {/* Aceternity background + two Ocean Data Group watermarks (pointer-events-none, aria-hidden) */}
-      <div className="fixed inset-0 -z-10">
-        <GridWithDots className="[mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_80%)]" />
-      </div>
-      <Watermark variant="center" fixed opacity={0.04} label={false} className="z-0" />
-      <Watermark variant="corner" fixed position="bottom-right" opacity={phone ? 0.4 : 0.6} className="z-50 origin-bottom-right scale-75 sm:scale-100" />
+  const page = (
+    <div className={cn("relative isolate min-h-screen w-full overflow-x-clip bg-(--folio-paper) text-(--folio-ink)", FOLIO_THEME)}>
+      <Watermark variant="corner" fixed position="bottom-right" opacity={0.5} className="z-50 origin-bottom-right scale-75 sm:scale-100" />
 
-      <Navbar>
-        <NavBody>
-          <NavbarLogo />
-          <NavItems items={NAV} />
-          <div className="relative z-20 flex items-center gap-2">
-            <ThemeToggle />
-            <NavbarButton as="button" variant="dark" onClick={reload} className="flex items-center gap-1.5">
-              <IconRefresh className="h-4 w-4" /> Refresh
-            </NavbarButton>
-          </div>
-        </NavBody>
-        <MobileNav>
-          <MobileNavHeader>
-            <NavbarLogo />
-            <div className="flex items-center gap-2">
-              <ThemeToggle />
-              <MobileNavToggle isOpen={menu} onClick={() => setMenu(!menu)} />
-            </div>
-          </MobileNavHeader>
-          <MobileNavMenu isOpen={menu} onClose={() => setMenu(false)}>
-            {NAV.map((n) => (
-              <a key={n.link} href={n.link} onClick={() => setMenu(false)} className="w-full text-neutral-700 dark:text-neutral-200">
-                {n.name}
-              </a>
-            ))}
-            <NavbarButton as="button" variant="dark" onClick={() => { setMenu(false); reload(); }} className="w-full">
-              Refresh data
-            </NavbarButton>
-          </MobileNavMenu>
-        </MobileNav>
-      </Navbar>
-
-      <main className="relative z-10 mx-auto max-w-7xl space-y-6 px-4 pt-10 pb-16 md:px-6">
-        <section className="relative isolate pt-4 pb-10">
-          <LinesGradientShader
-            className="absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 bg-white dark:bg-[#0c0d1c]"
-            bandCount={phone ? 4 : 5}
-            bandSpacing={40}
-            bandThickness={phone ? 70 : 100}
-            waveAmplitude={0.2}
-            speed={1}
-            targetFps={phone ? 24 : 30}
-          />
-          {/* fades the bands into the page so the hero has no hard bottom edge */}
-          <div aria-hidden className="pointer-events-none absolute bottom-0 left-1/2 -z-10 h-24 w-screen -translate-x-1/2 bg-gradient-to-b from-transparent to-white dark:to-[#0c0d1c]" />
-        <header className="pt-4">
-          <p className="text-xs font-semibold tracking-[0.2em] text-cyan-700 uppercase dark:text-cyan-300/80">Quant signals · honest validation</p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-5xl">StockSentinel</h1>
-          <p className="mt-3 max-w-2xl text-neutral-600 dark:text-neutral-300">
-            Regime-aware signals for {signals.length || 25} assets, validated out-of-sample with purged cross-validation and the Deflated Sharpe, and
-            tracked live in a paper portfolio.
-            {data?.report && <> Data as of {longDate(data.report.as_of)}.</>}
-          </p>
-        </header>
-
-        {error && (
-          <div role="alert" className="rounded-xl border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm">
-            {error} <button onClick={reload} className="ml-2 underline">Try again</button>
-          </div>
-        )}
-
-        <CardSpotlight color="#14152b" radius={420} className="mt-6 rounded-2xl border border-neutral-200 bg-white/80 p-4 sm:p-6 md:p-8 dark:border-white/[0.1] dark:bg-[#101124]/80 backdrop-blur-md">
-          {loading && !data ? (
-            <div className="grid h-24 place-items-center" aria-busy="true" aria-label="Loading data">
-              <LoaderTwo />
-            </div>
-          ) : (
-            <StatsWithNumberTicker items={kpis} />
-          )}
-        </CardSpotlight>
-        </section>
-
-        {data && (
+      <Hero
+        links={LINKS}
+        actions={
           <>
-            <div className="space-y-6">
-              <SignalsBoard signals={signals} selected={ticker} onSelect={(t) => { setTicker(t); document.getElementById("asset")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} />
-              <AssetDetail signal={selected} series={(ticker && data.prices?.series[ticker]) || []} />
-            </div>
-            <Validation report={data.report} />
-            <Paper paper={data.paper} />
-            <Models deep={data.deep} />
-            <NewsFeed news={data.news} />
+            <ThemeToggle />
+            <button type="button" onClick={reload} aria-label="Refresh data" className={iconBtn}>
+              <IconRefresh className="h-4 w-4" />
+            </button>
           </>
-        )}
-      </main>
+        }
+        eyebrow={data && <HeroEyebrow signals={signals} report={r ?? null} />}
+        title={loading && !data ? "Loading today's picks…" : copy.title}
+        lead={error ? error : copy.lead}
+        primary={{ href: "#trades", label: "See today's picks" }}
+        secondary={{ href: "#story", label: `What did ${money(ACCOUNT)} become?` }}
+        extra={
+          <>
+            {loading && !data && <LoaderTwo />}
+            {data && <HeroFacts report={r ?? null} visit={visit} />}
+          </>
+        }
+        inputs={INPUTS}
+        outputs={outputs}
+        labels={{ inPill: "Every market day", outPill: "Today's picks", inNote: "Prices, news, market mood", outNote: copy.active.length ? `${copy.active.length} pick${copy.active.length > 1 ? "s" : ""} · Not advice` : "No picks today" }}
+        caption="Market prices, news and market mood flow into StockSentinel; today's picks come out the other side."
+      />
 
+      {data && (
+        <main>
+          <Section id="trades" tone="tinted">
+            <Reveal>
+              <SectionHeader title="Today's picks" description="Tap a pick for its chart, the reasons behind it, the risk and its news. Not advice." />
+              <div className="mt-10">
+                <TradeCards signals={signals} prices={data.prices} news={data.news} newTickers={visit?.newSignals ?? []} />
+              </div>
+            </Reveal>
+          </Section>
+
+          <Section id="headlines">
+            <SectionHeader title="Latest headlines" description="The news StockSentinel reads, newest first. Each dot shows the tone of the article." />
+            <div className="mt-10">
+              <HeadlineStrip news={data.news} />
+            </div>
+          </Section>
+
+          <Section id="story" tone="tinted">
+            <SectionHeader title={`${money(ACCOUNT)} following StockSentinel`} description="Every trade on years of market history it had never seen, applied to one account." />
+            <div className="mt-6">
+              <Story report={data.report} />
+            </div>
+          </Section>
+
+          <Section id="track">
+            <Reveal>
+              <SectionHeader title={`StockSentinel's ${money(ACCOUNT)} model portfolio`} description="The same picks, followed as they happen. Not advice." />
+              <div className="mt-10">
+                <TrackRecord paper={data.paper} visit={visit} report={data.report} />
+              </div>
+            </Reveal>
+          </Section>
+
+          <FAQ heading="Questions, answered" subheading="What people ask before they read the picks." questions={faq} className="bg-[#fafaf7] dark:bg-[#0e0e0c]" />
+
+          <Section id="details" className="pt-0 md:pt-0">
+            <SectionHeader align="stack" title="Technical details" description="The statistics behind the story, for people who want them." />
+            <div className="mt-8">
+              <TechnicalDetails report={data.report} risk={data.risk} deep={data.deep} />
+            </div>
+          </Section>
+
+          <CTA
+            title="New picks every market day"
+            lead="StockSentinel publishes its picks each market day, and the model portfolio updates with them."
+            primary={{ href: "#trades", label: "See today's picks" }}
+            secondary={{ href: "#story", label: `Read the ${money(ACCOUNT)} story` }}
+          />
+        </main>
+      )}
+
+      <Footer links={LINKS} note={NOTE} />
     </div>
   );
+
+  return reduced ? page : <ReactLenis root options={{ anchors: { offset: -72 }, lerp: 0.1 }}>{page}</ReactLenis>;
 }

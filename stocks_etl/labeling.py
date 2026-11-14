@@ -50,7 +50,8 @@ def triple_barrier(close: np.ndarray, event_pos: np.ndarray, side: np.ndarray, s
 
 def triple_barrier_live(open_: np.ndarray, high: np.ndarray, low: np.ndarray, close: np.ndarray,
                         event_pos: np.ndarray, side: np.ndarray, sigma: np.ndarray,
-                        k_tp: float, k_sl: float, t_max: np.ndarray, series_ended: bool = False) -> pd.DataFrame:
+                        k_tp: float, k_sl: float, t_max: np.ndarray, series_ended: bool = False,
+                        div: np.ndarray = None) -> pd.DataFrame:
     """Triple barrera ejecutada como el bot de paper trading (stocks_etl.paper._walk).
 
     Take profit y stop se publican en precio desde el cierre del día de la señal; la entrada
@@ -58,13 +59,23 @@ def triple_barrier_live(open_: np.ndarray, high: np.ndarray, low: np.ndarray, cl
     sale plana ('entry_gap'). Después: gap en la apertura -> sale a la apertura; toque
     intradía -> sale en la barrera; ambos el mismo día -> stop; barrera de tiempo al cierre
     de la sesión t_max contada desde la señal. Retornos medidos desde el precio de entrada.
+
+    div: dividendo en efectivo por acción (escala de precios ajustada por splits) en la fila
+    de cada fecha ex. La operación cobra (largo) o paga (corto) los dividendos con fecha ex en
+    (día de entrada, día de salida]: ret = s * ((salida + D) / entrada - 1). Las barreras
+    siguen sobre precios, como las órdenes reales. Devuelve también entry_px, exit_px y div.
     """
     o, h, l, c = (np.asarray(a, dtype=float) for a in (open_, high, low, close))
     n = len(c)
     m = len(event_pos)
+    dv = np.zeros(n) if div is None else np.nan_to_num(np.asarray(div, dtype=float))
+    cum = np.concatenate([[0.0], np.cumsum(dv)])          # sum of dv[a..b] = cum[b + 1] - cum[a]
     out_end = np.empty(m, dtype=int)
     out_ret = np.full(m, np.nan)
     out_bar = np.empty(m, dtype=object)
+    out_e = np.full(m, np.nan)
+    out_x = np.full(m, np.nan)
+    out_d = np.zeros(m)
     for i, (p0, s, sg, tm) in enumerate(zip(event_pos, side, sigma, t_max)):
         c0 = c[p0]
         tp, sl = c0 * (1 + s * k_tp * sg), c0 * (1 - s * k_sl * sg)
@@ -72,6 +83,7 @@ def triple_barrier_live(open_: np.ndarray, high: np.ndarray, low: np.ndarray, cl
         if p0 + 1 > n - 1:
             continue
         e = o[p0 + 1] if np.isfinite(o[p0 + 1]) else c[p0 + 1]
+        out_e[i] = e
         exit_p = p0 + int(tm)
         for p in range(p0 + 1, min(exit_p, n - 1) + 1):
             px, why = None, None
@@ -93,13 +105,18 @@ def triple_barrier_live(open_: np.ndarray, high: np.ndarray, low: np.ndarray, cl
             if px is None and p >= exit_p:
                 px, why = c[p], "t"
             if px is not None:
-                out_end[i], out_ret[i], out_bar[i] = p, s * (px / e - 1), why
+                d = cum[p + 1] - cum[p0 + 2] if p > p0 + 1 else 0.0   # ex-dates in (entry, exit]
+                out_end[i], out_ret[i], out_bar[i] = p, s * ((px + d) / e - 1), why
+                out_x[i], out_d[i] = px, d
                 break
         else:
             if series_ended and exit_p > n - 1:
                 last = n - 1
-                out_end[i], out_ret[i], out_bar[i] = last, s * (c[last] / e - 1), "delist"
-    return pd.DataFrame({"start_pos": event_pos, "end_pos": out_end, "ret": out_ret, "barrier": out_bar})
+                d = cum[last + 1] - cum[p0 + 2] if last > p0 + 1 else 0.0
+                out_end[i], out_ret[i], out_bar[i] = last, s * ((c[last] + d) / e - 1), "delist"
+                out_x[i], out_d[i] = c[last], d
+    return pd.DataFrame({"start_pos": event_pos, "end_pos": out_end, "ret": out_ret, "barrier": out_bar,
+                         "entry_px": out_e, "exit_px": out_x, "div": out_d})
 
 
 def triple_barrier_ohlc(open_: np.ndarray, high: np.ndarray, low: np.ndarray, close: np.ndarray,

@@ -1,0 +1,57 @@
+name: Update news (Massive + FinBERT)
+description: >
+  Fetch the last days of Massive news for every stock in docs/data/universe.json, score it with
+  FinBERT and update docs/data (news_latest.json, news_history.ndjson, news_sentiment.csv and the
+  manifest's news section). Shared by the news cron and the stocks run, which calls it right
+  before computing features so live news reaches the signal day's 20:00 UTC cutoff. A composite
+  action, not a reusable workflow: both callers share the publish-data concurrency group, and a
+  reusable-workflow call inside it would deadlock.
+inputs:
+  massive_api_key:
+    description: Massive API key (pass secrets.MASSIVE_API_KEY; composite actions cannot read secrets)
+    required: true
+  days:
+    description: Days of news to fetch (incremental; history accumulates in docs/data/history)
+    required: false
+    default: "2"
+runs:
+  using: composite
+  steps:
+    - name: Setup Python
+      uses: actions/setup-python@v6
+      with:
+        python-version: "3.11"
+        cache: pip
+        cache-dependency-path: news_etl/requirements.txt
+
+    - name: Cache Hugging Face model (FinBERT)
+      uses: actions/cache@v5
+      with:
+        path: ~/.cache/huggingface
+        key: hf-finbert-v1
+
+    - name: Install news deps (torch CPU wheel first)
+      shell: bash
+      run: |
+        set -euo pipefail
+        python -m pip install --upgrade pip
+        pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cpu
+        pip install -r news_etl/requirements.txt
+
+    - name: Fetch raw news (Massive)
+      shell: bash
+      env:
+        MASSIVE_API_KEY: ${{ inputs.massive_api_key }}
+        NEWS_DAYS: ${{ inputs.days }}
+      run: |
+        set -euo pipefail
+        mkdir -p data
+        python -m news_etl.news_client --out data/news_raw.ndjson \
+          --tickers-from docs/data/universe.json --days "${NEWS_DAYS}"
+        test -s data/news_raw.ndjson
+
+    - name: Merge history, FinBERT sentiment, publish to docs/data
+      shell: bash
+      run: |
+        set -euo pipefail
+        python -m news_etl.news_etl --config news_etl/config.yaml

@@ -22,7 +22,7 @@ from stocks_etl.risk import (
     mc_t_paths, streak_drawdown, var_es_t, vol_target_scale,
 )
 from stocks_etl.validation import (
-    PurgedKFold, cpcv_paths, cpcv_splits, deflated_sharpe, log_trial, min_sample_size, sharpe,
+    PurgedKFold, config_hash, cpcv_paths, cpcv_splits, deflated_sharpe, log_trial, min_sample_size, sharpe,
 )
 
 FEATURES = MODEL_FEATURES + ["side", "strategy"]
@@ -43,15 +43,18 @@ def _model(seed: int) -> XGBClassifier:
 def build_events(feats: pd.DataFrame, cfg: dict, resolver=None) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """Une señal primaria + triple barrera. Devuelve (eventos etiquetados, última fila por ticker).
 
-    Opciones de investigación (por defecto apagadas, el pipeline diario no cambia):
-      - cfg['barrier_mode'] == 'intraday': barreras sobre máximos/mínimos (triple_barrier_ohlc);
-        ``resolver(ticker, date, tp_price, sl_price, side)`` desempata días con doble toque.
-      - columna ``eligible`` en feats: solo se generan eventos en días en que el ticker
-        pertenecía al universo point-in-time (sin sesgo de supervivencia).
+    cfg['barrier_mode'] (por defecto 'live', la ejecución del bot de paper trading):
+      - 'live': entrada a la apertura siguiente, barreras intradía (triple_barrier_live);
+      - 'intraday': entrada al cierre, barreras sobre máximos/mínimos (triple_barrier_ohlc);
+        ``resolver(ticker, date, tp_price, sl_price, side)`` desempata días con doble toque;
+      - 'close': entrada y barreras sobre cierres (triple_barrier).
+    Columna ``eligible`` en feats (investigación): solo se generan eventos en días en que el
+    ticker pertenecía al universo point-in-time (sin sesgo de supervivencia).
     """
     k_tp, k_sl = float(cfg.get("k_tp", 1.5)), float(cfg.get("k_sl", 1.5))
     cost = 2 * float(cfg.get("cost_bps", 5)) / 1e4
-    intraday = cfg.get("barrier_mode", "close") == "intraday"
+    mode = cfg.get("barrier_mode", "live")
+    intraday = mode == "intraday"
     global_last = feats["date"].max()
     events, latest = [], []
     for tkr, f in feats.groupby("ticker", sort=False):
@@ -67,10 +70,12 @@ def build_events(feats: pd.DataFrame, cfg: dict, resolver=None) -> Tuple[pd.Data
             continue
         args = (pos, f["side"].to_numpy()[pos], f["sigma_event"].to_numpy()[pos], k_tp, k_sl,
                 f["t_max"].to_numpy()[pos])
-        if cfg.get("barrier_mode") == "live":
+        if mode == "live":
+            # cash dividends (split-adjusted) with ex-date in (entry, exit]: longs receive them, shorts pay
+            div = f["dividends"].to_numpy(dtype=float) if "dividends" in f else None
             tb = triple_barrier_live(f["open"].to_numpy(), f["high"].to_numpy(), f["low"].to_numpy(),
                                      f["close"].to_numpy(), *args,
-                                     series_ended=bool(f["date"].iloc[-1] < global_last))
+                                     series_ended=bool(f["date"].iloc[-1] < global_last), div=div)
         elif intraday:
             dates = f["date"].to_numpy()
             resolve = None
@@ -89,6 +94,9 @@ def build_events(feats: pd.DataFrame, cfg: dict, resolver=None) -> Tuple[pd.Data
         ev["barrier"] = tb["barrier"].to_numpy()
         if "ambiguous" in tb:
             ev["ambiguous"] = tb["ambiguous"].to_numpy()
+        for k in ("entry_px", "exit_px", "div"):
+            if k in tb:
+                ev[k] = tb[k].to_numpy()
         events.append(ev)
     ev = pd.concat(events, ignore_index=True) if events else pd.DataFrame()
     if not ev.empty:
@@ -114,8 +122,9 @@ def position_size(p: float, sigma: float, nu: float, t_max: float, cfg: dict) ->
     return size, "kelly"
 
 
+# Crisis windows inside the traded history (Massive's rolling 10-year window starts in
+# 2016 and the first 500 sessions are training only, so 2008 cannot be tested here).
 STRESS_WINDOWS = {
-    "GFC 2008": ("2007-10-09", "2009-03-09"),
     "COVID crash": ("2020-02-19", "2020-04-30"),
     "2022 bear market": ("2022-01-03", "2022-10-12"),
     "April 2025 sell-off": ("2025-04-02", "2025-04-30"),
@@ -169,7 +178,9 @@ def sequential_trades(ev: pd.DataFrame, prob: np.ndarray, cfg: dict, use_meta: b
             else:
                 size = 1.0
             rows.append({"ticker": tkr, "start": r.start, "end": r.end, "side": r.side, "strategy": r.strategy,
-                         "regime": r.mkt_regime, "size": size, "ret_net": r.ret_net, "pnl": size * r.ret_net})
+                         "regime": r.mkt_regime, "size": size, "ret_net": r.ret_net, "pnl": size * r.ret_net,
+                         "barrier": r.barrier, "entry_px": getattr(r, "entry_px", np.nan),
+                         "exit_px": getattr(r, "exit_px", np.nan), "div": getattr(r, "div", 0.0)})
             busy_until = r.end
     return pd.DataFrame(rows)
 
@@ -259,6 +270,8 @@ def _nth_trading_day(as_of: pd.Timestamp, n: int, cal_name: Optional[str]) -> st
 
 
 def _risk_row(f_hist: pd.DataFrame, garch: Dict, cfg: dict) -> Dict:
+    """Next-day risk from the point-in-time GARCH that also sizes the trade (sigma_next is its
+    one-step forecast; the sigma_t used for barriers and size is published as sigma_garch)."""
     sigma, nu, mu = garch["sigma_next"], garch["nu"], garch["mu"]
     r = f_hist["log_ret_1"].dropna().iloc[-252:]
     v95 = var_es_t(sigma, nu, 0.05, mu)
@@ -266,7 +279,7 @@ def _risk_row(f_hist: pd.DataFrame, garch: Dict, cfg: dict) -> Dict:
     horizon = int(cfg.get("mc_horizon", 20))
     paths = mc_t_paths(mu, sigma, nu, horizon, int(cfg.get("mc_paths", 10000)), int(cfg.get("seed", 42)))
     return {
-        "sigma_garch": sigma,
+        "sigma_next": sigma,
         "garch_persistence": garch["persistence"],
         "garch_nu": nu,
         "var_95": v95["var"],
@@ -280,9 +293,47 @@ def _risk_row(f_hist: pd.DataFrame, garch: Dict, cfg: dict) -> Dict:
     }
 
 
+def _oof_probs(ev: pd.DataFrame, cfg: dict, seed: int) -> np.ndarray:
+    """Out-of-fold probabilities with Purged K-Fold for a given model seed."""
+    X, y = ev[feature_cols(cfg)], ev["label"].to_numpy()
+    starts, ends = ev["start"].to_numpy(), ev["end"].to_numpy()
+    oof = np.full(len(ev), np.nan)
+    for tr, te in PurgedKFold(int(cfg.get("n_splits", 5)), float(cfg.get("embargo_pct", 0.01))).split(starts, ends):
+        oof[te] = _model(seed).fit(X.iloc[tr], y[tr]).predict_proba(X.iloc[te])[:, 1]
+    return oof
+
+
+def stability(ev: pd.DataFrame, cfg: dict, seeds, n_trials: int, var_sr: float) -> Dict:
+    """How much the headline numbers move with the model seed alone (not trials: nothing is
+    logged). The same config on the same prices also moved between Windows and Linux CI."""
+    runs = []
+    for sd in seeds:
+        st = _trade_stats(sequential_trades(ev, _oof_probs(ev, cfg, int(sd)), cfg))
+        dsr = (deflated_sharpe(st["sr_per_trade"], n_trials, var_sr, st["skew"], st["kurtosis"], st["n_trades"])
+               if st.get("n_trades", 0) > 1 else None)
+        runs.append({"seed": int(sd), "n_trades": st.get("n_trades"), "sr_per_trade": st.get("sr_per_trade"),
+                     "expected_value": st.get("expected_value"), "dsr": dsr})
+    vals = lambda k: [r[k] for r in runs if r[k] is not None]  # noqa: E731
+    return {"runs": runs, "sr_range": [min(vals("sr_per_trade")), max(vals("sr_per_trade"))] if vals("sr_per_trade") else None,
+            "dsr_range": [min(vals("dsr")), max(vals("dsr"))] if vals("dsr") else None}
+
+
+def _thesis(r, p: float) -> str:
+    """The advisor's first question: can you explain simply how the profit is generated?"""
+    reg = REGIME_NAMES.get(int(r.mkt_regime)) if pd.notna(r.mkt_regime) else "unknown"
+    if int(r.strategy) == 1:
+        return (f"Momentum: 20-session return {np.expm1(r.log_ret_20):+.1%} with Hurst {r.hurst:.2f} >= 0.5 "
+                f"(moves tend to persist); market regime {reg}; meta-model P(success after costs) {p:.0%}.")
+    return (f"Mean reversion: z-score {r.zscore:+.2f} with half-life {r.half_life:.0f} sessions and Hurst "
+            f"{r.hurst:.2f} < 0.5 (moves tend to revert); market regime {reg}; P(success after costs) {p:.0%}.")
+
+
 def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name: Optional[str] = None,
-                 trials_path: Optional[str] = None, resolver=None) -> Tuple[pd.DataFrame, Dict]:
-    """Punto de entrada: devuelve (señales del día por ticker, informe de validación)."""
+                 trials_path: Optional[str] = None, resolver=None, return_internals: bool = False):
+    """Punto de entrada: devuelve (señales del día por ticker, informe de validación).
+
+    return_internals=True añade un tercer elemento {events, meta_trades} para la capa de
+    medición (stocks_etl.advisor_report); las señales y el informe no cambian."""
     seed = int(cfg.get("seed", 42))
     ev, latest = build_events(feats, cfg, resolver=resolver)
     if len(ev) < 200:
@@ -332,6 +383,22 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
             "t_max_date": _nth_trading_day(as_of, int(r.t_max), cal_name) if side else None,
         }
         row.update(_risk_row(feats[feats["ticker"] == r.ticker], meta[r.ticker]["garch"], cfg))
+        row["sigma_garch"] = float(r.sigma_garch) if pd.notna(r.sigma_garch) else None  # sizes the trade
+        # The advisor's four questions before any investment: how is the profit made (thesis),
+        # what do I lose in the worst case (stop and Expected Shortfall as % of equity), which
+        # system is behind it (rule + config hash in the report), and who else bears the risk
+        # (nobody: paper trading). Informational: size and side do not change.
+        traded = bool(side and size > 0)
+        nu_t = getattr(r, "garch_nu", np.nan)
+        nu_t = nu_t if pd.notna(nu_t) else meta[r.ticker]["garch"]["nu"]
+        row.update({
+            "thesis": _thesis(r, p) if side and p is not None else None,
+            "risk_to_stop_pct_equity": float(size * k_sl * r.sigma_event) if traded else 0.0,
+            "es_trade_pct_equity": (float(size * var_es_t(r.sigma_garch * np.sqrt(float(r.t_max)), nu_t, 0.01)["es"])
+                                    if traded else 0.0),
+            "market_p_stress_10": (float(r.mkt_p_stress_10) if "mkt_p_stress_10" in latest
+                                   and pd.notna(r.mkt_p_stress_10) else None),
+        })
         rows.append(row)
     signals = pd.DataFrame(rows)
 
@@ -349,6 +416,7 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
 
     by_regime = meta_trades.groupby("regime").size() if not meta_trades.empty else pd.Series(dtype=int)
     report.update({
+        "config_hash": config_hash(model_cfg),
         "n_events": int(len(ev)),
         "n_trials": n_trials,
         "var_sr_used": var_sr,
@@ -363,9 +431,10 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
         "config": model_cfg,
         # lo que esta validación NO cubre; se publica para no vender un backtest perfecto
         "limitations": [
-            ("Survivorship bias: the live universe is 25 companies alive today. A point-in-time test including delisted "
-             "stocks (research/massive, M2) did not reach DSR 0.95."),
-            "History starts on 2016-11-14 (Massive plan window): the 2008 crisis is not tested.",
+            ("Survivorship bias: the live universe is 21 companies alive today plus 4 ETFs. A point-in-time test "
+             "including delisted stocks (research/massive, M2) did not reach DSR 0.95."),
+            ("History is Massive's rolling 10-year window (it starts in late 2016 and moves forward daily): the 2008 "
+             "crisis is not tested."),
             ("GARCH and HMM parameters are refitted once a year using only earlier data (point-in-time); "
              "the first %d sessions are training only and are never traded." % int(cfg.get("pit_min_train", 500)))
             if cfg.get("pit_refit") else
@@ -376,6 +445,8 @@ def make_signals(feats: pd.DataFrame, meta: Dict[str, Dict], cfg: dict, cal_name
             "With few trials the DSR is close to a Probabilistic Sharpe Ratio against zero.",
         ],
     })
+    if return_internals:
+        return signals, report, {"events": ev, "meta_trades": meta_trades}
     return signals, report
 
 

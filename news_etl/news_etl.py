@@ -14,7 +14,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
-from .finbert_sentiment import finbert_enrich, update_embeddings
+from .finbert_sentiment import finbert_enrich
 from .news_client import _dedupe_by_url
 from etl_common.manifest import update_manifest
 
@@ -142,11 +142,11 @@ class TickerUniverse:
 
     @classmethod
     def from_cfg(cls, cfg: Dict[str, Any]) -> "TickerUniverse":
+        # Aliases only: bare symbols ("ko", "ba", "hd", "gs") would tag ordinary words.
         uni = cfg.get("universe", {}) or {}
         norm: Dict[str, List[str]] = {}
         for tkr, aliases in uni.items():
-            aliases = aliases or []
-            norm[tkr] = [a.lower() for a in aliases] + [tkr.lower()]
+            norm[tkr] = [a.lower() for a in (aliases or [])]
         return cls(
             restrict=bool(cfg.get("restrict_to_universe", True)),
             mapping=norm,
@@ -175,6 +175,25 @@ def detect_tickers(item: Dict[str, Any], uni: TickerUniverse) -> List[str]:
                 lowered.append(piece)
     tickers = uni.tag(lowered)
     return tickers
+
+
+def stock_universe(universe_json: str = "docs/data/universe.json",
+                   stocks_config: str = "stocks_etl/config.yaml") -> set:
+    """Tickers of the stock pipeline (published universe.json, else stocks_etl/config.yaml)."""
+    try:
+        with open(universe_json, encoding="utf-8") as fh:
+            sectors = json.load(fh).get("sectors", {})
+    except (FileNotFoundError, json.JSONDecodeError):
+        import yaml
+        with open(stocks_config, encoding="utf-8") as fh:
+            sectors = (yaml.safe_load(fh) or {}).get("universe", {})
+    return {t for tks in sectors.values() for t in tks}
+
+
+def tag_tickers(item: Dict[str, Any], universe: set, uni: TickerUniverse) -> List[str]:
+    """Massive's own tags inside the stock universe; keyword aliases only as a fallback."""
+    tags = [t for t in (item.get("raw_tickers") or []) if t in universe]
+    return sorted(set(tags)) or detect_tickers(item, uni)
 
 # =============================
 # Selección por ventana y límites diarios
@@ -335,28 +354,33 @@ def main():
     p_history = cfg["paths"].get("history_ndjson", "docs/data/history/news_history.ndjson")
     p_latest_json = cfg["paths"].get("latest_json", "docs/data/news_latest.json")
     p_manifest = cfg["paths"].get("manifest", "docs/data/manifest.json")
-    p_embeddings = cfg["paths"].get("embeddings", "docs/data/history/news_embeddings.npz")
 
-    # 1) Lee RAW (fetch incremental del día)
+    # 1) Lee RAW (fetch incremental del día). Su hora de escritura es la del fetch: el ETL de
+    # acciones la usa para saber si las noticias llegan hasta el cierre de la señal.
     LOG.info("[STEP] Leyendo RAW desde %s", p_raw)
     raw_all = read_raw_items(p_raw)
+    raw_files = [Path(p_raw)] if Path(p_raw).is_file() else [Path(x) for x in glob.glob(p_raw)]
+    fetched_utc = (datetime.fromtimestamp(max(f.stat().st_mtime for f in raw_files), timezone.utc).isoformat()
+                   if raw_files else None)
 
     # 2) Lee histórico acumulado (ya enriquecido en corridas previas)
     history_path = Path(p_history)
     history_items = _read_one_ndjson(history_path) if history_path.exists() else []
     LOG.info("[STEP] Histórico: %d items desde %s", len(history_items), p_history)
 
-    # 3) Tagging tickers sobre lo nuevo
+    # 3) Tickers: las etiquetas de Massive dentro del universo bursátil (las 21 acciones);
+    # el detector por palabra clave solo es respaldo para items sin etiquetas.
     uni = TickerUniverse.from_cfg(cfg.get("tickers", {}))
+    universe = stock_universe()
     for it in raw_all:
-        it["tickers"] = detect_tickers(it, uni)
+        it["tickers"] = tag_tickers(it, universe, uni)
 
     # 4) Merge + dedupe por URL (histórico primero: conserva versiones ya enriquecidas)
     combined = _dedupe_by_url(history_items + raw_all)
 
-    # 5) Ventana de N días
+    # 5) Ventana de N días (el dashboard nunca muestra artículos marcados como spam de ofertas)
     n_days = int(cfg.get("window", {}).get("last_n_days", 15))
-    filtered = filter_last_n_days(combined, today, n_days)
+    filtered = [it for it in filter_last_n_days(combined, today, n_days) if not it.get("is_spam")]
 
     # 6) Límite por día/ticker
     dl = cfg.get("daily_limits", {})
@@ -368,16 +392,14 @@ def main():
     # 7) Sentimiento FinBERT — solo sobre la selección final que aún no tiene score
     limited = finbert_enrich(limited, cfg.get("sentiment", {}))
 
-    # 7b) Mantén fresca la tabla de sentimiento del meta-modelo (stocks_etl) para TODOS los
-    # tickers del universo bursátil, usando las etiquetas de Massive (raw_tickers), no solo
-    # los 3 del detector por palabra clave. Best-effort: nunca rompe la corrida de noticias.
+    # 7b) Mantén fresca la tabla de sentimiento del meta-modelo (stocks_etl) para TODAS las
+    # acciones del universo, construida igual que el histórico con el que se entrenó (ids de
+    # Massive, regla de >3 tickers sobre todas sus etiquetas, sin filtro de spam).
+    # Best-effort: nunca rompe la corrida de noticias.
     try:
-        import yaml as _yaml
         from etl_common.news_features import append_sentiment
-        uni = _yaml.safe_load(open("stocks_etl/config.yaml", encoding="utf-8")).get("universe", {})
-        stock_universe = {t for v in uni.values() for t in v}
         enriched_all = finbert_enrich(_dedupe_by_url(raw_all), cfg.get("sentiment", {}))
-        n_app = append_sentiment(enriched_all, "docs/data/history/news_sentiment.csv", stock_universe)
+        n_app = append_sentiment(enriched_all, "docs/data/history/news_sentiment.csv", universe)
         LOG.info("[STEP] news_sentiment.csv += %d filas (universo bursátil)", n_app)
     except Exception as e:  # noqa: BLE001
         LOG.warning("append a news_sentiment.csv omitido: %s", e)
@@ -406,14 +428,15 @@ def main():
     new_history = _dedupe_by_url(limited + history_items)
     new_history.sort(key=lambda x: x.get("published_at", ""), reverse=True)
     history_out = write_ndjson(p_history, new_history)
-    # Embeddings FinBERT para el modelo de fusión precio + noticias (stocks_etl/deep)
-    n_emb = update_embeddings(new_history, p_embeddings, cfg.get("sentiment", {}))
+    # Los embeddings FinBERT del modelo de fusión se calculan en el job semanal
+    # (stocks_etl/deep, con caché de Actions): un .npz reescrito y commiteado a diario
+    # inflaría el historial de git.
     update_manifest(p_manifest, "news", {
         "last_updated_utc": iso_utc_now(),
+        "fetched_utc": fetched_utc,
         "articles": len(limited),
         "history_articles": len(new_history),
         "window_days": n_days,
-        "new_embeddings": n_emb,
     })
     LOG.info("[OUTPUT] latest_json=%s history=%s (%d items)", latest_path, history_out, len(new_history))
 

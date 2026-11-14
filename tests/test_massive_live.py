@@ -22,18 +22,23 @@ def test_massive_frame_matches_pipeline_schema_and_dates():
     assert df["close"].tolist() == [100.0, 101.0]
 
 
-def test_massive_news_maps_to_raw_schema_and_drops_deal_spam():
+def test_massive_news_maps_to_raw_schema_and_flags_deal_spam():
+    """Raw rows keep what the historical backfill kept (Massive id, every tag, spam not
+    dropped) so the live sentiment table is built like the one the model was trained on."""
     from news_etl.news_client import massive_rows
-    arts = [{"published_utc": "2026-01-05T14:00:00Z", "title": "Microsoft beats estimates",
+    arts = [{"id": "abc123", "published_utc": "2026-01-05T14:00:00Z", "title": "Microsoft beats estimates",
              "description": "Cloud revenue up", "article_url": "https://x/1", "image_url": None,
              "publisher": {"name": "Reuters"}, "tickers": ["MSFT", "ORCL"]},
-            {"published_utc": "2026-01-05T15:00:00Z", "title": "Best Black Friday deals on Surface",
+            {"id": "def456", "published_utc": "2026-01-05T15:00:00Z", "title": "Best Black Friday deals on Surface",
              "description": "", "article_url": "https://x/2", "publisher": {"name": "Blog"}, "tickers": ["MSFT"]}]
     rows = massive_rows(arts, "MSFT", {"MSFT", "AMZN"})
-    assert len(rows) == 1
-    r = rows[0]
+    assert len(rows) == 2                                   # spam is flagged, not dropped
+    r, spam = rows
     assert r["raw_tickers"] == ["MSFT"] and r["source"] == "Reuters" and r["url"] == "https://x/1"
-    assert set(r) == {"published_at", "source", "title", "summary", "url", "image_url", "raw_tickers"}
+    assert r["id"] == "abc123" and r["all_tickers"] == ["MSFT", "ORCL"] and r["is_spam"] is False
+    assert spam["is_spam"] is True
+    assert set(r) == {"id", "published_at", "source", "title", "summary", "url", "image_url", "raw_tickers",
+                      "all_tickers", "is_spam"}
 
 
 class _FakeClient:

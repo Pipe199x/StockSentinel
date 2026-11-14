@@ -38,8 +38,28 @@ jobs:
           pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cpu
           pip install -r stocks_etl/deep/requirements.txt
 
+      - name: Cache Hugging Face model (FinBERT)
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/huggingface
+          key: hf-finbert-v1
+
+      # FinBERT embeddings of news_history for the fusion model are computed by this job and
+      # kept in the Actions cache between weeks (not committed: a daily .npz bloated git).
+      - name: Cache FinBERT news embeddings
+        uses: actions/cache@v5
+        with:
+          path: .cache/news_embeddings.npz
+          key: news-emb-v1-${{ github.run_id }}
+          restore-keys: news-emb-v1-
+
       - name: Unit tests
         run: python -m pytest tests -q
+
+      # 3-month T-bill (FRED DTB3, public) for Sharpe in excess of the risk-free rate.
+      # Best effort: without it the daily report uses 0 and raises a risk_free_missing flag.
+      - name: Refresh risk-free rate
+        run: python -m etl_common.risk_free docs/data/history/risk_free.csv || echo "risk-free refresh failed; keeping the last file"
 
       - name: Train and evaluate LSTM + price/news fusion (promotion gate DSR > 0.95)
         run: python -m stocks_etl.deep.train --config stocks_etl/config.yaml

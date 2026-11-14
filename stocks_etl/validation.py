@@ -145,7 +145,7 @@ def log_trial(path: str, cfg: dict, sr: float, n_trades: int, as_of: str) -> Tup
     row = pd.DataFrame([{"config_hash": h, "as_of": as_of, "sr_per_trade": sr, "n_trades": n_trades,
                          "config": json.dumps(cfg, sort_keys=True)}])
     if os.path.exists(path):
-        prev = pd.read_csv(path)
+        prev = _dedupe_trials(pd.read_csv(path, dtype={"config_hash": str}))
         log = pd.concat([prev[prev["config_hash"] != h], row], ignore_index=True)
     else:
         log = row
@@ -154,9 +154,15 @@ def log_trial(path: str, cfg: dict, sr: float, n_trades: int, as_of: str) -> Tup
     return int(len(log)), float(srs.var(ddof=1)) if len(srs) > 1 else 0.0
 
 
+def _dedupe_trials(log: pd.DataFrame) -> pd.DataFrame:
+    """One row per configuration. The log is merged with git's union driver (bot commits and
+    PRs both append to it), which can leave two rows for one hash: the last one wins."""
+    return log.drop_duplicates("config_hash", keep="last").reset_index(drop=True)
+
+
 def read_trials(path: str) -> Tuple[int, float]:
     """(n_trials, var_sr) del registro sin añadir nada: para re-evaluar una config ya registrada."""
     if not os.path.exists(path):
         return 1, 0.0
-    srs = pd.read_csv(path)["sr_per_trade"].astype(float)
+    srs = _dedupe_trials(pd.read_csv(path, dtype={"config_hash": str}))["sr_per_trade"].astype(float)
     return max(int(len(srs)), 1), float(srs.var(ddof=1)) if len(srs) > 1 else 0.0

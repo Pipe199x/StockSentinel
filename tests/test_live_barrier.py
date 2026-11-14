@@ -45,7 +45,7 @@ def test_live_barrier_matches_paper_ledger(seed):
 def test_strategy_filter_turns_off_mean_reversion():
     f = pd.DataFrame({"hurst": [0.6, 0.3], "zscore": [1.0, 2.0], "half_life": [5, 5], "log_ret_20": [0.05, 0.01],
                       "sigma_garch": [0.01, 0.01], "regime": [0, 0]})
-    both = primary_side(f, {})
-    mom = primary_side(f, {"strategies": ["momentum"]})
+    both = primary_side(f, {"regime_source": "asset"})
+    mom = primary_side(f, {"regime_source": "asset", "strategies": ["momentum"]})
     assert list(both["strategy"]) == [1, 2]
     assert list(mom["strategy"]) == [1, 0] and mom["side"].iloc[1] == 0

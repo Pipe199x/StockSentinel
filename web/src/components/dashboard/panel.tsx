@@ -1,5 +1,11 @@
+"use client";
+
+import { createContext, useContext } from "react";
 import { cn } from "@/lib/utils";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+
+/** Inside a container that already draws the frame (the Trust tabs), panels drop their own. */
+export const PanelBare = createContext(false);
 
 /**
  * Section shell: Aceternity GlowingEffect border on the same surface as the BentoGridItem
@@ -20,16 +26,18 @@ export function Panel({
   children: React.ReactNode;
   className?: string;
 }) {
+  const bare = useContext(PanelBare);
   return (
     <section
       id={id}
       aria-labelledby={id ? `${id}-h` : undefined}
       className={cn(
-        "relative scroll-mt-28 rounded-2xl border border-neutral-200 bg-white/80 p-5 backdrop-blur-sm md:p-6 dark:border-white/[0.1] dark:bg-[#14152b]/80",
+        "relative scroll-mt-28",
+        !bare && "rounded-2xl border border-neutral-200 bg-white p-5 backdrop-blur-sm md:p-6 dark:border-white/[0.1] dark:bg-[#1c1c1a]",
         className,
       )}
     >
-      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
+      {!bare && <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />}
       <header className="relative mb-5 flex flex-wrap items-end justify-between gap-3">
         <div>
           {eyebrow && <p className="text-xs font-semibold tracking-[0.18em] text-cyan-700 uppercase dark:text-cyan-300/80">{eyebrow}</p>}
