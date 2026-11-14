@@ -219,13 +219,18 @@ def _hmm_forward(model, Z: np.ndarray) -> np.ndarray:
 
 
 def hmm_filtered_regimes_pit(X: np.ndarray, dates: pd.Index, min_train: int = 500, n_states: int = 3,
-                             seed: int = 42, restarts: int = 3, every_years: int = 1) -> np.ndarray:
+                             seed: int = 42, restarts: int = 3, every_years: int = 1, return_models: bool = False):
     """Como hmm_filtered_regimes, pero cada año el HMM (y la estandarización) se ajusta solo
-    con filas anteriores al segmento; el filtro forward corre con ese modelo fijo."""
+    con filas anteriores al segmento; el filtro forward corre con ese modelo fijo.
+
+    return_models=True devuelve además, por segmento, la matriz de transición ordenada
+    (0 calma, 1 normal, 2 estrés) y la estandarización: de ahí salen la duración esperada de
+    cada régimen y la probabilidad de pasar a estrés. Las probabilidades no cambian."""
     X = np.asarray(X, dtype=float)
     out = np.full((len(X), n_states), np.nan)
     ok = np.isfinite(X).all(axis=1)
     bounds = refit_boundaries(pd.DatetimeIndex(dates), min_train, every_years)
+    models = []
     for k, b in enumerate(bounds):
         end = bounds[k + 1] if k + 1 < len(bounds) else len(X)
         tr = ok.copy()
@@ -241,4 +246,18 @@ def hmm_filtered_regimes_pit(X: np.ndarray, dates: pd.Index, min_train: int = 50
         probs = _hmm_forward(model, (X[rows] - mu) / sd)
         seg = rows >= b
         out[rows[seg]] = probs[seg]
-    return out
+        if return_models:
+            order = np.argsort(model.means_[:, 1])
+            models.append({"start": int(b), "end": int(end), "transmat": model.transmat_[np.ix_(order, order)],
+                           "means": model.means_[order], "mu": mu, "sd": sd})
+    return (out, models) if return_models else out
+
+
+def prob_reach_state(probs: np.ndarray, transmat: np.ndarray, horizon: int, state: int = 2) -> np.ndarray:
+    """P(being in `state` at least once within `horizon` steps) from filtered probabilities:
+    the chain with `state` made absorbing, propagated `horizon` steps."""
+    A = np.array(transmat, dtype=float, copy=True)
+    A[state] = 0.0
+    A[state, state] = 1.0
+    Ah = np.linalg.matrix_power(A, int(horizon))
+    return np.asarray(probs, float) @ Ah[:, state]

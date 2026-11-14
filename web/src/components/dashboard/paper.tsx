@@ -7,7 +7,7 @@ import type { PaperRow, PaperSummary } from "@/lib/data";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { Panel, Pill, Stat } from "./panel";
 
-const REASON: Record<string, string> = { tp: "Take profit", sl: "Stop", time: "Time limit", entry_gap: "Gap at entry" };
+const REASON: Record<string, string> = { tp: "Take profit", sl: "Stop", time: "Time limit", entry_gap: "Gap at entry", late_publish: "Published after the open" };
 
 /** Custom: ledger tables (no table primitive in the registry). */
 function Ledger({ rows, closed }: { rows: PaperRow[]; closed?: boolean }) {
@@ -62,13 +62,23 @@ export function Paper({ paper }: { paper: PaperSummary | null }) {
   }
   const g = paper.gate0;
   const tone = g.status === "pass" ? "good" : g.status === "fail" ? "bad" : "warn";
-  const progress = Math.min(1, paper.counts.closed / g.min_trades);
+  const closedNow = paper.current_closed ?? paper.counts.closed;
+  const progress = Math.min(1, closedNow / g.min_trades);
+  const g1 = paper.gate1;
+  const g1Progress = g1?.trades_required ? Math.min(1, g1.live_effective_trades / g1.trades_required) : 0;
+  const rescore = Object.fromEntries((paper.rescore ?? []).map((r) => [`${r.ticker}-${r.signal_date}`, r]));
   return (
     <Panel
       id="paper"
       eyebrow="Gate 0 · simulated, no real money"
       title="Paper trading"
-      aside={<Pill tone={tone}>Gate 0: {g.status === "collecting" ? "collecting evidence" : g.status}</Pill>}
+      aside={
+        <div className="flex flex-wrap gap-2">
+          <Pill tone={tone}>Gate 0: {g.status === "collecting" ? "collecting evidence" : g.status}</Pill>
+          {paper.config_hash && <Pill>config {paper.config_hash}</Pill>}
+          {!!paper.counts.missed && <Pill tone="warn">{paper.counts.missed} missed (published after the open)</Pill>}
+        </div>
+      }
     >
       <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
         <div>
@@ -92,24 +102,50 @@ export function Paper({ paper }: { paper: PaperSummary | null }) {
           </HoverEffect>
           <div className="rounded-xl border border-neutral-200 p-4 dark:border-white/[0.08]">
             <div className="flex items-center justify-between text-xs text-neutral-500">
-              <span>Evidence collected</span>
-              <span className="tabular-nums">{paper.counts.closed} / {g.min_trades} trades</span>
+              <span>Gate 0 · current configuration</span>
+              <span className="tabular-nums">{closedNow} / {g.min_trades} trades</span>
             </div>
             <div className="mt-2 h-2 rounded-full bg-neutral-200 dark:bg-white/[0.06]">
               <div className="h-2 rounded-full bg-cyan-500" style={{ width: `${progress * 100}%` }} />
             </div>
             <p className="mt-3 text-sm text-neutral-600 dark:text-neutral-300">{g.reason}.</p>
             <p className="mt-1 text-xs text-neutral-500">
-              Live Sharpe/trade {num(g.live_sr_per_trade, 3)} vs backtest CPCV range{" "}
-              {g.backtest_cpcv_range ? `${num(g.backtest_cpcv_range[0], 3)} to ${num(g.backtest_cpcv_range[1], 3)}` : "—"}.
+              Live Sharpe/trade {num(g.live_sr_per_trade, 3)}
+              {g.sr_ci95 ? ` (95% CI ${num(g.sr_ci95[0], 2)} to ${num(g.sr_ci95[1], 2)})` : ""} vs backtest CPCV range{" "}
+              {g.backtest_cpcv_range ? `${num(g.backtest_cpcv_range[0], 3)} to ${num(g.backtest_cpcv_range[1], 3)}` : "—"}. It only fails when live
+              results are significantly below the backtest; at 30 trades the smallest detectable gap is about 0.3.
             </p>
           </div>
+          {g1 && (
+            <div className="rounded-xl border border-neutral-200 p-4 dark:border-white/[0.08]">
+              <div className="flex items-center justify-between text-xs text-neutral-500">
+                <span>Gate 1 · capital: is the edge proven?</span>
+                <span className="tabular-nums">{num(g1.live_effective_trades, 0)} / {g1.trades_required?.toLocaleString() ?? "—"} effective trades</span>
+              </div>
+              <div className="mt-2 h-2 rounded-full bg-neutral-200 dark:bg-white/[0.06]">
+                <div className="h-2 rounded-full bg-emerald-500" style={{ width: `${g1Progress * 100}%` }} />
+              </div>
+              <p className="mt-3 text-xs text-neutral-500">
+                A {pct(g1.p_backtest, 1)} win rate against a {pct(g1.p_breakeven, 1)} break-even needs that many independent trades (5% significance, 80%
+                power) before adding real capital{fin(g1.years_to_go) ? `: about ${num(g1.years_to_go, 1)} years at the backtest's pace` : ""}.
+              </p>
+            </div>
+          )}
         </div>
       </div>
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
         <div>
           <h3 className="mb-2 text-sm font-semibold">Open and pending</h3>
           <Ledger rows={paper.positions} />
+          {Object.keys(rescore).length > 0 && (
+            <p className="mt-2 text-xs text-neutral-500">
+              Re-scored now (how past trades in the same situation ended):{" "}
+              {Object.values(rescore)
+                .map((r) => `${r.ticker} P(profit) ${pct(r.p_entry, 0)} at entry → ${r.p_profit_now != null ? pct(r.p_profit_now, 0) : "n/a"} now`)
+                .join(" · ")}
+              .
+            </p>
+          )}
         </div>
         <div>
           <h3 className="mb-2 text-sm font-semibold">Recently closed</h3>

@@ -77,6 +77,26 @@ deep:
   min_news_events: 500  # bajo esto la fusión con noticias no se entrena
   embeddings_cache: ".cache/news_embeddings.npz"  # embeddings FinBERT: caché de Actions, no git
 
+# Capa de medición del asesor (stocks_etl/advisor_report.py). FUERA de `quant:`: solo mide,
+# nunca cambia una operación, así que no forma parte del hash de configuración.
+report:
+  max_loss_limit: 0.10     # Monte Carlo: P(drawdown >= 10% en un año)
+  ruin_level: 0.30         # "ruina" = perder el 30% del capital
+  strategy_mc_paths: 5000
+  mc_block: 20             # bootstrap estacionario: bloques de ~20 sesiones (agrupamiento de volatilidad)
+  mc_horizon_days: 252
+  stability_seeds: [7, 11, 13]   # cuánto se mueven SR/DSR solo por la semilla (no son intentos)
+  gates:
+    gate1_alpha: 0.05      # Gate 1 (capital): significancia y potencia del test binomial
+    gate1_power: 0.80
+  flags:                   # banderas rojas del asesor
+    sharpe_high: 2.0
+    sharpe_low: 0.5
+    win_rate_high: 0.90
+    sortino_sharpe_min: 1.5
+    nu_max: 7
+    smooth_r2: 0.97
+
 # Publicación a docs/data (dashboard privado tras Cloudflare Access; lo commitea el workflow)
 publish:
   docs_dir: "docs/data"

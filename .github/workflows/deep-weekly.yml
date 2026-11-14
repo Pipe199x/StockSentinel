@@ -56,6 +56,11 @@ jobs:
       - name: Unit tests
         run: python -m pytest tests -q
 
+      # 3-month T-bill (FRED DTB3, public) for Sharpe in excess of the risk-free rate.
+      # Best effort: without it the daily report uses 0 and raises a risk_free_missing flag.
+      - name: Refresh risk-free rate
+        run: python -m etl_common.risk_free docs/data/history/risk_free.csv || echo "risk-free refresh failed; keeping the last file"
+
       - name: Train and evaluate LSTM + price/news fusion (promotion gate DSR > 0.95)
         run: python -m stocks_etl.deep.train --config stocks_etl/config.yaml
 

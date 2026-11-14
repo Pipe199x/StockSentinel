@@ -13,6 +13,7 @@ import { SignalsBoard } from "@/components/dashboard/signals-board";
 import { AssetDetail } from "@/components/dashboard/asset-detail";
 import { Validation } from "@/components/dashboard/validation";
 import { Paper } from "@/components/dashboard/paper";
+import { Risk } from "@/components/dashboard/risk";
 import { Models, NewsFeed } from "@/components/dashboard/models-news";
 import { useDashboard } from "@/lib/data";
 import { longDate, num, REGIME } from "@/lib/format";
@@ -21,6 +22,7 @@ const NAV = [
   { name: "Signals", link: "#signals" },
   { name: "Asset", link: "#asset" },
   { name: "Validation", link: "#validation" },
+  { name: "Risk", link: "#risk" },
   { name: "Paper", link: "#paper" },
   { name: "Models", link: "#models" },
   { name: "News", link: "#news" },
@@ -196,6 +198,7 @@ export default function Home() {
               <AssetDetail signal={selected} series={(ticker && data.prices?.series[ticker]) || []} />
             </div>
             <Validation report={data.report} />
+            <Risk risk={data.risk} />
             <Paper paper={data.paper} />
             <Models deep={data.deep} />
             <NewsFeed news={data.news} />

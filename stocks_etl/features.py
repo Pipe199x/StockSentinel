@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 
 from stocks_etl.regime import (fit_garch, fit_garch_pit, hmm_filtered_regimes, hmm_filtered_regimes_pit,
-                               hurst_rolling, ou_features)
+                               hurst_rolling, ou_features, prob_reach_state)
 
 # Columnas que ve el meta-modelo (además de 'side', que añade primary.py)
 MODEL_FEATURES = [
@@ -90,10 +90,12 @@ def _ticker_features(dfg: pd.DataFrame, cfg: dict) -> Tuple[pd.DataFrame, Dict]:
 
     obs = dfg[["log_ret_1", "rv_20"]].to_numpy()
     seed = int(cfg.get("seed", 42))
+    hmm_models = []
     if pit:
         sigma, nu, garch = fit_garch_pit(dfg["log_ret_1"], dfg["date"], min_train, every)
-        probs = hmm_filtered_regimes_pit(obs, dfg["date"], min_train, seed=seed,
-                                         restarts=int(cfg.get("pit_hmm_restarts", 3)), every_years=every)
+        probs, hmm_models = hmm_filtered_regimes_pit(obs, dfg["date"], min_train, seed=seed,
+                                                     restarts=int(cfg.get("pit_hmm_restarts", 3)),
+                                                     every_years=every, return_models=True)
     else:
         sigma, garch = fit_garch(dfg["log_ret_1"])
         nu = pd.Series(garch["nu"], index=dfg.index)
@@ -103,7 +105,19 @@ def _ticker_features(dfg: pd.DataFrame, cfg: dict) -> Tuple[pd.DataFrame, Dict]:
     dfg["p_calm"], dfg["p_normal"], dfg["p_stress"] = probs[:, 0], probs[:, 1], probs[:, 2]
     dfg["regime"] = np.where(np.isnan(probs).any(axis=1), np.nan, np.nanargmax(np.nan_to_num(probs, nan=-1), axis=1))
 
-    return dfg, {"ffd_d": d, "garch": garch}
+    # P(estrés en algún momento de las próximas 5 / 10 sesiones), con la matriz de transición
+    # del segmento point-in-time de cada fila. Informativo: NO entra al meta-modelo.
+    for h in (5, 10):
+        dfg[f"p_stress_{h}"] = np.nan
+    pos = np.arange(len(dfg))
+    for m in hmm_models:
+        rows = (pos >= m["start"]) & (pos < m["end"]) & np.isfinite(probs).all(axis=1)
+        for h in (5, 10):
+            dfg.loc[dfg.index[rows], f"p_stress_{h}"] = prob_reach_state(probs[rows], m["transmat"], h)
+
+    last = hmm_models[-1] if hmm_models else None
+    return dfg, {"ffd_d": d, "garch": garch,
+                 "hmm": {"transmat": last["transmat"].tolist(), "start_pos": last["start"]} if last else None}
 
 
 def make_features(df: pd.DataFrame, cfg: dict = None) -> Tuple[pd.DataFrame, Dict[str, Dict]]:
@@ -139,10 +153,11 @@ def make_features(df: pd.DataFrame, cfg: dict = None) -> Tuple[pd.DataFrame, Dic
     # régimen de MERCADO (HMM del benchmark): el estrés de un solo activo suele ser
     # solo su tercil de volatilidad alta; la crisis que apaga la operativa es la del mercado
     if bench in meta:
-        mkt = feats.loc[feats["ticker"] == bench, ["date", "regime", "p_stress"]]
-        mkt = mkt.rename(columns={"regime": "mkt_regime", "p_stress": "mkt_p_stress"})
+        mkt = feats.loc[feats["ticker"] == bench, ["date", "regime", "p_stress", "p_stress_10"]]
+        mkt = mkt.rename(columns={"regime": "mkt_regime", "p_stress": "mkt_p_stress", "p_stress_10": "mkt_p_stress_10"})
         feats = feats.merge(mkt, on="date", how="left")
     else:
         feats["mkt_regime"] = feats["regime"]
         feats["mkt_p_stress"] = feats["p_stress"]
+        feats["mkt_p_stress_10"] = feats["p_stress_10"]
     return feats, meta
