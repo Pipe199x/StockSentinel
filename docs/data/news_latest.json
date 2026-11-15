@@ -1,7 +1,731 @@
 {
-  "as_of": "2026-11-14T21:19:58.290567+00:00",
+  "as_of": "2026-11-15T18:50:32.084761+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "id": "dd6bda412c03d51255f5d736dbd61b2ccb5ce4ec332bdb63be15d6bc155b18bf",
+      "published_at": "2026-11-15T18:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "SHAREHOLDER ALERT: Bronstein Gewirtz & Grossman, LLC Announces Class Action Against Bank of America Corporation (NYSE: BAC) — Investors Who Suffered Losses Are Encouraged to Contact the Firm",
+      "summary": "A class action lawsuit has been filed against Bank of America Corporation for alleged securities fraud. The complaint alleges that BAC made false and misleading statements regarding systemic weaknesses in its Bank Secrecy Act and Anti-Money Laundering compliance program, failure to properly monitor trillions in transactions, and inadequate remediation of compliance deficiencies. Investors who purchased BAC securities between August 1, 2025 and October 13, 2026 may be eligible to recover losses, with a lead plaintiff deadline of December 15, 2026.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/15/3403119/9788/en/shareholder-alert-bronstein-gewirtz-grossman-llc-announces-class-action-against-bank-of-america-corporation-nyse-bac-investors-who-suffered-losses-are-encouraged-to-contact-the-fir.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/60f856c5-87a3-4ed5-8a7e-c79d51a4afea",
+      "raw_tickers": [
+        "BAC"
+      ],
+      "all_tickers": [
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "MERpK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.912
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "0a600f4f5093b9f4e3db20b89ab95c4c0743d5202de589cf43c264c2af26a291",
+      "published_at": "2026-11-15T17:30:02Z",
+      "source": "The Motley Fool",
+      "title": "Warren Buffett Remains Berkshire's Largest Individual Shareholder, With Forbes Pegging His Personal Fortune at About $149 Billion as of Mid-November. Here's Why Record Buybacks Are Quietly Growing His Stake Further.",
+      "summary": "Warren Buffett's net worth stands at $149 billion, representing nearly 12% of Berkshire Hathaway's $1.3 trillion market capitalization. CEO Greg Abel oversaw record $9.6 billion in share buybacks during Q3 2026, more than double Q2's total, which increases Buffett's ownership stake. However, Berkshire's massive $352 billion cash pile remains a drag on intrinsic value growth, as the company awaits high-return investment opportunities.",
+      "url": "https://www.fool.com/investing/2026/11/15/warren-buffett-berkshire-largest-individual-shareholder-forbes-personal-fortune-149-billion-mid-november-record-buybacks/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Ff02a2f3bf4ae18595979874dc2ffefd81d68ed79-5580x3720.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "AZO",
+        "BRK.A",
+        "BRK.B"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7079
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "9e1a2b6e4c30cade51f7ef249b4f6ab2f1edbf2d6d2d15b75060aac241c047fb",
+      "published_at": "2026-11-15T17:30:02Z",
+      "source": "The Motley Fool",
+      "title": "Nvidia Reports Earnings on Nov. 17. Here's What Investors Should Be Watching.",
+      "summary": "Nvidia will report earnings on Nov. 17 for the first time without Jensen Huang as CEO, with Colette Kress serving as interim CEO. Investors should focus on revenue growth sustainability, shrinking gross margins (expected to decline to 71-72% by Q4), and competition from major customers Amazon and Alphabet who are developing their own AI chips. The stock has fallen over 30% from its October peak.",
+      "url": "https://www.fool.com/investing/2026/11/15/nvidia-reports-earnings-on-nov-17-2026-heres-what-investors-should-be-watching/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F5129cc85e67acf9267c99f604e89668cf96e455d-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "GOOGL",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "GOOGL",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9736
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "d430d2fe749cbbe47d28d970bf240455c049b79fb6a9e368f99929035d759d2f",
+      "published_at": "2026-11-15T17:15:02Z",
+      "source": "The Motley Fool",
+      "title": "U.S. Bancorp Pays Out 40% of Its Profit as Dividends. Here's How Much Room It Has to Raise Them.",
+      "summary": "U.S. Bancorp is highlighted as one of the best dividend stocks among banks, with a 3.54% yield, 16 consecutive years of dividend increases, and a sustainable 40% payout ratio. The stock has outperformed the S&P 500 with 17% year-to-date gains and 33% returns over the past year, indicating the high yield is supported by strong performance rather than a declining stock price.",
+      "url": "https://www.fool.com/investing/2026/11/15/us-bancorp-pays-out-40-of-its-profit-as-dividends-heres-how-much-room-it-has-to-raise-them/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb5426bce67ccfad8fcfadd3d42b665b23d9cd8d7-2000x1333.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "PNC",
+        "TFC",
+        "TFCpI",
+        "TFCpO",
+        "TFCpR",
+        "USB",
+        "USBpA",
+        "USBpH",
+        "USBpP",
+        "USBpQ",
+        "USBpR",
+        "USBpS",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9504
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "241f3748798513bed52cc7a75653908d8d6b2aa19da1afa22d2496776528b117",
+      "published_at": "2026-11-15T16:30:00Z",
+      "source": "The Motley Fool",
+      "title": "Mark Cuban Says Learn AI or Become \"a Dinosaur Within 3 Years.\" Here's What That Means for Your Portfolio.",
+      "summary": "Mark Cuban's 2017 warning about learning AI to avoid becoming obsolete has proven prescient as AI has transformed industries. The article recommends the Invesco QQQ Trust ETF as an accessible way to invest in multiple AI-focused companies, highlighting its low expense ratio of 0.18% and substantial holdings in major tech firms driving the AI economy.",
+      "url": "https://www.fool.com/investing/2026/11/15/mark-cuban-says-learn-ai-or-become-a-dinosaur-with/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F881317%2Fgettyimages-2163090448.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "AMD",
+        "AMZN",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "META",
+        "METAM",
+        "MSFT",
+        "MU",
+        "NVDA",
+        "QQQ",
+        "TSLA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8045
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "8fb384313530de146bd306d929733c97965637fdc48bf611ec0644d3d2704319",
+      "published_at": "2026-11-15T16:23:18Z",
+      "source": "The Motley Fool",
+      "title": "Which Bank ETF Is the Better Buy: State Street’s Regional Banking KRE or First Trust’s FTXO?",
+      "summary": "The article compares two banking ETFs: State Street's KRE (regional banking focus with 167 holdings) and First Trust's FTXO (mega-cap heavy with 50 holdings). KRE is recommended as the better choice for most long-term investors due to its lower 0.35% expense ratio, higher 2.2% dividend yield, broader diversification, and stronger 1-year performance of 22% versus FTXO's 16.6%. FTXO suits investors betting on mega-bank outperformance but carries concentration risk.",
+      "url": "https://www.fool.com/coverage/etfs/2026/11/15/which-bank-etf-is-the-better-buy-state-street-s-regional-banking-kre-or-first-trust-s-ftxo/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F497213577468110e4ae04f3160ed91a99378c474-1280x853.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "FTXO",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "KRE",
+        "USB",
+        "USBpA",
+        "USBpH",
+        "USBpP",
+        "USBpQ",
+        "USBpR",
+        "USBpS",
+        "VYLD",
+        "WFC",
+        "WFCpA",
+        "WFCpC",
+        "WFCpD",
+        "WFCpL",
+        "WFCpY",
+        "WFCpZ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7836
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "6d878032119d67b02dcaf3930d68cc1776305a8f724f25cae16b947aae21359f",
+      "published_at": "2026-11-15T15:45:02Z",
+      "source": "The Motley Fool",
+      "title": "Nvidia's Troubles Are a Stark Reminder of This Investing Lesson",
+      "summary": "Jensen Huang stepped down as Nvidia CEO following personal indiscretions, including alleged infidelity involving ties to Chinese intelligence and a subordinate. The incident underscores that no investment case is foolproof and serves as a reminder for investors to maintain portfolio diversification rather than relying on single stocks, even dominant ones. While Nvidia continues to benefit from strong AI accelerator demand with 96% YoY revenue growth, the leadership transition and rising customer capex concerns create uncertainty about the company's future trajectory.",
+      "url": "https://www.fool.com/investing/2026/11/15/nvidias-troubles-are-a-stark-reminder-of-this-investing-lesson/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F7766ceb7d7312b2b4cba9b8c84b947066f404457-2000x1200.png&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "BB",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.865
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "19ef2e4c50499dad6de28b64572dbb872b11829857d29ea4bc6ca9678d5aa9a2",
+      "published_at": "2026-11-15T15:04:00Z",
+      "source": "The Motley Fool",
+      "title": "Should You Invest Now or Wait Until 2027? Here's What a Century of History Says.",
+      "summary": "Despite recent market volatility and a 3-6% pullback from October highs, historical data spanning a century suggests investors should remain invested rather than wait for better timing. Studies show that consistent investing, even at market peaks, outperforms market timing strategies. The S&P 500 has averaged 10% annual returns including all recessions and bear markets, with the key being continuous market participation.",
+      "url": "https://www.fool.com/investing/2026/11/15/invest-now-or-wait-until-2027-what-history-says/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F892978%2Fgettyimages-2215802551.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "SCHW",
+        "SCHWpD",
+        "SCHWpJ",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.628
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1219ff62e1a8452d18621d0ae19ead5e8918f21ecd918487751a7e7744f8c053",
+      "published_at": "2026-11-15T14:51:00Z",
+      "source": "The Motley Fool",
+      "title": "21 Financial Institutions Plan to Launch a New Dollar Stablecoin in 2027. Who Will Be the Biggest Winners and Losers?",
+      "summary": "Project Faro, backed by 21 financial institutions including Goldman Sachs and Citigroup, plans to launch a new dollar stablecoin in 2027 with $270 million in funding. This move, along with the Open USD consortium, intensifies competition in the $300 billion stablecoin market currently dominated by Tether and USDC. While payment processors like Mastercard and Visa stand to benefit, Circle Internet Group (USDC issuer) and PayPal face potential headwinds from these well-funded rivals.",
+      "url": "https://www.fool.com/investing/2026/11/15/21-financial-institutions-plan-to-launch-a-new-dol/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F886092%2Fdigital-dollar-on-circuit-board.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GS"
+      ],
+      "all_tickers": [
+        "BLK",
+        "C",
+        "COIN",
+        "CRCL",
+        "CpN",
+        "CpR",
+        "DIVB",
+        "GS",
+        "GSpA",
+        "GSpC",
+        "GSpD",
+        "MA",
+        "PYPL",
+        "V"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GS"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.5547
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "33906f602c7d639e38469a1e4a758581752b1af11aef3f526ba1f9e9efd5b3fd",
+      "published_at": "2026-11-15T13:43:01Z",
+      "source": "The Motley Fool",
+      "title": "Microsoft Ignite Starts Nov. 17. Will Microsoft Update Its Paid Copilot Seat Count?",
+      "summary": "Microsoft is hosting its annual Ignite conference starting Nov. 17, where investors are watching for an update on paid Microsoft 365 Copilot seat counts. The company reported over 30 million paid seats in July but skipped this metric in its October earnings report, instead focusing on usage statistics like a 50% increase in daily users. Analysts are uncertain whether Copilot's revenue contribution justifies Microsoft's current valuation at 29x adjusted earnings.",
+      "url": "https://www.fool.com/investing/2026/11/15/microsoft-ignite-starts-nov-17-will-microsoft-update-its-paid-copilot-seat-count/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fdfbf6b4336c3038eb7d6acbcea62f28374141b2e-3515x2245.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "all_tickers": [
+        "MSFT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.788
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "850ee37eb8c9f5311292165c11c9131cc498dc57ecd5e0b452a0baa38a63099d",
+      "published_at": "2026-11-15T13:37:01Z",
+      "source": "The Motley Fool",
+      "title": "Is Credo Technology a Better AI Networking Buy Than Broadcom?",
+      "summary": "The article compares Broadcom and Credo Technology as AI networking investments. Broadcom, a $1.7T chip giant, offers stability with projected AI revenue reaching $230B by 2028 and pays a dividend. Credo Technology, a smaller $25B networking specialist, delivers triple-digit revenue growth and focuses on optical and copper connectivity for data centers. The choice depends on investor risk tolerance: Broadcom suits conservative investors seeking stability, while Credo appeals to growth-focused investors willing to accept volatility.",
+      "url": "https://www.fool.com/investing/2026/11/15/is-credo-technology-a-better-ai-networking-buy-than-broadcom/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F8b4f2e74e225ae84551b6d2b4f43ac845f21e1fe-1200x800.png&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "AVGO",
+        "CRDO",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "META",
+        "METAM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.4973
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "f82eafe2fadd560a60142e40f143888e8ab43612554bd7587cb8035351fe0d9c",
+      "published_at": "2026-11-15T13:37:00Z",
+      "source": "The Motley Fool",
+      "title": "Cameco's CEO Says AI Isn't the Reason to Own Nuclear. Here's What He Says It Is.",
+      "summary": "Cameco's CEO Tim Gitzel clarifies that while AI data centers will drive some nuclear power demand, they are not the foundation of the nuclear investment thesis. The real long-term growth driver is existing reactor contracts, life extensions, restarts, uprates, and broader electrification and decarbonization trends. Data centers will only consume about 3% of global electricity by 2030, making traditional industrial and residential demand the primary growth drivers for nuclear power.",
+      "url": "https://www.fool.com/investing/2026/11/15/camecos-ceo-says-ai-isnt-the-reason-to-own-nuclear/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893721%2Fnuclear-power-cooling-towers-with-power-lines-getty-images.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "all_tickers": [
+        "CCJ",
+        "CEG",
+        "GEV",
+        "MSFT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9327
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "09af1b5fd5f3867572bef9dc715bc6a383e433652a4a5b6048eb941e4a94eced",
+      "published_at": "2026-11-15T13:34:02Z",
+      "source": "The Motley Fool",
+      "title": "Home Depot vs. Walmart: Which Consumer Stock Is a Better Buy for 2027?",
+      "summary": "The article compares Home Depot and Walmart as investment options for 2027. Home Depot focuses on professional contractors and DIY customers with higher margins (8.4%) and a 2.7% dividend yield, while Walmart leverages its massive scale and grocery business with lower margins (3%) and 0.76% dividend yield. The author recommends Home Depot for 2027 based on its higher profitability, better dividend yield, and solid performance relative to the S&P 500, despite Walmart's stronger recent outperformance.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/15/home-depot-vs-walmart-which-consumer-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F78448e03af0a9f296483ebb187f704af0da05845-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "HD",
+        "WMT"
+      ],
+      "all_tickers": [
+        "HD",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD",
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7351
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "78cc324f06a1cc153f4edcd81f6f92d2cbf4f0bb6379f1fabb2c1f18e1b5f7c5",
+      "published_at": "2026-11-15T13:30:02Z",
+      "source": "The Motley Fool",
+      "title": "Is Boeing an Undervalued Dividend Stock to Buy Right Now?",
+      "summary": "Boeing faces challenges in ramping up production amid regulatory pressure, raising questions about whether it represents an undervalued dividend investment opportunity at current levels.",
+      "url": "https://www.fool.com/investing/2026/11/15/is-boeing-an-undervalued-dividend-stock-to-buy-right-now/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Feb3d3d1256468b417b5dcd3f5d2d38f2ba6fa2a1-1280x720.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "BA"
+      ],
+      "all_tickers": [
+        "BA",
+        "BApA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7863
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "91f3814c4fa998be7fac5c8f5c9b54b585796fe97c229be9f9caaf32a7910aef",
+      "published_at": "2026-11-15T13:12:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "ROSEN, A RANKED AND LEADING LAW FIRM, Encourages Bank of America Corporation Investors to Secure Counsel Before Important Deadline in Securities Class Action - BAC",
+      "summary": "Rosen Law Firm is soliciting Bank of America investors who purchased stock between August 1, 2025 and October 13, 2026 to join a securities class action lawsuit. The lawsuit alleges that Bank of America failed to disclose systemic weaknesses in its subsidiary's BSA/AML compliance program, resulting in improper monitoring of trillions in transactions and inaccurate suspicious activity reports. The firm claims defendants made materially false statements about compliance failures and expected costs, with a lead plaintiff deadline of December 15, 2026.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/15/3403098/673/en/rosen-a-ranked-and-leading-law-firm-encourages-bank-of-america-corporation-investors-to-secure-counsel-before-important-deadline-in-securities-class-action-bac.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/745335af-3a3a-4fb5-84c0-fdedc9adf092",
+      "raw_tickers": [
+        "BAC"
+      ],
+      "all_tickers": [
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "MERpK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9042
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "69f40155b02b21a58c588196c1f49d934942aabdb2542730d86a4fa9691ac6f0",
+      "published_at": "2026-11-15T12:30:02Z",
+      "source": "The Motley Fool",
+      "title": "Kraft Heinz vs. PepsiCo: Which Consumer Goods Stock Is a Better Buy for 2027?",
+      "summary": "Kraft Heinz and PepsiCo are compared as investment options for 2027. Kraft Heinz faces challenges with declining revenue, a $3.5 billion net loss, and high customer concentration with Walmart. PepsiCo demonstrates stronger fundamentals with 6.4% revenue growth, $10.9 billion net income, and a more diversified portfolio. The analyst recommends PepsiCo as the better defensive dividend stock despite both companies underperforming the broader market.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/15/kraft-heinz-vs-pepsico-which-consumer-goods-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F90c0575767a574caf98fff88bd74a707a6433372-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "KO",
+        "WMT"
+      ],
+      "all_tickers": [
+        "KHC",
+        "KO",
+        "PEP",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO",
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7056
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "7a6b697e446a8be5265ca3e2f2a3c89e613b4de7ce256161a0ee2999738fad68",
+      "published_at": "2026-11-15T12:10:02Z",
+      "source": "The Motley Fool",
+      "title": "This Under-the-Radar Stock Is Behind Steak 'n Shake's MAHA-Driven Growth. Should You Buy?",
+      "summary": "Biglari, which owns Steak 'n Shake, has seen impressive same-store sales growth of 19.1% in Q3 2026 after adopting MAHA-aligned menu changes like beef tallow fries and grass-fed beef. However, the company remains a speculative investment as it continues closing underperforming locations, restaurant revenue growth lags overall revenue growth, and Biglari is a diversified conglomerate rather than a pure-play restaurant company.",
+      "url": "https://www.fool.com/investing/2026/11/15/this-under-the-radar-stock-is-behind-steak-n-shake-s-maha-driven-growth-should-you-buy/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F1445b3871991135a79b3f0d56b13278fed6fc64f-1280x853.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "MCD"
+      ],
+      "all_tickers": [
+        "BH",
+        "BH.A",
+        "CMG",
+        "MCD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MCD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.5248
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "b18924ac6fcc27d07bfff723c8fec6876af747e2da395c6eba3d064ad77098bb",
+      "published_at": "2026-11-14T23:45:00Z",
+      "source": "The Motley Fool",
+      "title": "Nvidia's Ousted CEO Said a 1-Gigawatt Data Center Delay Costs $10 Billion a Quarter. Here's Why That Matters for Power Stocks.",
+      "summary": "Former Nvidia CEO Jensen Huang highlighted that a three-month delay in constructing a 1-gigawatt data center costs $10 billion in lost revenue, underscoring energy as a critical bottleneck for AI growth. Multiple financial institutions warn that power availability is the binding constraint for AI expansion. The article recommends investing in power companies like Constellation Energy and Bloom Energy as lower-risk alternatives to AI stocks for gaining exposure to the AI economy.",
+      "url": "https://www.fool.com/investing/2026/11/14/nvidias-ousted-ceo-said-a-1-gigawatt-data-center/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893779%2Fjensen-huang_nvidia_nvda_imagesource_nvidia.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "BE",
+        "CEG",
+        "NVDA",
+        "OKLO",
+        "SMR"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.4739
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "53283ca6e74205254a08dd118444d1223ef1ed4f97c065c499106d7c81780497",
+      "published_at": "2026-11-14T21:54:02Z",
+      "source": "The Motley Fool",
+      "title": "ASML vs. NVIDIA: Which Technology Stock Is a Better Buy for 2027?",
+      "summary": "The article compares ASML and NVIDIA as investment options for 2027. ASML, which holds a near-monopoly on advanced lithography equipment, generated $43.6B in revenue with strong growth and solid financial metrics. NVIDIA, a GPU leader for AI applications, posted $303B in revenue with 83.4% growth but faces regulatory risks and customer concentration concerns. The author recommends ASML for 2027 due to its defensible market position, while suggesting caution on NVIDIA given recent leadership changes and pending investigations.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/14/asml-vs-nvidia-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F966e6b7238dec442a1dc1e6e4cae342d4c3c8928-1285x734.png&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "MSFT",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMD",
+        "AMZN",
+        "ASML",
+        "MSFT",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "MSFT",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7875
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "461b7168da5492de0176f00b3de2ee6b738fe9d5c4edf6d6b4d29530724965cf",
+      "published_at": "2026-11-14T21:46:02Z",
+      "source": "The Motley Fool",
+      "title": "Forget SpaceX: This Potential Blockbuster IPO Has Attracted $26 Billion From AI Giants",
+      "summary": "Anthropic is set to go public with a $1.4 trillion valuation and has attracted $26 billion in commitments from major AI companies including Alphabet, Nvidia, Microsoft, AMD, Broadcom, Micron, and TSMC. While the company shows strong revenue growth of 1,206% year-over-year, it remains unprofitable with significant losses. The investments signal confidence in Anthropic's potential, though valuation concerns and execution risks remain.",
+      "url": "https://www.fool.com/investing/2026/11/14/forget-spacex-this-potential-blockbuster-ipo-has-attracted-usd26-billion-from-ai-giants/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fad494510a6d25873ffcf406d654a756a97f2e1db-2119x1415.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMD",
+        "AVGO",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "MSFT",
+        "MU",
+        "NVDA",
+        "SPCX",
+        "TSM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9429
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "f3d6972d290ab228a08cba37f73cba72e4ee4d16d6298fb1baa8c75a60362ad8",
+      "published_at": "2026-11-14T21:31:02Z",
+      "source": "The Motley Fool",
+      "title": "American Express vs. S&P Global: Which Financial Stock Is a Better Buy for 2027?",
+      "summary": "The article compares American Express and S&P Global as investment options for 2027. American Express operates a closed-loop payment network with $72.2B in FY2025 revenue and 15% net margins, benefiting from premium consumer spending. S&P Global provides financial ratings and data with $15.3B in FY2025 revenue and superior 29.2% net margins, benefiting from passive investing growth. The author recommends American Express for its younger customer base and different growth driver, while S&P Global suits investors seeking exposure to passive investing trends.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/14/american-express-vs-sp-global-which-financial-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F0429b2c9465c9435c0d211ac089aac06cb487361-6000x4000.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "AXP",
+        "DAL",
+        "MA",
+        "MAR",
+        "SPGI",
+        "V"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7955
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a5d6107d1ffda906f1ebfff1818bd810092a8f15f3a12e53e8a52868a43855a7",
+      "published_at": "2026-11-14T21:15:00Z",
+      "source": "The Motley Fool",
+      "title": "5 Dividend Stocks to Buy and Hold Forever",
+      "summary": "The article recommends five dividend stocks suitable for long-term buy-and-hold investors: Johnson & Johnson, Medtronic, Procter & Gamble, Federal Realty Investment Trust, and Realty Income. All five companies have strong dividend track records with at least 32 years of consecutive annual increases, combined with well-run underlying businesses that generate reliable income streams.",
+      "url": "https://www.fool.com/investing/2026/11/14/5-dividend-stocks-to-buy-and-hold-forever/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893431%2F26_10_08-a-wooden-percent-sign-next-to-a-hand-holding-money-_mf-dload-gettyimages-1642477285-1281x720-273823a.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "JNJ",
+        "PG"
+      ],
+      "all_tickers": [
+        "FRT",
+        "FRTpC",
+        "JNJ",
+        "MDT",
+        "O",
+        "PG"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ",
+        "PG"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.716
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "id": "276fbfdd8940b9876b7098647af6c0b458f46a80ce571cad34d3cade0a892176",
       "published_at": "2026-11-14T20:47:02Z",
@@ -90,165 +814,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "eb4faa1b9c798af4e00def92a8d40b4018ad7ee90aed08f614618f63e03bd587",
-      "published_at": "2026-11-14T18:42:02Z",
-      "source": "The Motley Fool",
-      "title": "Accenture vs. Adobe: Which Technology Stock Is a Better Buy for 2027?",
-      "summary": "The article compares Accenture and Adobe as investment options for 2027. Accenture is a global consulting powerhouse serving 75% of Fortune Global 500 companies with steady 6.5% revenue growth, while Adobe dominates creative software with stronger 12% revenue growth and higher profit margins. Despite Adobe facing management turmoil and regulatory challenges, its cheaper forward P/E ratio and better growth-to-valuation mix make it the recommended choice for 2027.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/14/accenture-vs-adobe-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Faf87f3dbca3d9b6618055f4217cd9585546efe8f-1290x860.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "MSFT"
-      ],
-      "all_tickers": [
-        "ACN",
-        "ADBE",
-        "DIS",
-        "MSFT"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.8635
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "68d6deee16bb77106eb63ae34bb5e03005ced55072200ce9e2e8154edd8b8289",
-      "published_at": "2026-11-14T18:37:00Z",
-      "source": "The Motley Fool",
-      "title": "Most AI Stocks Need Perfect Conditions to Win. This One Doesn't.",
-      "summary": "Alphabet stands out among AI stocks due to its diversified revenue streams from artificial intelligence. The company is profiting from AI through Google Cloud (which more than doubled revenue), custom TPU chip sales to external customers, and AI-enhanced Search features. With multiple ways to generate AI revenue, Alphabet doesn't need every aspect of the AI boom to succeed perfectly to remain highly profitable.",
-      "url": "https://www.fool.com/investing/2026/11/14/most-ai-stocks-need-perfect-conditions-to-win-this/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F870060%2Fgoogle_campus_sign_with_android_statue_alphabet_inc_imagesource_getty_images_405.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "GOOGL",
-        "NVDA"
-      ],
-      "all_tickers": [
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "GOOGL",
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.6182
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "a0e5d78ae39c2a73acdd65c6292f32c1502d6c5fa3c4dbb05524c42bfa4f88ba",
-      "published_at": "2026-11-14T17:54:09Z",
-      "source": "The Motley Fool",
-      "title": "AT&T vs. Verizon: Which Telecom Stock Is a Better Buy for 2027?",
-      "summary": "AT&T and Verizon are compared as investment options for 2027, with both trading at similar valuations. AT&T has refocused on wireless and fiber broadband after divesting entertainment assets, while Verizon maintains the largest wireless subscriber base and is expanding fiber through acquisitions. The article recommends Verizon as the better choice due to its 20-year streak of consecutive dividend increases, compared to AT&T's dividend freeze since 2022.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/14/at-and-t-vs-verizon-which-telecom-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Ffcb7cabb3c57fe016528e4e073a0a9a2c6b18ca9-1285x857.png&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "CCZ",
-        "CHTR",
-        "CHTRP",
-        "CMCSA",
-        "T",
-        "TBB",
-        "TpA",
-        "TpC",
-        "VZ"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9029
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "cd13a6408dff21c61ce53b6ba794da186c75b923c7450b8a9f41113a805b410c",
-      "published_at": "2026-11-14T17:42:02Z",
-      "source": "The Motley Fool",
-      "title": "Alibaba vs. Uber Technologies: Which Tech Platform Stock Is a Better Buy for 2027?",
-      "summary": "The article compares Alibaba and Uber Technologies as investment options for 2027. Alibaba trades at a lower valuation multiple (P/E 20.96) and focuses on e-commerce and AI cloud services in China, but faces regulatory risks and intense domestic competition. Uber trades at a higher multiple (P/E 41.33) with strong profitability and global growth prospects, but faces regulatory challenges around driver classification. The analyst recommends Uber as the better buy for 2027, citing lower volatility compared to Alibaba's exposure to Chinese market uncertainties and AI volatility.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/14/alibaba-vs-uber-technologies-which-tech-platform-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F8d1bbb1b6309d110a79971ea995859030eaa05cf-2000x1200.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN",
-        "GOOGL",
-        "MCD"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "BABA",
-        "DASH",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "JD",
-        "LYFT",
-        "MCD",
-        "PDD",
-        "UBER"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN",
-        "GOOGL",
-        "MCD"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.6342
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "6bc671c3591bd67fa843b623ac9554b56aef506add06ee31a72de83a31de2c45",
-      "published_at": "2026-11-14T17:30:02Z",
-      "source": "The Motley Fool",
-      "title": "Credo Technology Group vs. Marvell Technology: Which Technology Stock Is a Better Buy for 2027?",
-      "summary": "The article compares two semiconductor companies competing in the AI infrastructure market. Credo Technology Group demonstrates explosive 165% revenue growth with strong profitability margins and minimal debt, but faces customer concentration risk. Marvell Technology offers greater scale at $9.5 billion in revenue with 30.6% growth and a diversified portfolio, but carries higher valuation multiples. The analyst concludes Credo is the better buy for 2027 based on superior growth, profitability, and valuation metrics.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/14/credo-technology-group-vs-marvell-technology-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fa24780014af854721fe1e3060ca3c33ee5dceb09-2168x1382.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "MSFT"
-      ],
-      "all_tickers": [
-        "ALAB",
-        "AVGO",
-        "CRDO",
-        "MRVL",
-        "MSFT",
-        "ORCL",
-        "ORCLpD"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9412
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "f42ad3454bcbeef1b45b85c4408ccb3f919e1b0bba5083c6d1bdee43c3d99342",
       "published_at": "2026-11-14T17:12:01Z",
       "source": "The Motley Fool",
@@ -271,6 +836,38 @@
       "sentiment": {
         "label": "positive",
         "score": 0.8548
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "71c5d27ff254b6906515332f3191bf9ed1e60a989edfb56501f9a31fefbd86aa",
+      "published_at": "2026-11-14T16:41:02Z",
+      "source": "The Motley Fool",
+      "title": "Arista Networks vs. IBM: Which Technology Stock Is a Better Buy for 2027?",
+      "summary": "The article compares Arista Networks and IBM as investment choices for 2027. Arista offers high growth (41% revenue growth, 40% net margin) driven by AI and cloud infrastructure demand, but trades at a premium valuation (P/E 52.97). IBM provides steady returns with lower valuation (P/E 21.08) and a 2.73% dividend yield, but faces sluggish 6.8% revenue growth. The analyst recommends Arista for 2027 despite its higher price, citing superior growth prospects in the AI-driven cloud networking market.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/14/arista-networks-vs-ibm-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F5cfa189cec34288ffafa83d152a780d26e364e6c-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "ANET",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "IBM",
+        "ORCL",
+        "ORCLpD",
+        "SAP"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9222
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -352,59 +949,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.7297
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "4de519aa07c9a2671aecfca2f369e46f55935d667af51da6c2592225cec25cb6",
-      "published_at": "2026-11-14T14:06:02Z",
-      "source": "The Motley Fool",
-      "title": "Think Nvidia Stock Is a Bargain? 6 Reasons the Face of the AI Build-Out Can Plunge Another 50% Following Jensen Huang's Resignation.",
-      "summary": "Following CEO Jensen Huang's resignation due to personal misconduct allegations, Nvidia stock has fallen 32% from its peak. The article outlines six major risks that could drive the stock down another 50%: loss of company identity without Huang, potential slowdown in data center expansion due to Democratic governors, aggressive Fed rate hikes driven by AI-related inflation, warning signs in bond markets for hyperscalers, historical precedent of AI bubble-bursting events, and unsustainable premium valuations similar to the dot-com era.",
-      "url": "https://www.fool.com/investing/2026/11/14/think-nvidia-stock-bargain-6-reasons-face-ai-build-out-can-plunge-50-after-jensen-huang-resignation/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F868c9152b79450b35c1e4f49e0b4ef459158338c-1600x900.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "NVDA"
-      ],
-      "all_tickers": [
-        "NVDA",
-        "ORCL",
-        "ORCLpD",
-        "SPCX"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9723
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "a3b76d8fc9d3fba28a6e7f6240e61a83d3780100fe237930ab2a327148080bd6",
-      "published_at": "2026-11-14T13:15:02Z",
-      "source": "The Motley Fool",
-      "title": "Opinion: Buy This Growth Stock to Beat the S&P 500 in 2027",
-      "summary": "DigitalOcean, an AI cloud services provider, has surged 65% in 2026 compared to the S&P 500's 10% return. The company is experiencing explosive demand for its AI Native Cloud platform, with AI customer revenue growing 288% and token volume increasing tenfold in Q3 2026. Management forecasts over 60% revenue growth for 2027, and the stock's valuation has become more attractive following a recent correction, positioning it to potentially outperform the broader market again next year.",
-      "url": "https://www.fool.com/investing/2026/11/14/opinion-buy-this-growth-stock-to-beat-the-s-and-p-500-in-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fd93aae07bc9e7f4566a9aa39fd147abcac628588-3840x2160.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "NVDA"
-      ],
-      "all_tickers": [
-        "AMD",
-        "DOCN",
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9566
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -3365,163 +3909,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.9138
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-31T17:54:15+00:00",
-      "source": "New York Post",
-      "title": "Popular supplement sold at Whole Foods and Amazon recalled over salmonella concerns",
-      "summary": "A popular supplement touted to help reduce stress and improve sleep is being recalled for concerns over salmonella contamination.",
-      "url": "https://nypost.com/2026/10/31/health/popular-supplement-sold-at-whole-foods-recalled-for-salmonella-concerns/",
-      "image_url": "https://nypost.com/wp-content/uploads/sites/2/2026/10/crop-41612221_47d75d.jpg?quality=75&strip=all&w=1200",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9171
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-31T17:52:36+00:00",
-      "source": "Getpublishub.com",
-      "title": "Show HN: Publishub. An AI copilot for video creators and editors.",
-      "summary": "See the exact second viewers drop off your Reels, TikToks and Shorts, why they leave and what to cut. AI editing notes in ~3 min. Free, no sign-up.",
-      "url": "https://www.getpublishub.com",
-      "image_url": "https://www.getpublishub.com/og?lang=en&v=14",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9168
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-31T17:40:00+00:00",
-      "source": "Hot Hardware",
-      "title": "Microsoft Just Gave Edge A 33% Speed Boost, Contributes Tech To Chromium Source",
-      "summary": "Microsoft Edge is now the first browser to support Windows 11's new \"accelerated app launches\" feature, which can improve launch speeds by 15-33%, depending on how intensely you're multitasking. If you're on Microsoft Edge version 150 or later",
-      "url": "https://hothardware.com/news/microsoft-just-gave-edge-a-33-speed-boost-contributes-tech-to-chromium-source",
-      "image_url": "https://images.hothardware.com/contentimages/newsitem/72001/content/16x9_2133x1200_highres-microsof-edge-browser.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.722
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-31T17:38:16+00:00",
-      "source": "The Times of India",
-      "title": "YouTube clip morphed, woman alleges online blackmail",
-      "summary": "Hubballi woman files cyber complaint after YouTube clip morphed with obscene content; suspects threaten to circulate it on WhatsApp, Instagram and Telegram.",
-      "url": "https://timesofindia.indiatimes.com/city/hubballi/youtube-clip-morphed-woman-alleges-online-blackmail/articleshow/135408477.cms",
-      "image_url": "https://static.toiimg.com/photo/msid-47529300/47529300.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.902
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-31T17:35:02+00:00",
-      "source": "The Times of India",
-      "title": "Free AI bootcamp for small businesses in NK",
-      "summary": "KCCI launches free AI bootcamp in North Karnataka for small businesses: 4 weeks training + 4 weeks mentoring, Microsoft certificate for eligible firms.",
-      "url": "https://timesofindia.indiatimes.com/city/hubballi/free-ai-bootcamp-for-small-businesses-in-nk/articleshow/135408402.cms",
-      "image_url": "https://static.toiimg.com/photo/msid-47529300/47529300.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7768
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-31T16:34:38+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Mirzapur The Movie 2026 Extended 1080p AMZN WEB-DL H264-playWEB",
-      "summary": "Plot: The battle for Mirzapur’s throne escalates as old enemies resurface and new threats emerge. Blood debts must be paid while power-hungry contenders fight to control the city’s violent underworld.Genre: Action | Crime | DramaIMDB Rating Live: IMDB Rating:…",
-      "url": "https://post.rlsbb.cc/mirzapur-the-movie-2026-extended-1080p-amzn-web-dl-h264-playweb/",
-      "image_url": null,
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8771
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-31T16:32:10+00:00",
-      "source": "Slashdot.org",
-      "title": "French lawmakers approve $11.2 billion internet tax based on traffic usage, costs $0.65 per gigabyte of content accessed",
-      "summary": "French lawmakers have approved an amendment proposing a €0.055-per-gigabyte tax on digital content delivered to internet subscribers in France. The measure could generate an estimated €10 billion annually, with companies including Google, Meta, Netflix and po…",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186534208",
-      "image_url": null,
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7839
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-31T16:14:20+00:00",
-      "source": "Slashdot.org",
-      "title": "US midterms: 3 days to go – What latest polls say as early voting surges - Al Jazeera",
-      "summary": "US midterms: 3 days to go &ndash; What latest polls say as early voting surgesAl Jazeera See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186534050",
-      "image_url": null,
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9214
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-10-31T16:00:33+00:00",
-      "source": "Rlsbb.cc",
-      "title": "A Requiem for Desire 2026 1080p AMZN WEB-DL H264-AXON",
-      "summary": "Awards 6 wins total See more awards »Plot: A journey to the past awakens the passion within Rose. A timeless spirited romance between the Present and the Victorian Era.Genre: DramaIMDB Rating Live: IMDB Rating: 5/10 From 24 UsersTMDB Rating: N/ARotten Rating:…",
-      "url": "https://post.rlsbb.cc/a-requiem-for-desire-2026-1080p-amzn-web-dl-h264-axon/",
-      "image_url": null,
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8327
       },
       "sentiment_model": "ProsusAI/finbert"
     }
