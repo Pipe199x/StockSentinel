@@ -1,7 +1,1113 @@
 {
-  "as_of": "2026-11-15T18:50:32.084761+00:00",
+  "as_of": "2026-11-16T22:00:47.032936+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "id": "b26a0141928fc4b01fc2aa9107ce14e58c2aedda0e82f97c9e66cf682fabc601",
+      "published_at": "2026-11-16T20:48:02Z",
+      "source": "The Motley Fool",
+      "title": "Anthropic Launches Claude Sheets. Is Microsoft's Stock in Trouble?",
+      "summary": "Anthropic announced Claude Sheets, a new productivity tool that could compete with Microsoft Excel. However, the article argues Microsoft's stock is not in trouble due to its strong enterprise customer base, trust, and integrated Office suite. Microsoft 365 has over 450 million paid commercial seats, and businesses are unlikely to switch despite alternatives like Google Sheets.",
+      "url": "https://www.fool.com/investing/2026/11/16/anthropic-launches-claude-sheets-is-microsoft-s-stock-in-trouble/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F99843b36bb4abb39051ca5bc97380b220f44be0f-2000x1333.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL",
+        "MSFT"
+      ],
+      "all_tickers": [
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "MSFT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.5766
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "08c7e9cca712e2d99dac6d0b1739b1d068e8700f897effff91c4a8e187a04271",
+      "published_at": "2026-11-16T20:37:02Z",
+      "source": "The Motley Fool",
+      "title": "Here's How the S&P 500 Has Moved the Day After Each of Nvidia's Last 12 Reports",
+      "summary": "Analysis of the S&P 500's performance on the day after Nvidia's last 12 earnings reports shows the index rose 7 times and fell 5 times, with an average move of nearly zero (0.02%). While these days saw slightly larger swings than typical (0.76% vs 0.65% average), the data shows no predictable pattern for future market movements following Nvidia reports. Nearly all of the S&P 500's 67% gain since November 2023 came on non-report days.",
+      "url": "https://www.fool.com/investing/2026/11/16/here-s-how-the-s-and-p-500-has-moved-the-day-after-each-of-nvidia-s-last-12-reports/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F4339580a57b0bf953218c8dd9af0a4f31e9da978-2560x1707.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "NVDA",
+        "VOO"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9523
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "32f47e0f30489f01509fe2d6ec223000af2d34e0341ad96a873fd8d3b00f03c9",
+      "published_at": "2026-11-16T19:16:16Z",
+      "source": "The Motley Fool",
+      "title": "Why Does Palantir Stock Keep Going Down?",
+      "summary": "Palantir stock dropped 3.7% despite an analyst upgrade to a $248 price target, citing 92% revenue growth. The decline appears driven by broader AI sector panic following Nvidia CEO Jensen Huang's resignation, rather than company-specific issues. The author notes Palantir's fundamentals remain intact, though the stock trades at a premium valuation of 99x free cash flow.",
+      "url": "https://www.fool.com/investing/2026/11/16/why-does-palantir-stock-keep-going-down/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F59817765811df23869b08e01e02859f46fb22dd5-2400x1600.png&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "NVDA",
+        "PLTR"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9604
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "5d70bbdb2d584d5b681a572e1047a77d2050aebbe91b4f37f2b82f1561e479f7",
+      "published_at": "2026-11-16T19:12:04Z",
+      "source": "The Motley Fool",
+      "title": "ServiceNow vs. Palantir Technologies: Comparing Steady Sales Scale Against Rapid Revenue Acceleration",
+      "summary": "Palantir Technologies is experiencing rapid revenue acceleration, growing Q3 2026 sales 96% year-over-year to $2.3 billion, driven by its commercial AI platform (AIP) which surpassed government revenue for the first time. ServiceNow maintains steady growth at 20.5% year-over-year in Q3 with $4.1 billion in revenue, but faces margin pressure as costs rise. Palantir's net income surged 49% while ServiceNow's declined year-over-year, explaining the significant valuation difference between the two companies.",
+      "url": "https://www.fool.com/coverage/charts/2026/11/16/servicenow-vs-palantir-technologies-comparing-steady-sales-scale-against-rapid-revenue-acceleration/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Fcharts%2Fproduction%2Fprocessed%2Fnow-pltr%2Fquarter%2Frevenue%2Fbar%2Fprimary%2Fstandard%2Flimit-8%2Flatest%2Fnow-pltr_quarter_revenue_bar_primary_standard_limit8.png&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "NOW",
+        "NVDA",
+        "PLTR"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9309
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "8bce7f5ba8cc0fcfb02d7b37e345ecffbb1160b3b6ab5b2e66d4544f9ef48818",
+      "published_at": "2026-11-16T19:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Infoblox Launches Australia Realm on AWS, Giving Regulated Organizations a Local Option for DDI Management and Preemptive Security",
+      "summary": "Infoblox announced the launch of its Australia realm, a new instance of the Infoblox Platform hosted on AWS in the Sydney region. This deployment provides Australian government agencies and enterprises with local data residency options for DNS, DHCP, and IP address management (DDI), along with threat defense capabilities, addressing regulatory requirements and the need for preemptive security in an era of AI-driven attacks.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/16/3404036/0/en/infoblox-launches-australia-realm-on-aws-giving-regulated-organizations-a-local-option-for-ddi-management-and-preemptive-security.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/8d333276-50d0-48af-bd8e-bfa24784b825",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.4962
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a5e9476df3fe787e27a75cde6309995efdf21403b6759aee473cde52cfcc32ee",
+      "published_at": "2026-11-16T18:30:01Z",
+      "source": "The Motley Fool",
+      "title": "McDonald's Is Underperforming the S&P 500 and Nasdaq-100. Could January Mark a Turning Point?",
+      "summary": "McDonald's stock has surged 20% in the past month after falling 10% year-to-date, driven by investor optimism around a new value-oriented menu launching nationally in early 2027. The company is testing mix-and-match and fixed-price bundles at nearly 6,000 restaurants to address its loss of value proposition to lower- and middle-income customers. With strong Q3 results and Dividend King status, the stock could see further gains if the turnaround plan succeeds.",
+      "url": "https://www.fool.com/investing/2026/11/16/mcdonalds-is-underperforming-the-s-and-p-500-and-nasdaq-100-could-january-mark-a-turning-point/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fe6290c224b5111dd1e3935076dac60cc7210df17-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "MCD"
+      ],
+      "all_tickers": [
+        "MCD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MCD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9217
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "3d444bee6138728c2acdadae8c5d98b2be369ac5d4800a53756bde61ae5f0d00",
+      "published_at": "2026-11-16T18:15:02Z",
+      "source": "The Motley Fool",
+      "title": "Berkshire Hathaway's Railroad Earned 19% More Last Quarter. Its Insurance Underwriting Earned 43% Less.",
+      "summary": "Berkshire Hathaway's Q3 2026 earnings showed mixed results: insurance underwriting fell 43% while railroad freight operations (BNSF) rose 19.3%. The article highlights how Berkshire's diversified portfolio across multiple quality businesses allows it to weather underperformance in any single segment, demonstrating the strength of its multi-sector investment strategy under new CEO Greg Abel.",
+      "url": "https://www.fool.com/investing/2026/11/16/berkshire-hathaways-railroad-earned-19-more-last-quarter-its-insurance-underwriting-earned-43-less/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fc793cc41f267cf19c5be1af31d952f1734332016-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "BRK.A",
+        "BRK.B",
+        "BSP",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "SIRI"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.5788
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "f6ccb87ed5534ae06128941785ed51a9f1424e27b861f137355fe0899b27485f",
+      "published_at": "2026-11-16T18:00:02Z",
+      "source": "The Motley Fool",
+      "title": "2 Stocks With Dividend Yields of 4% or More to Buy in November",
+      "summary": "The article recommends Pfizer and PepsiCo as overlooked dividend stocks offering yields above 4% in a market focused on AI and growth. Pfizer is diversifying into oncology with strong acquisition-driven growth, while PepsiCo is recovering from weight-loss drug concerns through international expansion and pricing power. Both stocks offer durability and reliable dividend income for long-term investors.",
+      "url": "https://www.fool.com/investing/2026/11/16/2-stocks-with-dividend-yields-of-4-or-more-to-buy-in-november/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F097627eeec94eed3f554bea5a550d8748aa32123-2059x1456.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "PEP",
+        "PFE"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8373
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "042dd5d2225abc3c969ca26a3b6b8f375ea87ed651a4b2bf605f5e13e4df5bcb",
+      "published_at": "2026-11-16T16:21:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Home Depot Accelerates Express Delivery: Can It Fuel Growth?",
+      "summary": "Home Depot has rolled out nationwide express delivery offering eligible products within three hours, with most deliveries completed in under an hour. Digital platform sales grew 11% in Q2'26, marking five consecutive quarters of double-digit growth. Competitors Lowe's and Floor & Décor are also enhancing delivery capabilities. However, housing affordability pressures and weak remodeling demand pose growth risks.",
+      "url": "https://www.zacks.com/stock/news/3030564/home-depot-accelerates-express-delivery-can-it-fuel-growth?cid=CS-ZC-FT-analyst_blog|quick_take-3030564",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/fa/77.jpg",
+      "raw_tickers": [
+        "HD"
+      ],
+      "all_tickers": [
+        "FND",
+        "HD",
+        "LOW"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8886
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "81da5f232e277cd57a3d34c46f224f8757b1b9ec966b9b6565b923aabe4f1c07",
+      "published_at": "2026-11-16T16:17:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can ExxonMobil's Longtail Project Unlock Guyana's Growth Potential?",
+      "summary": "ExxonMobil approved its eighth Stabroek block project, Longtail, expected to begin operations in 2030 with capacity to process 1.2 Bscf of natural gas daily and produce up to 250,000 barrels of condensate. The project strengthens XOM's long-term production growth in Guyana. Meanwhile, Chevron is expanding Tengiz processing capacity by 20% and benefiting from Eastern Mediterranean projects, while TotalEnergies approved new offshore developments in Cyprus, Nigeria, and Azerbaijan to support 3%+ annual upstream production growth through 2030.",
+      "url": "https://www.zacks.com/stock/news/3030555/can-exxonmobil-s-longtail-project-unlock-guyana-s-growth-potential?cid=CS-ZC-FT-analyst_blog|quick_take-3030555",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/4e/1601.jpg",
+      "raw_tickers": [
+        "CVX"
+      ],
+      "all_tickers": [
+        "CVX",
+        "TTE"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CVX"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9412
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "e50dade943ef785e19390a137b943f6712aea07a2da4a6adbba83ec7364d06c4",
+      "published_at": "2026-11-16T16:09:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Allegiant Travel Extends Bank of America Credit Card Partnership",
+      "summary": "Allegiant Travel Company (ALGT) has extended its decade-long co-branded credit card partnership with Bank of America. The Allways Rewards Visa card, which has won USA TODAY's Best Airline Credit Card award for eight consecutive years, is a key component of Allegiant's loyalty and ancillary revenue strategy. ALGT shares have gained 29.2% month-to-date, significantly outperforming the airline industry's 7.3% growth.",
+      "url": "https://www.zacks.com/stock/news/3030545/allegiant-travel-extends-bank-of-america-credit-card-partnership?cid=CS-ZC-FT-analyst_blog|company_news_corporate_actions-3030545",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/3c/316.jpg",
+      "raw_tickers": [
+        "BAC"
+      ],
+      "all_tickers": [
+        "ALGT",
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "MERpK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9554
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "67f283839d2bf842bba001cabdf0c271449dcbd5d11d3f30b3d24fd5d9f0e548",
+      "published_at": "2026-11-16T16:02:00Z",
+      "source": "Zacks Investment Research",
+      "title": "AstraZeneca Secures US, EU Nod for New Myasthenia Gravis Drug Klygefa",
+      "summary": "AstraZeneca received FDA and EU regulatory approvals for Klygefa (gefurulimab), a complement C5 inhibitor for treating adults with AChR-positive generalized myasthenia gravis. The once-weekly, self-administered subcutaneous therapy showed significant improvements in daily activities versus placebo in Phase III trials. While the convenient dosing offers differentiation from AstraZeneca's existing IV therapies (Soliris and Ultomiris), Klygefa faces cannibalization risks and competition from other complement C5 inhibitors and alternative mechanism drugs.",
+      "url": "https://www.zacks.com/stock/news/3030522/astrazeneca-secures-us-eu-nod-for-new-myasthenia-gravis-drug-klygefa?cid=CS-ZC-FT-analyst_blog|company_news_medical_sector-3030522",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/21/594.jpg",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "AMGN",
+        "ARGX",
+        "AZN",
+        "JNJ",
+        "UCBJY"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9273
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "c7172d1bd9b268be4cb6db7448163922de77b5417f955253de9cdcdb86ee57a2",
+      "published_at": "2026-11-16T15:56:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can MCD Protect Margins Amid Mid-Single-Digit Food Inflation in 2027?",
+      "summary": "McDonald's expects mid-single-digit food and paper inflation in 2027 and plans to protect margins through selective pricing, value bundles, and operating efficiencies. Entry-level bundles covering over 40% of U.S. locations will launch nationally in early 2027, with existing Extra Value Meals showing 7% unit sales growth. Competitors like Starbucks and Dutch Bros are also managing cost pressures through margin initiatives and pricing strategies.",
+      "url": "https://www.zacks.com/stock/news/3030500/can-mcd-protect-margins-amid-mid-single-digit-food-inflation-in-2027?cid=CS-ZC-FT-analyst_blog|quick_take-3030500",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/f6/355.jpg",
+      "raw_tickers": [
+        "MCD"
+      ],
+      "all_tickers": [
+        "BROS",
+        "MCD",
+        "SBUX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MCD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8746
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "24b44521b046b4d0aff992ae4ee80886488546555745b959433022b941288e38",
+      "published_at": "2026-11-16T15:54:00Z",
+      "source": "Zacks Investment Research",
+      "title": "PepsiCo Stock Drops 2.4% in 6 Months: Is More Downside Ahead?",
+      "summary": "PepsiCo (PEP) has underperformed its industry peers over the past six months, declining 2.4% as the company faces weak North American beverage volumes, rising input costs, and margin pressures. The company lowered its 2026 earnings guidance to 2.5-3.5% core EPS growth from the previous 5-7%, citing weaker margins and unfavorable business mix. While PEP trades at a discount valuation of 16.89X forward P/E, analysts remain concerned about its subdued growth outlook and profitability challenges.",
+      "url": "https://www.zacks.com/stock/news/3030498/pepsico-stock-drops-2-4-in-6-months-is-more-downside-ahead?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3030498",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/40/102.jpg",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "KO",
+        "MNST",
+        "PEP",
+        "PRMB"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9744
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "24bf0d045cc8f3143676bb10d4ef0d8a161eca113a895b861dae1317ed03eae0",
+      "published_at": "2026-11-16T15:42:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Target's AI Commerce Partnerships Open New Customer Opportunities",
+      "summary": "Target is partnering with OpenAI, Google Gemini, and other AI platforms to tap into the growing agentic commerce ecosystem. The retailer's AI-driven digital traffic grew 3.5 times faster than the industry in Q2 2026, though converting visits to purchases remains a challenge. Target's digital comparable sales increased 8.7% year-over-year, supported by improved inventory and customer experience initiatives.",
+      "url": "https://www.zacks.com/stock/news/3030489/target-s-ai-commerce-partnerships-open-new-customer-opportunities?cid=CS-ZC-FT-analyst_blog|quick_take-3030489",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/2f/502.jpg",
+      "raw_tickers": [
+        "WMT"
+      ],
+      "all_tickers": [
+        "BJ",
+        "TGT",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9556
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ee1093363b94d29fc60256f2c90026897c6d857b0fadcc615072bf917ae4949b",
+      "published_at": "2026-11-16T15:40:02Z",
+      "source": "Zacks Investment Research",
+      "title": "PRGS or MSFT: Which Is the Better Value Stock Right Now?",
+      "summary": "A comparison of Progress Software (PRGS) and Microsoft (MSFT) in the Computer-Software sector reveals that PRGS presents a better value opportunity. PRGS holds a Zacks Rank of #1 (Strong Buy) with a Value grade of A, featuring a forward P/E of 7.09 and P/B ratio of 3.38. MSFT has a Zacks Rank of #3 (Hold) with a Value grade of C, showing a forward P/E of 26.31 and P/B ratio of 8.27. Value investors are likely to favor PRGS based on these metrics.",
+      "url": "https://www.zacks.com/stock/news/3030484/prgs-or-msft-which-is-the-better-value-stock-right-now?cid=CS-ZC-FT-fundamental_analysis|yseop_template_3-3030484",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default162.jpg",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "all_tickers": [
+        "MSFT",
+        "PRGS"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6345
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "c90c9c88bc803c81dc73027888da6491221b8b3c5a87eaefc600d38beaeea14b",
+      "published_at": "2026-11-16T15:40:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can Dollar General Reach Its Long-Term 6-7% Operating Margin Goal?",
+      "summary": "Dollar General reported Q2 operating profit growth of 29.2% with operating margin expanding to 6.8%, moving closer to its 6-7% long-term target. The company expects shrink and damages reductions to drive 50 basis points of incremental gross margin growth in FY26. DG shares outperformed the industry with an 11.7% gain over three months, and the stock trades at an attractive valuation with a forward P/E of 16.14 compared to the industry average of 30.18.",
+      "url": "https://www.zacks.com/stock/news/3030486/can-dollar-general-reach-its-long-term-6-7-operating-margin-goal?cid=CS-ZC-FT-analyst_blog|quick_take-3030486",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/35/1287.jpg",
+      "raw_tickers": [
+        "WMT"
+      ],
+      "all_tickers": [
+        "DG",
+        "TGT",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9481
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "24107061fd9396d4b410bcf7c4d49c0a92ad2b46f7c860ad6cfc3a9283be6560",
+      "published_at": "2026-11-16T15:10:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Costco Hits 52-Week High on Strong Sales and Special Dividend",
+      "summary": "Costco reached a 52-week high of $1,109.50 with shares up 28.3% year-to-date, driven by strong October sales growth of 12.6% and digital sales surge of 22.5%. The company announced a $30 special dividend and $4B buyback program. However, its forward P/E ratio of 47.75 significantly exceeds the industry average of 30.19, suggesting much of the optimism may already be priced in and limiting near-term upside potential.",
+      "url": "https://www.zacks.com/stock/news/3030450/costco-hits-52-week-high-on-strong-sales-and-special-dividend?cid=CS-ZC-FT-analyst_blog|quick_take-3030450",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/a0/810.jpg",
+      "raw_tickers": [
+        "WMT"
+      ],
+      "all_tickers": [
+        "COST",
+        "DG",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9448
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "951999b6ffb665f2a4552f5af423e194e3d6e462c47a11f1d1e043c4eb5f0b89",
+      "published_at": "2026-11-16T15:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Anti-Obesity Drugs Market Companies Analysis 2027: Eli Lilly and Novo Nordisk Lead as Pfizer, Roche and Amgen Invest Billions to Challenge Them in a Market Headed for USD 64.96 Billion by 2035",
+      "summary": "The global anti-obesity drugs market is valued at USD 8.96 billion in 2026 and projected to reach USD 64.96 billion by 2035 at a 24.71% CAGR. Eli Lilly and Novo Nordisk dominate with strong Q3 2026 results, while Pfizer, Roche, and Amgen are investing billions to compete. Key trends include oral GLP-1 formulations, higher efficacy rates (>20% weight loss), and significant manufacturing capacity investments.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/16/3403727/0/en/anti-obesity-drugs-market-companies-analysis-2027-eli-lilly-and-novo-nordisk-lead-as-pfizer-roche-and-amgen-invest-billions-to-challenge-them-in-a-market-headed-for-usd-64-96-billi.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/01eb1f79-0c67-420b-b423-376619f975cd",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "AMGN",
+        "LLY",
+        "NVO",
+        "PFE",
+        "RHHBY"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9124
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "43b14cd3721e9634b9d11a83c77fd3741d22c551a4d4e712ca9a9c6061d58deb",
+      "published_at": "2026-11-16T14:46:00Z",
+      "source": "Zacks Investment Research",
+      "title": "CAT's Sales Volumes Rise Across Segments: Can Growth Continue?",
+      "summary": "Caterpillar (CAT) reported $7.64 billion in revenue gains from higher sales volumes during the first nine months of 2026, with Construction Industries contributing $4.1 billion and Power & Energy adding $2.5 billion. The company maintains mid-to-high-teens revenue growth expectations for the full year, supported by infrastructure spending, data center investments, and mining demand. CAT shares have outperformed the industry with 8.7% gains over the past year.",
+      "url": "https://www.zacks.com/stock/news/3030417/cat-s-sales-volumes-rise-across-segments-can-growth-continue?cid=CS-ZC-FT-analyst_blog|quick_take-3030417",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/d8/1060.jpg",
+      "raw_tickers": [
+        "CAT"
+      ],
+      "all_tickers": [
+        "CAT",
+        "KMTUY",
+        "TEX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CAT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9595
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "5aea10f3a242471cb23daeebf75ce0032745929f69d0160dd4d654e52be90216",
+      "published_at": "2026-11-16T14:35:00Z",
+      "source": "Zacks Investment Research",
+      "title": "J&J Stock Rallies More Than 10% in a Month: Time to Buy, Sell or Hold?",
+      "summary": "Johnson & Johnson's stock has rallied over 10% in a month, driven by better-than-expected Q3 2026 earnings and raised full-year guidance. The Innovative Medicine segment shows strong growth with new drug launches offsetting Stelara's patent expiration, but MedTech weakness, generic competition, and ongoing talc litigation remain concerns. Analysts recommend holding the stock for long-term investors despite near-term headwinds.",
+      "url": "https://www.zacks.com/stock/news/3030408/j-j-stock-rallies-more-than-10-in-a-month-time-to-buy-sell-or-hold?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3030408",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/cc/389.jpg",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "JNJ",
+        "LLY",
+        "PTGX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9514
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "aa469f1723fc090b85f50e9d3f789d265e711045e0cd60a9e8be506bd53293e6",
+      "published_at": "2026-11-16T14:23:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Petrobras Stock After Q3 Earnings - Buy, Sell or Hold for Now?",
+      "summary": "Petrobras (PBR) reported Q3 revenues up 40.4% year-over-year with shareholder profit rising 28.4% and free cash flow climbing 33.2%. The company raised its annual production outlook to 3.3-3.4 MMBOE/d and cash-flow forecast to $45-$50 billion. However, profits declined sequentially from Q2, and rising capital spending poses risks. With 2026 EPS projected to surge 76.8% and PBR trading at a lower forward P/E than peers, analysts rate it a Zacks Rank #2 (Buy), though state control and oil price volatility remain concerns.",
+      "url": "https://www.zacks.com/stock/news/3030388/petrobras-stock-after-q3-earnings-buy-sell-or-hold-for-now?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3030388",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/0a/830.jpg",
+      "raw_tickers": [
+        "CVX"
+      ],
+      "all_tickers": [
+        "CVX",
+        "PBR",
+        "PBR.A"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CVX"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9315
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "8bc16d172b2760ae84a5c291f0614a6423f2ce22d889ee686f5da4bea0457c3b",
+      "published_at": "2026-11-16T14:15:02Z",
+      "source": "The Motley Fool",
+      "title": "If a Stock Market Crash Is Coming in 2027, Warren Buffett’s Advice Makes My Next Move Clear",
+      "summary": "With market volatility returning and concerns about a potential 2027 stock market crash, the article advises investors to follow Warren Buffett's strategy: don't try to predict crashes, invest in quality businesses with strong fundamentals, and maintain a disciplined approach of regular contributions over time rather than attempting market timing.",
+      "url": "https://www.fool.com/investing/2026/11/16/if-a-stock-market-crash-is-coming-in-2027-warren-buffetts-advice-makes-my-next-move-clear/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F2251b185a603aa8b01e8bd5c54ceb96c0e6e1611-1280x853.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "AXP",
+        "BRK.A",
+        "BRK.B",
+        "KO",
+        "MCO"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7858
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "8c7921350c18b85f1d43c6d74159cdc033abf2334bf723f143cef0080835abb6",
+      "published_at": "2026-11-16T14:08:00Z",
+      "source": "Zacks Investment Research",
+      "title": "IBM vs. Jabil: Which Stock is Better Positioned for AI Growth Now?",
+      "summary": "Jabil appears better positioned than IBM for AI growth, with stronger projected growth rates (24.1% sales, 34.5% EPS vs IBM's 4.4% and 7.2%), better valuation metrics, and superior price performance. While IBM benefits from hybrid cloud and AI solutions, it faces intense competition from AWS and Azure plus threats from AI tools like Claude Code. Jabil gains from AI data center infrastructure demand with strong operational execution, though it faces competitive pressures and geopolitical headwinds.",
+      "url": "https://www.zacks.com/stock/news/3030373/ibm-vs-jabil-which-stock-is-better-positioned-for-ai-growth-now?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3030373",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/85/183568.webp",
+      "raw_tickers": [
+        "AMZN",
+        "MSFT"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "IBM",
+        "JBL",
+        "MSFT",
+        "SANM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9538
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "31ac808e6ec46707c06fb243e62e84fb12c7a2d5abb0f152bee92c4d99fd3be0",
+      "published_at": "2026-11-16T14:05:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Bank of America Moves to Settle Fake-Accounts Lawsuit: What's Next?",
+      "summary": "Bank of America has reached a settlement in principle in a class-action lawsuit over unauthorized customer accounts opened by employees to meet sales targets. The settlement, pending court approval by January 11, 2027, could reduce legal costs and reputational risks, though the financial impact remains uncertain. BAC's shares have underperformed the industry in the past six months, and earnings estimates have been revised lower.",
+      "url": "https://www.zacks.com/stock/news/3030369/bank-of-america-moves-to-settle-fake-accounts-lawsuit-what-s-next?cid=CS-ZC-FT-analyst_blog|quick_take-3030369",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/0b/57.jpg",
+      "raw_tickers": [
+        "BAC"
+      ],
+      "all_tickers": [
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "MERpK",
+        "USB",
+        "USBpA",
+        "USBpH",
+        "USBpP",
+        "USBpQ",
+        "USBpR",
+        "USBpS",
+        "WFC",
+        "WFCpA",
+        "WFCpC",
+        "WFCpD",
+        "WFCpL",
+        "WFCpY",
+        "WFCpZ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9528
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1a3b4996d1347c53661c846e80e7007b05154935a59d325c506b50a1e51046bf",
+      "published_at": "2026-11-16T14:02:54Z",
+      "source": "Zacks Investment Research",
+      "title": "Should iShares Core High Dividend ETF (HDV) Be on Your Investing Radar?",
+      "summary": "iShares Core High Dividend ETF (HDV) is a passively managed large-cap value ETF with $16.58 billion in assets and a low 0.08% expense ratio. The fund has delivered strong 2026 performance (+30.29% YTD) with a 3.09% dividend yield, though it carries a Zacks ETF Rank of 3 (Hold). Competitors like SCHD and VTV offer lower expense ratios and larger asset bases.",
+      "url": "https://www.zacks.com/stock/news/3030353/should-ishares-core-high-dividend-etf-hdv-be-on-your-investing-radar?cid=CS-ZC-FT-style_box_etf-3030353",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default178.jpg",
+      "raw_tickers": [
+        "CVX"
+      ],
+      "all_tickers": [
+        "ABBV",
+        "CVX",
+        "HDV",
+        "SCHD",
+        "VTV"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CVX"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.653
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "7885526a49bf81e8f8b8a774f10c6700d2908aa3c4790c455bb49f84590344bd",
+      "published_at": "2026-11-16T13:00:04Z",
+      "source": "Zacks Investment Research",
+      "title": "Is Trending Stock Caterpillar Inc. (CAT) a Buy Now?",
+      "summary": "Caterpillar (CAT) has underperformed the broader market, declining 17.9% over the past month compared to the S&P 500's 3.1% decline. Despite strong earnings growth expectations (+43.4% for current fiscal year) and consistent beats on earnings and revenue estimates, the stock received a Zacks Rank #3 (Hold) rating due to recent downward revisions in consensus estimates. The company is valued at par with peers and is expected to perform in line with the broader market in the near term.",
+      "url": "https://www.zacks.com/stock/news/3030110/is-trending-stock-caterpillar-inc-cat-a-buy-now?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3030110",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default57.jpg",
+      "raw_tickers": [
+        "CAT"
+      ],
+      "all_tickers": [
+        "CAT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CAT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9088
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1290951127bc9e18f499e42ee09bbb0d5935068453a04d76706eff0f99bad4fe",
+      "published_at": "2026-11-16T12:54:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Implied Volatility Surging for Home Depot Stock Options",
+      "summary": "The Home Depot (HD) is drawing attention from options traders due to high implied volatility on December 2026 $175 calls, suggesting expectations of significant price movement. However, the company holds a Zacks Rank #3 (Hold) rating with mixed analyst sentiment—two analysts raised earnings estimates while three lowered them over the past 60 days, keeping consensus estimates relatively flat.",
+      "url": "https://www.zacks.com/stock/news/3030086/implied-volatility-surging-for-home-depot-stock-options?cid=CS-ZC-FT-tale_of_the_tape|options-3030086",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/fe/76.jpg",
+      "raw_tickers": [
+        "HD"
+      ],
+      "all_tickers": [
+        "HD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.5026
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "724a10ffcc090d8212fea524a6332c49732792d8216048137c847d5005ad3e87",
+      "published_at": "2026-11-16T11:44:00Z",
+      "source": "Zacks Investment Research",
+      "title": "JPMorgan vs. Truist: Which Bank Stock Has More Upside in 2027?",
+      "summary": "JPMorgan and Truist are pursuing distinct strategies heading into 2027. JPM targets $107B in NII with 3.7% projected earnings growth, while TFC focuses on efficiency and profitability with 4.8% projected earnings growth. JPM trades at a premium valuation (3.24X tangible book) reflecting its diversified business, while TFC's lower valuation (1.87X) offers potential upside if its restructuring initiatives succeed. Both stocks carry a Zacks Rank #3 (Hold) rating.",
+      "url": "https://www.zacks.com/stock/news/3030035/jpmorgan-vs-truist-which-bank-stock-has-more-upside-in-2027?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3030035",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/6e/264.jpg",
+      "raw_tickers": [
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "TFC",
+        "TFCpI",
+        "TFCpO",
+        "TFCpR",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6149
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "504d787334c9cc775cbc42d99aad6ed339ac0abbf3d7bf96133701704c309403",
+      "published_at": "2026-11-16T09:44:02Z",
+      "source": "The Motley Fool",
+      "title": "Not SpaceX. Not Blue Origin. The Space Stock That Just Raised Its Launch Price to $70 Million -- and Still Sold Out.",
+      "summary": "Rocket Lab raised its Neutron rocket's base launch price to $70 million from $55 million and still booked a record quarter with eight missions totaling over $515 million in contracts, all before the rocket's first flight. The company achieved record Q3 revenue of $267.8 million (up 73%) and a backlog of $3.57 billion (up 52%), demonstrating strong pricing power and customer demand despite Neutron's delayed debut to 2027.",
+      "url": "https://www.fool.com/investing/2026/11/16/not-spacex-not-blue-origin-the-space-stock-that-just-raised-its-launch-price-to-70-million-and-still-sold-out-rklb/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Ff8bbafcb5a66f1c7e97648e5513010d6d29b0786-1021x532.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "RKLB",
+        "SPCX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9544
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "662e6d4581517e748683df6c46011d4f1fb5a1bd90c3cb329ec69dbb032d5ead",
+      "published_at": "2026-11-16T08:26:00Z",
+      "source": "Zacks Investment Research",
+      "title": "The Zacks Analyst Blog Highlights Visa, ExxonMobil Holdings and Pfizer",
+      "summary": "Zacks analysts reviewed three major stocks on November 16, 2026. Visa benefits from strong brand and digital transaction growth but faces profitability pressures from rising expenses. ExxonMobil gains from low-cost production and expansion opportunities but remains exposed to commodity volatility. Pfizer struggles with patent expirations and subdued near-term growth, though pipeline investments in oncology and obesity offer longer-term potential.",
+      "url": "https://www.zacks.com/stock/news/3029996/the-zacks-analyst-blog-highlights-visa-exxonmobil-holdings-and-pfizer?cid=CS-ZC-FT-press_releases-3029996",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/31/119.jpg",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "PFE",
+        "V"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7052
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "29cce4fa069ff304470fd960dd6203470bdafdca748be7ad19d61504d561674a",
+      "published_at": "2026-11-15T21:40:02Z",
+      "source": "The Motley Fool",
+      "title": "Should You Buy Nvidia Stock Now That Jensen Huang Has Resigned? Here’s What I’m Doing.",
+      "summary": "Nvidia CEO Jensen Huang resigned following news of an affair with an alleged Chinese spy, causing the stock to fall 30% from its all-time high. However, the article argues Nvidia's core business remains strong with 70% projected revenue growth in 2027 and AI hyperscaler spending expected to reach $1.3 trillion. Trading at just 10.6x forward earnings, the author views Nvidia as a strong buy despite leadership uncertainty, though warns that hiring a finance-background CEO could be problematic.",
+      "url": "https://www.fool.com/investing/2026/11/15/should-you-buy-nvidia-stock-now-that-jensen-huang-has-resigned-here-s-what-i-m-doing/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fd1656e920c9f8584ee7df2009f5ca4a5e16755e7-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "IBM",
+        "INTC",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9634
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ab216d01fb45ce853d543e93ebff9c25cb75bebd247d7392180537609fb43978",
+      "published_at": "2026-11-15T20:45:02Z",
+      "source": "The Motley Fool",
+      "title": "Home Sales Just Sank to a 16-Year Low. Here’s What This Means for Home Depot and Lowe’s Investors.",
+      "summary": "U.S. existing-home sales hit a 16-year low in October at 3.75 million units, driven by a 7.11% mortgage rate that discourages home purchases. This housing market weakness directly impacts Home Depot and Lowe's, which saw muted same-store sales growth of 1.7% and 0.2% respectively in Q2. Both stocks trade 20% below their peaks, and investors must wait longer for fundamental improvements as inflation and higher interest rates continue to pressure demand for home improvement projects.",
+      "url": "https://www.fool.com/investing/2026/11/15/home-sales-16-year-low-what-this-means-home-depot-lowes-investors/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F78448e03af0a9f296483ebb187f704af0da05845-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "HD"
+      ],
+      "all_tickers": [
+        "HD",
+        "LOW"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9708
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ab42285a62968f30c7745e17d2ebc856dd6c8b0d86997ef3f7fc0c35f65855c5",
+      "published_at": "2026-11-15T20:15:00Z",
+      "source": "The Motley Fool",
+      "title": "Why Investors Should Own Businesses That Can Win Under Any Administration",
+      "summary": "The article argues that long-term investors should focus on businesses resilient to political cycles rather than trying to time investments around elections. With U.S. elections every two years, political winds shift rapidly. The author recommends three stocks representing different sectors: Procter & Gamble (consumer staples), Federal Realty (REITs), and NextEra Energy (utilities)—all businesses whose demand remains stable regardless of which political party is in power.",
+      "url": "https://www.fool.com/investing/2026/11/15/why-investors-should-own-businesses-that-can-win-u/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893504%2F26_11_12-a-person-in-a-store-buying-paper-products-_mf-dload-gettyimages-2060276280-1280x853-c533c3e.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NEE",
+        "PG"
+      ],
+      "all_tickers": [
+        "BKH",
+        "FRT",
+        "FRTpC",
+        "NEE",
+        "NEEpN",
+        "NEEpS",
+        "NEEpT",
+        "NEEpU",
+        "NEEpV",
+        "NEEpW",
+        "PG"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NEE",
+        "PG"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9297
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1a5deecdad91c24212226bb2196307c1aa83b42faacd47a1b6f8ca8b608b42b7",
+      "published_at": "2026-11-15T19:30:01Z",
+      "source": "The Motley Fool",
+      "title": "This 27-Year-Old Warning From Warren Buffett Is More Important Than Ever for Investors Today",
+      "summary": "Warren Buffett's 1999 warning about investing in transformative technologies remains relevant for AI investors today. While technologies like the internet, automobile, and aviation have dramatically impacted society, they haven't necessarily created profitable investments. Buffett's key lesson: success depends not on industry growth potential, but on identifying companies with durable competitive advantages (wide moats). The article examines how this applies to AI investments, highlighting Alphabet's strong moat versus commodity server providers and frontier AI labs facing intense competition.",
+      "url": "https://www.fool.com/investing/2026/11/15/27-year-old-warning-warren-buffett-more-important-than-ever/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F37e1f30a7810808ccf3868cf44dbfa9b3efbd747-3000x2060.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "BRK.A",
+        "BRK.B",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7328
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "0323019f15ba0e6fbdb60b0292cc8efd45eb7deb04e9daeb666cd1cf58347d75",
+      "published_at": "2026-11-15T19:05:05Z",
+      "source": "The Motley Fool",
+      "title": "Rigetti Computing vs. SoundHound AI: Which Technology Stock Is a Better Buy for 2027?",
+      "summary": "The article compares two emerging technology stocks: Rigetti Computing, a quantum hardware developer, and SoundHound AI, a conversational AI platform provider. While Rigetti faces challenges with early-stage quantum technology and declining revenue ($7.1M, down 34.3%), SoundHound demonstrates stronger commercial traction with 99.4% revenue growth to $168.9M and a path to profitability by late 2027. The analyst recommends SoundHound as the better 2027 investment due to more consistent revenue scaling, superior valuation metrics (6.8x P/S vs 251.1x), and nearer-term profitability prospects.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/15/rigetti-computing-vs-soundhound-ai-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb1460db946dc5bd8d862bd9a95d44ae489e3afdc-1290x860.png&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "MSFT"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "IONQ",
+        "MSFT",
+        "QBTS",
+        "RGTI",
+        "RGTIW",
+        "SOUN",
+        "SOUNW"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.5775
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "f0d04ef74d847d5c0af34a52aaf9382b0ba4c42294fd429a0f65ad05d87e957a",
+      "published_at": "2026-11-15T18:45:02Z",
+      "source": "The Motley Fool",
+      "title": "Investors: If a Market Correction Is Coming, This 1 Move Will Make or Break Your Portfolio",
+      "summary": "As the Nasdaq-100 enters correction territory down 11% from highs, the article emphasizes that diversification is the critical strategy to mitigate portfolio pain during market downturns. Investors should maintain 20-50 stocks across different sectors, asset classes, and geographies rather than concentrating bets in high-risk areas like AI infrastructure stocks.",
+      "url": "https://www.fool.com/investing/2026/11/15/investors-if-a-market-correction-is-coming-this-1-move-will-make-or-break-your-portfolio/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F53629edf6e5270db13f588c9845ed3ea81372686-2128x1413.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "MU",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.924
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "f397a1df57a344a2339356980b1ffedcab695de92abab65297ace151d13a9cd4",
+      "published_at": "2026-11-15T18:42:04Z",
+      "source": "The Motley Fool",
+      "title": "Why Fervo Energy Stock Surged This Week",
+      "summary": "Fervo Energy stock surged 29% this week following the announcement of a landmark 15-year power purchase agreement with Google to supply 396 megawatts of geothermal electricity. The deal expanded the company's contracted revenue backlog to $11.9 billion, while operational progress at its Utah Cape Station facility included the commercial operation of its first 33-megawatt GeoBlock. Despite the positive developments, the stock remains down 73% from its 52-week high, and investors should note the company is still pre-revenue with significant execution risks.",
+      "url": "https://www.fool.com/coverage/market-movers/2026/11/15/why-fervo-energy-stock-surged-this-week/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F689b9e96171fc753154105aa5ad159988cb87282-2121x1414.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "FRVO",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.973
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a34dc215f74d870593c6c1ee05c02f1e379531f1e1f9e1f6841142ae52583656",
+      "published_at": "2026-11-15T18:15:02Z",
+      "source": "The Motley Fool",
+      "title": "Vanguard Economists Say: Inflation Might Be Better Than It Looks. Here's Why That's Good News for Stocks.",
+      "summary": "Vanguard economists forecast that core inflation could drop to 2.5% by April 2027 due to tariff roll-off effects, suggesting the Federal Reserve may not need to raise interest rates significantly higher. This optimistic outlook could be bullish for stocks, particularly tech and growth stocks, if inflation stabilizes and interest rates remain steady or decline in 2027.",
+      "url": "https://www.fool.com/investing/2026/11/15/vanguard-economists-say-inflation-might-be-better-than-it-looks-here-s-why-that-s-good-news-for-stocks/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F5bb12f744147ddd1dcebe3f9cb33e1406f1ce561-1280x720.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "MSFT",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "MSFT",
+        "NVDA",
+        "QQQ",
+        "QQQM",
+        "VOO"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "MSFT",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9505
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "id": "dd6bda412c03d51255f5d736dbd61b2ccb5ce4ec332bdb63be15d6bc155b18bf",
       "published_at": "2026-11-15T18:00:00Z",
@@ -69,39 +1175,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "9e1a2b6e4c30cade51f7ef249b4f6ab2f1edbf2d6d2d15b75060aac241c047fb",
-      "published_at": "2026-11-15T17:30:02Z",
-      "source": "The Motley Fool",
-      "title": "Nvidia Reports Earnings on Nov. 17. Here's What Investors Should Be Watching.",
-      "summary": "Nvidia will report earnings on Nov. 17 for the first time without Jensen Huang as CEO, with Colette Kress serving as interim CEO. Investors should focus on revenue growth sustainability, shrinking gross margins (expected to decline to 71-72% by Q4), and competition from major customers Amazon and Alphabet who are developing their own AI chips. The stock has fallen over 30% from its October peak.",
-      "url": "https://www.fool.com/investing/2026/11/15/nvidia-reports-earnings-on-nov-17-2026-heres-what-investors-should-be-watching/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F5129cc85e67acf9267c99f604e89668cf96e455d-1290x860.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN",
-        "GOOGL",
-        "NVDA"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN",
-        "GOOGL",
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9736
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "d430d2fe749cbbe47d28d970bf240455c049b79fb6a9e368f99929035d759d2f",
       "published_at": "2026-11-15T17:15:02Z",
       "source": "The Motley Fool",
@@ -142,51 +1215,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.9504
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "241f3748798513bed52cc7a75653908d8d6b2aa19da1afa22d2496776528b117",
-      "published_at": "2026-11-15T16:30:00Z",
-      "source": "The Motley Fool",
-      "title": "Mark Cuban Says Learn AI or Become \"a Dinosaur Within 3 Years.\" Here's What That Means for Your Portfolio.",
-      "summary": "Mark Cuban's 2017 warning about learning AI to avoid becoming obsolete has proven prescient as AI has transformed industries. The article recommends the Invesco QQQ Trust ETF as an accessible way to invest in multiple AI-focused companies, highlighting its low expense ratio of 0.18% and substantial holdings in major tech firms driving the AI economy.",
-      "url": "https://www.fool.com/investing/2026/11/15/mark-cuban-says-learn-ai-or-become-a-dinosaur-with/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F881317%2Fgettyimages-2163090448.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AAPL",
-        "AMZN",
-        "GOOGL",
-        "MSFT",
-        "NVDA"
-      ],
-      "all_tickers": [
-        "AAPL",
-        "AMD",
-        "AMZN",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "META",
-        "METAM",
-        "MSFT",
-        "MU",
-        "NVDA",
-        "QQQ",
-        "TSLA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AAPL",
-        "AMZN",
-        "GOOGL",
-        "MSFT",
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.8045
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -235,34 +1263,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.7836
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "6d878032119d67b02dcaf3930d68cc1776305a8f724f25cae16b947aae21359f",
-      "published_at": "2026-11-15T15:45:02Z",
-      "source": "The Motley Fool",
-      "title": "Nvidia's Troubles Are a Stark Reminder of This Investing Lesson",
-      "summary": "Jensen Huang stepped down as Nvidia CEO following personal indiscretions, including alleged infidelity involving ties to Chinese intelligence and a subordinate. The incident underscores that no investment case is foolproof and serves as a reminder for investors to maintain portfolio diversification rather than relying on single stocks, even dominant ones. While Nvidia continues to benefit from strong AI accelerator demand with 96% YoY revenue growth, the leadership transition and rising customer capex concerns create uncertainty about the company's future trajectory.",
-      "url": "https://www.fool.com/investing/2026/11/15/nvidias-troubles-are-a-stark-reminder-of-this-investing-lesson/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F7766ceb7d7312b2b4cba9b8c84b947066f404457-2000x1200.png&w=1200&op=resize",
-      "raw_tickers": [
-        "AAPL",
-        "NVDA"
-      ],
-      "all_tickers": [
-        "AAPL",
-        "BB",
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AAPL",
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.865
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -390,33 +1390,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.4973
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "f82eafe2fadd560a60142e40f143888e8ab43612554bd7587cb8035351fe0d9c",
-      "published_at": "2026-11-15T13:37:00Z",
-      "source": "The Motley Fool",
-      "title": "Cameco's CEO Says AI Isn't the Reason to Own Nuclear. Here's What He Says It Is.",
-      "summary": "Cameco's CEO Tim Gitzel clarifies that while AI data centers will drive some nuclear power demand, they are not the foundation of the nuclear investment thesis. The real long-term growth driver is existing reactor contracts, life extensions, restarts, uprates, and broader electrification and decarbonization trends. Data centers will only consume about 3% of global electricity by 2030, making traditional industrial and residential demand the primary growth drivers for nuclear power.",
-      "url": "https://www.fool.com/investing/2026/11/15/camecos-ceo-says-ai-isnt-the-reason-to-own-nuclear/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893721%2Fnuclear-power-cooling-towers-with-power-lines-getty-images.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "MSFT"
-      ],
-      "all_tickers": [
-        "CCJ",
-        "CEG",
-        "GEV",
-        "MSFT"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9327
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -3770,145 +4743,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.9051
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-01T21:41:30+00:00",
-      "source": "Kitploit.com",
-      "title": "waf-dojo",
-      "summary": "Hands-on AWS WAF training game with tutorials, scored labs, and exams where players write Web ACL rules to block real attack shapes while avoiding false positives.",
-      "url": "https://kitploit.com/en/tools/github/nishikawaakira/waf-dojo",
-      "image_url": "https://assets.kitploit.com/production/public/tools/58673/a37c7fdbcfdebc360db74858b95fc3e28c769e8799b4da04b163261e7d8b7e52-social-v1.webp",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9278
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-01T21:21:06+00:00",
-      "source": "Rlsbb.cc",
-      "title": "The Craft 1996 1080p AMZN WEB-DL H264-BLOOM",
-      "summary": "Awards 1 win & 7 nominations total See more awards » Plot: A young girl new to a Catholic school befriends a coven of witches whom the other students either shun or fear. But when a powerful invocation goes wrong, the consequences could endanger their lives. …",
-      "url": "https://post.rlsbb.cc/the-craft-1996-1080p-amzn-web-dl-h264-bloom/",
-      "image_url": null,
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7613
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-01T21:16:00+00:00",
-      "source": "Wccftech",
-      "title": "Lenovo’s IdeaPad Slim 3X Is The Ideal Windows 11 Notebook For Budget Laptop Hunters; Snapdragon X, 16GB RAM & 512GB Configuration Available On Amazon For $620",
-      "summary": "It’s no secret that laptops are getting pricier with the DRAM shortage in effect, but Amazon has a banger of a deal in the form of the Lenovo IdeaPad 3X, as its $620 price tag will give budget buyers new hope. After all, it’s a Copilot+ PC that’s equipped wit…",
-      "url": "https://wccftech.com/lenovo-ideapad-slim-3x-snapdragon-x-amazon-deal/",
-      "image_url": "https://cdn.wccftech.com/wp-content/uploads/2026/11/Lenovos-IdeaPad-Slim-3X.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN",
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5904
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-01T20:53:32+00:00",
-      "source": "Slashdot.org",
-      "title": "Federal judge dismisses Trump attempt to interfere in Alaska Senate race - NBC News",
-      "summary": "Federal judge dismisses Trump attempt to interfere in Alaska Senate raceNBC News See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186549263",
-      "image_url": null,
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9065
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-01T20:44:36+00:00",
-      "source": "9to5google.com",
-      "title": "Wear OS adding ‘system status bar’ to apps, Wear OS 7.1 coming",
-      "summary": "Earlier this week, Google revealed that a “later platform release of Wear OS” is adding a “system status bar.”\n\n\n\n more…",
-      "url": "http://9to5google.com/2026/11/01/wear-os-status-bar/",
-      "image_url": "https://9to5google.com/wp-content/uploads/sites/4/2026/06/Wear-OS-7-cover.jpg?quality=82&strip=all&resize=1200,628",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.895
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-01T20:33:40+00:00",
-      "source": "Slashdot.org",
-      "title": "Judge dismisses DOJ lawsuit over Alaska Senate election - CNBC",
-      "summary": "Judge dismisses DOJ lawsuit over Alaska Senate electionCNBC See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186549097",
-      "image_url": null,
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8058
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-01T20:13:38+00:00",
-      "source": "Techpowerup.com",
-      "title": "Microsoft Adds Cloud Rebuild Recovery to Windows 11 in Latest Preview Update",
-      "summary": "Microsoft has introduced Cloud Rebuild, a recovery option that can wipe and reinstall Windows 11 by pulling a fresh image and the PC's drivers from Windows Update, even when the system refuses to boot. It ships with KB5127936, the optional preview update rele…",
-      "url": "https://www.techpowerup.com/354388/microsoft-adds-cloud-rebuild-recovery-to-windows-11-in-latest-preview-update",
-      "image_url": "https://www.techpowerup.com/img/NupumpDLJTPcFYVe.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8396
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-01T19:45:17+00:00",
-      "source": "Business Insider",
-      "title": "Microsoft AI chief says AI is not conscious and we should keep it that way",
-      "summary": "Microsoft AI CEO Mustafa Suleyman said developers should only build AI models that \"are not conscious and not deserving of rights.\"",
-      "url": "https://www.businessinsider.com/mustafa-suleyman-microsoft-ai-consciousness-2026-11#article",
-      "image_url": "https://i.insider.com/6ae780f8f3bee449b3d2a08b?width=1200&format=jpeg",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9138
       },
       "sentiment_model": "ProsusAI/finbert"
     }
