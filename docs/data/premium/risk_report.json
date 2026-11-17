@@ -1,367 +1,367 @@
 {
-  "generated_utc": "2026-11-14T21:20:00.386310+00:00",
-  "as_of": "2026-11-13",
+  "generated_utc": "2026-11-17T09:41:53.918668+00:00",
+  "as_of": "2026-11-16",
   "config_hash": "c3f2b4fc9bfd",
   "regime": {
     "current": "normal",
-    "age_sessions": 6,
+    "age_sessions": 7,
     "expected_duration_sessions": {
-      "calm": 53.263496100920314,
-      "normal": 30.890274717424848,
-      "stress": 34.058133326938446
+      "calm": 53.14817443807708,
+      "normal": 30.837421658826482,
+      "stress": 34.05090517907092
     },
-    "p_stay_next_session": 0.9676273516779081,
+    "p_stay_next_session": 0.9675718673544235,
     "p_still_in_regime": {
-      "10": 0.7195837702613236,
-      "20": 0.5178008024235013,
-      "50": 0.19293312456497286,
-      "100": 0.03722319055440333
+      "10": 0.7191712631316318,
+      "20": 0.5172073057143468,
+      "50": 0.19238075597311408,
+      "100": 0.03701035526878687
     },
-    "p_stress_within_5": 0.04692157303998035,
-    "p_stress_within_10": 0.08348109093008095,
+    "p_stress_within_5": 0.06451661503900538,
+    "p_stress_within_10": 0.10043380551860065,
     "transition_matrix": {
       "calm": {
-        "calm": 0.9812254156560571,
-        "normal": 0.018774583901155748,
-        "stress": 4.4278710349689284e-10
+        "calm": 0.9811846782966158,
+        "normal": 0.01881532170338417,
+        "stress": 5.8449503919990895e-40
       },
       "normal": {
-        "calm": 0.023231913661457868,
-        "normal": 0.9676273516779081,
-        "stress": 0.00914073466063394
+        "calm": 0.023276299813544295,
+        "normal": 0.9675718673544235,
+        "stress": 0.0091518328320322
       },
       "stress": {
-        "calm": 4.876331260356596e-57,
-        "normal": 0.02936156219721658,
-        "stress": 0.9706384378027834
+        "calm": 3.2332961052088217e-91,
+        "normal": 0.02936779491590856,
+        "stress": 0.9706322050840915
       }
     }
   },
   "training_mix": {
     "trades_by_regime": {
-      "normal": 313,
-      "calm": 226
+      "normal": 316,
+      "calm": 233
     },
     "share": {
-      "normal": 0.5807050092764379,
-      "calm": 0.41929499072356213
+      "normal": 0.575591985428051,
+      "calm": 0.424408014571949
     },
     "current_regime": "normal",
     "current_regime_rare_in_training": false
   },
   "garch": {
     "market": {
-      "persistence": 0.9988517225584124,
+      "persistence": 0.9987819940956864,
       "stationary": true,
-      "nu": 5.415785481917218,
-      "vol_now_annual": 0.23624464715917945,
-      "vol_long_run_annual": 0.18145372102474305,
+      "nu": 5.436690293334943,
+      "vol_now_annual": 0.2534049946095894,
+      "vol_long_run_annual": 0.1816311229404658,
       "long_run_source": "sample (GARCH persistence ~1: long-run variance not identified)",
-      "ratio_to_long_run": 1.3019553736622744,
-      "critical_level_annual": 0.27218058153711455,
+      "ratio_to_long_run": 1.3951628471330284,
+      "critical_level_annual": 0.2724466844106987,
       "alert": false,
-      "shock_half_life_sessions": 603.294218478149
+      "shock_half_life_sessions": 568.736952491454
     },
     "tickers": {
       "AAPL": {
-        "persistence": 0.985252313462993,
+        "persistence": 0.9848290258258451,
         "stationary": true,
-        "nu": 4.418468888394235,
-        "vol_now_annual": 0.2809234112836067,
-        "vol_long_run_annual": 0.3635923015123618,
+        "nu": 4.42787514493479,
+        "vol_now_annual": 0.27352313840568426,
+        "vol_long_run_annual": 0.36096340829973533,
         "long_run_source": "garch",
-        "ratio_to_long_run": 0.772633001620513,
-        "critical_level_annual": 0.5453884522685427,
+        "ratio_to_long_run": 0.7577586318072363,
+        "critical_level_annual": 0.541445112449603,
         "alert": false,
-        "shock_half_life_sessions": 46.65296917515109
+        "shock_half_life_sessions": 45.34157908236558
       },
       "AMZN": {
-        "persistence": 0.9837128830764538,
+        "persistence": 0.9837935566707717,
         "stationary": true,
-        "nu": 4.8204096981484135,
-        "vol_now_annual": 0.35691313288130866,
-        "vol_long_run_annual": 0.3891157581743239,
+        "nu": 4.8343616685185165,
+        "vol_now_annual": 0.38320502048240346,
+        "vol_long_run_annual": 0.38874505965508116,
         "long_run_source": "garch",
-        "ratio_to_long_run": 0.917241528731436,
-        "critical_level_annual": 0.5836736372614859,
+        "ratio_to_long_run": 0.9857489142689217,
+        "critical_level_annual": 0.5831175894826217,
         "alert": false,
-        "shock_half_life_sessions": 42.21048148119307
+        "shock_half_life_sessions": 42.42233449629118
       },
       "BA": {
-        "persistence": 0.9994401526958744,
+        "persistence": 0.9989630148748093,
         "stationary": true,
-        "nu": 4.072044816683992,
-        "vol_now_annual": 0.3997003564294875,
-        "vol_long_run_annual": 0.4218570497462956,
+        "nu": 4.079779295980938,
+        "vol_now_annual": 0.42210994023961806,
+        "vol_long_run_annual": 0.4221573355430843,
         "long_run_source": "sample (GARCH persistence ~1: long-run variance not identified)",
-        "ratio_to_long_run": 0.9474781959193685,
-        "critical_level_annual": 0.6327855746194434,
+        "ratio_to_long_run": 0.9998877307120454,
+        "critical_level_annual": 0.6332360033146265,
         "alert": false,
-        "shock_half_life_sessions": 1237.7538108227197
+        "shock_half_life_sessions": 668.0787505302517
       },
       "BAC": {
-        "persistence": 0.9469551756164375,
+        "persistence": 0.9466836939323743,
         "stationary": true,
-        "nu": 4.754912071695146,
-        "vol_now_annual": 0.26435071146885414,
-        "vol_long_run_annual": 0.29604728932814445,
+        "nu": 4.764954787477324,
+        "vol_now_annual": 0.27068565966718255,
+        "vol_long_run_annual": 0.29532495944217146,
         "long_run_source": "garch",
-        "ratio_to_long_run": 0.8929340716774569,
-        "critical_level_annual": 0.44407093399221664,
+        "ratio_to_long_run": 0.9165688541140269,
+        "critical_level_annual": 0.4429874391632572,
         "alert": false,
-        "shock_half_life_sessions": 12.717475516940565
+        "shock_half_life_sessions": 12.650922001409388
       },
       "CAT": {
-        "persistence": 0.9578369028266455,
+        "persistence": 0.9572038868887871,
         "stationary": true,
-        "nu": 4.281318937224802,
-        "vol_now_annual": 0.5033900305488784,
-        "vol_long_run_annual": 0.3186695150540809,
+        "nu": 4.2909621462125545,
+        "vol_now_annual": 0.5268008662091965,
+        "vol_long_run_annual": 0.31832695113018084,
         "long_run_source": "garch",
-        "ratio_to_long_run": 1.5796617083483775,
-        "critical_level_annual": 0.4780042725811214,
+        "ratio_to_long_run": 1.6549050098926736,
+        "critical_level_annual": 0.47749042669527125,
         "alert": true,
-        "shock_half_life_sessions": 16.090602925012014
+        "shock_half_life_sessions": 15.847398505269927
       },
       "CVX": {
-        "persistence": 0.9900600600317725,
+        "persistence": 0.9899172188991955,
         "stationary": true,
-        "nu": 4.539211285833876,
-        "vol_now_annual": 0.2626862435136376,
-        "vol_long_run_annual": 0.30325821346782117,
+        "nu": 4.564209009729757,
+        "vol_now_annual": 0.2599561363539784,
+        "vol_long_run_annual": 0.3012425436629313,
         "long_run_source": "garch",
-        "ratio_to_long_run": 0.8662131208575208,
-        "critical_level_annual": 0.4548873202017317,
+        "ratio_to_long_run": 0.8629462930204527,
+        "critical_level_annual": 0.4518638154943969,
         "alert": false,
-        "shock_half_life_sessions": 69.38638729087614
+        "shock_half_life_sessions": 68.3984751795567
       },
       "GLD": {
-        "persistence": 0.9826324834550308,
+        "persistence": 0.982477805278387,
         "stationary": true,
-        "nu": 5.9020487732188665,
-        "vol_now_annual": 0.2561051828664709,
-        "vol_long_run_annual": 0.15208245525786207,
+        "nu": 5.936699477037037,
+        "vol_now_annual": 0.24895796801646217,
+        "vol_long_run_annual": 0.15205767758754773,
         "long_run_source": "garch",
-        "ratio_to_long_run": 1.6839890073594221,
-        "critical_level_annual": 0.2281236828867931,
+        "ratio_to_long_run": 1.6372600973937916,
+        "critical_level_annual": 0.2280865163813216,
         "alert": true,
-        "shock_half_life_sessions": 39.562966896745806
+        "shock_half_life_sessions": 39.21064511770302
       },
       "GOOGL": {
-        "persistence": 0.9997102167780316,
+        "persistence": 0.9997265028742868,
         "stationary": true,
-        "nu": 3.905956226042652,
-        "vol_now_annual": 0.4628084138662779,
-        "vol_long_run_annual": 0.29961374764176196,
+        "nu": 3.9142262283816045,
+        "vol_now_annual": 0.48078245871040876,
+        "vol_long_run_annual": 0.300022583708766,
         "long_run_source": "sample (GARCH persistence ~1: long-run variance not identified)",
-        "ratio_to_long_run": 1.5446835050427736,
-        "critical_level_annual": 0.44942062146264294,
+        "ratio_to_long_run": 1.6024875619933585,
+        "critical_level_annual": 0.450033875563149,
         "alert": true,
-        "shock_half_life_sessions": 2391.604109407988
+        "shock_half_life_sessions": 2534.0390234469846
       },
       "GS": {
-        "persistence": 0.9109216505346792,
+        "persistence": 0.9120257671560367,
         "stationary": true,
-        "nu": 5.266960519739906,
-        "vol_now_annual": 0.33923177603753585,
-        "vol_long_run_annual": 0.2802092009046876,
+        "nu": 5.3080921561755545,
+        "vol_now_annual": 0.34878954687549674,
+        "vol_long_run_annual": 0.2793567862561681,
         "long_run_source": "garch",
-        "ratio_to_long_run": 1.21063753417906,
-        "critical_level_annual": 0.4203138013570314,
+        "ratio_to_long_run": 1.2485451008720414,
+        "critical_level_annual": 0.41903517938425217,
         "alert": false,
-        "shock_half_life_sessions": 7.429358495047969
+        "shock_half_life_sessions": 7.527087544835326
       },
       "HD": {
-        "persistence": 0.9771365301319329,
+        "persistence": 0.9770686175003296,
         "stationary": true,
-        "nu": 5.168036548119163,
-        "vol_now_annual": 0.32857225397667644,
-        "vol_long_run_annual": 0.24790967832925795,
+        "nu": 5.175104756243961,
+        "vol_now_annual": 0.31340105957441344,
+        "vol_long_run_annual": 0.24821120506307634,
         "long_run_source": "garch",
-        "ratio_to_long_run": 1.325370821304877,
-        "critical_level_annual": 0.37186451749388694,
+        "ratio_to_long_run": 1.2626386447572777,
+        "critical_level_annual": 0.3723168075946145,
         "alert": false,
-        "shock_half_life_sessions": 29.968887700462712
+        "shock_half_life_sessions": 29.87909871613322
       },
       "JNJ": {
-        "persistence": 0.932729538200383,
+        "persistence": 0.9332636743381432,
         "stationary": true,
-        "nu": 4.143711492286674,
-        "vol_now_annual": 0.21135629343474222,
-        "vol_long_run_annual": 0.17982591723772448,
+        "nu": 4.1398440421629035,
+        "vol_now_annual": 0.20781385818513481,
+        "vol_long_run_annual": 0.18004397669140132,
         "long_run_source": "garch",
-        "ratio_to_long_run": 1.1753383309889394,
-        "critical_level_annual": 0.26973887585658674,
+        "ratio_to_long_run": 1.1542394364090924,
+        "critical_level_annual": 0.270065965037102,
         "alert": false,
-        "shock_half_life_sessions": 9.953290334099687
+        "shock_half_life_sessions": 10.035792393549107
       },
       "JPM": {
-        "persistence": 0.9554940869006622,
+        "persistence": 0.9552721091475758,
         "stationary": true,
-        "nu": 4.696790814845281,
-        "vol_now_annual": 0.2622781108867081,
-        "vol_long_run_annual": 0.2677345738241015,
+        "nu": 4.716645670519768,
+        "vol_now_annual": 0.28037842316187583,
+        "vol_long_run_annual": 0.2669964096134728,
         "long_run_source": "garch",
-        "ratio_to_long_run": 0.9796198792727524,
-        "critical_level_annual": 0.4016018607361522,
+        "ratio_to_long_run": 1.0501205749087636,
+        "critical_level_annual": 0.4004946144202092,
         "alert": false,
-        "shock_half_life_sessions": 15.225068423219216
+        "shock_half_life_sessions": 15.147762250741255
       },
       "KO": {
-        "persistence": 0.9750012660497014,
+        "persistence": 0.9748692511126122,
         "stationary": true,
-        "nu": 4.765157795443706,
-        "vol_now_annual": 0.18059870693523525,
-        "vol_long_run_annual": 0.17594927273304736,
+        "nu": 4.765583809536847,
+        "vol_now_annual": 0.1731805708814283,
+        "vol_long_run_annual": 0.17578916121898724,
         "long_run_source": "garch",
-        "ratio_to_long_run": 1.0264248560392861,
-        "critical_level_annual": 0.26392390909957103,
+        "ratio_to_long_run": 0.9851606872717862,
+        "critical_level_annual": 0.26368374182848087,
         "alert": false,
-        "shock_half_life_sessions": 27.37925547396749
+        "shock_half_life_sessions": 27.23359275619232
       },
       "MCD": {
-        "persistence": 0.9652281476928243,
+        "persistence": 0.9652892930455214,
         "stationary": true,
-        "nu": 4.44381857064867,
-        "vol_now_annual": 0.2806365392408217,
-        "vol_long_run_annual": 0.19381321821937111,
+        "nu": 4.463919749132524,
+        "vol_now_annual": 0.2694643662043791,
+        "vol_long_run_annual": 0.1933073931539379,
         "long_run_source": "garch",
-        "ratio_to_long_run": 1.4479741981435859,
-        "critical_level_annual": 0.29071982732905666,
+        "ratio_to_long_run": 1.3939682378821099,
+        "critical_level_annual": 0.28996108973090684,
         "alert": false,
-        "shock_half_life_sessions": 19.585528199973737
+        "shock_half_life_sessions": 19.620647259589244
       },
       "MSFT": {
-        "persistence": 0.9864472779943201,
+        "persistence": 0.9865295320971904,
         "stationary": true,
-        "nu": 4.998218967219667,
-        "vol_now_annual": 0.36552071475564796,
-        "vol_long_run_annual": 0.34059515950804947,
+        "nu": 5.002290774388017,
+        "vol_now_annual": 0.34990641982923837,
+        "vol_long_run_annual": 0.34099534755951977,
         "long_run_source": "garch",
-        "ratio_to_long_run": 1.0731823531596885,
-        "critical_level_annual": 0.5108927392620742,
+        "ratio_to_long_run": 1.0261325332837956,
+        "critical_level_annual": 0.5114930213392797,
         "alert": false,
-        "shock_half_life_sessions": 50.797137480791406
+        "shock_half_life_sessions": 51.109443616718394
       },
       "NEE": {
-        "persistence": 0.9881431108077893,
+        "persistence": 0.9880997989503372,
         "stationary": true,
-        "nu": 4.757181085320128,
-        "vol_now_annual": 0.24586076629148673,
-        "vol_long_run_annual": 0.2830394439481246,
+        "nu": 4.7581912094606755,
+        "vol_now_annual": 0.235633273994832,
+        "vol_long_run_annual": 0.2828578019544934,
         "long_run_source": "garch",
-        "ratio_to_long_run": 0.8686448887192841,
-        "critical_level_annual": 0.4245591659221869,
+        "ratio_to_long_run": 0.8330449871513216,
+        "critical_level_annual": 0.4242867029317401,
         "alert": false,
-        "shock_half_life_sessions": 58.112184036717956
+        "shock_half_life_sessions": 57.89941306446741
       },
       "NVDA": {
-        "persistence": 0.9700789906255092,
+        "persistence": 0.9704143227434047,
         "stationary": true,
-        "nu": 5.162884152773576,
-        "vol_now_annual": 0.6245947292690757,
-        "vol_long_run_annual": 0.5370299011621407,
+        "nu": 5.201221999444194,
+        "vol_now_annual": 0.6296698949529967,
+        "vol_long_run_annual": 0.5339055187342122,
         "long_run_source": "garch",
-        "ratio_to_long_run": 1.1630539154662403,
-        "critical_level_annual": 0.805544851743211,
+        "ratio_to_long_run": 1.1793657732660707,
+        "critical_level_annual": 0.8008582781013183,
         "alert": false,
-        "shock_half_life_sessions": 22.817574069986776
+        "shock_half_life_sessions": 23.080162674223654
       },
       "PFE": {
         "persistence": 1.0,
         "stationary": false,
-        "nu": 4.466630809914218,
-        "vol_now_annual": 0.2528738672576024,
-        "vol_long_run_annual": 0.24131808370728058,
+        "nu": 4.466478504797988,
+        "vol_now_annual": 0.24147354724272613,
+        "vol_long_run_annual": 0.24138544613800292,
         "long_run_source": "sample (GARCH persistence ~1: long-run variance not identified)",
-        "ratio_to_long_run": 1.0478861068876173,
-        "critical_level_annual": 0.3619771255609209,
+        "ratio_to_long_run": 1.0003649810132829,
+        "critical_level_annual": 0.36207816920700436,
         "alert": false,
         "shock_half_life_sessions": null
       },
       "PG": {
-        "persistence": 0.9572937719513774,
+        "persistence": 0.9571593339970268,
         "stationary": true,
-        "nu": 4.317340123031085,
-        "vol_now_annual": 0.20324214198999965,
-        "vol_long_run_annual": 0.19186520548823038,
+        "nu": 4.325386735501329,
+        "vol_now_annual": 0.21284077029989382,
+        "vol_long_run_annual": 0.19165175383792793,
         "long_run_source": "garch",
-        "ratio_to_long_run": 1.0592965070077136,
-        "critical_level_annual": 0.2877978082323456,
+        "ratio_to_long_run": 1.1105599924740819,
+        "critical_level_annual": 0.2874776307568919,
         "alert": false,
-        "shock_half_life_sessions": 15.881493178458694
+        "shock_half_life_sessions": 15.830551988143277
       },
       "QQQ": {
-        "persistence": 1.0000000000000002,
+        "persistence": 1.0,
         "stationary": false,
-        "nu": 5.389109221026579,
-        "vol_now_annual": 0.372421765159477,
-        "vol_long_run_annual": 0.22811573962590245,
+        "nu": 5.411150027338673,
+        "vol_now_annual": 0.385523844159549,
+        "vol_long_run_annual": 0.22836871987584875,
         "long_run_source": "sample (GARCH persistence ~1: long-run variance not identified)",
-        "ratio_to_long_run": 1.632600037902815,
-        "critical_level_annual": 0.34217360943885367,
+        "ratio_to_long_run": 1.6881639673293989,
+        "critical_level_annual": 0.34255307981377314,
         "alert": true,
         "shock_half_life_sessions": null
       },
       "SPY": {
-        "persistence": 0.9988517225584124,
+        "persistence": 0.9987819940956864,
         "stationary": true,
-        "nu": 5.415785481917218,
-        "vol_now_annual": 0.23624464715917945,
-        "vol_long_run_annual": 0.18145372102474305,
+        "nu": 5.436690293334943,
+        "vol_now_annual": 0.2534049946095894,
+        "vol_long_run_annual": 0.1816311229404658,
         "long_run_source": "sample (GARCH persistence ~1: long-run variance not identified)",
-        "ratio_to_long_run": 1.3019553736622744,
-        "critical_level_annual": 0.27218058153711455,
+        "ratio_to_long_run": 1.3951628471330284,
+        "critical_level_annual": 0.2724466844106987,
         "alert": false,
-        "shock_half_life_sessions": 603.294218478149
+        "shock_half_life_sessions": 568.736952491454
       },
       "TLT": {
-        "persistence": 0.9870542902383204,
+        "persistence": 0.9869802861169189,
         "stationary": true,
-        "nu": 15.96871231978615,
-        "vol_now_annual": 0.12437272250187324,
-        "vol_long_run_annual": 0.14746464928249922,
+        "nu": 16.096680722966987,
+        "vol_now_annual": 0.12044686986943652,
+        "vol_long_run_annual": 0.1471148588491044,
         "long_run_source": "garch",
-        "ratio_to_long_run": 0.8434070342079844,
-        "critical_level_annual": 0.22119697392374882,
+        "ratio_to_long_run": 0.818726747329981,
+        "critical_level_annual": 0.22067228827365662,
         "alert": false,
-        "shock_half_life_sessions": 53.19529083294579
+        "shock_half_life_sessions": 52.89094998827453
       },
       "UNH": {
-        "persistence": 0.9687987884938366,
+        "persistence": 0.968999098810608,
         "stationary": true,
-        "nu": 3.5078625742181258,
-        "vol_now_annual": 0.24509693335599594,
-        "vol_long_run_annual": 0.3203363295017353,
+        "nu": 3.501510765438589,
+        "vol_now_annual": 0.24084956125742477,
+        "vol_long_run_annual": 0.3215640040243914,
         "long_run_source": "garch",
-        "ratio_to_long_run": 0.7651237489585715,
-        "critical_level_annual": 0.48050449425260294,
+        "ratio_to_long_run": 0.7489941605502454,
+        "critical_level_annual": 0.48234600603658706,
         "alert": false,
-        "shock_half_life_sessions": 21.866988628847523
+        "shock_half_life_sessions": 22.01054389521182
       },
       "WMT": {
-        "persistence": 0.8844111873429579,
+        "persistence": 0.8848121125279986,
         "stationary": true,
-        "nu": 3.854935688196377,
-        "vol_now_annual": 0.20550836487862842,
-        "vol_long_run_annual": 0.20562116787838636,
+        "nu": 3.836074482538017,
+        "vol_now_annual": 0.19334318818371712,
+        "vol_long_run_annual": 0.20635018706534045,
         "long_run_source": "garch",
-        "ratio_to_long_run": 0.9994514037590495,
-        "critical_level_annual": 0.30843175181757954,
+        "ratio_to_long_run": 0.9369663819228587,
+        "critical_level_annual": 0.30952528059801065,
         "alert": false,
-        "shock_half_life_sessions": 5.642996282373116
+        "shock_half_life_sessions": 5.66389454357111
       },
       "XOM": {
-        "persistence": 0.9993139240069537,
+        "persistence": 0.9993518894109206,
         "stationary": true,
-        "nu": 7.821359605936833,
-        "vol_now_annual": 0.2955029964047664,
-        "vol_long_run_annual": 0.28641359951217726,
+        "nu": 7.881724129093715,
+        "vol_now_annual": 0.2997562043757273,
+        "vol_long_run_annual": 0.28661282505442814,
         "long_run_source": "sample (GARCH persistence ~1: long-run variance not identified)",
-        "ratio_to_long_run": 1.0317352140682925,
-        "critical_level_annual": 0.4296203992682659,
+        "ratio_to_long_run": 1.0458576105894886,
+        "critical_level_annual": 0.4299192375816422,
         "alert": false,
-        "shock_half_life_sessions": 1009.960098538327
+        "shock_half_life_sessions": 1069.142442587857
       }
     }
   },
@@ -376,7 +376,7 @@
     "threshold": -0.04,
     "window_sessions": 10,
     "worst_recent_day": -0.04409175675851946,
-    "sessions_since_shock": 6
+    "sessions_since_shock": 7
   },
   "montecarlo": {
     "status": "ok",
@@ -385,55 +385,55 @@
     "max_loss_limit": 0.1,
     "ruin_level": 0.3,
     "bootstrap": {
-      "p_profit": 0.7246,
+      "p_profit": 0.711,
       "p_breach_max_loss": 0.0,
       "p_ruin": 0.0,
-      "drawdown_p50": 0.021214240313339294,
-      "drawdown_p95": 0.04076346222868619,
-      "drawdown_p99": 0.05346725314809995,
-      "return_p05": -0.02287128976011725,
-      "return_p50": 0.014192627729734397,
-      "return_p95": 0.05605853885368609,
-      "var95": 0.02287128976011725,
-      "cvar95": 0.032698833233718104
+      "drawdown_p50": 0.02146324141875533,
+      "drawdown_p95": 0.04332635479746147,
+      "drawdown_p99": 0.05521055645170744,
+      "return_p05": -0.025952574572570487,
+      "return_p50": 0.013997807437460486,
+      "return_p95": 0.05733942098435889,
+      "var95": 0.025952574572570487,
+      "cvar95": 0.035714765352251175
     },
     "student_t": {
-      "p_profit": 0.7312,
+      "p_profit": 0.7248,
       "p_breach_max_loss": 0.0002,
       "p_ruin": 0.0,
-      "drawdown_p50": 0.020833175295700446,
-      "drawdown_p95": 0.04324728886514035,
-      "drawdown_p99": 0.05809444523618512,
-      "return_p05": -0.025608255351781028,
-      "return_p50": 0.015456420480444821,
-      "return_p95": 0.05901408164296953,
-      "var95": 0.025608255351781028,
-      "cvar95": 0.036033778340106355
+      "drawdown_p50": 0.02149412385468913,
+      "drawdown_p95": 0.044707221140307986,
+      "drawdown_p99": 0.05997790845048289,
+      "return_p05": -0.026868108263053143,
+      "return_p50": 0.015205174406321076,
+      "return_p95": 0.059882978904403895,
+      "var95": 0.026868108263053143,
+      "cvar95": 0.03754680199570968
     },
     "losing_streak_1y": {
-      "trades_per_year": 69,
+      "trades_per_year": 71,
       "p50": 5.0,
       "p95": 8.0,
-      "max": 13
+      "max": 14
     },
-    "analytic_ruin": 1.2517931406835732e-11
+    "analytic_ruin": 9.921578894726937e-11
   },
   "book": {
-    "positions": 6,
-    "gross": 0.1159,
-    "net": 0.1139,
+    "positions": 7,
+    "gross": 0.1174,
+    "net": 0.1124,
     "by_bucket": {
       "Consumo discrecional": 0.0325,
       "Finanzas": 0.0335,
-      "Salud": 0.036,
+      "Salud": 0.0375,
       "Utilities": 0.0129,
       "rates": 0.001
     },
-    "es99_1d_stressed_corr": 0.006554420270654766,
-    "es99_1d_all_fall_together": 0.007067582174196065,
+    "es99_1d_stressed_corr": 0.006466920812831112,
+    "es99_1d_all_fall_together": 0.007111392093839439,
     "worst_day_book": {
       "date": "2020-03-16",
-      "return": -0.018702441794593343
+      "return": -0.01858642222871135
     },
     "worst_day_by_position": [
       {
@@ -462,6 +462,11 @@
         "loss_pct_equity": -0.000825517981143792
       },
       {
+        "ticker": "PFE",
+        "date": "2021-11-05",
+        "loss_pct_equity": -0.00016282782212086636
+      },
+      {
         "ticker": "TLT",
         "date": "2020-03-20",
         "loss_pct_equity": -7.519557593741613e-05
@@ -470,11 +475,11 @@
   },
   "review_horizon": {
     "p_positive_after": {
-      "30": 0.6994717783421984,
-      "100": 0.8301219722584101,
-      "250": 0.9344055367731045,
-      "500": 0.983605456759186
+      "30": 0.688905613044619,
+      "100": 0.8158428745537477,
+      "250": 0.922551975044248,
+      "500": 0.9778713753808408
     },
-    "trades_for_95pct": 296.8882734767249
+    "trades_for_95pct": 334.3072676655407
   }
 }

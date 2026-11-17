@@ -1,9 +1,9 @@
 {
-  "as_of": "2026-11-13",
+  "as_of": "2026-11-16",
   "started": "2026-11-11",
   "config_hash": "c3f2b4fc9bfd",
   "counts": {
-    "pending": 0,
+    "pending": 1,
     "open": 6,
     "closed": 0,
     "missed": 0
@@ -12,7 +12,7 @@
   "win_rate": null,
   "expected_value": null,
   "sr_per_trade": null,
-  "total_return": -0.0006265904740445638,
+  "total_return": -0.0010013154942534186,
   "equity_curve": [
     {
       "date": "2026-11-12",
@@ -21,6 +21,10 @@
     {
       "date": "2026-11-13",
       "equity": 0.9993734095259554
+    },
+    {
+      "date": "2026-11-16",
+      "equity": 0.9989986845057466
     }
   ],
   "recent_closed": [],
@@ -40,7 +44,7 @@
       "strategy_label": "V4+news",
       "first_signal": "2026-11-12",
       "closed": 0,
-      "open": 1,
+      "open": 2,
       "missed": 0,
       "expected_value": null,
       "win_rate": null
@@ -62,13 +66,13 @@
     "min_trades": 30,
     "n_closed": 0,
     "live_sr_per_trade": null,
-    "backtest_sr_per_trade": 0.0954647365827156,
-    "backtest_expected_value": 0.00447341761462898,
+    "backtest_sr_per_trade": 0.08996355145851097,
+    "backtest_expected_value": 0.003443929385917869,
     "backtest_cpcv_range": [
-      0.04434704911802042,
-      0.08357846052359973
+      0.04385403127834691,
+      0.09548845506017183
     ],
-    "backtest_cpcv_median": 0.0667571486709019,
+    "backtest_cpcv_median": 0.06515450372610106,
     "sr_ci95": null,
     "min_detectable_gap": null,
     "status": "collecting",
@@ -80,17 +84,17 @@
   },
   "gate1": {
     "status": "collecting",
-    "p_breakeven": 0.4950053562844423,
-    "p_backtest": 0.536178107606679,
-    "trades_required": 1156,
+    "p_breakeven": 0.49461057133159025,
+    "p_backtest": 0.5264116575591985,
+    "trades_required": 1939,
     "live_trades": 0,
     "live_effective_trades": 0.0,
-    "years_to_go": 16.664415584415583,
+    "years_to_go": 27.513315118397085,
     "p_value": null
   },
   "edge_decay": {
     "window": 20,
-    "backtest_ev": 0.00447341761462898,
+    "backtest_ev": 0.003443929385917869,
     "points": [],
     "status": "collecting"
   },
@@ -98,34 +102,32 @@
   "positions": [
     {
       "side": 1,
-      "status": "open",
-      "exit_by": "2026-12-10"
+      "status": "open"
     },
     {
       "side": 1,
-      "status": "open",
-      "exit_by": "2026-12-10"
+      "status": "open"
     },
     {
       "side": 1,
-      "status": "open",
-      "exit_by": "2026-12-10"
+      "status": "open"
     },
     {
       "side": 1,
-      "status": "open",
-      "exit_by": "2026-12-10"
+      "status": "open"
     },
     {
       "side": 1,
-      "status": "open",
-      "exit_by": "2026-12-10"
+      "status": "open"
     },
     {
       "side": -1,
-      "status": "open",
-      "exit_by": "2026-12-11"
+      "status": "open"
+    },
+    {
+      "side": -1,
+      "status": "pending"
     }
   ],
-  "invested": 0.1159
+  "invested": 0.1174
 }

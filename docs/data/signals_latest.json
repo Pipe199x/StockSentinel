@@ -1,54 +1,45 @@
 {
-  "as_of": "2026-11-13",
+  "as_of": "2026-11-16",
   "market_regime": "normal",
-  "market_p_stress": 0.004225705310066257,
+  "market_p_stress": 0.02256050461284785,
   "n_assets": 25,
-  "n_idle": 20,
+  "n_idle": 19,
   "picks": [
     {
-      "as_of": "2026-11-13",
+      "as_of": "2026-11-16",
       "side": 1,
-      "strategy": "momentum",
-      "t_max_date": "2026-12-14",
-      "t_max_days": 20.0,
       "market_regime": "normal",
-      "market_p_stress": 0.004225705310066257
+      "market_p_stress": 0.02256050461284785
     },
     {
-      "as_of": "2026-11-13",
+      "as_of": "2026-11-16",
       "side": 1,
-      "strategy": "momentum",
-      "t_max_date": "2026-12-14",
-      "t_max_days": 20.0,
       "market_regime": "normal",
-      "market_p_stress": 0.004225705310066257
+      "market_p_stress": 0.02256050461284785
     },
     {
-      "as_of": "2026-11-13",
+      "as_of": "2026-11-16",
       "side": 1,
-      "strategy": "momentum",
-      "t_max_date": "2026-12-14",
-      "t_max_days": 20.0,
       "market_regime": "normal",
-      "market_p_stress": 0.004225705310066257
+      "market_p_stress": 0.02256050461284785
     },
     {
-      "as_of": "2026-11-13",
-      "side": 1,
-      "strategy": "momentum",
-      "t_max_date": "2026-12-14",
-      "t_max_days": 20.0,
+      "as_of": "2026-11-16",
+      "side": -1,
       "market_regime": "normal",
-      "market_p_stress": 0.004225705310066257
+      "market_p_stress": 0.02256050461284785
     },
     {
-      "as_of": "2026-11-13",
-      "side": 1,
-      "strategy": "momentum",
-      "t_max_date": "2026-12-14",
-      "t_max_days": 20.0,
+      "as_of": "2026-11-16",
+      "side": -1,
       "market_regime": "normal",
-      "market_p_stress": 0.004225705310066257
+      "market_p_stress": 0.02256050461284785
+    },
+    {
+      "as_of": "2026-11-16",
+      "side": 1,
+      "market_regime": "normal",
+      "market_p_stress": 0.02256050461284785
     }
   ]
 }
