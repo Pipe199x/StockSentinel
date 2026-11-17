@@ -1,76 +1,136 @@
 {
-  "as_of": "2026-11-17T09:41:52.808695+00:00",
+  "as_of": "2026-11-17T20:54:47.061933+00:00",
   "window_days": 15,
   "articles": [
     {
-      "id": "aef620d12ceba1d5ef1835e2cb33ba308b8508ab6b4e8aa16423be48d54b0ef9",
-      "published_at": "2026-11-17T08:55:02Z",
+      "id": "c51c8dde763256448915484d629ac966dc65ce3645605a83432d38aac62c8975",
+      "published_at": "2026-11-17T20:00:02Z",
       "source": "The Motley Fool",
-      "title": "The S&P 500 Had Its Worst Day in Over a Year. Here's Why I'm Still Investing.",
-      "summary": "After the S&P 500's worst day in over a year (4.3% drop on Nov. 5), the author explains why he remains fully invested despite market vulnerability. He argues that attempting to time the market is futile, noting that major gains often occur during recoveries and bear markets. With positive 2027 earnings projections and falling oil prices, he advocates focusing on quality long-term stocks rather than predicting short-term market movements.",
-      "url": "https://www.fool.com/investing/2026/11/17/the-sp-500-had-its-worst-day-in-over-a-year-heres-why-im-still-investing/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F3ba07f23088cc5e31518672794476e1f6467e4cb-5616x3744.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "GS"
-      ],
-      "all_tickers": [
-        "GS",
-        "GSpA",
-        "GSpC",
-        "GSpD"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "GS"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.6059
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "acfda4046cec9843bfa9811f63b29c628fbf3b31c111f83d801658bef7185551",
-      "published_at": "2026-11-17T08:41:02Z",
-      "source": "The Motley Fool",
-      "title": "Is Cerebras Stock Still a Buy After Its Microsoft Deal?",
-      "summary": "Cerebras Systems surged 11% after announcing a cloud deal with Microsoft, its third hyperscale customer in six months alongside Amazon and Oracle. The AI chipmaker posted strong Q3 results with 70% core revenue growth and raised 2027 guidance, expecting revenue to triple. However, the stock remains 41% below its IPO price and faces challenges including data center capacity constraints and a significant cash burn rate. The analyst views it as worth considering as a small position at current prices, contingent on timely data center delivery.",
-      "url": "https://www.fool.com/investing/2026/11/17/is-cerebras-stock-still-a-buy-after-its-microsoft-deal/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Ff93ec9440c0b06d27ff79eb93f69c4c45d6c5ecd-1290x860.png&w=1200&op=resize",
+      "title": "Prediction: SpaceX Stock Could Go Parabolic After Anthropic's IPO. Here's Why.",
+      "summary": "Anthropic's IPO on November 19, 2026 is expected to draw attention to SpaceX's growing AI infrastructure business. An amended agreement reveals Anthropic will pay SpaceX up to $120.5 billion through 2029 for computing services—nearly 2.5 times the previously disclosed $15 billion deal. This expanded relationship could position SpaceX as a major AI infrastructure provider and potentially drive investor enthusiasm for the stock.",
+      "url": "https://www.fool.com/investing/2026/11/17/prediction-spacex-stock-could-go-parabolic-after-anthropic-s-ipo-here-s-why/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fd1f78933b6d396f1aaf470e3f3dfb943f32bd3cd-5250x3500.jpg&w=1200&op=resize",
       "raw_tickers": [
         "AMZN",
-        "MSFT"
+        "GOOGL"
       ],
       "all_tickers": [
         "AMZN",
-        "CBRS",
-        "MSFT",
-        "ORCL",
-        "ORCLpD"
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "SPCX"
       ],
       "is_spam": false,
       "tickers": [
         "AMZN",
-        "MSFT"
+        "GOOGL"
       ],
       "sentiment": {
-        "label": "negative",
-        "score": 0.7101
+        "label": "positive",
+        "score": 0.8871
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "8010e71f679a8d38c5b02c621139256cfd4b09cf07afc326b9cd565112de7ef4",
-      "published_at": "2026-11-17T08:17:02Z",
+      "id": "1c2af00cf93c389109fe78e704575018e6ef9dbef26413951a4483000101401b",
+      "published_at": "2026-11-17T20:00:02Z",
       "source": "The Motley Fool",
-      "title": "Prediction: Anthropic Will Have a Successful IPO but Then the Stock Will Trade Like SpaceX",
-      "summary": "Anthropic is set to price its IPO on November 18, 2026 at $70-$78 per share, valuing the company at approximately $1.4 trillion. While the IPO is expected to be successful, analyst Bram Berkowitz predicts the stock will trade similarly to SpaceX post-IPO, with limited gains in the first six months due to high valuations already priced in during private markets and significant share lockup expirations expected to pressure the stock.",
-      "url": "https://www.fool.com/investing/2026/11/17/prediction-anthropic-will-have-a-successful-ipo-but-then-the-stock-will-trade-like-spacex/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F3066f280ec33ee24e8c6e7b41375a32c06700042-1600x1200.jpg&w=1200&op=resize",
+      "title": "4 Dates That Could Move the Stock Market in Epic Fashion This Week. Here's What Investors Need to Know.",
+      "summary": "Wall Street faces a consequential trading week (Nov. 17-20, 2026) with four major market-moving events: Nvidia's Q3 earnings report amid CEO Jensen Huang's unexpected resignation, Anthropic's highly anticipated IPO potentially raising $64 billion, Federal Reserve's October meeting minutes release, and Sandisk's 8-for-1 stock split. These events converge during a period of elevated market uncertainty around AI valuations, interest rates, and corporate leadership.",
+      "url": "https://www.fool.com/investing/2026/11/17/4-dates-that-could-move-the-stock-market-in-epic-fashion-this-week-here-s-what-investors-need-to-know/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F9368a0ccc2c2da327c92eb191353f39d016bb9c3-1280x832.png&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "GOOGL",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "NVDA",
+        "SNDK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "GOOGL",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.6158
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "39181961a34a8ad310935ef45c36aff2acc97deaf17a38619cbfcd4575ba1137",
+      "published_at": "2026-11-17T20:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Deadline Alert: Alphabet Inc. Investors Have Until December 1, 2026 to Seek Lead Plaintiff Role in Securities Fraud Class Action, Glancy Prongay Wolke & Rotter LLP Reminds Investors",
+      "summary": "A securities fraud class action lawsuit has been filed against Alphabet Inc. covering investors who purchased securities between May 19, 2026 and July 16, 2026. The complaint alleges that Alphabet failed to disclose that its Gemini 3.5 Pro AI model was delivering disappointing training results and would be significantly delayed. The stock declined sharply following Bloomberg's July 16 report and Alphabet's July 22 earnings announcement revealing massive capital expenditure increases and negative free cash flow. Investors have until December 1, 2026 to request appointment as lead plaintiff.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/17/3405143/34548/en/deadline-alert-alphabet-inc-investors-have-until-december-1-2026-to-seek-lead-plaintiff-role-in-securities-fraud-class-action-glancy-prongay-wolke-rotter-llp-reminds-investors.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/a67368e9-bc06-4c5b-a902-dd2d9af3e4f0",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9723
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "3eca31c6404ce24b88389b7e3370506a661bf5849c00a69bc59de2f5a15d52e5",
+      "published_at": "2026-11-17T18:56:02Z",
+      "source": "The Motley Fool",
+      "title": "Jensen Huang Is Out as Nvidia’s CEO. Here’s What Analysts Think the Stock Is Worth Without Him.",
+      "summary": "Nvidia co-founder Jensen Huang resigned as CEO following an admitted affair with a woman accused of being a Chinese spy, plus reports of a second affair with an Nvidia executive. The stock has fallen 28% since the scandal emerged. Analysts have cut price targets by 5-62%, with valuations ranging from $185-$300 per share. While Nvidia remains central to the AI industry with strong chip technology, the lack of succession planning and uncertainty surrounding the leadership transition have created significant headwinds for investors.",
+      "url": "https://www.fool.com/investing/2026/11/17/jensen-huang-is-out-as-nvidia-ceo-what-analysts-think-the-stock-is-worth-without-him/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F4fe220bc52e6a36526c3368417bdd90ee5f7e3b6-1290x860.jpg&w=1200&op=resize",
       "raw_tickers": [
         "NVDA"
       ],
       "all_tickers": [
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9728
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "bd8f61924ce6fb327e01d79f9fd4f030a6a854875896ae55ee78fd530618c4fe",
+      "published_at": "2026-11-17T18:48:20Z",
+      "source": "The Motley Fool",
+      "title": "Why Intel Stock Just Dropped",
+      "summary": "Intel stock dropped 2.3% after Nvidia disclosed it sold 25% of its Intel stake (reducing from 214.8M to 161.1M shares) while simultaneously increasing its SpaceX position by 6%. The move comes amid Intel's 55% decline from its 2026 highs, compounded by an Nvidia CEO scandal and a SemiAnalysis report warning of significantly lower AI chip capital spending estimates for 2027-2029. However, Nvidia retained 75% of its Intel holdings, suggesting some continued confidence in the company.",
+      "url": "https://www.fool.com/investing/2026/11/17/why-intel-stock-just-dropped/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fcd96bb32063027d0657bf82632c5adf7b8829d1f-2000x1200.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "INTC",
         "NVDA",
         "SPCX"
       ],
@@ -79,28 +139,505 @@
         "NVDA"
       ],
       "sentiment": {
-        "label": "positive",
-        "score": 0.8963
+        "label": "negative",
+        "score": 0.9526
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "adbfabc7c1baca253dcd85527fafa60b529782c5fcc5870358303e8de0074433",
-      "published_at": "2026-11-17T08:15:00Z",
+      "id": "149e94bdcbc6267debd212eb0bec0e59f2cf707d678728edf9372fdcdec80c71",
+      "published_at": "2026-11-17T16:36:01Z",
       "source": "The Motley Fool",
-      "title": "Warren Buffett's Successor Has 61% of Berkshire's Portfolio in 5 Stocks. Here's My Top Pick for November.",
-      "summary": "Berkshire Hathaway's portfolio is concentrated in five stocks accounting for 61% of holdings. The article recommends Alphabet as the best buy in November, citing a 27% pullback from highs, attractive valuation at 22.5x earnings, strong revenue growth of 25% YoY, and robust Google Cloud expansion at 103% YoY growth. Despite AI market volatility and regulatory concerns following Democratic midterm wins, the author believes Alphabet has strong long-term growth prospects.",
-      "url": "https://www.fool.com/investing/2026/11/17/warren-buffetts-successor-has-61-of-berkshires-por/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893419%2Fbuffett17-tmf-copy.jpg&w=1200&op=resize",
+      "title": "Microsoft Stock Has Grown Roughly 14-Fold Since Satya Nadella Became CEO in 2014, a 23% Annual Growth Rate. Can That Pace Continue Under Heavy AI Spending?",
+      "summary": "Microsoft's stock has surged 14-fold under CEO Satya Nadella since 2014, achieving a 23% annualized growth rate. The company is investing heavily in AI infrastructure with $170 billion in capital expenditures this year, including $50 billion in Q4 2026, with even larger budgets planned for 2027. While CFO Amy Hood asserts the company will achieve strong returns on this capital spending, analysts question whether the 23% annual growth pace can be sustained long-term, though high-teens EPS growth combined with multiple expansion could support 20%+ annual returns over the next five years.",
+      "url": "https://www.fool.com/investing/2026/11/17/microsoft-stock-has-grown-roughly-14-fold-since-satya-nadella-became-ceo-in-2014-a-23-annual-growth-rate-that-ended-14-years-of-negative-growth-can-that-pace-continue-under-heavy-ai-spending/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F3f01e80d7eac4b424bc3ea7c6b946c00be71a32d-1280x854.png&w=1200&op=resize",
       "raw_tickers": [
-        "AAPL",
-        "BAC",
-        "GOOGL",
+        "MSFT"
+      ],
+      "all_tickers": [
+        "MSFT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9424
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "80cbe9852ac871c87a15c601f2e0259c55e8264b0d438615deae674e436ca4d9",
+      "published_at": "2026-11-17T15:45:25Z",
+      "source": "The Motley Fool",
+      "title": "Constellation Energy vs. Vistra: Which Utilities Stock Is a Better Buy for 2027?",
+      "summary": "The article compares two major utility stocks positioned to benefit from AI data center growth. Constellation Energy operates the world's largest nuclear fleet with strong positioning in high-demand regions and serves major tech companies like Microsoft and Meta. Vistra operates a diversified generation and retail business with significant nuclear capacity. While Vistra trades at a lower valuation (15.7x forward P/E vs 23.1x), Constellation is recommended for 2027 due to its superior market position, execution track record, and clear growth path, despite commanding a premium valuation.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/17/constellation-energy-vs-vistra-which-utilities-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F72e89a8ac85539d46c47bfb95dc9b7f7b8c235d8-5237x3922.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "all_tickers": [
+        "CEG",
+        "META",
+        "METAM",
+        "MSFT",
+        "VST"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9102
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "e4dfd7193bf000f698e4529eb708719040dd21354701165d92f577ffcbc81b72",
+      "published_at": "2026-11-17T15:44:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Home Depot Q3 Earnings Meet Estimates, Sales Beat on Comps Growth",
+      "summary": "Home Depot reported Q3 fiscal 2026 adjusted EPS of $3.86, meeting estimates, with sales growing 4.9% to $43.4 billion. Comparable sales rose 2.2% driven by higher average ticket ($93.09), though customer transactions declined slightly. However, gross margin contracted 60 basis points to 32.8% due to cost of sales outpacing revenue growth. Operating margin also narrowed 30 basis points. Management updated FY26 guidance projecting 4.5% sales growth and 1.4% comparable sales growth.",
+      "url": "https://www.zacks.com/stock/news/3031295/home-depot-q3-earnings-meet-estimates-sales-beat-on-comps-growth?cid=CS-ZC-FT-analyst_blog|earnings_article-3031295",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/fe/76.jpg",
+      "raw_tickers": [
+        "HD"
+      ],
+      "all_tickers": [
+        "HD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8091
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "c2ceef7b8fec5eaa2057f93339248cc5c5f56dae0292d007b7b337f6b67b9080",
+      "published_at": "2026-11-17T15:41:00Z",
+      "source": "Zacks Investment Research",
+      "title": "How Is Coca-Cola's Packaging Strategy Supporting Growth?",
+      "summary": "Coca-Cola is expanding affordable packaging options across Europe, Africa, and Vietnam to boost consumer accessibility and purchase frequency. The company achieved 5% global unit case volume growth and 7% organic revenue growth in Q3 2026. Competitors PepsiCo and Keurig Dr Pepper are similarly prioritizing packaging innovation and affordable formats to drive long-term growth.",
+      "url": "https://www.zacks.com/stock/news/3031296/how-is-coca-cola-s-packaging-strategy-supporting-growth?cid=CS-ZC-FT-analyst_blog|quick_take-3031296",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/e3/65.jpg",
+      "raw_tickers": [
         "KO"
       ],
       "all_tickers": [
+        "KDP",
+        "KO",
+        "PEP"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9248
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "0d582533ce18b648203e09f4da14f80ba94fbf3d60e8ba9841c52848c0604125",
+      "published_at": "2026-11-17T15:33:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can AT&T's New Apple Device Deals Strengthen Its Subscriber Growth?",
+      "summary": "AT&T is launching aggressive holiday promotions offering the iPhone 18 Pro for $0 with trade-ins, up to $1,200 off select devices, and $1,900 in bundle savings. The company is also incentivizing provider switches with up to $800 toward device payoffs. These initiatives aim to attract new subscribers and improve retention while competing with Verizon and T-Mobile's similar holiday offerings.",
+      "url": "https://www.zacks.com/stock/news/3031285/can-at-t-s-new-apple-device-deals-strengthen-its-subscriber-growth?cid=CS-ZC-FT-analyst_blog|quick_take-3031285",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/35/1193.jpg",
+      "raw_tickers": [
+        "AAPL"
+      ],
+      "all_tickers": [
         "AAPL",
-        "AXP",
+        "T",
+        "TBB",
+        "TMUS",
+        "TMUSI",
+        "TMUSL",
+        "TMUSZ",
+        "TpA",
+        "TpC",
+        "VZ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9256
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "7b0bf10dbf5eacaa7f49dbf9067db61d2307ad4fb023f4aefa5498ab7546ff66",
+      "published_at": "2026-11-17T15:25:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can PG's Health Care Segment Extend Its Sales Momentum Ahead?",
+      "summary": "Procter & Gamble's Health Care segment is sustaining growth through innovation and portfolio expansion, with organic sales rising 4% in Q1 fiscal 2027. The company faces affordability pressures on premium brands but balances this with value offerings. A potential recovery in cold and cough season demand and the Thorne acquisition could provide additional growth catalysts. Competitors Church & Dwight and Colgate-Palmolive are also leveraging innovation and strong portfolios to drive health care growth.",
+      "url": "https://www.zacks.com/stock/news/3031263/can-pg-s-health-care-segment-extend-its-sales-momentum-ahead?cid=CS-ZC-FT-analyst_blog|quick_take-3031263",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/3d/451.jpg",
+      "raw_tickers": [
+        "PG"
+      ],
+      "all_tickers": [
+        "CHD",
+        "CL",
+        "PG"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PG"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9445
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "b52af8641e2442167870962ba65e65c7f9c954eafe5c095c0efa05416f0d5b5d",
+      "published_at": "2026-11-17T15:07:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Here's Why BP's Partial Aker BP Stake Sale Is a Timely Move",
+      "summary": "BP has sold a 5% stake in Norwegian oil and gas producer Aker BP for $1.06 billion, retaining a 10.9% ownership interest. The proceeds support BP's portfolio simplification and balance sheet strengthening, with the company raising its 2026 divestment guidance by $1 billion to approximately $9 billion. Shell and Chevron are also pursuing similar portfolio optimization strategies through strategic asset sales.",
+      "url": "https://www.zacks.com/stock/news/3031250/here-s-why-bp-s-partial-aker-bp-stake-sale-is-a-timely-move?cid=CS-ZC-FT-analyst_blog|quick_take-3031250",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/ee/431.jpg",
+      "raw_tickers": [
+        "CVX"
+      ],
+      "all_tickers": [
+        "AKRBY",
+        "BP",
+        "CVX",
+        "SHEL"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CVX"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.839
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "71dd174d672f57b9f8542a8f0f193eb6f15e68e95864afb5345a6d802a7eb1e2",
+      "published_at": "2026-11-17T15:03:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can PepsiCo's Asia Pacific Foods Business Maintain Volume Growth?",
+      "summary": "PepsiCo's Asia Pacific Foods segment delivered organic volume growth in Q3 2026, supported by resilient consumer demand and market share gains in key markets including India, China, Australia, Thailand, and Pakistan. The company's international organic revenues increased 8% marking 22 consecutive quarters of mid-single-digit growth. Continued investments in innovation, distribution expansion, and portfolio diversification are expected to support further growth, though momentum depends on sustained consumer demand and effective execution.",
+      "url": "https://www.zacks.com/stock/news/3031237/can-pepsico-s-asia-pacific-foods-business-maintain-volume-growth?cid=CS-ZC-FT-analyst_blog|quick_take-3031237",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/40/102.jpg",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "KO",
+        "MNST",
+        "PEP"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9573
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "b0958e41c1a2b5024c045be0490877183296af5bc2510801e9822b5fe89c41c0",
+      "published_at": "2026-11-17T15:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Biotechnology Market Companies 2027 Analysis: Amgen, Gilead, Regeneron, Vertex and Moderna Post Strong 2026 Results as Billion-Dollar Deals Reshape a Market Headed for USD 6.34 Trillion by 2035",
+      "summary": "The global biotechnology market, valued at USD 2.02 trillion in 2026, is projected to reach USD 6.34 trillion by 2035 at a 13.61% CAGR. Leading biotech companies including Amgen, Gilead, Regeneron, Vertex, and Moderna reported strong Q3 2026 results with revenue growth ranging from 8% to 36%. The sector experienced record dealmaking activity with major acquisitions totaling tens of billions of dollars, driven by patent expiries, strong cash flows, and strategic pipeline expansion in oncology, immunology, and advanced therapies.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/17/3404836/0/en/biotechnology-market-companies-2027-analysis-amgen-gilead-regeneron-vertex-and-moderna-post-strong-2026-results-as-billion-dollar-deals-reshape-a-market-headed-for-usd-6-34-trillio.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/01eb1f79-0c67-420b-b423-376619f975cd",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "AMGN",
+        "BIIB",
+        "BMY",
+        "BNTX",
+        "CELGr",
+        "GILD",
+        "GSK",
+        "LLY",
+        "MRK",
+        "MRNA",
+        "PFE",
+        "REGN",
+        "SNY",
+        "VRTX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9403
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "fd8190349915919f1f493580debd1e1d8003e2c24ac2716eeeb05607771c7a77",
+      "published_at": "2026-11-17T14:58:00Z",
+      "source": "Zacks Investment Research",
+      "title": "AstraZeneca Stock Up 12% in a Month: Time to Buy, Sell or Hold?",
+      "summary": "AstraZeneca reported Q3 2026 revenues of $16.21 billion (up 7% YoY) and core EPS of $2.79, beating consensus estimates. Strong oncology sales growth (16% to $21.9B) and new drug launches support the company's $80 billion 2030 revenue target. However, generic erosion of mature drugs, recent pipeline failures, and China market uncertainties create headwinds. The company maintains mid-to-high single-digit revenue growth guidance for 2026.",
+      "url": "https://www.zacks.com/stock/news/3031223/astrazeneca-stock-up-12-in-a-month-time-to-buy-sell-or-hold?cid=CS-ZC-FT-analyst_blog|rank_focused-3031223",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/85/906.jpg",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "ABBV",
+        "AZN",
+        "GILD",
+        "JNJ",
+        "LLY",
+        "MRK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9412
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "6ed92fb81835b76225303948e3574ace6491c12aebf8c21bedd701451c4c936c",
+      "published_at": "2026-11-17T14:55:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Home Depot's Best Comp of the Year Arrives With a Thinner Margin",
+      "summary": "Home Depot exceeded Q3 revenue expectations with $43.4B in sales (up 4.9%) and 2.2% comparable sales growth, but margins contracted significantly. Gross margin fell to 32.8% from 33.4% year-over-year, with the company guiding sales to the high end while margins move to the low end of guidance. The margin pressure stems from acquisition-driven growth through lower-margin professional distribution channels. Management also implied fourth-quarter comparable sales will decelerate to around 1% despite strong current momentum.",
+      "url": "https://www.zacks.com/commentary/3031220/home-depot-s-best-comp-of-the-year-arrives-with-a-thinner-margin?cid=CS-ZC-FT-investment_ideas-3031220",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/fe/76.jpg",
+      "raw_tickers": [
+        "HD"
+      ],
+      "all_tickers": [
+        "HD",
+        "LOW"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9364
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "6890884443e44df330913412611461137a692718ebf6000306f55dacaba239bf",
+      "published_at": "2026-11-17T14:43:00Z",
+      "source": "Zacks Investment Research",
+      "title": "J&J to Acquire Ollin Biosciences: A Look at Its Recent Buyouts",
+      "summary": "Johnson & Johnson announced a $2.2 billion acquisition of clinical-stage biotech Ollin Biosciences to expand its ophthalmology pipeline with OLN324, a phase III bispecific antibody for retinal diseases. Blackstone will fund $750 million of the phase III development. This acquisition is part of J&J's broader strategy of pursuing strategic M&A to strengthen its Innovative Medicine and MedTech businesses, following recent acquisitions of Firefly Bio, Intra-Cellular Therapies, Shockwave Medical, and Abiomed.",
+      "url": "https://www.zacks.com/stock/news/3031219/j-j-to-acquire-ollin-biosciences-a-look-at-its-recent-buyouts?cid=CS-ZC-FT-analyst_blog|quick_take-3031219",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/b2/19786.jpg",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "ABBV",
+        "GILD",
+        "GSK",
+        "JNJ",
+        "LLY",
+        "MRK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8586
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "96a0a7e2d81f35b2745919dfd5cda432eb8d1e86b9afc1f50eaf9eb9172b6d31",
+      "published_at": "2026-11-17T14:40:00Z",
+      "source": "Zacks Investment Research",
+      "title": "CAT Standardizes Construction Equipment Safety: Will It Set It Apart?",
+      "summary": "Caterpillar is making collision warning and mitigation systems standard on most new construction machines in 2027, integrating them with its VisionLink platform for fleet management. While this move reinforces CAT's competitive positioning, earnings estimates for 2026 and 2027 have declined, and the stock carries a Hold rating despite outperforming its industry over the past year.",
+      "url": "https://www.zacks.com/stock/news/3031216/cat-standardizes-construction-equipment-safety-will-it-set-it-apart?cid=CS-ZC-FT-analyst_blog|quick_take-3031216",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/91/454.jpg",
+      "raw_tickers": [
+        "CAT"
+      ],
+      "all_tickers": [
+        "CAT",
+        "DE",
+        "KMTUY",
+        "VLVLY"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CAT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9698
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "6b288325779992cfbad7dd8f3601673f4caf06d05315f2ca157d97f18d7ce3a5",
+      "published_at": "2026-11-17T14:33:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Salesforce's Slack Gains Momentum: Can It Lift CRM's Growth Further?",
+      "summary": "Salesforce's Slack platform is experiencing accelerated growth driven by AI features, with Slackbot users surging 150% QoQ and premium upgrades tripling. Agentforce ARR exceeded $1.5B with 240% YoY growth. However, Slack faces intense competition from Microsoft Teams and Zoom Workplace, which offer integrated AI capabilities. Salesforce stock trades at a discount valuation (P/E 13.29 vs. industry 26.90) with positive earnings revisions, earning a Zacks Rank #2 (Buy).",
+      "url": "https://www.zacks.com/stock/news/3031205/salesforce-s-slack-gains-momentum-can-it-lift-crm-s-growth-further?cid=CS-ZC-FT-analyst_blog|quick_take-3031205",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/76/103.jpg",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "all_tickers": [
+        "CRM",
+        "MSFT",
+        "ZM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9561
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a8571bec3edda08dfa835b406540f8cab46a57bf6a561fad2675410bdfc67ecc",
+      "published_at": "2026-11-17T14:27:00Z",
+      "source": "Zacks Investment Research",
+      "title": "HALO Rallies More Than 40% in 6 Months: How Should You Play the Stock?",
+      "summary": "Halozyme Therapeutics (HALO) has surged 43.1% over six months, outperforming the industry and S&P 500, driven by strong royalty revenues from its ENHANZE drug delivery technology partnerships. The company raised 2026 guidance with total revenues expected to reach $1.86-$1.925 billion and royalty revenues of $1.24-$1.26 billion. While recent acquisitions and proprietary product growth support long-term prospects, heavy reliance on partner companies for royalty income remains a key risk. Zacks rates the stock as a Hold.",
+      "url": "https://www.zacks.com/stock/news/3031190/halo-rallies-more-than-40-in-6-months-how-should-you-play-the-stock?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3031190",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/e6/2070.jpg",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "ARGX",
+        "HALO",
+        "JNJ",
+        "RHHBY"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9231
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "d437f1368d5a9d97fe449f0af03f6604987a82be3d00fcd2e764d79dbaed7c75",
+      "published_at": "2026-11-17T14:15:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Franklin Doubles Down on ETFs: Can It Reach $200B AUM by FY29?",
+      "summary": "Franklin Templeton has raised its fiscal 2029 ETF assets under management target to $200 billion from $93 billion, driven by strong investor demand and $27.5 billion in net inflows during fiscal 2026. The company's ETF AUM surged 73% year-over-year to $84.6 billion, with active ETFs accounting for 44% of total ETF assets. However, fee pressure and competition in lower-fee products pose risks to profitability.",
+      "url": "https://www.zacks.com/stock/news/3031179/franklin-doubles-down-on-etfs-can-it-reach-200b-aum-by-fy29?cid=CS-ZC-FT-analyst_blog|company_news_finance_sector-3031179",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/02/1329.jpg",
+      "raw_tickers": [
+        "GS",
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "BEN",
+        "GS",
+        "GSpA",
+        "GSpC",
+        "GSpD",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GS",
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9467
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "325c2ed29d7b0540c53462c74dfbb8e6da603ad1a3ff62628805df66080204dd",
+      "published_at": "2026-11-17T14:07:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can S-92A+ Selection Strengthen Lockheed Martin's Growth?",
+      "summary": "Lockheed Martin's Sikorsky division was selected to supply S-92A+ helicopters for South Korea's Presidential Helicopter II program, building on a 70+ year relationship. The upgraded aircraft features new engines, gearbox, and increased payload capacity. Sikorsky is expanding production capacity to 12 aircraft annually to meet growing international demand.",
+      "url": "https://www.zacks.com/stock/news/3031167/can-s-92a-selection-strengthen-lockheed-martin-s-growth?cid=CS-ZC-FT-analyst_blog|quick_take-3031167",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/8e/142.jpg",
+      "raw_tickers": [
+        "BA"
+      ],
+      "all_tickers": [
+        "BA",
+        "BApA",
+        "LMT",
+        "NOC"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.93
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "4a3a8e28293eb6d2a4073ea540742009f4fce74fccc5e16db512e5c06a1e8ae5",
+      "published_at": "2026-11-17T14:02:00Z",
+      "source": "Zacks Investment Research",
+      "title": "JPMorgan Faces Banking Outage: Will Operational Risks Rise?",
+      "summary": "JPMorgan Chase experienced a significant technology disruption on November 16 due to an on-premise software bug that delayed transactions and affected banking services across its customer base and interconnected payment systems. While the bank ruled out cyberattacks and maintained fund accessibility, the incident highlights operational vulnerabilities and potential risks including remediation costs, regulatory scrutiny, and customer confidence concerns. The outage also impacted other lenders including Bank of America and Wells Fargo, underscoring systemic risks in the U.S. payments infrastructure.",
+      "url": "https://www.zacks.com/stock/news/3031162/jpmorgan-faces-banking-outage-will-operational-risks-rise?cid=CS-ZC-FT-analyst_blog|quick_take-3031162",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/59/80.jpg",
+      "raw_tickers": [
+        "BAC",
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
         "BAC",
         "BACpB",
         "BACpE",
@@ -116,55 +653,479 @@
         "BMLpH",
         "BMLpJ",
         "BMLpL",
-        "BRK.A",
-        "BRK.B",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "KO",
-        "MERpK"
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "MERpK",
+        "VYLD",
+        "WFC",
+        "WFCpA",
+        "WFCpC",
+        "WFCpD",
+        "WFCpL",
+        "WFCpY",
+        "WFCpZ"
       ],
       "is_spam": false,
       "tickers": [
-        "AAPL",
         "BAC",
-        "GOOGL",
-        "KO"
+        "JPM"
       ],
       "sentiment": {
-        "label": "positive",
-        "score": 0.9444
+        "label": "negative",
+        "score": 0.9653
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "dfac858065048b09d3eeee6b674ff55f23b7dbf5ddcc9aa6490aebbfd817c33c",
-      "published_at": "2026-11-17T07:45:02Z",
-      "source": "The Motley Fool",
-      "title": "This Is What It Would Take for Me to Buy Nvidia Stock",
-      "summary": "Following Jensen Huang's departure as CEO, Nvidia faces significant uncertainty due to its lack of succession planning and overly centralized management structure. The author outlines concerns about transparency regarding customer financing arrangements and missing market data from Singapore. While acknowledging Nvidia's long-term strength in AI technology, the author recommends waiting for at least two quarters of strong results under new leadership before buying shares, though current shareholders should hold their positions in a diversified portfolio.",
-      "url": "https://www.fool.com/investing/2026/11/17/this-is-what-it-would-take-for-me-to-buy-nvidia-stock/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F5e119bf19c3606427415fc755cd271957d35aad4-1290x860.jpg&w=1200&op=resize",
+      "id": "fc66b7d1bccd77981b95463f1afdff7fc578f902a0d7f53cfd176b2f7b97b1b3",
+      "published_at": "2026-11-17T13:59:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Berkshire Sells 27.5M Bank of America Shares: Should Investors Worry?",
+      "summary": "Berkshire Hathaway reduced its Bank of America stake by 5.7% in Q3 2026, selling 27.5 million shares and bringing its total reduction to 57.8 million shares since March 2026. While the persistent selling by a major institutional investor could create sentiment concerns, BAC's underlying fundamentals remain solid with expected 8% net interest income growth in 2026 and at least 8% in 2027. The stock trades at a discount valuation but faces headwinds from lower earnings estimate revisions and broader institutional selling pressure.",
+      "url": "https://www.zacks.com/stock/news/3031142/berkshire-sells-27-5m-bank-of-america-shares-should-investors-worry?cid=CS-ZC-FT-analyst_blog|quick_take-3031142",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/0b/57.jpg",
       "raw_tickers": [
-        "AAPL",
-        "AMZN",
-        "NVDA"
+        "BAC",
+        "JPM"
       ],
       "all_tickers": [
-        "AAPL",
-        "AMZN",
-        "NVDA"
+        "AMJB",
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "COF",
+        "COFpI",
+        "COFpJ",
+        "COFpK",
+        "COFpL",
+        "COFpN",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "MERpK",
+        "VYLD"
       ],
       "is_spam": false,
       "tickers": [
-        "AAPL",
-        "AMZN",
-        "NVDA"
+        "BAC",
+        "JPM"
       ],
       "sentiment": {
         "label": "negative",
-        "score": 0.4754
+        "score": 0.9665
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "b51aef37c4b479b8903c48c720e6cdba2fbb763899cfc0784898cc51f603a3f8",
+      "published_at": "2026-11-17T13:56:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Walmart's Q3 Earnings on Deck: Is WMT Stock a Buy or Hold?",
+      "summary": "Walmart is set to report Q3 fiscal 2027 results on November 19, with consensus estimates projecting revenues of $186.5 billion (up 3.9%) and EPS of 64 cents (up 3.2%). The Zacks model predicts an earnings beat supported by strong value demand, e-commerce growth, and higher-margin businesses. However, headwinds from pricing investments, pharmacy deflation, and elevated costs may pressure profitability. The stock trades at a premium valuation of 40.78x forward P/E.",
+      "url": "https://www.zacks.com/stock/news/3031139/walmart-s-q3-earnings-on-deck-is-wmt-stock-a-buy-or-hold?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3031139",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/26/123.jpg",
+      "raw_tickers": [
+        "WMT"
+      ],
+      "all_tickers": [
+        "COST",
+        "DG",
+        "KR",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6722
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "3334b7ae8796dbfd09985f108d69fa1140e970cc68ca81e8b335cc5c5c9a0f4d",
+      "published_at": "2026-11-17T13:54:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Alibaba Q2 Earnings Preview: Why Should You Hold the Stock Now?",
+      "summary": "Alibaba is expected to report Q2 FY2027 revenues of $40.41B (+16.09% YoY) and earnings of $1.71/share (+180.3% YoY) on Nov. 19. While AI cloud revenues surged 45% and Qwen AI products achieved 12 consecutive quarters of triple-digit growth, heavy AI capex, negative free cash flow of RMB44.67B, and rising inference costs pressure near-term profitability. The stock trades at a discounted 11.47X forward P/E versus the industry's 20.39X, down 38.2% YTD amid competition and investor concerns over dilution from a HK$80B share placement.",
+      "url": "https://www.zacks.com/stock/news/3031127/alibaba-q2-earnings-preview-why-should-you-hold-the-stock-now?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3031127",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/27/42.jpg",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "BABA",
+        "JD",
+        "PDD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9744
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "c17e4b084a5affdce83afed9d2efaf659b4c02d0ee8f4cf1323a8e58cf56d4fa",
+      "published_at": "2026-11-17T13:47:02Z",
+      "source": "The Motley Fool",
+      "title": "GM Just Switched Stock Exchanges. Here’s Why That Matters for Investors",
+      "summary": "General Motors moved from the NYSE to the Nasdaq on November 17, 2026, making it eligible for inclusion in the Nasdaq-100 index. This could trigger approximately $600 billion in index fund buying, providing a short-term stock boost. However, the move doesn't change GM's underlying business fundamentals, and long-term performance will still depend on earnings, EV strategy, and capital allocation.",
+      "url": "https://www.fool.com/investing/2026/11/17/gm-just-switched-stock-exchanges-here-s-why-that-matters-for-investors/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Ffbb038e4e83814b02680bdd6e9b5eba02fa87ed4-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "WMT"
+      ],
+      "all_tickers": [
+        "GM",
+        "QQQ",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6116
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "e74a081144afbc612769daf07f76e3c238d4efb07255fb2535893512ee4f8eb7",
+      "published_at": "2026-11-17T13:46:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Starbucks' AI-Powered Drive-Thru: Can Technology Improve Efficiency?",
+      "summary": "Starbucks is testing AI technology in drive-thru operations to improve order accuracy, throughput, and customer experience. The initiative includes background AI models to help baristas capture orders more efficiently, personalized digital menus, and simplified payments. With roughly half of Starbucks' customers using drive-thrus, successful implementation could drive revenue growth and profitability. The company is in early testing stages with plans to expand solutions that deliver results.",
+      "url": "https://www.zacks.com/stock/news/3031072/starbucks-ai-powered-drive-thru-can-technology-improve-efficiency?cid=CS-ZC-FT-analyst_blog|quick_take-3031072",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/05/563.jpg",
+      "raw_tickers": [
+        "MCD"
+      ],
+      "all_tickers": [
+        "MCD",
+        "SBUX",
+        "WEN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MCD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7877
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "5e88be81eb0e3f70b893906777f04a20be7184563bf3f9f8e449dc7a336d5e7f",
+      "published_at": "2026-11-17T13:40:04Z",
+      "source": "Zacks Investment Research",
+      "title": "Is UnitedHealth Group (UNH) Stock Outpacing Its Medical Peers This Year?",
+      "summary": "UnitedHealth Group (UNH) has gained 24.8% year-to-date, outperforming the broader Medical sector's 9% average gain. The company holds a Zacks Rank #2 (Buy) with improved analyst sentiment, as consensus earnings estimates have risen 4.6% in the past quarter. However, UNH slightly underperforms its Medical-HMOs industry group, which has averaged 28.6% gains. Alto Neuroscience (ANRO) is also highlighted as an outperformer with 52.4% year-to-date returns.",
+      "url": "https://www.zacks.com/stock/news/3031024/is-unitedhealth-group-unh-stock-outpacing-its-medical-peers-this-year?cid=CS-ZC-FT-fundamental_analysis|yseop_template_1-3031024",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default243.jpg",
+      "raw_tickers": [
+        "UNH"
+      ],
+      "all_tickers": [
+        "ANRO",
+        "UNH"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "UNH"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9593
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "385959e0683a5f73feef7a12a726008cfc42493d34f965bfb045d1ea1c34da23",
+      "published_at": "2026-11-17T13:40:04Z",
+      "source": "Zacks Investment Research",
+      "title": "Here's Why Exxon Mobil Holdings (XOM) is a Strong Value Stock",
+      "summary": "ExxonMobil Holdings (XOM) is featured as a stock to watch, holding a #3 (Hold) Zacks Rank with a VGM Score of A and Value Style Score of A. The company has achieved $16.9 billion in structural cost savings since 2019 and maintains an attractive forward P/E ratio of 12.51. Five analysts revised earnings estimates upward in the last 60 days, with the Zacks Consensus Estimate increasing to $13.34 per share.",
+      "url": "https://www.zacks.com/stock/news/3031028/here-s-why-exxon-mobil-holdings-xom-is-a-strong-value-stock?cid=CS-ZC-FT-fundamental_analysis|zacks_education_value_score-3031028",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default245.jpg",
+      "raw_tickers": [
+        "XOM"
+      ],
+      "all_tickers": [
+        "XOM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "XOM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9521
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a3cf27ea637dd4db9db7927e45f1a6545c99b9810163473a972e1490aadfc937",
+      "published_at": "2026-11-17T13:28:00Z",
+      "source": "The Motley Fool",
+      "title": "Walmart Has Raised Its Dividend 53 Straight Years. Why I'd Buy It Before December and Never Sell.",
+      "summary": "Walmart has maintained a 53-year dividend streak, raising its annual dividend to $0.99 per share. The company's durable business model, built on supplying necessities at competitive prices, is being supplemented by high-growth opportunities in advertising (up 38% globally), memberships (up 17%), and international expansion. Despite trading at a forward P/E of 38 and facing risks from its enormous size and retail competition, analysts rate it a buy with an average price target of $131.45.",
+      "url": "https://www.fool.com/investing/2026/11/17/walmart-has-raised-its-dividend-53-straight-years/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893062%2Fa-smiling-middle-aged-man.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "WMT"
+      ],
+      "all_tickers": [
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9465
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "101ae0979fcfe0f98238a73b530f4e2196085672184d2a09f75f531c0b640755",
+      "published_at": "2026-11-17T13:00:03Z",
+      "source": "Zacks Investment Research",
+      "title": "Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting on It",
+      "summary": "Apple has been a trending stock on Zacks.com. The company shows positive earnings growth expectations (+7.1% for current fiscal year, +9.9% for next year) and strong revenue growth projections (+9.9% and +7.5% respectively). However, Apple received a Zacks Rank #3 (Hold) rating and is graded F on valuation metrics, indicating it trades at a premium to peers. The stock is expected to perform in line with the broader market in the near term.",
+      "url": "https://www.zacks.com/stock/news/3030954/apple-inc-aapl-is-a-trending-stock-facts-to-know-before-betting-on-it?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3030954",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default229.jpg",
+      "raw_tickers": [
+        "AAPL"
+      ],
+      "all_tickers": [
+        "AAPL"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9388
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "46976c4147332d0d443fb57b387da214bd6c90c1e0182640fea2dd42cd5324b3",
+      "published_at": "2026-11-17T13:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Former Goldman Sachs and Coinbase Market Data Leader Atiq Khan Joins Dune as Director of Engineering",
+      "summary": "Dune announced that Atiq Khan, a veteran financial technology executive with 25+ years of experience at Goldman Sachs and Coinbase, has joined as Director of Engineering. Khan will lead the development of Dune Market Data Feeds, which delivers real-time trade and liquidity data from 200+ onchain venues across 12 chains. The hire underscores Dune's focus on providing institutional-grade onchain market data infrastructure.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/17/3404515/0/en/former-goldman-sachs-and-coinbase-market-data-leader-atiq-khan-joins-dune-as-director-of-engineering.html",
+      "image_url": "https://ml-eu.globenewswire.com/Resource/Download/dbe4505b-96ab-445e-9078-c62927d0972b",
+      "raw_tickers": [
+        "GS"
+      ],
+      "all_tickers": [
+        "COIN",
+        "GS",
+        "GSpA",
+        "GSpC",
+        "GSpD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GS"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6931
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "bd7976ea803bb5501bcd9f762ad8393d92d38c8e0462d76ce014ddbde91e563f",
+      "published_at": "2026-11-17T11:10:01Z",
+      "source": "Zacks Investment Research",
+      "title": "Home Depot (HD) Matches Q3 Earnings Estimates",
+      "summary": "Home Depot reported Q3 2026 earnings of $3.86 per share, matching consensus estimates, with revenues of $43.4 billion exceeding expectations by 1.59%. However, the stock has underperformed the S&P 500 year-to-date, gaining only 1% versus the market's 8.3% gain. The company holds a Zacks Rank #3 (Hold) rating with mixed estimate revisions, suggesting near-term performance in line with the market. The Retail - Home Furnishings industry ranks in the bottom 13% of Zacks industries.",
+      "url": "https://www.zacks.com/stock/news/3030853/home-depot-hd-matches-q3-earnings-estimates?cid=CS-ZC-FT-fundamental_analysis|yseop_template_4-3030853",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default218.jpg",
+      "raw_tickers": [
+        "HD"
+      ],
+      "all_tickers": [
+        "HD",
+        "LOVE"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6311
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ed6d6bbd7d19a0f575b7ab30c7f7ef2dba9850379440484daa4d509fa8c594f4",
+      "published_at": "2026-11-17T10:20:03Z",
+      "source": "Zacks Investment Research",
+      "title": "Is iShares U.S. Power Infrastructure ETF (POWR) a Strong ETF Right Now?",
+      "summary": "The iShares U.S. Power Infrastructure ETF (POWR) is a smart beta ETF launched in 2012 with $438.55 million in assets, tracking the S&P US Power Infrastructure Select Index. With a 0.39% expense ratio and 6.49% dividend yield, it has returned 5.26% year-to-date and 2.48% over the past year. However, the article suggests it is not suitable for investors seeking to outperform the Utilities/Infrastructure segment, recommending alternatives like IGF and PAVE instead.",
+      "url": "https://www.zacks.com/stock/news/3030827/is-ishares-u-s-power-infrastructure-etf-powr-a-strong-etf-right-now?cid=CS-ZC-FT-smart_beta_etf-3030827",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default35.jpg",
+      "raw_tickers": [
+        "NEE"
+      ],
+      "all_tickers": [
+        "GEV",
+        "IGF",
+        "NEE",
+        "NEEpN",
+        "NEEpS",
+        "NEEpT",
+        "NEEpU",
+        "NEEpV",
+        "NEEpW",
+        "PAVE",
+        "POWR",
+        "PWR"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NEE"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5657
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "dfe4271d75b5b5b94d9afcf9bfbde26cb19375e19064af91883a0ea686d68bc0",
+      "published_at": "2026-11-17T10:20:02Z",
+      "source": "Zacks Investment Research",
+      "title": "Should You Invest in the Vanguard Utilities Index Fund ETF Shares (VPU)?",
+      "summary": "The Vanguard Utilities Index Fund ETF Shares (VPU) is a passively managed ETF offering broad exposure to the utilities sector with a low expense ratio of 0.09% and $8.29 billion in assets. The fund has returned 5.03% year-to-date and 1.75% over the past 12 months, with a medium risk profile (beta of 0.55). VPU holds a Zacks ETF Rank of 2 (Buy) and is recommended as an outstanding option for utilities sector exposure.",
+      "url": "https://www.zacks.com/stock/news/3030832/should-you-invest-in-the-vanguard-utilities-index-fund-etf-shares-vpu?cid=CS-ZC-FT-sector_etf-3030832",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default233.jpg",
+      "raw_tickers": [
+        "NEE"
+      ],
+      "all_tickers": [
+        "DUK",
+        "DUKB",
+        "DUKH",
+        "DUKU",
+        "DUKpA",
+        "FUTY",
+        "NEE",
+        "NEEpN",
+        "NEEpS",
+        "NEEpT",
+        "NEEpU",
+        "NEEpV",
+        "NEEpW",
+        "SO",
+        "SOJC",
+        "SOJD",
+        "SOJE",
+        "SOJF",
+        "SOMN",
+        "VPU",
+        "XLU"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NEE"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8724
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "b7ef8ad7af6922d7811a1ab905c3d8ffe24a23f7201d119fed01a6597fe80415",
+      "published_at": "2026-11-17T10:20:02Z",
+      "source": "Zacks Investment Research",
+      "title": "Should iShares Select Dividend ETF (DVY) Be on Your Investing Radar?",
+      "summary": "The iShares Select Dividend ETF (DVY) is a passively managed fund with $23.65 billion in assets offering exposure to large-cap value stocks. With a 0.38% expense ratio, 3.29% dividend yield, and 17.8% year-to-date return, it presents a medium-risk option for dividend-focused investors. However, alternatives like SCHD and VTV offer lower expense ratios, earning DVY a Zacks ETF Rank of 3 (Hold).",
+      "url": "https://www.zacks.com/stock/news/3030829/should-ishares-select-dividend-etf-dvy-be-on-your-investing-radar?cid=CS-ZC-FT-style_box_etf-3030829",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default134.jpg",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "DVY",
+        "HPQ",
+        "MO",
+        "PFE",
+        "SCHD",
+        "VTV"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7939
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "7ec686c074a8e8a0aa8b3172c0c7af45a97e56a2e0cf34ea330aabcb2387b79d",
+      "published_at": "2026-11-17T10:08:00Z",
+      "source": "The Motley Fool",
+      "title": "SpaceX Short Interest Is Around 3% of Estimated Float Heading Into the December Lock-Up Expiration. What Might Happen to the Stock After Dec. 8?",
+      "summary": "SpaceX faces a major share release on December 8 when up to 797.6 million shares become eligible for trading, potentially increasing the tradable float by 17.6%. With short interest at only 3% of the float, historical data suggests mixed outcomes—stocks typically underperform by 1.5% around lockup expirations, though SpaceX's previous releases showed varied results. The stock's longer-term performance will depend more on whether its substantial capital investments justify its current 59x sales valuation.",
+      "url": "https://www.fool.com/investing/2026/11/17/spacex-short-interest-equals-around-3-of-the-float/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893244%2Fprofessional_seeming_surprised_after_reading_a_newspaper.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GS"
+      ],
+      "all_tickers": [
+        "GS",
+        "GSpA",
+        "GSpC",
+        "GSpD",
+        "SPCX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GS"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7086
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -194,34 +1155,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "ce493c5ba2e5230b69f426bb82df6a8e588c1b50df80419d3dab20128b27ef39",
-      "published_at": "2026-11-17T04:33:02Z",
-      "source": "The Motley Fool",
-      "title": "Jensen Huang Stepped Away From Nvidia, and That Might Not Be the Company's Biggest Problem",
-      "summary": "Jensen Huang's departure as CEO of Nvidia marks a significant leadership transition for the AI chip giant. However, more pressing concerns have emerged including allegations of strong-arm business practices, potential 'circular financing' schemes, and reports that Nvidia chips may be reaching China through shell companies and intermediaries, potentially circumventing U.S. export restrictions. These issues raise questions about the accuracy of Nvidia's reported financials and business practices.",
-      "url": "https://www.fool.com/investing/2026/11/16/jensen-huang-stepped-away-from-nvidia-and-that-might-not-even-be-the-company-s-biggest-problem/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F47e15353727b9f5b86866a5556ec1fbd1e0e0009-2000x1200.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN",
-        "NVDA"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "NVDA",
-        "SPCX"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN",
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8609
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "408e7606b8b703f7d56543ff1ade764e5858b2709eeef7e8bacf0f5a824e99e4",
       "published_at": "2026-11-17T02:15:00Z",
       "source": "The Motley Fool",
@@ -245,82 +1178,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.5021
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "d7f125853e6ce98fdd93c737da333159a94f7a5cd1fa9769de8576fe7a9431ed",
-      "published_at": "2026-11-17T00:33:01Z",
-      "source": "The Motley Fool",
-      "title": "Warren Buffett's Successor, Greg Abel, Overhauled Berkshire's Portfolio for a 3rd Straight Quarter, Reducing 6 Stocks and Piling Into a Hot Tech IPO",
-      "summary": "Greg Abel, who took over as CEO of Berkshire Hathaway after Warren Buffett's retirement, continues to reshape the company's $364 billion portfolio in Q3 2026. Abel reduced stakes in six stocks including Bank of America (9th consecutive quarter of selling) and VeriSign, while significantly increasing investments in AI and tech stocks, notably acquiring a 4% stake in Bending Spoons through a $330 million private placement. This marks a notable shift from Buffett's traditional investment approach toward growth-oriented technology companies.",
-      "url": "https://www.fool.com/investing/2026/11/16/warren-buffett-successor-greg-abel-overhaul-berkshire-portfolio-3rd-straight-quarter-reduce-6-stocks-buy-hot-tech-ipo/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb0ebca7eebf3fc65eefe9753af9a29b4c1bb1a8b-3000x2000.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "BAC",
-        "GOOGL"
-      ],
-      "all_tickers": [
-        "BAC",
-        "BACpB",
-        "BACpE",
-        "BACpK",
-        "BACpL",
-        "BACpM",
-        "BACpN",
-        "BACpO",
-        "BACpP",
-        "BACpQ",
-        "BACpS",
-        "BMLpG",
-        "BMLpH",
-        "BMLpJ",
-        "BMLpL",
-        "BRK.A",
-        "BRK.B",
-        "BSP",
-        "DAL",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "LEN",
-        "LEN.B",
-        "MERpK",
-        "VRSN"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "BAC",
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.5934
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "fbb2869ccedb64312836de93cefd38d24d8a70ce618187800479aa0456ea6029",
-      "published_at": "2026-11-17T00:30:02Z",
-      "source": "The Motley Fool",
-      "title": "Should You Buy Home Depot Stock Before the Huge Investor Update?",
-      "summary": "The article discusses whether investors should consider buying Home Depot stock ahead of a major investor update. Home Depot is positioned as arguably the best home improvement retailer in the world, with the article suggesting it may be worth evaluating as part of an investment portfolio.",
-      "url": "https://www.fool.com/investing/2026/11/16/should-you-buy-home-depot-stock-before-the-huge-investor-update/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fd8552eab8ba4a54b788a40fff1067611baeefc01-1280x720.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "HD"
-      ],
-      "all_tickers": [
-        "HD"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "HD"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.7548
       },
       "sentiment_model": "ProsusAI/finbert"
     },
