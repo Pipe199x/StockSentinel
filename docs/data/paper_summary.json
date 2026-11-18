@@ -1,10 +1,10 @@
 {
-  "as_of": "2026-11-16",
+  "as_of": "2026-11-17",
   "started": "2026-11-11",
   "config_hash": "c3f2b4fc9bfd",
   "counts": {
-    "pending": 1,
-    "open": 6,
+    "pending": 0,
+    "open": 7,
     "closed": 0,
     "missed": 0
   },
@@ -12,7 +12,7 @@
   "win_rate": null,
   "expected_value": null,
   "sr_per_trade": null,
-  "total_return": -0.0010013154942534186,
+  "total_return": -0.004555512052198507,
   "equity_curve": [
     {
       "date": "2026-11-12",
@@ -25,6 +25,10 @@
     {
       "date": "2026-11-16",
       "equity": 0.9989986845057466
+    },
+    {
+      "date": "2026-11-17",
+      "equity": 0.9954444879478015
     }
   ],
   "recent_closed": [],
@@ -66,13 +70,13 @@
     "min_trades": 30,
     "n_closed": 0,
     "live_sr_per_trade": null,
-    "backtest_sr_per_trade": 0.08996355145851097,
-    "backtest_expected_value": 0.003443929385917869,
+    "backtest_sr_per_trade": 0.09616461259090585,
+    "backtest_expected_value": 0.0032134879062193193,
     "backtest_cpcv_range": [
-      0.04385403127834691,
-      0.09548845506017183
+      0.025886830435803518,
+      0.11595270735289022
     ],
-    "backtest_cpcv_median": 0.06515450372610106,
+    "backtest_cpcv_median": 0.05185861099419593,
     "sr_ci95": null,
     "min_detectable_gap": null,
     "status": "collecting",
@@ -84,17 +88,17 @@
   },
   "gate1": {
     "status": "collecting",
-    "p_breakeven": 0.49461057133159025,
-    "p_backtest": 0.5264116575591985,
-    "trades_required": 1939,
+    "p_breakeven": 0.4991916511757401,
+    "p_backtest": 0.5288808664259927,
+    "trades_required": 2224,
     "live_trades": 0,
     "live_effective_trades": 0.0,
-    "years_to_go": 27.513315118397085,
+    "years_to_go": 31.27249097472924,
     "p_value": null
   },
   "edge_decay": {
     "window": 20,
-    "backtest_ev": 0.003443929385917869,
+    "backtest_ev": 0.0032134879062193193,
     "points": [],
     "status": "collecting"
   },
@@ -126,7 +130,7 @@
     },
     {
       "side": -1,
-      "status": "pending"
+      "status": "open"
     }
   ],
   "invested": 0.1174
