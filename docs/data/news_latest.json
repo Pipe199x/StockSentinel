@@ -1,7 +1,786 @@
 {
-  "as_of": "2026-11-18T09:00:59.837592+00:00",
+  "as_of": "2026-11-18T20:31:19.891996+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "id": "28a74afad2b57ca3a9c9ef6c0d1ebef98a42ec71660565cfc751f9e32433a192",
+      "published_at": "2026-11-18T19:57:02Z",
+      "source": "The Motley Fool",
+      "title": "SpaceX Is Now Nvidia's Biggest Stock Holding, Ahead of Intel. Here's What That Says About SpaceX.",
+      "summary": "Nvidia's latest quarterly filing reveals SpaceX has become its largest stock holding at 40.7% of its portfolio, surpassing Intel's 40.1%. However, the shift was primarily driven by Nvidia reducing its Intel stake by 25%, not necessarily increased SpaceX investment. The more significant relationship is SpaceX's heavy reliance on Nvidia's AI chips for its rapidly growing super intelligence segment, which generated $7.6 billion in Q3 revenue and is consuming 84% of SpaceX's capital expenditures.",
+      "url": "https://www.fool.com/investing/2026/11/18/spacex-is-now-nvidia-s-biggest-stock-holding-ahead-of-intel-here-s-what-that-says-about-spacex/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F77d4b684ef7a5d7002bc8a01e63d0adef2433384-1290x860.png&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "INTC",
+        "NVDA",
+        "SPCX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9408
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a27145b222fc2b4f2efdb4fe3f9cf97e2398959cecd615fe690eec66aded60fd",
+      "published_at": "2026-11-18T19:47:01Z",
+      "source": "The Motley Fool",
+      "title": "Why Isn’t Alphabet Stock Taking Off After Reporting Record Cloud Growth?",
+      "summary": "Alphabet reported record Google Cloud growth with $30.7 billion in revenue (103% YoY increase) and impressive 36% operating margins, but the stock barely moved. The issue: massive capital expenditures of $51.4 billion in Q3 exceeded operating cash flow of $42.3 billion, resulting in negative free cash flow of $9.1 billion. Investors are concerned whether the company's heavy AI infrastructure investments will generate sufficient returns to justify their cost.",
+      "url": "https://www.fool.com/investing/2026/11/18/why-isn-t-alphabet-stock-taking-off-after-reporting-record-cloud-growth/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F2c26c9f567dbaa0f8e816c0e1a901f2da471ec87-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9709
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "153db77daa05ff849b49bc07d4d69324a5610c22d78d10bf36a4508fbc93df56",
+      "published_at": "2026-11-18T18:45:02Z",
+      "source": "The Motley Fool",
+      "title": "Okta vs. SentinelOne: Which Technology Stock Is a Better Buy for 2027?",
+      "summary": "Okta and SentinelOne represent different investment approaches in cybersecurity. Okta offers established profitability with 11.2% revenue growth and a P/S ratio of 9.7x, while SentinelOne delivers faster growth at 21.1% but remains unprofitable with a lower P/S ratio of 6.8x. Aggressive investors may prefer SentinelOne's growth trajectory, while conservative investors may favor Okta's current profitability.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/18/okta-vs-sentinelone-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F2faa06b02eb13f13816d58fc35fbeaee2f3241f5-8660x5773.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "all_tickers": [
+        "MSFT",
+        "OKTA",
+        "PANW",
+        "S"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5903
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "afefc5273be1584d670c3dd6c58a79003a65eb6636ce0755e750afff7861eb86",
+      "published_at": "2026-11-18T18:30:02Z",
+      "source": "The Motley Fool",
+      "title": "If I Were Investing My First $1,000 Today, This Is the ETF I'd Buy and Hold for Decades",
+      "summary": "The article recommends the Vanguard S&P 500 ETF (VOO) as an ideal first investment for beginners with $1,000. VOO offers diversification across all major U.S. sectors, has a low expense ratio of 0.03%, and has delivered an average annual return of 12.4% since inception. The S&P 500 is presented as a reliable, long-term investment strategy that requires minimal effort and decision-making.",
+      "url": "https://www.fool.com/investing/2026/11/18/if-i-were-investing-my-first-1000-today-this-is-the-etf-id-buy-and-hold-for-decades/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F744a9fc2bc190d87d185479035275143ab967ad6-2000x1334.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "MSFT",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "MSFT",
+        "NVDA",
+        "VOO"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "MSFT",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7753
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "99e9284cec93f6832daa4b19e830c47546ce0d31569319cca671dd47619847ba",
+      "published_at": "2026-11-18T18:15:02Z",
+      "source": "The Motley Fool",
+      "title": "A Bear Market Is Coming Eventually. History Says This Is the Best Investing Move You Can Make.",
+      "summary": "While bear markets are inevitable and occur roughly every 3.5 years on average, history shows that staying fully invested and maintaining a consistent investment schedule is more profitable than trying to time the market. Missing just a few of the market's best days can significantly reduce long-term returns, making patient, disciplined investing the optimal strategy for building wealth.",
+      "url": "https://www.fool.com/investing/2026/11/18/bear-market-coming-history-says-the-best-investing-move-make/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F2d647f76a76fec04540bf7e7975b524aaa990e1f-5000x2813.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "VOO",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.6392
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "d115819d28a90428b269ab8d107db647bc55db6ee813717e7ac69a7e42eb7cba",
+      "published_at": "2026-11-18T18:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "NSCLC Treatment Landscape Shifts as ESMO 2026 Spotlights MET, KRAS, and TROP2 Advances, Says DelveInsight",
+      "summary": "The non-small cell lung cancer market is shifting toward precision, biomarker-guided treatment sequencing. ESMO 2026 presented Phase III data showing savolitinib plus osimertinib improved survival in MET-altered EGFR-mutated NSCLC, divarasib outperformed approved KRAS G12C inhibitors, and TROP2-directed ADCs demonstrated durable gains. The 7MM NSCLC market is projected to double from USD 33 billion in 2025 to USD 67 billion by 2036, driven by expanded screening, biomarker-driven therapies, and label expansions into earlier-stage disease.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/18/3406076/0/en/nsclc-treatment-landscape-shifts-as-esmo-2026-spotlights-met-kras-and-trop2-advances-says-delveinsight.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/dbcddd65-71dd-4559-8875-ae89ac4f96db",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "ABBV",
+        "AZN",
+        "BMY",
+        "CELGr",
+        "DSNKY",
+        "LLY",
+        "MRK",
+        "MRNA",
+        "PFE",
+        "RHHBY"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9426
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ab967e9a0c1f41a70ed07f2fe4e2dabf83b9f8bdf9aa80c6f44129018bbc222d",
+      "published_at": "2026-11-18T17:45:02Z",
+      "source": "The Motley Fool",
+      "title": "Cerebras Systems vs. IonQ: Which Technology Stock Is a Better Buy for 2027?",
+      "summary": "The article compares two high-growth AI and quantum computing stocks. Cerebras Systems designs wafer-scale AI processors with stronger profitability metrics and a larger cash cushion ($6.4B), while IonQ specializes in quantum computing with higher revenue growth (452% vs 84%) but significant losses and lower cash reserves ($0.9B). The analyst recommends IonQ for its superior revenue growth and more affordable valuation despite both companies carrying substantial risk due to lack of profitability.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/18/cerebras-systems-vs-ionq-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fdb0ed85e1db217aab1e98fc3bde1cf67831a3ace-1365x720.png&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "GOOGL",
+        "MSFT"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "CBRS",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "INTC",
+        "IONQ",
+        "MSFT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "GOOGL",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6949
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "8064bb24a9c0e8bad403aa61c103e82ab8f25c8fcd5085121bcc3d397839562b",
+      "published_at": "2026-11-18T17:45:02Z",
+      "source": "The Motley Fool",
+      "title": "Should You Buy Amazon Stock Before the Holiday Season?",
+      "summary": "Amazon is expected to see Q4 operating income grow 14-34% while sales grow only 12-16%, indicating improved efficiency driven by high-margin advertising revenue. The author recommends buying Amazon stock before holiday results are reported in February 2027, as the company demonstrates stronger profitability per transaction rather than just volume growth.",
+      "url": "https://www.fool.com/investing/2026/11/18/should-you-buy-amazon-stock-before-the-holiday-season/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F0c66124d42f4e751b4f4ab5c00dc958da05a0a23-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9529
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "9a51384d9658e4ef49a51bf99e87f57ef1256c09c1abe28004f319247cb0716c",
+      "published_at": "2026-11-18T17:30:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Webflow Names Katie Chisam Chief Marketing Officer",
+      "summary": "Webflow announced the appointment of Katie Chisam as Chief Marketing Officer, effective immediately. Chisam, who joined Webflow in December 2025 as VP and Chief of Staff, will lead the marketing organization as the company prepares to launch Source by Webflow, its agentic platform. She brings over 20 years of marketing and go-to-market experience from companies including Cisco, Splunk, Stripe, Google Cloud, and Box.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/18/3406066/0/en/webflow-names-katie-chisam-chief-marketing-officer.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/534b328f-3c7a-4e6c-b279-ec8b6f62764c",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "BOX",
+        "CSCO",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9119
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a8a7d2953eb37418d4d5aa369831b6fc7eced3512c38cadc23a9aa36edf2f8bf",
+      "published_at": "2026-11-18T17:00:02Z",
+      "source": "The Motley Fool",
+      "title": "2 Reasons NVIDIA Is a Buy After Its Latest Earnings Report",
+      "summary": "NVIDIA stock has declined following Q3 earnings, presenting an attractive entry point despite recent challenges. The company trades at just 19.3x trailing earnings and 10x forward earnings while maintaining 96-103% sales growth and ~100% profit growth. With AI infrastructure spending expected to exceed $1 trillion annually through 2029, long-term growth tailwinds remain strong despite near-term concerns including CEO transition and potential regulatory issues.",
+      "url": "https://www.fool.com/investing/2026/11/18/2-reasons-nvidia-is-a-buy-after-its-latest-earnings-report/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F47e15353727b9f5b86866a5556ec1fbd1e0e0009-2000x1200.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "JPM",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "NVDA",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JPM",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9559
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "989e21188d1011a42fc43c2d7900485d33f87863252f7b67e2f48b349b78db3c",
+      "published_at": "2026-11-18T17:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "SHAREHOLDER ALERT: Bronstein Gewirtz & Grossman, LLC Announces Class Action Against Bank of America Corporation (NYSE: BAC) — Investors Who Suffered Losses Are Encouraged to Contact the Firm.",
+      "summary": "A class action lawsuit has been filed against Bank of America Corporation for alleged violations of federal securities laws. The complaint alleges that BAC made false and misleading statements regarding systemic weaknesses in its Bank Secrecy Act and Anti-Money Laundering compliance program, failure to properly monitor trillions in transactions, and inadequate remediation of compliance deficiencies identified in a 2024 Consent Order. Investors who purchased BAC securities between August 1, 2025 and October 13, 2026 may be eligible to recover losses, with a lead plaintiff deadline of December 15, 2026.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/18/3406039/9788/en/shareholder-alert-bronstein-gewirtz-grossman-llc-announces-class-action-against-bank-of-america-corporation-nyse-bac-investors-who-suffered-losses-are-encouraged-to-contact-the-fir.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/60f856c5-87a3-4ed5-8a7e-c79d51a4afea",
+      "raw_tickers": [
+        "BAC"
+      ],
+      "all_tickers": [
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "MERpK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.933
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "18215c57242e90d788e936e76dda253dd1835c80422ebbd23b0252bfda1489b0",
+      "published_at": "2026-11-18T17:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "SHAREHOLDER ALERT: Bronstein Gewirtz & Grossman, LLC Announces Class Action Against Endava plc (NYSE: DAVA) — Investors Who Suffered Losses Are Encouraged to Contact the Firm",
+      "summary": "Bronstein Gewirtz & Grossman, LLC has announced multiple class action lawsuits against Endava plc, Bank of America Corporation, and Netcapital Inc. for alleged securities fraud violations. The Endava lawsuit covers investors who purchased securities between September 4, 2025 and September 21, 2026, alleging the company made false statements about its business and failed to disclose accounting issues and internal control weaknesses. Lead plaintiff deadlines range from December 7 to November 30, 2026.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/18/3406040/9788/en/shareholder-alert-bronstein-gewirtz-grossman-llc-announces-class-action-against-endava-plc-nyse-dava-investors-who-suffered-losses-are-encouraged-to-contact-the-firm.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/60f856c5-87a3-4ed5-8a7e-c79d51a4afea",
+      "raw_tickers": [
+        "BAC"
+      ],
+      "all_tickers": [
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "DAVA",
+        "MERpK",
+        "NCPL",
+        "NCPLW"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8619
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a882c538758d7f95d86c7ac4540f6d86721a5f5b6be1ab9df9ee9a5bbc313404",
+      "published_at": "2026-11-18T16:50:02Z",
+      "source": "The Motley Fool",
+      "title": "AT&T vs. Verizon: Total Revenue Volume and Recent Growth for Two Phone Network Giants",
+      "summary": "Verizon maintains a consistent revenue lead over AT&T across all tracked quarters, but AT&T demonstrates faster year-over-year growth momentum in recent periods. Both companies show stable, largely flat revenue trajectories with predictable seasonal patterns, with Q4 peaks driven by holiday hardware promotions. Investors should monitor whether AT&T's growth trajectory continues to narrow the revenue gap with Verizon.",
+      "url": "https://www.fool.com/coverage/charts/2026/11/18/at-and-t-vs-verizon-total-revenue-volume-and-recent-growth-for-two-phone-network-giants/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Fcharts%2Fproduction%2Fprocessed%2Ft-vz%2Fquarter%2Frevenue%2Fbar%2Fprimary%2Fstandard%2Flimit-8%2Flatest%2Ft-vz_quarter_revenue_bar_primary_standard_limit8.png&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "T",
+        "TBB",
+        "TpA",
+        "TpC",
+        "VZ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9174
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ac812a27f2bae0ec2606eb8febde45c570661b24cc0112bd5948732d649f0615",
+      "published_at": "2026-11-18T16:45:02Z",
+      "source": "The Motley Fool",
+      "title": "Chipotle Mexican Grill vs. Kraft Heinz: Which Consumer Stock Is a Better Buy for 2027?",
+      "summary": "The article compares Chipotle Mexican Grill and Kraft Heinz as investment options for 2027. Chipotle offers strong growth through expansion and quality focus, while Kraft Heinz provides stability through its brand portfolio and cash generation. Despite Chipotle's higher growth prospects, Kraft Heinz emerges as the better choice for value and income-oriented investors due to superior profitability margins (16.6% vs 14.9%), higher free cash flow ($3.7B vs $1.4B), and a 6.4% dividend yield compared to Chipotle's zero dividend.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/18/chipotle-mexican-grill-vs-kraft-heinz-which-consumer-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fd1f17cfa526400d7190c6fd3b28b1042242aa231-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "WMT"
+      ],
+      "all_tickers": [
+        "CMG",
+        "KHC",
+        "SBUX",
+        "SJM",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9558
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "8b8362da6657341ffe454cd7d9428d7490b95b1367a34aaf551fd7e3a1b4b37a",
+      "published_at": "2026-11-18T16:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Pharmaceutical Market to Reach USD 3.20 Trillion by 2035 as Obesity and Oncology Drugs Lead Growth and U.S. Pricing Deals and Tariffs Reshape Manufacturing",
+      "summary": "The global pharmaceutical market is valued at USD 1.88 trillion in 2026 and is projected to reach USD 3.20 trillion by 2035 at a CAGR of 6.10%. Growth is concentrated in obesity and oncology therapies, with U.S. pricing deals and Section 232 tariffs reshaping manufacturing. North America holds 42% of the market, while companies with strong positions in GLP-1 medicines and cancer therapies are growing significantly faster than the market.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/18/3405970/0/en/pharmaceutical-market-to-reach-usd-3-20-trillion-by-2035-as-obesity-and-oncology-drugs-lead-growth-and-u-s-pricing-deals-and-tariffs-reshape-manufacturing.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/01eb1f79-0c67-420b-b423-376619f975cd",
+      "raw_tickers": [
+        "JNJ",
+        "PFE"
+      ],
+      "all_tickers": [
+        "ABBV",
+        "AMGN",
+        "AZN",
+        "GILD",
+        "JNJ",
+        "LLY",
+        "MRK",
+        "NVO",
+        "NVS",
+        "PFE",
+        "RHHBY",
+        "SDZNY",
+        "SNY",
+        "TEVA",
+        "VTRS"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ",
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5121
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "0530055b11e7f5c42345b9e877f08f10ffde2003fa02fd1d8c1ae303d3342d25",
+      "published_at": "2026-11-18T15:53:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Home Depot Q3 Earnings Call Flags Margin Pressure as Sales Grow",
+      "summary": "Home Depot lowered its fiscal 2026 sales growth guidance to 4.5% and adjusted operating margin to approximately 12.8%, citing a softer-than-expected home improvement market. The company reported Q3 comparable sales growth of 2.2% driven by smaller repair jobs, with sales of $43.40B topping estimates. Incoming CEO Richard McPhail attributed the margin pressure to lower-margin product categories and SRS acquisition mix shifts, while also trimming SRS organic growth outlook to low single digits due to weak roofing demand.",
+      "url": "https://www.zacks.com/stock/news/3031957/home-depot-q3-earnings-call-flags-margin-pressure-as-sales-grow?cid=CS-ZC-FT-analyst_blog_plus|earnings_call_takeaways-3031957",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/e9/1048.jpg",
+      "raw_tickers": [
+        "HD"
+      ],
+      "all_tickers": [
+        "HD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9727
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "7d3aab4615b30fbb54143a842821f42b277b6998d48e0d64a0220a672b5f8542",
+      "published_at": "2026-11-18T15:45:02Z",
+      "source": "The Motley Fool",
+      "title": "Monster Beverage vs. Starbucks: Which Consumer Goods Stock Is a Better Buy for 2027?",
+      "summary": "Monster Beverage emerges as the better investment choice compared to Starbucks for 2027, driven by superior revenue growth (16.7% vs -4.5%), higher operating margins (28.5% vs 10.7%), and better valuation metrics. While Starbucks operates 41,000+ stores globally with stronger free cash flow, Monster's Coca-Cola-backed distribution network and consistent profitability provide a more compelling growth trajectory.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/18/monster-beverage-vs-starbucks-which-consumer-goods-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb45231345f89d5a402992740004f8fb70bfca18a-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "CELH",
+        "KO",
+        "MNST",
+        "PEP",
+        "SBUX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.955
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "2701bce99090782d5de8ff851005e51743b2483ae33455df96877a5fa277d17e",
+      "published_at": "2026-11-18T15:30:02Z",
+      "source": "The Motley Fool",
+      "title": "JPMorgan Chase Earned a Profit in Both 2008 and 2009. History Says That's the Bank to Own If a Recession Hits.",
+      "summary": "JPMorgan Chase maintained profitability during the 2008-2009 Great Recession, making it a potential defensive investment if another economic downturn occurs. The bank is well-positioned with $1.5 trillion in cash and marketable securities, diversified revenue streams, and strong reserves. While the stock price may initially decline during a recession, historical performance suggests investors could benefit from the rebound.",
+      "url": "https://www.fool.com/investing/2026/11/18/jpmorgan-chase-earned-a-profit-in-both-2008-and-2009-history-says-thats-the-bank-to-own-if-a-recession-hits/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F0fd72c789c2e09092de8f1afc8f2b77ce8962194-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8111
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "0c7d3b9a86af0ddf345a15a020dcc4c70904ae26335a1d30d34a3a7cb1414532",
+      "published_at": "2026-11-18T14:45:02Z",
+      "source": "The Motley Fool",
+      "title": "Coca-Cola vs. Monster Beverage: Which Consumer Goods Stock Is a Better Buy for 2027?",
+      "summary": "The article compares Coca-Cola and Monster Beverage as investment options for 2027. While Monster shows stronger revenue growth (20.2% vs 7.1%), Coca-Cola demonstrates superior profitability with a 32.1% operating margin compared to Monster's 28.5%, and trades at a more attractive valuation with a P/E of 29x versus Monster's 40x. The author concludes Coca-Cola is the better choice due to its reasonable valuation and higher profitability, though Monster remains worth considering for growth-focused investors.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/18/coca-cola-vs-monster-beverage-which-consumer-goods-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F1c1391dac27f219d90e921d1e00eb76d22990755-1836x1225.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "CELH",
+        "KO",
+        "MNST",
+        "PEP"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9523
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "17aa35fd228799ae6528413507b97c2a5e984c0a87af8ce13e1dd5c30ed4b24f",
+      "published_at": "2026-11-18T13:00:04Z",
+      "source": "Zacks Investment Research",
+      "title": "The Goldman Sachs Group, Inc. (GS) Is a Trending Stock: Facts to Know Before Betting on It",
+      "summary": "Goldman Sachs is a trending stock with strong recent earnings performance, beating consensus estimates in the last four quarters. The company shows solid revenue growth forecasts (+25.9% for current fiscal year) and earnings growth (+39.3% for current fiscal year). However, it carries a Zacks Rank #3 (Hold) rating, suggesting it may perform in line with the broader market in the near term. The stock is valued at par with its peers with a C valuation grade.",
+      "url": "https://www.zacks.com/stock/news/3031627/the-goldman-sachs-group-inc-gs-is-a-trending-stock-facts-to-know-before-betting-on-it?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3031627",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default15.jpg",
+      "raw_tickers": [
+        "GS"
+      ],
+      "all_tickers": [
+        "GS",
+        "GSpA",
+        "GSpC",
+        "GSpD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GS"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9167
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "27c7c1fe9b2c681498a0dd7b9e2e7e147ea36dae7c6b9ff9e9bb4042940c41f0",
+      "published_at": "2026-11-18T13:00:04Z",
+      "source": "Zacks Investment Research",
+      "title": "CocaCola Company (The) (KO) is Attracting Investor Attention: Here is What You Should Know",
+      "summary": "Coca-Cola has recently attracted investor attention with shares returning +5.7% over the past month, outperforming the S&P 500. The company is expected to post earnings of $0.60 per share for the current quarter (+3.5% YoY) and $3.34 for the fiscal year (+11.3% YoY). However, the stock is rated Zacks Rank #3 (Hold) and receives an F valuation grade, indicating it is trading at a premium to peers. Revenue growth is expected at +5.2% for the current fiscal year but -0.7% for the next year.",
+      "url": "https://www.zacks.com/stock/news/3031631/cocacola-company-the-ko-is-attracting-investor-attention-here-is-what-you-should-know?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3031631",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default298.jpg",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "KO"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9483
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "41824a4210cfe52276e1444f4efff570304fd10aede23df8d0477b8460d21fed",
+      "published_at": "2026-11-18T12:31:00Z",
+      "source": "Zacks Investment Research",
+      "title": "MP Materials' NdPr Production Up 41% in Q3: Will Magnet Growth Follow?",
+      "summary": "MP Materials reported a 41% year-over-year increase in neodymium-praseodymium (NdPr) production to 1,018 MT in Q3 2026, exceeding targets. The company is expanding heavy rare earth processing capabilities and advancing downstream magnet manufacturing through its Independence facility and the planned 10X magnetics facility, targeting 10,000 MT in annual U.S. magnet capacity. However, MP's stock has declined 44.7% over the past year and trades at a significant valuation premium to its industry peers.",
+      "url": "https://www.zacks.com/stock/news/3031588/mp-materials-ndpr-production-up-41-in-q3-will-magnet-growth-follow?cid=CS-ZC-FT-analyst_blog|quick_take-3031588",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/2e/128521.webp",
+      "raw_tickers": [
+        "AAPL"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "GM",
+        "MP"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9643
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "5ebf540c759b773fd2cdf6c8f2d95b22ffa4959bede412245b247c0201ffa539",
+      "published_at": "2026-11-18T11:24:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can Boeing's 737 MAX Certifications Accelerate Its Recovery?",
+      "summary": "Boeing secured FAA certification for the 737-7 and 737-10 variants, removing key regulatory hurdles for deliveries. The company targets 47 monthly 737 production and recorded 300 net orders in Q3 with a record $612 billion backlog. Despite strong fundamentals, Boeing's stock has declined 25.6% in six months and carries a Zacks Rank #4 (Sell) rating, trading at a discount valuation of 1.21X forward P/S.",
+      "url": "https://www.zacks.com/stock/news/3031536/can-boeing-s-737-max-certifications-accelerate-its-recovery?cid=CS-ZC-FT-analyst_blog|quick_take-3031536",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/fc/571.jpg",
+      "raw_tickers": [
+        "BA"
+      ],
+      "all_tickers": [
+        "BA",
+        "BApA",
+        "EADSY",
+        "EMBJ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9752
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "3bb63fb71a0c1229bae5cd98316dfa8ecd18a47e24a3c6945d7c0a9fc39fc059",
+      "published_at": "2026-11-18T10:24:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Zacks Industry Outlook Highlights UnitedHealth, The Cigna, Humana, Centene and Molina",
+      "summary": "The U.S. HMO industry is positioned for growth despite regulatory headwinds from Medicaid eligibility changes and expired ACA subsidies. Five major health insurers—UnitedHealth, Cigna, Humana, Centene, and Molina—are well-positioned to capitalize on favorable dynamics including an aging population driving Medicare demand, technology adoption improving care delivery, and strategic M&A opportunities. The industry ranks #31 among 250 Zacks industries and has outperformed the S&P 500 by 33.3% over the past year.",
+      "url": "https://www.zacks.com/stock/news/3031506/zacks-industry-outlook-highlights-unitedhealth-the-cigna-humana-centene-and-molina?cid=CS-ZC-FT-press_releases-3031506",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/bf/112.jpg",
+      "raw_tickers": [
+        "UNH"
+      ],
+      "all_tickers": [
+        "CI",
+        "CNC",
+        "HUM",
+        "MOH",
+        "UNH"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "UNH"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9394
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "100c03e60d4756a7022cb49e90aeefc08744da6c1c3b4caf364e4789a313e70c",
+      "published_at": "2026-11-18T10:20:03Z",
+      "source": "Zacks Investment Research",
+      "title": "Should You Invest in the iShares U.S. Pharmaceuticals ETF (IHE)?",
+      "summary": "The iShares U.S. Pharmaceuticals ETF (IHE) is reviewed as a reasonable option for investors seeking broad exposure to the Healthcare-Pharma sector. With $1.69 billion in assets and a 0.37% expense ratio, the fund has delivered strong year-to-date returns of 28.8% and one-year returns of 35.48%. However, it carries higher risk with a beta of 0.47 and standard deviation of 17.13%. Top holdings include Eli Lilly (26.88%), Johnson & Johnson, and Royalty Pharma, with the top 10 holdings representing 81.09% of assets.",
+      "url": "https://www.zacks.com/stock/news/3031508/should-you-invest-in-the-ishares-u-s-pharmaceuticals-etf-ihe?cid=CS-ZC-FT-sector_etf-3031508",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default228.jpg",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "IHE",
+        "JNJ",
+        "LLY",
+        "RPRX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7639
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "fbe422a958c63ca032bddaf236d2f32564168c4a8ee12ba63058f01ad456c458",
+      "published_at": "2026-11-18T09:50:02Z",
+      "source": "The Motley Fool",
+      "title": "Not Micron. Not Broadcom. This Artificial Intelligence (AI) Stock Will Skyrocket in December After the Latest Sell-Off",
+      "summary": "Ciena, an optical networking company, is positioned to benefit from strong AI infrastructure demand as the next bottleneck in the sector. The stock has declined 40% over three months but is expected to deliver strong Q4 results on December 10. With a book-to-bill ratio significantly greater than 1 and over $10 billion in backlog, Ciena could see its stock price double over the next two years, trading at attractive valuations of 25x forward earnings.",
+      "url": "https://www.fool.com/investing/2026/11/18/not-micron-not-broadcom-this-artificial-intelligence-ai-stock-will-skyrocket-in-december-after-the-latest-sell-off/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fa24780014af854721fe1e3060ca3c33ee5dceb09-2168x1382.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GS"
+      ],
+      "all_tickers": [
+        "AVGO",
+        "CIEN",
+        "GS",
+        "GSpA",
+        "GSpC",
+        "GSpD",
+        "MU"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GS"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.6179
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "id": "e92806dfad96b701696d4eb6cb32ede06ea638d4803b6d41c4b136c3c983985c",
       "published_at": "2026-11-18T08:00:00Z",
@@ -30,87 +809,30 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "db85b86cee87bc72bcabb5ebd08015fc9d0d2a6188fbfad6db5de1f1607a5954",
-      "published_at": "2026-11-18T08:00:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "Payhawk lève 280 M$ en série C et atteint les 2 Md$ de valorisation",
-      "summary": "Payhawk, an AI-native spend management platform, announced a $280M Series C funding round led by Goldman Sachs Alternatives Growth Equity, bringing total funding to over $515M. The company is expanding its vision to build a global financial operating system combining AI agents, payments, and enterprise controls. Payhawk has achieved operational cash-flow profitability and operates in 33 countries with 12 offices.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/18/3405403/0/fr/payhawk-l%C3%A8ve-280-m-en-s%C3%A9rie-c-et-atteint-les-2-md-de-valorisation.html",
-      "image_url": "https://ml-eu.globenewswire.com/Resource/Download/e9ed8346-2c6c-4d49-975c-41211c0b5a39",
+      "id": "518c14ce3af55f27fe696229c13b51175fd21f74ad19c3b46ae04f47590a93ca",
+      "published_at": "2026-11-18T07:27:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Delek US Holdings and Winnebago have been highlighted as Zacks Bull and Bear of the Day",
+      "summary": "Delek US Holdings (DK) is highlighted as the Bull of the Day due to strong refining margins driven by Middle East geopolitical tensions and tight diesel supply, with record Q3 earnings. Winnebago Industries (WGO) is the Bear of the Day as it faces declining earnings estimates, weak consumer demand for RVs, and margin compression amid high interest rates and inflation. The article also covers AI initiatives by Starbucks, McDonald's, and Wendy's in drive-thru operations.",
+      "url": "https://www.zacks.com/stock/news/3031476/delek-us-holdings-and-winnebago-have-been-highlighted-as-zacks-bull-and-bear-of-the-day?cid=CS-ZC-FT-press_releases-3031476",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/fa/675.jpg",
       "raw_tickers": [
-        "GS"
+        "MCD"
       ],
       "all_tickers": [
-        "GS",
-        "GSpA",
-        "GSpC",
-        "GSpD"
+        "DK",
+        "MCD",
+        "SBUX",
+        "WEN",
+        "WGO"
       ],
       "is_spam": false,
       "tickers": [
-        "GS"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.8559
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "696400fe9eed082a81093165b4888b5c17a4ef05744e715b72d1c66dac5c4ffd",
-      "published_at": "2026-11-18T08:00:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "Payhawk levanta 280 millones de dólares en una Serie C liderada por Goldman Sachs Growth",
-      "summary": "Payhawk, an AI-native spend management platform, announced the closure of a Series C funding round of $280 million, reaching a $2 billion valuation. Led by Goldman Sachs Growth, the funding will support the development of a financial operating system integrating AI agents, payments, and corporate controls. The company reported positive cash flow in Q3 2026 and maintains 70% of capital from its 2022 funding round.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/18/3405403/0/es/payhawk-levanta-280-millones-de-d%C3%B3lares-en-una-serie-c-liderada-por-goldman-sachs-growth.html",
-      "image_url": "https://ml-eu.globenewswire.com/Resource/Download/e9ed8346-2c6c-4d49-975c-41211c0b5a39",
-      "raw_tickers": [
-        "GS"
-      ],
-      "all_tickers": [
-        "GS",
-        "GSpA",
-        "GSpC",
-        "GSpD"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "GS"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.6061
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "4db6d49c39f6ab1eb6e09e93045f41c32eb5be8ac150a475872924029e036814",
-      "published_at": "2026-11-18T07:20:58Z",
-      "source": "The Motley Fool",
-      "title": "BigBear.ai vs. SoundHound AI: Which Artificial Intelligence Stock Is a Better Buy Going into 2027?",
-      "summary": "The article compares two AI stocks: BigBear.ai, which provides decision intelligence to government and defense agencies, and SoundHound AI, which specializes in voice AI for commercial applications. While BigBear.ai's revenue declined slightly by 1.5%, SoundHound AI achieved 50.7% revenue growth. The analyst recommends SoundHound AI for 2027 due to its consistent sales expansion and projected path to profitability, while BigBear.ai faces risks from heavy government customer concentration and needs to prove sustained growth.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/18/bigbear-ai-vs-soundhound-ai-which-artificial-intelligence-stock-is-a-better-buy-going-into-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fab523b40f3535bf7431546cc0466bbf791f86fd6-1439x725.png&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN",
-        "MSFT"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "BBAI",
-        "BBAI.WS",
-        "MSFT",
-        "SOUN",
-        "SOUNW"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN",
-        "MSFT"
+        "MCD"
       ],
       "sentiment": {
         "label": "negative",
-        "score": 0.8861
+        "score": 0.8252
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -135,92 +857,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.7493
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "29bd40a6c8b0833810481d9650190ce7d446e4138f6d8f193b2194175ddc75e6",
-      "published_at": "2026-11-18T05:30:52Z",
-      "source": "The Motley Fool",
-      "title": "Grab vs. Uber Technologies: Which Gig Economy Stock Is a Better Buy for 2027?",
-      "summary": "The article compares Grab and Uber Technologies as investment options for 2027. Grab operates as a regional superapp in Southeast Asia with strong growth (22.9% revenue growth) and improving profitability, while Uber leverages global scale across 70+ countries with substantial free cash flow ($9.8B). The analyst recommends Uber for 2027 due to its lower valuation multiples, self-driving car development reducing contractor risks, and greater insulation from macroeconomic downturns, despite Grab's higher growth potential in emerging markets.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/18/grab-vs-uber-technologies-which-gig-economy-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Feb355382d3a676b1b072c08f1ef90e4d4af7062e-1290x860.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "GRAB",
-        "GRABW",
-        "LYFT",
-        "UBER"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9218
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "c3b75563460d51a0bad0a93ca2bd45ea9eb6eac488247dd4151fb6bc86916fac",
-      "published_at": "2026-11-18T05:30:02Z",
-      "source": "The Motley Fool",
-      "title": "Colette Kress Just Delivered Excellent News for Nvidia Investors",
-      "summary": "Nvidia's interim CEO Colette Kress delivered strong earnings results, raising fiscal 2028 revenue growth guidance from 70% to 75%. The company committed to completing its $227.3 billion share repurchase authorization by end of fiscal 2028 and signaled confidence in the stock's valuation following Jensen Huang's departure. Management emphasized business continuity with strong demand and supply commitments.",
-      "url": "https://www.fool.com/investing/2026/11/18/colette-kress-just-delivered-excellent-news-for-nvidia-investors/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F5129cc85e67acf9267c99f604e89668cf96e455d-1290x860.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "NVDA"
-      ],
-      "all_tickers": [
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9516
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "68ebc8a33dbc7107ded4b4ae70807e6bace1c36adb50b3b96c95d908f356543b",
-      "published_at": "2026-11-18T04:01:02Z",
-      "source": "The Motley Fool",
-      "title": "Eaton vs. Corning: Which Industrials Stock Is a Better Buy for 2027?",
-      "summary": "The article compares Eaton Corp. and Corning Inc. as potential industrial stock investments for 2027. Eaton, with 10% revenue growth and a lower P/E ratio of 33.67, benefits from electrification and data center trends with strong order backlogs. Corning, showing 19% revenue growth and ambitious plans to reach $40 billion in sales by 2030 through AI data center deals, trades at a premium P/E of 43.06 but offers greater long-term growth potential. The author ultimately favors Corning for 2027 despite its higher valuation.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/17/eaton-vs-corning-which-industrials-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F3bdb062a10e0c4b812c1bd8e01e0a96ae1367fb2-6000x4000.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AAPL",
-        "AMZN",
-        "NVDA"
-      ],
-      "all_tickers": [
-        "AAPL",
-        "AMZN",
-        "ETN",
-        "GLW",
-        "META",
-        "METAM",
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AAPL",
-        "AMZN",
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.7116
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -271,30 +907,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.9561
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "0e165140e973fc0a767ca62a5cf8f59d573d78188f6b2797d75f3689d3012747",
-      "published_at": "2026-11-18T00:54:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "NVDA INVESTOR ALERT: Hagens Berman Updates NVIDIA Corporation (NASDAQ: NVDA) Securities Class Action Investigation Following Reports of SEC Civil Probe Amid CEO Jensen Huang’s Departure",
-      "summary": "The SEC has launched a civil investigation into NVIDIA examining whether the chipmaker violated federal investor disclosure laws. The probe focuses on NVIDIA's operations in Asia, changes to international sales disclosures, and its relationship with Singapore-based data company Megaspeed. This follows CEO Jensen Huang's resignation on Nov. 11, 2026, and overlapping DOJ and Commerce Department inquiries into suspected chip diversion to China. A federal securities class action lawsuit has been filed seeking damages for investors who purchased NVIDIA stock between Dec. 19, 2024 and Nov. 12, 2026.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/18/3405336/32716/en/nvda-investor-alert-hagens-berman-updates-nvidia-corporation-nasdaq-nvda-securities-class-action-investigation-following-reports-of-sec-civil-probe-amid-ceo-jensen-huang-s-departur.html",
-      "image_url": "https://ml.globenewswire.com/Resource/Download/2c81cd72-0ffb-43c9-9d0f-b622c3e44e43",
-      "raw_tickers": [
-        "NVDA"
-      ],
-      "all_tickers": [
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8897
       },
       "sentiment_model": "ProsusAI/finbert"
     },
