@@ -1,18 +1,18 @@
 {
-  "as_of": "2026-11-17",
+  "as_of": "2026-11-18",
   "started": "2026-11-11",
   "config_hash": "c3f2b4fc9bfd",
   "counts": {
-    "pending": 0,
-    "open": 7,
-    "closed": 0,
+    "pending": 1,
+    "open": 6,
+    "closed": 1,
     "missed": 0
   },
   "current_closed": 0,
   "win_rate": null,
   "expected_value": null,
   "sr_per_trade": null,
-  "total_return": -0.004555512052198507,
+  "total_return": -0.008138691777484497,
   "equity_curve": [
     {
       "date": "2026-11-12",
@@ -29,6 +29,10 @@
     {
       "date": "2026-11-17",
       "equity": 0.9954444879478015
+    },
+    {
+      "date": "2026-11-18",
+      "equity": 0.9918613082225155
     }
   ],
   "positions": [
@@ -44,7 +48,7 @@
       "status": "open",
       "entry_date": "2026-11-12",
       "entry_price": 355.07000732421875,
-      "last_checked": "2026-11-17",
+      "last_checked": "2026-11-18",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -67,7 +71,7 @@
       "status": "open",
       "entry_date": "2026-11-12",
       "entry_price": 346.0199890136719,
-      "last_checked": "2026-11-17",
+      "last_checked": "2026-11-18",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -90,7 +94,7 @@
       "status": "open",
       "entry_date": "2026-11-12",
       "entry_price": 277.0,
-      "last_checked": "2026-11-17",
+      "last_checked": "2026-11-18",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -113,30 +117,7 @@
       "status": "open",
       "entry_date": "2026-11-12",
       "entry_price": 86.93000030517578,
-      "last_checked": "2026-11-17",
-      "exit_date": null,
-      "exit_price": null,
-      "exit_reason": null,
-      "ret_gross": null,
-      "ret_net": null,
-      "published_utc": null,
-      "config_hash": "f71882e35e28",
-      "strategy_label": "V4",
-      "div_cash": null
-    },
-    {
-      "ticker": "UNH",
-      "signal_date": "2026-11-11",
-      "side": 1,
-      "size": 0.036,
-      "p_success": 0.6503782868385315,
-      "tp": 449.1128064375217,
-      "sl": 356.7671984452908,
-      "exit_by": "2026-12-10",
-      "status": "open",
-      "entry_date": "2026-11-12",
-      "entry_price": 405.0799865722656,
-      "last_checked": "2026-11-17",
+      "last_checked": "2026-11-18",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -159,7 +140,7 @@
       "status": "open",
       "entry_date": "2026-11-13",
       "entry_price": 79.3,
-      "last_checked": "2026-11-17",
+      "last_checked": "2026-11-18",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -182,7 +163,7 @@
       "status": "open",
       "entry_date": "2026-11-17",
       "entry_price": 28.48,
-      "last_checked": "2026-11-17",
+      "last_checked": "2026-11-18",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -192,26 +173,73 @@
       "config_hash": "c3f2b4fc9bfd",
       "strategy_label": "V4+news",
       "div_cash": null
+    },
+    {
+      "ticker": "BAC",
+      "signal_date": "2026-11-18",
+      "side": -1,
+      "size": 0.0379,
+      "p_success": 0.6588156819343567,
+      "tp": 43.386842853567366,
+      "sl": 54.43315714643263,
+      "exit_by": "2026-12-17",
+      "status": "pending",
+      "entry_date": null,
+      "entry_price": null,
+      "last_checked": null,
+      "exit_date": null,
+      "exit_price": null,
+      "exit_reason": null,
+      "ret_gross": null,
+      "ret_net": null,
+      "published_utc": "2026-11-19T09:20:46.893153+00:00",
+      "config_hash": "c3f2b4fc9bfd",
+      "strategy_label": "V4+news",
+      "div_cash": null
     }
   ],
-  "recent_closed": [],
+  "recent_closed": [
+    {
+      "ticker": "UNH",
+      "signal_date": "2026-11-11",
+      "side": 1,
+      "size": 0.036,
+      "p_success": 0.6503782868385315,
+      "tp": 449.1128064375217,
+      "sl": 356.7671984452908,
+      "exit_by": "2026-12-10",
+      "status": "closed",
+      "entry_date": "2026-11-12",
+      "entry_price": 405.0799865722656,
+      "last_checked": "2026-11-18",
+      "exit_date": "2026-11-18",
+      "exit_price": 356.7671984452908,
+      "exit_reason": "sl",
+      "ret_gross": -0.11926727986685148,
+      "ret_net": -0.12026727986685148,
+      "published_utc": null,
+      "config_hash": "f71882e35e28",
+      "strategy_label": "V4",
+      "div_cash": 0.0
+    }
+  ],
   "by_config": [
     {
       "config_hash": "f71882e35e28",
       "strategy_label": "V4",
       "first_signal": "2026-11-11",
-      "closed": 0,
-      "open": 5,
+      "closed": 1,
+      "open": 4,
       "missed": 0,
-      "expected_value": null,
-      "win_rate": null
+      "expected_value": -0.12026727986685148,
+      "win_rate": 0.0
     },
     {
       "config_hash": "c3f2b4fc9bfd",
       "strategy_label": "V4+news",
       "first_signal": "2026-11-12",
       "closed": 0,
-      "open": 2,
+      "open": 3,
       "missed": 0,
       "expected_value": null,
       "win_rate": null
@@ -233,13 +261,13 @@
     "min_trades": 30,
     "n_closed": 0,
     "live_sr_per_trade": null,
-    "backtest_sr_per_trade": 0.09616461259090585,
-    "backtest_expected_value": 0.0032134879062193193,
+    "backtest_sr_per_trade": 0.08711243457931658,
+    "backtest_expected_value": 0.005409309908534481,
     "backtest_cpcv_range": [
-      0.025886830435803518,
-      0.11595270735289022
+      0.06044083279212366,
+      0.10477655312183759
     ],
-    "backtest_cpcv_median": 0.05185861099419593,
+    "backtest_cpcv_median": 0.07701624700347272,
     "sr_ci95": null,
     "min_detectable_gap": null,
     "status": "collecting",
@@ -251,17 +279,17 @@
   },
   "gate1": {
     "status": "collecting",
-    "p_breakeven": 0.4991916511757401,
-    "p_backtest": 0.5288808664259927,
-    "trades_required": 2224,
+    "p_breakeven": 0.49945088793484305,
+    "p_backtest": 0.5481481481481482,
+    "trades_required": 826,
     "live_trades": 0,
     "live_effective_trades": 0.0,
-    "years_to_go": 31.27249097472924,
+    "years_to_go": 11.915814814814816,
     "p_value": null
   },
   "edge_decay": {
     "window": 20,
-    "backtest_ev": 0.0032134879062193193,
+    "backtest_ev": 0.005409309908534481,
     "points": [],
     "status": "collecting"
   },
@@ -270,72 +298,62 @@
     {
       "ticker": "HD",
       "signal_date": "2026-11-11",
-      "sessions_elapsed": 4,
-      "pnl_sigma": -0.40902415375795076,
+      "sessions_elapsed": 5,
+      "pnl_sigma": -0.44391598657818543,
       "p_entry": 0.5819945931434631,
-      "n_similar": 597,
-      "p_tp_now": 0.06700167504187604,
-      "p_profit_now": 0.40033500837520936
+      "n_similar": 572,
+      "p_tp_now": 0.08741258741258741,
+      "p_profit_now": 0.3916083916083916
     },
     {
       "ticker": "JPM",
       "signal_date": "2026-11-11",
-      "sessions_elapsed": 4,
-      "pnl_sigma": -0.5326601027032265,
+      "sessions_elapsed": 5,
+      "pnl_sigma": -0.7266864870401745,
       "p_entry": 0.6171746253967285,
-      "n_similar": 168,
-      "p_tp_now": 0.08928571428571429,
-      "p_profit_now": 0.30952380952380953
+      "n_similar": 171,
+      "p_tp_now": 0.0935672514619883,
+      "p_profit_now": 0.3216374269005848
     },
     {
       "ticker": "MCD",
       "signal_date": "2026-11-11",
-      "sessions_elapsed": 4,
-      "pnl_sigma": -0.050886567519090875,
+      "sessions_elapsed": 5,
+      "pnl_sigma": -0.12807890299296842,
       "p_entry": 0.5076612830162048,
-      "n_similar": 1065,
-      "p_tp_now": 0.13145539906103287,
-      "p_profit_now": 0.5173708920187794
+      "n_similar": 1059,
+      "p_tp_now": 0.141643059490085,
+      "p_profit_now": 0.5363550519357885
     },
     {
       "ticker": "NEE",
       "signal_date": "2026-11-11",
-      "sessions_elapsed": 4,
-      "pnl_sigma": -0.3847897215248174,
+      "sessions_elapsed": 5,
+      "pnl_sigma": -0.3296007641915113,
       "p_entry": 0.5171687602996826,
-      "n_similar": 597,
-      "p_tp_now": 0.06700167504187604,
-      "p_profit_now": 0.40033500837520936
-    },
-    {
-      "ticker": "UNH",
-      "signal_date": "2026-11-11",
-      "sessions_elapsed": 4,
-      "pnl_sigma": -0.4976510786326051,
-      "p_entry": 0.6503782868385315,
-      "n_similar": 597,
-      "p_tp_now": 0.06700167504187604,
-      "p_profit_now": 0.40033500837520936
+      "n_similar": 572,
+      "p_tp_now": 0.08741258741258741,
+      "p_profit_now": 0.3916083916083916
     },
     {
       "ticker": "TLT",
       "signal_date": "2026-11-12",
-      "sessions_elapsed": 3,
-      "pnl_sigma": -0.09734100259304611,
+      "sessions_elapsed": 4,
+      "pnl_sigma": -0.3582148895424141,
       "p_entry": 0.5009915828704834,
-      "n_similar": 1065,
-      "p_tp_now": 0.13145539906103287,
-      "p_profit_now": 0.5173708920187794
+      "n_similar": 572,
+      "p_tp_now": 0.08741258741258741,
+      "p_profit_now": 0.3916083916083916
     },
     {
       "ticker": "PFE",
       "signal_date": "2026-11-16",
-      "sessions_elapsed": 1,
-      "pnl_sigma": 0.0049304317171567046,
+      "sessions_elapsed": 2,
+      "pnl_sigma": 0.20707813212052859,
       "p_entry": 0.5018745064735413,
-      "n_similar": 1065,
-      "p_tp_now": 0.13145539906103287,
-      "p_profit_now": 0.5173708920187794
+      "n_similar": 648,
+      "p_tp_now": 0.23919753086419754,
+      "p_profit_now": 0.6759259259259259
     }
   ]
 }

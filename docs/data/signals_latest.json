@@ -1,27 +1,33 @@
 {
-  "as_of": "2026-11-17",
+  "as_of": "2026-11-18",
   "market_regime": "normal",
-  "market_p_stress": 0.02008399726864272,
+  "market_p_stress": 0.010910413233164369,
   "n_assets": 25,
-  "n_idle": 22,
+  "n_idle": 21,
   "picks": [
     {
-      "as_of": "2026-11-17",
-      "side": 1,
-      "market_regime": "normal",
-      "market_p_stress": 0.02008399726864272
-    },
-    {
-      "as_of": "2026-11-17",
+      "as_of": "2026-11-18",
       "side": -1,
       "market_regime": "normal",
-      "market_p_stress": 0.02008399726864272
+      "market_p_stress": 0.010910413233164369
     },
     {
-      "as_of": "2026-11-17",
+      "as_of": "2026-11-18",
       "side": 1,
       "market_regime": "normal",
-      "market_p_stress": 0.02008399726864272
+      "market_p_stress": 0.010910413233164369
+    },
+    {
+      "as_of": "2026-11-18",
+      "side": 1,
+      "market_regime": "normal",
+      "market_p_stress": 0.010910413233164369
+    },
+    {
+      "as_of": "2026-11-18",
+      "side": 1,
+      "market_regime": "normal",
+      "market_p_stress": 0.010910413233164369
     }
   ]
 }
