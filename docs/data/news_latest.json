@@ -1,51 +1,192 @@
 {
-  "as_of": "2026-11-19T20:34:51.032321+00:00",
+  "as_of": "2026-11-20T09:01:55.007062+00:00",
   "window_days": 15,
   "articles": [
     {
-      "id": "0c5918760954b2964fcccbfc59f88d409b41fba48025cdec81393b51fa8b7d01",
-      "published_at": "2026-11-19T20:00:00Z",
+      "id": "903db83ce2812882aff91806118843d3443588fb4efbaaea81bc2e47db3eff63",
+      "published_at": "2026-11-20T06:10:02Z",
       "source": "The Motley Fool",
-      "title": "Can $300 a Month in VOO Really Build a $1 Million Portfolio? Yes, But There's 1 Factor to Consider.",
-      "summary": "Investing $300 monthly in the Vanguard S&P 500 ETF (VOO) can build a $1 million portfolio in approximately 34 years, assuming a 10% average annual return. The key factor is time—compound growth does most of the work after decades of consistent investing. Increasing monthly contributions to $400 can reduce the timeline to 31 years.",
-      "url": "https://www.fool.com/investing/2026/11/19/can-300-month-voo-build-1-million-portfolio-yes/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F891425%2Fgetty-dividend-stocks-growing-money-income-cash.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AAPL",
-        "MSFT",
-        "NVDA"
-      ],
-      "all_tickers": [
-        "AAPL",
-        "MSFT",
-        "NVDA",
-        "VOO"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AAPL",
-        "MSFT",
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7056
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "c9595b20d3be0988309832c486c3c160eaf3dd7f37d8eeba68660372b3542a50",
-      "published_at": "2026-11-19T19:55:02Z",
-      "source": "The Motley Fool",
-      "title": "First Nvidia, Now AMD: A Short Seller Just Put Its China Business Under the Microscope",
-      "summary": "Short seller Hunterbrook Media published a report alleging that AMD's firmware has been incorporated into servers made by IEIT, a Chinese company on the U.S. Commerce Department's Entity List. The report claims IEIT built at least six versions of AMD's firmware into updates since being blacklisted in March 2025, raising concerns about potential export control violations. AMD denies wrongdoing and states it complies with export regulations. The allegations come amid heightened scrutiny of chip exports to China and follow Nvidia CEO Jensen Huang's resignation.",
-      "url": "https://www.fool.com/investing/2026/11/19/first-nvidia-now-amd-a-short-seller-just-put-its-china-business-under-the-microscope/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F68b56fc1d0fdcf2b53bbe817058eab8cd2c02e97-1290x860.jpg&w=1200&op=resize",
+      "title": "This Unstoppable ETF Is Up by Double Digits in 2026. Here's Where I Think It's Headed in 2027.",
+      "summary": "The iShares Semiconductor ETF (SOXX) has gained 37% year-to-date but dropped 30% since early October due to overvaluation concerns, AI infrastructure spending worries, and the Nvidia CEO resignation. Despite the correction, the author believes the ETF is positioned for a strong 2027, citing a valuation reset, sustained AI chip demand with backlog orders, and a supply-demand supercycle that should support pricing power for chipmakers.",
+      "url": "https://www.fool.com/investing/2026/11/20/this-unstoppable-etf-is-up-double-digits-in-2026-here-s-where-i-think-it-s-headed-in-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F42b3293e5dbbd0bd2f50afbeec4738a002bd7f0b-1280x720.png&w=1200&op=resize",
       "raw_tickers": [
         "NVDA"
       ],
       "all_tickers": [
         "AMD",
+        "AVGO",
+        "MU",
+        "NVDA",
+        "SOXX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7033
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "36b782f98479c8336e37204ab83a52d7e28322712eeeba0859c7db834d2feecf",
+      "published_at": "2026-11-20T04:07:02Z",
+      "source": "The Motley Fool",
+      "title": "Nvidia Just Raised Its Supply Commitments to $390 Billion, Mostly for Memory. Micron Is the Memory Stock I'd Buy.",
+      "summary": "Nvidia increased its supply commitments to $390 billion, with the majority allocated to multi-year memory procurement. The analyst argues that Micron Technology, despite trading 42% below its peak, is undervalued given its growing HBM business, custom chip development with Nvidia, and $32 billion in customer commitments under take-or-pay agreements that provide downside protection against memory price cycles.",
+      "url": "https://www.fool.com/investing/2026/11/19/nvidia-just-raised-its-supply-commitments-to-usd390-billion-mostly-for-memory-micron-is-the-memory-stock-i-d-buy/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F9408c0158935ae10fd6c4355809419b4dbb1e499-2000x1200.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "MU",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9548
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "bb86e3bdb0b1e462eae3d47bcb81903cd91e3d9d4ec57c12a3b050372d1cf104",
+      "published_at": "2026-11-20T03:50:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Pixalate Launches OpenEPG DB™ on Amazon Web Services (AWS) RTB Fabric; Industry’s First Show-, Genre-, and Content Rating-Level Enrichment Module for Programmatic CTV, Including Live Sports",
+      "summary": "Pixalate announced OpenEPG DB™ 1.0, an industry-first pre-bid enrichment module on AWS RTB Fabric that adds show, genre, and content rating data to CTV bid requests. The module covers 770,000+ U.S. streaming TV shows across 17,900+ FAST and linear channels with single-digit latency, enabling DSPs, SSPs, and exchanges to target and verify CTV inventory by show without publisher opt-in or engineering overhead.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407232/0/en/pixalate-launches-openepg-db-on-amazon-web-services-aws-rtb-fabric-industry-s-first-show-genre-and-content-rating-level-enrichment-module-for-programmatic-ctv-including-live-sports.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/0124c010-09d5-402d-839d-4ca1ac736a66",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8052
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "724cf4fb6947741b81d504cc5051394bc3509d234bef9313c244783cda791532",
+      "published_at": "2026-11-20T03:40:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Pixalate Launches 4D Invalid Traffic (IVT) Blocking on Amazon Web Services (AWS) RTB Fabric; Industry’s First Infrastructure-, Seller-, Publisher-, & Device-Level Pre-Bid Blocking Modules for Programmatic CTV & Mobile Apps",
+      "summary": "Pixalate announced pre-bid CTV and mobile app Invalid Traffic (IVT) blocking modules on Amazon Web Services' RTB Fabric, enabling DSPs, SSPs, and exchanges to filter fraudulent bid requests before they reach bidder fleets. The solution offers infrastructure-, seller-, publisher-, and device-level fraud detection across multiple CTV platforms and app stores, with benefits including no engineering required, lower infrastructure costs, and granular blocking controls.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407230/0/en/pixalate-launches-4d-invalid-traffic-ivt-blocking-on-amazon-web-services-aws-rtb-fabric-industry-s-first-infrastructure-seller-publisher-device-level-pre-bid-blocking-modules-for-p.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/0124c010-09d5-402d-839d-4ca1ac736a66",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6498
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "e7dd43c6c0e97953c64aa76ee87eec14523f2869cd89cc8adbb093142087fba1",
+      "published_at": "2026-11-20T01:28:02Z",
+      "source": "The Motley Fool",
+      "title": "History Says This Brilliant ETF Could Help You Turn $500 Per Month Into $784,100 While Barely Lifting a Finger.",
+      "summary": "The Vanguard Morningstar Growth ETF (VUG) is highlighted as a potential wealth-building tool, with historical data showing that $500 monthly investments could grow to over $784,100 in 25 years based on its 11.9% average annual returns since 2004. The ETF offers a balance of growth and stability through large-cap holdings, though it carries significant tech concentration at 72.1%.",
+      "url": "https://www.fool.com/investing/2026/11/19/history-says-this-brilliant-etf-could-help-you-turn-usd500-per-month-into-usd784-100-while-barely-lifting-a-finger/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F879b82f7b8628f938ff020840832c8deefb5288c-2309x1299.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "AMZN",
+        "AVGO",
+        "COST",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "LLY",
+        "META",
+        "METAM",
+        "MSFT",
+        "NVDA",
+        "TSLA",
+        "V",
+        "VUG"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8261
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ea9fd0ac073b8533be4c51372ddc9151a8c8b4b3ef944592100c6431951ba707",
+      "published_at": "2026-11-20T00:08:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Stock Screening Made Simple: A Closer Look",
+      "summary": "The article explains how stock screening helps investors filter through thousands of options by using customizable parameters tailored to different investment strategies: value investing (P/E, P/S, P/B ratios), momentum investing (price changes, volume), growth investing (earnings/sales growth rates), and income investing (dividend yield, dividend growth). Johnson & Johnson is highlighted as an example of a defensive dividend stock suitable for income-focused investors.",
+      "url": "https://www.zacks.com/stock/news/3032854/stock-screening-made-simple-a-closer-look?cid=CS-ZC-FT-stocks_in_the_news-3032854",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/7d/155505.webp",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "JNJ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.903
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "e10371140b69e2d3d24979daa08e25a32a96c4cf6ad8acae285e76ce6d28e5fb",
+      "published_at": "2026-11-19T23:55:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "BABA INVESTOR ALERT: Alibaba Group Holding Limited Investors with Substantial Losses May Seek to Lead the Alibaba Class Action Lawsuit – RGRD Law",
+      "summary": "A securities class action lawsuit has been filed against Alibaba Group Holding Limited and its CEO, alleging they made false and misleading statements regarding undisclosed business relationships with Alice Huang and Megaspeed, a company suspected of illegal hardware smuggling. The lawsuit claims Alibaba failed to disclose reputational risks and export control concerns. Following Financial Times, New York Times, and Reuters reporting on the matter in November 2026, Alibaba's stock price fell approximately 13.5% over three days. Investors with substantial losses are being sought to serve as lead plaintiff, with a deadline of January 19, 2027.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/19/3407214/0/en/baba-investor-alert-alibaba-group-holding-limited-investors-with-substantial-losses-may-seek-to-lead-the-alibaba-class-action-lawsuit-rgrd-law.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/a2879a30-a9fa-457e-97f6-7e2cd2528b7b",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "BABA",
         "NVDA"
       ],
       "is_spam": false,
@@ -54,7 +195,278 @@
       ],
       "sentiment": {
         "label": "negative",
-        "score": 0.9269
+        "score": 0.9705
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "0fd9260434bb47e88a869ff50ac7070c5a96e09b8ce1e83214fc6d2754d5e447",
+      "published_at": "2026-11-19T23:45:00Z",
+      "source": "The Motley Fool",
+      "title": "Johnson & Johnson Delivered 'Immaculate' Prostate Cancer Data at ESMO. Here's Why Investors Should Care",
+      "summary": "Johnson & Johnson's $3.05 billion acquisition of Halda Therapeutics is showing promise as JNJ-6143 demonstrated excellent results in early-stage prostate cancer trials, with a 75% overall response rate in heavily pre-treated patients. The company's strong pipeline, recent drug launches, and status as a Dividend King with 64 consecutive years of dividend increases make it attractive for long-term investors.",
+      "url": "https://www.fool.com/investing/2026/11/19/johnson-johnson-delivered-immaculate-prostate-canc/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F892561%2Fjohnson-johnson-logo-source-tmf.png&w=1200&op=resize",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "JNJ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9232
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "bd697f5adb02e361b45035c57c08ede7c98bf4b159705d4f3fa5bccbafd2394f",
+      "published_at": "2026-11-19T23:23:02Z",
+      "source": "The Motley Fool",
+      "title": "The Semiconductor ETF Is on Track to Beat the S&P 500 for a 4th Straight Year. It Has Never Done That Before.",
+      "summary": "The VanEck Semiconductor ETF (SMH) is up 28% in 2026 versus 7% for the S&P 500, on track to beat the index for a fourth consecutive year—a historic first. However, historical data shows every winning streak has been followed by a down year, with the worst being a 34% drop in 2022. The fund is currently 31% below its June peak, driven by strong AI data center spending, particularly from Nvidia which posted 103% revenue growth.",
+      "url": "https://www.fool.com/investing/2026/11/19/the-semiconductor-etf-is-on-track-to-beat-the-s-and-p-500-for-a-4th-straight-year-it-has-never-done-that-before/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F966654df6c64eda08853ff4d4d9fa7116dc69b7b-2560x1920.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "NVDA",
+        "SMH",
+        "TSM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9559
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "145be12f27754f99edfefc04ec6d8c8e764da92cb90e46a7d39b964c7736fd4d",
+      "published_at": "2026-11-19T23:04:00Z",
+      "source": "Zacks Investment Research",
+      "title": "After the Huang Shock & Anthropic, Can Tech Find a Floor?",
+      "summary": "The tech sector is experiencing one of the most difficult trading environments in recent memory, with AI stocks already in bear market territory despite unprecedented capital spending. Major headwinds include Jensen Huang's exit from Nvidia, the Anthropic IPO, and rising interest rates. However, market extremes and technical indicators suggest potential turning points ahead, with experts advising capital preservation while remaining open to opportunities.",
+      "url": "https://www.zacks.com/commentary/3032851/after-the-huang-shock-anthropic-can-tech-find-a-floor?cid=CS-ZC-FT-investment_ideas-3032851",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/47/172718.webp",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMD",
+        "ARM",
+        "NBIS",
+        "NVDA",
+        "QQQ",
+        "SNDK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8564
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "4e43c4a511c984fff60b49e72d5bc159065b61bc7881783c367e8bc2bcd28fa0",
+      "published_at": "2026-11-19T22:45:02Z",
+      "source": "The Motley Fool",
+      "title": "Stock Market Today, Nov. 19: Stock Market Today, Nov. 19: Alphabet Shares Fall as Anthropic Nasdaq Debut Puts Fresh Value on Google's Stake",
+      "summary": "The stock market declined sharply on November 19, 2026, with the S&P 500 falling 2.0% and marking its sixth consecutive losing session. Despite Anthropic's record-breaking IPO debut, selling pressure intensified due to concerns about elevated valuations and potential interest rate hikes. All 11 S&P 500 sectors finished in negative territory, with technology stocks leading declines.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/19/stock-market-today-nov-19-stock-market-today-nov-19-alphabet-shares-fall-as-anthropic-nasdaq-debut-puts-fresh-value-on-google-s-stake/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F0fdc691e6fe03c491cf1d1853bbceecad55d8b6b-6200x4132.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "AMD",
+        "ANT",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "INSM",
+        "PANW",
+        "WSM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.975
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "7708101c9c112981a0aa11efb60c9d893b01ba5ee15879b70db33a817454300b",
+      "published_at": "2026-11-19T22:25:02Z",
+      "source": "The Motley Fool",
+      "title": "This Beaten-Down Semiconductor Stock Could Soar in 2027",
+      "summary": "Broadcom, despite underperforming the S&P 500 by 14% year-to-date, is positioned for strong growth in 2027 due to its dominant position in custom AI chips. The company expects $115 billion in AI semiconductor revenue in fiscal 2027 and $230 billion in fiscal 2028, with major contracts from Alphabet, Meta, and Anthropic supporting this growth. Trading at reasonable valuations (18.5x forward earnings), Broadcom could be an attractive investment before 2027.",
+      "url": "https://www.fool.com/investing/2026/11/19/this-beaten-down-semiconductor-stock-could-soar-in-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb9d24d18c0f51a9809f8cdb25fce013375187d3b-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "AVGO",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "META",
+        "METAM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9382
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "7bedb6cd4a5844d070f50fd877df214f2aa248b40fe351d4914c45bb73d560cc",
+      "published_at": "2026-11-19T21:58:30Z",
+      "source": "The Motley Fool",
+      "title": "Stock Market Today, Nov. 19: Alphabet Shares Fall as Anthropic Nasdaq Debut Puts Fresh Value on Google's Stake",
+      "summary": "Alphabet shares fell 3.46% on November 19, 2026, as investors weighed the company's nearly 14% stake in Anthropic following its Nasdaq IPO debut. The AI company's market debut valued Alphabet's ownership at approximately $175 billion. Broad market pressure affected large-cap tech stocks, with the S&P 500 down 2.02% and Nasdaq down 2.25%. Google also announced it selected Blue Origin's New Glenn rocket for its Project Suncatcher satellite data center program launching in 2029.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/19/stock-market-today-nov-19-alphabet-shares-fall-as-anthropic-nasdaq-debut-puts-fresh-value-on-googles-stake/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F46d0aa12d85410898a3cc3a4f391d8c1faf4a63e-2000x1200.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "GOOGL",
+        "MSFT"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "META",
+        "METAM",
+        "MSFT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "GOOGL",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9742
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "52ff61722d1f151b98f110a6c3b7937ea4572d96d41e499924ded4d6ba55b8cd",
+      "published_at": "2026-11-19T21:30:02Z",
+      "source": "The Motley Fool",
+      "title": "Is a Bloom Energy Stock Crash Coming? 1 Warning Sign Investors Shouldn’t Ignore.",
+      "summary": "Bloom Energy stock has nearly doubled in 2026, but the article warns of potential risks ahead. Despite strong AI-driven demand for data center infrastructure, concerns are rising about the pace and funding of the global data center build-out. With the stock trading at high valuations (120x trailing earnings), even minor industry delays could significantly impact the stock price. Goldman Sachs research suggests only 50-60% of scheduled data center capacity may come online on time.",
+      "url": "https://www.fool.com/investing/2026/11/19/is-a-bloom-energy-stock-crash-coming-1-warning-sign-investors-shouldnt-ignore/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F7adc82cd73be75dcc5840dea09f9abb3c29b445d-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GS"
+      ],
+      "all_tickers": [
+        "BE",
+        "GS",
+        "GSpA",
+        "GSpC",
+        "GSpD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GS"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9524
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "459243724913c5b50ebb66a6be14f04a554040935e34236d65c0df8dff29ff7f",
+      "published_at": "2026-11-19T20:45:02Z",
+      "source": "The Motley Fool",
+      "title": "3 Dividend Kings to Buy in November and Never Sell",
+      "summary": "The article highlights three Dividend Kings—stocks with 50+ consecutive years of dividend increases—as attractive buying opportunities in November. Abbott Laboratories is positioned to benefit from spinning off its nutrition division, potentially leading to higher valuations. McDonald's has rallied on improved Q3 earnings and turnaround progress, with room to run given historical valuation multiples. Tennant, a floor cleaning equipment maker, is pivoting toward automation and robotics, showing revenue and order growth despite near-term earnings headwinds.",
+      "url": "https://www.fool.com/investing/2026/11/19/3-dividend-kings-to-buy-in-november-and-never-sell/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F097627eeec94eed3f554bea5a550d8748aa32123-2059x1456.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "MCD"
+      ],
+      "all_tickers": [
+        "ABT",
+        "MCD",
+        "TNC"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MCD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9555
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "0d8586ad5bd67eaeef4884e59dba24aaec4e8c00acf9b8a62d37159991d575ab",
+      "published_at": "2026-11-19T20:23:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Top Analyst Reports for Berkshire Hathaway, JPMorgan & Procter & Gamble",
+      "summary": "Zacks published analyst reports on 16 major stocks on November 19, 2026. Berkshire Hathaway received a Neutral rating due to balanced strengths in diversified businesses and capital allocation offset by GEICO underwriting weakness and heavy capital spending demands. JPMorgan was highlighted for outperforming its industry with strong deposit base and earnings resilience, though uncertain market activity and high expenses pose challenges. Procter & Gamble showed encouraging growth prospects with strong brand performance but faces margin pressures from rising commodity and transportation costs.",
+      "url": "https://www.zacks.com/commentary/3032173/top-analyst-reports-for-berkshire-hathaway-jpmorgan-procter-gamble?cid=CS-ZC-FT-research_daily-3032173",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/28/195819.webp",
+      "raw_tickers": [
+        "JPM",
+        "PG"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "BRK.A",
+        "BRK.B",
+        "GSK",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "NOK",
+        "NPK",
+        "PG",
+        "RSG",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JPM",
+        "PG"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8793
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -88,63 +500,138 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "1a56b762ad3868f676c3e25a9bd591d041df36f357f2ec6f67aa3797a80d4909",
-      "published_at": "2026-11-19T18:57:02Z",
-      "source": "The Motley Fool",
-      "title": "Missed the Anthropic IPO? These 3 Stocks Give You Immediate Exposure.",
-      "summary": "Following Anthropic's IPO, investors seeking exposure to the AI lab without direct investment risk can consider Nvidia, Amazon, and Alphabet. Nvidia supplies Anthropic with computing hardware and owns shares in the company. Amazon and Alphabet provide cloud computing infrastructure to Anthropic and collectively own nearly 30% of the company. All three stocks are positioned to benefit from Anthropic's success and are trading at reasonable valuations.",
-      "url": "https://www.fool.com/investing/2026/11/19/missed-the-anthropic-ipo-these-3-stocks-give-you-immediate-exposure/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fe03d0d14a2dcea69b2fdc7df2af48e977508ea6d-1440x759.jpg&w=1200&op=resize",
+      "id": "13afeb0e0b684b9d4a294b4fa8abc331603a2d0cab7966a4a479c7dd00eaf603",
+      "published_at": "2026-11-19T18:53:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Anthropic's Record IPO: Can It Lift AI Stocks?",
+      "summary": "Anthropic completed the largest IPO in history, raising $81.34 billion with strong fundamentals including $17 billion in Q3 sales and $518 billion in future cloud infrastructure commitments. However, record IPOs historically mark peaks in enthusiasm. Three stocks positioned to benefit from AI infrastructure spending are Amazon, Vertiv, and Bloom Energy, though recent selloffs suggest caution is warranted before chasing gains.",
+      "url": "https://www.zacks.com/commentary/3032801/anthropic-s-record-ipo-can-it-lift-ai-stocks?cid=CS-ZC-FT-investment_ideas-3032801",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/3f/989.jpg",
       "raw_tickers": [
-        "AMZN",
-        "GOOGL",
-        "NVDA"
+        "AMZN"
       ],
       "all_tickers": [
         "AMZN",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "NVDA"
+        "ANT",
+        "BE",
+        "SPCX",
+        "VRT"
       ],
       "is_spam": false,
       "tickers": [
-        "AMZN",
-        "GOOGL",
-        "NVDA"
+        "AMZN"
       ],
       "sentiment": {
-        "label": "neutral",
-        "score": 0.796
+        "label": "positive",
+        "score": 0.9311
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "f5c22edad6baa94e781e76c398d4f485c9da1225f64a5382ffec8fc7b47c3d2a",
-      "published_at": "2026-11-19T17:58:02Z",
-      "source": "The Motley Fool",
-      "title": "Why Alphabet Stock Popped Today",
-      "summary": "Alphabet announced a partnership with Blue Origin to launch AI satellites under Project Suncatcher, switching from SpaceX due to the latter's threatened halt of commercial Falcon 9 launches. Blue Origin will conduct a dedicated heavy-lift launch in Q1 2029 using its New Glenn rocket with 45 tons of payload capacity for Google's AI satellites.",
-      "url": "https://www.fool.com/investing/2026/11/19/why-alphabet-stock-popped-today/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F485eb114ec4d7b53f201f476107e0217408565a8-8000x4500.jpg&w=1200&op=resize",
+      "id": "a69ec8c9d96b254725b91f4cff19dcbbcdd384c06110bb6630c0c6f03db48c42",
+      "published_at": "2026-11-19T17:22:00Z",
+      "source": "Zacks Investment Research",
+      "title": "PFE Inks $2.6B Licensing Deal With Chinese Biotech for CAR-T Therapies",
+      "summary": "Pfizer announced an exclusive licensing agreement with China-based Starna Therapeutics for three CAR-T programs targeting autoimmune diseases. The deal includes a $330 million upfront payment and up to $2.3 billion in milestone payments. Pfizer gains rights to develop, manufacture, and commercialize these in vivo CAR-T therapies outside Greater China, representing the company's strategic push into next-generation cell therapies.",
+      "url": "https://www.zacks.com/stock/news/3032782/pfe-inks-2-6b-licensing-deal-with-chinese-biotech-for-car-t-therapies?cid=CS-ZC-FT-analyst_blog|company_news_medical_sector-3032782",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/c2/1434.jpg",
       "raw_tickers": [
-        "GOOGL"
+        "PFE"
       ],
       "all_tickers": [
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "SPCX"
+        "ABBV",
+        "LLY",
+        "PFE"
       ],
       "is_spam": false,
       "tickers": [
-        "GOOGL"
+        "PFE"
       ],
       "sentiment": {
         "label": "positive",
-        "score": 0.5206
+        "score": 0.883
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1ff23915d0c208736f7bddcd24732be946e34bfd1018b60fde3d4e77e2965a81",
+      "published_at": "2026-11-19T17:19:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Spotify's 9.3% ARPU Rise Signals Stronger Premium Monetization",
+      "summary": "Spotify reported strong Q3 2026 results with premium ARPU rising 9.3% to €4.95 and premium revenue growing 17% year-over-year, driven by higher subscription rates and improved monetization. Ad revenues also grew 10% supported by automated buying and podcast sponsorships. However, the company faces risks from repeated price increases potentially raising churn, particularly in price-sensitive markets, and intensifying competition from Apple and Amazon's integrated music offerings.",
+      "url": "https://www.zacks.com/stock/news/3032779/spotify-s-9-3-arpu-rise-signals-stronger-premium-monetization?cid=CS-ZC-FT-analyst_blog|zer_report_update-3032779",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/cf/734.jpg",
+      "raw_tickers": [
+        "AAPL",
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "AMZN",
+        "SPOT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9561
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "69d0e8e2f2224f8058cd3f83a30ef089cb6928dba16b11a7f30f0f71e25484e6",
+      "published_at": "2026-11-19T17:17:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Moderna: Can the Vaccine Business Fund Its Next Phase of Growth?",
+      "summary": "Moderna reported strong Q3 2026 results and raised full-year guidance to 15-25% revenue growth. However, the company's announcement of $4-4.5 billion in annual cash costs through 2030, primarily for oncology investments, raised investor concerns about fiscal sustainability without corresponding multi-year revenue guidance. While the company is diversifying beyond COVID-19 with new flu, RSV, and cancer therapies, it faces intense competition and uncertainty around regulatory approval and commercial adoption.",
+      "url": "https://www.zacks.com/stock/news/3032777/moderna-can-the-vaccine-business-fund-its-next-phase-of-growth?cid=CS-ZC-FT-analyst_blog|quick_take-3032777",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/6f/3484.jpg",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "BNTX",
+        "GSK",
+        "MRK",
+        "MRNA",
+        "PFE"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6657
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "8fad292b6d970c0660e3a3d7991f47f1f355c5a95f9352f0cd84d89a3b91bb28",
+      "published_at": "2026-11-19T17:05:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Will Eni's Expanded Lummus Partnership Boost Chemical Growth?",
+      "summary": "Eni S.p.A. has expanded its partnership between subsidiary Versalis and Lummus Technology, more than doubling its technology portfolio available for licensing by adding elastomer technologies. Lummus will serve as the exclusive global licensor, leveraging its international network to commercialize Versalis' chemical expertise. The expansion supports Eni's transformation toward higher-value chemicals and international growth. Meanwhile, ExxonMobil and Shell are also strengthening their chemicals businesses through operational improvements and higher-value product focus.",
+      "url": "https://www.zacks.com/stock/news/3032769/will-eni-s-expanded-lummus-partnership-boost-chemical-growth?cid=CS-ZC-FT-analyst_blog|quick_take-3032769",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/74/780.jpg",
+      "raw_tickers": [
+        "XOM"
+      ],
+      "all_tickers": [
+        "E",
+        "SHEL",
+        "XOM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "XOM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.946
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -171,32 +658,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.82
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "7616dc7a9d2fdfd7c8ff4329a9193fa038948a7aecb90fc09552f337a6e7186c",
-      "published_at": "2026-11-19T16:43:02Z",
-      "source": "The Motley Fool",
-      "title": "Qualcomm vs. Taiwan Semiconductor: Diverging Revenue Trends for Major Chipmakers",
-      "summary": "Taiwan Semiconductor Manufacturing (TSMC) demonstrates strong upward revenue momentum driven by AI and data center demand, with quarterly revenue climbing from $26.8B to $46.7B over eight quarters. In contrast, Qualcomm's revenue has remained relatively flat to declining, ranging from $9.9B to $12.3B, reflecting weakness in its mobile phone business due to reduced consumer spending in China. The revenue gap between the two chipmakers is widening significantly.",
-      "url": "https://www.fool.com/coverage/charts/2026/11/19/qualcomm-vs-taiwan-semiconductor-diverging-revenue-trends-for-major-chipmakers/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Fcharts%2Fproduction%2Fprocessed%2Fqcom-tsm%2Fquarter%2Frevenue%2Fbar%2Fprimary%2Fstandard%2Flimit-8%2Flatest%2Fqcom-tsm_quarter_revenue_bar_primary_standard_limit8.png&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "QCOM",
-        "TSM"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8422
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -306,32 +767,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "e77598bc63affffe01c35c865f458ec8f7c2918f647858bbeb78dd515e616d8f",
-      "published_at": "2026-11-19T15:29:00Z",
-      "source": "Zacks Investment Research",
-      "title": "PG Jumps 17.4% in Three Months as Investors Weigh What Comes Next",
-      "summary": "Procter & Gamble (PG) shares gained 17.4% over three months, driven by broad-based 4% organic sales growth across all product categories and regions. However, rising input costs, margin pressures, and a premium valuation of 23.81X forward earnings raise concerns about sustainability. While productivity savings and innovation in key segments like Fabric Care and Beauty support the rally, weakness in Health Care and Grooming segments, along with $1.4 billion in expected cost pressures for fiscal 2027, temper the outlook.",
-      "url": "https://www.zacks.com/stock/news/3032614/pg-jumps-17-4-in-three-months-as-investors-weigh-what-comes-next?cid=CS-ZC-FT-analyst_blog_plus|zer_report_insights-3032614",
-      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/3d/451.jpg",
-      "raw_tickers": [
-        "PG"
-      ],
-      "all_tickers": [
-        "CL",
-        "KMB",
-        "PG"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "PG"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.5829
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "64be739b742ab0bd390aad1d19c70ee3024dd6355001fde38b6c613102ae7170",
       "published_at": "2026-11-19T15:00:00Z",
       "source": "Zacks Investment Research",
@@ -391,34 +826,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.6981
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "8a316ea67b004926b0e66956a3f8ba4d77ee5ed9dedec36c801b4522fb6cec19",
-      "published_at": "2026-11-19T14:55:02Z",
-      "source": "The Motley Fool",
-      "title": "DICK'S Sporting Goods vs. Etsy: Which Consumer Stock Is a Better Buy for 2027?",
-      "summary": "The article compares DICK'S Sporting Goods and Etsy as investment options for 2027. DICK'S shows stronger revenue growth (22% average since 2021) and operates an expanding omnichannel retail presence, but faces risks from Nike dependence (31% of purchases) and lower profitability margins (6.4%). Etsy operates a high-margin marketplace (18.1% operating margin) with 5.6 million sellers and 86.5 million buyers, but has modest revenue growth (2.1%). The analyst concludes Etsy is the better buy due to superior profitability and lower valuation (10x P/E vs. 15x for DICK'S), despite DICK'S faster growth trajectory.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/19/dicks-sporting-goods-vs-etsy-which-consumer-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Faf96f83367efb533d5a74d76b2dfd7cdc2d0e882-1290x860.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "DKS",
-        "EBAY",
-        "ETSY",
-        "NKE"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.7673
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -645,34 +1052,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "83eda7fd1d84ae4d7858d4a01bb99f49eb226626d401bd8f7d89e1de54eefc56",
-      "published_at": "2026-11-19T13:00:00Z",
-      "source": "Zacks Investment Research",
-      "title": "Rising Token Usage to Favor AI Investing? ETFs in Focus",
-      "summary": "As AI companies move toward public listings, token usage is becoming a critical growth indicator similar to subscriber counts in streaming. Anthropic generates 80% of revenue from usage-based pricing with a $81 billion run-rate, while Google processed 3.2 quadrillion tokens monthly in May 2026. However, investors lack standardized disclosure on revenue per token and profitability metrics, making it difficult to assess whether usage growth translates to sustainable earnings.",
-      "url": "https://www.zacks.com/stock/news/3032284/rising-token-usage-to-favor-ai-investing-etfs-in-focus?cid=CS-ZC-FT-etf_news_and_commentary-3032284",
-      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/04/2391.jpg",
-      "raw_tickers": [
-        "GOOGL"
-      ],
-      "all_tickers": [
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "XLC"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7026
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "80fe89a2082afe56b511831dd0227cc4096a21d3504d049ee4148dc4ac7e2917",
       "published_at": "2026-11-19T12:50:00Z",
       "source": "Zacks Investment Research",
@@ -748,41 +1127,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "ff9251e310caf78993cd9f75cb5ef1bac6dab709e1add58312eed137772c5083",
-      "published_at": "2026-11-19T11:15:02Z",
-      "source": "The Motley Fool",
-      "title": "Jim Cramer Isn't Buying SpaceX Stock Yet. Cathie Wood Keeps Buying. Here’s Who’s Right.",
-      "summary": "Jim Cramer remains cautious about SpaceX, citing spending concerns and complications around a potential Tesla merger, while Cathie Wood has made SpaceX the second-largest position in her ARK Innovation ETF at 8.2% portfolio weight. The article argues that the right investment choice depends on individual investor goals and risk tolerance rather than who is 'right,' with SpaceX better suited for aggressive growth investors than those seeking stability.",
-      "url": "https://www.fool.com/investing/2026/11/19/jim-cramer-not-buying-spacex-stock-cathie-wood-buying-who-is-right/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fc86d6d7f28cf578481eb1ba20c17f88fc4a76546-1290x860.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "JPM"
-      ],
-      "all_tickers": [
-        "AMJB",
-        "ARKK",
-        "JPM",
-        "JPMpC",
-        "JPMpD",
-        "JPMpJ",
-        "JPMpK",
-        "JPMpL",
-        "JPMpM",
-        "SPCX",
-        "TSLA",
-        "VYLD"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "JPM"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7718
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "e2347bd53e6a1e0e415d19655a75423878e5ce758cd5f25373261593dfb9bfa4",
       "published_at": "2026-11-19T10:20:03Z",
       "source": "Zacks Investment Research",
@@ -810,33 +1154,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.7229
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "02187bc4806f5b8731a255e936f0207a53a8812a97aa81b12ea604f44645b73e",
-      "published_at": "2026-11-19T09:44:00Z",
-      "source": "The Motley Fool",
-      "title": "Pfizer Will Pay Its 352nd Straight Quarterly Dividend on Dec. 7. Here's What It Would Take to Break the Streak.",
-      "summary": "Pfizer is scheduled to pay its 352nd consecutive quarterly dividend on December 7, 2026, maintaining an 88-year dividend streak. While the company faces a patent cliff, it has a $14.3 billion cash cushion to support dividends. A combination of three major challenges—patent cliff impact, cash-draining acquisition, and significant clinical setbacks—would likely be needed to end the streak, though analysts view this scenario as unlikely.",
-      "url": "https://www.fool.com/investing/2026/11/19/pfizer-will-pay-its-352nd-straight-quarterly-divid/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893053%2Fpfizer_logo_on_glass_pfe.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "JNJ",
-        "PFE"
-      ],
-      "all_tickers": [
-        "JNJ",
-        "PFE"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "JNJ",
-        "PFE"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.6164
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -7426,159 +7743,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.7951
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-05T19:21:56+00:00",
-      "source": "Amazon.com",
-      "title": "Introducing AWS account access manager: IAM role flexibility with centralized workforce access",
-      "summary": "AWS Identity and Access Management (IAM) is introducing account access manager, a flexible new way to manage workforce access to your Amazon Web Services (AWS) accounts. This combines the IAM role flexibility your teams already rely on, delivered through the …",
-      "url": "https://aws.amazon.com/blogs/security/introducing-aws-account-access-manager-iam-role-flexibility-with-centralized-workforce-access/",
-      "image_url": "https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2026/05/13/AdobeStock_1376596821-1260x630.jpeg",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6011
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-05T19:19:21+00:00",
-      "source": "Crypto Briefing",
-      "title": "Google TPUv7 posts strong agentic inference results against Nvidia GB300",
-      "summary": "Google's TPUv7 advancements could intensify competition in AI hardware, prompting Nvidia to enhance cost efficiency and performance.\nThe post Google TPUv7 posts strong agentic inference results against Nvidia GB300 appeared first on Crypto Briefing.",
-      "url": "https://cryptobriefing.com/google-tpuv7-agentic-inference-benchmarks-nvidia/",
-      "image_url": "https://static.cryptobriefing.com/wp-content/uploads/2026/11/05141902/library-google-tpuv7-posts-strong-agentic-inference-results-agai-800x450.png",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9181
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-05T19:15:00+00:00",
-      "source": "Deadline",
-      "title": "Teyonah Parris To Co-Star Opposite Denzel Washington In New Thriller From Christopher McQuarrie And United Artists",
-      "summary": "EXCLUSIVE: Teyonah Parris is set to star opposite Denzel Washington in Amazon MGM Studios’ and United Artists’ untitled thriller with Christopher McQuarrie on board to direct. The film, which is penned by Scott Barkan and Gregg Zehentner, will be released in …",
-      "url": "http://deadline.com/2026/11/teyonah-parris-denzel-washington-christopher-mcquarrie-1237214613/",
-      "image_url": "https://deadline.com/wp-content/uploads/2026/11/Teyonah-Pariss-and-Denzel-Washington.jpg?w=1024",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9281
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-05T19:14:10+00:00",
-      "source": "Knowyourmeme.com",
-      "title": "\"More Like a Quesadilla\" Guy",
-      "summary": "The \"More Like a Quesadilla\" Guy is a series of memes based on a scene of YouTuber Chad Wild Clay, seen in the background of the Spy Ninjas music video for \"Come Back Daniel\" on his own YouTube channel, reacting with a shocked face after Regina sings, \"Think …",
-      "url": "https://knowyourmeme.com/memes/more-like-a-quesadilla-guy",
-      "image_url": "https://i.kym-cdn.com/entries/icons/original/000/057/719/quesadillaguy.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5177
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-05T19:13:41+00:00",
-      "source": "Slashdot.org",
-      "title": "Google, Meta and TikTok are all suing California to block social media law intended to help kids",
-      "summary": "Assembly Bill 1709 demands that platforms remove \"psychologically exploitative features.\"",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186605029",
-      "image_url": null,
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8857
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-05T19:00:42+00:00",
-      "source": "Commonsensewithmoney.com",
-      "title": "LEGO Creator 3 in 1 Playful Cat Building Set 31163 – Just $19.95!",
-      "summary": "Don’t miss grabbing this awesome set for your Lego fan! It is sure to be a fan favorite! Want some thing fun to add to the gift closet? This set is so much fun and it is a GREAT price! Check out this deal!   \n\nGet on over to Amazon and ...",
-      "url": "https://www.commonsensewithmoney.com/lego-creator-3-1-playful-cat-building-set-31163-just-19-95/",
-      "image_url": "https://www.commonsensewithmoney.com/wp-content/uploads/2026/11/amlegocat.png",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8089
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-05T18:35:04+00:00",
-      "source": "Boredpanda.com",
-      "title": "Neuroscientist Explains Why 20YO Learjet Copilot May Have Left Her Mic On As Plane Slammed Into Trailer park",
-      "summary": "The co-pilot had earned her pilot's license at just 17 and hoped to pursue a career as a commercial airline pilot.",
-      "url": "https://www.boredpanda.com/neuroscientist-explains-reason-nathalia-filgueiras-mic-on-learjet-crash/",
-      "image_url": "https://static.boredpanda.com/blog/wp-content/uploads/2026/11/fb_image_6aeca66078e0e.png",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7636
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-05T18:08:39+00:00",
-      "source": "Thurrott.com",
-      "title": "Windows Weekly 1008: The Thurrottification of Tech",
-      "summary": "Mikah, Richard, and Paul discuss Microsoft earnings, Windows 11, RTX Spark, more earnings, AI and dev, XBOX and gaming, and more.\nThe post Windows Weekly 1008: The Thurrottification of Tech appeared first on Thurrott.com.",
-      "url": "https://www.thurrott.com/podcasts/windows-weekly/343570/windows-weekly-1008-the-thurrottification-of-tech",
-      "image_url": "https://thurrott-assets.nyc3.digitaloceanspaces.com/web/wp-content/uploads/sites/2/2026/11/WW1008.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9466
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-05T18:05:00+00:00",
-      "source": "Microsoft.com",
-      "title": "Modernize your .NET apps for Windows Arm64 with GitHub Copilot",
-      "summary": "Modernize your .NET apps for Windows Arm64 with the GitHub Copilot upgrade agent, from identifying migration blockers to planning and making code changes.\nThe post Modernize your .NET apps for Windows Arm64 with GitHub Copilot appeared first on .NET Blog.",
-      "url": "https://devblogs.microsoft.com/dotnet/modernize-dotnet-apps-for-windows-arm64/",
-      "image_url": "https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2026/11/modernize-net-apps-for-windows-arm64.webp",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9147
       },
       "sentiment_model": "ProsusAI/finbert"
     }
