@@ -1,24 +1,129 @@
 {
-  "as_of": "2026-11-20T09:01:55.007062+00:00",
+  "as_of": "2026-11-20T20:14:49.105699+00:00",
   "window_days": 15,
   "articles": [
     {
-      "id": "903db83ce2812882aff91806118843d3443588fb4efbaaea81bc2e47db3eff63",
-      "published_at": "2026-11-20T06:10:02Z",
+      "id": "15be6ee767e40947a144d59a03baceb0502b7aeaedd77bcb9330816bc7b73072",
+      "published_at": "2026-11-20T19:58:32Z",
       "source": "The Motley Fool",
-      "title": "This Unstoppable ETF Is Up by Double Digits in 2026. Here's Where I Think It's Headed in 2027.",
-      "summary": "The iShares Semiconductor ETF (SOXX) has gained 37% year-to-date but dropped 30% since early October due to overvaluation concerns, AI infrastructure spending worries, and the Nvidia CEO resignation. Despite the correction, the author believes the ETF is positioned for a strong 2027, citing a valuation reset, sustained AI chip demand with backlog orders, and a supply-demand supercycle that should support pricing power for chipmakers.",
-      "url": "https://www.fool.com/investing/2026/11/20/this-unstoppable-etf-is-up-double-digits-in-2026-here-s-where-i-think-it-s-headed-in-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F42b3293e5dbbd0bd2f50afbeec4738a002bd7f0b-1280x720.png&w=1200&op=resize",
+      "title": "Intuit: 3 Key Takeaways for Long-Term Investors",
+      "summary": "Intuit reported Q1 FY2027 revenue growth of 12% to $4.4 billion, driven by AI platform integrations that boost adoption of payroll and payment tools. The company is expanding its QuickBooks enterprise suite for mid-market clients with 41% growth in QBO Advanced revenue. Intuit plans to divest Mailchimp to Bending Spoons and use proceeds for share repurchases while integrating marketing capabilities directly into QuickBooks.",
+      "url": "https://www.fool.com/earnings/takeaways/2026/11/20/intuit-3-key-takeaways-for-long-term-investors/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F818b8645c55663feb2d47d694fc72f9142ecc2c8-1280x720.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "all_tickers": [
+        "BSP",
+        "INTU",
+        "MSFT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8227
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "98eb5368c8ae22831ede7d9f6d4a3467482d06f8034b4aa09b99b28dc97b6ea7",
+      "published_at": "2026-11-20T19:57:02Z",
+      "source": "The Motley Fool",
+      "title": "The Nasdaq Just Had Its 6th Correction in 4 Years. History Says This Is the Likelihood of a Full-Blown Bear Market",
+      "summary": "The Nasdaq Composite has entered its sixth correction in four years, declining nearly 17% from its October peak due to disappointing tech earnings, regulatory concerns, and potential Fed rate hikes. Historical data shows corrections turn into bear markets about 37% of the time since 1971, though most corrections typically rebound. Despite current volatility, the Nasdaq has delivered strong long-term returns of 467% since 2000.",
+      "url": "https://www.fool.com/investing/2026/11/20/the-nasdaq-just-had-its-6th-correction-in-4-years-history-says-this-is-the-likelihood-of-a-full-blown-bear-market/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F4b94d60af61ec105db116c55530575df69073d91-2120x1414.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "INTC",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9724
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "38806ac940169d73c6c4251946cd4d3abe29bb997b7590a5ce800e87f1f53d66",
+      "published_at": "2026-11-20T19:55:22Z",
+      "source": "The Motley Fool",
+      "title": "GTA VI Boasts a Record-Breaking Launch With $3.79 Billion In Day One Sales. Is It Time to Buy Take-Two Stock?",
+      "summary": "Grand Theft Auto VI achieved a record-breaking $3.79 billion in first-day retail sales, the largest entertainment launch in history. Take-Two Interactive's stock rose 3% on the news, though analysts caution that the headline figure doesn't reflect actual revenue and the real test will be long-term player retention and profitability. The company expects an historic fiscal year, but valuation concerns and dependence on a few franchises remain risks.",
+      "url": "https://www.fool.com/investing/2026/11/20/gta-vi-boasts-a-record-breaking-launch-with-usd3-79-billion-in-day-one-sales-is-it-time-to-buy-take-two-stock/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fc84a9ed52fce08da610d6ab7bd25b43219c9c399-8192x5464.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "all_tickers": [
+        "MSFT",
+        "TTWO"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9374
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a1106f0fd2a497508864189b843d3382fb472cbfa1b8ac5077299f8554f9ca15",
+      "published_at": "2026-11-20T19:30:02Z",
+      "source": "The Motley Fool",
+      "title": "Cerebras Stock Looks Like a Buy as Customer Base Expands",
+      "summary": "Cerebras Systems stock climbed 11% after reporting 55% revenue growth to $210.8 million and announcing a major deal with Microsoft. The company, which makes AI inference chips, continues expanding its customer base to include OpenAI, Amazon, and Oracle. Despite being down 40% from its IPO price, the analyst views it as a buy given its potential in the growing inference market, though noting some capacity constraints with OpenAI.",
+      "url": "https://www.fool.com/investing/2026/11/20/cerebras-stock-looks-like-a-buy-as-customer-base-expands/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Ff93ec9440c0b06d27ff79eb93f69c4c45d6c5ecd-1290x860.png&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "MSFT"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "CBRS",
+        "MSFT",
+        "ORCL",
+        "ORCLpD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7227
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "5e49ac9c12dccb7dd92fb18a54d061158d54a0cb05041cdb0bde642ec12b078a",
+      "published_at": "2026-11-20T18:50:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Kaplan Fox Notifies NVIDIA Corporation (NASDAQ: NVDA) Investors of a Securities Class Action Deadline on January 8, 2027",
+      "summary": "Kaplan Fox has filed a class action lawsuit against NVIDIA on behalf of investors who purchased securities between December 19, 2024 and November 12, 2026. The complaint alleges that NVIDIA made materially false and misleading statements regarding its relationship with Megaspeed International, concealing that CEO Jensen Huang had an affair with a Megaspeed executive identified as a Chinese intelligence asset suspected of helping China evade export controls on Nvidia chips. Following the revelation in November 2026, NVIDIA stock declined significantly and Jensen Huang resigned as President, CEO, and board member. The lead plaintiff deadline is January 8, 2027.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407773/1020/en/kaplan-fox-notifies-nvidia-corporation-nasdaq-nvda-investors-of-a-securities-class-action-deadline-on-january-8-2027.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/711aa439-0e7d-4b53-8daa-452f70fe946a",
       "raw_tickers": [
         "NVDA"
       ],
       "all_tickers": [
-        "AMD",
-        "AVGO",
-        "MU",
-        "NVDA",
-        "SOXX"
+        "NVDA"
       ],
       "is_spam": false,
       "tickers": [
@@ -26,127 +131,630 @@
       ],
       "sentiment": {
         "label": "negative",
-        "score": 0.7033
+        "score": 0.9625
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "36b782f98479c8336e37204ab83a52d7e28322712eeeba0859c7db834d2feecf",
-      "published_at": "2026-11-20T04:07:02Z",
-      "source": "The Motley Fool",
-      "title": "Nvidia Just Raised Its Supply Commitments to $390 Billion, Mostly for Memory. Micron Is the Memory Stock I'd Buy.",
-      "summary": "Nvidia increased its supply commitments to $390 billion, with the majority allocated to multi-year memory procurement. The analyst argues that Micron Technology, despite trading 42% below its peak, is undervalued given its growing HBM business, custom chip development with Nvidia, and $32 billion in customer commitments under take-or-pay agreements that provide downside protection against memory price cycles.",
-      "url": "https://www.fool.com/investing/2026/11/19/nvidia-just-raised-its-supply-commitments-to-usd390-billion-mostly-for-memory-micron-is-the-memory-stock-i-d-buy/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F9408c0158935ae10fd6c4355809419b4dbb1e499-2000x1200.jpg&w=1200&op=resize",
+      "id": "330531649b30817f0d3d2b01c15243b32dc6df1236077d7ad981394389dc67ae",
+      "published_at": "2026-11-20T18:40:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Georgia’s Top Technology Executives Honored at the 2026 GeorgiaCIO ORBIE Awards",
+      "summary": "The 2026 GeorgiaCIO ORBIE Awards recognized seven leading CIOs for exceptional leadership and business transformation. Winners included executives from Phase IV Ventures, IBM, JAS Worldwide, The Home Depot, Rollins, Deluxe Corporation, and Lazer Logistics. The prestigious awards, hosted on November 19, 2026, honored technology leaders across seven categories based on peer-adjudicated criteria including leadership effectiveness, business value creation, and community engagement.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407768/0/en/georgia-s-top-technology-executives-honored-at-the-2026-georgiacio-orbie-awards.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/fc4afebd-fb7f-437f-b78c-d0dd0e4551d6",
       "raw_tickers": [
+        "HD"
+      ],
+      "all_tickers": [
+        "DLX",
+        "HD",
+        "IBM",
+        "ROL"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6187
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "08f9bc43f09c9421e0207a6d4d096768f3905f0f618300030a0d603a2593a6c5",
+      "published_at": "2026-11-20T18:30:02Z",
+      "source": "The Motley Fool",
+      "title": "AST SpaceMobile vs. Redwire: Which Space Infrastructure Stock Is a Better Buy for 2027?",
+      "summary": "The article compares two space infrastructure stocks: AST SpaceMobile, which is building a satellite-based cellular broadband network with 671% revenue growth but significant losses and liquidity concerns, versus Redwire, a diversified aerospace supplier with 46% revenue growth, stronger balance sheet metrics, and a major $1.8B government contract. The author recommends Redwire for 2027 based on its more reasonable valuation and established revenue streams, despite both companies facing profitability challenges.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/20/ast-spacemobile-vs-redwire-which-space-infrastructure-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fd03c7cb427e716e7464f66f2d61d88cb0e56e3fd-1280x848.png&w=1200&op=resize",
+      "raw_tickers": [
+        "BA",
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "AMT",
+        "ASTS",
+        "BA",
+        "BApA",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "IRDM",
+        "LLY",
+        "RDW",
+        "RKLB",
+        "T",
+        "TBB",
+        "TpA",
+        "TpC",
+        "VZ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BA",
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7934
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "f9e2e521d9020f17aaaa155775ba2819e00c464ed1fb45acde7b9e64f1f9bb89",
+      "published_at": "2026-11-20T18:19:02Z",
+      "source": "The Motley Fool",
+      "title": "Dan Ives Just Delivered Great News for AI Stocks. Here’s the Part That Matters.",
+      "summary": "Despite a brutal sell-off in AI stocks this month, analyst Dan Ives argues the downturn is driven by a 'perfect storm' of political uncertainty, leadership turmoil, and market mechanics rather than weakening AI demand. Key data from Nvidia, Google Cloud, and Anthropic's IPO filing show customers continue signing major computing contracts, suggesting the $4 trillion AI infrastructure build-out remains on track.",
+      "url": "https://www.fool.com/investing/2026/11/20/dan-ives-just-delivered-great-news-for-ai-stocks-here-s-the-part-that-matters/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fce4251ff0761d61f9a6daa52d57bdea0045c54c5-1290x860.png&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "GOOGL",
         "NVDA"
       ],
       "all_tickers": [
+        "AMZN",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
         "MU",
         "NVDA"
       ],
       "is_spam": false,
       "tickers": [
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9548
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "bb86e3bdb0b1e462eae3d47bcb81903cd91e3d9d4ec57c12a3b050372d1cf104",
-      "published_at": "2026-11-20T03:50:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "Pixalate Launches OpenEPG DB™ on Amazon Web Services (AWS) RTB Fabric; Industry’s First Show-, Genre-, and Content Rating-Level Enrichment Module for Programmatic CTV, Including Live Sports",
-      "summary": "Pixalate announced OpenEPG DB™ 1.0, an industry-first pre-bid enrichment module on AWS RTB Fabric that adds show, genre, and content rating data to CTV bid requests. The module covers 770,000+ U.S. streaming TV shows across 17,900+ FAST and linear channels with single-digit latency, enabling DSPs, SSPs, and exchanges to target and verify CTV inventory by show without publisher opt-in or engineering overhead.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407232/0/en/pixalate-launches-openepg-db-on-amazon-web-services-aws-rtb-fabric-industry-s-first-show-genre-and-content-rating-level-enrichment-module-for-programmatic-ctv-including-live-sports.html",
-      "image_url": "https://ml.globenewswire.com/Resource/Download/0124c010-09d5-402d-839d-4ca1ac736a66",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "all_tickers": [
-        "AMZN"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8052
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "724cf4fb6947741b81d504cc5051394bc3509d234bef9313c244783cda791532",
-      "published_at": "2026-11-20T03:40:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "Pixalate Launches 4D Invalid Traffic (IVT) Blocking on Amazon Web Services (AWS) RTB Fabric; Industry’s First Infrastructure-, Seller-, Publisher-, & Device-Level Pre-Bid Blocking Modules for Programmatic CTV & Mobile Apps",
-      "summary": "Pixalate announced pre-bid CTV and mobile app Invalid Traffic (IVT) blocking modules on Amazon Web Services' RTB Fabric, enabling DSPs, SSPs, and exchanges to filter fraudulent bid requests before they reach bidder fleets. The solution offers infrastructure-, seller-, publisher-, and device-level fraud detection across multiple CTV platforms and app stores, with benefits including no engineering required, lower infrastructure costs, and granular blocking controls.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407230/0/en/pixalate-launches-4d-invalid-traffic-ivt-blocking-on-amazon-web-services-aws-rtb-fabric-industry-s-first-infrastructure-seller-publisher-device-level-pre-bid-blocking-modules-for-p.html",
-      "image_url": "https://ml.globenewswire.com/Resource/Download/0124c010-09d5-402d-839d-4ca1ac736a66",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "all_tickers": [
-        "AMZN"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6498
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "e7dd43c6c0e97953c64aa76ee87eec14523f2869cd89cc8adbb093142087fba1",
-      "published_at": "2026-11-20T01:28:02Z",
-      "source": "The Motley Fool",
-      "title": "History Says This Brilliant ETF Could Help You Turn $500 Per Month Into $784,100 While Barely Lifting a Finger.",
-      "summary": "The Vanguard Morningstar Growth ETF (VUG) is highlighted as a potential wealth-building tool, with historical data showing that $500 monthly investments could grow to over $784,100 in 25 years based on its 11.9% average annual returns since 2004. The ETF offers a balance of growth and stability through large-cap holdings, though it carries significant tech concentration at 72.1%.",
-      "url": "https://www.fool.com/investing/2026/11/19/history-says-this-brilliant-etf-could-help-you-turn-usd500-per-month-into-usd784-100-while-barely-lifting-a-finger/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F879b82f7b8628f938ff020840832c8deefb5288c-2309x1299.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AAPL",
         "AMZN",
         "GOOGL",
-        "MSFT",
         "NVDA"
       ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7468
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "0c772d9c94be9059be6917d3ca4787fe6fc095650049c5cc11fef715eb3dccf9",
+      "published_at": "2026-11-20T17:58:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "SRX Global Provides Update on Engineered T-Cell Strategy Following Pfizer–Starna Licensing Agreement",
+      "summary": "SRX Global commented on industry activity in engineered T-cell therapies following Pfizer's $330 million upfront deal with Starna Therapeutics for pre-IND CAR-T programs. SRX is proceeding with its pending acquisition of CERo Therapeutics, which is advancing CER-1236, a clinical-stage engineered T-cell therapy currently in Phase 1/1b CERTAIN-T trials with seven patients dosed and no dose-limiting toxicities reported.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407743/0/en/srx-global-provides-update-on-engineered-t-cell-strategy-following-pfizer-starna-licensing-agreement.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/3064f700-4805-4824-8bb3-1a323dd7ee4d",
+      "raw_tickers": [
+        "PFE"
+      ],
       "all_tickers": [
-        "AAPL",
-        "AMZN",
-        "AVGO",
-        "COST",
+        "CERO",
+        "PFE",
+        "SRXH"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5241
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "9c38e39035b0bce21ec63b7f7044a90e559f2f8baf33e1e19985f491ec9bd263",
+      "published_at": "2026-11-20T17:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Business Phone Systems: Is it possible to get crystal-clear VoIP, unified messaging, and enterprise-grade reliability, all in one platform?",
+      "summary": "An analysis by SoundLine reveals that most business phone system providers fail to properly address the needs of founders running multiple businesses from a single device. The key issue is that while many platforms offer multiple numbers on one account, they don't separate critical elements like greetings, routing rules, voicemail, business hours, and caller identity per business. This results in calls being answered with the wrong company name and fragmented communication management. The analysis argues this is a product design issue inherited from enterprise telephony models, not a cost problem.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407721/0/en/business-phone-systems-is-it-possible-to-get-crystal-clear-voip-unified-messaging-and-enterprise-grade-reliability-all-in-one-platform.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/b20ba1d9-df63-4ff6-9c21-44721411531b",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
         "GOOG",
         "GOOGL",
         "GOOGM",
-        "GOOGN",
-        "LLY",
-        "META",
-        "METAM",
-        "MSFT",
-        "NVDA",
-        "TSLA",
-        "V",
-        "VUG"
+        "GOOGN"
       ],
       "is_spam": false,
       "tickers": [
-        "AAPL",
-        "AMZN",
-        "GOOGL",
-        "MSFT",
-        "NVDA"
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.717
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "6bb88fdc621f7e3e7b54a97659c13c3d4bbf82ebeb7244e0f7880e14fbd58eeb",
+      "published_at": "2026-11-20T16:30:02Z",
+      "source": "The Motley Fool",
+      "title": "Lockheed Martin vs. SpaceX: Which Aerospace Stock Is a Better Buy for 2027?",
+      "summary": "The article compares Lockheed Martin and SpaceX as aerospace investment options for 2027. Lockheed Martin offers stable, predictable revenue from U.S. defense contracts with consistent profitability, while SpaceX demonstrates rapid growth in revenue and the Starlink satellite internet business but currently operates at a loss with negative free cash flow. The author recommends Lockheed Martin for long-term investors seeking stability and reasonable valuation, despite SpaceX's growth potential and market buzz.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/20/lockheed-martin-vs-spacex-which-aerospace-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fd0e328facbb1e2448daa5b3de38845c653cd8df7-1280x720.png&w=1200&op=resize",
+      "raw_tickers": [
+        "BA"
+      ],
+      "all_tickers": [
+        "BA",
+        "BApA",
+        "LMT",
+        "NOC",
+        "RTX",
+        "SPCX",
+        "TSLA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BA"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.3663
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ca1608a20ae63fd94ef2b83a188b4487d56d33cc00cbe1a5afa41ac6f771f251",
+      "published_at": "2026-11-20T15:30:02Z",
+      "source": "The Motley Fool",
+      "title": "Costco Just Made a New All-Time High After Announcing a $30-Per-Share Special Dividend. Is the Stock a Buy Before Dec. 10?",
+      "summary": "Costco announced an unprecedented $30-per-share special dividend ($13 billion total), bringing the stock to an all-time high. However, the article argues the stock is not a buy for new investors before its Dec. 10 earnings announcement, citing a high P/E ratio of 54x that appears disconnected from fundamentals. While existing shareholders should hold, other retail stocks like Target, Walmart, and Home Depot offer better value with lower P/E ratios and higher dividend yields.",
+      "url": "https://www.fool.com/investing/2026/11/20/costco-just-made-a-new-all-time-high-after-announcing-a-30-per-share-special-dividend-is-the-stock-a-buy-before-dec-10/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb662a3c1318b060d5b72dbaa1cf066c91caef859-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "HD",
+        "WMT"
+      ],
+      "all_tickers": [
+        "COST",
+        "HD",
+        "TGT",
+        "TJX",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD",
+        "WMT"
       ],
       "sentiment": {
         "label": "positive",
-        "score": 0.8261
+        "score": 0.4323
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1a8c5cb94e4003d5b4e9274038bb464511356335806ae6bb9b345cd642dea4b4",
+      "published_at": "2026-11-20T14:39:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Lilly vs. Pfizer: Which Drugmaker Has Stronger Growth Prospects?",
+      "summary": "Eli Lilly and Pfizer are compared as investment options in the pharmaceutical sector. Lilly dominates the GLP-1 market with blockbuster drugs Mounjaro and Zepbound generating $43.8 billion in nine-month 2026 sales, supported by new oral formulations and a diversified pipeline. Pfizer faces patent cliffs and declining COVID revenues but is rebuilding through oncology expansion and obesity pipeline development. Analysts favor Lilly as the stronger growth story despite higher valuation, while Pfizer offers better dividend yield but faces near-term headwinds.",
+      "url": "https://www.zacks.com/stock/news/3033233/lilly-vs-pfizer-which-drugmaker-has-stronger-growth-prospects?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3033233",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/f5/284.jpg",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "LLY",
+        "NVO",
+        "PFE"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8162
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "9696c78723a960957ef6450dd583f11544485407a2372e047d33726a4c446d73",
+      "published_at": "2026-11-20T14:32:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can Bank of America Sustain Its Robust Capital Returns in 2027?",
+      "summary": "Bank of America returned $8.3 billion to shareholders in Q3 2026 through dividends and share repurchases, supported by a 10.9% CET1 ratio and $914B in liquidity sources. The bank raised its quarterly dividend 14.3% to 32 cents per share following the Federal Reserve stress test. However, regulatory capital requirements, rising operating expenses, and potential credit deterioration could constrain future buybacks. BAC trades at a lower valuation than peers but has underperformed the industry over the past six months.",
+      "url": "https://www.zacks.com/stock/news/3033221/can-bank-of-america-sustain-its-robust-capital-returns-in-2027?cid=CS-ZC-FT-analyst_blog|quick_take-3033221",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/0b/57.jpg",
+      "raw_tickers": [
+        "BAC",
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "MERpK",
+        "VYLD",
+        "WFC",
+        "WFCpA",
+        "WFCpC",
+        "WFCpD",
+        "WFCpL",
+        "WFCpY",
+        "WFCpZ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC",
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7509
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "9c3497e97f8b335e10615f87da0c6cab2f59b732a253d0bfbd210e52f5ca2f03",
+      "published_at": "2026-11-20T14:16:00Z",
+      "source": "Zacks Investment Research",
+      "title": "NextEra Energy's YTD Rally Beats the Industry: Is the Stock a Buy?",
+      "summary": "NextEra Energy (NEE) has gained 4.4% year-to-date, outperforming its utility industry peers, driven by strong operational execution and $94.5B in planned investments through 2030. The company boasts a superior 12.27% ROE and plans to add 76.6-107.6 GW of renewable capacity by 2032. However, NEE trades at a premium 19.4X forward P/E compared to the industry average of 16.37X, prompting analysts to recommend waiting for a better entry point despite its solid fundamentals.",
+      "url": "https://www.zacks.com/stock/news/3033192/nextera-energy-s-ytd-rally-beats-the-industry-is-the-stock-a-buy?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3033192",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/6f/861.jpg",
+      "raw_tickers": [
+        "NEE"
+      ],
+      "all_tickers": [
+        "D",
+        "NEE",
+        "NEEpN",
+        "NEEpS",
+        "NEEpT",
+        "NEEpU",
+        "NEEpV",
+        "NEEpW",
+        "SO",
+        "SOJC",
+        "SOJD",
+        "SOJE",
+        "SOJF",
+        "SOMN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NEE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9542
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "c9f49a8c86824c938e4d2d092d5465ef24c02546ca7879d4a05c4ecc478a7346",
+      "published_at": "2026-11-20T14:12:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Oil Price is Still High: Boon for Chord Energy's Upstream Business?",
+      "summary": "Chord Energy (CHRD) raised its 2026 oil production guidance twice to 162,500 barrels per day, driven by improved well performance and drilling efficiency in the Bakken region. With WTI crude trading above $80 per barrel, CHRD and other major oil producers like Chevron and ConocoPhillips are well-positioned to benefit from elevated commodity prices. CHRD trades at a significant valuation discount (2.48X EV/EBITDA vs. industry average of 9.88X) and has gained 50.4% over the past year.",
+      "url": "https://www.zacks.com/stock/news/3033187/oil-price-is-still-high-boon-for-chord-energy-s-upstream-business?cid=CS-ZC-FT-analyst_blog|quick_take-3033187",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/40/930.jpg",
+      "raw_tickers": [
+        "CVX"
+      ],
+      "all_tickers": [
+        "CHRD",
+        "COP",
+        "CVX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CVX"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9559
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "26d0029f7f9f49fe0c1662ba7a5ab06d30b3a775f01dc8ec16305000e7877846",
+      "published_at": "2026-11-20T14:12:00Z",
+      "source": "Zacks Investment Research",
+      "title": "JPMorgan Faces Data Leak After Banking Outage: Risks Mount?",
+      "summary": "JPMorgan disclosed a third-party vendor cyberattack exposing customer contact information, occurring days after a November 16 banking service outage caused by a software bug. While payment data remained secure, the incidents highlight technology resilience and third-party risk management challenges. JPM plans 10% increase in 2026 technology spending to $19.8 billion, with additional cybersecurity costs potentially pressuring operating efficiency.",
+      "url": "https://www.zacks.com/stock/news/3033185/jpmorgan-faces-data-leak-after-banking-outage-risks-mount?cid=CS-ZC-FT-analyst_blog|quick_take-3033185",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/24/1352.jpg",
+      "raw_tickers": [
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "MA",
+        "V",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9515
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "962e027a67b88f4c0ed3b91136b297bce6c1218ac2da99d31cf157ca15a4e970",
+      "published_at": "2026-11-20T14:10:00Z",
+      "source": "Zacks Investment Research",
+      "title": "HALO Faces Legal Setback in Germany Over MRK's Keytruda SC, Stock Down",
+      "summary": "Halozyme Therapeutics' stock fell 2.9% after a German Higher Regional Court overturned a preliminary injunction against Merck's Keytruda subcutaneous formulation. HALO plans to file a new patent infringement lawsuit seeking permanent relief. The ruling is separate from a favorable October 2026 Dutch court decision and does not affect HALO's ENHANZE licensing program with partners like J&J and argenx.",
+      "url": "https://www.zacks.com/stock/news/3033181/halo-faces-legal-setback-in-germany-over-mrk-s-keytruda-sc-stock-down?cid=CS-ZC-FT-analyst_blog|company_news_medical_sector-3033181",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/07/604.jpg",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "ARGX",
+        "HALO",
+        "JNJ",
+        "MRK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.97
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "7aa0767e32a2704d7697a46bd949323bf29546ee578dcb5e335838f8bb62c037",
+      "published_at": "2026-11-20T14:00:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can PBR's 280,000-BPD Capacity Expansion Drive Cash Flow Growth?",
+      "summary": "Petrobras (PBR) has secured approval to operate 11 offshore platforms above their original design capacity, adding 280,000 barrels per day of production potential. The company has already achieved 90,000 BPD of incremental output through October 2026 and plans to upgrade 6 additional platforms targeting 260,000 BPD more, potentially adding over 500,000 BPD total. This capital-efficient approach allows production growth without major new infrastructure spending.",
+      "url": "https://www.zacks.com/stock/news/3033170/can-pbr-s-280-000-bpd-capacity-expansion-drive-cash-flow-growth?cid=CS-ZC-FT-analyst_blog|quick_take-3033170",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/fa/675.jpg",
+      "raw_tickers": [
+        "CVX"
+      ],
+      "all_tickers": [
+        "CVX",
+        "PBR",
+        "PBR.A"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CVX"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9337
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ff992da17cb2a01ac2f976b26ba159a1cf4ba479c8a9ffe9117bb4db12bd6ee3",
+      "published_at": "2026-11-20T14:00:00Z",
+      "source": "Zacks Investment Research",
+      "title": "WMT Q3 Earnings Call Takeaways as Sales and Profit Outlooks Rise",
+      "summary": "Walmart raised its fiscal 2027 sales and profit guidance following strong Q3 results, with global e-commerce sales surging 17% and revenues climbing 5.2% to $188.84 billion. The company's U.S. e-commerce business is nearing breakeven excluding ad revenue, supported by supply chain improvements and lower unit costs. Walmart also expects its new $120 membership bundle combining Walmart+ and Sam's Club Plus to boost profits, while expanding delivery capacity through fulfillment centers and studying AI shopping integration.",
+      "url": "https://www.zacks.com/stock/news/3033163/wmt-q3-earnings-call-takeaways-as-sales-and-profit-outlooks-rise?cid=CS-ZC-FT-analyst_blog_plus|earnings_call_takeaways-3033163",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/2c/122.jpg",
+      "raw_tickers": [
+        "WMT"
+      ],
+      "all_tickers": [
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9559
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "eb0282a43f4b7fc9978a009296f6511db76bef03acfb629d92315186014c6364",
+      "published_at": "2026-11-20T14:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Canadian Red Cross and Walmart Canada’s annual campaign raises more than $3.9 million for disaster relief and preparedness",
+      "summary": "Walmart Canada and the Canadian Red Cross announced their annual giving campaign raised over $3.9 million for disaster relief and preparedness efforts. This includes a $1 million kick-off donation from Walmart Canada. The 23-year partnership has collectively raised more than $80 million to support the Red Cross's emergency response and community support initiatives across Canada.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407437/0/en/canadian-red-cross-and-walmart-canada-s-annual-campaign-raises-more-than-3-9-million-for-disaster-relief-and-preparedness.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/5a7fad5f-6676-4c1d-afbd-5cf5f86ea73d",
+      "raw_tickers": [
+        "WMT"
+      ],
+      "all_tickers": [
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8245
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ff5acce83b153e2230484cc1d014a466ed22f4ec4b422cac66d148965007c401",
+      "published_at": "2026-11-20T13:42:00Z",
+      "source": "Zacks Investment Research",
+      "title": "The Zacks Analyst Blog Highlights Cisco, UnitedHealth and Salesforce",
+      "summary": "Despite recent market volatility with the Dow down 8.3% from its all-time high, Zacks analysts identified three blue-chip stocks with Zacks Rank #2 (Buy) ratings and solid upside potential: Cisco Systems, UnitedHealth Group, and Salesforce. All three companies have provided strong guidance, positive earnings revisions, and significant price upside targets ranging from 34% to 51%.",
+      "url": "https://www.zacks.com/stock/news/3033070/the-zacks-analyst-blog-highlights-cisco-unitedhealth-and-salesforce?cid=CS-ZC-FT-press_releases-3033070",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/bf/112.jpg",
+      "raw_tickers": [
+        "UNH"
+      ],
+      "all_tickers": [
+        "CRM",
+        "CSCO",
+        "UNH"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "UNH"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.6529
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "b1a7e3132eef2f26ae8da29d6580f78704a93ba0f5ee6266b58106b5121118d0",
+      "published_at": "2026-11-20T13:00:04Z",
+      "source": "Zacks Investment Research",
+      "title": "Investors Heavily Search Pfizer Inc. (PFE): Here is What You Need to Know",
+      "summary": "Pfizer has been heavily searched by investors recently. The stock has underperformed the S&P 500 over the past month, declining 9.5% compared to the broader market's 6.6% decline. While the company has a strong track record of beating earnings and revenue estimates, earnings estimates have been revised downward slightly. Pfizer holds a Zacks Rank #3 (Hold) rating, suggesting it may perform in line with the broader market in the near term. The stock is trading at a discount to its peers based on valuation metrics.",
+      "url": "https://www.zacks.com/stock/news/3032905/investors-heavily-search-pfizer-inc-pfe-here-is-what-you-need-to-know?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3032905",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default129.jpg",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "PFE"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9487
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1ec7421c605c6e3fe74e7dbdcef6886d631552db864df5fa54e9544f7a773440",
+      "published_at": "2026-11-20T13:00:04Z",
+      "source": "Zacks Investment Research",
+      "title": "Investors Heavily Search Procter & Gamble Company (The) (PG): Here is What You Need to Know",
+      "summary": "Procter & Gamble has been heavily searched by investors recently, outperforming the S&P 500 by 8% over the past month. The company is rated Zacks Rank #3 (Hold) with mixed earnings outlook: current quarter EPS expected to decline 3.7% year-over-year, but next fiscal year projected to grow 6.1%. P&G trades at a premium valuation (Grade D) compared to peers, though it has consistently beaten earnings estimates in recent quarters.",
+      "url": "https://www.zacks.com/stock/news/3032911/investors-heavily-search-procter-gamble-company-the-pg-here-is-what-you-need-to-know?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks_v1-3032911",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default354.jpg",
+      "raw_tickers": [
+        "PG"
+      ],
+      "all_tickers": [
+        "PG"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PG"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9274
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "01bb3590bb6000ebc3a9950f3b1d92ad42777fd7cb2d8c4e3cdd4dc44a94eb4e",
+      "published_at": "2026-11-20T13:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Late-breaking Johnson & Johnson data in psoriatic arthritis (PsA) shows TREMFYA® (guselkumab) is the only advanced therapy to demonstrate MRI-confirmed improvements in spinal pain and stiffness",
+      "summary": "Johnson & Johnson announced Week-24 results from the Phase 4 STAR study showing TREMFYA (guselkumab) met primary and secondary endpoints in treating psoriatic arthritis with axial involvement. The IL-23 inhibitor demonstrated statistically significant improvements in disease activity (BASDAI scores) and more than 2 times greater reduction in MRI-assessed sacroiliac joint inflammation compared to placebo, with a consistent safety profile.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407375/0/en/late-breaking-johnson-johnson-data-in-psoriatic-arthritis-psa-shows-tremfya-guselkumab-is-the-only-advanced-therapy-to-demonstrate-mri-confirmed-improvements-in-spinal-pain-and-sti.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/85723da3-163a-4a4d-bb36-0e46ec3998e6",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "JNJ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9518
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1a65392928e694c41069c137580ae8f9af523ea3ac2bc6b2cc2a9c35a41bbd9d",
+      "published_at": "2026-11-20T10:00:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Bull of the Day: Humana (HUM)",
+      "summary": "Humana has rebounded dramatically in 2026, gaining 48% year-to-date after fixing its Medicare Advantage Star Ratings issues. The company reported Q3 earnings beats, raised its 2026 guidance floor to $9.50 per share, and expects 2027 Medicare Advantage membership growth. With a Zacks Rank #1 rating and 2027 consensus estimates at $17.26 per share (81% growth), analysts are raising estimates while the stock maintains a strong uptrend.",
+      "url": "https://www.zacks.com/commentary/3032805/bull-of-the-day-humana-hum?cid=CS-ZC-FT-bull_of_the_day-3032805",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default36.jpg",
+      "raw_tickers": [
+        "UNH"
+      ],
+      "all_tickers": [
+        "CNC",
+        "CVS",
+        "ELV",
+        "HUM",
+        "UNH"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "UNH"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9538
       },
       "sentiment_model": "ProsusAI/finbert"
     },
