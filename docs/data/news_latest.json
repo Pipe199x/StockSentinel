@@ -1,75 +1,415 @@
 {
-  "as_of": "2026-11-20T20:14:49.105699+00:00",
+  "as_of": "2026-11-21T08:42:29.199058+00:00",
   "window_days": 15,
   "articles": [
     {
-      "id": "15be6ee767e40947a144d59a03baceb0502b7aeaedd77bcb9330816bc7b73072",
-      "published_at": "2026-11-20T19:58:32Z",
+      "id": "806e2efc5804ad8ee3e1bf9a228b3e62e6fc163025093d928015146abe0127b5",
+      "published_at": "2026-11-21T07:50:02Z",
       "source": "The Motley Fool",
-      "title": "Intuit: 3 Key Takeaways for Long-Term Investors",
-      "summary": "Intuit reported Q1 FY2027 revenue growth of 12% to $4.4 billion, driven by AI platform integrations that boost adoption of payroll and payment tools. The company is expanding its QuickBooks enterprise suite for mid-market clients with 41% growth in QBO Advanced revenue. Intuit plans to divest Mailchimp to Bending Spoons and use proceeds for share repurchases while integrating marketing capabilities directly into QuickBooks.",
-      "url": "https://www.fool.com/earnings/takeaways/2026/11/20/intuit-3-key-takeaways-for-long-term-investors/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F818b8645c55663feb2d47d694fc72f9142ecc2c8-1280x720.jpg&w=1200&op=resize",
+      "title": "Prediction: Here’s Where Alphabet Stock Will Be in 5 Years",
+      "summary": "Alphabet stock has declined 30% due to concerns over massive AI data center spending and negative free cash flow. However, the company's strong financial position and accelerating Google Cloud revenue growth suggest a potential turnaround. Analysts expect free cash flow to turn positive by 2029 and reach $305 billion by 2031, potentially valuing the stock at $9 trillion by 2031 if it recovers historical valuation multiples.",
+      "url": "https://www.fool.com/investing/2026/11/21/prediction-heres-where-alphabet-stock-will-be-in-5-years/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F4468e2cc1df7a5962cb6895ba18fb6b89e3a95e1-8256x5504.jpg&w=1200&op=resize",
       "raw_tickers": [
-        "MSFT"
+        "GOOGL"
       ],
       "all_tickers": [
-        "BSP",
-        "INTU",
-        "MSFT"
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN"
       ],
       "is_spam": false,
       "tickers": [
-        "MSFT"
+        "GOOGL"
       ],
       "sentiment": {
-        "label": "positive",
-        "score": 0.8227
+        "label": "negative",
+        "score": 0.9562
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "98eb5368c8ae22831ede7d9f6d4a3467482d06f8034b4aa09b99b28dc97b6ea7",
-      "published_at": "2026-11-20T19:57:02Z",
+      "id": "45e1fe942c7aecc6a95758772b269a144b0939da1de0d53abb2d6a0ec1ffd512",
+      "published_at": "2026-11-21T07:31:02Z",
       "source": "The Motley Fool",
-      "title": "The Nasdaq Just Had Its 6th Correction in 4 Years. History Says This Is the Likelihood of a Full-Blown Bear Market",
-      "summary": "The Nasdaq Composite has entered its sixth correction in four years, declining nearly 17% from its October peak due to disappointing tech earnings, regulatory concerns, and potential Fed rate hikes. Historical data shows corrections turn into bear markets about 37% of the time since 1971, though most corrections typically rebound. Despite current volatility, the Nasdaq has delivered strong long-term returns of 467% since 2000.",
-      "url": "https://www.fool.com/investing/2026/11/20/the-nasdaq-just-had-its-6th-correction-in-4-years-history-says-this-is-the-likelihood-of-a-full-blown-bear-market/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F4b94d60af61ec105db116c55530575df69073d91-2120x1414.jpg&w=1200&op=resize",
+      "title": "Here’s My Top AI Stock to Buy With Nvidia in Uncertain Territory",
+      "summary": "With Nvidia facing leadership uncertainty after losing CEO Jensen Huang, analyst Keithen Drury recommends Broadcom as a superior AI investment alternative. Broadcom's custom AI chips, particularly its partnership with Alphabet on Tensor Processing Units (TPUs), are gaining market share from Nvidia's GPUs due to lower costs and better specialization. Broadcom projects AI semiconductor revenue will double to $115 billion in 2027 and reach $230 billion in 2028, while trading at a cheap 17x forward earnings multiple with lower geopolitical risks than Nvidia.",
+      "url": "https://www.fool.com/investing/2026/11/21/here-s-my-top-ai-stock-to-buy-with-nvidia-in-uncertain-territory/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F62fe5ad403ac7cdc09a9fe81c28aa73b8fabe4bc-1290x860.jpg&w=1200&op=resize",
       "raw_tickers": [
-        "AMZN",
+        "GOOGL",
         "NVDA"
       ],
       "all_tickers": [
+        "AVGO",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9409
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "f47916bd6750c912ca7a5ad81cf116b2ca0657bbe51827e6c78ccb45af076897",
+      "published_at": "2026-11-21T07:27:19Z",
+      "source": "The Motley Fool",
+      "title": "Chipotle Mexican Grill vs. e.l.f. Beauty: Which Consumer Stock Is a Better Buy for 2027?",
+      "summary": "The article compares Chipotle Mexican Grill and e.l.f. Beauty as consumer stock investments for 2027. Chipotle operates over 4,000 restaurants with strong profitability (10.8% net margin) and steady expansion plans, while e.l.f. Beauty demonstrates explosive sales growth (39.9% YoY) but lower margins (4.5%). The analyst recommends Chipotle for 2027 due to superior profitability metrics, higher ROE, and clearer growth runway, despite e.l.f. Beauty's impressive sales momentum.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/21/chipotle-mexican-grill-vs-e-l-f-beauty-which-consumer-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fa9aafc9dcf6d869d98af481026ff760c5d38b86a-2121x1414.jpg&w=1200&op=resize",
+      "raw_tickers": [
         "AMZN",
+        "WMT"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "CMG",
+        "ELF",
+        "TGT",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8788
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "b611348f54702ccc7511aa532223e71b9dc1a7c41c9682c04a3d4b99cff8ae46",
+      "published_at": "2026-11-21T03:38:35Z",
+      "source": "The Motley Fool",
+      "title": "The S&P 500 Just Entered Correction Territory. Here's What It Means for Investors Right Now.",
+      "summary": "The S&P 500 entered correction territory after plunging 8.6% in one of its worst weeks, driven by an AI sector collapse and concerns about rising interest rates, unprofitable neocloud investments, and a leadership crisis at Nvidia. While corrections are routine market events occurring every 1.5 years on average, historically the S&P 500 recovers within 9.4 months on average. Investors are advised to view this as a buying opportunity for quality stocks now trading at attractive valuations.",
+      "url": "https://www.fool.com/investing/2026/11/20/the-sp-500-just-entered-correction-territory-heres-what-it-means-for-investors-right-now/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F7ece26a0a149d5f029c45b39d3d0413b52ca569a-5472x3648.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "META",
+        "METAM",
+        "MSFT",
+        "NVDA",
+        "TSLA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7459
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "0ad31dbfbee5647f0f752253cc1e6ad29963dd5d063f534dd29967b45cdc27d1",
+      "published_at": "2026-11-21T01:52:02Z",
+      "source": "The Motley Fool",
+      "title": "Amazon's re:Invent Conference Starts Nov. 30. Here's What the Stock Did in the Month After the Last 10.",
+      "summary": "Amazon's AWS re:Invent conference begins Nov. 30, but historical data shows the stock has not consistently rallied after the event. Over the past 10 years, Amazon stock rose in only 4 of 10 post-conference months and underperformed the S&P 500 in 6 of those windows. However, AWS is accelerating growth with 39% revenue increase in Q3 2026 and 55% operating income growth, suggesting the company's fundamentals remain strong despite conference timing not being a reliable catalyst.",
+      "url": "https://www.fool.com/investing/2026/11/20/amazon-s-re-invent-conference-starts-nov-30-here-s-what-the-stock-did-in-the-month-after-the-last-10/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F160d43dfd7350cd39035020acd24f5be2e3e1199-1290x860.png&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9573
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "454c0e1ed2d8a674955a1a0e4120934ff25462f8a2a73116bbe4dfc3ddba3255",
+      "published_at": "2026-11-21T01:25:33Z",
+      "source": "The Motley Fool",
+      "title": "Here's Why Nvidia Stock Crashed on Friday",
+      "summary": "Nvidia stock plunged 14% on Friday following reports of an SEC investigation into the company's accounting practices and a California Attorney General subpoena related to CEO Jensen Huang's departure. The stock has lost nearly 50% from its October peak and $2.8 trillion in market value since Huang stepped down on November 12, despite the company posting impressive quarterly results with 103% revenue growth.",
+      "url": "https://www.fool.com/investing/2026/11/20/here-is-why-nvidia-stock-crashed-on-friday/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F5ac239bc3c2dc74ca3b0dc1c9b276b8929604388-1500x1125.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.973
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "3c3c815326403444563c4959fba9a1002ef31ec01f19ebec7632d96958540621",
+      "published_at": "2026-11-21T00:44:50Z",
+      "source": "The Motley Fool",
+      "title": "Report: Goldman Sachs Predicts the S&P 500 Will Gain 26% in 12 Months",
+      "summary": "Goldman Sachs strategists predict the S&P 500 will reach 8,700 points by November 2027, representing a 26% gain from current levels. Despite recent market volatility and a 10.4% decline over the prior month, Goldman believes tech stock valuations have become attractive after their sell-off, with the S&P 500 forward P/E ratio trading at a 15% discount to its five-year average. The firm recommends buying low-cost index funds like S&P 500 ETFs to capitalize on expected gains.",
+      "url": "https://www.fool.com/investing/2026/11/20/report-goldman-sachs-predicts-the-s-and-p-500-will-gain-26-in-12-months/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fa3b62a353264e4d99da8c2d7f615604fe27f210e-2560x1707.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GS"
+      ],
+      "all_tickers": [
+        "GS",
+        "GSpA",
+        "GSpC",
+        "GSpD",
+        "VOO"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GS"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.948
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "bb540d9a86e7b207b577eebfbd229762ca266ce5c3ce8ec6b23284efdcb03a80",
+      "published_at": "2026-11-20T23:59:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "This Holiday Season, Save Up to 44% on a Wide Range of ASUS Tech!",
+      "summary": "ASUS announced holiday promotions running through December 2, 2026, offering significant discounts on laptops and desktops across multiple categories. Products range from budget-friendly options like the Vivobook 14 at $499.99 (saving $400) to premium devices like the ROG Zephyrus G16 at $2,779.99 (saving $620). Deals are available at the ASUS Store and Best Buy, targeting value-conscious consumers, professionals, creators, and gamers.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407873/0/en/this-holiday-season-save-up-to-44-on-a-wide-range-of-asus-tech.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/66516e31-9125-471a-9e1a-c79ac29a1e8c",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMD",
+        "BBY",
         "INTC",
         "NVDA"
       ],
       "is_spam": false,
       "tickers": [
-        "AMZN",
         "NVDA"
       ],
       "sentiment": {
-        "label": "negative",
-        "score": 0.9724
+        "label": "neutral",
+        "score": 0.7453
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "38806ac940169d73c6c4251946cd4d3abe29bb997b7590a5ce800e87f1f53d66",
-      "published_at": "2026-11-20T19:55:22Z",
+      "id": "3cd4aeae202afece2e2bd5702b9bcc88d2decd6b2adc889e0b75d9b33ccfe331",
+      "published_at": "2026-11-20T23:42:51Z",
       "source": "The Motley Fool",
-      "title": "GTA VI Boasts a Record-Breaking Launch With $3.79 Billion In Day One Sales. Is It Time to Buy Take-Two Stock?",
-      "summary": "Grand Theft Auto VI achieved a record-breaking $3.79 billion in first-day retail sales, the largest entertainment launch in history. Take-Two Interactive's stock rose 3% on the news, though analysts caution that the headline figure doesn't reflect actual revenue and the real test will be long-term player retention and profitability. The company expects an historic fiscal year, but valuation concerns and dependence on a few franchises remain risks.",
-      "url": "https://www.fool.com/investing/2026/11/20/gta-vi-boasts-a-record-breaking-launch-with-usd3-79-billion-in-day-one-sales-is-it-time-to-buy-take-two-stock/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fc84a9ed52fce08da610d6ab7bd25b43219c9c399-8192x5464.jpg&w=1200&op=resize",
+      "title": "Prediction: Nvidia Stock Will Do This in the 6 Months After a New CEO Takes Over, According to History",
+      "summary": "Following Jensen Huang's unexpected resignation as Nvidia CEO amid controversy, the company is searching for a permanent successor with Colette Kress serving as interim CEO. Historical analysis of tech CEO transitions at Microsoft, Alphabet, and Amazon shows mixed short-term stock performance, but Nvidia's strong financial fundamentals—including 75% revenue growth forecast and $130 billion Q4 revenue guidance—suggest the stock will recover once a new CEO is appointed, as investor focus returns to business performance rather than leadership uncertainty.",
+      "url": "https://www.fool.com/investing/2026/11/20/prediction-nvidia-stock-will-do-this-in-the-6-months-after-a-new-ceo-takes-over-according-to-history/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fca589beae1363845e9715e567c077e5aba89f0c2-2000x1228.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "ARM",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "MSFT",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7529
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "6f8a908865713e54d170daa46a546975560b1be91768d10c2745e0964fa0f967",
+      "published_at": "2026-11-20T22:49:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Target Shines, Walmart Merely Fine: Two Retail Giants Split on Q3 Results",
+      "summary": "Target delivered impressive Q3 results with comp sales of +5.6% beating estimates, while Walmart's results were merely adequate with decelerating comp growth of +2.9% and disappointing guidance. Despite Walmart's premium 40X valuation and defensive positioning, it has underperformed this year. The broader retail sector showed mixed results with 75% EPS beats and 66.7% revenue beats, below S&P 500 averages. Overall S&P 500 Q3 earnings grew +28.9% YoY on +14.3% higher revenues.",
+      "url": "https://www.zacks.com/commentary/3033477/target-shines-walmart-merely-fine-two-retail-giants-split-on-q3-results?cid=CS-ZC-FT-earnings_preview-3033477",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/fd/30110.jpg",
+      "raw_tickers": [
+        "AMZN",
+        "GOOGL",
+        "NVDA",
+        "WMT"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "ANT",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "MU",
+        "NVDA",
+        "TGT",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "GOOGL",
+        "NVDA",
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9031
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "561d5cb2f3a8ab21a5279c7368378a425f17642c3172b0e47f838b553cbbbe27",
+      "published_at": "2026-11-20T22:29:10Z",
+      "source": "The Motley Fool",
+      "title": "BigBear.ai vs. Innodata: Which Technology Stock Is a Better Buy for 2027?",
+      "summary": "The article compares two AI-focused technology stocks: BigBear.ai, which provides decision intelligence for government and defense sectors, and Innodata, which specializes in data engineering for major tech companies' AI training. Innodata is recommended as the better buy for 2027 due to its profitability, strong revenue growth of 46.9%, positive cash flow, and lower valuation metrics, despite both companies facing customer concentration risks. BigBear.ai, while serving critical national security contracts, remains unprofitable with declining revenue growth and negative free cash flow.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/20/bigbearai-vs-innodata-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F497213577468110e4ae04f3160ed91a99378c474-1280x853.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "MSFT"
+      ],
+      "all_tickers": [
+        "ACN",
+        "AMZN",
+        "BBAI",
+        "BBAI.WS",
+        "CTSH",
+        "INOD",
+        "MSFT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9637
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "be09e19aed784d87e33a306d9736ad9fff8722ae2185923329bc3d3fa783214f",
+      "published_at": "2026-11-20T22:15:02Z",
+      "source": "The Motley Fool",
+      "title": "Pfizer's Launched and Acquired Drugs Grew 32% in Q3 — and 3 Other Reasons to Buy the Stock Before 2027",
+      "summary": "Pfizer is addressing patent cliff concerns with 32% revenue growth from new and acquired drugs in Q3 2026. Despite investor pessimism reflected in a 6.1% dividend yield, the company maintains financial strength with $1.8B in cash and $12.4B in short-term investments. Management is committed to maintaining and growing its dividend, supported by strong cash flow metrics.",
+      "url": "https://www.fool.com/investing/2026/11/20/pfizers-launched-and-acquired-drugs-grew-32-in-q3-and-3-other-reasons-to-buy-the-stock-before-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F45627362c4b2d323383c2fa58a1dc902532cdc9e-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "PFE"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.94
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1be214b5e91a8937e51c983411d0d57689119682f2550deb09d5a5be4ade7be7",
+      "published_at": "2026-11-20T22:05:00Z",
+      "source": "The Motley Fool",
+      "title": "Is Coca-Cola a Millionaire-Maker Stock?",
+      "summary": "Coca-Cola has demonstrated strong recent performance with 35% returns over 12 months, backed by its powerful brand moat and pricing power. However, the article suggests the company's explosive growth days are likely behind it due to its mature market position, high valuation at 28x forward P/E, and sustainability concerns around aggressive price increases that may alienate its middle- and lower-income consumer base. The stock is positioned as a safer, dividend-focused investment rather than a millionaire-maker opportunity.",
+      "url": "https://www.fool.com/investing/2026/11/20/is-coca-cola-a-millionaire-maker-stock/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F894081%2Fgettyimages-1248262649-1.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "KO",
+        "WMT"
+      ],
+      "all_tickers": [
+        "BRK.A",
+        "BRK.B",
+        "KO",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO",
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9364
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "2c9f1a9d6500b11369ceab09dce5afb3c305d968e7c4b2f5cd3aae685961e7c5",
+      "published_at": "2026-11-20T21:45:03Z",
+      "source": "The Motley Fool",
+      "title": "NiSource: 3 Key Takeaways for Long-Term Investors",
+      "summary": "NiSource expanded its capital investment plan to $40 billion through 2033, with $32 billion for regulated utilities and $8 billion for data center generation. The company signed a 20-year power contract with Microsoft, its fifth data center agreement, expected to generate $1.75 billion in customer savings. NiSource's forward-looking rate structures enable over 90% of investments to convert to revenue within 12 months, supporting projected 10-11% annual earnings per share growth.",
+      "url": "https://www.fool.com/earnings/takeaways/2026/11/20/nisource-3-key-takeaways-for-long-term-investors/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb4204f36ed605fc54d4ba32e2cb31d1dd892afd6-800x450.jpg&w=1200&op=resize",
       "raw_tickers": [
         "MSFT"
       ],
       "all_tickers": [
         "MSFT",
-        "TTWO"
+        "NI"
       ],
       "is_spam": false,
       "tickers": [
@@ -77,61 +417,93 @@
       ],
       "sentiment": {
         "label": "positive",
-        "score": 0.9374
+        "score": 0.9365
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "a1106f0fd2a497508864189b843d3382fb472cbfa1b8ac5077299f8554f9ca15",
-      "published_at": "2026-11-20T19:30:02Z",
+      "id": "000a7be89759a786c9118f9672ec3da04dcb5b8685a9c09817e098989e425ba0",
+      "published_at": "2026-11-20T21:33:01Z",
       "source": "The Motley Fool",
-      "title": "Cerebras Stock Looks Like a Buy as Customer Base Expands",
-      "summary": "Cerebras Systems stock climbed 11% after reporting 55% revenue growth to $210.8 million and announcing a major deal with Microsoft. The company, which makes AI inference chips, continues expanding its customer base to include OpenAI, Amazon, and Oracle. Despite being down 40% from its IPO price, the analyst views it as a buy given its potential in the growing inference market, though noting some capacity constraints with OpenAI.",
-      "url": "https://www.fool.com/investing/2026/11/20/cerebras-stock-looks-like-a-buy-as-customer-base-expands/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Ff93ec9440c0b06d27ff79eb93f69c4c45d6c5ecd-1290x860.png&w=1200&op=resize",
+      "title": "Take-Two Interactive vs. Anthropic: Which Market-Moving Stock Is the Better Buy?",
+      "summary": "Take-Two Interactive received a major boost from Grand Theft Auto VI's record-breaking $3.79 billion day-one sales, but analyst Will Healy argues Anthropic is the better long-term investment. While GTA 6 provides temporary revenue growth, Anthropic's AI assistant Claude shows sustainable triple-digit revenue growth potential as companies across sectors adopt AI technology.",
+      "url": "https://www.fool.com/investing/2026/11/20/take-two-interactive-vs-anthropic-which-market-moving-stock-is-the-better-buy/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F2c722befe6cf055f39ecb4eea4fce2ded11218f0-1422x800.jpg&w=1200&op=resize",
       "raw_tickers": [
-        "AMZN",
-        "MSFT"
+        "GOOGL"
       ],
       "all_tickers": [
-        "AMZN",
-        "CBRS",
-        "MSFT",
-        "ORCL",
-        "ORCLpD"
+        "ANT",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "TTWO"
       ],
       "is_spam": false,
       "tickers": [
-        "AMZN",
-        "MSFT"
+        "GOOGL"
       ],
       "sentiment": {
-        "label": "negative",
-        "score": 0.7227
+        "label": "positive",
+        "score": 0.9463
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "5e49ac9c12dccb7dd92fb18a54d061158d54a0cb05041cdb0bde642ec12b078a",
-      "published_at": "2026-11-20T18:50:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "Kaplan Fox Notifies NVIDIA Corporation (NASDAQ: NVDA) Investors of a Securities Class Action Deadline on January 8, 2027",
-      "summary": "Kaplan Fox has filed a class action lawsuit against NVIDIA on behalf of investors who purchased securities between December 19, 2024 and November 12, 2026. The complaint alleges that NVIDIA made materially false and misleading statements regarding its relationship with Megaspeed International, concealing that CEO Jensen Huang had an affair with a Megaspeed executive identified as a Chinese intelligence asset suspected of helping China evade export controls on Nvidia chips. Following the revelation in November 2026, NVIDIA stock declined significantly and Jensen Huang resigned as President, CEO, and board member. The lead plaintiff deadline is January 8, 2027.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407773/1020/en/kaplan-fox-notifies-nvidia-corporation-nasdaq-nvda-investors-of-a-securities-class-action-deadline-on-january-8-2027.html",
-      "image_url": "https://ml.globenewswire.com/Resource/Download/711aa439-0e7d-4b53-8daa-452f70fe946a",
+      "id": "49abf7efa89c9e39425ed481936256107d4209cf4dd892ffa9d066ac9d6b31e2",
+      "published_at": "2026-11-20T21:00:02Z",
+      "source": "The Motley Fool",
+      "title": "Here's How Many Shares of Procter & Gamble You'd Need for $1,000 in Yearly Dividends",
+      "summary": "Procter & Gamble offers a 2.56% dividend yield with an annualized payout of $4.354 per share. Investors would need 230 shares (approximately $39,000 investment) to generate $1,000 in yearly passive income. The company has raised its dividend for 70 consecutive years and paid dividends for 136 years, demonstrating exceptional payout durability backed by stable earnings and strong free cash flow.",
+      "url": "https://www.fool.com/investing/2026/11/20/heres-how-many-shares-of-procter-gamble-youd-need-for-1000-in-yearly-dividends/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fc0407e6a11c690bdc2a2000abb918e4b010a946e-2000x1200.jpg&w=1200&op=resize",
       "raw_tickers": [
-        "NVDA"
+        "PG"
       ],
       "all_tickers": [
-        "NVDA"
+        "PG"
       ],
       "is_spam": false,
       "tickers": [
-        "NVDA"
+        "PG"
       ],
       "sentiment": {
-        "label": "negative",
-        "score": 0.9625
+        "label": "positive",
+        "score": 0.9003
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "83c99ca7a82843e369ea62849c1fcf8a314e9d97fe569a628e9b44c5653fad36",
+      "published_at": "2026-11-20T20:42:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Top Research Reports for Coca-Cola, Medtronic & Palo Alto Networks",
+      "summary": "Zacks Research Daily features analysis of 16 major stocks on November 20, 2026. Coca-Cola benefits from strong brand portfolio and emerging market demand but faces margin pressures. UnitedHealth receives a Neutral rating due to diversified operations offset by elevated medical costs and enrollment declines. Palo Alto Networks outperforms the security industry but faces margin headwinds from cloud mix and competitive intensity. Additional coverage includes microcap stocks Natural Resource Partners and Bank of the James Financial, along with analysis of ON Semiconductor, CoreWeave, and Ares Capital.",
+      "url": "https://www.zacks.com/commentary/3033022/top-research-reports-for-coca-cola-medtronic-palo-alto-networks?cid=CS-ZC-FT-research_daily-3033022",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/00/1011.jpg",
+      "raw_tickers": [
+        "KO",
+        "UNH"
+      ],
+      "all_tickers": [
+        "ARCC",
+        "BOTJ",
+        "CRWV",
+        "KO",
+        "NRP",
+        "ON",
+        "PANW",
+        "UNH"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO",
+        "UNH"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6714
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -163,82 +535,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "08f9bc43f09c9421e0207a6d4d096768f3905f0f618300030a0d603a2593a6c5",
-      "published_at": "2026-11-20T18:30:02Z",
-      "source": "The Motley Fool",
-      "title": "AST SpaceMobile vs. Redwire: Which Space Infrastructure Stock Is a Better Buy for 2027?",
-      "summary": "The article compares two space infrastructure stocks: AST SpaceMobile, which is building a satellite-based cellular broadband network with 671% revenue growth but significant losses and liquidity concerns, versus Redwire, a diversified aerospace supplier with 46% revenue growth, stronger balance sheet metrics, and a major $1.8B government contract. The author recommends Redwire for 2027 based on its more reasonable valuation and established revenue streams, despite both companies facing profitability challenges.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/20/ast-spacemobile-vs-redwire-which-space-infrastructure-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fd03c7cb427e716e7464f66f2d61d88cb0e56e3fd-1280x848.png&w=1200&op=resize",
-      "raw_tickers": [
-        "BA",
-        "GOOGL"
-      ],
-      "all_tickers": [
-        "AMT",
-        "ASTS",
-        "BA",
-        "BApA",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "IRDM",
-        "LLY",
-        "RDW",
-        "RKLB",
-        "T",
-        "TBB",
-        "TpA",
-        "TpC",
-        "VZ"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "BA",
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.7934
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "f9e2e521d9020f17aaaa155775ba2819e00c464ed1fb45acde7b9e64f1f9bb89",
-      "published_at": "2026-11-20T18:19:02Z",
-      "source": "The Motley Fool",
-      "title": "Dan Ives Just Delivered Great News for AI Stocks. Here’s the Part That Matters.",
-      "summary": "Despite a brutal sell-off in AI stocks this month, analyst Dan Ives argues the downturn is driven by a 'perfect storm' of political uncertainty, leadership turmoil, and market mechanics rather than weakening AI demand. Key data from Nvidia, Google Cloud, and Anthropic's IPO filing show customers continue signing major computing contracts, suggesting the $4 trillion AI infrastructure build-out remains on track.",
-      "url": "https://www.fool.com/investing/2026/11/20/dan-ives-just-delivered-great-news-for-ai-stocks-here-s-the-part-that-matters/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fce4251ff0761d61f9a6daa52d57bdea0045c54c5-1290x860.png&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN",
-        "GOOGL",
-        "NVDA"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "MU",
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN",
-        "GOOGL",
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.7468
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "0c772d9c94be9059be6917d3ca4787fe6fc095650049c5cc11fef715eb3dccf9",
       "published_at": "2026-11-20T17:58:00Z",
       "source": "GlobeNewswire Inc.",
@@ -265,29 +561,49 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "9c38e39035b0bce21ec63b7f7044a90e559f2f8baf33e1e19985f491ec9bd263",
-      "published_at": "2026-11-20T17:00:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "Business Phone Systems: Is it possible to get crystal-clear VoIP, unified messaging, and enterprise-grade reliability, all in one platform?",
-      "summary": "An analysis by SoundLine reveals that most business phone system providers fail to properly address the needs of founders running multiple businesses from a single device. The key issue is that while many platforms offer multiple numbers on one account, they don't separate critical elements like greetings, routing rules, voicemail, business hours, and caller identity per business. This results in calls being answered with the wrong company name and fragmented communication management. The analysis argues this is a product design issue inherited from enterprise telephony models, not a cost problem.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407721/0/en/business-phone-systems-is-it-possible-to-get-crystal-clear-voip-unified-messaging-and-enterprise-grade-reliability-all-in-one-platform.html",
-      "image_url": "https://ml.globenewswire.com/Resource/Download/b20ba1d9-df63-4ff6-9c21-44721411531b",
+      "id": "78f634649738c6808d63d1a96fa85cd32b675f6010094efe5bf770a681783191",
+      "published_at": "2026-11-20T16:58:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Utility ETFs to Buy as Data Center Electricity Usage Is Set to Double by 2030",
+      "summary": "Global data center electricity consumption is projected to double by 2030, with AI driving 75% of growth. This creates significant opportunities for utility companies and ETFs positioned in key markets like Texas and Virginia. Major utilities like Dominion Energy, NextEra Energy, Southern Company, Duke Energy, and American Electric Power are securing long-term contracts with hyperscalers, while utility ETFs like XLU, VPU, and IDU offer diversified exposure to this structural growth trend.",
+      "url": "https://www.zacks.com/stock/news/3033433/utility-etfs-to-buy-as-data-center-electricity-usage-is-set-to-double-by-2030?cid=CS-ZC-FT-etf_news_and_commentary-3033433",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/f8/4049.jpg",
       "raw_tickers": [
-        "GOOGL"
+        "NEE"
       ],
       "all_tickers": [
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN"
+        "AEP",
+        "D",
+        "DUK",
+        "DUKB",
+        "DUKH",
+        "DUKU",
+        "DUKpA",
+        "IDU",
+        "NEE",
+        "NEEpN",
+        "NEEpS",
+        "NEEpT",
+        "NEEpU",
+        "NEEpV",
+        "NEEpW",
+        "NRG",
+        "SO",
+        "SOJC",
+        "SOJD",
+        "SOJE",
+        "SOJF",
+        "SOMN",
+        "VPU",
+        "XLU"
       ],
       "is_spam": false,
       "tickers": [
-        "GOOGL"
+        "NEE"
       ],
       "sentiment": {
-        "label": "negative",
-        "score": 0.717
+        "label": "positive",
+        "score": 0.9351
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -318,6 +634,42 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.3663
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1db35949cdb14f18f763054c2064f56b0b51aa7a87572e440c839aa9bb3b6810",
+      "published_at": "2026-11-20T16:10:00Z",
+      "source": "Zacks Investment Research",
+      "title": "UBS Eyes Shifting European Jobs to India: Will It Boost Cost Savings?",
+      "summary": "UBS plans to relocate hundreds of European roles to India over the next couple of years as part of its cost-reduction strategy following the Credit Suisse acquisition. The move targets junior to mid-level positions primarily based in Poland, with some senior roles from Switzerland also under consideration. India's skilled talent pool, lower operating costs, and AI capabilities make it an attractive destination. UBS has already achieved $13.2B of its $13.7B cost-saving target for 2026.",
+      "url": "https://www.zacks.com/stock/news/3033403/ubs-eyes-shifting-european-jobs-to-india-will-it-boost-cost-savings?cid=CS-ZC-FT-analyst_blog|company_news_finance_sector-3033403",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/38/1984.jpg",
+      "raw_tickers": [
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "SCHW",
+        "SCHWpD",
+        "SCHWpJ",
+        "UBS",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9265
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -585,54 +937,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "ff992da17cb2a01ac2f976b26ba159a1cf4ba479c8a9ffe9117bb4db12bd6ee3",
-      "published_at": "2026-11-20T14:00:00Z",
-      "source": "Zacks Investment Research",
-      "title": "WMT Q3 Earnings Call Takeaways as Sales and Profit Outlooks Rise",
-      "summary": "Walmart raised its fiscal 2027 sales and profit guidance following strong Q3 results, with global e-commerce sales surging 17% and revenues climbing 5.2% to $188.84 billion. The company's U.S. e-commerce business is nearing breakeven excluding ad revenue, supported by supply chain improvements and lower unit costs. Walmart also expects its new $120 membership bundle combining Walmart+ and Sam's Club Plus to boost profits, while expanding delivery capacity through fulfillment centers and studying AI shopping integration.",
-      "url": "https://www.zacks.com/stock/news/3033163/wmt-q3-earnings-call-takeaways-as-sales-and-profit-outlooks-rise?cid=CS-ZC-FT-analyst_blog_plus|earnings_call_takeaways-3033163",
-      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/2c/122.jpg",
-      "raw_tickers": [
-        "WMT"
-      ],
-      "all_tickers": [
-        "WMT"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "WMT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9559
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "eb0282a43f4b7fc9978a009296f6511db76bef03acfb629d92315186014c6364",
-      "published_at": "2026-11-20T14:00:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "Canadian Red Cross and Walmart Canada’s annual campaign raises more than $3.9 million for disaster relief and preparedness",
-      "summary": "Walmart Canada and the Canadian Red Cross announced their annual giving campaign raised over $3.9 million for disaster relief and preparedness efforts. This includes a $1 million kick-off donation from Walmart Canada. The 23-year partnership has collectively raised more than $80 million to support the Red Cross's emergency response and community support initiatives across Canada.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/20/3407437/0/en/canadian-red-cross-and-walmart-canada-s-annual-campaign-raises-more-than-3-9-million-for-disaster-relief-and-preparedness.html",
-      "image_url": "https://ml.globenewswire.com/Resource/Download/5a7fad5f-6676-4c1d-afbd-5cf5f86ea73d",
-      "raw_tickers": [
-        "WMT"
-      ],
-      "all_tickers": [
-        "WMT"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "WMT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.8245
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "ff5acce83b153e2230484cc1d014a466ed22f4ec4b422cac66d148965007c401",
       "published_at": "2026-11-20T13:42:00Z",
       "source": "Zacks Investment Research",
@@ -655,30 +959,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.6529
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "b1a7e3132eef2f26ae8da29d6580f78704a93ba0f5ee6266b58106b5121118d0",
-      "published_at": "2026-11-20T13:00:04Z",
-      "source": "Zacks Investment Research",
-      "title": "Investors Heavily Search Pfizer Inc. (PFE): Here is What You Need to Know",
-      "summary": "Pfizer has been heavily searched by investors recently. The stock has underperformed the S&P 500 over the past month, declining 9.5% compared to the broader market's 6.6% decline. While the company has a strong track record of beating earnings and revenue estimates, earnings estimates have been revised downward slightly. Pfizer holds a Zacks Rank #3 (Hold) rating, suggesting it may perform in line with the broader market in the near term. The stock is trading at a discount to its peers based on valuation metrics.",
-      "url": "https://www.zacks.com/stock/news/3032905/investors-heavily-search-pfizer-inc-pfe-here-is-what-you-need-to-know?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3032905",
-      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default129.jpg",
-      "raw_tickers": [
-        "PFE"
-      ],
-      "all_tickers": [
-        "PFE"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "PFE"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9487
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -8214,143 +8494,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.6585
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-06T17:43:32+00:00",
-      "source": "Crypto Briefing",
-      "title": "Microsoft winds down Oracle deal for AI cloud capacity",
-      "summary": "The collapse of the Microsoft-Oracle deal highlights the critical role of compliance in cloud infrastructure, potentially reshaping provider strategies.\nThe post Microsoft winds down Oracle deal for AI cloud capacity appeared first on Crypto Briefing.",
-      "url": "https://cryptobriefing.com/microsoft-winds-down-oracle-ai-cloud-deal/",
-      "image_url": "https://static.cryptobriefing.com/wp-content/uploads/2026/11/06124321/library-microsoft-winds-down-oracle-deal-for-ai-cloud-capacity-800x450.png",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8401
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-06T17:34:45+00:00",
-      "source": "Amazon.com",
-      "title": "Taxonomy of agentic primitives in Amazon Quick",
-      "summary": "As we built Amazon Quick, its agents grew from answering questions to taking actions, and the same primitives kept getting rebuilt under different names. This post shares the taxonomy we converged on — triggers, agents, capabilities, and learned context — fou…",
-      "url": "https://aws.amazon.com/blogs/machine-learning/taxonomy-of-agentic-primitives-in-amazon-quick/",
-      "image_url": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/11/03/ML-21505-featured-image.png",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9305
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-06T17:33:35+00:00",
-      "source": "HuffPost",
-      "title": "Protesters Storm Microsoft Data Center As Backlash Spreads Across Europe",
-      "summary": "“The only thing this will be used for is AI slop,” protester Nathan Timmer said. “AI warfare, data surveillance, and committing genocides. We don’t want that.”",
-      "url": "https://www.huffpost.com/entry/protesters-storm-data-center-microsoft-amsterdam_n_6aee09cbe4b0d00572fd3590",
-      "image_url": "https://img.huffingtonpost.com/asset/6aee0ef31b00002d23d130be.jpg?cache=t81CR7b8q4&ops=1200_630",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.937
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-06T17:32:43+00:00",
-      "source": "Slashdot.org",
-      "title": "You'll soon be able to text Alexa to shop on Amazon",
-      "summary": "The latest Alexa for shopping feature is initially available by invite in the US.",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186618360",
-      "image_url": null,
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9279
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-06T17:32:00+00:00",
-      "source": "BGR",
-      "title": "5 Handy Mini PC Accessories You Can Get On Amazon For Under $50",
-      "summary": "Mini PCs are great since they don't take up a ton of real estate on your desk if you're pressed for space, but they can always use some additional accessories.",
-      "url": "https://www.bgr.com/2303945/handy-mini-pc-accessories-on-amazon-under-50-dollars/",
-      "image_url": "https://www.bgr.com/img/gallery/5-handy-mini-pc-accessories-you-can-get-on-amazon-for-under-50/l-intro-1793634452.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9213
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-06T17:20:00+00:00",
-      "source": "TechRadar",
-      "title": "Hackers use fake OpenAI, SpaceX, and Anthropic event invites in new phishing scam to steal Microsoft and Google accounts",
-      "summary": "No, you're not getting SpaceX shares - it's a trick to hand over your Microsoft 365 account credentials.",
-      "url": "https://www.techradar.com/pro/security/hackers-use-fake-openai-spacex-and-anthropic-event-invites-in-new-phishing-scam-to-steal-microsoft-and-google-accounts",
-      "image_url": "https://cdn.mos.cms.futurecdn.net/vg86aqqGf8Pqp6mnfQPGGf-1920-80.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL",
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6857
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-06T17:18:34+00:00",
-      "source": "Search Engine Journal",
-      "title": "Google Gemini Business Profile Tools Are Coming To Workspace via @sejournal, @MattGSouthern",
-      "summary": "Google says Gemini's Business Profile tools are coming to Workspace accounts and moves the Maps Message button. Its help page no longer lists region limits.\nThe post Google Gemini Business Profile Tools Are Coming To Workspace appeared first on Search Engine …",
-      "url": "https://www.searchenginejournal.com/google-gemini-business-profile-workspace-2/596120/",
-      "image_url": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/11/gemini-business-profile-featured.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9435
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-06T17:13:39+00:00",
-      "source": "Slashdot.org",
-      "title": "Trump DOJ appointee who led ‘grand conspiracy’ probe of Trump foes resigns - NBC News",
-      "summary": "Trump DOJ appointee who led &lsquo;grand conspiracy&rsquo; probe of Trump foes resignsNBC News See more headlines &amp; perspectives on Google News ...",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186618162",
-      "image_url": null,
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7951
       },
       "sentiment_model": "ProsusAI/finbert"
     }

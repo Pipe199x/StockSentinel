@@ -1,27 +1,8 @@
 {
-  "as_of": "2026-11-19",
-  "market_regime": "normal",
-  "market_p_stress": 0.04862155387678367,
+  "as_of": "2026-11-20",
+  "market_regime": "stress",
+  "market_p_stress": 0.9815978419452678,
   "n_assets": 25,
-  "n_idle": 22,
-  "picks": [
-    {
-      "as_of": "2026-11-19",
-      "side": -1,
-      "market_regime": "normal",
-      "market_p_stress": 0.04862155387678367
-    },
-    {
-      "as_of": "2026-11-19",
-      "side": 1,
-      "market_regime": "normal",
-      "market_p_stress": 0.04862155387678367
-    },
-    {
-      "as_of": "2026-11-19",
-      "side": 1,
-      "market_regime": "normal",
-      "market_p_stress": 0.04862155387678367
-    }
-  ]
+  "n_idle": 25,
+  "picks": []
 }
