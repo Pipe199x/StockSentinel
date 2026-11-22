@@ -1,22 +1,777 @@
 {
-  "as_of": "2026-11-21T19:15:27.108365+00:00",
+  "as_of": "2026-11-22T19:37:28.793065+00:00",
   "window_days": 15,
   "articles": [
     {
-      "id": "8cd2e924e64f0b5b9ddf379570ca00cd1918ac3b2eef214e2b9b225d2e4e7986",
-      "published_at": "2026-11-21T18:27:02Z",
+      "id": "b2ab284834c4a79f239bb8de5f69351f921d39d33a6a3dd3fbd7a1ebf1095947",
+      "published_at": "2026-11-22T18:43:01Z",
       "source": "The Motley Fool",
-      "title": "Worried About a Market Crash? This AI Stock Should Bounce Back Fastest.",
-      "summary": "The article argues that AI stocks, particularly Nvidia, are well-positioned to recover quickly from a market crash due to strong fundamentals and exponential demand for AI compute. Despite recent headwinds including CEO transition and regulatory concerns, Nvidia's 100% YoY growth, $43 billion in free cash flow, and cheap valuation (P/E of 16.2) make it an attractive investment during market downturns.",
-      "url": "https://www.fool.com/investing/2026/11/21/worried-about-a-market-crash-this-ai-stock-should-bounce-back-fastest/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fe20e0d8e732569eae0fab5b6a3f8515fe80e43e1-1499x768.jpg&w=1200&op=resize",
+      "title": "Advance Auto Parts vs. Etsy: Which Consumer Stock Is a Better Buy for 2027?",
+      "summary": "The article compares Advance Auto Parts and Etsy as investment options for 2027. Advance Auto Parts, a brick-and-mortar automotive parts retailer, is undergoing a turnaround with mixed results and faces headwinds from weak DIY demand and competition. Etsy, a capital-light digital marketplace for handmade and vintage goods, demonstrates strong profitability with a 34.4% net margin despite modest 2.1% revenue growth. The analyst recommends Etsy for 2027 despite its higher valuation, citing its superior business model, passionate user base, and sustainable profitability over Advance Auto Parts' uncertain turnaround prospects.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/22/advance-auto-parts-vs-etsy-which-consumer-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fc06fe302e3cf53f217035c11a4198728676a2190-2121x1414.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AAP",
+        "AMZN",
+        "AZO",
+        "EBAY",
+        "ETSY",
+        "PINS"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7189
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1ee1bb64fbf2dd2ff19efae54e6665125554051f761767bc3668ec17485c0db6",
+      "published_at": "2026-11-22T18:30:02Z",
+      "source": "The Motley Fool",
+      "title": "Why Saturday’s Historic Starship Catch Changes the Bull Case for SpaceX Stock",
+      "summary": "SpaceX successfully caught the upper stage of its Starship rocket for the first time, a major milestone that positions the company as a potential monopoly in the space sector with fully reusable rockets. Meanwhile, competitors like United Launch Alliance and Blue Origin face significant setbacks. The achievement could transform SpaceX's business model from low-margin launches to a scalable logistics business, though challenges remain in developing radiation-resistant chips and cooling solutions for orbital data centers.",
+      "url": "https://www.fool.com/investing/2026/11/22/why-saturday-s-historic-starship-catch-changes-the-bull-case-for-spacex-stock/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Febb8dbd98974e857f325b7d7b6abd0d9ed394aa9-2048x1365.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "BA",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "BA",
+        "BApA",
+        "LMT",
+        "NVDA",
+        "SPCX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "BA",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8053
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "c727622ae601ae636b0e00bdd561f1bc5a0d2d04758bbf53db43aecc658d5533",
+      "published_at": "2026-11-22T18:15:01Z",
+      "source": "The Motley Fool",
+      "title": "Archer’s Anduril Drone Begins Full-Scale Flight Tests in 2027. Here’s Why Defense Could Be Worth More Than Air Taxis.",
+      "summary": "Archer Aviation is partnering with Anduril to develop Thunder, a hybrid-electric military VTOL aircraft set for first flight in 2027. The defense business diversification could provide revenue and stability while the company awaits FAA certification for its commercial air taxi service. Archer's acquisition of Boeing defense assets, including Insitu, adds $200 million in immediate defense revenue.",
+      "url": "https://www.fool.com/investing/2026/11/22/archers-anduril-drone-begins-full-scale-flight-tests-in-2027-heres-why-defense-could-be-worth-more-than-air-taxis/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Ff8f16a42128a01d4aa6c3b6c07674b2e44db4f2d-1920x1080.png&w=1200&op=resize",
+      "raw_tickers": [
+        "BA"
+      ],
+      "all_tickers": [
+        "ACHR",
+        "BA",
+        "BApA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.5552
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "46a0375d29cc34d1b099930bec856992c665f025091b6eadcd527ec8e3927029",
+      "published_at": "2026-11-22T18:13:02Z",
+      "source": "The Motley Fool",
+      "title": "UiPath vs. Palantir Technologies: Which AI Automation Platform Makes a Better Stock Buy for 2027?",
+      "summary": "UiPath and Palantir Technologies represent two distinct paths in AI-driven enterprise software. UiPath offers robotic process automation with modest 15% revenue growth and a lower valuation (14.3x forward P/E), while Palantir delivers advanced data analytics with explosive 87% revenue growth but trades at a premium (91.2x forward P/E). For 2027, UiPath appears the better risk-adjusted choice despite expected net income decline, as it trades below S&P 500 average valuations.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/22/uipath-vs-palantir-technologies-which-ai-automation-platform-makes-a-better-stock-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb192dc4b4cfb25d0bbd953c98f97b9603fd6ac5a-2560x1440.png&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "MSFT",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "CRM",
+        "MSFT",
+        "NVDA",
+        "PATH",
+        "PLTR",
+        "SNOW"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "MSFT",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.6949
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "bc8df717acef8466add6b5077bf809154f3ed5f31b29007a0b283c3bec165405",
+      "published_at": "2026-11-22T17:44:01Z",
+      "source": "The Motley Fool",
+      "title": "Bristol Myers Squibb vs. Novo Nordisk: Which Healthcare Stock Is a Better Buy for 2027?",
+      "summary": "The article compares Bristol Myers Squibb (BMY) and Novo Nordisk (NVO) as investment options for 2027. BMY trades at a lower valuation with growing revenue and net income, while NVO has higher profit margins but faces declining sales and pricing pressures. The author recommends BMY for 2027 due to its revenue growth and net income expansion, despite NVO's dominance in obesity and diabetes treatments.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/22/bristol-myers-squibb-vs-novo-nordisk-which-healthcare-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F81b8f2c7a69ef4092ed22fb1139df3f8292b85b5-2000x1333.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "JNJ",
+        "PFE"
+      ],
+      "all_tickers": [
+        "BMY",
+        "CELGr",
+        "JNJ",
+        "LLY",
+        "MRK",
+        "NVO",
+        "PFE"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ",
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6149
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "c56cfd79f99c22682c8b9a284fd7da016380114a4b9d66abfd994a866e3595ff",
+      "published_at": "2026-11-22T17:30:02Z",
+      "source": "The Motley Fool",
+      "title": "The S&P 500 and Dow Jones Are Dangerously Close to Joining the Nasdaq in a Correction. Here’s the Level That Would Put the Nasdaq in a Bear Market, and What History Says Investors Should Do During a Stock Market Crash.",
+      "summary": "Major stock indexes are experiencing significant sell-offs, with the Nasdaq in correction territory (down 10.1% in three weeks) and approaching bear market levels. Nvidia has plummeted 32.3% in three weeks following CEO Jensen Huang's resignation. The article advises investors to focus on high-conviction stock picks and identifies better buying opportunities than Nvidia, such as semiconductor equipment makers and growth ETFs.",
+      "url": "https://www.fool.com/investing/2026/11/22/the-s-and-p-500-and-dow-jones-are-dangerously-close-to-joining-the-nasdaq-in-a-correction-here-s-the-level-that-would-put-the-nasdaq-in-a-bear-market-and-what-history-says-investors-should-do-during-a/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F1292cbf5fed3245ac9ce3e07b43bd336da5b0d95-1300x935.jpg&w=1200&op=resize",
       "raw_tickers": [
         "NVDA"
       ],
       "all_tickers": [
-        "NOW",
+        "ASML",
         "NVDA",
-        "PANW"
+        "TSM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9444
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "6e823c8fe516b81ba77a1ffb5d856aa1276b65f58771d6f25daf5672dee559aa",
+      "published_at": "2026-11-22T17:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "SHAREHOLDER ALERT: Bronstein Gewirtz & Grossman, LLC Announces Class Action Against Bank of America Corporation (NYSE: BAC) — Investors Who Suffered Losses Are Encouraged to Contact the Firm.",
+      "summary": "A class action lawsuit has been filed against Bank of America for alleged securities law violations related to systemic weaknesses in its Bank Secrecy Act and Anti-Money Laundering compliance program. The lawsuit claims BAC failed to properly monitor trillions of dollars in transactions, missed or delayed suspicious activity reports, and made false statements about its compliance progress following a 2024 Consent Order. Investors who purchased BAC securities between August 1, 2025 and October 13, 2026 may be eligible to recover losses, with a lead plaintiff deadline of December 15, 2026.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/22/3407965/9788/en/shareholder-alert-bronstein-gewirtz-grossman-llc-announces-class-action-against-bank-of-america-corporation-nyse-bac-investors-who-suffered-losses-are-encouraged-to-contact-the-fir.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/60f856c5-87a3-4ed5-8a7e-c79d51a4afea",
+      "raw_tickers": [
+        "BAC"
+      ],
+      "all_tickers": [
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "MERpK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9207
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1c2f9c4a7f1fab7b5fc5c09b094f2bde802b44908cbca1026dabb30aa559f513",
+      "published_at": "2026-11-22T16:56:18Z",
+      "source": "The Motley Fool",
+      "title": "Alphabet vs. Meta Platforms: Which Media Stock Is a Better Buy for 2027?",
+      "summary": "The article compares Alphabet and Meta Platforms as investment options for 2027. Alphabet trades at a cheaper forward P/E of 13.9x versus Meta's 20.5x, but Meta shows stronger revenue growth at 27.5% compared to Alphabet's 22.2%. The author recommends Alphabet for long-term investors due to its diversified revenue streams across search, YouTube, Android, and cloud services, while Meta's revenue is heavily dependent on advertising. Both face regulatory risks, but Alphabet's broader business model provides more resilience.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/22/alphabet-vs-meta-platforms-which-media-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F921b7b3d464cb345a2dd449fef6247475b7013b3-4739x2666.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "META",
+        "METAM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8321
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "84cd630de4c497bf34610f31e46e3dc1ee117b0a7e70b3dd73e7476bc88e341c",
+      "published_at": "2026-11-22T16:33:02Z",
+      "source": "The Motley Fool",
+      "title": "Prediction: Dec. 9 Will Be a Huge Day for the Stock Market",
+      "summary": "December 9, 2026 is expected to be a major market day with three significant events converging: the FOMC's federal funds rate decision (likely a 25 basis point increase), Broadcom's earnings report as a key AI semiconductor barometer, and Micron's ability to begin its expanded $35.16 billion share repurchase program. Each event could significantly impact stock prices and investor sentiment across the technology and semiconductor sectors.",
+      "url": "https://www.fool.com/investing/2026/11/22/prediction-dec-9-will-be-a-huge-day-for-the-stock-market/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F4fd03b6f60e972d24edd28b5dfb35a75d52c4396-4000x2408.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "AVGO",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "MU"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.479
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "69f877db360a1fade070d56ab6609932ff946f5060e37692884a913f7d35b206",
+      "published_at": "2026-11-22T15:23:02Z",
+      "source": "The Motley Fool",
+      "title": "I'm Raising My Fair Value Estimate for Berkshire Hathaway Stock. Here's What I Think It's Worth.",
+      "summary": "Daniel Sparks raises his fair value estimate for Berkshire Hathaway Class B shares to $700, representing a 22% premium over the current stock price of ~$575. The increase is driven by CEO Greg Abel's disciplined capital management, strong growth in operating businesses (13% year-over-year), and the company's substantial cash position ($352 billion) and stock portfolio ($336 billion). Sparks values the operating businesses at 25x earnings, in line with S&P 500 valuations, compared to the market's current 17x multiple.",
+      "url": "https://www.fool.com/investing/2026/11/22/i-m-raising-my-fair-value-estimate-for-berkshire-hathaway-stock-here-s-what-i-think-it-s-worth/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F944e0431cf34787d4c109a930544ffe9cccff265-2560x1707.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "BRK.A",
+        "BRK.B",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9471
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "f48fc36c1dc7a57c572649ebc5fedc188eef19d27b58a2e36c523b73e5c7a911",
+      "published_at": "2026-11-22T13:38:02Z",
+      "source": "The Motley Fool",
+      "title": "Johnson & Johnson Is on Track for $101 Billion in 2026 Sales. Is This Dividend King Still a Buy?",
+      "summary": "Johnson & Johnson, a healthcare leader with 64 consecutive years of dividend increases, projects $101.2 billion in 2026 revenue. While the company demonstrates strong operational execution and reliability, its valuation metrics are elevated compared to historical averages, making it suitable primarily for conservative, long-term dividend investors rather than value or high-yield seekers.",
+      "url": "https://www.fool.com/investing/2026/11/22/johnson-johnson-is-on-track-for-101-billion-in-2026-sales-is-this-dividend-king-still-a-buy/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F50378bff8b4879d9d0cb52a776aac51b67931518-1280x853.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "JNJ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9369
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "d5dd766f25c9e1bcccedabc49173d15dbbf3ae35b347708e730ae9e4a2b4a266",
+      "published_at": "2026-11-22T13:11:02Z",
+      "source": "The Motley Fool",
+      "title": "PepsiCo vs. Starbucks: Which Consumer Goods Stock Is a Better Buy for 2027?",
+      "summary": "The article compares PepsiCo and Starbucks as investment options for 2027. PepsiCo offers diversified snacks and beverages with strong cash flow ($7.7B), a lower P/E ratio of 17.66, and a 54-year dividend growth streak, making it attractive for conservative investors. Starbucks trades at a premium valuation (P/E of 46.68) with modest revenue growth of 1.9% and higher debt levels. The author recommends PepsiCo as the better choice for steady, reliable returns despite both stocks underperforming the S&P 500 over the past decade.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/22/pepsico-vs-starbucks-which-consumer-goods-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F90c0575767a574caf98fff88bd74a707a6433372-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "KO",
+        "WMT"
+      ],
+      "all_tickers": [
+        "KO",
+        "NSRGY",
+        "PEP",
+        "SBUX",
+        "WMT",
+        "YUM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO",
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5079
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ac42d531beb13e340fcaecf67a7a5dea94eba292c0f258273fd27c5c4ce83a5f",
+      "published_at": "2026-11-22T13:05:02Z",
+      "source": "The Motley Fool",
+      "title": "Johnson & Johnson vs. Pfizer: Which Healthcare Stock Is a Better Buy for 2027?",
+      "summary": "The article compares Johnson & Johnson and Pfizer as investment options for 2027. J&J operates a diversified model with pharmaceuticals and medical devices, generating $99.3B in revenue with strong free cash flow of $19.7B. Pfizer is undergoing a strategic pivot toward oncology and obesity treatments, with lower revenue of $63.6B and weaker financial metrics. The author recommends J&J as the better choice due to its stability, consistent 60+ year dividend growth history, and superior 10-year performance, despite Pfizer's lower valuation and higher dividend yield.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/22/johnson-johnson-vs-pfizer-which-healthcare-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Ff555f917bacce34e6b2e6efdc68e429170c878ac-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "JNJ",
+        "PFE"
+      ],
+      "all_tickers": [
+        "ABBV",
+        "GMAB",
+        "JNJ",
+        "LLY",
+        "PFE"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ",
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.4698
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "9aeee825d144b22b5f7558f9e59f478559ec628b4b38b83be235d813f35d214f",
+      "published_at": "2026-11-22T12:05:02Z",
+      "source": "The Motley Fool",
+      "title": "Home Depot Just Delivered Great News to Investors",
+      "summary": "Home Depot reported its strongest same-store sales growth since Q3 2022 at 2.2%, driven by higher average ticket sizes and strength in power and appliances. CFO Richard McPhail will become CEO while Ted Decker transitions to chairman. The company raised full-year guidance for sales growth to 4.5% and same-store sales growth to 1.4%, though the home improvement environment remains challenging due to past COVID-driven demand pull-forward and elevated interest rates.",
+      "url": "https://www.fool.com/investing/2026/11/22/home-depot-just-delivered-great-news-to-investors/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fcfc46b054af555e20b44e03a4b74cda3a2a415b5-1280x720.webp&w=1200&op=resize",
+      "raw_tickers": [
+        "HD"
+      ],
+      "all_tickers": [
+        "HD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9476
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "fd42298bc87adad9ad2c3cf2f388b4cf9c93196d656148a5d69fd33e3ee2e515",
+      "published_at": "2026-11-22T08:41:02Z",
+      "source": "The Motley Fool",
+      "title": "Microsoft Stock Gave Back 8% Within 2 Weeks of Its Record. Here's How Past Quick Pullbacks Like This Played Out.",
+      "summary": "Microsoft fell 9% from its November 4 record to November 17, prompting analysis of historical pullbacks. Of 18 similar 8%+ drops since 1995, shares gained over the next year in 15 cases with a median 30% gain. The three exceptions occurred during the dot-com bubble (1999-2000) when valuations exceeded 60x earnings. Today's 28x earnings multiple is significantly lower, suggesting better fundamentals, though earnings growth has slowed to 18% year-over-year.",
+      "url": "https://www.fool.com/investing/2026/11/22/microsoft-stock-gave-back-8-within-2-weeks-of-its-record-here-s-how-past-quick-pullbacks-like-this-played-out/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F6e633ddabfad17c835e91c219b401c73e2113b05-5000x3335.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "all_tickers": [
+        "MSFT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9199
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "99e5c80e759b857721e2a3c19e40ad167fe09a934992bbca02f8892ee189de71",
+      "published_at": "2026-11-22T07:23:02Z",
+      "source": "The Motley Fool",
+      "title": "Mortgage Rates Have Jumped More Than 1 Point Since February. Home Depot and Lowe’s Shareholders Are Feeling the Pain.",
+      "summary": "Mortgage rates have risen from 6.09% in February to 7.11%, creating a frozen housing market with existing home sales at 16-year lows. Home Depot and Lowe's are experiencing declining comparable transactions (down 0.5% and 1.7% respectively in Q3 2026), pressuring earnings growth despite strong online sales and professional customer demand. Investors face a prolonged wait for market recovery, with both stocks significantly underperforming the S&P 500 over the past three years.",
+      "url": "https://www.fool.com/investing/2026/11/22/mortgage-rates-have-jumped-more-than-1-point-since-february-home-depot-and-lowes-shareholders-are-feeling-the-pain/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fd73f5cd40cf44295f4cd332e5242dbc7ae786259-2121x1414.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "HD"
+      ],
+      "all_tickers": [
+        "CME",
+        "HD",
+        "LOW"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9718
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "d67ab6cee621b72142b0804228be3b52e1409b099688ef445217219f631f62f9",
+      "published_at": "2026-11-22T03:30:02Z",
+      "source": "The Motley Fool",
+      "title": "Midterms 2026: Here's Exactly What I'm Doing With My Investment Portfolio Right Now",
+      "summary": "Following the 2026 midterm elections, investors should avoid knee-jerk portfolio changes, as history shows the S&P 500 gains an average of 15% in the year after midterms. However, tactical investors may find opportunities in healthcare providers ETF due to potential Democratic policies on insurance subsidies and Medicare expansion. Energy and technology ETFs that declined post-election may offer value rather than warrant selling, given their diversification benefits and earnings momentum.",
+      "url": "https://www.fool.com/investing/2026/11/21/midterms-2026-here-s-exactly-what-i-m-doing-with-my-investment-portfolio-right-now/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F6bed94039085ab0e598f1900dcfa3ba0c2291f3d-3590x2680.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "UNH"
+      ],
+      "all_tickers": [
+        "CVS",
+        "IHF",
+        "UNH",
+        "VDE",
+        "VGT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "UNH"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.5519
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "82b04dffa60bf9bbdc77312f26c5970c6e4555c14394d339ff8c5761e1cca29b",
+      "published_at": "2026-11-22T03:10:02Z",
+      "source": "The Motley Fool",
+      "title": "3 Industrial Stocks Trading Above $500 a Share: Which One Splits First?",
+      "summary": "Caterpillar, Comfort Systems, and GE Vernova are all trading above $500 per share and are candidates for stock splits. While stock splits are largely emotional rather than financially meaningful, Comfort Systems appears most likely to split first given its highest stock price at over $1,100. All three companies benefit from AI infrastructure spending, though recent pullbacks in the AI trade have reduced near-term split likelihood.",
+      "url": "https://www.fool.com/investing/2026/11/21/3-industrial-stocks-trading-above-500-a-share-which-one-splits-first-cat-fix-gev/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F01fdbb98b8e731f7d295518a723a05aa4f7a5420-2982x1968.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "CAT"
+      ],
+      "all_tickers": [
+        "CAT",
+        "FIX",
+        "GEV"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CAT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.384
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "bfa6cdf57f009b33861fdd7ac958c91859281468ad0f52a594a694d64d561898",
+      "published_at": "2026-11-22T02:01:02Z",
+      "source": "The Motley Fool",
+      "title": "The Smartest Dividend Stock to Buy With $1,000 Right Now",
+      "summary": "Murphy USA, a convenience store chain and fourth-largest in the U.S., is highlighted as an attractive dividend stock. Since its 2013 spinoff from Murphy Oil, it has delivered 22% annualized returns. The company trades at a reasonable valuation (EV/EBITDA of 9.5, forward P/E of 14.4) and has aggressively repurchased shares, reducing outstanding shares from 37 million to 18 million over a decade. Quarterly dividends have nearly tripled since 2020, and the company plans to open 50 new stores annually.",
+      "url": "https://www.fool.com/investing/2026/11/21/the-smartest-dividend-stock-to-buy-with-1000-right-now/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F12b1980bc5220e15b1e620002c32bf01384bcdf3-2121x1414.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "WMT"
+      ],
+      "all_tickers": [
+        "MUR",
+        "MUSA",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9189
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "d1147b20e4e01187e8aad72a1c2983e3d35cd9080360823e1fb325961cc9bfc4",
+      "published_at": "2026-11-22T00:41:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "ROSEN, SKILLED INVESTOR COUNSEL, Encourages Bank of America Corporation Investors to Secure Counsel Before Important Deadline in Securities Class Action - BAC",
+      "summary": "Rosen Law Firm is urging Bank of America Corporation (BAC) investors who purchased stock between August 1, 2025 and October 13, 2026 to join a securities class action lawsuit. The lawsuit alleges that Bank of America failed to disclose systemic weaknesses in its subsidiary's BSA/AML compliance program, resulting in improper monitoring of trillions in transactions and inaccurate suspicious activity reports. The firm notes that internal reports documented these deficiencies for years, and fixing them requires significant compliance resources and exposes the bank to substantial penalties. The lead plaintiff deadline is December 15, 2026.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/22/3407932/673/en/rosen-skilled-investor-counsel-encourages-bank-of-america-corporation-investors-to-secure-counsel-before-important-deadline-in-securities-class-action-bac.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/745335af-3a3a-4fb5-84c0-fdedc9adf092",
+      "raw_tickers": [
+        "BAC"
+      ],
+      "all_tickers": [
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "MERpK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8731
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a18ac676cd23e570be1ec4a441aeddc37afba6228b66fad998b315f7041fd685",
+      "published_at": "2026-11-21T23:41:01Z",
+      "source": "The Motley Fool",
+      "title": "Nvidia Without Jensen Huang: 3 Things That Could Go Right and 3 That Could Go Wrong",
+      "summary": "Following Jensen Huang's resignation as Nvidia CEO amid allegations of affairs, the company faces both opportunities and risks. Positive factors include an intact supply chain moat, continued strong growth forecasted at 75% for fiscal 2028, and potential stock multiple expansion. However, risks include potential deterioration of the SpaceX relationship, slowdown in AI infrastructure investment, and margin compression from increased competition and eroding CUDA moat.",
+      "url": "https://www.fool.com/investing/2026/11/21/nvidia-without-jensen-huang-3-things-that-could-go-right-and-3-that-could-go-wrong/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F630a3e11180bfcac2afb514fac5b754a2046dc48-5000x2814.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMD",
+        "NVDA",
+        "SKHY",
+        "SPCX",
+        "TSM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8455
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "30d5d27e7ed04356b9d8758cb224770047996c6438ea81ad9fb5a1429adc4940",
+      "published_at": "2026-11-21T23:40:25Z",
+      "source": "The Motley Fool",
+      "title": "Intuit vs. Oracle: Which Technology Stock Is a Better Buy for 2027?",
+      "summary": "The article compares Intuit and Oracle as investment choices for 2027. Intuit dominates consumer tax and small business accounting with a sticky ecosystem, strong profitability, and healthy cash flow, while Oracle is aggressively expanding cloud infrastructure for AI workloads but carries heavy debt and negative free cash flow. The analyst recommends Intuit for long-term investors due to its profitable growth, lower leverage, and expanding customer base.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/21/intuit-vs-oracle-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F497213577468110e4ae04f3160ed91a99378c474-1280x853.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL",
+        "MSFT"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "INTU",
+        "MSFT",
+        "ORCL",
+        "ORCLpD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8027
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "2674d5266196c8a90cc753bcd477b5ffd0ab8827ee138cf1a7ea02aac536d5d7",
+      "published_at": "2026-11-21T23:33:02Z",
+      "source": "The Motley Fool",
+      "title": "Realty Income Pays Dividends Every Month. Here's What You Can Expect $10,000 Invested to Pay Monthly in 2027.",
+      "summary": "Realty Income (REIT) offers reliable monthly dividends with a 5.6% yield and has raised its dividend for 29+ years. A $10,000 investment would generate approximately $48.27 monthly in 2027. The company operates 15,500+ properties leased to major retailers with a 98.8% occupancy rate, though recent stock performance has been pressured by high interest rates affecting its debt servicing costs.",
+      "url": "https://www.fool.com/investing/2026/11/21/realty-income-pays-dividends-every-month-heres-what-you-can-expect-10000-invested-to-pay-monthly-in-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb09c4d197d11aef6608f7c182e4ae902899b9550-1280x854.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "HD",
+        "WMT"
+      ],
+      "all_tickers": [
+        "DG",
+        "HD",
+        "O",
+        "WMT",
+        "WYNN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD",
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6454
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "9242c2e673e0f760653d6259bd9dda42fc6b179a4ecf5bc71d5482bc7446b87a",
+      "published_at": "2026-11-21T23:19:26Z",
+      "source": "The Motley Fool",
+      "title": "AppLovin vs. Reddit: Which Technology Stock Is a Better Buy for 2027?",
+      "summary": "The article compares AppLovin and Reddit as investment options for 2027. AppLovin, an ad-tech platform, shows strong profitability with 66% net margins and 46.5% revenue growth, though it faces volatility and platform dependency risks. Reddit is profitable with 62% revenue growth but faces headwinds from Google's AI search reducing traffic and declining U.S. user engagement. The analyst recommends AppLovin for its superior growth trajectory, profitability, and expansion into online shopping advertising.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/21/applovin-vs-reddit-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F497213577468110e4ae04f3160ed91a99378c474-1280x853.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "AMZN",
+        "APP",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "META",
+        "METAM",
+        "RDDT",
+        "U"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7679
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "0cdcc1ec8907d30d62dccec4ade2eafe8e9f9d056cd010ac2e787606334f27f4",
+      "published_at": "2026-11-21T23:00:48Z",
+      "source": "The Motley Fool",
+      "title": "Alphabet Stock Just Hit a 1-Year Low. Why Is Google's Parent Borrowing So Much Money?",
+      "summary": "Alphabet's stock has fallen 34% from its May peak and hit a 1-year low as the company aggressively borrows money to fund massive data center expansion. The company has added over $78 billion in long-term debt this year and spent $132 billion on property and equipment in the first nine months of 2026, exceeding its operational cash flow. While Alphabet remains financially stable with strong cloud growth, investors are questioning whether the company's massive AI infrastructure bet will pay off.",
+      "url": "https://www.fool.com/investing/2026/11/21/alphabet-stock-just-hit-a-1-year-low-why-is-google-s-parent-borrowing-so-much-money/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F797699fbf1875c417ab31fe20e9be0ca09a16aa7-3969x2897.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "BRK.A",
+        "BRK.B",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9689
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1c5d00e2c614886ecd07beefd6f6d71b241c1a8a64f7b05ab81760db47f3c151",
+      "published_at": "2026-11-21T22:34:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Musk Filed This Plan Long Before the Election. Now It Looks Like He Saw It Coming.",
+      "summary": "Following midterm election results where voters backed limits on new AI data centers, SpaceX's FCC filing for one million AI satellites in orbit has become significantly more relevant. Tech analyst James Altucher argues Elon Musk anticipated this regulatory pushback and positioned SpaceX to bypass ground-based construction challenges through orbital infrastructure, potentially worth $25 trillion annually in the AI market.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/21/3407927/0/en/musk-filed-this-plan-long-before-the-election-now-it-looks-like-he-saw-it-coming.html",
+      "image_url": "https://www.globenewswire.com/news-release/2026/11/21/3407927/0/en/musk-filed-this-plan-long-before-the-election-now-it-looks-like-he-saw-it-coming.html",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "NVDA"
       ],
       "is_spam": false,
       "tickers": [
@@ -24,7 +779,33 @@
       ],
       "sentiment": {
         "label": "positive",
-        "score": 0.9429
+        "score": 0.7168
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "aa621b8d487912f4c8b4302056455c7669e9ceebff16668ab4054683b7789687",
+      "published_at": "2026-11-21T20:27:02Z",
+      "source": "The Motley Fool",
+      "title": "Is Shopify Stock Too Expensive to Buy for the Next 10 Years?",
+      "summary": "Shopify is a fast-growing e-commerce powerhouse with impressive 32% year-over-year revenue growth and gross merchandise volume exceeding Amazon's online sales. However, the stock is extremely expensive by all valuation metrics, making it a risky buy at current prices. The author recommends waiting for a better entry point, citing PayPal as a cautionary example of a pioneer that gained only 53% over a decade.",
+      "url": "https://www.fool.com/investing/2026/11/21/is-shopify-stock-too-expensive-to-buy-for-the-next-10-years/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F6f7689d076174e693deb2f88676d7de36dc984c5-1320x880.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "PYPL",
+        "SHOP"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7205
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -80,163 +861,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "efc427f5856b65af166b9e37d27ee44eba3cf174598fd594c482e9630aa56769",
-      "published_at": "2026-11-21T16:44:02Z",
-      "source": "The Motley Fool",
-      "title": "Billionaire Investor Philippe Laffont Just Highlighted 2 Companies He Expects to Be Big Winners of the Agentic AI Era",
-      "summary": "Billionaire investor Philippe Laffont of Coatue Management identified Meta Platforms and Intel as major winners in the emerging agentic AI era. Meta is positioned to shift from monetizing attention to monetizing intent through its Muse AI agent, with potential $250 billion in revenue from AI commerce by 2031. Intel is expected to benefit from increased CPU demand as agentic AI systems require equal GPU-to-CPU ratios in data centers, compared to the current 8-to-1 ratio favoring GPUs.",
-      "url": "https://www.fool.com/investing/2026/11/21/billionaire-investor-philippe-laffont-just-highlighted-2-companies-he-expects-to-be-big-winners-of-the-agentic-ai-era/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fcd96bb32063027d0657bf82632c5adf7b8829d1f-2000x1200.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "NVDA"
-      ],
-      "all_tickers": [
-        "AMD",
-        "ARM",
-        "INTC",
-        "META",
-        "METAM",
-        "NVDA",
-        "QCOM"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9351
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "a561a524aaa90fd64e774b718920874d3410b878fbb201a8122bab1296e9e230",
-      "published_at": "2026-11-21T16:35:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "GOOGL, GOOG IMPORTANT DEADLINE: ROSEN, TRUSTED INVESTOR COUNSEL, Encourages Alphabet Inc. Investors to Secure Counsel Before Important December 1 Deadline in Securities Class Action - GOOGL, GOOG",
-      "summary": "Rosen Law Firm is alerting investors about securities class action lawsuits filed against Alphabet Inc. (GOOGL, GOOG) for the period between May 19, 2026 and October 28, 2026. The lawsuit alleges that Alphabet made materially false statements regarding disappointing Gemini 3.5 Pro training results, delayed product launch, and negative impact on Search revenue from AI Mode queries with lower monetization. The lead plaintiff deadline is December 1, 2026.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/21/3407919/673/en/googl-goog-important-deadline-rosen-trusted-investor-counsel-encourages-alphabet-inc-investors-to-secure-counsel-before-important-december-1-deadline-in-securities-class-action-goo.html",
-      "image_url": "https://ml.globenewswire.com/Resource/Download/745335af-3a3a-4fb5-84c0-fdedc9adf092",
-      "raw_tickers": [
-        "GOOGL"
-      ],
-      "all_tickers": [
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9554
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "23eb4ef568ca7423941c887917f644e7c228ccff680f473e7a148de7e51c9384",
-      "published_at": "2026-11-21T16:30:02Z",
-      "source": "The Motley Fool",
-      "title": "1 Growth ETF I'm Buying Even When the Market Is Expensive",
-      "summary": "The author recommends the Invesco Nasdaq 100 ETF (QQQM) as a quality growth investment despite current market valuations being at historically expensive levels similar to the dot-com bubble. While QQQM has outperformed the S&P 500 in 15 of the past 20 years, investors should be mindful of significant overlap with other popular ETFs and avoid making it the bulk of their portfolio due to heavy tech concentration.",
-      "url": "https://www.fool.com/investing/2026/11/21/1-growth-etf-i-m-buying-even-when-the-market-is-expensive/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F01faf8ceeab22141b3dd99b51fe6057d02297d6e-2121x1414.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AAPL",
-        "MSFT",
-        "NVDA"
-      ],
-      "all_tickers": [
-        "AAPL",
-        "MSFT",
-        "NVDA",
-        "QQQM",
-        "VOO"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AAPL",
-        "MSFT",
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6026
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "04f4b40719ceb540cf8df2ef61f06fc83992f736eebdbf9fd0cf3ef173f384c5",
-      "published_at": "2026-11-21T15:30:02Z",
-      "source": "The Motley Fool",
-      "title": "After Plummeting 62% This Year, Could Buying Intel Stock Today Set You Up for Life?",
-      "summary": "Intel stock has fallen 62% from its June peak, attracting bargain hunters. While new leadership has improved the company's competitive position in semiconductors and AI chip markets, Intel's massive $290 billion market cap limits its potential to generate life-changing returns for small investors. The company faces challenges including high capital expenditures and projected slower growth rates than the broader AI chip market.",
-      "url": "https://www.fool.com/investing/2026/11/21/after-plummeting-62-this-year-could-buying-intel-stock-today-set-you-up-for-life/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F2319fc2de5f5e4ad6cab6ccca60214412812ac9f-1290x860.png&w=1200&op=resize",
-      "raw_tickers": [
-        "AAPL",
-        "AMZN",
-        "MSFT"
-      ],
-      "all_tickers": [
-        "AAPL",
-        "AMZN",
-        "INTC",
-        "MSFT",
-        "TSLA",
-        "TSM"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AAPL",
-        "AMZN",
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9669
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "6813a86fe35ee33c274289c5bdca9875792ea311517131404f3491d30a80e0c6",
-      "published_at": "2026-11-21T15:26:01Z",
-      "source": "The Motley Fool",
-      "title": "Here's How Much Cash Anthropic Has After Its IPO, and Why It Could Be the Most Important Number for Investors to Know",
-      "summary": "Anthropic completed a record $119.5 billion IPO and private placement, leaving it with an estimated $250 billion in cash and short-term investments. While the company faces $900 billion in compute commitments, only $70.7 billion is due within 12 months, giving it substantial runway. The key risk is whether revenue growth can sustain the massive spending obligations later this decade, as most revenue is consumption-based while compute commitments are locked in.",
-      "url": "https://www.fool.com/investing/2026/11/21/here-s-how-much-cash-anthropic-has-after-its-ipo-and-why-it-could-be-the-most-important-number-for-investors-to-know/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fe38b3cff0e79d336365cecd29c15c7849e463929-2119x1414.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN",
-        "GOOGL",
-        "MSFT"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "ANT",
-        "AVGO",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "MSFT"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN",
-        "GOOGL",
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7089
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "ed6d22880415ee101aed3efe4a048e8054009714305d4f1177e5e54ee371026b",
       "published_at": "2026-11-21T14:21:02Z",
       "source": "The Motley Fool",
@@ -260,41 +884,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.8153
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "431db91a29cb62b131c84db81392894dd80188c3c1a61482054f9d45abdfa5c8",
-      "published_at": "2026-11-21T14:20:02Z",
-      "source": "The Motley Fool",
-      "title": "CME vs. Robinhood Markets: Which Financial Stock Is a Better Buy for 2027?",
-      "summary": "CME Group and Robinhood Markets represent different investment approaches in financial services. CME operates a dominant global derivatives marketplace with high profit margins (63.1%) and a conservative balance sheet (0.1 debt-to-equity ratio), while Robinhood has achieved faster revenue growth (21.1%) but carries higher debt (1.3 debt-to-equity ratio). The analyst recommends CME for 2027 due to its stability and dividend yield in an unsettled market, though growth-focused investors may prefer Robinhood.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/21/cme-vs-robinhood-markets-which-financial-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F67fd2117da2a0c9c38b6e8ab8dbc92d695e6cffb-2121x1414.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "GOOGL"
-      ],
-      "all_tickers": [
-        "CME",
-        "FLUT",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "HOOD",
-        "ICE",
-        "NDAQ",
-        "SCHW",
-        "SCHWpD",
-        "SCHWpJ"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5801
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -404,33 +993,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.6805
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "de6063aea71c59f61c9c9335d1851d97f5987aa5ad64faf95696f610961fe20b",
-      "published_at": "2026-11-21T10:20:00Z",
-      "source": "The Motley Fool",
-      "title": "Walmart Has Paid Investors a Growing Dividend for 53 Straight Years. Here's What $10,000 Starts You With.",
-      "summary": "Walmart maintains its Dividend King status with 53 consecutive years of dividend increases, most recently raising its quarterly payout in February. However, the analyst cautions against buying at current valuations, citing a P/E ratio of 47 (well above its 10-year median of 32) and a below-average dividend yield of 0.8% compared to the S&P 500's 1.1%.",
-      "url": "https://www.fool.com/investing/2026/11/21/walmart-has-paid-investors-a-growing-dividend-for/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F892999%2Fstore-aisle-5-below-dollar-general-dollar-tree-1280x826-9af50e2.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN",
-        "WMT"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "WMT"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN",
-        "WMT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.7971
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -8589,165 +9151,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.9227
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-07T17:45:38+00:00",
-      "source": "New York Post",
-      "title": "Obsessed Americans Google serial killers 3.8M times a month — and here are the most popular monsters",
-      "summary": "A new survey from VIP Grinders reveals Americans are fascinated with serial killers with more than 3.8 million Google searches a month for the top 13, while each state has its most fascinating killer.",
-      "url": "https://nypost.com/2026/11/07/us-news/americans-google-serial-killers-3-8-million-times-a-month/",
-      "image_url": "https://nypost.com/wp-content/uploads/sites/2/2026/10/145983416.jpg?quality=75&strip=all&w=1200",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9034
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-07T17:41:34+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Danes In Distress S01E04 1080p AMZN WEB-DL H264-GRANiTEN",
-      "summary": "Note: In Danish With English Selectable Subtitles or (HERE).Season 1, Episode 04 – “A4 The Pool Accident in India”In India, Kevin’s father breaks his neck when he falls into a swimming pool that is being filled. In Greece, tourist Helen has an encounter with …",
-      "url": "https://post.rlsbb.cc/danes-in-distress-s01e04-1080p-amzn-web-dl-h264-graniten/",
-      "image_url": null,
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5754
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-07T17:41:29+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Danes In Distress S01E03 1080p AMZN WEB-DL H264-GRANiTEN",
-      "summary": "Note: In Danish With English Selectable Subtitles or (HERE).Season 1, Episode 03 – “Bone Express”In Italy, 23-year-old Viktor has crashed while skiing and is being rescued home with the Bone Express ambulance plane. In Greece, bartender Lene has had a blood c…",
-      "url": "https://post.rlsbb.cc/danes-in-distress-s01e03-1080p-amzn-web-dl-h264-graniten/",
-      "image_url": null,
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.5276
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-07T17:41:23+00:00",
-      "source": "Rlsbb.cc",
-      "title": "Danes In Distress S01E02 1080p AMZN WEB-DL H264-GRANiTEN",
-      "summary": "Note: In Danish With English Selectable Subtitles or (HERE).Season 1, Episode 02 – “Accident in Greece”Emil falls badly by the hotel pool while on vacation in Greece and is paralyzed. In France, Henrik has fallen down the stairs.Links: HOMEPAGE – TVGUiDEDanes…",
-      "url": "https://post.rlsbb.cc/danes-in-distress-s01e02-1080p-amzn-web-dl-h264-graniten/",
-      "image_url": null,
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5188
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-07T17:33:19+00:00",
-      "source": "Slashdot.org",
-      "title": "5 Google Messages settings you might want to disable",
-      "summary": "Google Messages is easily one of the best messaging apps available on Android, but that doesn't mean it's configured perfectly out of the box.",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186639285",
-      "image_url": null,
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8822
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-07T17:32:05+00:00",
-      "source": "Slashdot.org",
-      "title": "Protesters break into Microsoft data centre site in Amsterdam - Al Jazeera",
-      "summary": "Protesters break into Microsoft data centre site in AmsterdamAl Jazeera Activists break into building site of Microsoft datacentre in AmsterdamThe Guardian Protesters break into Microsoft data center site in Amsterdam as Europe’s backlash spreadsAP News Prote…",
-      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=186639245",
-      "image_url": null,
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8765
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-07T17:31:16+00:00",
-      "source": "MakeUseOf",
-      "title": "Something big always happens to Microsoft in October, and there's a reason why",
-      "summary": "Microsoft likes October too much, but the reason is not what you think.",
-      "url": "https://www.makeuseof.com/why-microsoft-launches-october/",
-      "image_url": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/11/calendar-app-open-on-macos.jpg?w=1600&h=900&fit=crop",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.654
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-07T17:12:00+00:00",
-      "source": "Digital Journal",
-      "title": "Dutch activists invade site of Microsoft’s planned data centre",
-      "summary": "Several hundred activists opposed to the construction of a Microsoft data centre in Amsterdam occupied the site on Friday, responding to a call for a two-day protest across Europe. \nThe post Dutch activists invade site of Microsoft’s planned data centre appea…",
-      "url": "https://www.digitaljournal.com/article/dutch-activists-invade-site-of-microsofts-planned-data-centre/",
-      "image_url": "https://www.digitaljournal.com/wp-content/uploads/2026/11/78a675e4f1b1c969a164b86637476effa7b191af.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.7276
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-07T17:00:00+00:00",
-      "source": "TechRadar",
-      "title": "I’m sick of Google running my life, but the /e/OS Fairphone wasn't the de-Googled solution I needed",
-      "summary": "I’m sick of Google running my life, but the Fairphone 6 Plus with /e/ OS was unfortunately not the de-Googled solution I needed.",
-      "url": "https://www.techradar.com/phones/android/i-spent-a-month-trying-to-de-google-with-the-fairphone-6-plus-but-it-left-me-wishing-for-my-android-phone-back",
-      "image_url": "https://cdn.mos.cms.futurecdn.net/eSKx4zQMBveA6wkUUP2oeD-1920-80.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6585
       },
       "sentiment_model": "ProsusAI/finbert"
     }
