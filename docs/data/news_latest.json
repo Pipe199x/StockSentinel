@@ -1,60 +1,118 @@
 {
-  "as_of": "2026-11-25T10:19:51.391741+00:00",
+  "as_of": "2026-11-25T21:40:41.022111+00:00",
   "window_days": 15,
   "articles": [
     {
-      "id": "9f1b543f74e42432f019ca8473ab6469b8fec6505ca318ffd47079146d3dfdcf",
-      "published_at": "2026-11-25T09:52:02Z",
+      "id": "37c51d2a6e679a86ca23ffe3d604ea65a0d258a01c786ee9c821cd7216af9a24",
+      "published_at": "2026-11-25T21:00:02Z",
       "source": "The Motley Fool",
-      "title": "Semiconductor Stocks Are Sinking. These 2 AI Chip Stocks Could Make You Richer on the Rebound.",
-      "summary": "While semiconductor stocks have fallen sharply (down 40% from June highs), two AI chip companies—Cerebras and Arm Holdings—reported strong quarterly results that suggest potential for rebound gains. Cerebras raised 2026 forecasts, beat profit expectations, and added Microsoft as a customer, while Arm's data center royalties doubled and it now commands over 50% of servers at major cloud companies.",
-      "url": "https://www.fool.com/investing/2026/11/25/semiconductor-stocks-are-sinking-these-2-ai-chip-stocks-could-make-you-richer-on-the-rebound/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F966e6b7238dec442a1dc1e6e4cae342d4c3c8928-1285x734.png&w=1200&op=resize",
+      "title": "Qualcomm vs. Sandisk: Which Technology Stock Is a Better Buy for 2027?",
+      "summary": "Sandisk emerges as the better investment choice for 2027 despite higher valuation risks. The company has achieved 272% revenue growth driven by cloud and AI data center demand, trading at a bargain 3.6x forward P/E with a 67% net margin. Qualcomm faces headwinds from smartphone market weakness and Apple's internal modem development, though it's diversifying into automotive and AI-enabled processors. Sandisk's main risk is potential memory cycle downturn, but its current momentum and valuation make it the preferred pick.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/25/qualcomm-vs-sandisk-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F32b483b324c74a9d0d075f4674ba2dd0528614e1-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "MU",
+        "NVDA",
+        "QCOM",
+        "SNDK",
+        "WDC"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7464
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "3afcfa11ba7db126585054d9f525d4c7d7bc845ba9f426491683bb8bfd168072",
+      "published_at": "2026-11-25T20:33:02Z",
+      "source": "The Motley Fool",
+      "title": "Anthropic’s Chip Choices Could Change the Nvidia Story. Here’s How.",
+      "summary": "Anthropic is diversifying its AI chip purchases across multiple vendors including Nvidia, Alphabet, Amazon, and AMD rather than relying solely on Nvidia. With ~$900 billion in planned infrastructure spending, Anthropic is spreading deals to reduce supply chain risk and negotiate better prices. While Nvidia maintains 75% market share in AI accelerators, competitors' custom chips are gaining traction for agentic AI tasks, and Nvidia's gross margins are declining from competitive pressure.",
+      "url": "https://www.fool.com/investing/2026/11/25/anthropic-s-chip-choices-could-change-the-nvidia-story-here-s-how/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F1a4bae1da4a05d0d0e00a764e0d498057cecc411-3240x2160.jpg&w=1200&op=resize",
       "raw_tickers": [
         "AMZN",
-        "MSFT",
+        "GOOGL",
         "NVDA"
       ],
       "all_tickers": [
         "AMD",
         "AMZN",
-        "ARM",
-        "CBRS",
-        "MSFT",
-        "NVDA",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "GOOGL",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9512
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "677c8a039ce2ba9dc0d7db7ddac76bfd60b71d57fee075ba9e18660091eb93bd",
+      "published_at": "2026-11-25T20:20:12Z",
+      "source": "The Motley Fool",
+      "title": "Why Oracle Stock Slumped Today",
+      "summary": "Oracle stock fell over 8% amid growing concerns about AI infrastructure costs and sustainability. The company's credit default swap pricing spiked to 360 basis points, reflecting market fears about Oracle's negative cash flow, soaring capital expenditures for AI build-out, and rising debt levels. Analysts recommend focusing on stronger players like Alphabet during this weakness.",
+      "url": "https://www.fool.com/investing/2026/11/25/why-oracle-stock-slumped-today/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F0fdc691e6fe03c491cf1d1853bbceecad55d8b6b-6200x4132.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
         "ORCL",
         "ORCLpD"
       ],
       "is_spam": false,
       "tickers": [
-        "AMZN",
-        "MSFT",
-        "NVDA"
+        "GOOGL"
       ],
       "sentiment": {
         "label": "negative",
-        "score": 0.6338
+        "score": 0.971
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "7dc8ae3c0adecdfc43ac88ca4e56981dd24ff1fed8508e4762205ac90886f98a",
-      "published_at": "2026-11-25T09:29:02Z",
+      "id": "1fd7b5baafa04e0c3cb3915b72abc9b3b8540c2f7eb91f46794d0281757643c1",
+      "published_at": "2026-11-25T20:15:01Z",
       "source": "The Motley Fool",
-      "title": "Should You Buy Oracle Stock After Its 53% Collapse? The Answer Might Shock You.",
-      "summary": "Oracle stock has plummeted 53% from its peak as investors worry about the sustainability of its AI infrastructure business. While Oracle operates cost-efficient data centers and has a massive $664 billion order backlog, concerns about major customers like OpenAI's ability to fulfill commitments—especially following Nvidia's leadership uncertainty—have emerged. Despite a low P/E ratio of 15.6, the analyst recommends against buying due to $117 billion in debt and uncertainty around earnings forecasts.",
-      "url": "https://www.fool.com/investing/2026/11/25/should-buy-oracle-stock-after-53-collapse-answer-shock-you/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F02d00371f7c9a99a3b71495677ecde64e5c4c4d6-1290x860.png&w=1200&op=resize",
+      "title": "Is Jensen Huang Really Worth $954 Billion to Nvidia?",
+      "summary": "Nvidia's stock surged 31.5% following Jensen Huang's reinstatement as CEO, adding $954 billion to the company's market cap. The article argues Huang is integral to Nvidia's success, citing his role in maintaining client relationships, driving innovation, and securing major partnerships like SpaceX's exclusive commitment. However, the author recommends a 'hold' rating due to concerns about key-person risk, succession planning, and ongoing national security investigations that could force Huang's departure.",
+      "url": "https://www.fool.com/investing/2026/11/25/is-jensen-huang-really-worth-usd954-billion-to-nvidia/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F9b4ac6794e7f3acd8bce0714736852b618bc1883-1280x854.jpg&w=1200&op=resize",
       "raw_tickers": [
         "NVDA"
       ],
       "all_tickers": [
-        "AMD",
         "META",
         "METAM",
         "NVDA",
-        "ORCL",
-        "ORCLpD"
+        "SPCX",
+        "TSLA"
       ],
       "is_spam": false,
       "tickers": [
@@ -62,103 +120,413 @@
       ],
       "sentiment": {
         "label": "negative",
-        "score": 0.9703
+        "score": 0.5808
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "25c512972e8581cc9890c9172c44de923692b87b544db3260fe69c250e2eadb1",
-      "published_at": "2026-11-25T09:06:02Z",
+      "id": "3b60ea116a213136a8fd0d0d9fb475a98a1842d5ce00e2a67d030c2e29746d35",
+      "published_at": "2026-11-25T20:00:02Z",
       "source": "The Motley Fool",
-      "title": "Tim Cook Could Have Purchased Any of 489 S&P 500 Companies With $903 Billion. Instead, He Bought Something That Transformed Apple Forever.",
-      "summary": "During his 15+ year tenure as CEO, Tim Cook led Apple to spend approximately $903 billion on share buybacks since 2013, reducing outstanding shares by 44.79%. This massive repurchase program, facilitated by the Tax Cuts and Jobs Act's lower corporate tax rates, has increased earnings per share and represented Cook's confidence in Apple's stock as the most attractive asset on Wall Street. Cook stepped down as CEO on September 1, 2026, having overseen a 2,700%+ increase in Apple's share price.",
-      "url": "https://www.fool.com/investing/2026/11/25/tim-cook-purchase-any-489-sp-500-companies-with-903-billion-he-bought-something-transformed-apple-forever/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F405843ba30b3ef54683996b3a81d23394268c6c6-3000x2000.jpg&w=1200&op=resize",
+      "title": "Tech Stock Sell-Off: Here's Why Apple Has Been Immune",
+      "summary": "While AI stocks plummeted in November 2026, Apple remained resilient by focusing on integrating AI into its existing 2.5 billion devices rather than investing heavily in cloud infrastructure like competitors. Apple's strong financial performance—with free cash flow rising 38% to $136 billion and revenue up 15% to $478.8 billion—demonstrates the advantage of its device-centric AI strategy over infrastructure-heavy approaches.",
+      "url": "https://www.fool.com/investing/2026/11/25/tech-stock-sell-off-here-s-why-apple-has-been-immune/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F84e97f1a3f2f2964c85a1a83ea820b8e4ac50803-1290x860.jpg&w=1200&op=resize",
       "raw_tickers": [
         "AAPL",
-        "NVDA"
+        "AMZN",
+        "GOOGL",
+        "MSFT"
       ],
       "all_tickers": [
         "AAPL",
-        "BRK.A",
-        "BRK.B",
-        "NVDA"
+        "AMZN",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "META",
+        "METAM",
+        "MSFT",
+        "TSLA"
       ],
       "is_spam": false,
       "tickers": [
         "AAPL",
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.4284
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "cd0aef9edac195c1cebca99b7b535cea92f3d1350a22705d87efb0fa94d3443a",
-      "published_at": "2026-11-25T09:05:02Z",
-      "source": "The Motley Fool",
-      "title": "Home Depot Is Down 23% From Its High. Here's Why I'd Hold It for a Decade.",
-      "summary": "Home Depot's stock has declined 23% from its December 2024 high due to a weak housing market with low existing home sales and elevated mortgage rates. However, the article argues this presents a buying opportunity for long-term investors, citing aging U.S. housing stock, growing homeowner equity, expansion into the professional contractor market through acquisitions, and consistent dividend growth as reasons to hold the stock for a decade.",
-      "url": "https://www.fool.com/investing/2026/11/25/home-depot-down-23-from-high-why-i-d-hold-it-for-a-decade/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F3482a699e7e939ee04dc7c10e19af5ce699a04e9-2996x1997.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "HD"
-      ],
-      "all_tickers": [
-        "HD"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "HD"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9731
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "111624b27260d7574fe1ff9e57e2a3b1d325e1ed8e98f39e896f08f8ab6a4dfd",
-      "published_at": "2026-11-25T08:15:02Z",
-      "source": "The Motley Fool",
-      "title": "Home Depot Has Raised Its Dividend 17 Straight Years. Here's What $10,000 Invested Pays Annually.",
-      "summary": "Home Depot has maintained a 17-year dividend increase streak, with a current yield of 2.7% on a $10,000 investment generating approximately $269 annually. Despite a 15% share price decline over five years due to housing market challenges, the company's strong cash flow position (55% payout ratio) and dominant market scale make the dividend sustainable. The stock trades at a fair valuation of 24x trailing earnings, in line with its 10-year average.",
-      "url": "https://www.fool.com/investing/2026/11/25/home-depot-has-raised-its-dividend-17-straight-years-here-s-what-usd10-000-invested-pays-annually/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F2c30e6c27b6c3d72848cbdc7eee97459ca4988e5-3610x2410.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "HD"
-      ],
-      "all_tickers": [
-        "HD"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "HD"
+        "AMZN",
+        "GOOGL",
+        "MSFT"
       ],
       "sentiment": {
         "label": "positive",
-        "score": 0.7979
+        "score": 0.9552
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "ac0f4602549a477fad2fef1b228b027bf483c89eee5f51c27b89f03d39b2b6cd",
-      "published_at": "2026-11-25T08:00:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "Energy Drinks Market in India 2032: USD 980 Million Opportunity Amid Evolving Consumer Preferences, Says Mordor Intelligence",
-      "summary": "India's energy drinks market is projected to grow from USD 0.82 billion in 2026 to USD 0.98 billion by 2032 at a 3.15% CAGR. Growth is driven by convenient ready-to-drink servings for work and gaming occasions, botanical formulations for product differentiation, and price-tiered portfolios. However, FSSAI labeling enforcement beginning July 2026 presents regulatory considerations for suppliers.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/25/3410018/0/en/energy-drinks-market-in-india-2032-usd-980-million-opportunity-amid-evolving-consumer-preferences-says-mordor-intelligence.html",
-      "image_url": "https://ml.globenewswire.com/Resource/Download/416870ff-5134-4fb2-8605-50f7b688dd33",
+      "id": "b345b925d09dc28eef096b90a3b5731ee10b7aaa12ef01764b217bea954f4b8d",
+      "published_at": "2026-11-25T19:57:02Z",
+      "source": "The Motley Fool",
+      "title": "CAVA vs. Monster Beverage: Which Consumer Stock Is a Better Buy for 2027?",
+      "summary": "The article compares CAVA Group and Monster Beverage as investment options for 2027. CAVA operates a rapidly expanding Mediterranean fast-casual restaurant chain with 500 locations and 27% revenue growth, but faces valuation concerns with a 93.4x forward P/E ratio and slowing same-restaurant sales growth of 3.1%. Monster Beverage dominates the global energy drink market with $9.6 billion in revenue, 20.2% growth, $1.9 billion in free cash flow, zero debt, and a more attractive 38.0x forward P/E ratio. The analyst recommends Monster Beverage as the better choice for 2027, citing stronger financial fundamentals and lower valuation despite CAVA's impressive growth trajectory.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/25/cava-vs-monster-beverage-which-consumer-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb87002131a6e039ab8fc62272c140c1b76703a72-2121x1414.jpg&w=1200&op=resize",
       "raw_tickers": [
         "KO"
       ],
       "all_tickers": [
-        "BUD",
+        "CAVA",
+        "CELH",
         "KO",
         "MNST",
-        "PEP"
+        "PEP",
+        "SBUX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.5753
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "371cdd5d2624e5f63b54d3664201b150a78b8e09665709aabd36486892827beb",
+      "published_at": "2026-11-25T19:53:02Z",
+      "source": "The Motley Fool",
+      "title": "Here's How Much a $10,000 Investment in McDonald's Pays You Every Single Year",
+      "summary": "McDonald's has achieved Dividend King status with its 50th consecutive annual dividend increase. A $10,000 investment generates approximately $277.92 in annual dividend income at a 2.8% yield. While the stock has underperformed in 2026, analysts view current valuations as favorable for dividend growth investors, with potential upside if the company's turnaround efforts succeed and the stock rebounds to historical highs.",
+      "url": "https://www.fool.com/investing/2026/11/25/heres-how-much-a-10000-investment-in-mcdonalds-pays-you-every-single-year/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fe6290c224b5111dd1e3935076dac60cc7210df17-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "KO",
+        "MCD"
+      ],
+      "all_tickers": [
+        "KO",
+        "MCD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO",
+        "MCD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.95
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1e6b9f0c8cf0ae14f154eb51ca684acebf518e504b57fe1c7d8565601a912aaf",
+      "published_at": "2026-11-25T19:30:02Z",
+      "source": "The Motley Fool",
+      "title": "Walmart+ Members Spend 4 Times As Much As Non-Members. The Retailer’s New $120 Bundle Could Unlock More Growth.",
+      "summary": "Walmart has launched a $120 annual bundle combining Walmart+ and Sam's Club memberships, down from their combined $158 cost. This ecosystem strategy aims to increase customer spending and potentially attract affluent Costco members, as Walmart+ members spend 4x more than non-members. The move positions Walmart to compete more effectively in the premium membership retail space.",
+      "url": "https://www.fool.com/investing/2026/11/25/walmart-members-spend-4-times-as-much-as-non-members-the-retailer-s-new-usd120-bundle-could-unlock-more-growth/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F12dbf856feca62b882fdbe169abd70ffb198b1c2-2189x1459.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "WMT"
+      ],
+      "all_tickers": [
+        "COST",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8903
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "78bac2ae5c06316b93b3153e75ac508712ca1489e910e2cfc6d8b32566c8cbf4",
+      "published_at": "2026-11-25T17:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "SHAREHOLDER ALERT: Bronstein Gewirtz & Grossman, LLC Announces Class Action Against Bank of America Corporation (NYSE: BAC) — Investors Who Suffered Losses Are Encouraged to Contact the Firm.",
+      "summary": "A class action lawsuit has been filed against Bank of America for alleged securities law violations related to systemic weaknesses in its Bank Secrecy Act and Anti-Money Laundering compliance program. The lawsuit claims BAC failed to properly monitor trillions in transactions, missed or delayed suspicious activity reports, and made false statements about compliance progress following a 2024 Consent Order. Investors who purchased BAC securities between August 1, 2025 and October 13, 2026 may be eligible to recover losses, with a lead plaintiff deadline of December 15, 2026.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/25/3410480/9788/en/shareholder-alert-bronstein-gewirtz-grossman-llc-announces-class-action-against-bank-of-america-corporation-nyse-bac-investors-who-suffered-losses-are-encouraged-to-contact-the-fir.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/60f856c5-87a3-4ed5-8a7e-c79d51a4afea",
+      "raw_tickers": [
+        "BAC"
+      ],
+      "all_tickers": [
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "MERpK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.91
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "5d133859a21c319b8e89b0a13f85b7b06999189b39e81d799fea1d9b781222ee",
+      "published_at": "2026-11-25T16:51:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Here's Why Humana Stock Deserves a Place in Your Portfolio",
+      "summary": "Humana Inc. (HUM) reported strong Q3 2026 results with Medicare Advantage membership rising 23.7% to 7.2 million and CenterWell revenues jumping 21.7% to $7.2 billion. Operating cash flow more than doubled to $5.4 billion. However, the company faces headwinds from lower Medicare Advantage Star Ratings for 2025 that will reduce quality bonus payments in 2026, and carries a substantial debt burden of $12.5 billion. Despite challenges, HUM maintains a Zacks Rank #2 (Buy) rating with 2026 earnings consensus at $9.59 per share.",
+      "url": "https://www.zacks.com/stock/news/3035430/here-s-why-humana-stock-deserves-a-place-in-your-portfolio?cid=CS-ZC-FT-analyst_blog|rank_focused-3035430",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/c4/390.jpg",
+      "raw_tickers": [
+        "UNH"
+      ],
+      "all_tickers": [
+        "BTSG",
+        "BTSGU",
+        "CAH",
+        "HUM",
+        "UNH"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "UNH"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.78
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "439a82e471bc3db9e1f023cb187aea9387bdfcf888ff2647f78763eeaf7795fb",
+      "published_at": "2026-11-25T16:33:01Z",
+      "source": "The Motley Fool",
+      "title": "The Bitcoin Dominance Metric Just Fell Below 60%. Could Altcoin Season Be Right Around the Corner?",
+      "summary": "Bitcoin's dominance has fallen below 60% amid a 21% monthly decline, raising questions about an impending altcoin rally. However, the author argues this decline is driven by fear rather than greed, with stablecoins not attracting fresh capital and the Altcoin Season Index remaining low. The article suggests investors focus on Bitcoin's long-term fundamentals—fixed supply, institutional adoption, and Wall Street integration—rather than short-term dominance metrics.",
+      "url": "https://www.fool.com/investing/2026/11/25/the-bitcoin-dominance-metric-just-fell-below-60-could-altcoin-season-be-right-around-the-corner/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fdea729b6b1952aadf5b3c1a10f7f080768c0d5bd-7369x4786.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "BAC"
+      ],
+      "all_tickers": [
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "MERpK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9578
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ae6d5f6b7df609199a3c432bc7a63d54aacef0f6470dd439e90afad4f4121ef6",
+      "published_at": "2026-11-25T16:18:00Z",
+      "source": "Zacks Investment Research",
+      "title": "AGIO Stock Rises 8.4%: Is a Buyout on the Cards Post SNY/INSM Deal?",
+      "summary": "Agios Pharmaceuticals shares surged 8.4% following Sanofi's $41 billion acquisition of Insmed, reviving hopes for biotech M&A activity. The company's strong position in rare blood disorders, particularly with mitapivat's potential expansion into sickle cell disease, positions it as a potential acquisition target for major pharmaceutical companies. Pyrukynd and Aqvesme sales grew 255% to $120.9 million in the first nine months of 2026.",
+      "url": "https://www.zacks.com/stock/news/3035395/agio-stock-rises-8-4-is-a-buyout-on-the-cards-post-sny-insm-deal?cid=CS-ZC-FT-analyst_blog|price_surge_/_plunge-3035395",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/c4/390.jpg",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "AGIO",
+        "INSM",
+        "NVO",
+        "NVS",
+        "PFE",
+        "SNY"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9537
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "e20ee14b5e16161af51d93053b10fa0963c9234b06e734ace7b2347fc526858f",
+      "published_at": "2026-11-25T16:12:00Z",
+      "source": "Zacks Investment Research",
+      "title": "UnitedHealth vs. Clover Health: Which Stock Offers Better Growth?",
+      "summary": "The article compares UnitedHealth Group (UNH) and Clover Health (CLOV) as investment opportunities in the evolving Medicare Advantage market. UNH benefits from diversified operations and improving medical care ratios, while CLOV demonstrates stronger growth momentum with 45% year-over-year membership surge, five-star ratings, and expected profitability. CLOV trades at a higher forward P/E (23.31X vs 14.80X) but offers faster revenue growth (55.6% vs 0.4%) and greater upside potential (48.2% vs 42.3%), making it the more attractive growth opportunity despite both carrying Zacks Rank #2 (Buy) ratings.",
+      "url": "https://www.zacks.com/stock/news/3035390/unitedhealth-vs-clover-health-which-stock-offers-better-growth?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3035390",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/34/973.jpg",
+      "raw_tickers": [
+        "UNH"
+      ],
+      "all_tickers": [
+        "CLOV",
+        "UNH"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "UNH"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9531
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "f7bc0e4955032972f162c554e148791d4e7c713f244b77448d75fee50a3e1cb8",
+      "published_at": "2026-11-25T16:03:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Is UBER's Expansion in Auto Parts Delivery Business a Growth Catalyst?",
+      "summary": "Uber has partnered with AutoParts.com to expand its on-demand delivery platform into automotive parts and accessories through Uber Eats. The initiative diversifies Uber's delivery marketplace beyond restaurants into groceries, beauty, electronics, and now auto parts, aiming to increase customer engagement and order frequency. Recent partnerships with Kohl's and McDonald's further strengthen Uber's position as a multi-category delivery platform.",
+      "url": "https://www.zacks.com/stock/news/3035369/is-uber-s-expansion-in-auto-parts-delivery-business-a-growth-catalyst?cid=CS-ZC-FT-analyst_blog|quick_take-3035369",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/44/1814.jpg",
+      "raw_tickers": [
+        "MCD"
+      ],
+      "all_tickers": [
+        "KSS",
+        "MCD",
+        "UBER"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MCD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9385
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "9d6cd082ba85b83a55772795320fe43a5dc7fa4eaea609cd12d630a7ea119948",
+      "published_at": "2026-11-25T15:59:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can PINS's New Microsoft Advertising Deal Boost Its Competitive Edge?",
+      "summary": "Pinterest has partnered with Microsoft to expand advertising reach across Home Feed, Search Results, and Related Pins using AI-powered targeting. The integration will enable Microsoft Advertising campaigns to access Pinterest's 661 million monthly active users and 80 billion monthly searches. While the deal could increase advertiser participation and monetization, Pinterest shares have declined 27.5% over the past year and currently hold a Zacks Rank #4 (Sell) rating.",
+      "url": "https://www.zacks.com/stock/news/3035358/can-pins-s-new-microsoft-advertising-deal-boost-its-competitive-edge?cid=CS-ZC-FT-analyst_blog|quick_take-3035358",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/ed/1058.jpg",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "all_tickers": [
+        "META",
+        "METAM",
+        "MSFT",
+        "PINS",
+        "SNAP"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9713
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ea2576420804bf3709581b39e19663d9a4fdf1de0074ac8944243316cddb5ab0",
+      "published_at": "2026-11-25T15:45:02Z",
+      "source": "The Motley Fool",
+      "title": "Here's the ETF Portfolio I'm Building for 2027 -- and Why I'm Not Changing It Even if the Market Crashes",
+      "summary": "An analyst outlines three ETFs for a long-term portfolio heading into 2027: Vanguard S&P 500 ETF for broad market exposure, Schwab U.S. Dividend Equity ETF for stable dividend-paying companies, and iShares Semiconductor ETF as a new addition to capitalize on the semiconductor industry's growth driven by AI demand. The strategy emphasizes holding through market volatility rather than attempting to time crashes.",
+      "url": "https://www.fool.com/investing/2026/11/25/heres-the-etf-portfolio-im-building-for-2027-and-why-im-not-changing-it-even-if-the-market-crashes/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F0a4e8df415124aa0e92125c00edca33ff14f20b0-2560x1440.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "PG"
+      ],
+      "all_tickers": [
+        "PG",
+        "SCHD",
+        "SOXX",
+        "VOO"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PG"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7994
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "479014a9eb6ec4536a48201bd689c442a60eeac616546396b1e891b96631587f",
+      "published_at": "2026-11-25T15:25:00Z",
+      "source": "Zacks Investment Research",
+      "title": "The Zacks Analyst Blog Highlights Apple, Philip Morris, Intel and Crimson Wine",
+      "summary": "Zacks Equity Research analysts featured four stocks in their daily blog: Apple benefits from its growing device ecosystem and Services business but faces supply constraints and rising memory costs; Philip Morris outperforms the tobacco industry with strong smoke-free portfolio growth and pricing power, though cigarette volumes are declining; Intel outperforms semiconductors with manufacturing recovery and AI portfolio expansion, but faces PC correction and memory shortages; Crimson Wine underperforms the beverage alcohol industry with margin pressures from declining wine club members and distributor bankruptcy risks.",
+      "url": "https://www.zacks.com/stock/news/3035292/the-zacks-analyst-blog-highlights-apple-philip-morris-intel-and-crimson-wine?cid=CS-ZC-FT-press_releases-3035292",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/94/53.jpg",
+      "raw_tickers": [
+        "AAPL"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "CWGL",
+        "INTC",
+        "PM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7257
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a13b41197e62460ee2f238f45508851b20da22151577ecadfed2357e05ec6aae",
+      "published_at": "2026-11-25T14:45:02Z",
+      "source": "The Motley Fool",
+      "title": "Warren Buffett's Rule Is to Be \"Greedy Only When Others Are Fearful.\" The S&P 500 Gained 23% in the Year After the 1987 Crash.",
+      "summary": "With the market entering a correction and the Buffett indicator at 275% (indicating overvaluation), investors should consider Warren Buffett's famous investing philosophy of being fearful when others are greedy and greedy when others are fearful. Historical precedent shows that the S&P 500 gained 23% in the year following the 1987 crash, suggesting potential opportunities during market downturns for value investors willing to buy quality stocks at discounted prices.",
+      "url": "https://www.fool.com/investing/2026/11/25/warren-buffetts-rule-is-to-be-greedy-only-when-others-are-fearful-the-sp-500-gained-23-in-the-year-after-the-1987-crash/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Ff02a2f3bf4ae18595979874dc2ffefd81d68ed79-5580x3720.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "BRK.A",
+        "BRK.B",
+        "KO"
       ],
       "is_spam": false,
       "tickers": [
@@ -166,270 +534,27 @@
       ],
       "sentiment": {
         "label": "positive",
-        "score": 0.8906
+        "score": 0.7227
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "a43ec1afb91d74d50935d51daa2705b9b4f584663e395c961aa5842493c412bc",
-      "published_at": "2026-11-25T07:09:02Z",
-      "source": "The Motley Fool",
-      "title": "Alphabet Has $251 Billion Invested In 2 of Its Biggest Artificial Intelligence Partners",
-      "summary": "Alphabet holds approximately $251 billion in equity across two major AI partners: Anthropic ($174 billion, 13.7% stake) and SpaceX ($77 billion). Beyond equity investments, Alphabet has significant business relationships with both companies—Anthropic committed to spending $121.3-$150 billion on Google Cloud services and TPU chips, while SpaceX signed a $29.4 billion compute contract. These strategic investments and partnerships position Alphabet with substantial exposure to both companies' financial futures.",
-      "url": "https://www.fool.com/investing/2026/11/25/alphabet-has-251-billion-invested-in-2-of-its-biggest-artificial-intelligence-partners/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fe10feabb15cd36dfd454ecca0cdafe07780d7eef-1290x860.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "GOOGL"
-      ],
-      "all_tickers": [
-        "ANT",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "SPCX"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.7115
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "15954cf6310a66d264c4df73d04265f82007b38eaecf1c813c032a3f4453f70b",
-      "published_at": "2026-11-25T04:52:30Z",
-      "source": "The Motley Fool",
-      "title": "Symbotic: 3 Key Takeaways for Long-Term Investors",
-      "summary": "Symbotic announced a major expanded agreement with Walmart adding nearly $7 billion to its backlog, bringing total backlog to $29.3 billion. The company achieved 25% year-over-year revenue growth to $2.8 billion in fiscal 2026 and turned profitable with $133 million in GAAP net income. Management is expanding its addressable market through modular automation systems and recent acquisitions in postal and international logistics, while leveraging AI and robotics for end-to-end automation platforms.",
-      "url": "https://www.fool.com/earnings/takeaways/2026/11/24/symbotic-3-key-takeaways-for-long-term-investors/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F818b8645c55663feb2d47d694fc72f9142ecc2c8-1280x720.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "WMT"
-      ],
-      "all_tickers": [
-        "SYM",
-        "WMT"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "WMT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9177
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "f95dc9ad6fd5fbb61e05ee5d6e1aa02f1a3ff93bbfa3870fd5de89330f10457b",
-      "published_at": "2026-11-25T04:39:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "רוזן, משרד מוביל בתחום זכויות המשקיעים, קורא למשקיעיTriller Group Inc להצטייד בייעוץ משפטי לקראת מועד אחרון חשוב במסגרת תביעה ייצוגית בניירות ערך – ILLR",
-      "summary": "Rosen Law Firm, a prominent investor rights firm, is notifying investors in Triller Group Inc. (ILLR), D-Wave Quantum Inc. (QBTS), and Bank of America Corporation (BAC) of important class action lawsuit deadlines. The firm is urging investors who purchased securities during specified periods to seek legal counsel and consider joining securities class actions, with December 14, 2026 being a critical deadline for filing claims.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/25/3409984/673/he/%D7%A8%D7%95%D7%96%D7%9F-%D7%9E%D7%A9%D7%A8%D7%93-%D7%9E%D7%95%D7%91%D7%99%D7%9C-%D7%91%D7%AA%D7%97%D7%95%D7%9D-%D7%96%D7%9B%D7%95%D7%99%D7%95%D7%AA-%D7%94%D7%9E%D7%A9%D7%A7%D7%99%D7%A2%D7%99%D7%9D-%D7%A7%D7%95%D7%A8%D7%90-%D7%9C%D7%9E%D7%A9%D7%A7%D7%99%D7%A2%D7%99triller-group-inc-%D7%9C%D7%94%D7%A6%D7%98%D7%99%D7%99%D7%93-%D7%91%D7%99%D7%99%D7%A2%D7%95%D7%A5-%D7%9E%D7%A9%D7%A4%D7%98%D7%99-%D7%9C%D7%A7%D7%A8%D7%90%D7%AA-%D7%9E%D7%95%D7%A2%D7%93-%D7%90%D7%97%D7%A8%D7%95%D7%9F-%D7%97%D7%A9%D7%95%D7%91-%D7%91%D7%9E%D7%A1%D7%92%D7%A8%D7%AA-%D7%AA%D7%91%D7%99%D7%A2%D7%94-%D7%99%D7%99%D7%A6%D7%95%D7%92%D7%99%D7%AA-%D7%91%D7%A0%D7%99%D7%99%D7%A8%D7%95%D7%AA-%D7%A2%D7%A8%D7%9A-illr.html",
-      "image_url": "https://ml.globenewswire.com/Resource/Download/745335af-3a3a-4fb5-84c0-fdedc9adf092",
-      "raw_tickers": [
-        "BAC"
-      ],
-      "all_tickers": [
-        "BAC",
-        "BACpB",
-        "BACpE",
-        "BACpK",
-        "BACpL",
-        "BACpM",
-        "BACpN",
-        "BACpO",
-        "BACpP",
-        "BACpQ",
-        "BACpS",
-        "BMLpG",
-        "BMLpH",
-        "BMLpJ",
-        "BMLpL",
-        "ILLR",
-        "MERpK",
-        "QBTS"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "BAC"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8664
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "2b40a86b1b6a1966172babb0cfcf03d363dc9e4b53dd6ced9d4fccd1d65d3506",
-      "published_at": "2026-11-25T03:50:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "רוזן, עורך דין בעל מוניטין רב בתחום זכויות המשקיעים, קורא למשקיעי Bank of America Corporation  להשיג ייצוג משפטי לקראת מועד אחרון חשוב במסגרת תביעה ייצוגית בניירות ערך – BAC",
-      "summary": "Rosen Law Firm, a prominent investor rights firm, is reminding investors of upcoming deadlines for securities class action lawsuits against Bank of America Corporation, Anavex Life Sciences Corp, and Alphabet Inc. The BAC lawsuit alleges systemic weaknesses in compliance programs and failure to properly monitor transactions. Investors have until December 15, 2026 for BAC, November 30, 2026 for AVXL, and December 1, 2026 for GOOGL/GOOG to join the lawsuits.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/25/3409980/673/he/%D7%A8%D7%95%D7%96%D7%9F-%D7%A2%D7%95%D7%A8%D7%9A-%D7%93%D7%99%D7%9F-%D7%91%D7%A2%D7%9C-%D7%9E%D7%95%D7%A0%D7%99%D7%98%D7%99%D7%9F-%D7%A8%D7%91-%D7%91%D7%AA%D7%97%D7%95%D7%9D-%D7%96%D7%9B%D7%95%D7%99%D7%95%D7%AA-%D7%94%D7%9E%D7%A9%D7%A7%D7%99%D7%A2%D7%99%D7%9D-%D7%A7%D7%95%D7%A8%D7%90-%D7%9C%D7%9E%D7%A9%D7%A7%D7%99%D7%A2%D7%99-bank-of-america-corporation-%D7%9C%D7%94%D7%A9%D7%99%D7%92-%D7%99%D7%99%D7%A6%D7%95%D7%92-%D7%9E%D7%A9%D7%A4%D7%98%D7%99-%D7%9C%D7%A7%D7%A8%D7%90%D7%AA-%D7%9E%D7%95%D7%A2%D7%93-%D7%90%D7%97%D7%A8%D7%95%D7%9F-%D7%97%D7%A9%D7%95%D7%91-%D7%91%D7%9E%D7%A1%D7%92%D7%A8%D7%AA-%D7%AA%D7%91%D7%99%D7%A2%D7%94-%D7%99%D7%99%D7%A6%D7%95%D7%92%D7%99%D7%AA-%D7%91%D7%A0%D7%99%D7%99%D7%A8%D7%95%D7%AA-%D7%A2%D7%A8%D7%9A-bac.html",
-      "image_url": "https://ml.globenewswire.com/Resource/Download/745335af-3a3a-4fb5-84c0-fdedc9adf092",
-      "raw_tickers": [
-        "BAC",
-        "GOOGL"
-      ],
-      "all_tickers": [
-        "AVXL",
-        "BAC",
-        "BACpB",
-        "BACpE",
-        "BACpK",
-        "BACpL",
-        "BACpM",
-        "BACpN",
-        "BACpO",
-        "BACpP",
-        "BACpQ",
-        "BACpS",
-        "BMLpG",
-        "BMLpH",
-        "BMLpJ",
-        "BMLpL",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "MERpK"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "BAC",
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8917
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "06d999bc9bee72ad5d527f803a3223a28c716fccbcb0543bc7c8f9b6ace90ec4",
-      "published_at": "2026-11-25T03:33:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "מועד אחרון בתיק AVXL: רוזן, המוביל בתחום התדיינות משפטית, קורא למשקיעי Anavex Life Sciences Corp להצטייד בייצוג משפטי לקראת המועד החשוב ב-30 בנובמבר, במסגרת תביעה ייצוגית בניירות ערך שהוגשה על ידי המשרד – AVXL",
-      "summary": "Rosen Law Firm, a prominent investor rights firm, is reminding investors in Anavex Life Sciences Corp (AVXL), Bank of America Corporation (BAC), and Alphabet Inc. (GOOGL/GOOG) of upcoming deadlines to join securities class action lawsuits. The firm is urging investors who purchased shares during specified periods to seek legal representation before the November 30 and December 1 deadlines. The lawsuits allege that defendants made false or misleading statements regarding their operations and internal controls.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/25/3409976/673/he/%D7%9E%D7%95%D7%A2%D7%93-%D7%90%D7%97%D7%A8%D7%95%D7%9F-%D7%91%D7%AA%D7%99%D7%A7-avxl-%D7%A8%D7%95%D7%96%D7%9F-%D7%94%D7%9E%D7%95%D7%91%D7%99%D7%9C-%D7%91%D7%AA%D7%97%D7%95%D7%9D-%D7%94%D7%AA%D7%93%D7%99%D7%99%D7%A0%D7%95%D7%AA-%D7%9E%D7%A9%D7%A4%D7%98%D7%99%D7%AA-%D7%A7%D7%95%D7%A8%D7%90-%D7%9C%D7%9E%D7%A9%D7%A7%D7%99%D7%A2%D7%99-anavex-life-sciences-corp-%D7%9C%D7%94%D7%A6%D7%98%D7%99%D7%99%D7%93-%D7%91%D7%99%D7%99%D7%A6%D7%95%D7%92-%D7%9E%D7%A9%D7%A4%D7%98%D7%99-%D7%9C%D7%A7%D7%A8%D7%90%D7%AA-%D7%94%D7%9E%D7%95%D7%A2%D7%93-%D7%94%D7%97%D7%A9%D7%95%D7%91-%D7%91-30-%D7%91%D7%A0%D7%95%D7%91%D7%9E%D7%91%D7%A8-%D7%91%D7%9E%D7%A1%D7%92%D7%A8%D7%AA-%D7%AA%D7%91%D7%99%D7%A2%D7%94-%D7%99%D7%99%D7%A6%D7%95%D7%92%D7%99%D7%AA-%D7%91%D7%A0%D7%99%D7%99%D7%A8%D7%95%D7%AA-%D7%A2%D7%A8%D7%9A-%D7%A9.html",
-      "image_url": "https://ml.globenewswire.com/Resource/Download/745335af-3a3a-4fb5-84c0-fdedc9adf092",
-      "raw_tickers": [
-        "BAC",
-        "GOOGL"
-      ],
-      "all_tickers": [
-        "AVXL",
-        "BAC",
-        "BACpB",
-        "BACpE",
-        "BACpK",
-        "BACpL",
-        "BACpM",
-        "BACpN",
-        "BACpO",
-        "BACpP",
-        "BACpQ",
-        "BACpS",
-        "BMLpG",
-        "BMLpH",
-        "BMLpJ",
-        "BMLpL",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "MERpK"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "BAC",
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.8631
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "7f69ce68e39756552c3b8cf7982d71a758dbfc576072f20c706c4378099ed07c",
-      "published_at": "2026-11-25T02:23:50Z",
-      "source": "The Motley Fool",
-      "title": "Arista Networks vs. SentinelOne: Which Technology Stock Is a Better Buy for 2027?",
-      "summary": "The article compares Arista Networks and SentinelOne as investment options for 2027. Arista dominates data center networking with strong profitability (40% net margin) but faces customer concentration risks. SentinelOne offers AI-driven cybersecurity growth at 21% revenue expansion but remains unprofitable. The analyst recommends SentinelOne for 2027, citing more room for error and achievable growth targets, though both stocks carry distinct risks.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/24/arista-networks-vs-sentinelone-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F7b0a35cfc8a4cde3684591e2213a8cb5a1485d74-4000x2000.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "ANET",
-        "AVGO",
-        "NET",
-        "S"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.5515
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "cfd75b32c2f719fe705330c4b2d59dc1708f495de44dce4420e2d6bbfcbfd35f",
-      "published_at": "2026-11-25T02:02:50Z",
-      "source": "The Motley Fool",
-      "title": "e.l.f. Beauty vs. Hershey: Which Consumer Goods Stock Is a Better Buy for 2027?",
-      "summary": "The article compares e.l.f. Beauty, a fast-growing digital-first cosmetics company with 39.9% revenue growth, against Hershey, a century-old confectionery giant with stable 6.7% growth and a 3.37% dividend yield. While e.l.f. trades at a higher forward P/E of 26.5x versus Hershey's 20.2x, the author recommends Hershey for 2027 as portfolio ballast due to its dividend stability and lower volatility, positioning e.l.f. as a riskier growth add-on.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/24/elf-beauty-vs-hershey-which-consumer-goods-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fe1bcdfd1328c1db314cf185e805b0cf208a4f945-6000x4000.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN",
-        "WMT"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "ELF",
-        "HSY",
-        "TGT",
-        "WMT"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN",
-        "WMT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.8264
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "574d80d07b06b163c05c016a3e52610ae3bbd66db5ad7b3795e2b088ddf18214",
-      "published_at": "2026-11-25T00:21:40Z",
-      "source": "The Motley Fool",
-      "title": "Most Stocks Are Losers. Here's How You Can Still Win",
-      "summary": "Research shows that two-thirds of stocks in the Russell 3000 underperform market averages, with 40% having negative returns. However, investors can succeed by focusing on elite 'Tier 1' companies with strong competitive advantages, holding winners long-term, and learning from mistakes. The asymmetry of investing—where losses are capped but gains are unlimited—means a few big winners can offset many losers.",
-      "url": "https://www.fool.com/investing/2026/11/24/most-stocks-are-losers-here-is-how-you-can-still-win/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F006d8ccc738968e4a9694e3a4a6f7a57325c0f3b-2121x1414.jpg&w=1200&op=resize",
+      "id": "42d159d44456207da53a1e64c97ab91607e0cdae6b6cb5e29a512465f85e8b2f",
+      "published_at": "2026-11-25T14:20:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Citigroup Eyes Venezuela Re-Entry: Can It Grow Cross-Border Payments?",
+      "summary": "Citigroup is considering re-entering Venezuela through correspondent banking relationships with local lenders to expand its cross-border payments business, which it exited in 2021. The move could generate fees from payment processing and dollar clearing for multinational clients. Citigroup's Treasury and Trade Solutions business showed strong growth with cross-border transaction value rising 12% to $336.4B and TTS revenues climbing 17% to $14.26B in the first nine months of 2026.",
+      "url": "https://www.zacks.com/stock/news/3035253/citigroup-eyes-venezuela-re-entry-can-it-grow-cross-border-payments?cid=CS-ZC-FT-analyst_blog|quick_take-3035253",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/33/496.jpg",
       "raw_tickers": [
         "JPM"
       ],
       "all_tickers": [
         "AMJB",
-        "BRK.A",
-        "BRK.B",
+        "C",
+        "CpN",
+        "CpR",
+        "HSBC",
         "JPM",
         "JPMpC",
         "JPMpD",
@@ -444,8 +569,353 @@
         "JPM"
       ],
       "sentiment": {
+        "label": "positive",
+        "score": 0.951
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "b55d6bbf86e12e9b7b46851f520c9ed99dd8172e19110fa3bd256ca4e92f5d75",
+      "published_at": "2026-11-25T14:12:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can Chevron Build a Lithium Business in the Smackover Formation?",
+      "summary": "Chevron entered the U.S. lithium sector in June 2025 with leasehold acquisitions in the Smackover Formation, expanding its position to approximately 135,000 net acres. The company is testing direct lithium extraction from underground brine to produce battery-grade lithium for electric vehicles and energy storage. Success depends on recovery rates and extraction costs. Competitors ExxonMobil and Occidental Petroleum are also advancing lithium projects using similar brine extraction technologies.",
+      "url": "https://www.zacks.com/stock/news/3035248/can-chevron-build-a-lithium-business-in-the-smackover-formation?cid=CS-ZC-FT-analyst_blog|quick_take-3035248",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/73/63.jpg",
+      "raw_tickers": [
+        "CVX",
+        "XOM"
+      ],
+      "all_tickers": [
+        "CVX",
+        "OXY",
+        "OXY.WS",
+        "XOM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CVX",
+        "XOM"
+      ],
+      "sentiment": {
         "label": "neutral",
-        "score": 0.5604
+        "score": 0.5596
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "e1ecd2d862b308250caf7356c10eab3e366ac6e1d282134015192daa003edc06",
+      "published_at": "2026-11-25T13:45:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Bank Bond Losses Hit $486 Billion: How Exposed Is Bank of America?",
+      "summary": "Bank of America's unrealized held-to-maturity securities losses surged 29.4% to $103.9 billion as of Q3 2026, reflecting broader challenges facing U.S. banks from elevated interest rates. The bank's exposure to low-yielding legacy securities and higher deposit costs constrains net interest margin expansion, while liquidity sources declined. However, gradual maturity of legacy securities and a strong deposit franchise provide some mitigation.",
+      "url": "https://www.zacks.com/stock/news/3035184/bank-bond-losses-hit-486-billion-how-exposed-is-bank-of-america?cid=CS-ZC-FT-analyst_blog|quick_take-3035184",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/0b/57.jpg",
+      "raw_tickers": [
+        "BAC",
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "MERpK",
+        "VYLD",
+        "WFC",
+        "WFCpA",
+        "WFCpC",
+        "WFCpD",
+        "WFCpL",
+        "WFCpY",
+        "WFCpZ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC",
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7116
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "60743924958775b2912d2d0e1f8cd8ba60c26acdb1d164a671ea877e018062be",
+      "published_at": "2026-11-25T13:36:05Z",
+      "source": "The Motley Fool",
+      "title": "Coupang vs. Home Depot: Which Consumer Stock Is a Better Buy for 2027?",
+      "summary": "The article compares Coupang and Home Depot as investment options for 2027. Coupang offers growth potential through its e-commerce platform and recent Farfetch acquisition but faces profitability challenges, regulatory scrutiny, and a 32% stock decline this year. Home Depot maintains market dominance with consistent profitability, steady sales growth, and a 2.8% stock gain despite a challenging housing market. The analyst recommends Home Depot for its stability and proven performance.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/25/coupang-vs-home-depot-which-consumer-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F2c30e6c27b6c3d72848cbdc7eee97459ca4988e5-3610x2410.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "HD"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "CPNG",
+        "HD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "HD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8411
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "09a0aa77c5d70e0d37423e6b21582d1136fba92ed77bd73e2a1b71ba1cfc52ba",
+      "published_at": "2026-11-25T13:00:03Z",
+      "source": "Zacks Investment Research",
+      "title": "NextEra Energy, Inc. (NEE) Is a Trending Stock: Facts to Know Before Betting on It",
+      "summary": "NextEra Energy (NEE), parent company of Florida Power & Light Co., is being closely watched by investors. The stock has returned +2.6% over the past month, outperforming the S&P 500's -5% decline. While earnings estimates show modest growth (+8.1% for current fiscal year), the company received a Zacks Rank #3 (Hold) rating, suggesting it may perform in line with the broader market. NextEra trades at a premium valuation (Grade D) compared to peers, and recent earnings beat consensus EPS estimates but missed revenue expectations.",
+      "url": "https://www.zacks.com/stock/news/3035028/nextera-energy-inc-nee-is-a-trending-stock-facts-to-know-before-betting-on-it?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3035028",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default11.jpg",
+      "raw_tickers": [
+        "NEE"
+      ],
+      "all_tickers": [
+        "NEE",
+        "NEEpN",
+        "NEEpS",
+        "NEEpT",
+        "NEEpU",
+        "NEEpV",
+        "NEEpW"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NEE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.926
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "e48970f83f0194c8fc856b2650e73ce74c24bc257bc1152a2cf554a2e652bb58",
+      "published_at": "2026-11-25T11:57:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Will Procter & Gamble's Restructuring Plan Sharpen Its Cost Base?",
+      "summary": "Procter & Gamble is accelerating restructuring efforts through its Supply Chain 3.0 initiative to improve operational efficiency and reduce costs. The company delivered 250 basis points of productivity gains in Q1 FY27, generating $500-550M in pre-tax savings. However, P&G faces $1.4B in after-tax cost headwinds from elevated raw material and energy expenses, and restructuring-related exits could reduce sales growth by 30-50 basis points. Peers Church & Dwight and Colgate-Palmolive are also implementing similar cost optimization strategies.",
+      "url": "https://www.zacks.com/stock/news/3034946/will-procter-gamble-s-restructuring-plan-sharpen-its-cost-base?cid=CS-ZC-FT-analyst_blog|quick_take-3034946",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/3d/451.jpg",
+      "raw_tickers": [
+        "PG"
+      ],
+      "all_tickers": [
+        "CHD",
+        "CL",
+        "PG"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PG"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "5d745c1e8717faf079a5195f71573b11e73470a7a64d2a66a8e2263a4c773dd6",
+      "published_at": "2026-11-25T11:50:02Z",
+      "source": "The Motley Fool",
+      "title": "The AI Stock Slump Is Crushing Caterpillar. Here’s Why I Like the Stock More Than Ever.",
+      "summary": "Caterpillar shares have declined 51% from their June high and hit a 52-week low amid the unwinding of the AI data center trade. However, the author argues this presents a buying opportunity, as Caterpillar's power equipment will remain central to AI infrastructure buildout. With electricity demand from AI data centers forecast to quadruple over the next decade and capital expenditures expected to shift toward physical infrastructure in 2027, the author believes power generation systems will be critical to solving AI's power constraints.",
+      "url": "https://www.fool.com/investing/2026/11/25/the-ai-stock-slump-is-crushing-caterpillar-here-s-why-i-like-the-stock-more-than-ever/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F57171685ce2b01e4579d326ef058bddea8497e5f-7680x4896.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "CAT"
+      ],
+      "all_tickers": [
+        "CAT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CAT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9639
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "3ed095cdee50f43454894bee71e57d5b603d22f3f989d24d03c93d0f9bada2ea",
+      "published_at": "2026-11-25T11:38:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Home Depot vs. Williams-Sonoma: Which Stock Holds More Promise?",
+      "summary": "Home Depot and Williams-Sonoma represent distinct approaches to capturing consumer spending on homes. Home Depot leverages its extensive store network, professional customer ecosystem, and digital growth to gain market share, while Williams-Sonoma commands the premium home furnishings market through its digital-first model and iconic brands. Despite Williams-Sonoma's stronger earnings growth prospects, Home Depot emerges as the better investment opportunity due to superior recent stock performance, market leadership, and justified valuation premium.",
+      "url": "https://www.zacks.com/stock/news/3034935/home-depot-vs-williams-sonoma-which-stock-holds-more-promise?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3034935",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/ea/308.jpg",
+      "raw_tickers": [
+        "HD"
+      ],
+      "all_tickers": [
+        "HD",
+        "WSM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8812
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "45580194ab29ae1a5c20d55825f78b40517e659903dbd2d5ea09b37cfb055148",
+      "published_at": "2026-11-25T10:25:02Z",
+      "source": "The Motley Fool",
+      "title": "Vertex Could Land Its Fifth Franchise on Nov. 30. Should You Buy Before the FDA Decides?",
+      "summary": "Vertex Pharmaceuticals awaits FDA approval for povetacicept in treating IgA nephropathy by November 30, 2026, which could become its fifth franchise. The drug shows strong clinical results and addresses a larger patient population than cystic fibrosis. While approval could drive stock gains, investors should be aware of potential profit-taking risks. Analysts suggest Vertex has solid long-term growth prospects regardless of timing, with Goldman Sachs projecting 30% upside over 12 months.",
+      "url": "https://www.fool.com/investing/2026/11/25/vertex-could-land-its-fifth-franchise-on-nov-30-should-you-buy-before-the-fda-decides/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F43bde86859c1e17e68621e7c28508694ab9702cf-5937x3540.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GS"
+      ],
+      "all_tickers": [
+        "GS",
+        "GSpA",
+        "GSpC",
+        "GSpD",
+        "VRTX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GS"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9402
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "be9d717af65196e67c51a6c2012421ee673787b0fcbcbca6a4faffcfb3af6543",
+      "published_at": "2026-11-25T10:20:03Z",
+      "source": "Zacks Investment Research",
+      "title": "Should You Invest in the State Street Consumer Staples Select Sector SPDR ETF (XLP)?",
+      "summary": "XLP, the largest consumer staples ETF with $15.2 billion in assets, offers low-cost exposure to the sector with a 0.08% expense ratio and 2.39% dividend yield. The fund has gained 20.3% year-to-date and 22.18% over the past 12 months, with a medium risk profile (beta of 0.45). It carries a Zacks ETF Rank of 3 (Hold) and is considered a good option for consumer staples exposure, though alternatives like FSTA and VDC are also available.",
+      "url": "https://www.zacks.com/stock/news/3034898/should-you-invest-in-the-state-street-consumer-staples-select-sector-spdr-etf-xlp?cid=CS-ZC-FT-sector_etf-3034898",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default340.jpg",
+      "raw_tickers": [
+        "PG",
+        "WMT"
+      ],
+      "all_tickers": [
+        "COST",
+        "FSTA",
+        "PG",
+        "VDC",
+        "WMT",
+        "XLP"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PG",
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.785
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1240c9d93614b301e771f43a50b7330fd8cde5bf885675cb77b7fd9ecca0bffc",
+      "published_at": "2026-11-25T10:20:02Z",
+      "source": "Zacks Investment Research",
+      "title": "Should You Invest in the State Street Financial Select Sector SPDR ETF (XLF)?",
+      "summary": "The State Street Financial Select Sector SPDR ETF (XLF) is a low-cost, passively managed fund providing broad exposure to the financial sector with $51.49 billion in assets. With a 0.08% expense ratio, strong diversification across 80 holdings, and a Zacks ETF Rank of 2 (Buy), it offers medium-risk exposure suitable for long-term investors. Year-to-date performance stands at 3.61%, with a 12-month return of 9.72%.",
+      "url": "https://www.zacks.com/stock/news/3034907/should-you-invest-in-the-state-street-financial-select-sector-spdr-etf-xlf?cid=CS-ZC-FT-sector_etf-3034907",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default19.jpg",
+      "raw_tickers": [
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "BRK.A",
+        "BRK.B",
+        "IYF",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "V",
+        "VFH",
+        "VYLD",
+        "XLF"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7539
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a5f26828f676e834f8cdb390694db7e40185ece75e62151381b9c6a5b099ec0e",
+      "published_at": "2026-11-25T10:15:02Z",
+      "source": "The Motley Fool",
+      "title": "Realty Income Has Paid 677 Consecutive Monthly Dividends. Here's Why I'd Buy It in December.",
+      "summary": "Realty Income (O), a REIT known as 'The Monthly Dividend Company,' has maintained 677 consecutive monthly dividends since 1969. The stock offers a 5.4% dividend yield, well above the S&P 500 average of 1.1%, supported by a portfolio of over 15,500 net-leased properties. Despite interest rate headwinds, the company generates strong cash flow with a price-to-AFFO ratio of 13, making it an attractive income investment for December.",
+      "url": "https://www.fool.com/investing/2026/11/25/realty-income-has-paid-677-consecutive-monthly-dividends-heres-why-id-buy-it-in-december/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fa73e9f80adccbcd9ea12337445f7ae662005148b-1280x960.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "HD",
+        "WMT"
+      ],
+      "all_tickers": [
+        "FDX",
+        "HD",
+        "O",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "HD",
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7835
       },
       "sentiment_model": "ProsusAI/finbert"
     },
