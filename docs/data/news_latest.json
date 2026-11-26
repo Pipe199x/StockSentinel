@@ -1,54 +1,135 @@
 {
-  "as_of": "2026-11-25T21:40:41.022111+00:00",
+  "as_of": "2026-11-26T09:59:06.259171+00:00",
   "window_days": 15,
   "articles": [
     {
-      "id": "37c51d2a6e679a86ca23ffe3d604ea65a0d258a01c786ee9c821cd7216af9a24",
-      "published_at": "2026-11-25T21:00:02Z",
+      "id": "550a3383afd0256539f182961fa8cf54b2132488d41d578783658ec29a489a4e",
+      "published_at": "2026-11-26T08:43:02Z",
       "source": "The Motley Fool",
-      "title": "Qualcomm vs. Sandisk: Which Technology Stock Is a Better Buy for 2027?",
-      "summary": "Sandisk emerges as the better investment choice for 2027 despite higher valuation risks. The company has achieved 272% revenue growth driven by cloud and AI data center demand, trading at a bargain 3.6x forward P/E with a 67% net margin. Qualcomm faces headwinds from smartphone market weakness and Apple's internal modem development, though it's diversifying into automotive and AI-enabled processors. Sandisk's main risk is potential memory cycle downturn, but its current momentum and valuation make it the preferred pick.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/25/qualcomm-vs-sandisk-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F32b483b324c74a9d0d075f4674ba2dd0528614e1-1290x860.jpg&w=1200&op=resize",
+      "title": "The Trade Desk Stock Is Headed for Its First Back-to-Back Losing Years. Its Only Other Full-Year Decline Was Followed by a 61% Gain.",
+      "summary": "The Trade Desk faces back-to-back losing years for the first time since going public in 2016, with stock down 68% in 2025 and another 63% in 2026. Unlike 2022 when revenue grew 32% despite a stock decline, the current downturn is driven by deteriorating business fundamentals—revenue is now flat to declining, profits are shrinking faster, and management forecasts continued weakness. While the stock trades at an attractive 8x free cash flow valuation, a recovery would require revenue growth to stabilize, which management's outlook does not currently indicate.",
+      "url": "https://www.fool.com/investing/2026/11/26/the-trade-desk-stock-is-headed-for-its-first-back-to-back-losing-years-its-only-other-full-year-decline-was-followed-by-a-61-gain/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F183bf9cc34ee191002a66d6a82aa7e5cb164a455-4578x3052.jpg&w=1200&op=resize",
       "raw_tickers": [
-        "AAPL",
-        "NVDA"
+        "AMZN",
+        "GOOGL"
       ],
       "all_tickers": [
-        "AAPL",
-        "MU",
-        "NVDA",
-        "QCOM",
-        "SNDK",
-        "WDC"
+        "AMZN",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "TTD"
       ],
       "is_spam": false,
       "tickers": [
-        "AAPL",
-        "NVDA"
+        "AMZN",
+        "GOOGL"
       ],
       "sentiment": {
-        "label": "positive",
-        "score": 0.7464
+        "label": "negative",
+        "score": 0.973
       },
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "3afcfa11ba7db126585054d9f525d4c7d7bc845ba9f426491683bb8bfd168072",
-      "published_at": "2026-11-25T20:33:02Z",
-      "source": "The Motley Fool",
-      "title": "Anthropic’s Chip Choices Could Change the Nvidia Story. Here’s How.",
-      "summary": "Anthropic is diversifying its AI chip purchases across multiple vendors including Nvidia, Alphabet, Amazon, and AMD rather than relying solely on Nvidia. With ~$900 billion in planned infrastructure spending, Anthropic is spreading deals to reduce supply chain risk and negotiate better prices. While Nvidia maintains 75% market share in AI accelerators, competitors' custom chips are gaining traction for agentic AI tasks, and Nvidia's gross margins are declining from competitive pressure.",
-      "url": "https://www.fool.com/investing/2026/11/25/anthropic-s-chip-choices-could-change-the-nvidia-story-here-s-how/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F1a4bae1da4a05d0d0e00a764e0d498057cecc411-3240x2160.jpg&w=1200&op=resize",
+      "id": "9e64a84e3d56b978d4b6080372cf1a4d4b805e98ccb07583f015d488511abad7",
+      "published_at": "2026-11-26T08:30:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Cybersecurity Market Size to Cross USD 519 Bn by 2032 Driven by Cloud Adoption and Rising Cyber Threats, Reports Mordor Intelligence",
+      "summary": "The global cybersecurity market is projected to grow from USD 264.4 billion in 2026 to USD 519.7 billion by 2032, with a CAGR of 11.85% during 2027-2032. Growth is driven by accelerated cloud adoption, IT-OT convergence, zero-trust architecture implementation, and rising cyber threats. North America leads with 42.47% market share, while Asia-Pacific is the fastest-growing region at 16.4% CAGR. Key challenges include cybersecurity talent shortages and legacy infrastructure integration complexity.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/26/3410680/0/en/cybersecurity-market-size-to-cross-usd-519-bn-by-2032-driven-by-cloud-adoption-and-rising-cyber-threats-reports-mordor-intelligence.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/416870ff-5134-4fb2-8605-50f7b688dd33",
       "raw_tickers": [
-        "AMZN",
-        "GOOGL",
+        "MSFT"
+      ],
+      "all_tickers": [
+        "CHKP",
+        "CRWD",
+        "CSCO",
+        "FTNT",
+        "IBM",
+        "MSFT",
+        "OKTA",
+        "PANW",
+        "TMICY",
+        "ZS"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6917
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "af440cb90c9d6c1edcc2f87a49d2d4c5fcefd50f0f5fdae8e06896e2c6f9ff50",
+      "published_at": "2026-11-26T07:34:02Z",
+      "source": "The Motley Fool",
+      "title": "Prediction: This Is What Nvidia Stock Will Be Worth by 2028",
+      "summary": "Despite recent stock decline following leadership transition concerns and export control investigations, analyst predicts Nvidia stock could reach $660 per share by 2028. The prediction is based on expected 75% revenue growth in the next fiscal year, 20% growth in 2028, and a valuation multiple expansion from current 16.6x to 30x earnings, resulting in a $16 trillion market cap.",
+      "url": "https://www.fool.com/investing/2026/11/26/prediction-this-is-what-nvidia-stock-will-be-worth-by-2028/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F5129cc85e67acf9267c99f604e89668cf96e455d-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9459
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "481e7bd3b2db95f5786b02591c10e59036edd10fbee504c8a5adff6fba853eca",
+      "published_at": "2026-11-26T02:47:02Z",
+      "source": "The Motley Fool",
+      "title": "Is Nvidia Stock a Buy After Dell's Record AI Backlog?",
+      "summary": "Dell reported a record $132.3 billion in unshipped AI server orders, up $37 billion in one quarter, with over half based on Nvidia's latest Vera Rubin NVL72 platform. Despite strong demand signals and Nvidia's raised fiscal 2028 revenue growth forecast to 75%, Nvidia stock has declined significantly and trades at only 8.5x forward earnings—half the S&P 500's multiple—suggesting investor skepticism about sustained growth. The analyst views the current price as a potential buying opportunity given the strong backlog and demand indicators.",
+      "url": "https://www.fool.com/investing/2026/11/25/is-nvidia-stock-a-buy-after-dell-s-record-ai-backlog/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F214c91ab7201b5b5000a01c6f475dc62cbe94ea6-2560x1440.jpg&w=1200&op=resize",
+      "raw_tickers": [
         "NVDA"
       ],
       "all_tickers": [
         "AMD",
-        "AMZN",
+        "DELL",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9652
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "99c3f39be9bbac9dae0f3ec6a9cdadca5de2d61c9409ff7b30fc053f2224773f",
+      "published_at": "2026-11-26T00:43:02Z",
+      "source": "The Motley Fool",
+      "title": "Broadcom Stock Hasn't Traded This Low Since July 2025. I Think It's a Buy.",
+      "summary": "Broadcom's stock has fallen to its lowest level in over a year, trading below $290 after a 5% decline. Despite the price drop, the company's AI semiconductor business is accelerating with 86% revenue growth and management projecting AI revenue to double in fiscal 2027. The author views the stock as a buy at current valuations, trading at only 19x current earnings and 15x forward earnings, but cautions that the company's heavy dependence on just six major customers presents significant risk.",
+      "url": "https://www.fool.com/investing/2026/11/25/broadcom-stock-hasn-t-traded-this-low-since-july-2025-i-think-it-s-a-buy/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fc4a7476b1d52a35597eb09f83d74622a2ec787a2-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AVGO",
         "GOOG",
         "GOOGL",
         "GOOGM",
@@ -57,13 +138,258 @@
       ],
       "is_spam": false,
       "tickers": [
-        "AMZN",
         "GOOGL",
         "NVDA"
       ],
       "sentiment": {
         "label": "negative",
-        "score": 0.9512
+        "score": 0.9668
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "fdf19a0b7ae641b0559c7e296141118adcc0758ca09627fc44cd366a77d510da",
+      "published_at": "2026-11-25T23:28:02Z",
+      "source": "The Motley Fool",
+      "title": "Here’s How Many Coca-Cola Shares It Takes to Earn $1,300 Every Quarter in Dividends",
+      "summary": "To generate $1,300 in quarterly dividend income from Coca-Cola, an investor would need to own approximately 2,453 shares, costing around $240,394 at the current share price of $98. The article highlights Coca-Cola's strong 2026 performance (up 40% year-to-date), its status as a Dividend King with 64 consecutive years of dividend increases, and its resilience during recessions. The company's portfolio of low- or no-calorie beverages also positions it well against GLP-1 drug trends.",
+      "url": "https://www.fool.com/investing/2026/11/25/heres-how-many-coca-cola-shares-it-takes-to-earn-1300-every-quarter-in-dividends/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F079cd8f958b5260838fd10b8dac16758eaa65886-1280x865.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "KO"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9238
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "70fd47040a7f70081d230fb8814efbe88194aa1bd1f7a7e09bd0a5767cfcdf15",
+      "published_at": "2026-11-25T23:00:28Z",
+      "source": "The Motley Fool",
+      "title": "'Big Short' Investor Michael Burry Just Closed His Bet Against the Nasdaq. Here's What Investors Should Do Now",
+      "summary": "Michael Burry, famous for predicting the 2008 housing crisis, has closed his bearish Nasdaq-100 put options and shifted his portfolio to be 'temporarily almost entirely long,' holding about 25% in cash. This move comes after the Nasdaq Composite fell 14.5% from its October peak. While Burry maintains short positions on Palantir and MetLife, he emphasizes this is temporary and he continues to assess new short opportunities. The article advises individual investors not to copy his trades but rather adopt his strategy of taking profits, maintaining cash reserves, and buying quality stocks in stages during downturns.",
+      "url": "https://www.fool.com/investing/2026/11/25/big-short-investor-michael-burry-just-closed-his-bet-against-the-nasdaq-here-s-what-investors-should-do-now/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F23f73c7cd36b471b5ce00ee24df5aee209511faa-1280x871.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "MET",
+        "METpA",
+        "METpE",
+        "METpF",
+        "NVDA",
+        "PLTR"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5708
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "f2a19d134c08bc6ca0990e7b3da7cc35623ae11cbf919fc5fad0656ba2c0f511",
+      "published_at": "2026-11-25T22:27:01Z",
+      "source": "The Motley Fool",
+      "title": "2 Bargain Stocks to Buy With $1,000 in November",
+      "summary": "The article recommends Novo Nordisk and PepsiCo as bargain stocks in November, both offering historically high dividend yields (4.4% and 4.1% respectively) well above the S&P 500's 1% yield. Novo Nordisk is improving execution in its GLP-1 weight-loss drug portfolio and raised 2026 guidance, while PepsiCo, though facing near-term headwinds in organic sales growth, remains a strong long-term business with a 50+ year dividend increase streak. Both stocks trade at valuations below their industry averages.",
+      "url": "https://www.fool.com/investing/2026/11/25/2-bargain-stocks-to-buy-with-usd1-000-in-november/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fd52078e466c0df8f9b9300b1695388012bc06b4d-2119x1414.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "KO",
+        "NVO",
+        "PEP"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9525
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "88b3641320e00b5719e8a0fcc399e6370520e024108fed348d2bfb2fe489dd24",
+      "published_at": "2026-11-25T22:25:09Z",
+      "source": "The Motley Fool",
+      "title": "CoreWeave Stock Could Soar 125%, According to One Wall Street Analyst, Even After a Price Target Cut. Is It a Buy?",
+      "summary": "CoreWeave stock has plummeted 70% from its 52-week high despite bullish analyst price targets implying 89-125% upside. However, the company's bonds are yielding nearly 18%, signaling distress. The critical issue is CoreWeave's need for up to $5 billion in parent capital in 2027, which could lead to significant shareholder dilution or expensive borrowing. Most investors should wait for management's funding plan before investing.",
+      "url": "https://www.fool.com/investing/2026/11/25/coreweave-stock-could-soar-130-according-to-one-wall-street-analyst-even-after-a-price-target-cut-is-it-a-buy/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F7d2c67aa8a9381b78ceb33b3b3cf9e183140aa2f-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "CRWV",
+        "META",
+        "METAM",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9631
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "b795b784b433d02f65e772e01301679d5f9d09d774990417cdd278e8d17f6b0d",
+      "published_at": "2026-11-25T22:15:02Z",
+      "source": "The Motley Fool",
+      "title": "Anthropic Stock Is Down 33% From Its All-Time High. Here's What a $5,000 Investment Could Be Worth in 1 Year.",
+      "summary": "Anthropic's stock has plunged 33% from its all-time high despite record-breaking IPO proceeds of $119.5 billion and extraordinary revenue growth (100x increase from 2023 to 2025). However, the company faces headwinds from intense competition and massive infrastructure commitments ($901 billion), which could pressure profitability. Historical analysis of mega-IPO first-year returns suggests a $5,000 investment could range from $3,300-$3,700 (if following negative trends) to nearly $14,000 (if matching Amazon/Alphabet performance).",
+      "url": "https://www.fool.com/investing/2026/11/25/anthropic-stock-is-down-33-from-its-all-time-high-here-s-what-a-usd5-000-investment-could-be-worth-in-1-year/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F4bdfe380ef5f52710ab2103c934d32635d94bfb3-4000x2667.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMD",
+        "ANT",
+        "AVGO",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "MSFT",
+        "MU",
+        "NVDA",
+        "SPCX",
+        "TSM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9699
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "fb1ed81a822f71bafe3da84c76c22ade6a9f68cd41997a5291788cca69557de5",
+      "published_at": "2026-11-25T21:57:45Z",
+      "source": "The Motley Fool",
+      "title": "Stock Market Today, Nov. 25: Dow Erases 1,100-Point Loss as Wall Street Stages Dramatic Late-Day Comeback",
+      "summary": "The Dow Jones recovered from a 1,100-point intraday loss to finish up 0.33%, while the S&P 500 declined 0.21% and Nasdaq fell 0.62%. Technology stocks remained under pressure amid AI spending concerns and persistent inflation, though energy stocks led gains. HP and Charter Communications surged on positive earnings and defensive positioning, while Ambarella and Nutanix plummeted on disappointing guidance.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/25/stock-market-today-nov-25-dow-erases-1-100-point-loss-as-wall-street-stages-dramatic-late-day-comeback/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F35c0bb216f6992fd42eb5899d582f2ccc791558b-2000x1333.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "BAC"
+      ],
+      "all_tickers": [
+        "AMBA",
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "CHTR",
+        "CHTRP",
+        "HPQ",
+        "MERpK",
+        "NTNX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9389
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "3fbececd3e4a26b7b8aecc106cd0024fc90a390d4a47401b75b858dbe6be2077",
+      "published_at": "2026-11-25T21:15:02Z",
+      "source": "The Motley Fool",
+      "title": "The Dividend ETF I'd Choose to to Generate $500 a Month in Passive Income",
+      "summary": "The Schwab U.S. Dividend Equity ETF (SCHD) is recommended as a diversified, high-yield dividend ETF for generating passive income. With a current yield of 3.1% and holdings of 102 well-vetted dividend-paying stocks, investors would need approximately $200,000 invested to generate $500 monthly. The ETF holds 11 Dividend Kings and complements S&P 500 investments due to its lower tech exposure and focus on consumer staples, healthcare, and energy sectors.",
+      "url": "https://www.fool.com/investing/2026/11/25/the-dividend-etf-id-choose-to-to-generate-500-a-month-in-passive-income/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F6323f9b8d0100eaa66bdb491f3032511aef5ea0c-2000x1335.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "KO",
+        "PG"
+      ],
+      "all_tickers": [
+        "ABT",
+        "KO",
+        "PEP",
+        "PG",
+        "SCHD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO",
+        "PG"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8468
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "bac436e6fa699fed4032180d362da15d152c87e31373fb5cfee8ea91a0c51e4a",
+      "published_at": "2026-11-25T21:01:02Z",
+      "source": "The Motley Fool",
+      "title": "The Best Dividend Stocks to Buy With $5,000 in November",
+      "summary": "The article recommends three dividend stocks for a $5,000 investment in November: Federal Realty (FRT), a reliable high-yield REIT with a 4.2% yield and Dividend King status; Visa (V), a dividend growth stock with a modest 0.75% yield but 370% dividend growth over a decade; and Pfizer (PFE), a turnaround opportunity with a 6.2% yield despite facing major patent expirations in 2028-2031.",
+      "url": "https://www.fool.com/investing/2026/11/25/the-best-dividend-stocks-to-buy-with-5000-in-november/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F75c39cd9f3d840a1de8ee65c8790b02b985cc6b6-1280x853.png&w=1200&op=resize",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "FRT",
+        "FRTpC",
+        "PFE",
+        "V"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.7739
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -93,34 +419,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.971
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "1fd7b5baafa04e0c3cb3915b72abc9b3b8540c2f7eb91f46794d0281757643c1",
-      "published_at": "2026-11-25T20:15:01Z",
-      "source": "The Motley Fool",
-      "title": "Is Jensen Huang Really Worth $954 Billion to Nvidia?",
-      "summary": "Nvidia's stock surged 31.5% following Jensen Huang's reinstatement as CEO, adding $954 billion to the company's market cap. The article argues Huang is integral to Nvidia's success, citing his role in maintaining client relationships, driving innovation, and securing major partnerships like SpaceX's exclusive commitment. However, the author recommends a 'hold' rating due to concerns about key-person risk, succession planning, and ongoing national security investigations that could force Huang's departure.",
-      "url": "https://www.fool.com/investing/2026/11/25/is-jensen-huang-really-worth-usd954-billion-to-nvidia/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F9b4ac6794e7f3acd8bce0714736852b618bc1883-1280x854.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "NVDA"
-      ],
-      "all_tickers": [
-        "META",
-        "METAM",
-        "NVDA",
-        "SPCX",
-        "TSLA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.5808
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -164,62 +462,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "b345b925d09dc28eef096b90a3b5731ee10b7aaa12ef01764b217bea954f4b8d",
-      "published_at": "2026-11-25T19:57:02Z",
-      "source": "The Motley Fool",
-      "title": "CAVA vs. Monster Beverage: Which Consumer Stock Is a Better Buy for 2027?",
-      "summary": "The article compares CAVA Group and Monster Beverage as investment options for 2027. CAVA operates a rapidly expanding Mediterranean fast-casual restaurant chain with 500 locations and 27% revenue growth, but faces valuation concerns with a 93.4x forward P/E ratio and slowing same-restaurant sales growth of 3.1%. Monster Beverage dominates the global energy drink market with $9.6 billion in revenue, 20.2% growth, $1.9 billion in free cash flow, zero debt, and a more attractive 38.0x forward P/E ratio. The analyst recommends Monster Beverage as the better choice for 2027, citing stronger financial fundamentals and lower valuation despite CAVA's impressive growth trajectory.",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/25/cava-vs-monster-beverage-which-consumer-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb87002131a6e039ab8fc62272c140c1b76703a72-2121x1414.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "KO"
-      ],
-      "all_tickers": [
-        "CAVA",
-        "CELH",
-        "KO",
-        "MNST",
-        "PEP",
-        "SBUX"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "KO"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.5753
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "371cdd5d2624e5f63b54d3664201b150a78b8e09665709aabd36486892827beb",
-      "published_at": "2026-11-25T19:53:02Z",
-      "source": "The Motley Fool",
-      "title": "Here's How Much a $10,000 Investment in McDonald's Pays You Every Single Year",
-      "summary": "McDonald's has achieved Dividend King status with its 50th consecutive annual dividend increase. A $10,000 investment generates approximately $277.92 in annual dividend income at a 2.8% yield. While the stock has underperformed in 2026, analysts view current valuations as favorable for dividend growth investors, with potential upside if the company's turnaround efforts succeed and the stock rebounds to historical highs.",
-      "url": "https://www.fool.com/investing/2026/11/25/heres-how-much-a-10000-investment-in-mcdonalds-pays-you-every-single-year/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fe6290c224b5111dd1e3935076dac60cc7210df17-1290x860.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "KO",
-        "MCD"
-      ],
-      "all_tickers": [
-        "KO",
-        "MCD"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "KO",
-        "MCD"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.95
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "1e6b9f0c8cf0ae14f154eb51ca684acebf518e504b57fe1c7d8565601a912aaf",
       "published_at": "2026-11-25T19:30:02Z",
       "source": "The Motley Fool",
@@ -241,6 +483,35 @@
       "sentiment": {
         "label": "positive",
         "score": 0.8903
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "d8e264c92b0f088d68d27aaf2cafee18d27cb2e9e2f254fc6bd89c9835888742",
+      "published_at": "2026-11-25T17:54:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Energy Stocks Benefit From Supply Disruptions: Can Momentum Last?",
+      "summary": "U.S. energy companies posted strong gains in Q3 2026 as geopolitical tensions in the Middle East, shipping disruptions, and constrained diesel supplies created favorable conditions for refiners and LNG exporters. Valero led with a 99.5% year-to-date gain driven by robust refining margins, while Cheniere Energy gained 52.3% on growing demand for U.S. LNG exports. Chevron and ExxonMobil also benefited from higher crude prices and strong refining operations, though future gains depend on whether supply recovery outpaces demand normalization.",
+      "url": "https://www.zacks.com/stock/news/3035447/energy-stocks-benefit-from-supply-disruptions-can-momentum-last?cid=CS-ZC-FT-analyst_blog|industry_focus-3035447",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/48/2218.jpg",
+      "raw_tickers": [
+        "CVX",
+        "XOM"
+      ],
+      "all_tickers": [
+        "CVX",
+        "LNG",
+        "VLO",
+        "XOM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CVX",
+        "XOM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.957
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -513,32 +784,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "a13b41197e62460ee2f238f45508851b20da22151577ecadfed2357e05ec6aae",
-      "published_at": "2026-11-25T14:45:02Z",
-      "source": "The Motley Fool",
-      "title": "Warren Buffett's Rule Is to Be \"Greedy Only When Others Are Fearful.\" The S&P 500 Gained 23% in the Year After the 1987 Crash.",
-      "summary": "With the market entering a correction and the Buffett indicator at 275% (indicating overvaluation), investors should consider Warren Buffett's famous investing philosophy of being fearful when others are greedy and greedy when others are fearful. Historical precedent shows that the S&P 500 gained 23% in the year following the 1987 crash, suggesting potential opportunities during market downturns for value investors willing to buy quality stocks at discounted prices.",
-      "url": "https://www.fool.com/investing/2026/11/25/warren-buffetts-rule-is-to-be-greedy-only-when-others-are-fearful-the-sp-500-gained-23-in-the-year-after-the-1987-crash/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Ff02a2f3bf4ae18595979874dc2ffefd81d68ed79-5580x3720.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "KO"
-      ],
-      "all_tickers": [
-        "BRK.A",
-        "BRK.B",
-        "KO"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "KO"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.7227
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "42d159d44456207da53a1e64c97ab91607e0cdae6b6cb5e29a512465f85e8b2f",
       "published_at": "2026-11-25T14:20:00Z",
       "source": "Zacks Investment Research",
@@ -600,63 +845,6 @@
       "sentiment": {
         "label": "neutral",
         "score": 0.5596
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "e1ecd2d862b308250caf7356c10eab3e366ac6e1d282134015192daa003edc06",
-      "published_at": "2026-11-25T13:45:00Z",
-      "source": "Zacks Investment Research",
-      "title": "Bank Bond Losses Hit $486 Billion: How Exposed Is Bank of America?",
-      "summary": "Bank of America's unrealized held-to-maturity securities losses surged 29.4% to $103.9 billion as of Q3 2026, reflecting broader challenges facing U.S. banks from elevated interest rates. The bank's exposure to low-yielding legacy securities and higher deposit costs constrains net interest margin expansion, while liquidity sources declined. However, gradual maturity of legacy securities and a strong deposit franchise provide some mitigation.",
-      "url": "https://www.zacks.com/stock/news/3035184/bank-bond-losses-hit-486-billion-how-exposed-is-bank-of-america?cid=CS-ZC-FT-analyst_blog|quick_take-3035184",
-      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/0b/57.jpg",
-      "raw_tickers": [
-        "BAC",
-        "JPM"
-      ],
-      "all_tickers": [
-        "AMJB",
-        "BAC",
-        "BACpB",
-        "BACpE",
-        "BACpK",
-        "BACpL",
-        "BACpM",
-        "BACpN",
-        "BACpO",
-        "BACpP",
-        "BACpQ",
-        "BACpS",
-        "BMLpG",
-        "BMLpH",
-        "BMLpJ",
-        "BMLpL",
-        "JPM",
-        "JPMpC",
-        "JPMpD",
-        "JPMpJ",
-        "JPMpK",
-        "JPMpL",
-        "JPMpM",
-        "MERpK",
-        "VYLD",
-        "WFC",
-        "WFCpA",
-        "WFCpC",
-        "WFCpD",
-        "WFCpL",
-        "WFCpY",
-        "WFCpZ"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "BAC",
-        "JPM"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.7116
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -822,33 +1010,31 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "be9d717af65196e67c51a6c2012421ee673787b0fcbcbca6a4faffcfb3af6543",
-      "published_at": "2026-11-25T10:20:03Z",
+      "id": "37fb875d27900254713ea50137fe50f65a6abf99c8f51c8b785300e2795b469e",
+      "published_at": "2026-11-25T10:20:02Z",
       "source": "Zacks Investment Research",
-      "title": "Should You Invest in the State Street Consumer Staples Select Sector SPDR ETF (XLP)?",
-      "summary": "XLP, the largest consumer staples ETF with $15.2 billion in assets, offers low-cost exposure to the sector with a 0.08% expense ratio and 2.39% dividend yield. The fund has gained 20.3% year-to-date and 22.18% over the past 12 months, with a medium risk profile (beta of 0.45). It carries a Zacks ETF Rank of 3 (Hold) and is considered a good option for consumer staples exposure, though alternatives like FSTA and VDC are also available.",
-      "url": "https://www.zacks.com/stock/news/3034898/should-you-invest-in-the-state-street-consumer-staples-select-sector-spdr-etf-xlp?cid=CS-ZC-FT-sector_etf-3034898",
-      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default340.jpg",
+      "title": "Should You Invest in the First Trust Dow Jones Internet Index Fund (FDN)?",
+      "summary": "FDN, a passively managed ETF tracking internet-related companies, offers low-cost exposure to the Technology-Internet sector with $4.62 billion in assets. The fund has declined 6.8% year-to-date and 4.78% over the past year, with high volatility (beta of 1.26). It holds a Zacks ETF Rank of 2 (Buy) and is concentrated in top holdings like Amazon, Meta, and Cisco, which comprise 61% of assets.",
+      "url": "https://www.zacks.com/stock/news/3034906/should-you-invest-in-the-first-trust-dow-jones-internet-index-fund-fdn?cid=CS-ZC-FT-sector_etf-3034906",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default119.jpg",
       "raw_tickers": [
-        "PG",
-        "WMT"
+        "AMZN"
       ],
       "all_tickers": [
-        "COST",
-        "FSTA",
-        "PG",
-        "VDC",
-        "WMT",
-        "XLP"
+        "AMZN",
+        "CSCO",
+        "FDN",
+        "META",
+        "METAM",
+        "PNQI"
       ],
       "is_spam": false,
       "tickers": [
-        "PG",
-        "WMT"
+        "AMZN"
       ],
       "sentiment": {
-        "label": "positive",
-        "score": 0.785
+        "label": "negative",
+        "score": 0.7822
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -916,6 +1102,65 @@
       "sentiment": {
         "label": "positive",
         "score": 0.7835
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "15954cf6310a66d264c4df73d04265f82007b38eaecf1c813c032a3f4453f70b",
+      "published_at": "2026-11-25T04:52:30Z",
+      "source": "The Motley Fool",
+      "title": "Symbotic: 3 Key Takeaways for Long-Term Investors",
+      "summary": "Symbotic announced a major expanded agreement with Walmart adding nearly $7 billion to its backlog, bringing total backlog to $29.3 billion. The company achieved 25% year-over-year revenue growth to $2.8 billion in fiscal 2026 and turned profitable with $133 million in GAAP net income. Management is expanding its addressable market through modular automation systems and recent acquisitions in postal and international logistics, while leveraging AI and robotics for end-to-end automation platforms.",
+      "url": "https://www.fool.com/earnings/takeaways/2026/11/24/symbotic-3-key-takeaways-for-long-term-investors/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F818b8645c55663feb2d47d694fc72f9142ecc2c8-1280x720.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "WMT"
+      ],
+      "all_tickers": [
+        "SYM",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9177
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "574d80d07b06b163c05c016a3e52610ae3bbd66db5ad7b3795e2b088ddf18214",
+      "published_at": "2026-11-25T00:21:40Z",
+      "source": "The Motley Fool",
+      "title": "Most Stocks Are Losers. Here's How You Can Still Win",
+      "summary": "Research shows that two-thirds of stocks in the Russell 3000 underperform market averages, with 40% having negative returns. However, investors can succeed by focusing on elite 'Tier 1' companies with strong competitive advantages, holding winners long-term, and learning from mistakes. The asymmetry of investing—where losses are capped but gains are unlimited—means a few big winners can offset many losers.",
+      "url": "https://www.fool.com/investing/2026/11/24/most-stocks-are-losers-here-is-how-you-can-still-win/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F006d8ccc738968e4a9694e3a4a6f7a57325c0f3b-2121x1414.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "BRK.A",
+        "BRK.B",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.5604
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -11633,159 +11878,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.9486
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-11T19:50:20+00:00",
-      "source": "MacRumors",
-      "title": "Google Says Gemini App Rolling Out on Apple CarPlay Starting Today",
-      "summary": "Google has announced that a dedicated Gemini app on Apple CarPlay is rolling out around the world in several languages starting today, allowing you to have conversations with the AI assistant right from your vehicle's dashboard.\n\n\n\n\n\nGemini conversations on y…",
-      "url": "https://www.macrumors.com/2026/11/11/google-gemini-apple-carplay/",
-      "image_url": "https://images.macrumors.com/t/KlJ-tp6D42-wUJNkgm8PcjmE_c0=/1920x/article-new/2026/11/Google-Gemini-Apple-CarPlay.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8736
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-11T19:48:02+00:00",
-      "source": "Amazon.com",
-      "title": "How Samsung Ads federated Snowflake Iceberg tables using Amazon Cognito",
-      "summary": "Learn how Samsung Ads federates Snowflake-managed Apache Iceberg tables into AWS Lake Formation and queries them from Amazon Athena using Amazon Cognito for OAuth2 machine-to-machine authentication, with no second copy of the data to maintain.",
-      "url": "https://aws.amazon.com/blogs/big-data/how-samsung-ads-federated-snowflake-iceberg-tables-using-amazon-cognito/",
-      "image_url": "https://d2908q01vomqb2.cloudfront.net/b6692ea5df920cad691c20319a6fffd7a4a766b8/2026/10/30/BDB-6126-featured-image.png",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.944
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-11T19:46:54+00:00",
-      "source": "Business Insider",
-      "title": "AI’s dealmaking frenzy",
-      "summary": "AI startup acquisitions surge as SpaceX, Nvidia, Amazon and Stripe drive record venture-backed M&A deals and unicorn liquidity.",
-      "url": "https://www.businessinsider.com/nvidia-spacex-deals-fuel-historic-boom-ai-startup-manda-2026-10#article",
-      "image_url": "https://i.insider.com/6af4bc3eb2c29afb4e569d29?width=1200&format=jpeg",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9204
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-11T19:46:04+00:00",
-      "source": "Amazon.com",
-      "title": "Allocate shared Amazon MSK costs to Kafka topics for cost visibility",
-      "summary": "Amazon MSK bills at the cluster level, with no per-topic breakdown. This post shows how to allocate shared MSK cluster costs to individual Kafka topics by combining AWS Cost and Usage Report billing with per-topic CloudWatch or Prometheus metrics, giving each…",
-      "url": "https://aws.amazon.com/blogs/big-data/allocate-shared-amazon-msk-costs-to-kafka-topics-for-cost-visibility/",
-      "image_url": "https://d2908q01vomqb2.cloudfront.net/b6692ea5df920cad691c20319a6fffd7a4a766b8/2026/11/10/BDB-5990-featured-image.png",
-      "raw_tickers": [],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9295
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-11T19:41:41+00:00",
-      "source": "ZDNet",
-      "title": "Google Fi now switches between the best mobile networks automatically – how it works",
-      "summary": "Pixel users also get a bonus Wi-Fi upgrade. Here’s what to know.",
-      "url": "https://www.zdnet.com/home-and-office/google-fi-super-network-pixel/",
-      "image_url": "https://www.zdnet.com/wp-content/uploads/sites/3/dsc00320.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9286
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-11T19:30:41+00:00",
-      "source": "Crypto Briefing",
-      "title": "Microsoft patent filing describes paying users for idle computing power to train AI",
-      "summary": "Microsoft's patent could democratize AI training, but raises concerns about privacy, hardware wear, and economic viability for users.\nThe post Microsoft patent filing describes paying users for idle computing power to train AI appeared first on Crypto Briefin…",
-      "url": "https://cryptobriefing.com/microsoft-patent-idle-computing-power-ai/",
-      "image_url": "https://static.cryptobriefing.com/wp-content/uploads/2026/11/11143034/library-microsoft-patent-filing-describes-paying-users-for-idle--800x450.png",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8911
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-11T19:30:29+00:00",
-      "source": "Droid Life",
-      "title": "Gemini Comes to Apple CarPlay",
-      "summary": "Google announced today that Gemini is now available for iOS users through CarPlay, allowing drivers to access their Gemini chats right inside their whip. To access, you’ll simple tap the Gemini app icon, then have a complete hands-free experience with the AI.…",
-      "url": "https://www.droid-life.com/2026/11/11/gemini-carplay/",
-      "image_url": "https://www.droid-life.com/wp-content/uploads/2026/11/Gemini-CarPlay.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8892
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-11T18:08:40+00:00",
-      "source": "Rock Paper Shotgun",
-      "title": "After being laid off by Microsoft, former Doom devs found new Smash TV-influenced FPS studio that isn't \"subject to investor demands\"",
-      "summary": "Back in July, Doom developers id Software laid off around a hundred people as part of wider Microsoft blood-letting. Now, a few of those devs have founded a new employee-owned studio, Hidden Horses. Their first project is Danger Pay, a single-player FPS influ…",
-      "url": "https://www.rockpapershotgun.com/after-being-laid-off-by-microsoft-former-doom-devs-found-new-smash-tv-influenced-fps-studio-that-isnt-subject-to-investor-demands",
-      "image_url": "https://assetsio.gnwcdn.com/Smash-TV_PvR31M4.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5796
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-11T18:07:00+00:00",
-      "source": "Notebookcheck.net",
-      "title": "Microsoft's vice president develops open-source GPU task manager to show which programs are using VRAM",
-      "summary": "The Windows Task Manager for VRAM: Microsoft Vice President Scott Hanselman has developed GPU Taskman, a free, open-source tool that provides detailed insights into VRAM usage by individual processes. Particularly noteworthy is its ability to analyze local AI…",
-      "url": "https://www.notebookcheck.net/Microsoft-s-vice-president-develops-open-source-GPU-task-manager-to-show-which-programs-are-using-VRAM.1447811.0.html",
-      "image_url": "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc5/Neon-GPU-Monitoring-Dashboard.jpg",
-      "raw_tickers": [],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8431
       },
       "sentiment_model": "ProsusAI/finbert"
     }

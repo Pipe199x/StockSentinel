@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-24",
+  "as_of": "2026-11-25",
   "started": "2026-11-11",
   "config_hash": "c3f2b4fc9bfd",
   "counts": {
@@ -12,7 +12,7 @@
   "win_rate": null,
   "expected_value": null,
   "sr_per_trade": null,
-  "total_return": -0.00695358907324517,
+  "total_return": -0.006227923564106286,
   "equity_curve": [
     {
       "date": "2026-11-12",
@@ -49,6 +49,10 @@
     {
       "date": "2026-11-24",
       "equity": 0.9930464109267548
+    },
+    {
+      "date": "2026-11-25",
+      "equity": 0.9937720764358937
     }
   ],
   "recent_closed": [
@@ -114,13 +118,13 @@
     "min_trades": 30,
     "n_closed": 0,
     "live_sr_per_trade": null,
-    "backtest_sr_per_trade": 0.09681105003275949,
-    "backtest_expected_value": 0.0048015238749822,
+    "backtest_sr_per_trade": 0.10437725527467023,
+    "backtest_expected_value": 0.005777794782415947,
     "backtest_cpcv_range": [
-      0.058969669166367235,
-      0.11804159723364628
+      0.030992472539024086,
+      0.047233591853039096
     ],
-    "backtest_cpcv_median": 0.07259860274632023,
+    "backtest_cpcv_median": 0.03822028301464504,
     "sr_ci95": null,
     "min_detectable_gap": null,
     "status": "collecting",
@@ -132,17 +136,17 @@
   },
   "gate1": {
     "status": "collecting",
-    "p_breakeven": 0.5009979354230322,
-    "p_backtest": 0.544256120527307,
-    "trades_required": 1047,
+    "p_breakeven": 0.4863605495778369,
+    "p_backtest": 0.5393474088291746,
+    "trades_required": 698,
     "live_trades": 0,
     "live_effective_trades": 0.0,
-    "years_to_go": 15.399378531073447,
+    "years_to_go": 10.369520153550864,
     "p_value": null
   },
   "edge_decay": {
     "window": 20,
-    "backtest_ev": 0.0048015238749822,
+    "backtest_ev": 0.005777794782415947,
     "points": [],
     "status": "collecting"
   },

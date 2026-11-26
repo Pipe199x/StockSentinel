@@ -1,7 +1,7 @@
 {
-  "as_of": "2026-11-24",
+  "as_of": "2026-11-25",
   "market_regime": "stress",
-  "market_p_stress": 0.99997741421147,
+  "market_p_stress": 0.9999712951019023,
   "n_assets": 25,
   "n_idle": 25,
   "picks": []

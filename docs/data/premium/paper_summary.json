@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-24",
+  "as_of": "2026-11-25",
   "started": "2026-11-11",
   "config_hash": "c3f2b4fc9bfd",
   "counts": {
@@ -12,7 +12,7 @@
   "win_rate": null,
   "expected_value": null,
   "sr_per_trade": null,
-  "total_return": -0.00695358907324517,
+  "total_return": -0.006227923564106286,
   "equity_curve": [
     {
       "date": "2026-11-12",
@@ -49,6 +49,10 @@
     {
       "date": "2026-11-24",
       "equity": 0.9930464109267548
+    },
+    {
+      "date": "2026-11-25",
+      "equity": 0.9937720764358937
     }
   ],
   "positions": [
@@ -64,7 +68,7 @@
       "status": "open",
       "entry_date": "2026-11-12",
       "entry_price": 355.07000732421875,
-      "last_checked": "2026-11-24",
+      "last_checked": "2026-11-25",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -87,7 +91,7 @@
       "status": "open",
       "entry_date": "2026-11-12",
       "entry_price": 346.0199890136719,
-      "last_checked": "2026-11-24",
+      "last_checked": "2026-11-25",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -110,7 +114,7 @@
       "status": "open",
       "entry_date": "2026-11-12",
       "entry_price": 277.0,
-      "last_checked": "2026-11-24",
+      "last_checked": "2026-11-25",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -133,7 +137,7 @@
       "status": "open",
       "entry_date": "2026-11-12",
       "entry_price": 86.93000030517578,
-      "last_checked": "2026-11-24",
+      "last_checked": "2026-11-25",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -156,7 +160,7 @@
       "status": "open",
       "entry_date": "2026-11-13",
       "entry_price": 79.3,
-      "last_checked": "2026-11-24",
+      "last_checked": "2026-11-25",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -179,7 +183,7 @@
       "status": "open",
       "entry_date": "2026-11-17",
       "entry_price": 28.48,
-      "last_checked": "2026-11-24",
+      "last_checked": "2026-11-25",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -202,7 +206,7 @@
       "status": "open",
       "entry_date": "2026-11-19",
       "entry_price": 49.31,
-      "last_checked": "2026-11-24",
+      "last_checked": "2026-11-25",
       "exit_date": null,
       "exit_price": null,
       "exit_reason": null,
@@ -277,13 +281,13 @@
     "min_trades": 30,
     "n_closed": 0,
     "live_sr_per_trade": null,
-    "backtest_sr_per_trade": 0.09681105003275949,
-    "backtest_expected_value": 0.0048015238749822,
+    "backtest_sr_per_trade": 0.10437725527467023,
+    "backtest_expected_value": 0.005777794782415947,
     "backtest_cpcv_range": [
-      0.058969669166367235,
-      0.11804159723364628
+      0.030992472539024086,
+      0.047233591853039096
     ],
-    "backtest_cpcv_median": 0.07259860274632023,
+    "backtest_cpcv_median": 0.03822028301464504,
     "sr_ci95": null,
     "min_detectable_gap": null,
     "status": "collecting",
@@ -295,17 +299,17 @@
   },
   "gate1": {
     "status": "collecting",
-    "p_breakeven": 0.5009979354230322,
-    "p_backtest": 0.544256120527307,
-    "trades_required": 1047,
+    "p_breakeven": 0.4863605495778369,
+    "p_backtest": 0.5393474088291746,
+    "trades_required": 698,
     "live_trades": 0,
     "live_effective_trades": 0.0,
-    "years_to_go": 15.399378531073447,
+    "years_to_go": 10.369520153550864,
     "p_value": null
   },
   "edge_decay": {
     "window": 20,
-    "backtest_ev": 0.0048015238749822,
+    "backtest_ev": 0.005777794782415947,
     "points": [],
     "status": "collecting"
   },
@@ -314,72 +318,72 @@
     {
       "ticker": "HD",
       "signal_date": "2026-11-11",
-      "sessions_elapsed": 9,
-      "pnl_sigma": -0.03514670426813198,
+      "sessions_elapsed": 10,
+      "pnl_sigma": 0.15764977343199896,
       "p_entry": 0.5819945931434631,
-      "n_similar": 519,
-      "p_tp_now": 0.04431599229287091,
-      "p_profit_now": 0.4913294797687861
+      "n_similar": 554,
+      "p_tp_now": 0.1444043321299639,
+      "p_profit_now": 0.6931407942238267
     },
     {
       "ticker": "JPM",
       "signal_date": "2026-11-11",
-      "sessions_elapsed": 9,
-      "pnl_sigma": -0.9591864792114577,
+      "sessions_elapsed": 10,
+      "pnl_sigma": -0.9711265644014236,
       "p_entry": 0.6171746253967285,
-      "n_similar": 349,
-      "p_tp_now": 0.017191977077363897,
-      "p_profit_now": 0.23209169054441262
+      "n_similar": 356,
+      "p_tp_now": 0.03089887640449438,
+      "p_profit_now": 0.23876404494382023
     },
     {
       "ticker": "MCD",
       "signal_date": "2026-11-11",
-      "sessions_elapsed": 9,
-      "pnl_sigma": 0.15955957611918392,
+      "sessions_elapsed": 10,
+      "pnl_sigma": 0.28030736345261975,
       "p_entry": 0.5076612830162048,
-      "n_similar": 567,
-      "p_tp_now": 0.13932980599647266,
-      "p_profit_now": 0.7319223985890653
+      "n_similar": 554,
+      "p_tp_now": 0.1444043321299639,
+      "p_profit_now": 0.6931407942238267
     },
     {
       "ticker": "NEE",
       "signal_date": "2026-11-11",
-      "sessions_elapsed": 9,
-      "pnl_sigma": -0.36026129604334917,
+      "sessions_elapsed": 10,
+      "pnl_sigma": -0.23302008885822312,
       "p_entry": 0.5171687602996826,
-      "n_similar": 508,
-      "p_tp_now": 0.03543307086614173,
-      "p_profit_now": 0.3188976377952756
+      "n_similar": 491,
+      "p_tp_now": 0.034623217922606926,
+      "p_profit_now": 0.36863543788187375
     },
     {
       "ticker": "TLT",
       "signal_date": "2026-11-12",
-      "sessions_elapsed": 8,
-      "pnl_sigma": -0.8527071827150873,
+      "sessions_elapsed": 9,
+      "pnl_sigma": -1.1447301904942324,
       "p_entry": 0.5009915828704834,
-      "n_similar": 349,
-      "p_tp_now": 0.017191977077363897,
-      "p_profit_now": 0.23209169054441262
+      "n_similar": 96,
+      "p_tp_now": 0.020833333333333332,
+      "p_profit_now": 0.14583333333333334
     },
     {
       "ticker": "PFE",
       "signal_date": "2026-11-16",
-      "sessions_elapsed": 6,
+      "sessions_elapsed": 7,
       "pnl_sigma": 0.009860863434310292,
       "p_entry": 0.5018745064735413,
-      "n_similar": 519,
-      "p_tp_now": 0.04431599229287091,
-      "p_profit_now": 0.4913294797687861
+      "n_similar": 503,
+      "p_tp_now": 0.04771371769383698,
+      "p_profit_now": 0.5089463220675944
     },
     {
       "ticker": "BAC",
       "signal_date": "2026-11-18",
-      "sessions_elapsed": 4,
-      "pnl_sigma": 0.20203554461185577,
+      "sessions_elapsed": 5,
+      "pnl_sigma": 0.20742315913483894,
       "p_entry": 0.6588156819343567,
-      "n_similar": 614,
-      "p_tp_now": 0.2263843648208469,
-      "p_profit_now": 0.7035830618892508
+      "n_similar": 591,
+      "p_tp_now": 0.2233502538071066,
+      "p_profit_now": 0.6869712351945855
     }
   ]
 }
