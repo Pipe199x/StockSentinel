@@ -1,35 +1,892 @@
 {
-  "as_of": "2026-11-26T09:59:06.259171+00:00",
+  "as_of": "2026-11-26T21:30:03.515450+00:00",
   "window_days": 15,
   "articles": [
     {
-      "id": "550a3383afd0256539f182961fa8cf54b2132488d41d578783658ec29a489a4e",
-      "published_at": "2026-11-26T08:43:02Z",
+      "id": "ac57fe3dcea455ad2d4b38926b15bfed44ead74f380bbffb3cce58469029548c",
+      "published_at": "2026-11-26T20:09:02Z",
       "source": "The Motley Fool",
-      "title": "The Trade Desk Stock Is Headed for Its First Back-to-Back Losing Years. Its Only Other Full-Year Decline Was Followed by a 61% Gain.",
-      "summary": "The Trade Desk faces back-to-back losing years for the first time since going public in 2016, with stock down 68% in 2025 and another 63% in 2026. Unlike 2022 when revenue grew 32% despite a stock decline, the current downturn is driven by deteriorating business fundamentals—revenue is now flat to declining, profits are shrinking faster, and management forecasts continued weakness. While the stock trades at an attractive 8x free cash flow valuation, a recovery would require revenue growth to stabilize, which management's outlook does not currently indicate.",
-      "url": "https://www.fool.com/investing/2026/11/26/the-trade-desk-stock-is-headed-for-its-first-back-to-back-losing-years-its-only-other-full-year-decline-was-followed-by-a-61-gain/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F183bf9cc34ee191002a66d6a82aa7e5cb164a455-4578x3052.jpg&w=1200&op=resize",
+      "title": "Here’s How Many Shares of Procter & Gamble You’d Need to Own to Collect $1,000 in Annual Dividends",
+      "summary": "Procter & Gamble continues to grow despite economic headwinds, with investors needing approximately 230 shares (costing ~$39,800) to generate $1,000 in annual dividend income. The company has raised its dividend for 70 consecutive years and maintains a 2.50% dividend yield. While rising input costs pose a risk, P&G's scale and cost-cutting programs help offset pressure, and the stock's valuation at 25x earnings is considered reasonable for long-term dividend investors.",
+      "url": "https://www.fool.com/investing/2026/11/26/here-s-how-many-shares-of-procter-and-gamble-you-d-need-to-own-to-collect-usd1-000-in-annual-dividends/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fba1fc44b7ee1f0db65eb697b8517bf3a468c0556-2541x1180.jpg&w=1200&op=resize",
       "raw_tickers": [
-        "AMZN",
+        "PG"
+      ],
+      "all_tickers": [
+        "PG"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PG"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9126
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a36b68bc24c7153bf6ead1d049f8b7da2f3c7376ad3b1d88fc1ab56eac9a9be1",
+      "published_at": "2026-11-26T20:00:02Z",
+      "source": "The Motley Fool",
+      "title": "If a Market Correction Is Around the Corner, I'm Making This 1 Easy Move",
+      "summary": "The article advises investors not to fear market corrections but to view them as buying opportunities. Following recent volatility triggered by Nvidia CEO Jensen Huang's brief departure, the author recommends maintaining systematic investment plans rather than trying to time the market bottom. Historical data shows that market recoveries can be swift, but when corrections last longer, regular purchases at lower prices can significantly reduce cost basis over time.",
+      "url": "https://www.fool.com/investing/2026/11/26/if-market-correction-around-corner-making-this-1-easy-move/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F2e2d22021c9b82b24c1f49e96e47b7a53c9a6477-2119x1414.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.613
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "cf9bf2d6442413042093b148a94d9e0b4068a7b93d4646b4ddabc8b23c6cfefd",
+      "published_at": "2026-11-26T19:17:02Z",
+      "source": "The Motley Fool",
+      "title": "I'd Buy Anthropic Stock Early — but Only If I Liked the Answers to These 3 Questions",
+      "summary": "Anthropic's IPO opened at a 34.3% premium to its $83 offering price but has since fallen below IPO price. While the company shows impressive revenue growth (10x increase to $16.96B in Q3 2026) and strong enterprise adoption, investors should carefully evaluate three key concerns: whether the Claude ecosystem can sustain customer spending amid pricing pressures and competition, whether the company can achieve profitability given rising computing costs consuming 80% of revenue growth, and whether the current $1.1 trillion valuation (31x trailing revenue) leaves room for attractive returns considering upcoming share dilution from lock-up expirations.",
+      "url": "https://www.fool.com/investing/2026/11/26/id-buy-anthropic-stock-on-day-1-but-only-if-you-can-answer-these-3-questions/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F0fd295daf648517bf82dd24bd4840b18a9eba791-2166x1384.jpg&w=1200&op=resize",
+      "raw_tickers": [
         "GOOGL"
       ],
       "all_tickers": [
-        "AMZN",
+        "ANT",
         "GOOG",
         "GOOGL",
         "GOOGM",
-        "GOOGN",
-        "TTD"
+        "GOOGN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8106
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "18942be616a386e6b8e47335a5b7b992f25def43c9ead62026626e81d1f7a4e5",
+      "published_at": "2026-11-26T19:05:02Z",
+      "source": "The Motley Fool",
+      "title": "The Buffett Indicator Is Flashing Red. These 2 Dividend Stocks Could Be Safe Havens.",
+      "summary": "With the Buffett indicator at extreme valuation levels, signaling potential market downturn risk, conservative investors should consider defensive dividend stocks. Johnson & Johnson and Procter & Gamble are recommended as safe-haven stocks in healthcare and consumer staples sectors, given their strong dividend histories and resilience during economic weakness.",
+      "url": "https://www.fool.com/investing/2026/11/26/the-buffett-indicator-is-flashing-red-these-2-dividend-stocks-could-be-safe-havens/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb13ad4cb557bd990aec502acafa0e40a2e078d19-2000x1333.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "JNJ",
+        "PG"
+      ],
+      "all_tickers": [
+        "BRK.A",
+        "BRK.B",
+        "JNJ",
+        "PG"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ",
+        "PG"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6366
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "73a184f913147401fdfb31d95711200c84c2112a49bde92e3be41de0c66fdda9",
+      "published_at": "2026-11-26T18:13:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "AI SEO in New York City: How Brands Get Recommended by AI Answers, Not Just Ranked on Google",
+      "summary": "Answer engine optimization (AI SEO) has become a separate discipline from traditional SEO, focusing on earning citations and recommendations within AI-generated answers rather than just Google rankings. A benchmark study found approximately 87% of U.S. businesses are absent from AI answers despite ranking on Google's first page, creating both a warning and opportunity for early adopters in competitive markets like New York.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/26/3411019/0/en/ai-seo-in-new-york-city-how-brands-get-recommended-by-ai-answers-not-just-ranked-on-google.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/893c5ecb-3db6-4e8a-b3a6-4d88cefb5c4d",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "DAL",
+        "F",
+        "FpB",
+        "FpC",
+        "FpD",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8384
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "9a91fd92b2a5105979f699b9ddcb476384a154c84eb32bccfb6b9a36603bc96f",
+      "published_at": "2026-11-26T17:57:02Z",
+      "source": "The Motley Fool",
+      "title": "Nvidia Stock Has Found Its Next Big Catalyst, Making the Stock a Once-in-a-Decade Buying Opportunity.",
+      "summary": "Nvidia's physical AI revenue is emerging as a major growth driver, expected to reach $25 billion in fiscal 2027 (up from $6 billion in fiscal 2026). With physical AI applications in robotics, autonomous vehicles, and industrial equipment, the company is positioned to capitalize on a projected $1.4 trillion market by 2035. Despite a recent 26% stock decline, Nvidia trades at attractive valuations (16.7x earnings) with strong growth prospects supported by a $2.5 trillion cloud industry backlog.",
+      "url": "https://www.fool.com/investing/2026/11/26/nvidia-stock-has-found-its-next-big-catalyst-making-the-stock-a-once-in-a-decade-buying-opportunity/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fe729a1e6a73e552425f25f88f0969f27046fb4e5-2000x1200.png&w=1200&op=resize",
+      "raw_tickers": [
+        "CAT",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "CAT",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CAT",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9533
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "546c405a643d514e1478801b6a436d453c0d5ef3ffbad3a3e74e7fc26db80425",
+      "published_at": "2026-11-26T17:27:02Z",
+      "source": "The Motley Fool",
+      "title": "Alphabet Could Be the Safest Way to Own Anthropic. Here’s the Math.",
+      "summary": "Alphabet's 13.7% stake in Anthropic is valued at $137 billion at the AI company's $1 trillion valuation. Beyond equity ownership, Alphabet benefits from a $121.3 billion Google Cloud services commitment from Anthropic through mid-2033, plus potential additional revenue from TPU computing capacity. The article argues Alphabet is a safer investment than Anthropic stock because it profits from the relationship regardless of Anthropic's valuation, while maintaining its own profitable AI, cloud, and advertising businesses.",
+      "url": "https://www.fool.com/investing/2026/11/26/alphabet-could-be-the-safest-way-to-own-anthropic-here-s-the-math/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F4718462497c310457e987a399107276b719ce95d-2000x1200.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "ANT",
+        "AVGO",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.6569
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "276e76b9fd50eca1d7386a810f74f8a91cc822f32181eafbd551b8e0a81082fc",
+      "published_at": "2026-11-26T16:14:00Z",
+      "source": "Zacks Investment Research",
+      "title": "DVN Stock Slips Below 50-Day & 200-Day SMA: Time to Buy or Exit?",
+      "summary": "Devon Energy (DVN) trades below its moving averages with rising earnings estimates and a discounted valuation, supported by a $4.2 billion Eagle Ford divestiture. However, its ROE of 14.87% lags the industry average of 20.62%, prompting analysts to recommend waiting for a better entry point despite the stock's investment appeal.",
+      "url": "https://www.zacks.com/stock/news/3036099/dvn-stock-slips-below-50-day-200-day-sma-time-to-buy-or-exit?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3036099",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/ec/34148.jpg",
+      "raw_tickers": [
+        "CVX"
+      ],
+      "all_tickers": [
+        "CVX",
+        "DVN",
+        "RRC"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CVX"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9565
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a52c580625f8d3efe3b02a93240ea6d6b209c9479816c166e6181944c2ed1852",
+      "published_at": "2026-11-26T16:14:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Cerebras Expands AI Inference Reach: Can It Challenge NVDA & AMD?",
+      "summary": "Cerebras Systems (CBRS) is expanding its AI inference capabilities through partnerships with AWS, Oracle, and Microsoft. The company reported 272% surge in cloud and services revenues in Q3 2026 and raised full-year guidance. CBRS expects revenues to triple in 2027, driven by cloud expansion and hardware shipments, though it faces intense competition from NVIDIA and AMD in the AI infrastructure market.",
+      "url": "https://www.zacks.com/stock/news/3036098/cerebras-expands-ai-inference-reach-can-it-challenge-nvda-amd?cid=CS-ZC-FT-analyst_blog|quick_take-3036098",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/d3/848.jpg",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMD",
+        "CBRS",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9549
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "e95eded0e8384afaa6fdc321968f99199b1b08bf373f3b0f0a0391b2ce565d5e",
+      "published_at": "2026-11-26T16:05:02Z",
+      "source": "The Motley Fool",
+      "title": "Meta Platforms Just Partnered With Walmart. Here's Why Investors Should Pay Attention",
+      "summary": "Meta has partnered with Walmart to integrate its Muse AI agent into the retailer's e-commerce platform, allowing consumers to discover products, compare prices, and complete purchases. While Meta's free cash flow has turned negative due to massive AI spending, the partnership signals potential monetization opportunities through transaction fees. Meta's core advertising business remains strong with 26% year-over-year revenue growth, positioning the company to fund its AI investments while scaling new revenue streams.",
+      "url": "https://www.fool.com/investing/2026/11/26/meta-platforms-just-partnered-with-walmart-here-s-why-investors-should-pay-attention/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F8a826dfc9d206cd3246637a7adb1ed934e5302b4-7008x4393.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "WMT"
+      ],
+      "all_tickers": [
+        "META",
+        "METAM",
+        "WMT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "WMT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9357
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "14c7a06dce9c201dd6a1c136342c89a9b9162ac8d00bb18447261e3ffd04c574",
+      "published_at": "2026-11-26T15:46:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Moderna vs. Pfizer: Which Vaccine Stock Offers More Upside?",
+      "summary": "Moderna and Pfizer are compared as investment opportunities in the pharmaceutical sector. Moderna demonstrates stronger growth prospects through its expanding respiratory vaccine portfolio, international partnerships, and promising oncology pipeline, particularly the intismeran melanoma therapy showing 42% risk reduction. However, it trades at a steep valuation premium (32.83x P/S vs. Pfizer's 2.65x). Pfizer faces patent expirations and declining COVID-19 revenues but is diversifying through new product launches and acquisitions, with expectations for sustained growth from 2029 onward. Both stocks carry a Zacks Rank #3 (Hold) rating.",
+      "url": "https://www.zacks.com/stock/news/3036049/moderna-vs-pfizer-which-vaccine-stock-offers-more-upside?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3036049",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/21/594.jpg",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "MRK",
+        "MRNA",
+        "PFE"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7082
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "74718d6501c2190489f34689c67a2d5352e907726108bc2cb4c506fc171e88f6",
+      "published_at": "2026-11-26T15:45:00Z",
+      "source": "Zacks Investment Research",
+      "title": "NEE or CEG: Which Clean Energy Stock Is Better Positioned for Growth?",
+      "summary": "Constellation Energy (CEG) is positioned better than NextEra Energy (NEE) for growth, backed by stronger earnings growth prospects (15.77% vs 8.06%), better ROE (15.45% vs 12.27%), lower debt-to-capital ratio (41.45% vs 60.99%), and cheaper valuation (P/E 17.77X vs 19.74X). However, NEE offers a higher dividend yield of 2.92% compared to CEG's 0.73%.",
+      "url": "https://www.zacks.com/stock/news/3036041/nee-or-ceg-which-clean-energy-stock-is-better-positioned-for-growth?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3036041",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/6f/861.jpg",
+      "raw_tickers": [
+        "NEE"
+      ],
+      "all_tickers": [
+        "CEG",
+        "NEE",
+        "NEEpN",
+        "NEEpS",
+        "NEEpT",
+        "NEEpU",
+        "NEEpV",
+        "NEEpW"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NEE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9558
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "766d97c12fca61d3c3143f728530a6f5a63c507595981df1739a7bb88c50c0d1",
+      "published_at": "2026-11-26T15:30:14Z",
+      "source": "Zacks Investment Research",
+      "title": "Coca-Cola (KO) Up 6.4% Since Last Earnings Report: Can It Continue?",
+      "summary": "Coca-Cola reported strong Q3 2026 results, beating earnings and revenue estimates with 11% EPS growth and 7% revenue increase. The company raised its 2026 full-year guidance, projecting at least 5% organic revenue growth and 11% comparable EPS growth. Global unit case volume grew 5%, driven by strong performance in India, China, Mexico, and Brazil, with particular strength in Coca-Cola Zero Sugar (+16%). The stock has gained 6.4% in the past month and currently holds a Zacks Rank #3 (Hold) rating.",
+      "url": "https://www.zacks.com/stock/news/3035990/coca-cola-ko-up-6-4-since-last-earnings-report-can-it-continue?cid=CS-ZC-FT-realtime_blog-3035990",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default65.jpg",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "COCO",
+        "KO"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9579
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "57fdd04373ea46bd2b0d84d5cf84b2fdc9a4c52b668e7a4c5e58df5d443af022",
+      "published_at": "2026-11-26T15:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Biologics Market to Reach USD 1,009.33 Billion by 2035 as Biosimilar Reform, Subcutaneous Launches and Capacity Investment Reshape Competition",
+      "summary": "The global biologics market is projected to grow from USD 522.06 billion in 2026 to USD 1,009.33 billion by 2035, driven by monoclonal antibodies (45% share), biosimilar reforms, and subcutaneous drug launches. North America leads with 55% market share, while Asia Pacific shows fastest growth at 9.40% CAGR. Antisense and RNAi therapeutics represent the fastest-growing segment, though companies face challenges from patent cliffs, biosimilar price erosion, and government price-setting initiatives.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/26/3410853/0/en/biologics-market-to-reach-usd-1-009-33-billion-by-2035-as-biosimilar-reform-subcutaneous-launches-and-capacity-investment-reshape-competition.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/01eb1f79-0c67-420b-b423-376619f975cd",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "AMGN",
+        "AZN",
+        "BAYRY",
+        "BMY",
+        "CELGr",
+        "GSK",
+        "JNJ",
+        "LLY",
+        "MRK",
+        "NVS",
+        "REGN",
+        "RHHBY",
+        "SNY"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7304
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "40a4b059559d05ec09f0ee148d93a2292bcecfc3c5c6e0980c8b5e51d7eb3360",
+      "published_at": "2026-11-26T14:38:00Z",
+      "source": "Zacks Investment Research",
+      "title": "MCD's Entry-Level Value Push: A Key Catalyst for Its 2027 Outlook?",
+      "summary": "McDonald's is testing affordable menu bundles at 1,900 restaurants with franchisees adopting similar offerings at 4,000 more locations, covering over 40% of the U.S. system. The initiative aims to attract budget-conscious consumers and improve traffic after comparable sales declined 0.2% in Q3. Extra Value Meals showed 7% year-over-year unit sales growth. A nationwide rollout is expected in early 2027, with earnings estimates implying 5.9% and 5.2% growth for 2026 and 2027 respectively.",
+      "url": "https://www.zacks.com/stock/news/3035922/mcd-s-entry-level-value-push-a-key-catalyst-for-its-2027-outlook?cid=CS-ZC-FT-analyst_blog|quick_take-3035922",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/6f/392.jpg",
+      "raw_tickers": [
+        "MCD"
+      ],
+      "all_tickers": [
+        "MCD",
+        "QSR",
+        "WEN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MCD"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9397
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "113de9f83ea4491efc5a9c49a93dd93d514add9cb221674cd2ec387023fb7275",
+      "published_at": "2026-11-26T14:36:00Z",
+      "source": "Zacks Investment Research",
+      "title": "UPS or FDX: Which Parcel Delivery Giant Is a Better Play Now?",
+      "summary": "Both UPS and FedEx are pursuing aggressive cost-reduction initiatives to combat revenue pressures in the parcel delivery industry. FedEx's Network 2.0 and DRIVE programs target $2 billion in savings by 2027, while UPS expects $3 billion in benefits from its efficiency programs by end of 2026. UPS appears more attractive due to cheaper valuation (P/E of 15.32 vs FedEx's 16.89), stronger recent stock performance, and successful completion of its Amazon volume reduction. However, both stocks carry a Zacks Rank #3 (Hold) rating.",
+      "url": "https://www.zacks.com/stock/news/3035920/ups-or-fdx-which-parcel-delivery-giant-is-a-better-play-now?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3035920",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/ae/518.jpg",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "FDX",
+        "UPS"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9456
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "15cbbb9cf94aa36f19a600b5d0f1dd9230b18214f9c91a593c7a3a6237db3b83",
+      "published_at": "2026-11-26T14:31:02Z",
+      "source": "The Motley Fool",
+      "title": "Investing $500 a Month in Coca-Cola, Realty Income, and Altria Could Generate Over $1,000 in Monthly Dividend Income by 2046",
+      "summary": "The article demonstrates how investing $500 monthly in three Dividend King stocks—Coca-Cola, Realty Income, and Altria—could generate over $1,400 in monthly dividend income within 20 years through dividend reinvestment and compound growth. Assuming a 10% annual return and current dividend yields, a $380,000 portfolio would be built by 2046, highlighting the power of long-term dividend investing combined with reinvestment strategies.",
+      "url": "https://www.fool.com/investing/2026/11/26/investing-usd500-a-month-in-coca-cola-realty-income-and-altria-could-generate-over-usd1-000-in-monthly-dividend-income-by-2046/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Ffaa514331cf4ff9c6af2fad6cb1960c03c07b256-2121x1414.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "KO",
+        "MO",
+        "O"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.707
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "cc0c56a18c51297f4f6f5105cc7cb0e892810598726781f3ca9fe9eff3173a9e",
+      "published_at": "2026-11-26T14:11:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Will Bank of America's Swiss Expansion Fuel Further Fee Income Growth?",
+      "summary": "Bank of America is significantly expanding its Swiss operations, with its corporate banking client base tripling since January 2024 and workforce doubling since 2021. The bank is strengthening its advisory, capital markets, and middle-market capabilities across Switzerland, advising on major transactions and underwriting offerings. This international expansion strategy, which has extended to the UK, Ireland, Italy, and Germany, is expected to generate cross-border business opportunities and diversify revenue streams through fee-based income.",
+      "url": "https://www.zacks.com/stock/news/3035905/will-bank-of-america-s-swiss-expansion-fuel-further-fee-income-growth?cid=CS-ZC-FT-analyst_blog|company_news_finance_sector-3035905",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/f2/1146.jpg",
+      "raw_tickers": [
+        "BAC",
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "C",
+        "CpN",
+        "CpR",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "MERpK",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC",
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9499
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "0846d33543c61f27be1c3c87568ec5f7f4eb1676790eb9332aac4ef72e10a655",
+      "published_at": "2026-11-26T14:05:00Z",
+      "source": "Zacks Investment Research",
+      "title": "JPMorgan Rethinks UK Investments: Will Higher Taxes Hurt Growth?",
+      "summary": "JPMorgan is evaluating spending cuts at its Bournemouth operations center and £5 billion Canary Wharf development in London due to the U.K. banking surcharge doubling to 6%, which could increase the bank's tax bill by £120 million. While the projects are unlikely to be abandoned, reduced infrastructure investments could limit operational expansion in a key financial hub, though JPMorgan's diversified revenue streams provide flexibility to absorb the incremental tax costs.",
+      "url": "https://www.zacks.com/stock/news/3035901/jpmorgan-rethinks-uk-investments-will-higher-taxes-hurt-growth?cid=CS-ZC-FT-analyst_blog|quick_take-3035901",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/59/80.jpg",
+      "raw_tickers": [
+        "BAC",
+        "GS",
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "BAC",
+        "BACpB",
+        "BACpE",
+        "BACpK",
+        "BACpL",
+        "BACpM",
+        "BACpN",
+        "BACpO",
+        "BACpP",
+        "BACpQ",
+        "BACpS",
+        "BMLpG",
+        "BMLpH",
+        "BMLpJ",
+        "BMLpL",
+        "GS",
+        "GSpA",
+        "GSpC",
+        "GSpD",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "MERpK",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BAC",
+        "GS",
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.6874
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "7107f65c674b1d596901f789647a57080555cfd877417d940b5808993d859d94",
+      "published_at": "2026-11-26T13:50:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Coca-Cola vs. Keurig Dr Pepper: Which Beverage Stock Looks Stronger?",
+      "summary": "In a comparison of two major beverage companies, Coca-Cola (KO) is identified as the stronger investment choice over Keurig Dr Pepper (KDP). KO benefits from global scale, 32 billion-dollar brands, and 22 consecutive quarters of value share gains, with Q3 organic revenue growth of 7% and earnings growth of 11%. While KDP offers a lower valuation (14.22X forward P/E vs KO's 27.69X) and growth in energy drinks and coffee, KO's stronger one-year stock performance (33.9% vs 28.6%), operating momentum, and earnings visibility make it the more compelling choice despite its premium valuation.",
+      "url": "https://www.zacks.com/stock/news/3035870/coca-cola-vs-keurig-dr-pepper-which-beverage-stock-looks-stronger?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3035870",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/00/1011.jpg",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "KDP",
+        "KO"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9489
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "106a11ea4c07e6d26e9410e133c4f8e6bcd2d489add33c30cfd64b32d40e896c",
+      "published_at": "2026-11-26T13:41:00Z",
+      "source": "Zacks Investment Research",
+      "title": "How Will Oracle's Heavy AI Spending Shape the Stock's Cash Flow Trend?",
+      "summary": "Oracle's aggressive AI infrastructure investment has pushed Q1 FY2027 free cash flow to negative $5.4 billion despite record operating cash flow of $23 billion. The company expects capex of $90-95 billion in FY2027 with peak spending through FY2028, but projects free cash flow to turn positive in H2 FY2028 and reach $30+ billion by FY2029. ORCL stock has declined 46.7% YTD and trades at an attractive forward P/E of 10.93X, though execution risks remain around data center delivery and shareholder dilution.",
+      "url": "https://www.zacks.com/stock/news/3035809/how-will-oracle-s-heavy-ai-spending-shape-the-stock-s-cash-flow-trend?cid=CS-ZC-FT-analyst_blog|quick_take-3035809",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/79/525.jpg",
+      "raw_tickers": [
+        "AMZN",
+        "MSFT"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "MSFT",
+        "ORCL",
+        "ORCLpD"
       ],
       "is_spam": false,
       "tickers": [
         "AMZN",
-        "GOOGL"
+        "MSFT"
       ],
       "sentiment": {
         "label": "negative",
-        "score": 0.973
+        "score": 0.9685
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "82a6b5a6e6bd32aaa4876217538b27665c2c004f62db3e60ccd6f2a5405ad8b0",
+      "published_at": "2026-11-26T12:23:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Procter & Gamble Hits 52-Week High: Should You Buy Now or Wait?",
+      "summary": "Procter & Gamble (PG) reached a 52-week high of $174.56 with shares up 20.9% year-to-date, driven by strong organic sales growth, innovation, and improved volume trends. However, the stock faces headwinds from a $1.4B fiscal 2027 cost burden, modest earnings growth expectations (0-3%), and a premium valuation of 24.20X forward P/E. Analysts recommend existing investors hold while prospective investors wait for a more attractive entry point.",
+      "url": "https://www.zacks.com/stock/news/3035631/procter-gamble-hits-52-week-high-should-you-buy-now-or-wait?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3035631",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/3d/451.jpg",
+      "raw_tickers": [
+        "PG"
+      ],
+      "all_tickers": [
+        "BJ",
+        "CLX",
+        "KMB",
+        "PG"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PG"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6946
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "95b008fec7a45e5b01f8ae7e57583482bb1fc855183713ab02dbb15c51d75053",
+      "published_at": "2026-11-26T12:01:02Z",
+      "source": "The Motley Fool",
+      "title": "The Biggest Mistakes Investors Make During a Market Crash, and How to Avoid Them.",
+      "summary": "The article identifies three critical mistakes investors make during market crashes: attempting to time the perfect market bottom, panic-selling quality businesses due to fear, and confusing cheap stock prices with good investments. It recommends focusing on valuation, understanding business fundamentals, and maintaining financial flexibility to capitalize on genuine opportunities rather than trying to predict market movements.",
+      "url": "https://www.fool.com/investing/2026/11/26/the-biggest-mistakes-investors-make-during-a-market-crash-and-how-to-avoid-them/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F23e2dbc24ee49a9a8d4caa807f00da12556948ac-8256x5504.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8273
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "dd8ce22912e34e865ca4f8b65dbd7439cd26cd58677225e1e313966758229c7f",
+      "published_at": "2026-11-26T11:56:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can Oncology Emerge as Eli Lilly's Next Major Growth Driver?",
+      "summary": "Eli Lilly's oncology chief Jake Van Naarden announced that oncology will be the company's next major growth opportunity, leveraging financial flexibility from its successful obesity business. Lilly has eight oncology medicines in late-stage development with potential market entry over the next five years, with three candidates expected to deliver late-stage results in 2027. The company's existing oncology portfolio generated $7.44 billion in sales during the first nine months of 2026.",
+      "url": "https://www.zacks.com/stock/news/3035599/can-oncology-emerge-as-eli-lilly-s-next-major-growth-driver?cid=CS-ZC-FT-analyst_blog|quick_take-3035599",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/10/83654.jpg",
+      "raw_tickers": [
+        "JNJ",
+        "PFE"
+      ],
+      "all_tickers": [
+        "AZN",
+        "BMY",
+        "CELGr",
+        "JNJ",
+        "LLY",
+        "MRK",
+        "NVS",
+        "PFE"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ",
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7893
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "5ae750713d1386458ac6a27a9c297a9467f3748c68a6fcfd3afd4855cbbd29bc",
+      "published_at": "2026-11-26T11:54:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Boeing's Shares Rise on Fresh Orders Despite 2026 Losses",
+      "summary": "Boeing's stock has risen 5.5% this week following major order announcements, including Malaysia Aviation Group's commitment to 10 Boeing 787-10 Dreamliners and Xiamen Airlines' 50 737 MAX 8 aircraft purchase. The company delivered 475 aircraft in the first nine months of 2026 (up 8% YoY) with a record $745 billion backlog. However, Boeing continues to face production delays, supply-chain constraints, and quality-control issues that must be resolved to sustain momentum.",
+      "url": "https://www.zacks.com/stock/news/3035598/boeing-s-shares-rise-on-fresh-orders-despite-2026-losses?cid=CS-ZC-FT-analyst_blog|price_surge_/_plunge-3035598",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/06/2358.jpg",
+      "raw_tickers": [
+        "BA"
+      ],
+      "all_tickers": [
+        "BA",
+        "BApA",
+        "GD",
+        "GE"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9405
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "fac3f772ac2c74e96bbd6ea0400e08500f77ad58914be1e6b0c6a931cbb05895",
+      "published_at": "2026-11-26T11:29:02Z",
+      "source": "The Motley Fool",
+      "title": "Warren Buffett Told Savers to \"Rejoice When Markets Decline.\" After the 2000-2002 Bear Market, the S&P 500 Doubled in 5 Years.",
+      "summary": "Warren Buffett's 1997 advice to celebrate market declines has proven prescient throughout multiple market cycles. Historical data shows that after every major bear market—including 2000-2002, 2008-2009, 2020, and 2022—the S&P 500 has recovered and surpassed previous peaks. The article argues that market pullbacks present buying opportunities for long-term investors, though timing the exact bottom is impossible.",
+      "url": "https://www.fool.com/investing/2026/11/26/warren-buffett-told-savers-to-rejoice-when-markets-decline-after-the-2000-2002-bear-market-the-sp-500-doubled-in-5-years/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F2251b185a603aa8b01e8bd5c54ceb96c0e6e1611-1280x853.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GS"
+      ],
+      "all_tickers": [
+        "BRK.A",
+        "BRK.B",
+        "GS",
+        "GSpA",
+        "GSpC",
+        "GSpD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GS"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.4411
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "793e3b5d186fa37c81f193a4fe7d1a5c2f5b90bf717fa9d234300481eb211424",
+      "published_at": "2026-11-26T11:06:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Boeing vs. Embraer: Which Stock Offers Better Growth Prospects?",
+      "summary": "Boeing and Embraer, two major aerospace and defense players, show contrasting performance. Boeing benefits from strong defense revenues (up 15%), record commercial backlog ($612B), and FAA certification for new 737 variants, but faces production challenges. Embraer delivers strong results with 17% revenue growth, record $2.35B quarterly revenue, and 56% defense backlog growth. Despite Boeing's larger scale, analysts favor Embraer for its stronger near-term earnings growth, better price performance (+23.1% vs. -24.6%), and superior liquidity.",
+      "url": "https://www.zacks.com/stock/news/3035576/boeing-vs-embraer-which-stock-offers-better-growth-prospects?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3035576",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/46/141.jpg",
+      "raw_tickers": [
+        "BA"
+      ],
+      "all_tickers": [
+        "BA",
+        "BApA",
+        "EMBJ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "BA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9563
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "d21208df84acd85ef86851bff2b320cd0cc86c982ac2e3d5e5bc6d0401e7a6f9",
+      "published_at": "2026-11-26T11:06:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Could CMS' Proposed Star Ratings Changes Slow ELV's MA Recovery?",
+      "summary": "The Centers for Medicare & Medicaid Services has proposed significant changes to its Star Ratings system that could reduce quality bonus payments for Medicare Advantage insurers. Elevance Health's four-star-plus membership share could decline from 47% to 36%, potentially complicating its margin targets. Peers Humana and UnitedHealth Group could also face pressure, with UnitedHealth facing a steeper potential decline from 68% to 9%.",
+      "url": "https://www.zacks.com/stock/news/3035575/could-cms-proposed-star-ratings-changes-slow-elv-s-ma-recovery?cid=CS-ZC-FT-analyst_blog|quick_take-3035575",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/0e/879.jpg",
+      "raw_tickers": [
+        "UNH"
+      ],
+      "all_tickers": [
+        "ELV",
+        "HUM",
+        "UNH"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "UNH"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9693
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "ac273932a1458e98f9ae55de16c229ca27b8c05b3242f207096dd6472028dc78",
+      "published_at": "2026-11-26T10:12:02Z",
+      "source": "The Motley Fool",
+      "title": "President Trump Just Hit Stock Market Investors With Bad News at a Bad Time",
+      "summary": "President Trump's proposed tariffs on 14 major trading partners threaten to elevate inflation and interest rates, creating additional headwinds for an already struggling stock market. Research shows tariffs have contributed 0.5 percentage points to headline inflation and increased prices for both imported and domestically produced goods. While Wall Street analysts remain optimistic about 2027 market performance, the tariffs could force the Federal Reserve to maintain tighter monetary policy or raise rates further, suppressing corporate earnings growth and equity valuations.",
+      "url": "https://www.fool.com/investing/2026/11/26/president-trump-hit-stock-market-investors-with-bad-news/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F67c1cb047b66bad3a4a381434ae95757db88a75d-3000x2000.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GS"
+      ],
+      "all_tickers": [
+        "GS",
+        "GSpA",
+        "GSpC",
+        "GSpD",
+        "MS",
+        "MSpA",
+        "MSpE",
+        "MSpF",
+        "MSpI",
+        "MSpK",
+        "MSpL",
+        "MSpO",
+        "MSpP",
+        "MSpQ",
+        "UBS"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GS"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9641
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "fdc507677d3ea6f0cab23b58fb99f6443560cc23c7c23310fcff229b6ac814e0",
+      "published_at": "2026-11-26T09:02:02Z",
+      "source": "The Motley Fool",
+      "title": "Anthropic Stock Fell Below Its IPO Price. Is It a Buy, or Is More Downside Just Ahead?",
+      "summary": "Anthropic completed the world's largest IPO, raising over $93 billion with a $1 trillion valuation. The stock opened at $111 (vs. $83 IPO price) but has since declined below its IPO price to $81. While the company shows impressive revenue growth from zero to $17 billion in three years, the analyst recommends staying on the sidelines due to ongoing net losses, regulatory uncertainty around AI, market volatility in AI stocks, and the challenging environment for newly-launched AI companies.",
+      "url": "https://www.fool.com/investing/2026/11/26/anthropic-stock-fell-below-its-ipo-price-is-it-a-buy-or-is-more-downside-just-ahead/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fed96a1c035555183417e9e6987cc5c549594f796-2000x1699.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "MSFT"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "ANT",
+        "MSFT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9533
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -63,87 +920,6 @@
       "sentiment": {
         "label": "positive",
         "score": 0.6917
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "af440cb90c9d6c1edcc2f87a49d2d4c5fcefd50f0f5fdae8e06896e2c6f9ff50",
-      "published_at": "2026-11-26T07:34:02Z",
-      "source": "The Motley Fool",
-      "title": "Prediction: This Is What Nvidia Stock Will Be Worth by 2028",
-      "summary": "Despite recent stock decline following leadership transition concerns and export control investigations, analyst predicts Nvidia stock could reach $660 per share by 2028. The prediction is based on expected 75% revenue growth in the next fiscal year, 20% growth in 2028, and a valuation multiple expansion from current 16.6x to 30x earnings, resulting in a $16 trillion market cap.",
-      "url": "https://www.fool.com/investing/2026/11/26/prediction-this-is-what-nvidia-stock-will-be-worth-by-2028/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F5129cc85e67acf9267c99f604e89668cf96e455d-1290x860.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "NVDA"
-      ],
-      "all_tickers": [
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9459
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "481e7bd3b2db95f5786b02591c10e59036edd10fbee504c8a5adff6fba853eca",
-      "published_at": "2026-11-26T02:47:02Z",
-      "source": "The Motley Fool",
-      "title": "Is Nvidia Stock a Buy After Dell's Record AI Backlog?",
-      "summary": "Dell reported a record $132.3 billion in unshipped AI server orders, up $37 billion in one quarter, with over half based on Nvidia's latest Vera Rubin NVL72 platform. Despite strong demand signals and Nvidia's raised fiscal 2028 revenue growth forecast to 75%, Nvidia stock has declined significantly and trades at only 8.5x forward earnings—half the S&P 500's multiple—suggesting investor skepticism about sustained growth. The analyst views the current price as a potential buying opportunity given the strong backlog and demand indicators.",
-      "url": "https://www.fool.com/investing/2026/11/25/is-nvidia-stock-a-buy-after-dell-s-record-ai-backlog/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F214c91ab7201b5b5000a01c6f475dc62cbe94ea6-2560x1440.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "NVDA"
-      ],
-      "all_tickers": [
-        "AMD",
-        "DELL",
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9652
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "99c3f39be9bbac9dae0f3ec6a9cdadca5de2d61c9409ff7b30fc053f2224773f",
-      "published_at": "2026-11-26T00:43:02Z",
-      "source": "The Motley Fool",
-      "title": "Broadcom Stock Hasn't Traded This Low Since July 2025. I Think It's a Buy.",
-      "summary": "Broadcom's stock has fallen to its lowest level in over a year, trading below $290 after a 5% decline. Despite the price drop, the company's AI semiconductor business is accelerating with 86% revenue growth and management projecting AI revenue to double in fiscal 2027. The author views the stock as a buy at current valuations, trading at only 19x current earnings and 15x forward earnings, but cautions that the company's heavy dependence on just six major customers presents significant risk.",
-      "url": "https://www.fool.com/investing/2026/11/25/broadcom-stock-hasn-t-traded-this-low-since-july-2025-i-think-it-s-a-buy/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fc4a7476b1d52a35597eb09f83d74622a2ec787a2-1290x860.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "GOOGL",
-        "NVDA"
-      ],
-      "all_tickers": [
-        "AVGO",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "GOOGL",
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9668
       },
       "sentiment_model": "ProsusAI/finbert"
     },
