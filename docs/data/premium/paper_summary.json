@@ -281,13 +281,13 @@
     "min_trades": 30,
     "n_closed": 0,
     "live_sr_per_trade": null,
-    "backtest_sr_per_trade": 0.10437725527467023,
-    "backtest_expected_value": 0.005777794782415947,
+    "backtest_sr_per_trade": 0.08196120015326962,
+    "backtest_expected_value": 0.004516655393812217,
     "backtest_cpcv_range": [
-      0.030992472539024086,
-      0.047233591853039096
+      0.031089734448404776,
+      0.05526307362665972
     ],
-    "backtest_cpcv_median": 0.03822028301464504,
+    "backtest_cpcv_median": 0.036630677049704435,
     "sr_ci95": null,
     "min_detectable_gap": null,
     "status": "collecting",
@@ -299,17 +299,17 @@
   },
   "gate1": {
     "status": "collecting",
-    "p_breakeven": 0.4863605495778369,
-    "p_backtest": 0.5393474088291746,
-    "trades_required": 698,
+    "p_breakeven": 0.4910931832603157,
+    "p_backtest": 0.5316698656429942,
+    "trades_required": 1191,
     "live_trades": 0,
     "live_effective_trades": 0.0,
-    "years_to_go": 10.369520153550864,
+    "years_to_go": 17.69355086372361,
     "p_value": null
   },
   "edge_decay": {
     "window": 20,
-    "backtest_ev": 0.005777794782415947,
+    "backtest_ev": 0.004516655393812217,
     "points": [],
     "status": "collecting"
   },
@@ -321,9 +321,9 @@
       "sessions_elapsed": 10,
       "pnl_sigma": 0.15764977343199896,
       "p_entry": 0.5819945931434631,
-      "n_similar": 554,
-      "p_tp_now": 0.1444043321299639,
-      "p_profit_now": 0.6931407942238267
+      "n_similar": 545,
+      "p_tp_now": 0.14495412844036698,
+      "p_profit_now": 0.6954128440366972
     },
     {
       "ticker": "JPM",
@@ -331,9 +331,9 @@
       "sessions_elapsed": 10,
       "pnl_sigma": -0.9711265644014236,
       "p_entry": 0.6171746253967285,
-      "n_similar": 356,
-      "p_tp_now": 0.03089887640449438,
-      "p_profit_now": 0.23876404494382023
+      "n_similar": 354,
+      "p_tp_now": 0.031073446327683617,
+      "p_profit_now": 0.22033898305084745
     },
     {
       "ticker": "MCD",
@@ -341,9 +341,9 @@
       "sessions_elapsed": 10,
       "pnl_sigma": 0.28030736345261975,
       "p_entry": 0.5076612830162048,
-      "n_similar": 554,
-      "p_tp_now": 0.1444043321299639,
-      "p_profit_now": 0.6931407942238267
+      "n_similar": 545,
+      "p_tp_now": 0.14495412844036698,
+      "p_profit_now": 0.6954128440366972
     },
     {
       "ticker": "NEE",
@@ -351,9 +351,9 @@
       "sessions_elapsed": 10,
       "pnl_sigma": -0.23302008885822312,
       "p_entry": 0.5171687602996826,
-      "n_similar": 491,
-      "p_tp_now": 0.034623217922606926,
-      "p_profit_now": 0.36863543788187375
+      "n_similar": 492,
+      "p_tp_now": 0.036585365853658534,
+      "p_profit_now": 0.3597560975609756
     },
     {
       "ticker": "TLT",
@@ -361,9 +361,9 @@
       "sessions_elapsed": 9,
       "pnl_sigma": -1.1447301904942324,
       "p_entry": 0.5009915828704834,
-      "n_similar": 96,
-      "p_tp_now": 0.020833333333333332,
-      "p_profit_now": 0.14583333333333334
+      "n_similar": 97,
+      "p_tp_now": 0.020618556701030927,
+      "p_profit_now": 0.14432989690721648
     },
     {
       "ticker": "PFE",
@@ -371,9 +371,9 @@
       "sessions_elapsed": 7,
       "pnl_sigma": 0.009860863434310292,
       "p_entry": 0.5018745064735413,
-      "n_similar": 503,
-      "p_tp_now": 0.04771371769383698,
-      "p_profit_now": 0.5089463220675944
+      "n_similar": 504,
+      "p_tp_now": 0.04365079365079365,
+      "p_profit_now": 0.501984126984127
     },
     {
       "ticker": "BAC",
@@ -381,9 +381,9 @@
       "sessions_elapsed": 5,
       "pnl_sigma": 0.20742315913483894,
       "p_entry": 0.6588156819343567,
-      "n_similar": 591,
-      "p_tp_now": 0.2233502538071066,
-      "p_profit_now": 0.6869712351945855
+      "n_similar": 571,
+      "p_tp_now": 0.22416812609457093,
+      "p_profit_now": 0.6935201401050788
     }
   ]
 }

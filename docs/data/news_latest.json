@@ -1,7 +1,277 @@
 {
-  "as_of": "2026-11-26T21:30:03.515450+00:00",
+  "as_of": "2026-11-27T10:03:14.500539+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "id": "4dc130a78a43ba06a93b8eca2e0cc35a7c3a03cd825aea9b3dccb826307819b6",
+      "published_at": "2026-11-27T09:44:02Z",
+      "source": "The Motley Fool",
+      "title": "Yikes! Anthropic Stock Is Down 28%, but Wall Street says This Will Happen Next.",
+      "summary": "Anthropic completed the largest IPO in history, raising $81.3 billion at $83 per share, but stock has declined 28% from its peak. While Wall Street analysts project 65% upside with median target of $137.50, historical data shows the 15 largest IPOs between 2006-2025 declined 53% median during their first year. Anthropic trades at 43x sales, more expensive than all S&P 500 stocks except Palantir, suggesting caution despite bullish analyst forecasts.",
+      "url": "https://www.fool.com/investing/2026/11/27/anthropic-stock-down-28-wall-street-this-happens-next/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fde23fb66cdd30d73258b64b55aa8ef733e4b8dc8-2164x1385.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GS"
+      ],
+      "all_tickers": [
+        "ANT",
+        "GS",
+        "GSpA",
+        "GSpC",
+        "GSpD",
+        "PLTR"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GS"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9714
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "fabab161f749b4543d6d24f58897d640c037dc2b2a41160f7da585a1979f51b5",
+      "published_at": "2026-11-27T09:44:02Z",
+      "source": "The Motley Fool",
+      "title": "The S&P 500 Could Break Its Streak of Double-Digit Gains in 2026. History Says Here's What Happens Next",
+      "summary": "The S&P 500 is expected to deliver only single-digit gains in 2026, breaking its three-year streak of double-digit returns. Historical precedent suggests that after such deceleration years, markets typically see either modest gains (like 2015's 1.4% return) or declines (like 2000's -9%). For 2027, the author predicts single-digit gains driven by divided government and gradual rate hikes, recommending investors stay invested and remain selective.",
+      "url": "https://www.fool.com/investing/2026/11/27/the-s-and-p-500-could-break-its-streak-of-double-digit-gains-in-2026-history-says-here-s-what-happens-next/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F52a62fe67f660ea29a51520b90dc849366d22792-5856x3904.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "CME",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.7537
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "12cc67ccbe4724d77057b00049368d8cfa11cd427e4c23df19c280f3333ec4aa",
+      "published_at": "2026-11-27T08:30:00Z",
+      "source": "The Motley Fool",
+      "title": "Berkshire Cut Chevron By About a Third This Year and Kept Occidental. What Does That Say About Oil Prices?",
+      "summary": "Berkshire Hathaway sold approximately 35% of its Chevron stake in Q1 2026 while maintaining its roughly 25% ownership in Occidental Petroleum. The selective approach suggests Berkshire is cautious about near-term oil prices but not bearish, as it retains substantial positions in both companies. Energy agencies expect oil prices to remain elevated through 2026 before gradually easing in 2027 as supply recovers.",
+      "url": "https://www.fool.com/investing/2026/11/27/berkshire-cut-chevron-by-about-a-third-this-year-a/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F892163%2Fa-presenter-pointing-to-a-screen.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "CVX"
+      ],
+      "all_tickers": [
+        "BRK.A",
+        "BRK.B",
+        "CVX",
+        "OXY",
+        "OXY.WS"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CVX"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.4341
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "7fa456d3349b00a2d48bd13cc21a57772d1e3ba39d88ddcfa9df06fa92b1433b",
+      "published_at": "2026-11-27T07:03:02Z",
+      "source": "The Motley Fool",
+      "title": "Prediction: This Will Be Anthropic’s Stock Price by the End of 2026",
+      "summary": "Anthropic (ANT) went public on November 19, 2026, opening at $110 but falling below its IPO price amid an AI sector sell-off. The analyst predicts the stock could recover to $110 by year-end due to a potential Santa Claus rally in December, as market sentiment on AI stabilizes. Anthropic's pure-play AI business model and lack of computing asset ownership provide downside protection compared to other AI-exposed companies.",
+      "url": "https://www.fool.com/investing/2026/11/27/prediction-this-will-be-anthropic-s-stock-price-by-the-end-of-2026/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb777ca9affcc44f336b1c3f984d525207e814498-1300x867.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "ANT",
+        "AVGO",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9562
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "50a41659e582018d7c65e6c96bd0d7646e61c5e7ec70bb549a96a30f6f594b83",
+      "published_at": "2026-11-27T03:33:02Z",
+      "source": "The Motley Fool",
+      "title": "Amazon Lost 40 Satellites on a Boeing-Lockheed Rocket in November. SpaceX Is the Only Company That Can Fix Amazon’s Problem. Is the Stock a Buy Near $130?",
+      "summary": "Amazon lost 40 satellites when a United Launch Alliance rocket exploded on November 15, 2026, delaying its satellite internet plans. SpaceX, the industry leader in launches and satellite connectivity, is positioned to benefit from competitors' setbacks. However, SpaceX remains a high-risk investment with massive capital spending, negative year-to-date earnings, and extreme volatility despite strong revenue growth.",
+      "url": "https://www.fool.com/investing/2026/11/26/amazon-lost-40-satellites-on-a-boeing-lockheed-rocket-in-november-spacex-is-the-only-company-that-can-fix-amazon-s-problem-is-the-stock-a-buy-near-usd130/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fc86d6d7f28cf578481eb1ba20c17f88fc4a76546-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "SPCX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9585
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "dd3e608d2fa0602eb224149eaffc38498b3b3ff34265084b1e74f715a4a72433",
+      "published_at": "2026-11-26T23:25:02Z",
+      "source": "The Motley Fool",
+      "title": "2 Dividend Stocks to Buy in November and 1 to Leave on the Shelf",
+      "summary": "The article recommends Procter & Gamble and McCormick as attractive dividend stocks with reliable businesses for volatile market conditions, while cautioning against Altria despite its high 5.9% yield due to its declining core tobacco business. P&G offers predictable growth with a 2.5% yield, McCormick presents a good risk/reward balance at 4.1% yield amid its Unilever acquisition, while Altria's contracting business makes it a risky choice despite dividend safety.",
+      "url": "https://www.fool.com/investing/2026/11/26/2-dividend-stocks-to-buy-in-november-and-1-to-leave-on-the-shelf/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fcb63e44027a85291e93ebb05519931f46507ee66-2121x1414.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "PG"
+      ],
+      "all_tickers": [
+        "MKC",
+        "MKC.V",
+        "MO",
+        "PG",
+        "UL"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PG"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6796
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a557fae5c8f0392c2c922c8e15a5c80d584a33195012bdc200bb87c00d60c0dc",
+      "published_at": "2026-11-26T22:54:44Z",
+      "source": "The Motley Fool",
+      "title": "Not Nvidia. Not Micron. If I Could Buy and Hold Only 1 Artificial Intelligence (AI) Semiconductor Stock Through 2030, This Would Be It.",
+      "summary": "The article argues that Taiwan Semiconductor Manufacturing (TSMC) is a superior long-term AI semiconductor investment compared to Nvidia and Micron. TSMC benefits from its architecture-agnostic foundry business model, manufacturing chips across competing AI accelerators, custom ASICs, and memory solutions. With 73% market share in pure-play foundries, strong financial performance (41% YoY revenue growth, 65% gross margins), and an attractive forward P/E of 15.7, TSMC offers exposure to the entire AI chip ecosystem without betting on a single chip designer.",
+      "url": "https://www.fool.com/investing/2026/11/26/not-nvidia-not-micron-if-i-could-buy-and-hold-only-1-artificial-intelligence-ai-semiconductor-stock-through-2030-this-would-be-it/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F003f3acf1f1c6758a71ad70c91d221130a8bb727-1290x861.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMD",
+        "AMZN",
+        "AVGO",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "MSFT",
+        "MU",
+        "NVDA",
+        "TSM"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.7897
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "2ef20e82b6282a611aaf242057614d93d65bf37c01b7b4f9a9c1d0d827e313b2",
+      "published_at": "2026-11-26T22:30:49Z",
+      "source": "The Motley Fool",
+      "title": "Nvidia Is the Worst-Performing \"Magnificent Seven\" Stock This Year. Is It a Buy Before 2027?",
+      "summary": "Nvidia stock has declined 20% year-to-date despite exceptional financial performance, making it the worst performer among the Magnificent Seven. While the company trades at an attractive 15.4x forward P/E ratio with strong fundamentals, governance concerns stemming from CEO Jensen Huang's brief resignation, ongoing investigations into potential investor misleading and national security violations, and uncertainty about future AI spending growth make it a hold rather than a buy. The author recommends waiting for clarity on investigations and governance reforms before investing.",
+      "url": "https://www.fool.com/investing/2026/11/26/nvidia-is-the-worst-performing-magnificent-seven-stock-this-year-is-it-a-buy-before-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F2b79a4168d8a3fd45b772eba62fd176eea4cf990-2121x1414.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "META",
+        "METAM",
+        "MSFT",
+        "NVDA",
+        "TSLA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.96
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "e1851c5917ff8bad51cfaf0adf4c2a3ac132460ce057d5714fbfaf20ce5ad218",
+      "published_at": "2026-11-26T22:00:00Z",
+      "source": "GlobeNewswire Inc.",
+      "title": "Functional Beverage Market Outlook 2026–2032: USD 255.3 Billion as Demand for Healthier Drinks Accelerates, Says Mordor Intelligence",
+      "summary": "The global functional beverage market is projected to grow from USD 163.8 billion in 2026 to USD 255.3 billion by 2032, registering a CAGR of 7.62% during 2027–2032. Asia-Pacific is emerging as the fastest-growing region at 8.2% CAGR, driven by demand for hydration, sports nutrition, and gut health-focused beverages. Key growth drivers include integration of functional ingredients into familiar formats (fiber-added carbonated drinks), clean-label natural ingredients, and regional expansion of hydration and sports beverages.",
+      "url": "https://www.globenewswire.com/news-release/2026/11/26/3411040/0/en/functional-beverage-market-outlook-2026-2032-usd-255-3-billion-as-demand-for-healthier-drinks-accelerates-says-mordor-intelligence.html",
+      "image_url": "https://ml.globenewswire.com/Resource/Download/416870ff-5134-4fb2-8605-50f7b688dd33",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "DANOY",
+        "KO",
+        "MNST",
+        "PEP"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8468
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "id": "ac57fe3dcea455ad2d4b38926b15bfed44ead74f380bbffb3cce58469029548c",
       "published_at": "2026-11-26T20:09:02Z",
@@ -108,94 +378,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "73a184f913147401fdfb31d95711200c84c2112a49bde92e3be41de0c66fdda9",
-      "published_at": "2026-11-26T18:13:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "AI SEO in New York City: How Brands Get Recommended by AI Answers, Not Just Ranked on Google",
-      "summary": "Answer engine optimization (AI SEO) has become a separate discipline from traditional SEO, focusing on earning citations and recommendations within AI-generated answers rather than just Google rankings. A benchmark study found approximately 87% of U.S. businesses are absent from AI answers despite ranking on Google's first page, creating both a warning and opportunity for early adopters in competitive markets like New York.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/26/3411019/0/en/ai-seo-in-new-york-city-how-brands-get-recommended-by-ai-answers-not-just-ranked-on-google.html",
-      "image_url": "https://ml.globenewswire.com/Resource/Download/893c5ecb-3db6-4e8a-b3a6-4d88cefb5c4d",
-      "raw_tickers": [
-        "GOOGL"
-      ],
-      "all_tickers": [
-        "DAL",
-        "F",
-        "FpB",
-        "FpC",
-        "FpD",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8384
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "9a91fd92b2a5105979f699b9ddcb476384a154c84eb32bccfb6b9a36603bc96f",
-      "published_at": "2026-11-26T17:57:02Z",
-      "source": "The Motley Fool",
-      "title": "Nvidia Stock Has Found Its Next Big Catalyst, Making the Stock a Once-in-a-Decade Buying Opportunity.",
-      "summary": "Nvidia's physical AI revenue is emerging as a major growth driver, expected to reach $25 billion in fiscal 2027 (up from $6 billion in fiscal 2026). With physical AI applications in robotics, autonomous vehicles, and industrial equipment, the company is positioned to capitalize on a projected $1.4 trillion market by 2035. Despite a recent 26% stock decline, Nvidia trades at attractive valuations (16.7x earnings) with strong growth prospects supported by a $2.5 trillion cloud industry backlog.",
-      "url": "https://www.fool.com/investing/2026/11/26/nvidia-stock-has-found-its-next-big-catalyst-making-the-stock-a-once-in-a-decade-buying-opportunity/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fe729a1e6a73e552425f25f88f0969f27046fb4e5-2000x1200.png&w=1200&op=resize",
-      "raw_tickers": [
-        "CAT",
-        "NVDA"
-      ],
-      "all_tickers": [
-        "CAT",
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "CAT",
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9533
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "546c405a643d514e1478801b6a436d453c0d5ef3ffbad3a3e74e7fc26db80425",
-      "published_at": "2026-11-26T17:27:02Z",
-      "source": "The Motley Fool",
-      "title": "Alphabet Could Be the Safest Way to Own Anthropic. Here’s the Math.",
-      "summary": "Alphabet's 13.7% stake in Anthropic is valued at $137 billion at the AI company's $1 trillion valuation. Beyond equity ownership, Alphabet benefits from a $121.3 billion Google Cloud services commitment from Anthropic through mid-2033, plus potential additional revenue from TPU computing capacity. The article argues Alphabet is a safer investment than Anthropic stock because it profits from the relationship regardless of Anthropic's valuation, while maintaining its own profitable AI, cloud, and advertising businesses.",
-      "url": "https://www.fool.com/investing/2026/11/26/alphabet-could-be-the-safest-way-to-own-anthropic-here-s-the-math/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F4718462497c310457e987a399107276b719ce95d-2000x1200.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "GOOGL"
-      ],
-      "all_tickers": [
-        "ANT",
-        "AVGO",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.6569
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "276e76b9fd50eca1d7386a810f74f8a91cc822f32181eafbd551b8e0a81082fc",
       "published_at": "2026-11-26T16:14:00Z",
       "source": "Zacks Investment Research",
@@ -218,32 +400,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.9565
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "a52c580625f8d3efe3b02a93240ea6d6b209c9479816c166e6181944c2ed1852",
-      "published_at": "2026-11-26T16:14:00Z",
-      "source": "Zacks Investment Research",
-      "title": "Cerebras Expands AI Inference Reach: Can It Challenge NVDA & AMD?",
-      "summary": "Cerebras Systems (CBRS) is expanding its AI inference capabilities through partnerships with AWS, Oracle, and Microsoft. The company reported 272% surge in cloud and services revenues in Q3 2026 and raised full-year guidance. CBRS expects revenues to triple in 2027, driven by cloud expansion and hardware shipments, though it faces intense competition from NVIDIA and AMD in the AI infrastructure market.",
-      "url": "https://www.zacks.com/stock/news/3036098/cerebras-expands-ai-inference-reach-can-it-challenge-nvda-amd?cid=CS-ZC-FT-analyst_blog|quick_take-3036098",
-      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/d3/848.jpg",
-      "raw_tickers": [
-        "NVDA"
-      ],
-      "all_tickers": [
-        "AMD",
-        "CBRS",
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9549
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -579,111 +735,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "7107f65c674b1d596901f789647a57080555cfd877417d940b5808993d859d94",
-      "published_at": "2026-11-26T13:50:00Z",
-      "source": "Zacks Investment Research",
-      "title": "Coca-Cola vs. Keurig Dr Pepper: Which Beverage Stock Looks Stronger?",
-      "summary": "In a comparison of two major beverage companies, Coca-Cola (KO) is identified as the stronger investment choice over Keurig Dr Pepper (KDP). KO benefits from global scale, 32 billion-dollar brands, and 22 consecutive quarters of value share gains, with Q3 organic revenue growth of 7% and earnings growth of 11%. While KDP offers a lower valuation (14.22X forward P/E vs KO's 27.69X) and growth in energy drinks and coffee, KO's stronger one-year stock performance (33.9% vs 28.6%), operating momentum, and earnings visibility make it the more compelling choice despite its premium valuation.",
-      "url": "https://www.zacks.com/stock/news/3035870/coca-cola-vs-keurig-dr-pepper-which-beverage-stock-looks-stronger?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3035870",
-      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/00/1011.jpg",
-      "raw_tickers": [
-        "KO"
-      ],
-      "all_tickers": [
-        "KDP",
-        "KO"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "KO"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9489
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "106a11ea4c07e6d26e9410e133c4f8e6bcd2d489add33c30cfd64b32d40e896c",
-      "published_at": "2026-11-26T13:41:00Z",
-      "source": "Zacks Investment Research",
-      "title": "How Will Oracle's Heavy AI Spending Shape the Stock's Cash Flow Trend?",
-      "summary": "Oracle's aggressive AI infrastructure investment has pushed Q1 FY2027 free cash flow to negative $5.4 billion despite record operating cash flow of $23 billion. The company expects capex of $90-95 billion in FY2027 with peak spending through FY2028, but projects free cash flow to turn positive in H2 FY2028 and reach $30+ billion by FY2029. ORCL stock has declined 46.7% YTD and trades at an attractive forward P/E of 10.93X, though execution risks remain around data center delivery and shareholder dilution.",
-      "url": "https://www.zacks.com/stock/news/3035809/how-will-oracle-s-heavy-ai-spending-shape-the-stock-s-cash-flow-trend?cid=CS-ZC-FT-analyst_blog|quick_take-3035809",
-      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/79/525.jpg",
-      "raw_tickers": [
-        "AMZN",
-        "MSFT"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "MSFT",
-        "ORCL",
-        "ORCLpD"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN",
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9685
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "82a6b5a6e6bd32aaa4876217538b27665c2c004f62db3e60ccd6f2a5405ad8b0",
-      "published_at": "2026-11-26T12:23:00Z",
-      "source": "Zacks Investment Research",
-      "title": "Procter & Gamble Hits 52-Week High: Should You Buy Now or Wait?",
-      "summary": "Procter & Gamble (PG) reached a 52-week high of $174.56 with shares up 20.9% year-to-date, driven by strong organic sales growth, innovation, and improved volume trends. However, the stock faces headwinds from a $1.4B fiscal 2027 cost burden, modest earnings growth expectations (0-3%), and a premium valuation of 24.20X forward P/E. Analysts recommend existing investors hold while prospective investors wait for a more attractive entry point.",
-      "url": "https://www.zacks.com/stock/news/3035631/procter-gamble-hits-52-week-high-should-you-buy-now-or-wait?cid=CS-ZC-FT-analyst_blog|most_popular_stocks-3035631",
-      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/3d/451.jpg",
-      "raw_tickers": [
-        "PG"
-      ],
-      "all_tickers": [
-        "BJ",
-        "CLX",
-        "KMB",
-        "PG"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "PG"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.6946
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "95b008fec7a45e5b01f8ae7e57583482bb1fc855183713ab02dbb15c51d75053",
-      "published_at": "2026-11-26T12:01:02Z",
-      "source": "The Motley Fool",
-      "title": "The Biggest Mistakes Investors Make During a Market Crash, and How to Avoid Them.",
-      "summary": "The article identifies three critical mistakes investors make during market crashes: attempting to time the perfect market bottom, panic-selling quality businesses due to fear, and confusing cheap stock prices with good investments. It recommends focusing on valuation, understanding business fundamentals, and maintaining financial flexibility to capitalize on genuine opportunities rather than trying to predict market movements.",
-      "url": "https://www.fool.com/investing/2026/11/26/the-biggest-mistakes-investors-make-during-a-market-crash-and-how-to-avoid-them/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F23e2dbc24ee49a9a8d4caa807f00da12556948ac-8256x5504.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "all_tickers": [
-        "AMZN"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.8273
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "dd8ce22912e34e865ca4f8b65dbd7439cd26cd58677225e1e313966758229c7f",
       "published_at": "2026-11-26T11:56:00Z",
       "source": "Zacks Investment Research",
@@ -887,39 +938,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.9533
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "9e64a84e3d56b978d4b6080372cf1a4d4b805e98ccb07583f015d488511abad7",
-      "published_at": "2026-11-26T08:30:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "Cybersecurity Market Size to Cross USD 519 Bn by 2032 Driven by Cloud Adoption and Rising Cyber Threats, Reports Mordor Intelligence",
-      "summary": "The global cybersecurity market is projected to grow from USD 264.4 billion in 2026 to USD 519.7 billion by 2032, with a CAGR of 11.85% during 2027-2032. Growth is driven by accelerated cloud adoption, IT-OT convergence, zero-trust architecture implementation, and rising cyber threats. North America leads with 42.47% market share, while Asia-Pacific is the fastest-growing region at 16.4% CAGR. Key challenges include cybersecurity talent shortages and legacy infrastructure integration complexity.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/26/3410680/0/en/cybersecurity-market-size-to-cross-usd-519-bn-by-2032-driven-by-cloud-adoption-and-rising-cyber-threats-reports-mordor-intelligence.html",
-      "image_url": "https://ml.globenewswire.com/Resource/Download/416870ff-5134-4fb2-8605-50f7b688dd33",
-      "raw_tickers": [
-        "MSFT"
-      ],
-      "all_tickers": [
-        "CHKP",
-        "CRWD",
-        "CSCO",
-        "FTNT",
-        "IBM",
-        "MSFT",
-        "OKTA",
-        "PANW",
-        "TMICY",
-        "ZS"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.6917
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -12499,161 +12517,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.4228
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-12T18:45:00Z",
-      "source": "The Motley Fool",
-      "title": "Warren Buffett's Successor, Greg Abel, Has Nearly $110 Billion Invested in These 2 Tech Stocks",
-      "summary": "Under new CEO Greg Abel, Berkshire Hathaway maintains significant positions in Apple ($79.4B) and Alphabet ($30.4B), together comprising over 30% of its stock portfolio. While Apple's stock has surged 28% this year due to disciplined AI spending and strong iPhone sales, Alphabet's stock has declined 8% amid concerns over massive capital expenditures on AI infrastructure. Despite near-term headwinds, both companies are considered long-term buys given their competitive advantages and valuations.",
-      "url": "https://www.fool.com/investing/2026/11/12/warren-buffetts-successor-greg-abel-has-nearly-110/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893652%2Faaplgoogl.png&w=1200&op=resize",
-      "raw_tickers": [
-        "AAPL",
-        "GOOGL"
-      ],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.945
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-12T17:47:00Z",
-      "source": "Zacks Investment Research",
-      "title": "Qualcomm's $5 Billion Data Center Ramp Puts Execution in Focus Now",
-      "summary": "Qualcomm is transitioning its data center business from development to commercial revenue, targeting $5 billion in fiscal 2027 sales with over $650 million expected in Q1. The company has secured a major deal with Amazon covering up to $60 billion in potential purchases over 10 years. However, early concentration with two hyperscaler customers, margin pressure, and declining fiscal 2027 EPS projections present execution risks as Qualcomm competes against established rivals like NVIDIA and AMD.",
-      "url": "https://www.zacks.com/stock/news/3029002/qualcomm-s-5-billion-data-center-ramp-puts-execution-in-focus-now?cid=CS-ZC-FT-analyst_blog_plus|zer_report_insights-3029002",
-      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/0d/701.jpg",
-      "raw_tickers": [
-        "NVDA"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9445
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-12T16:45:00Z",
-      "source": "The Motley Fool",
-      "title": "Few S&P 500 Stocks Yield Over 5%. Here's My Top Pick to Buy Now.",
-      "summary": "With Treasury yields rising above 5%, dividend stocks are becoming less attractive. However, UPS stands out as one of only ~20 S&P 500 stocks offering yields over 5% at 5.8%. After stabilizing its business by pivoting away from low-margin Amazon deliveries and securing higher-margin customers, UPS is expected to grow revenue 4% and adjusted EPS 2% in 2026. Trading at 15x adjusted EPS with 16 consecutive years of dividend increases, UPS offers a reliable income play for conservative investors.",
-      "url": "https://www.fool.com/investing/2026/11/12/few-sp-500-stocks-yield-over-5-heres-my-top-pick-t/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893420%2Fups-truck.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9251
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-12T15:37:00Z",
-      "source": "Zacks Investment Research",
-      "title": "Best Health & Fitness Stocks to Buy on Strong Market Potential",
-      "summary": "The global health and wellness market is projected to reach $7.76 trillion by 2035 with a 4.94% CAGR, driven by increased consumer spending on fitness, preventive care, and digital health tools. Major technology companies like Apple and Amazon are expanding health-related offerings, while specialized companies in fitness apparel, wearables, and sports equipment are capitalizing on shifting consumer preferences toward personalized wellness solutions.",
-      "url": "https://www.zacks.com/stock/news/3028861/best-health-fitness-stocks-to-buy-on-strong-market-potential?cid=CS-ZC-FT-health_&_fitness-3028861",
-      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/cd/160615.webp",
-      "raw_tickers": [
-        "AAPL",
-        "AMZN"
-      ],
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.8874
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-12T15:36:00Z",
-      "source": "Zacks Investment Research",
-      "title": "SpaceX's Expanding Ambitions: ETFs to Play Its Next Growth Phase",
-      "summary": "SpaceX is diversifying beyond rocket launches into AI infrastructure, satellite communications, and lunar operations. The company secured a spot in NASA's $10 billion Commercial Lunar Payload Services program and signed major cloud services deals with Anthropic ($1.25B/month) and Google ($920M/month). Q3 2026 results showed 161% revenue growth to $14.6B with $4.4B net income. Three space-focused ETFs offer significant SpaceX exposure.",
-      "url": "https://www.zacks.com/stock/news/3028847/spacex-s-expanding-ambitions-etfs-to-play-its-next-growth-phase?cid=CS-ZC-FT-etf_news_and_commentary-3028847",
-      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/1f/1145.jpg",
-      "raw_tickers": [
-        "GOOGL"
-      ],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9113
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-12T15:00:00Z",
-      "source": "GlobeNewswire Inc.",
-      "title": "atQor Named Finalist for 2026 Microsoft Partner of the Year Award in - Agents",
-      "summary": "atQor has been named a finalist for the 2026 Microsoft Partner of the Year Award in the Agents category, recognized for its repeatable agentic AI framework and enterprise deployments across nine industries. During FY26, the company developed 252 AI agents with 52 deployed to production environments, delivering measurable business outcomes including 60-70% reduction in manual effort and 50% faster reconciliation in manufacturing finance operations.",
-      "url": "https://www.globenewswire.com/news-release/2026/11/12/3401796/0/en/atqor-named-finalist-for-2026-microsoft-partner-of-the-year-award-in-agents.html",
-      "image_url": "https://www.globenewswire.com/news-release/2026/11/12/3401796/0/en/atqor-named-finalist-for-2026-microsoft-partner-of-the-year-award-in-agents.html",
-      "raw_tickers": [
-        "MSFT"
-      ],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9394
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-12T14:30:02Z",
-      "source": "The Motley Fool",
-      "title": "Fantastic News for CoreWeave Stock Investors",
-      "summary": "CoreWeave reported strong Q3 results with 168% year-over-year revenue growth to $3.7 billion and a $132.5 billion revenue backlog, raising full-year guidance. Despite risks including significant debt, customer concentration with Microsoft (67% of revenue), and regulatory uncertainty, the company appears well-positioned to maintain momentum given strong AI compute demand and capacity sold out through 2027.",
-      "url": "https://www.fool.com/investing/2026/11/12/fantastic-news-for-coreweave-stock-investors/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F7d2c67aa8a9381b78ceb33b3b3cf9e183140aa2f-1290x860.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "MSFT"
-      ],
-      "tickers": [
-        "MSFT"
-      ],
-      "sentiment": {
-        "label": "positive",
-        "score": 0.9525
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "published_at": "2026-11-12T12:15:00Z",
-      "source": "The Motley Fool",
-      "title": "Alphabet's Cloud Business Doubled, but the Stock Plunged. Here's What a $5,000 Investment Could Be Worth by 2030.",
-      "summary": "Alphabet's stock fell over 10% following Q3 earnings despite Google Cloud revenue doubling to $30.7 billion (103% YoY growth). The analyst argues the market's focus on spending is short-sighted, as Google Cloud is becoming the company's growth engine. With projected 20% companywide growth through 2030, Alphabet could reach $1 trillion in revenue, potentially valuing the stock at $7.7 trillion and turning a $5,000 investment into $11,000.",
-      "url": "https://www.fool.com/investing/2026/11/12/alphabets-cloud-business-doubled-but-the-stock-plu/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F893416%2Falphabet.png&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN",
-        "GOOGL"
-      ],
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9486
       },
       "sentiment_model": "ProsusAI/finbert"
     }
