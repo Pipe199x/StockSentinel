@@ -118,13 +118,13 @@
     "min_trades": 30,
     "n_closed": 0,
     "live_sr_per_trade": null,
-    "backtest_sr_per_trade": 0.08196120015326962,
-    "backtest_expected_value": 0.004516655393812217,
+    "backtest_sr_per_trade": 0.10437725527467023,
+    "backtest_expected_value": 0.005777794782415947,
     "backtest_cpcv_range": [
-      0.031089734448404776,
-      0.05526307362665972
+      0.030992472539024086,
+      0.047233591853039096
     ],
-    "backtest_cpcv_median": 0.036630677049704435,
+    "backtest_cpcv_median": 0.03822028301464504,
     "sr_ci95": null,
     "min_detectable_gap": null,
     "status": "collecting",
@@ -136,17 +136,17 @@
   },
   "gate1": {
     "status": "collecting",
-    "p_breakeven": 0.4910931832603157,
-    "p_backtest": 0.5316698656429942,
-    "trades_required": 1191,
+    "p_breakeven": 0.4863605495778369,
+    "p_backtest": 0.5393474088291746,
+    "trades_required": 698,
     "live_trades": 0,
     "live_effective_trades": 0.0,
-    "years_to_go": 17.69355086372361,
+    "years_to_go": 10.369520153550864,
     "p_value": null
   },
   "edge_decay": {
     "window": 20,
-    "backtest_ev": 0.004516655393812217,
+    "backtest_ev": 0.005777794782415947,
     "points": [],
     "status": "collecting"
   },

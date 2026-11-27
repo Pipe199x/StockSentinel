@@ -6,14 +6,14 @@
     "MSFT"
   ],
   "news": {
-    "last_updated_utc": "2026-11-27T10:03:14.521184+00:00",
-    "fetched_utc": "2026-11-27T10:03:02.010535+00:00",
-    "articles": 421,
-    "history_articles": 1256,
+    "last_updated_utc": "2026-11-27T13:36:04.791829+00:00",
+    "fetched_utc": "2026-11-27T13:35:44.770267+00:00",
+    "articles": 429,
+    "history_articles": 1265,
     "window_days": 15
   },
   "stocks": {
-    "last_updated_utc": "2026-11-27T10:03:15.544099+00:00",
+    "last_updated_utc": "2026-11-27T13:36:06.239166+00:00",
     "as_of": "2026-11-25",
     "config_hash": "c3f2b4fc9bfd",
     "rows": 62700,
@@ -45,10 +45,10 @@
       "TLT"
     ],
     "price_window_days": 60,
-    "dsr": 0.7722
+    "dsr": 0.8803
   },
   "paper": {
-    "last_updated_utc": "2026-11-27T10:03:15.544099+00:00",
+    "last_updated_utc": "2026-11-27T13:36:06.239166+00:00",
     "as_of": "2026-11-25",
     "counts": {
       "pending": 0,
