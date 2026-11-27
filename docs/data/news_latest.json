@@ -1,7 +1,510 @@
 {
-  "as_of": "2026-11-27T13:36:04.765269+00:00",
+  "as_of": "2026-11-27T21:15:21.029533+00:00",
   "window_days": 15,
   "articles": [
+    {
+      "id": "6dff6d7452ad86124cebfc30c59bbcd8644a75e03fc37c7c92b3d1f892301351",
+      "published_at": "2026-11-27T21:00:02Z",
+      "source": "The Motley Fool",
+      "title": "Tax-Savvy Ways to Support Charities and Family",
+      "summary": "The article discusses tax-efficient strategies for charitable giving and gifting investments to family members in 2026. Key topics include new charitable deduction rules, benefits of donating appreciated stock, donor-advised funds, qualified charitable distributions for those 70.5+, and the tax implications of gifting investments to relatives. The piece emphasizes documentation requirements and highlights strategies like bunching deductions and using 529 plans for education savings.",
+      "url": "https://www.fool.com/investing/2026/11/27/tax-savvy-ways-to-support-charities-and-family/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F2428ba4aa41311423f48c70ce1d185e9100a3a18-1280x720.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "NVDA",
+        "SCHW",
+        "SCHWpD",
+        "SCHWpJ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9066
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "14f4d25a5bdce02255570c8e36df050445b88d7acc168c9cdcfa3a07e52f2c2a",
+      "published_at": "2026-11-27T20:44:02Z",
+      "source": "The Motley Fool",
+      "title": "AMD Shares Just Got Crushed on a Short Report. Why the Drop Is a Golden Buying Opportunity.",
+      "summary": "AMD shares dropped 20% following a short-seller report alleging the company's chips were illegally directed to banned Chinese companies. However, the report lacks evidence of actual export-law violations. The analyst views this as a buying opportunity, citing AMD's strong positioning in inference and agentic AI markets with its new Helios system, which costs nearly half of Nvidia's competing platform.",
+      "url": "https://www.fool.com/investing/2026/11/27/amd-shares-just-got-crushed-on-a-short-report-why-the-drop-is-a-golden-buying-opportunity/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F7d13e5847eae660cd0e58140a4d22933fe5cd419-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL",
+        "NVDA"
+      ],
+      "all_tickers": [
+        "AMD",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "META",
+        "METAM",
+        "NVDA"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL",
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.856
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "144383a74a68c0183107f9a7ed705c136f7ee4ba568808ea3e5395883428d00f",
+      "published_at": "2026-11-27T19:38:02Z",
+      "source": "The Motley Fool",
+      "title": "Nvidia, Micron, and Sandisk Trade at Half the S&P 500’s Forward P/E. They Are All Genius Buys.",
+      "summary": "Three semiconductor stocks—Nvidia, Micron, and Sandisk—are trading at significant discounts to the S&P 500's forward P/E ratio (9.4x, 3.6x, and 2.7x respectively vs. 18x for the index). Memory chip makers Micron and Sandisk benefit from supply-constrained markets with strong demand from AI data centers, with management expecting conditions to tighten further in 2027-2028. While Nvidia faces regulatory scrutiny regarding chip exports to China, the return of CEO Jensen Huang suggests confidence in the company's future. All three stocks are considered attractive buys given their AI exposure and current valuations.",
+      "url": "https://www.fool.com/investing/2026/11/27/nvidia-micron-and-sandisk-trade-at-half-the-s-and-p-500-s-forward-p-e-they-are-all-genius-buys/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fd366b7886a52a8b97fd8502e49f392b0b529b47a-6706x4473.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "NVDA"
+      ],
+      "all_tickers": [
+        "MU",
+        "NVDA",
+        "SNDK"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "NVDA"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8825
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "e6ba6f692ef765422f006e6c8a67c3a223c124599927723fa869ad431e917971",
+      "published_at": "2026-11-27T18:51:04Z",
+      "source": "The Motley Fool",
+      "title": "BigBear.ai vs. Cerebras Systems: Which Artificial Intelligence Stock Is a Better Buy for 2027?",
+      "summary": "The article compares two AI-focused companies: BigBear.ai, which provides defense AI software, and Cerebras Systems, which builds wafer-scale semiconductor infrastructure. Despite BigBear.ai's lower valuation, the analyst recommends Cerebras for 2027 due to its proprietary chip technology, high-profile customers (OpenAI, Microsoft, Oracle), and less dependence on government contracts. BigBear.ai faces revenue concentration risk from federal budget cuts and declining sales in 2025.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/27/bigbear-ai-vs-cerebras-systems-which-artificial-intelligence-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F8634a1a9d06a7300d1c5f6bf0c03827831108221-1291x726.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN",
+        "MSFT"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "BBAI",
+        "BBAI.WS",
+        "CBRS",
+        "MSFT",
+        "ORCL",
+        "ORCLpD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN",
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9659
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "cf28b8143fbc0a7b0e6c560b00793b8cddaddbec863b9c7021f6c7798e05ed3a",
+      "published_at": "2026-11-27T17:56:14Z",
+      "source": "The Motley Fool",
+      "title": "AppLovin vs. Magnite: Which Technology Stock Is a Better Buy for 2027?",
+      "summary": "The article compares two ad-tech stocks: AppLovin, which offers an AI-powered mobile advertising platform with explosive 57.8% revenue growth and 65.9% net margins, versus Magnite, a more conservative connected TV platform with 9.1% revenue growth and 23.6% net margins. The analyst recommends AppLovin for 2027 due to its superior growth, profitability, and comparable valuation despite higher revenue concentration risks.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/27/applovin-vs-magnite-which-technology-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F497213577468110e4ae04f3160ed91a99378c474-1280x853.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "AAPL",
+        "AMZN",
+        "APP",
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN",
+        "META",
+        "METAM",
+        "MGNI",
+        "PUBM",
+        "TTD",
+        "U"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AAPL",
+        "AMZN",
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.8593
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "9764a1a4ea2df38f747dceebf0fa6815301c6d907f5a70a785d52dcbe3682c3f",
+      "published_at": "2026-11-27T17:37:02Z",
+      "source": "The Motley Fool",
+      "title": "The Best 3 Stocks to Buy in December to Hold Into 2027",
+      "summary": "The article recommends three tech stocks trading below their record highs as potential December buys to hold into 2027: Netflix for its improved churn despite price hikes, Amazon for its rapidly growing custom chip business within AWS, and Palantir for its strong free cash flow generation. While all three have declined significantly from peaks, each shows fundamental strength that may not be fully reflected in current valuations.",
+      "url": "https://www.fool.com/investing/2026/11/27/the-best-3-stocks-to-buy-in-december-to-hold-into-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F40ff83e48c862de330e67d9c7d015d11bce6dbe4-2560x1544.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "AMZN"
+      ],
+      "all_tickers": [
+        "AMZN",
+        "NFLX",
+        "PLTR"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "AMZN"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8837
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "a38d72c740cbe199c02fa0062320c24b4cbb040ea61dd3317ba33ae08f6ef94d",
+      "published_at": "2026-11-27T17:31:02Z",
+      "source": "The Motley Fool",
+      "title": "Tech Stock Sell-Off: Down 32%, Is Alphabet a Buy Now?",
+      "summary": "Alphabet stock has declined 32% from its summer high amid AI sector sell-offs, but the article argues the company remains attractive. Google's core advertising business continues strong with Search revenue up 12% and query growth at a five-year high. Google Cloud is the standout performer, with revenue surging 103% to $30.7 billion and operating margins expanding to 36.2%. The main concern is negative free cash flow of $9.1 billion in Q3 due to massive capital expenditures ($51.4 billion), but the company's profitable core businesses support these investments.",
+      "url": "https://www.fool.com/investing/2026/11/27/tech-stock-sell-off-down-32-is-alphabet-a-buy-now/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fbead1e33b915a320977b10aec29937933f19267b-1290x860.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "GOOGL"
+      ],
+      "all_tickers": [
+        "GOOG",
+        "GOOGL",
+        "GOOGM",
+        "GOOGN"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "GOOGL"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8971
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "c8d58cf4b9edfe2cebd3f46846b266273ad015209edf5fd5d4895b53c27d82b5",
+      "published_at": "2026-11-27T17:00:02Z",
+      "source": "The Motley Fool",
+      "title": "Did Billionaire Bill Ackman Lose Confidence in Microsoft? The Answer Might Surprise You",
+      "summary": "Bill Ackman's Pershing Square Capital sold approximately 2 million Microsoft shares in Q3, but the billionaire clarified he remains bullish on the company. He offset the share sale by purchasing long-term call options for 2 million shares at ~$310 each. Microsoft's strong financial performance, including 19% revenue growth, 30% cloud revenue growth, and a $677 billion commercial backlog, supports Ackman's positive outlook on the stock.",
+      "url": "https://www.fool.com/investing/2026/11/27/did-billionaire-bill-ackman-lose-confidence-in-microsoft-the-answer-might-surprise-you/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F3f01e80d7eac4b424bc3ea7c6b946c00be71a32d-1280x854.png&w=1200&op=resize",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "all_tickers": [
+        "MSFT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "e0cf6dbc2ac93e31f82ea2044804f8498dfc090184f971f49abb361b1ffbd8fa",
+      "published_at": "2026-11-27T16:55:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can BMY's Cobenfy Unlock Growth in Alzheimer's Psychosis?",
+      "summary": "Bristol Myers Squibb announced encouraging phase III results for KarXT (marketed as Cobenfy) in treating psychosis associated with Alzheimer's disease. The drug demonstrated improvements in hallucinations, delusions, and disease severity over 52 weeks with no new safety signals. Cobenfy, already approved for schizophrenia, generated $176 million in sales through Q3 2026 with 33% year-over-year growth, though it faces competition from AbbVie's Vraylar and Johnson & Johnson's Caplyta.",
+      "url": "https://www.zacks.com/stock/news/3036853/can-bmy-s-cobenfy-unlock-growth-in-alzheimer-s-psychosis?cid=CS-ZC-FT-analyst_blog|quick_take-3036853",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/b7/2106.jpg",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "ABBV",
+        "BMY",
+        "CELGr",
+        "JNJ"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9539
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "48d19563c14810d47e06d42a0399688713f0882038b7808989bfba10ff9dd003",
+      "published_at": "2026-11-27T16:08:00Z",
+      "source": "Zacks Investment Research",
+      "title": "GMAB Stock Soars 71% in 3 Months on Pipeline Progress & Sales Growth",
+      "summary": "Genmab (GMAB) shares surged 71% over three months, driven by positive late-stage clinical results for petosemtamab and Rina-S across multiple cancer indications, along with strong nine-month 2026 revenues of $3.24 billion (up 22% YoY). Epkinly sales grew 47% to $491 million, though profitability declined 24.6% due to higher operating expenses from the Merus acquisition.",
+      "url": "https://www.zacks.com/stock/news/3036811/gmab-stock-soars-71-in-3-months-on-pipeline-progress-sales-growth?cid=CS-ZC-FT-analyst_blog|price_surge_/_plunge-3036811",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/58/608.jpg",
+      "raw_tickers": [
+        "JNJ"
+      ],
+      "all_tickers": [
+        "ABBV",
+        "GMAB",
+        "JNJ",
+        "MRK",
+        "NVS"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JNJ"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.8531
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1ece7dda4217596c7311f61638e013c3f2f928431deecded004850dfcd5316cb",
+      "published_at": "2026-11-27T16:04:00Z",
+      "source": "Zacks Investment Research",
+      "title": "What Led ABBV's Oncology Franchise to Return to Growth in Q3?",
+      "summary": "AbbVie's oncology sales rose 0.9% to $1.7 billion in Q3 2026, reversing prior-quarter declines. Strong performance from Venclexta (up 10.7%), Elahere (up 31.2%), and Epkinly (up 60.8%) offset a significant 26.1% decline in Imbruvica sales. The company raised its full-year 2026 oncology revenue guidance to $6.6 billion.",
+      "url": "https://www.zacks.com/stock/news/3036807/what-led-abbv-s-oncology-franchise-to-return-to-growth-in-q3?cid=CS-ZC-FT-analyst_blog|quick_take-3036807",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/31/1512.jpg",
+      "raw_tickers": [
+        "PFE"
+      ],
+      "all_tickers": [
+        "ABBV",
+        "AZN",
+        "MRK",
+        "PFE"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "PFE"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.96
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "cde1ed21dc1af78b86d5ffb1d50fbb87004dfda6439f9e1f382e589b7d3bd19f",
+      "published_at": "2026-11-27T15:30:27Z",
+      "source": "Zacks Investment Research",
+      "title": "Why Is Microsoft (MSFT) Down 7.6% Since Last Earnings Report?",
+      "summary": "Microsoft reported Q1 fiscal 2027 earnings of $4.89 per share (non-GAAP), beating estimates by 3.82%, with revenues of $92.3 billion up 19% YoY. Cloud revenues surged 30% to $63.9 billion, with Azure growing 48%. Despite strong earnings, shares have declined 7.6% over the past month. The company projects Q2 revenues of $96-97.1 billion with continued Azure growth of 49-50%, though capital expenditures are expected to exceed $50 billion.",
+      "url": "https://www.zacks.com/stock/news/3036664/why-is-microsoft-msft-down-7-6-since-last-earnings-report?cid=CS-ZC-FT-realtime_blog-3036664",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default170.jpg",
+      "raw_tickers": [
+        "MSFT"
+      ],
+      "all_tickers": [
+        "MANH",
+        "MSFT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "MSFT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9633
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "12b3803c7cf8697788e6941ffe63284f3fc68176ab0d212a34d56c914fb7c350",
+      "published_at": "2026-11-27T15:11:41Z",
+      "source": "The Motley Fool",
+      "title": "Celsius vs. lululemon athletica: Which Consumer Goods Stock Is a Better Buy for 2027?",
+      "summary": "The article compares Celsius Holdings and lululemon athletica as investment options for 2027. Celsius, a functional beverage company backed by PepsiCo's distribution network, shows rapid 49% revenue growth and profitability, though it faces concentration risk with Pepsi accounting for 43% of revenue. Lululemon, a premium athletic apparel company, maintains higher margins but struggles with slowing growth and declining sales. The analyst recommends Celsius as the better buy for growth-oriented investors despite higher valuation multiples, citing its profitable expansion and Alani Nu brand momentum versus lululemon's stalled momentum.",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/27/celsius-vs-lululemon-athletica-which-consumer-goods-stock-is-a-better-buy-for-2027/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F497213577468110e4ae04f3160ed91a99378c474-1280x853.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "KO"
+      ],
+      "all_tickers": [
+        "CELH",
+        "KO",
+        "LULU",
+        "MNST",
+        "PEP"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "KO"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.6818
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "4d96639b2d78cc87aea09a39a99ca9e041f68aed3983e3f30005cac0d4caa3e4",
+      "published_at": "2026-11-27T14:22:00Z",
+      "source": "Zacks Investment Research",
+      "title": "CAT's Adjusted Operating Margin Expands in Q3: Is the Worst Over?",
+      "summary": "Caterpillar (CAT) reported significant profitability improvement in Q3 2026 with adjusted operating margin expanding 310 basis points to 20.6%, driven by 17.3% sales growth and favorable pricing across all segments. Despite facing $2.2 billion in projected 2026 tariff costs, the company expects higher adjusted operating margins for full-year 2026. However, peers Terex and Komatsu faced margin pressure from tariff impacts and cost headwinds.",
+      "url": "https://www.zacks.com/stock/news/3036614/cat-s-adjusted-operating-margin-expands-in-q3-is-the-worst-over?cid=CS-ZC-FT-analyst_blog|quick_take-3036614",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/d8/1060.jpg",
+      "raw_tickers": [
+        "CAT"
+      ],
+      "all_tickers": [
+        "CAT",
+        "KMTUY",
+        "TEX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CAT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.92
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "77bf1f07d11c60c4b42b3e4b07cad482db15d841af27b07ca4439c93786d4e9d",
+      "published_at": "2026-11-27T13:43:12Z",
+      "source": "The Motley Fool",
+      "title": "Strategy Just Bought Bitcoin for the 4th Straight Week. So Why Aren't Crypto Investors Bullish on MSTR Stock?",
+      "summary": "Despite Strategy (MSTR) purchasing Bitcoin for four consecutive weeks, its stock has declined 39% this month and hit a 52-week low. The company's business model is breaking down as its market-to-net-asset-value ratio has compressed to 0.94x (below the 1x threshold needed for profitable share issuance), forcing it to redirect most capital toward defending its preferred stock (STRC) rather than acquiring Bitcoin. Additional headwinds include removal from MSCI indexes and Bitcoin holdings underwater relative to average cost.",
+      "url": "https://www.fool.com/investing/2026/11/27/strategy-just-bought-bitcoin-for-the-4th-straight-week-so-why-aren-t-crypto-investors-bullish-on-mstr-stock/?source=iedfolrf0000001",
+      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F011146d714d26c09329b3be7d157674101421501-2128x1409.jpg&w=1200&op=resize",
+      "raw_tickers": [
+        "JPM"
+      ],
+      "all_tickers": [
+        "AMJB",
+        "JPM",
+        "JPMpC",
+        "JPMpD",
+        "JPMpJ",
+        "JPMpK",
+        "JPMpL",
+        "JPMpM",
+        "MSCI",
+        "VYLD"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "JPM"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9739
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "5801e276a94a1e3f3a6334b8f3b8fa21beed6cd1342332752b1a773b1f94206c",
+      "published_at": "2026-11-27T13:42:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can Generac's Data Center Push Unlock a Multi-Year Growth Cycle?",
+      "summary": "Generac Holdings (GNRC) is capitalizing on accelerating AI and cloud infrastructure investments, with its data center backlog nearly tripling to $4.5 billion. The company expects data center sales to exceed $2 billion in 2027 backed by a major Amazon supply agreement worth $2.4 billion. Generac is expanding megawatt-generator production capacity while facing competitive pressure from Caterpillar and Cummins, who are also aggressively expanding in the data center power market.",
+      "url": "https://www.zacks.com/stock/news/3036497/can-generac-s-data-center-push-unlock-a-multi-year-growth-cycle?cid=CS-ZC-FT-analyst_blog|quick_take-3036497",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default178.jpg",
+      "raw_tickers": [
+        "CAT"
+      ],
+      "all_tickers": [
+        "CAT",
+        "CMI",
+        "GNRC"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CAT"
+      ],
+      "sentiment": {
+        "label": "positive",
+        "score": 0.9419
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "7e96567d07c090f158830d14a3f5ed98825f7fbde529ccb142b9b263fbb03de4",
+      "published_at": "2026-11-27T13:00:04Z",
+      "source": "Zacks Investment Research",
+      "title": "Chevron Corporation (CVX) Is a Trending Stock: Facts to Know Before Betting on It",
+      "summary": "Chevron (CVX) is a trending stock that has underperformed the broader market, declining 8.9% over the past month compared to the S&P 500's 5.7% decline. While the company shows strong earnings growth expectations (+156.7% for current fiscal year) and has consistently beaten consensus estimates, it carries a Zacks Rank #3 (Hold) rating, suggesting it may perform in line with the market in the near term. The stock is valued at a discount to peers with a B valuation grade.",
+      "url": "https://www.zacks.com/stock/news/3036430/chevron-corporation-cvx-is-a-trending-stock-facts-to-know-before-betting-on-it?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3036430",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default175.jpg",
+      "raw_tickers": [
+        "CVX"
+      ],
+      "all_tickers": [
+        "CVX"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CVX"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.941
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
+    {
+      "id": "1256776c26c0af82608c0b622516b606cf24af12f63866a02c9264a3e919d1ad",
+      "published_at": "2026-11-27T13:00:03Z",
+      "source": "Zacks Investment Research",
+      "title": "Here is What to Know Beyond Why Caterpillar Inc. (CAT) is a Trending Stock",
+      "summary": "Caterpillar (CAT) has been trending on Zacks.com with shares down 16% over the past month, underperforming the S&P 500's -5.7% decline. Despite recent earnings estimate revisions downward (-10.3% over 30 days), the company maintains strong fundamentals with expected earnings growth of +28.3% for the current quarter and +43.2% for the fiscal year. The stock is rated Zacks Rank #3 (Hold) and trades at par valuation with peers, suggesting it may perform in line with the broader market in the near term.",
+      "url": "https://www.zacks.com/stock/news/3036440/here-is-what-to-know-beyond-why-caterpillar-inc-cat-is-a-trending-stock?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3036440",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default322.jpg",
+      "raw_tickers": [
+        "CAT"
+      ],
+      "all_tickers": [
+        "CAT"
+      ],
+      "is_spam": false,
+      "tickers": [
+        "CAT"
+      ],
+      "sentiment": {
+        "label": "negative",
+        "score": 0.9484
+      },
+      "sentiment_model": "ProsusAI/finbert"
+    },
     {
       "id": "09a022c20124e32c0957ed95bd42a656a1b8b7b6efff9a45ea592cc9b9f77092",
       "published_at": "2026-11-27T12:55:02Z",
@@ -27,67 +530,28 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "6ccda70814ddf02c7ba54c0a8f379c5e6ac40807d4c7370ca1a34504f99c44b8",
-      "published_at": "2026-11-27T12:17:02Z",
-      "source": "The Motley Fool",
-      "title": "Tech Sell-Off: 1 Unstoppable Stock-Split Stock to Buy Before It Joins Nvidia, Alphabet, Microsoft, and Apple in the $3 Trillion Club",
-      "summary": "Meta Platforms announced a 2-for-1 stock split and is positioned to join the $3 trillion market cap club within a few years. The company's AI initiatives, particularly its personal AI agent Muse, are driving new revenue opportunities beyond social media advertising. With a current market cap of $1.53 trillion and a P/E ratio of 20.1 (below the Nasdaq-100 average of 27.4), Meta appears undervalued and could reach $3 trillion through modest earnings growth.",
-      "url": "https://www.fool.com/investing/2026/11/27/tech-sell-off-1-unstoppable-stock-split-stock-buy-before-joins-nvidia-alphabet-microsoft-apple-usd3-trillion-club/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fefd11ccd6d2480a50fc6a7df6817080097c7c2d8-5571x3714.jpg&w=1200&op=resize",
+      "id": "979565d725c89a96e69a21cd3482c31acb0fa48af0e80ed6a7226e7bef0caca4",
+      "published_at": "2026-11-27T12:16:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Will Rising AI Capex Alter the Free Cash Flow Outlook for Apple Stock?",
+      "summary": "Apple's gross margin expanded to 48.8% in fiscal 2026, but the company faces headwinds from rising memory and storage costs, supply constraints, and fading tariff refunds. With $89.7 billion in manufacturing commitments, Apple's profitability outlook appears cautious despite strong Services revenue growth of $31.57 billion in Q4. The stock trades at a premium valuation of 37.04X forward P/E, significantly above sector average, with a Zacks Rank #3 (Hold) rating.",
+      "url": "https://www.zacks.com/stock/news/3036385/will-rising-ai-capex-alter-the-free-cash-flow-outlook-for-apple-stock?cid=CS-ZC-FT-analyst_blog|quick_take-3036385",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/94/53.jpg",
       "raw_tickers": [
-        "AAPL",
-        "GOOGL",
-        "MSFT",
-        "NVDA"
+        "AAPL"
       ],
       "all_tickers": [
         "AAPL",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "META",
-        "METAM",
-        "MSFT",
-        "NVDA"
+        "DELL",
+        "HPQ"
       ],
       "is_spam": false,
       "tickers": [
-        "AAPL",
-        "GOOGL",
-        "MSFT",
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.4447
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "1cfc01245b4c672af44cbd6666d0a4f26bcc8f0994d9ce0df954f586f080029f",
-      "published_at": "2026-11-27T12:06:02Z",
-      "source": "The Motley Fool",
-      "title": "President Donald Trump Just Floated the Idea of the U.S. Government Buying a Stake in Nvidia -- but It Wouldn't Fix the Company's Biggest Flaw",
-      "summary": "President Trump has floated the idea of the U.S. government taking an equity stake in Nvidia, similar to its 9.9% stake in Intel. However, the article argues that a government investment wouldn't address Nvidia's core problem: severely eroded investor trust following CEO Jensen Huang's resignation and reinstatement after admitting to an affair with an alleged Chinese spy. The scandal has exposed the company to regulatory investigations and damaged its reputation, which typically takes years to rebuild. Additionally, bond market concerns about the sustainability of AI infrastructure investments remain unresolved.",
-      "url": "https://www.fool.com/investing/2026/11/27/donald-trump-just-floated-idea-government-buy-stake-in-nvidia-wouldnt-fix-biggest-flaw/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F5621431f1a31ee5325376cbd6398221a5b2db53e-1280x888.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "NVDA"
-      ],
-      "all_tickers": [
-        "BRK.A",
-        "BRK.B",
-        "INTC",
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "NVDA"
+        "AAPL"
       ],
       "sentiment": {
         "label": "negative",
-        "score": 0.9477
+        "score": 0.8179
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -123,31 +587,28 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "ceaca08d9bd443cbc81a7e1e9870b0e311bbf946982c1f94a399e814dff11166",
-      "published_at": "2026-11-27T11:13:02Z",
-      "source": "The Motley Fool",
-      "title": "Is Meta Stock a Buy as Amazon Reportedly Weighs Letting Its AI Shopping Agent Back In?",
-      "summary": "Amazon and Meta are reportedly in talks about allowing Meta's AI shopping agent Muse back into Amazon's store, which blocked it in September. While Muse has become popular for shopping (with over 25% of users shopping and average purchases above $200), Meta hasn't yet monetized these transactions. The article suggests Meta stock at ~$610 is fairly valued based on its strong advertising business (26% YoY growth), though Muse commerce fees remain speculative and years away from material revenue impact.",
-      "url": "https://www.fool.com/investing/2026/11/27/is-meta-stock-a-buy-as-amazon-reportedly-weighs-letting-its-ai-shopping-agent-back-in/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fd68a59cc0ab9f519fce1645a3bf8cfc1ea3ff634-2560x1605.jpg&w=1200&op=resize",
+      "id": "d669177e10d8e7650674766bccf52f32493073f45a56f931e251b1dfee20c700",
+      "published_at": "2026-11-27T11:09:00Z",
+      "source": "Zacks Investment Research",
+      "title": "Can BROS' 100-Basis-Point SG&A Leverage Support 2026 Earnings Growth?",
+      "summary": "Dutch Bros (BROS) expects 100 basis points of SG&A leverage in 2026 and targets $2.1B in revenues with $380M adjusted EBITDA. While corporate efficiencies and labor leverage provide support, higher shop-level costs may limit overall margin benefits. BROS stock has declined 38.5% over the past year and carries a Zacks Rank #4 (Sell) rating.",
+      "url": "https://www.zacks.com/stock/news/3036309/can-bros-100-basis-point-sg-a-leverage-support-2026-earnings-growth?cid=CS-ZC-FT-analyst_blog|quick_take-3036309",
+      "image_url": "https://staticx-tuner.zacks.com/images/articles/main/a2/35092.jpg",
       "raw_tickers": [
-        "AMZN",
-        "WMT"
+        "MCD"
       ],
       "all_tickers": [
-        "AMZN",
-        "META",
-        "METAM",
-        "WMT"
+        "BROS",
+        "MCD",
+        "SBUX"
       ],
       "is_spam": false,
       "tickers": [
-        "AMZN",
-        "WMT"
+        "MCD"
       ],
       "sentiment": {
-        "label": "neutral",
-        "score": 0.5717
+        "label": "negative",
+        "score": 0.9751
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -193,34 +654,30 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "ed3a2cae9bea3437fea98cca8e0e972153e8e5f77b967925a19845c6118e125b",
-      "published_at": "2026-11-27T10:24:02Z",
-      "source": "The Motley Fool",
-      "title": "Anthropic’s Lock-Up Expirations Start Dec. 15. Here’s What Investors Should Know Before Then.",
-      "summary": "Anthropic's lock-up expiration begins December 15, 2026, with over 300 million shares becoming tradable. The company's public float will more than double by February and increase another 70% after its first earnings report. While this could create selling pressure, the staggered schedule and market anticipation may help absorb the new shares, similar to SpaceX's experience. Investors should establish a margin of safety before potential sell-offs.",
-      "url": "https://www.fool.com/investing/2026/11/27/anthropic-s-lock-up-expirations-start-dec-15-here-s-what-investors-should-know-before-then/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fb777ca9affcc44f336b1c3f984d525207e814498-1300x867.jpg&w=1200&op=resize",
+      "id": "5ebb1735ce824580d60954e73cd4ea466b43941b90820d2481339a170e33d76a",
+      "published_at": "2026-11-27T10:20:02Z",
+      "source": "Zacks Investment Research",
+      "title": "Should Invesco Large Cap Value ETF (PWV) Be on Your Investing Radar?",
+      "summary": "The Invesco Large Cap Value ETF (PWV) is a passively managed fund with $1.83 billion in assets, offering exposure to large-cap value stocks with a 0.55% expense ratio and 1.77% dividend yield. The fund has returned 18.25% year-to-date and 18.91% over the past year, with a beta of 0.71 indicating medium risk. Top holdings include Chevron, ExxonMobil, and Amgen, with heavy allocation to Financials and Energy sectors. PWV received a Zacks ETF Rank of 2 (Buy), though comparable alternatives like Vanguard Morningstar Value ETF and Schwab U.S. Dividend Equity ETF offer lower expense ratios.",
+      "url": "https://www.zacks.com/stock/news/3036277/should-invesco-large-cap-value-etf-pwv-be-on-your-investing-radar?cid=CS-ZC-FT-style_box_etf-3036277",
+      "image_url": "https://staticx-tuner.zacks.com/images/default_article_images/default131.jpg",
       "raw_tickers": [
-        "AMZN",
-        "GOOGL"
+        "CVX"
       ],
       "all_tickers": [
-        "AMZN",
-        "ANT",
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "SPCX"
+        "AMGN",
+        "CVX",
+        "PWV",
+        "SCHD",
+        "VTV"
       ],
       "is_spam": false,
       "tickers": [
-        "AMZN",
-        "GOOGL"
+        "CVX"
       ],
       "sentiment": {
-        "label": "positive",
-        "score": 0.7395
+        "label": "neutral",
+        "score": 0.7435
       },
       "sentiment_model": "ProsusAI/finbert"
     },
@@ -255,34 +712,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "0d65eacb70dd714d873895ba777f5e5109c73b8859729d629f420621f7dcc80c",
-      "published_at": "2026-11-27T10:06:00Z",
-      "source": "The Motley Fool",
-      "title": "SpaceX's AI Business Is Now Nearly Half of Revenue. Here's What Happens to the Stock if Google and Anthropic Both Renew.",
-      "summary": "SpaceX has rapidly pivoted to AI services, with its super intelligence segment accounting for nearly 48% of Q3 revenue at $7.56 billion. The company generates $920 million monthly from Alphabet and up to $3.1 billion monthly from Anthropic through 2029. Renewals of these major contracts would serve as a significant bullish catalyst for the stock, as AI has become SpaceX's primary growth driver.",
-      "url": "https://www.fool.com/investing/2026/11/27/spacexs-ai-business-is-now-nearly-half-of-revenue/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F892409%2Fgettyimages-1472518089-copy.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "GOOGL"
-      ],
-      "all_tickers": [
-        "GOOG",
-        "GOOGL",
-        "GOOGM",
-        "GOOGN",
-        "SPCX"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "GOOGL"
-      ],
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.5755
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "4dc130a78a43ba06a93b8eca2e0cc35a7c3a03cd825aea9b3dccb826307819b6",
       "published_at": "2026-11-27T09:44:02Z",
       "source": "The Motley Fool",
@@ -312,31 +741,6 @@
       "sentiment_model": "ProsusAI/finbert"
     },
     {
-      "id": "fabab161f749b4543d6d24f58897d640c037dc2b2a41160f7da585a1979f51b5",
-      "published_at": "2026-11-27T09:44:02Z",
-      "source": "The Motley Fool",
-      "title": "The S&P 500 Could Break Its Streak of Double-Digit Gains in 2026. History Says Here's What Happens Next",
-      "summary": "The S&P 500 is expected to deliver only single-digit gains in 2026, breaking its three-year streak of double-digit returns. Historical precedent suggests that after such deceleration years, markets typically see either modest gains (like 2015's 1.4% return) or declines (like 2000's -9%). For 2027, the author predicts single-digit gains driven by divided government and gradual rate hikes, recommending investors stay invested and remain selective.",
-      "url": "https://www.fool.com/investing/2026/11/27/the-s-and-p-500-could-break-its-streak-of-double-digit-gains-in-2026-history-says-here-s-what-happens-next/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2F52a62fe67f660ea29a51520b90dc849366d22792-5856x3904.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "NVDA"
-      ],
-      "all_tickers": [
-        "CME",
-        "NVDA"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "NVDA"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.7537
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
       "id": "12cc67ccbe4724d77057b00049368d8cfa11cd427e4c23df19c280f3333ec4aa",
       "published_at": "2026-11-27T08:30:00Z",
       "source": "The Motley Fool",
@@ -361,31 +765,6 @@
       "sentiment": {
         "label": "negative",
         "score": 0.4341
-      },
-      "sentiment_model": "ProsusAI/finbert"
-    },
-    {
-      "id": "50a41659e582018d7c65e6c96bd0d7646e61c5e7ec70bb549a96a30f6f594b83",
-      "published_at": "2026-11-27T03:33:02Z",
-      "source": "The Motley Fool",
-      "title": "Amazon Lost 40 Satellites on a Boeing-Lockheed Rocket in November. SpaceX Is the Only Company That Can Fix Amazon’s Problem. Is the Stock a Buy Near $130?",
-      "summary": "Amazon lost 40 satellites when a United Launch Alliance rocket exploded on November 15, 2026, delaying its satellite internet plans. SpaceX, the industry leader in launches and satellite connectivity, is positioned to benefit from competitors' setbacks. However, SpaceX remains a high-risk investment with massive capital spending, negative year-to-date earnings, and extreme volatility despite strong revenue growth.",
-      "url": "https://www.fool.com/investing/2026/11/26/amazon-lost-40-satellites-on-a-boeing-lockheed-rocket-in-november-spacex-is-the-only-company-that-can-fix-amazon-s-problem-is-the-stock-a-buy-near-usd130/?source=iedfolrf0000001",
-      "image_url": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fcdn.content.foolcdn.com%2Fimages%2F1umn9qeh%2Fproduction%2Fc86d6d7f28cf578481eb1ba20c17f88fc4a76546-1290x860.jpg&w=1200&op=resize",
-      "raw_tickers": [
-        "AMZN"
-      ],
-      "all_tickers": [
-        "AMZN",
-        "SPCX"
-      ],
-      "is_spam": false,
-      "tickers": [
-        "AMZN"
-      ],
-      "sentiment": {
-        "label": "negative",
-        "score": 0.9585
       },
       "sentiment_model": "ProsusAI/finbert"
     },
